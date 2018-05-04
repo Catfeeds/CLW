@@ -27,5 +27,7 @@ header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
  */
 Route::group(['namespace' => 'API'], function () {
     include_route_files(__DIR__ . '/API/');
+
 });
+
 
