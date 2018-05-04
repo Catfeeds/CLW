@@ -15,14 +15,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     | banner管理
     |--------------------------------------------------------------------------
     */
-    Route::resource('/banner','BannerController');
+    Route::resource('banners','BannerController');
 
     /*
     |--------------------------------------------------------------------------
     | 服务管理
     |--------------------------------------------------------------------------
     */
-    Route::resource('service', 'ServicesController');
+    Route::resource('services', 'ServicesController');
 
     /*
     |--------------------------------------------------------------------------

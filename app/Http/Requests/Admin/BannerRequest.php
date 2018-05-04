@@ -19,9 +19,7 @@ class BannerRequest extends FormRequest
 
     public function rules()
     {
-        $method = $this->route()->getActionMethod();
-
-        switch ($method) {
+        switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
                     'banner' => 'required|array',
@@ -30,11 +28,10 @@ class BannerRequest extends FormRequest
                 return [
                     'banner' => 'required|array',
                 ];
-                default;
+            default;
                 return [
 
                 ];
-
         }
     }
 
