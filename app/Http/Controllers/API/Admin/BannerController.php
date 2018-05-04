@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\API\BannerRequest;
+use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use App\Repositories\BannerRepository;
 
