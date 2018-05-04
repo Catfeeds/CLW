@@ -2,10 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Models\Storefront;
-use App\User;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class ServicesRequest extends FormRequest
 {
@@ -25,16 +22,11 @@ class ServicesRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'storefront_name.not_in' => '门店名称不能重复',
-                    'area_manager_id.in' => '区域经理必须存在'
+
                 ];
             case 'PUT':
             case 'PATCH':
-                {
-                    return [
-                        'area_manager_id.in' => '区域经理必须存在'
-                    ];
-                }
+
             case 'GET':
             case 'DELETE':
             default:
@@ -54,13 +46,24 @@ class ServicesRequest extends FormRequest
     {
         switch ($this->method()) {
             case 'POST':
-
-            case 'PUT':
                 return [
-
+                    'name' => 'required|max:32',
+                    'sort' => 'integer',
+                    'shelf' => 'integer',
+                    'show' => 'integer',
+                    'icon' => 'required',
+                    'detail' => 'required|array'
                 ];
+            case 'PUT':
             case 'PATCH':
-
+            return [
+                'name' => 'required|max:32',
+                'sort' => 'integer',
+                'shelf' => 'integer',
+                'show' => 'integer',
+                'icon' => 'required',
+                'detail' => 'required|array'
+            ];
             case 'GET':
             case 'DELETE':
             default:
