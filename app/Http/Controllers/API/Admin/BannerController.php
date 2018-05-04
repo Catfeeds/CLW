@@ -12,9 +12,9 @@ use App\Repositories\BannerRepository;
 class BannerController extends APIBaseController
 {
     /**
-     *说明 更新banner
+     * 说明: 添加
      * @param BannerRepository $bannerRepository
-     * @param Request $request
+     * @param BannerRequest $request
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */
@@ -32,7 +32,7 @@ class BannerController extends APIBaseController
     }
 
     /**
-     *说明 软删除banner
+     * 说明: 删除
      * @param Banner $banner
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
@@ -45,7 +45,7 @@ class BannerController extends APIBaseController
     }
 
     /**
-     *说明 修改banner
+     * 说明: 修改
      * @param BannerRepository $bannerRepository
      * @param BannerRequest $request
      * @param Banner $banner
@@ -64,7 +64,7 @@ class BannerController extends APIBaseController
     }
 
     /**
-     *说明 修改之前原始banner
+     * 说明: 修改之前原始数据
      * @param Banner $banner
      * @return \Illuminate\Http\JsonResponse
      * @author 王成

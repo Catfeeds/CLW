@@ -75,7 +75,6 @@ class ServicesController extends APIBaseController
     )
     {
         $res = $servicesRepositories->updateService($request, $service);
-        if (!$res) return $this->sendError('更新失败');
         return $this->sendResponse($res, '服务更新成功');
     }
 
