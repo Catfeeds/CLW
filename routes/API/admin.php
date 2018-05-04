@@ -9,6 +9,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
 
     Route::resource('/test', 'TestController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | banner管理
+    |--------------------------------------------------------------------------
+    */
     Route::resource('/banner','BannerController');
 
     /*
@@ -18,6 +24,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('service', 'ServicesController');
 
+    /*
+    |--------------------------------------------------------------------------
+    | 系统公告管理
+    |--------------------------------------------------------------------------
+    */
     Route::resource('system_notices', 'SystemNoticesController');
 
 
