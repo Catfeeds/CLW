@@ -20,13 +20,12 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 
-//Route::group(['domain' => 'admin.agency.com', 'namespace' => 'API'], function () {
-Route::group(['namespace' => 'APP'], function () {
-    Route::get('/test',function () {
-        \App\Models\OfficeBuildingHouse::create(['house_identifier' => 2]);
 
-      dd(\App\Models\OfficeBuildingHouse::all());
-    });
-
+/*
+ * Frontend Routes
+ * Namespaces indicate folder structure
+ */
+Route::group(['namespace' => 'API'], function () {
+    include_route_files(__DIR__ . '/API/');
 });
 
