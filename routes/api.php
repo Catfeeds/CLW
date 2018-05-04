@@ -22,10 +22,17 @@ header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 
 
 //Route::group(['domain' => 'admin.agency.com', 'namespace' => 'API'], function () {
-Route::group(['namespace' => 'API'], function () {
+Route::group(['namespace' => 'APP'], function () {
     Route::get('/test',function () {
-       dd('涛总是2b');
+        \App\Models\OfficeBuildingHouse::create(['house_identifier' => 2]);
+
+      dd(\App\Models\OfficeBuildingHouse::all());
     });
+
+    Route::resource('office_building_houses', 'OfficeBuildingHousesController');
 });
+
+
+
 
 
