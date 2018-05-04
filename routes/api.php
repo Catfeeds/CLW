@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/index',function(){
-   echo 123456;
+   echo 1234567777;
 });
