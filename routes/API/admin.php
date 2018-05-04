@@ -9,6 +9,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
 
     Route::resource('/test', 'TestController');
-
+    Route::resource('/banner','BannerController');
 
 });
