@@ -16,4 +16,24 @@ class ServicesRepositories extends Model
     }
 
 
+    /**
+     * 说明:添加服务
+     *
+     * @param $request
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function addService($request)
+    {
+        return $this->model->create([
+            'name' => $request->name,
+            'sort' => $request->sort,
+            'shelf' => $request->shelf,
+            'show' => $request->show,
+            'icon' => $request->icon,
+            'detail' => $request->detail
+        ]);
+    }
+
+
 }

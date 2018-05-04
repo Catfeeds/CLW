@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\service;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\ServicesRequest;
+use App\Repositories\ServicesRepositories;
 
 class ServicesController extends APIBaseController
 {
@@ -14,38 +14,41 @@ class ServicesController extends APIBaseController
         //
     }
 
+    /**
+     * 说明:添加服务
+     *
+     * @param ServicesRepositories $servicesRepositories
+     * @param ServicesRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * @author 刘坤涛
+     */
+    public function store
+    (
+        ServicesRepositories $servicesRepositories,
+        ServicesRequest $request
+    )
+    {
+        $res = $servicesRepositories->addService($request);
+        return $this->sendResponse($res,'服务添加成功');
+    }
 
-    public function create()
+
+
+
+
+    public function edit()
     {
         //
     }
 
 
-    public function store(Request $request)
+    public function update()
     {
         //
     }
 
 
-    public function show(service $service)
-    {
-        //
-    }
-
-
-    public function edit(service $service)
-    {
-        //
-    }
-
-
-    public function update(Request $request, service $service)
-    {
-        //
-    }
-
-
-    public function destroy(service $service)
+    public function destroy()
     {
         //
     }

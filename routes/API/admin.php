@@ -11,4 +11,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::resource('/test', 'TestController');
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | 服务管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('service', 'ServicesController');
+
+
 });
