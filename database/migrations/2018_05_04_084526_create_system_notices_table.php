@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBannersTable extends Migration
+class CreateSystemNoticesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateBannersTable extends Migration
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('system_notices', function (Blueprint $table) {
             $table->increments('id');
-            $table->json('banner')->nullable()->comment('图片');
+            $table->string('title',32)->nullable()->comment('系统公告标题');
+            $table->text('content')->nullable()->comment('系统公告内容');
             $table->timestamps();
             $table->softDeletes();
-
         });
-        DB::statement("alter table `banners` comment'轮播表'");
+        DB::statement("alter table `system_notices` comment'系统公告'");
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateBannersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('system_notices');
     }
 }
