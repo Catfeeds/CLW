@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class SystemNotice extends Model
+class SystemNotice extends BaseModel
 {
     //
 }

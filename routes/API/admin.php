@@ -18,5 +18,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('service', 'ServicesController');
 
+    Route::resource('system_notices', 'SystemNoticesController');
+
 
 });
