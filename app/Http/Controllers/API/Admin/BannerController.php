@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\API\BannerRequest;
+use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use App\Repositories\BannerRepository;
 
@@ -14,7 +14,7 @@ class BannerController extends APIBaseController
     /**
      *说明 更新banner
      * @param BannerRepository $bannerRepository
-     * @param Request $request
+     * @param BannerRequest $request
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */
