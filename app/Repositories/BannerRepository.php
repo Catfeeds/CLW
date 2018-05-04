@@ -9,6 +9,7 @@ class BannerRepository extends Model
 {
     /**
      * 说明: banner列表
+     *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 王成
      */
@@ -19,6 +20,7 @@ class BannerRepository extends Model
 
     /**
      * 说明: 更新banner的操作
+     *
      * @param $request
      * @return mixed
      * @author 王成
@@ -32,6 +34,7 @@ class BannerRepository extends Model
 
     /**
      * 说明: 修改banner的操作
+     *
      * @param $request
      * @param $banner
      * @return bool
