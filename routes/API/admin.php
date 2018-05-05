@@ -24,6 +24,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('services', 'ServicesController');
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | 精品推荐管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('recommends', 'RecommendsController');
+    //获取楼盘下拉数据
+    Route::get('buildings_select', 'RecommendsController@buildingsSelect');
+
     /*
     |--------------------------------------------------------------------------
     | 系统公告管理

@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Building;
+use App\Models\Recommend;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class RecommendsRequest extends FormRequest
 {
@@ -22,11 +25,17 @@ class RecommendsRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-
+                    'title.not_in' => '精品推荐标题不能重复',
+                    'introduce.not_in' => '精品推荐介绍不能重复',
+                    'building_id.in' => '楼盘必须存在'
                 ];
             case 'PUT':
             case 'PATCH':
-
+            return [
+                'title.not_in' => '精品推荐标题不能重复',
+                'introduce.not_in' => '精品推荐介绍不能重复',
+                'building_id.in' => '楼盘必须存在'
+            ];
             case 'GET':
             case 'DELETE':
             default:
@@ -47,22 +56,54 @@ class RecommendsRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'name' => 'required|max:32',
-                    'sort' => 'integer',
-                    'shelf' => 'integer',
-                    'show' => 'integer',
-                    'icon' => 'required',
-                    'detail' => 'required|array'
+                    'title' => [
+                        'required',
+                        'max:32',
+                        Rule::notIn(
+                            Recommend::all()->pluck('title')->toArray()
+                        )
+                    ],
+                    'introduce' => [
+                        'required',
+                        'max:32',
+                        Rule::notIn(
+                            Recommend::all()->pluck('introduce')->toArray()
+                        )
+                    ],
+                    'pic' => 'required|max:128',
+                    'building_id' => [
+                        'required',
+                        'array',
+                        Rule::in(
+                            Building::whereIn('id', $this->building_id)->pluck('id')->toArray()
+                        )
+                    ],
                 ];
             case 'PUT':
             case 'PATCH':
             return [
-                'name' => 'required|max:32',
-                'sort' => 'integer',
-                'shelf' => 'integer',
-                'show' => 'integer',
-                'icon' => 'required',
-                'detail' => 'required|array'
+                'title' => [
+                    'required',
+                    'max:32',
+                    Rule::notIn(
+                        Recommend::all()->pluck('title')->toArray()
+                    )
+                ],
+                'introduce' => [
+                    'required',
+                    'max:32',
+                    Rule::notIn(
+                        Recommend::all()->pluck('introduce')->toArray()
+                    )
+                ],
+                'pic' => 'required|max:128',
+                'building_id' => [
+                    'required',
+                    'array',
+                    Rule::in(
+                        Building::whereIn('id', $this->building_id)->pluck('id')->toArray()
+                    )
+                ],
             ];
             case 'GET':
             case 'DELETE':
