@@ -32,8 +32,6 @@ class RecommendsRequest extends FormRequest
             case 'PUT':
             case 'PATCH':
             return [
-                'title.not_in' => '精品推荐标题不能重复',
-                'introduce.not_in' => '精品推荐介绍不能重复',
                 'building_id.in' => '楼盘必须存在'
             ];
             case 'GET':
@@ -85,16 +83,10 @@ class RecommendsRequest extends FormRequest
                 'title' => [
                     'required',
                     'max:32',
-                    Rule::notIn(
-                        Recommend::all()->pluck('title')->toArray()
-                    )
                 ],
                 'introduce' => [
                     'required',
                     'max:32',
-                    Rule::notIn(
-                        Recommend::all()->pluck('introduce')->toArray()
-                    )
                 ],
                 'pic' => 'required|max:128',
                 'building_id' => [

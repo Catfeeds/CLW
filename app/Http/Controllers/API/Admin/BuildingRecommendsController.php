@@ -42,14 +42,16 @@ class BuildingRecommendsController extends APIBaseController
     }
 
     /**
-     * 说明: 修改之前原始数据
+     * 说明: 获取修改推荐楼盘原生数据
      * @param BuildingRecommend $buildingRecommend
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */
-    public function edit(BuildingRecommend $buildingRecommend)
+    public function edit(
+        BuildingRecommend $buildingRecommend
+    )
     {
-        return $this->sendResponse($buildingRecommend,'修改之前原始数据获取成功');
+        return $this->sendResponse($buildingRecommend,'获取修改推荐楼盘原生数据成功');
     }
 
     /**
@@ -67,8 +69,13 @@ class BuildingRecommendsController extends APIBaseController
         BuildingRecommend $buildingRecommend
     )
     {
-        $res = $BuildingRecommendsRepository->updateRecommend($request,$buildingRecommend);
-        return $this->sendResponse($res,'banner修改成功');
+        // 检测商圈是否重复
+        if (!empty($request->building_id) && $request->building_id != $buildingRecommend->building_id && in_array($request->building_id, BuildingRecommend::pluck('building_id')->toArray())) {
+            return $this->sendError('楼盘不能重复添加为推荐');
+        }
+
+        $res = $BuildingRecommendsRepository->updateRecommend($request, $buildingRecommend);
+        return $this->sendResponse($res,'修改推荐楼盘信息成功');
     }
 
     /**
@@ -81,7 +88,7 @@ class BuildingRecommendsController extends APIBaseController
     public function destroy(BuildingRecommend $buildingRecommend)
     {
         $res = $buildingRecommend->delete();
-        return $this->sendResponse($res,'图片删除成功');
+        return $this->sendResponse($res,'删除推荐楼盘成功');
     }
 }
 

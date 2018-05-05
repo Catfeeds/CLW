@@ -18,6 +18,7 @@ class HotBlocksRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * 说明: 验证错误信息
      *

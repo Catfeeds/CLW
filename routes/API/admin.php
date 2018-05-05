@@ -48,5 +48,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('hot_blocks', 'HotBlocksController');
 
+    /*
+    |--------------------------------------------------------------------------
+    | 楼盘推荐管理
+    |--------------------------------------------------------------------------
+    */
     Route::resource('building_recommends', 'BuildingRecommendsController');
 });
