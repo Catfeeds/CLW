@@ -3,18 +3,33 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\API\BannerRequest;
+use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use App\Repositories\BannerRepository;
-
-
 
 class BannerController extends APIBaseController
 {
     /**
-     *说明 更新banner
+     * 说明: 获取列表
+     *
      * @param BannerRepository $bannerRepository
-     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @author 王成
+     */
+    public function index
+    (
+        BannerRepository $bannerRepository
+    )
+    {
+        $res = $bannerRepository->bannerList();
+        return $this->sendResponse($res,'banner列表获取成功');
+    }
+
+    /**
+     * 说明: 添加
+     *
+     * @param BannerRepository $bannerRepository
+     * @param BannerRequest $request
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */
@@ -24,28 +39,25 @@ class BannerController extends APIBaseController
         BannerRequest $request
     )
     {
-
         $res = $bannerRepository->addBanner($request);
-
-            return $this->sendResponse($res, '图片新增成功');
-
+        return $this->sendResponse($res, '添加banner成功');
     }
 
     /**
-     *说明 软删除banner
+     * 说明: 修改之前原始数据
+     *
      * @param Banner $banner
      * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
      * @author 王成
      */
-    public function destroy(Banner $banner)
+    public function edit(Banner $banner)
     {
-        $res = $banner->delete();
-        return $this->sendResponse($res,'图片删除成功');
+        return $this->sendResponse($banner,'修改之前原始数据获取成功');
     }
 
     /**
-     *说明 修改banner
+     * 说明: 修改
+     *
      * @param BannerRepository $bannerRepository
      * @param BannerRequest $request
      * @param Banner $banner
@@ -60,32 +72,20 @@ class BannerController extends APIBaseController
     )
     {
         $res = $bannerRepository->updateBanner($request,$banner);
-        return $this->sendResponse($res,'图片修改成功');
+        return $this->sendResponse($res,'banner修改成功');
     }
 
     /**
-     *说明 修改之前原始banner
+     * 说明: 删除
+     *
      * @param Banner $banner
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      * @author 王成
      */
-    public function edit(Banner $banner)
+    public function destroy(Banner $banner)
     {
-        return $this->sendResponse($banner,'修改之前原始数据');
-    }
-
-    /**
-     *说明 查询所有banner
-     * @param BannerRepository $bannerRepository
-     * @return \Illuminate\Http\JsonResponse
-     * @author 王成
-     */
-    public function index
-    (
-        BannerRepository $bannerRepository
-    )
-    {
-        $res = $bannerRepository->bannerList();
-        return $this->sendResponse($res,'获取图片');
+        $res = $banner->delete();
+        return $this->sendResponse($res,'图片删除成功');
     }
 }
