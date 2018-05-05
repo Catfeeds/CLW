@@ -29,6 +29,7 @@ class BuildingRecommendsRequest extends FormRequest
                 return [
                     'building_id' => 'required|integer',
                     'img' => 'required|string|max:128',
+
                 ];
             default;
                 return [

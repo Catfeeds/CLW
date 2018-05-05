@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BuildingRecommendsRepository extends Model
 {
     /**
-     * 说明: 列表操作
+     * 说明:  列表操作
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 王成
      */

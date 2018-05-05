@@ -10,7 +10,7 @@ use App\Repositories\BuildingRecommendsRepository;
 class BuildingRecommendsController extends APIBaseController
 {
     /**
-     * 说明: 获取列表
+     * 说明:  获取列表
      * @param BuildingRecommendsRepository $BuildingRecommendsRepository
      * @return \Illuminate\Http\JsonResponse
      * @author 王成

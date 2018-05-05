@@ -19,6 +19,7 @@ class CreateBuildingRecommendsTable extends Migration
             $table->string('img',128)->comment('图片');
             $table->timestamps();
             $table->softDeletes();
+
         });
         DB::statement("alter table `building_recommends` comment'楼盘推荐表'");
     }
