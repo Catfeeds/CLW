@@ -31,5 +31,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('system_notices', 'SystemNoticesController');
 
+    /*
+    |--------------------------------------------------------------------------
+    | 热门商圈管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('hot_blocks', 'HotBlocksController');
 
 });
