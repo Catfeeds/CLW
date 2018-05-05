@@ -38,4 +38,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('hot_blocks', 'HotBlocksController');
 
+    Route::resource('building_recommends', 'BuildingRecommendsController');
 });
