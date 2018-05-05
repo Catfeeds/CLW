@@ -10,5 +10,5 @@ class Block extends Model
 
     protected $guarded = [];
 
-    protected $connection = 'agency';
+    protected $connection = 'media';
 }
