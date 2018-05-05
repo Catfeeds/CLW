@@ -11,6 +11,7 @@ class BannerController extends APIBaseController
 {
     /**
      * 说明: 获取列表
+     *
      * @param BannerRepository $bannerRepository
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
@@ -26,6 +27,7 @@ class BannerController extends APIBaseController
 
     /**
      * 说明: 添加
+     *
      * @param BannerRepository $bannerRepository
      * @param BannerRequest $request
      * @return \Illuminate\Http\JsonResponse
@@ -43,6 +45,7 @@ class BannerController extends APIBaseController
 
     /**
      * 说明: 修改之前原始数据
+     *
      * @param Banner $banner
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
@@ -54,6 +57,7 @@ class BannerController extends APIBaseController
 
     /**
      * 说明: 修改
+     *
      * @param BannerRepository $bannerRepository
      * @param BannerRequest $request
      * @param Banner $banner
@@ -73,6 +77,7 @@ class BannerController extends APIBaseController
 
     /**
      * 说明: 删除
+     *
      * @param Banner $banner
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
