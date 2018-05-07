@@ -9,7 +9,7 @@ use App\Services\ServicesService;
 class ServicesController extends APIBaseController
 {
     /**
-     * 说明:
+     * 说明: 首页企业服务
      *
      * @param ServicesService $servicesService
      * @return \Illuminate\Http\JsonResponse
