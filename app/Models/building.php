@@ -3,6 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Building extends Model
 {
     protected $table = 'buildings';
@@ -10,4 +11,13 @@ class Building extends Model
     protected $guarded = [];
 
     protected $connection = 'media';
+
+    protected $appends = ['count_cn'];
+
+    public function getCountCnAttribute()
+    {
+        $buliding_block =  BuildingBlock::where('building_id', $this->id)->first();
+        return  OfficeBuildingHouse::where('building_block_id', $buliding_block['id'])->count();
+    }
+
 }
