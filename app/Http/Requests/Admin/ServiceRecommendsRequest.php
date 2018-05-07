@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Service;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class ServicesRequest extends FormRequest
+class ServiceRecommendsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +24,14 @@ class ServicesRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-
+                    'service_id.unique' => '服务已存在,请勿重复添加',
+                    'service_id.in' => '服务必须存在',
                 ];
             case 'PUT':
             case 'PATCH':
-
+            return [
+                'service_id.in' => '服务必须存在'
+            ];
             case 'GET':
             case 'DELETE':
             default:
@@ -47,22 +52,29 @@ class ServicesRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'name' => 'required|max:32',
-                    'weight' => 'required|integer',
-                    'shelf' => 'required|integer',
-                    'show' => 'required|integer',
-                    'icon' => 'required',
-                    'detail' => 'required|array'
+                    'service_id' => [
+                        'required',
+                        'integer',
+                        'unique:service_recommends',
+                        Rule::in(
+                            Service::all()->pluck('id')->toArray()
+                        )
+                    ],
+                    'pic' => 'required|max:128',
+                    'weight' => 'required|integer'
                 ];
             case 'PUT':
             case 'PATCH':
             return [
-                'name' => 'required|max:32',
-                'weight' => 'required|integer',
-                'shelf' => 'required|integer',
-                'show' => 'required|integer',
-                'icon' => 'required',
-                'detail' => 'required|array'
+                'service_id' => [
+                    'required',
+                    'integer',
+                    Rule::in(
+                        Service::all()->pluck('id')->toArray()
+                    )
+                ],
+                'pic' => 'required|max:128',
+                'weight' => 'required|integer'
             ];
             case 'GET':
             case 'DELETE':

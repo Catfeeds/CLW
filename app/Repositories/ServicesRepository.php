@@ -15,7 +15,7 @@ class ServicesRepository extends Model
      */
     public function serviceList()
     {
-        return Service::all();
+        return Service::orderBy('weight')->get();
     }
     
     /**
@@ -29,7 +29,7 @@ class ServicesRepository extends Model
     {
         return Service::create([
             'name' => $request->name,
-            'sort' => $request->sort,
+            'weight' => $request->weight,
             'shelf' => $request->shelf,
             'show' => $request->show,
             'icon' => $request->icon,
@@ -48,7 +48,7 @@ class ServicesRepository extends Model
     public function updateService($request, $service)
     {
         $service->name = $request->name;
-        $service->sort = $request->sort;
+        $service->weight = $request->weight;
         $service->shelf = $request->shelf;
         $service->show = $request->show;
         $service->icon = $request->icon;
