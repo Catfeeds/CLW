@@ -42,4 +42,11 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('building_recommends', 'BuildingRecommendsController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 预约
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('bespeaks', 'BespeaksController');
 });

@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class MessageRecord extends Model
+class MessageRecord extends BaseModel
 {
     //
 }
