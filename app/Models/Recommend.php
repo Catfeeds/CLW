@@ -13,16 +13,13 @@ class Recommend extends BaseModel
     ];
 
     /**
-     * 说明:
+     * 说明: 图片拼接
      * @return string
      * @use pic_cn
      * @author 王成
      */
     public function getPicCnAttribute()
     {
-
-        $pic = config('setting.qiniu_url').$this->pic;
-
-        return $pic;
+        return config('setting.qiniu_url').$this->pic;
     }
 }

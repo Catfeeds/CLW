@@ -18,6 +18,7 @@ class Block extends Model
      * 说明: 获取该商圈下的所有楼盘
      *
      * @return mixed
+     * @use buildings_number_cn
      * @author 刘坤涛
      */
     public function getBuildingsNumberCnAttribute()

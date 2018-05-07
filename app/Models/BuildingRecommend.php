@@ -9,14 +9,13 @@ class BuildingRecommend extends BaseModel
     ];
 
     /**
-     * 说明:
+     * 说明: 图片拼接
      * @return string
-     * @user img_cn
+     * @use img_cn
      * @author 王成
      */
     public function getImgCnAttribute()
     {
-        $img = config('setting.qiniu_url').$this->img;
-        return $img;
+        return config('setting.qiniu_url').$this->img;
     }
 }

@@ -42,14 +42,12 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('building_recommends', 'BuildingRecommendsController');
-
     /*
     |--------------------------------------------------------------------------
     | 预约
     |--------------------------------------------------------------------------
     */
     Route::resource('bespeaks', 'BespeaksController');
-
     /*
     |--------------------------------------------------------------------------
     | 区域
@@ -58,4 +56,6 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::resource('areas', 'AreasController');
     // 获取对应区域下的商圈
     Route::get('block_list/{area_id}', 'AreasController@BlockList');
+    //楼盘详情
+    Route::resource('buildings', 'BuildingsController');
 });

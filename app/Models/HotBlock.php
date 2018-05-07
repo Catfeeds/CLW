@@ -5,7 +5,7 @@ namespace App\Models;
 class HotBlock extends BaseModel
 {
     protected $appends = [
-      'img_cn','buildings_number_cn','block_name_cn'
+      'img_cn', 'buildings_number_cn', 'block_name_cn'
     ];
 
     public function block()
@@ -19,14 +19,13 @@ class HotBlock extends BaseModel
     }
 
     /**
-     * 说明:
+     * 说明: 图片拼接
      * @return string
-     * @user img_cn
+     * @use img_cn
      * @author 王成
      */
     public function getImgCnAttribute()
     {
-        //dd($this->img);
         $img = config('setting.qiniu_url').$this->img;
         return $img;
     }
@@ -35,6 +34,7 @@ class HotBlock extends BaseModel
      * 说明: 获取该商圈下楼盘数量
      *
      * @return mixed
+     * @use buildings_number_cn
      * @author 刘坤涛
      */
     public function getBuildingsNumberCnAttribute()
@@ -43,9 +43,10 @@ class HotBlock extends BaseModel
     }
 
     /**
-     * 说明:获取热门商圈名称
+     * 说明: 获取热门商圈名称
      *
      * @return mixed
+     * @use block_name_cn
      * @author 刘坤涛
      */
     public function getBlockNameCnAttribute()
