@@ -8,6 +8,16 @@ class HotBlock extends BaseModel
       'img_cn','buildings_number_cn','block_name_cn'
     ];
 
+    public function block()
+    {
+        return $this->belongsTo('App\Models\Block','block_id','id');
+    }
+
+    public function building()
+    {
+        return $this->hasMany('App\Models\Building','block_id','block_id');
+    }
+
     /**
      * 说明:
      * @return string
@@ -29,7 +39,7 @@ class HotBlock extends BaseModel
      */
     public function getBuildingsNumberCnAttribute()
     {
-        return Building::where('block_id', $this->block_id)->count();
+        return $this->building->count();
     }
 
     /**
@@ -40,7 +50,7 @@ class HotBlock extends BaseModel
      */
     public function getBlockNameCnAttribute()
     {
-        return Block::where('id', $this->block_id)->first()->name;
+        return $this->block->name;
     }
 
 }
