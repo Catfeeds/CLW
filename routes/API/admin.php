@@ -63,4 +63,32 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::resource('service_recommends', 'ServiceRecommendsController');
     // 服务下来数据
     Route::get('service_select', 'ServiceRecommendsController@serviceSelect');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 楼盘特色管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('building_features', 'BuildingFeaturesController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 房源特色管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('house_features', 'HouseFeaturesController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 楼盘管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('buildings', 'BuildingsController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 房源管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('houses', 'HousesController');
 });

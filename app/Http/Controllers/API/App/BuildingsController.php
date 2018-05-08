@@ -58,4 +58,5 @@ class BuildingsController extends APIBaseController
         $res = $buildingsRepository->getShowOffice($id);
         return $this->sendResponse($res,'获取楼盘详情');
     }
+
 }
