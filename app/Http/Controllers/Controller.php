@@ -29,7 +29,7 @@ class Controller extends BaseController
     )
     {
         // 生成6位随机验证码
-        $captcha = mt_rand(100000, 999999);
+        $captcha = mt_rand(1000, 9999);
 
         switch ($temp) {
             case 'register':
