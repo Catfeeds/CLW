@@ -100,6 +100,7 @@ class BuildingsRepository extends  Model
 
     /**
      * 说明: 获取详情
+     *
      * @param $id
      * @return mixed
      * @author 王成
@@ -116,29 +117,30 @@ class BuildingsRepository extends  Model
 
         foreach($houses as $getId)
         {
-            $arrId[] =$getId['id'];
-
+            $arrId[] = $getId['id'];
         }
 
-        $res = OfficeBuildingHouse::whereIn('id',$arrId)->paginate(6);
+        $res = OfficeBuildingHouse::whereIn('id', $arrId)->paginate(6);
 
         foreach ($res as $office)
         {
-
-            if($office->rent_price_unit ==2 && !empty($office->constru_acreage) && !empty($office->priceArr))
+            if($office->rent_price_unit == 2 && !empty($office->constru_acreage) && !empty($office->rent_price))
             {
-                //总价就是 租金
-                $office->priceArr = $office->rent_price;
-                //每平方单价
-                $office->unitPrice = $office->constru_acreage/$office->priceArr;
+                // 总价
+                $office->priceArr = $office->rent_price*$office->constru_acreage.'元/月';
+                // 单价
+                $office->unitPrice =$office->rent_price.'元/㎡.月';
+            } elseif ($office->rent_price_unit == 1 && !empty($office->constru_acreage) && !empty($office->rent_price)) {
+                // 总价
+                $office->priceArr = $office->rent_price.'元/月';
+                // 单价
+                $office->unitPrice = $office->constru_acreage/$office->priceArr.'元/㎡.月';
             } else {
-                //总价就是平方价格*面积
-                $office->priceArr = $office->rent_price*$office->constru_acreage;
-                //每平方单价
-                $office->unitPrice =$office->rent_price;
+                $office->priceArr = 0;
+                $office->unitPrice = 0;
             }
-
         }
+
         return $res;
     }
 }

@@ -5,5 +5,8 @@ use App\Http\Controllers\API\APIBaseController;
 
 class RegisterController extends APIBaseController
 {
-
+    public function store()
+    {
+        
+    }
 }
