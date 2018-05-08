@@ -22,11 +22,11 @@ class BannerRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'banner' => 'required|array',
+                    'banner' => 'required|max:32',
                 ];
             case 'update':
                 return [
-                    'banner' => 'required|array',
+                    'banner' => 'required|max:32',
                 ];
             default;
                 return [
