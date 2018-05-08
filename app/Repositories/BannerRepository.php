@@ -15,7 +15,7 @@ class BannerRepository extends Model
      */
     public function bannerList()
     {
-        return Banner::first();
+        return Banner::all();
     }
 
     /**
