@@ -46,6 +46,58 @@ class BuildingsRepository extends  Model
         }
 
         return $buildings;
-   }
+    }
+
+    /**
+     * 说明: 获取详情
+     *
+     * @param $building
+     * @return mixed
+     * @author 王成
+     */
+    public function getShow($building)
+    {
+        $constru_acreage=[];
+        $price =[];
+        $station_number = [];
+        if(!empty($building->buildingBlock)) {
+            foreach ($building->buildingBlock as $buildingBlock) {
+                $OfficeBuildingHouse[] = $buildingBlock->OfficeBuildingHouse;
+            }
+
+            $houses = collect($OfficeBuildingHouse)->flatten()->toArray();
+
+            foreach ($houses as $house) {
+                $constru_acreage[] = (int)$house['constru_acreage'];
+
+                if ($house['rent_price_unit'] == 2) {
+                    $price[] = (int)$house['rent_price'];
+                }
+
+                if(!empty($house['station_number'])) {
+                    $station_number[] = (int)$house['station_number'];
+                }
+            }
+
+            sort($constru_acreage);
+            if(!empty($price)){
+                //价格区间
+                sort($price);
+                $building->price = reset($price) . '-' . end($price);
+            }
+            //工位数
+            if(!empty($station_number)){
+                sort($station_number);
+                $building->station_number = reset($station_number) . '-' . end($station_number);
+            }
+            //建筑面积
+            $building->constru_acreage = reset($constru_acreage) . '-' . end($constru_acreage);
+        }
+
+        return $building;
+    }
+
+
+
 
 }
