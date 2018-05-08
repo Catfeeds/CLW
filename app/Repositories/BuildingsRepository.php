@@ -1,7 +1,10 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\Block;
 use App\Models\Building;
+use App\Models\BuildingBlock;
+use App\Models\OfficeBuildingHouse;
 use Illuminate\Database\Eloquent\Model;
 
 class BuildingsRepository extends  Model
@@ -14,6 +17,8 @@ class BuildingsRepository extends  Model
      */
     public function getList()
     {
+        // 根据条件获取楼盘数据
+        // 楼盘必须字段处理
         $buildings = Building::paginate(20);
         $data = array();
         foreach ($buildings as $building) {
@@ -46,6 +51,39 @@ class BuildingsRepository extends  Model
         }
 
         return $buildings;
+    }
+
+    public function buildingList($request)
+    {
+        $buildigns = Building::make();
+        // 如果有商圈id 查商圈
+        if (!empty($request->block_id)) {
+            $buildings = $buildigns->where('block_id', $request->block_id)->get();
+        } elseif(!empty($request->area_id)) {
+            $blocks = Block::where('area_id', $request->area_id)->pluck('id')->toarray();
+            $buildings = $buildigns->whereIn('block_id', $blocks)->get();
+        } else {
+            $buildings = $buildigns->get();
+        }
+
+        $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toarray();
+
+        // 面积
+        $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks);
+
+        if (!empty($request->total_price)) {
+            // 总价
+            $houses = $houses->where('rent_price_unit', 1)->whereIn('rent_price', $request->total_price);
+        } elseif (!empty($request->unit_price)) {
+            // 单价
+            $houses = $houses->where('rent_price_unit', 2)->whereIn('rent_price', $request->unit_price);
+        }
+
+        // 装修
+        if (!empty($request->renovation)) $houses = $houses->where('renovation', $request->renovation);
+        // 特色
+        $houses = $houses->pluck('id')->toArray();
+        dd($houses);
     }
 
     /**

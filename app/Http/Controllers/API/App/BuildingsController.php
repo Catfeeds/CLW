@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\App;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
+use Illuminate\Http\Request;
 
 class BuildingsController extends APIBaseController
 {
@@ -16,10 +17,11 @@ class BuildingsController extends APIBaseController
      */
     public function index
     (
-        BuildingsRepository $buildingsRepository
+        BuildingsRepository $buildingsRepository,
+        Request $request
     )
     {
-        $res = $buildingsRepository->getList();
+        $res = $buildingsRepository->buildingList($request);
         return $this->sendResponse($res,'显示楼盘分页列表');
     }
 
