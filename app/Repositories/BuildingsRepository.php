@@ -4,6 +4,7 @@ namespace App\Repositories;
 use App\Models\Block;
 use App\Models\Building;
 use App\Models\BuildingBlock;
+use App\Models\BuildingHasFeature;
 use App\Models\OfficeBuildingHouse;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,9 +18,7 @@ class BuildingsRepository extends  Model
      */
     public function getList()
     {
-        // 根据条件获取楼盘数据
-        // 楼盘必须字段处理
-        $buildings = Building::paginate(20);
+        $buildings = Building::with('buildingBlock')->paginate(20);
         $data = array();
         foreach ($buildings as $building) {
             $buildingBlocks = $building->buildingBlock;
@@ -34,12 +33,20 @@ class BuildingsRepository extends  Model
             $price = 0;
             $number = 0;
             foreach ($houses as $house) {
+                $station_number[] = trim(strstr($house['station_number'], '-'),'-');
+                $station_number[] = strstr($house['station_number'], '-',true);
                 if ($house['rent_price_unit'] == 2) {
                     $number++;
                     $price += $house->rent_price;
                 }
             }
-
+            sort($station_number);
+            if (empty($station_number[0])) $station_number[0] = 0;
+            if (empty(end($station_number))) {
+                $data['station_number'] = 0;
+            } else {
+                $data['station_number'] = $station_number[0] . '-' . end($station_number);
+            }
             if (!empty($price) && !empty($number)) {
                 $data['price'] = $price / $number;
 
@@ -53,20 +60,37 @@ class BuildingsRepository extends  Model
         return $buildings;
     }
 
+    // 待完成 楼盘筛选数据
     public function buildingList($request)
     {
-        $buildigns = Building::make();
+        $buildings = Building::make();
+
         // 如果有商圈id 查商圈
         if (!empty($request->block_id)) {
-            $buildings = $buildigns->where('block_id', $request->block_id)->get();
+            $buildings = $buildings->where('block_id', $request->block_id)->get();
         } elseif(!empty($request->area_id)) {
-            $blocks = Block::where('area_id', $request->area_id)->pluck('id')->toarray();
-            $buildings = $buildigns->whereIn('block_id', $blocks)->get();
-        } else {
-            $buildings = $buildigns->get();
+            $blocks = Block::where('area_id', $request->area_id)->pluck('id')->toArray();
+            $buildings = $buildings->whereIn('block_id', $blocks)->get();
         }
 
-        $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toarray();
+        $buildings = $buildings->get()->pluck('id')->toArray();
+
+        // 特色
+        if (!empty($request->features)) {
+
+            // 取出包含其中一个的数据
+            $buildingHasFeatures = BuildingHasFeature::whereIn('building_feature_id', $request->features)
+                ->get()->groupBy('building_id');
+
+            // 筛选重复出现对应次数的数据
+            $featureBuildings = $buildingHasFeatures->filter(function($v) use ($request){
+                return $v->count() === count($request->features);
+            })->flatten()->pluck('building_id')->unique()->toArray();
+
+            $buildings = array_intersect($buildings, $featureBuildings);
+        }
+
+        $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
 
         // 面积
         $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks);
@@ -81,9 +105,9 @@ class BuildingsRepository extends  Model
 
         // 装修
         if (!empty($request->renovation)) $houses = $houses->where('renovation', $request->renovation);
-        // 特色
-        $houses = $houses->pluck('id')->toArray();
-        dd($houses);
+
+        return $houses;
+
     }
 
     /**
@@ -134,6 +158,9 @@ class BuildingsRepository extends  Model
 
         return $building;
     }
+
+
+
 
 
 
