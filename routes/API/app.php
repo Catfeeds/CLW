@@ -8,11 +8,13 @@
 Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
 
     // 获取手机验证码
-    Route::get('/sms/captcha/{tell}/{tmp}', 'RegisterController@getSmsCode');
+    Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 
     // 注册
-    Route::resource('/register', 'RegisterController');
+    Route::resource('/registers', 'RegistersController');
 
+    // 登录
+    Route::resource('/logins', 'LoginsController');
     /*
     |--------------------------------------------------------------------------
     | banner

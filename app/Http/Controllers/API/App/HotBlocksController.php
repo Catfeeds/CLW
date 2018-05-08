@@ -8,6 +8,7 @@ class HotBlocksController extends APIBaseController
 {
     /**
      * 说明: 获取商圈列表(按sort字段排序)
+     *
      * @param HotBlocksRepository $repository
      * @return \Illuminate\Http\JsonResponse
      * @author 王成

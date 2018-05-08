@@ -5,7 +5,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\RegistersRequest;
 use App\Services\RegistersService;
 
-class RegisterController extends APIBaseController
+class RegistersController extends APIBaseController
 {
     /**
      * 说明: 注册
