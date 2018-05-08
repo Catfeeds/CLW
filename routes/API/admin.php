@@ -7,8 +7,8 @@
  */
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
-
-    Route::resource('/test', 'TestController');
+    // 七牛token
+    Route::get('/get_qi_niu_token', 'BannerController@token');
 
     /*
     |--------------------------------------------------------------------------

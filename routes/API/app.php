@@ -6,6 +6,10 @@
  * Time: 下午3:37
  */
 Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
+
+    // 获取手机验证码
+    Route::get('/sms/captcha/{tell}/{tmp}', 'RegisterController@getSmsCode');
+
     /*
     |--------------------------------------------------------------------------
     | banner

@@ -7,7 +7,7 @@
  */
 namespace App\Handler;
 
-use Illuminate\Support\Facades\Auth;
+use Qiniu\Auth;
 
 /**
  * Class Common
@@ -26,5 +26,33 @@ class Common
     public static function isMobile($mobile)
     {
         return preg_match('#^1\d{10}$#', $mobile) ? true : false;
+    }
+
+    /**
+     * 说明: 获取七牛token
+     *
+     * @param null $accessKey
+     * @param null $secretKey
+     * @param null $bucket
+     * @return string
+     * @author 罗振
+     */
+    public static function getToken($accessKey = null, $secretKey = null, $bucket = null)
+    {
+        if (empty($accessKey)) {
+            $accessKey = config('setting.qiniu_access_key');
+        }
+        if (empty($secretKey)) {
+            $secretKey = config('setting.qiniu_secret_key');
+        }
+        if (empty($bucket)) {
+            $bucket = config('setting.qiniu_bucket');
+        }
+        // 构建鉴权对象
+        $auth = new Auth($accessKey, $secretKey);
+
+        // 生成上传 Token
+        $token = $auth->uploadToken($bucket);
+        return $token;
     }
 }
