@@ -58,4 +58,6 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::get('block_list/{area_id}', 'AreasController@BlockList');
     //楼盘详情
     Route::resource('buildings', 'BuildingsController');
+    //楼盘详情首页
+    Route::resource('building_details','BuildingDetailsController');
 });
