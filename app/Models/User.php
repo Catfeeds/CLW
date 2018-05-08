@@ -14,9 +14,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    // 不允许集体赋值的字段
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.

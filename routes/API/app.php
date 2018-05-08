@@ -10,6 +10,9 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     // 获取手机验证码
     Route::get('/sms/captcha/{tell}/{tmp}', 'RegisterController@getSmsCode');
 
+    // 注册
+    Route::resource('/register', 'RegisterController');
+
     /*
     |--------------------------------------------------------------------------
     | banner
@@ -64,4 +67,5 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::resource('buildings', 'BuildingsController');
     //写字楼详情
     Route::get('buildings_office/{id}','BuildingsController@showOffice');
+
 });

@@ -44,7 +44,6 @@ class ServicesController extends APIBaseController
         return $this->sendResponse($res,'服务添加成功');
     }
 
-
     /**
      * 说明:服务修改之前原始数据
      *
@@ -52,7 +51,9 @@ class ServicesController extends APIBaseController
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
-    public function edit(Service $service)
+    public function edit(
+        Service $service
+    )
     {
         return $this->sendResponse($service,'服务修改之前原始数据');
     }

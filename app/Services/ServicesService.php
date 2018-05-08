@@ -18,15 +18,16 @@ class ServicesService
 
         $datas = array();
         foreach ($allServices as $k => $v) {
-            $data['url'] = 'www.clw.com/api/app/'.$v->id;
+            $data['id'] = $v->id;
             $data['name'] = $v->name;
             $data['icon'] = config('setting.qiniu_url').$v->icon;
+//            $data['icon'] = $v->icon;
 
             if ($k > 4) {
                 if ($k > 9) {
-                    $data['url'] = '';
+                    $data['id'] = 'all';
                     $data['name'] = '全部';
-                    $data['icon'] = ''; // 全部默认图片
+                    $data['icon'] = '../images/index_server_all.png'; // 全部默认图片
                     $datas[1][4] = $data;
                 } else {
                     $datas[1][] = $data;
