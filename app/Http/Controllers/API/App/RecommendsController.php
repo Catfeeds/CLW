@@ -8,6 +8,7 @@ class RecommendsController extends APIBaseController
 {
     /**
      * 说明: 获取精品推荐列表
+     *
      * @param RecommendsRepository $repository
      * @return \Illuminate\Http\JsonResponse
      * @author 王成

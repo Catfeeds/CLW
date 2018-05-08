@@ -9,6 +9,7 @@ class BannerController extends APIBaseController
 {
     /**
      * 说明: banner列表
+     *
      * @param BannerRepository $bannerRepository
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
