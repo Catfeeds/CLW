@@ -9,4 +9,9 @@ class BuildingBlock extends Model
     protected $guarded = [];
 
     protected $connection = 'media';
+
+    public function OfficeBuildingHouse()
+    {
+        return $this->hasMany('App\Models\OfficeBuildingHouse', 'building_block_id', 'id');
+    }
 }

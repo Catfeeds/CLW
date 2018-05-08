@@ -7,7 +7,8 @@ use App\Repositories\BuildingsRepository;
 class BuildingsController extends APIBaseController
 {
     /**
-     * 说明: 楼盘分页列表
+     * 说明: 首页楼盘分页列表
+     *
      * @param BuildingsRepository $buildingsRepository
      * @return \Illuminate\Http\JsonResponse
      * @author 王成

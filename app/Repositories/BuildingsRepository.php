@@ -2,36 +2,50 @@
 namespace App\Repositories;
 
 use App\Models\Building;
-use App\Models\BuildingBlock;
-use App\Models\OfficeBuildingHouse;
 use Illuminate\Database\Eloquent\Model;
 
 class BuildingsRepository extends  Model
 {
-    // TODO
-   public function getList()
-   {
+    /**
+     * 说明: 首页楼盘列表
+     *
+     * @return mixed
+     * @author 罗振
+     */
+    public function getList()
+    {
+        $buildings = Building::paginate(20);
+        $data = array();
+        foreach ($buildings as $building) {
+            $buildingBlocks = $building->buildingBlock;
+            $data['img'] = empty($building->album[0])?'':config('setting.qiniu_url').$building->album[0]; // 图片
+            $data['name'] = $building->name;    // 名称
+            $data['address'] = $building->address;  // 地址
+            foreach ($buildingBlocks as $buildingBlock) {
+                $officeBuildingHouses[] = $buildingBlock->OfficeBuildingHouse;
+            }
+            $houses = collect($officeBuildingHouses)->flatten()->toArray();
+            $data['num'] = count($houses);   // 数量
+            $price = 0;
+            $number = 0;
+            foreach ($houses as $house) {
+                if ($house['rent_price_unit'] == 2) {
+                    $number++;
+                    $price += $house->rent_price;
+                }
+            }
 
-       $data = Building::paginate(20);
+            if (!empty($price) && !empty($number)) {
+                $data['price'] = $price / $number;
 
-       foreach ($data as $k => $v) {
+            } else {
+                $data['price'] = 0;
+            }
 
-           $res = BuildingBlock::where('building_id', $v->id)->first();
-               if ($res) {
-                   if ($res->id) {
+            $building->datas = $data;
+        }
 
-//                       $re = OfficeBuildingHouse::where('building_block_id', $res->id)->where('rent_price_unit','!=',1)->get();
-                       $count = OfficeBuildingHouse::where('building_block_id', $res->id)->where('rent_price_unit','!=',1)->count();
-                       dd($count);
-
-                            $v->pic = json_decode($v->album)[0];
-
-
-                   }
-               }
-           }
-           return $data;
-       }
-
+        return $buildings;
+   }
 
 }
