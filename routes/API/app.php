@@ -64,4 +64,6 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::resource('buildings', 'BuildingsController');
     //写字楼详情
     Route::get('buildings_office/{id}','BuildingsController@showOffice');
+    //房源详情
+    Route::resource('office_building_houses','OfficeBuildingHousesController');
 });
