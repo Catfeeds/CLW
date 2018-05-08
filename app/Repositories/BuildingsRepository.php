@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\Building;
+use App\Models\BuildingLabel;
 use Illuminate\Database\Eloquent\Model;
 
 class BuildingsRepository extends  Model
@@ -56,7 +57,29 @@ class BuildingsRepository extends  Model
         return $buildings;
    }
 
+    /**
+     * 说明: 获取楼盘列表
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @author 刘坤涛
+     */
+    public function buildingList()
+    {
+        return Building::all();
+    }
 
-
+    /**
+     * 说明: 添加楼盘标签
+     *
+     * @param $request
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function addBuildingLabel($request)
+    {
+        return BuildingLabel::create([
+            'building_id' => $request->building_id
+        ]);
+    }
 
 }

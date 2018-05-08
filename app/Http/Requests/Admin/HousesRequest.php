@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\OfficeBuildingHouse;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class HouseFeaturesRequest extends FormRequest
+class HousesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,13 +18,13 @@ class HouseFeaturesRequest extends FormRequest
         return true;
     }
 
-
     public function messages()
     {
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'name.unique' => '特色名称不能重复添加'
+                    'house_id.in' => '房源必须存在',
+                    'house_id.unique' => '一个房源只允许有一个标签'
                 ];
             case 'PUT':
             case 'PATCH':
@@ -35,32 +37,26 @@ class HouseFeaturesRequest extends FormRequest
         }
     }
 
-    /**
-     * 说明: 字段验证
-     *
-     * @return array
-     * @author 刘坤涛
-     */
     public function rules()
     {
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'name' => 'required|max:32|unique:house_features',
-                    'weight' => 'required|integer',
+                    'house_id' => [
+                        'required',
+                        'integer',
+                        'unique:house_labels',
+                        Rule::in(
+                            OfficeBuildingHouse::all()->pluck('id')->toArray()
+                        )
+                    ]
                 ];
-            case 'PUT':
-            case 'PATCH':
+            case 'update':
+            default;
                 return [
-                    'name' => 'required|max:32',
-                    'weight' => 'required|integer'
+
                 ];
-            case 'GET':
-            case 'DELETE':
-            default:
-                {
-                    return [];
-                }
         }
     }
+
 }

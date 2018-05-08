@@ -17,7 +17,6 @@ class CreateHouseLabelsTable extends Migration
             $table->increments('id');
             $table->integer('house_id')->nullable()->comment('房源标签表');
             $table->timestamps();
-            $table->softDeletes();
         });
         DB::statement("alter table `house_labels` comment'房源标签表'");
 

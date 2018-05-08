@@ -17,7 +17,6 @@ class CreateBuildingLabelsTable extends Migration
             $table->increments('id');
             $table->integer('building_id')->nullable()->comment('楼盘ID');
             $table->timestamps();
-            $table->softDeletes();
         });
         DB::statement("alter table `building_labels` comment'楼盘标签表'");
 
