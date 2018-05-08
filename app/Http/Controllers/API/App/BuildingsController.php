@@ -40,4 +40,21 @@ class BuildingsController extends APIBaseController
         $res = $buildingsRepository->getShow($building);
         return $this->sendResponse($res,'获取楼盘详情');
     }
+
+    /**
+     * 说明: 获取写字楼详情
+     * @param BuildingsRepository $buildingsRepository
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @author 王成
+     */
+    public function showOffice
+    (
+        BuildingsRepository $buildingsRepository,$id
+    )
+    {
+
+        $res = $buildingsRepository->getShowOffice($id);
+        return $this->sendResponse($res,'获取楼盘详情');
+    }
 }
