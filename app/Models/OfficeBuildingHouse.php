@@ -14,4 +14,9 @@ class OfficeBuildingHouse extends Model
         [
             'indoor_img' => 'array',
         ];
+
+    public function BuildingBlock()
+    {
+        return $this->belongsTo('App\Models\BuildingBlock','building_block_id','id');
+    }
 }
