@@ -18,4 +18,7 @@ class BuildingRecommend extends BaseModel
     {
         return config('setting.qiniu_url').$this->img;
     }
+
+
+
 }
