@@ -20,6 +20,7 @@ class BuildingRecommendsRepository extends Model
         foreach ($buildingRecommend as $values)
         {
             $building = Building::find($values->building_id);
+
             $datas = [$building,$values];
 
         }
