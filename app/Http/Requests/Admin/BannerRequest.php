@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Banner;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class BannerRequest extends FormRequest
 {
@@ -16,16 +19,33 @@ class BannerRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        switch ($this->route()->getActionMethod()) {
+            case 'store':
+                return [
+                    'banner.not_in' => 'banner不能重复添加',
+                ];
+        }
+    }
+
     public function rules()
     {
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'banner' => 'required|max:32',
+                    'banner' => [
+                        'required',
+                        'array',
+                    ]
+
                 ];
             case 'update':
                 return [
-                    'banner' => 'required|max:32',
+                    'banner' => [
+                        'required',
+                        'array'
+                    ]
                 ];
             default;
                 return [
