@@ -21,3 +21,20 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+// 写字楼
+$factory->define(\App\Models\OfficeBuildingHouse::class, function (Faker $faker) {
+    return [
+        'building_block_id' => rand(1, 53),
+        'rent_price' => rand(30, 100),
+        'renovation' => rand(1, 5),
+        'constru_acreage' => rand(50, 1200),
+    ];
+});
+
+//$factory->define(\App\Models\BuildingHasFeature::class, function (Faker $faker) {
+//    return [
+//        'building_id' => rand(1, 53),
+//        'building_block_id' => rand(1, 53)
+//    ];
+//});

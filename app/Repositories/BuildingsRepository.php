@@ -92,10 +92,10 @@ class BuildingsRepository extends  Model
 
         // 如果有商圈id 查商圈
         if (!empty($request->block_id)) {
-            $buildings = $buildings->where('block_id', $request->block_id)->get();
+            $buildings = $buildings->where('block_id', $request->block_id);
         } elseif(!empty($request->area_id)) {
             $blocks = Block::where('area_id', $request->area_id)->pluck('id')->toArray();
-            $buildings = $buildings->whereIn('block_id', $blocks)->get();
+            $buildings = $buildings->whereIn('block_id', $blocks);
         }
 
         $buildings = $buildings->get()->pluck('id')->toArray();
