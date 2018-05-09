@@ -10,6 +10,7 @@ class BuildingRecommendsRepository extends Model
 {
     /**
      * 说明:  列表操作
+     *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 王成
      */
@@ -29,6 +30,7 @@ class BuildingRecommendsRepository extends Model
 
     /**
      * 说明: 添加操作
+     *
      * @param $request
      * @return mixed
      * @author 王成
@@ -43,6 +45,7 @@ class BuildingRecommendsRepository extends Model
 
     /**
      * 说明: 更新操作
+     *
      * @param $request
      * @param $buildingRecommend
      * @return bool
