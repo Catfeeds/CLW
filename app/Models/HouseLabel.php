@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 
-class HouseLabel extends BaseModel
+class HouseLabel extends Model
 {
     //
+    protected $guarded = [];
 }
