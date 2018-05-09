@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Models\Building;
 use App\Models\BuildingRecommend;
-use App\Models\OfficeBuildingHouse;
 use Illuminate\Database\Eloquent\Model;
 
 class BuildingRecommendsRepository extends Model
@@ -19,9 +19,8 @@ class BuildingRecommendsRepository extends Model
         $datas = [];
         foreach ($buildingRecommend as $values)
         {
-
-            $building  = OfficeBuildingHouse::find($values->building_id)->BuildingBlock->Building;
-            $datas[] = [$building,$values];
+            $building = Building::find($values->building_id);
+            $datas = [$building,$values];
 
         }
         return $datas;
