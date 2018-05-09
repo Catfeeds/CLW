@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class BuildingLabel extends Model
 {
-    //
     protected $guarded = [];
 }
