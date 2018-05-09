@@ -42,7 +42,7 @@ class LoginsService
                 $error = $error . '"}';
             }
 
-            if (empty(json_decode($error))) return ['success' => false, 'message' => '服务器异常，请联系管理员'];
+            if (empty(json_decode($error))) return ['status' => false, 'message' => '服务器异常，请联系管理员'];
 
             switch (json_decode($error)->message) {
                 case 'The user credentials were incorrect.':
@@ -56,11 +56,10 @@ class LoginsService
                     $resultData = '未知错误，请联系管理员！';
                     break;
             }
-            return ['success' => false, 'message' => $resultData];
+            return ['status' => false, 'message' => $resultData];
         }
-        return ['success' => true, 'message' => '获取成功', 'data' => [
-            'token' => json_decode((string)$result->getBody(), true)['access_token']
-        ]];
+
+        return ['success' => true, 'token' => json_decode((string)$result->getBody(), true)['access_token']];
     }
 
     /**

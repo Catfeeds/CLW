@@ -4,6 +4,10 @@ namespace App\Models;
 
 class Banner extends BaseModel
 {
+    protected $casts = [
+        'banner' => 'array',
+    ];
+
     protected $appends = [
         'banner_cn'
     ];
@@ -17,7 +21,12 @@ class Banner extends BaseModel
      */
     public function getBannerCnAttribute()
     {
-        return config('setting.qiniu_url').$this->banner;
+        return collect($this->banner)->map(function ($img) {
+            return [
+                'name' => $img,
+                'url' => config('setting.qiniu_url') . $img
+            ];
+        })->values();
     }
 
 }

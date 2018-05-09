@@ -40,7 +40,7 @@ class LoginsController extends APIBaseController
             return $this->sendError('最后登录时间更新失败');
         }
 
-        return $this->sendResponse($passport['data'], '获取token成功！');
+        return $this->sendResponse(['status' => true, 'token' => $passport['token']], '获取token成功！');
     }
 
     /**
@@ -57,6 +57,6 @@ class LoginsController extends APIBaseController
     )
     {
         $token = $loginsService->smsLogin($request);
-        return $this->sendResponse($token, '获取token成功！');
+        return $this->sendResponse(['status' => true, 'token' => $token], '获取token成功！');
     }
 }
