@@ -65,10 +65,12 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::resource('areas', 'AreasController');
     // 获取对应区域下的商圈
     Route::get('block_list/{area_id}', 'AreasController@BlockList');
-    //楼盘详情
+    // 楼盘详情
     Route::resource('buildings', 'BuildingsController');
-    //写字楼详情
+    // 楼盘写字楼详情
     Route::get('buildings_office/{id}','BuildingsController@showOffice');
-    //房源详情
+    // 房源详情
     Route::resource('office_building_houses','OfficeBuildingHousesController');
+    // 周边房源
+    Route::get('rim_houses/{id}','OfficeBuildingHousesController@showOffice');
 });
