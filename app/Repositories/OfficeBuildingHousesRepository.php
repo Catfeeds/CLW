@@ -35,14 +35,15 @@ class OfficeBuildingHousesRepository extends Model
         $constru_acreage = $office->constru_acreage;
         $unit_price = $office->unit_price_cn;
         // 因为有追加字段变成数组
-        $arr = OfficeBuildingHouse::paginate(6)->toArray();
-        //变成集合
-        $res = collect($arr)->where('unit_price_cn', '>', $unit_price - config('setting.float_price'))
-            ->where('unit_price_cn', '<', $unit_price + config('setting.float_price'))
-            ->where('total_acreage', '>', $constru_acreage - config('setting.float_acreage'))
-            ->where('total_acreage', '<', $constru_acreage + config('setting.float_acreage'));
+        //$arr = OfficeBuildingHouse::paginate(6)->toArray();
+        $arr = OfficeBuildingHouse::all();
 
-        return $res;
+        $res = $arr->flatten()->where('unit_price_cn', '>', $unit_price - config('setting.float_price'))
+            ->where('unit_price_cn', '<', $unit_price + config('setting.float_price'))
+            ->where('constru_acreage', '>', $constru_acreage - config('setting.float_acreage'))
+            ->where('constru_acreage', '<', $constru_acreage + config('setting.float_acreage'));
+
+        return $res->toArray();
 
     }
 }
