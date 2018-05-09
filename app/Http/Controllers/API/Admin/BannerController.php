@@ -42,8 +42,15 @@ class BannerController extends APIBaseController
         BannerRequest $request
     )
     {
-        $res = $bannerRepository->addBanner($request);
-        return $this->sendResponse($res, '添加banner成功');
+        $res = Banner::all()->toArray();
+        if (!empty($res)) {
+            return $this->sendError('banner无法重复添加','405');
+        } else {
+            $result = $bannerRepository->addBanner($request);
+            return $this->sendResponse($result, '添加banner成功');
+        }
+
+
     }
 
     /**
