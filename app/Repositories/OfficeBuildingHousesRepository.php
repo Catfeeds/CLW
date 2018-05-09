@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\OfficeBuildingHouse;
+
 class OfficeBuildingHousesRepository extends Model
 {
     /**
@@ -15,9 +16,7 @@ class OfficeBuildingHousesRepository extends Model
     public function getShow($office)
     {
         $office->buildings = $office->BuildingBlock->Building;
-
         return $office;
-
     }
 
     /**
