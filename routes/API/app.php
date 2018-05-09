@@ -76,4 +76,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::resource('office_building_houses','OfficeBuildingHousesController');
     // 周边房源
     Route::get('rim_houses/{id}','OfficeBuildingHousesController@showOffice');
+
+    //推荐服务管理
+    Route::resource('service_recommends', 'ServiceRecommendsController');
 });

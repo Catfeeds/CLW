@@ -10,7 +10,6 @@ class Building extends Model
         'album' => 'array'
     ];
 
-
     protected $table = 'buildings';
 
     protected $guarded = [];

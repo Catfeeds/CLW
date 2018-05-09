@@ -35,14 +35,14 @@ class OfficeBuildingHouse extends Model
     {
         if($this->rent_price_unit == 2 && !empty($this->constru_acreage) && !empty($this->rent_price)){
             // 总价
-            $this->priceArr = $this->rent_price*$this->constru_acreage;
+            $this->priceArr = $this->rent_price*$this->constru_acreage.'元/月';
             // 单价
-            $this->unitPrice =$this->rent_price;
+            $this->unitPrice =$this->rent_price.'元/㎡.月';
         } elseif ($this->rent_price_unit == 1 && !empty($this->constru_acreage) && !empty($this->rent_price)) {
             // 总价
-            $this->priceArr = $this->rent_price;
+            $this->priceArr = $this->rent_price.'元/月';
             // 单价
-            $this->unitPrice = $this->constru_acreage/$this->priceArr;
+            $this->unitPrice = $this->constru_acreage/$this->priceArr.'元/㎡.月';
         } else {
             $this->priceArr = 0;
             $this->unitPrice = 0;
@@ -55,14 +55,14 @@ class OfficeBuildingHouse extends Model
         {
             if($this->rent_price_unit == 2 && !empty($this->constru_acreage) && !empty($this->rent_price)){
                 // 总价
-                $this->priceArr = $this->rent_price*$this->constru_acreage;
+                $this->priceArr = $this->rent_price*$this->constru_acreage.'元/月';
                 // 单价
-                $this->unitPrice =$this->rent_price;
+                $this->unitPrice =$this->rent_price.'元/㎡.月';
             } elseif ($this->rent_price_unit == 1 && !empty($this->constru_acreage) && !empty($this->rent_price)) {
                 // 总价
-                $this->priceArr = $this->rent_price;
+                $this->priceArr = $this->rent_price.'元/月';
                 // 单价
-                $this->unitPrice = $this->constru_acreage/$this->priceArr;
+                $this->unitPrice = $this->constru_acreage/$this->priceArr.'元/㎡.月';
             } else {
                 $this->priceArr = 0;
                 $this->unitPrice = 0;

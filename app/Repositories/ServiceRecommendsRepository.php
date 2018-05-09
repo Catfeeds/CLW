@@ -51,4 +51,20 @@ class ServiceRecommendsRepository extends Model
         return true;
     }
 
+    public function getList()
+    {
+
+         $first = ServiceRecommend::where('weight','=','1')->orderBy('weight','asc')->get()->toArray();
+         // 如果权重1的不存在 返回一个空对象
+         if(!$first){
+              $first[0] = (object)null;
+         }
+         $second = ServiceRecommend::where('weight','!=','1')->orderBy('weight','asc')->get()->toArray();
+        // 如果权重不等于1的不存在 返回一个空数组
+         if(!$second) {
+              $second = array();
+         }
+
+        return $datas[] = ['first'=>$first[0],'second'=>$second];
+    }
 }
