@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Building;
 use App\Models\BuildingRecommend;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +15,16 @@ class BuildingRecommendsRepository extends Model
      */
     public function recommendList()
     {
-        return BuildingRecommend::all();
+        $buildingRecommend = BuildingRecommend::all();
+        $datas = [];
+        foreach ($buildingRecommend as $values)
+        {
+            $building = Building::find($values->building_id);
+
+            $datas = [$building,$values];
+
+        }
+        return $datas;
     }
 
     /**
