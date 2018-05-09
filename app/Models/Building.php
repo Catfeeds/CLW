@@ -12,14 +12,13 @@ class Building extends Model
         'company' => 'array'
     ];
 
-
     protected $table = 'buildings';
 
     protected $guarded = [];
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn'];
+    protected $appends = ['label_cn', 'feature_cn'];
 
     public function buildingBlock()
     {
@@ -53,6 +52,17 @@ class Building extends Model
     public function getLabelCnAttribute()
     {
         return !empty($this->label);
+    }
+
+    /**
+     * 说明: 楼盘特色
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getFeatureCnAttribute()
+    {
+        return $this->features;
     }
 
 }
