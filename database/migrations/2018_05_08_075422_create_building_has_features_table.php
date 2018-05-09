@@ -18,7 +18,6 @@ class CreateBuildingHasFeaturesTable extends Migration
             $table->integer('building_id')->nullable()->comment('楼盘id');
             $table->integer('building_feature_id')->nullable()->comment('楼盘特色id');
             $table->timestamps();
-            $table->softDeletes();
         });
         DB::statement("alter table `building_has_features` comment'楼盘关联楼盘特色表'");
     }

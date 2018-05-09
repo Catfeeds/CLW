@@ -49,8 +49,6 @@ class BannerController extends APIBaseController
             $result = $bannerRepository->addBanner($request);
             return $this->sendResponse($result, '添加banner成功');
         }
-
-
     }
 
     /**
@@ -81,7 +79,7 @@ class BannerController extends APIBaseController
         Banner $banner
     )
     {
-        $res = $bannerRepository->updateBanner($request,$banner);
+        $res = $bannerRepository->updateBanner($request, $banner);
         return $this->sendResponse($res,'banner修改成功');
     }
 

@@ -25,6 +25,6 @@ class RegistersController extends APIBaseController
             return $this->sendError($result['message']);
         }
 
-        return $this->sendResponse($result['status'], $result['message']);
+        return $this->sendResponse($result, '注册成功');
     }
 }

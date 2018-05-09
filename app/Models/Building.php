@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 class Building extends Model
 {
     protected $casts = [
-        'album' => 'array'
+        'album' => 'array',
+        'gps' => 'array',
+        'company' => 'array'
     ];
 
     protected $table = 'buildings';
@@ -22,6 +24,24 @@ class Building extends Model
         return $this->hasMany('App\Models\BuildingBlock','building_id','id');
     }
 
+    // 所属商圈
+    public function block()
+    {
+        return $this->belongsTo(Block::class);
+    }
+
+    // 特色
+    public function features()
+    {
+        return $this->belongsToMany(BuildingFeature::class, 'CLW.building_has_features');
+    }
+
+    // 标签
+    public function label()
+    {
+        return $this->hasOne(BuildingLabel::class);
+    }
+
     /**
      * 说明: 楼盘列表是否有标签
      *
@@ -30,9 +50,7 @@ class Building extends Model
      */
     public function getLabelCnAttribute()
     {
-        $res = BuildingLabel::find($this->id);
-        if ($res) return true;
-        return false;
+        return !empty($this->label);
     }
 
 }

@@ -3,7 +3,10 @@
 namespace App\Models;
 
 
-class BuildingHasFeature extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class BuildingHasFeature extends Model
 {
-    //
+    protected $connection = 'mysql';
+    protected $guarded = [];
 }
