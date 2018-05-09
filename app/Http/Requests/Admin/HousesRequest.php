@@ -20,7 +20,7 @@ class HousesRequest extends FormRequest
 
     public function messages()
     {
-        switch ($this->method()) {
+        switch ($this->route()->getActionMethod()) {
             case 'POST':
                 return [
                     'house_id.in' => '房源必须存在',
@@ -39,7 +39,7 @@ class HousesRequest extends FormRequest
 
     public function rules()
     {
-        switch ($this->method()) {
+        switch ($this->route()->getActionMethod()) {
             case 'POST':
                 return [
                     'house_id' => [

@@ -18,7 +18,6 @@ class CreateHouseFeaturesTable extends Migration
             $table->string('name','32')->nullable()->comment('名称');
             $table->tinyInteger('weight')->nullable()->comment('权重');
             $table->timestamps();
-            $table->softDeletes();
         });
         DB::statement("alter table `house_features` comment'房源特色表'");
 

@@ -84,6 +84,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('buildings', 'BuildingsController');
+    // 添加楼盘标签
+    Route::post('add_building_label', 'BuildingsController@addBuildingLabel');
+    // 楼盘特色下拉数据
+    Route::get('building_feature_list', 'BuildingsController@buildingFeatureList');
+
 
     /*
     |--------------------------------------------------------------------------

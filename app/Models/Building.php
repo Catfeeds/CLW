@@ -17,7 +17,7 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn'];
+    protected $appends = ['label_cn', 'feature_cn'];
 
     public function buildingBlock()
     {
@@ -32,9 +32,27 @@ class Building extends Model
      */
     public function getLabelCnAttribute()
     {
-        $res = BuildingLabel::find($this->id);
+        $res = BuildingLabel::where('building_id', $this->id)->first();
         if ($res) return true;
         return false;
+    }
+
+    /**
+     * 说明: 获取该楼盘下的特色
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getFeatureCnAttribute()
+    {
+        $building_feature_id = BuildingHasFeature::where('building_id', $this->id)->pluck('building_feature_id')->toArray();
+        $res = BuildingFeature::whereIn('id', $building_feature_id)->get();
+        return $res->map(function($v) {
+            return [
+                'label' => $v->name,
+                'value' => $v->id
+            ];
+        });
     }
 
 }

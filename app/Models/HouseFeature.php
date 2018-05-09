@@ -3,7 +3,9 @@
 namespace App\Models;
 
 
-class HouseFeature extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class HouseFeature extends Model
 {
-    //
+    protected $guarded = [];
 }
