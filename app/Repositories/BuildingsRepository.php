@@ -108,7 +108,6 @@ class BuildingsRepository extends  Model
         if (!empty($request->renovation)) $houses = $houses->where('renovation', $request->renovation);
 
         return $houses;
-
     }
 
     /**

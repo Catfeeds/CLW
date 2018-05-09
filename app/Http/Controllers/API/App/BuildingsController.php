@@ -21,7 +21,7 @@ class BuildingsController extends APIBaseController
         Request $request
     )
     {
-        $res = $buildingsRepository->buildingList($request);
+        $res = $buildingsRepository->buildingList($request)->get();
         return $this->sendResponse($res,'显示楼盘分页列表');
     }
 
