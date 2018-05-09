@@ -8,4 +8,5 @@ class BuildingLabel extends Model
 {
     protected $connection = 'mysql';
     protected $guarded = [];
+
 }

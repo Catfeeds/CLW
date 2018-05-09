@@ -322,7 +322,7 @@ class BuildingsRepository extends  Model
 
             foreach($buildingFeatures as $buildingFeature) {
                 BuildingHasFeature::create([
-                    'building_id' => 1,
+                    'building_id' => $building->id,
                     'building_feature_id' => $buildingFeature
                 ]);
             }
