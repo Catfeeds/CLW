@@ -37,4 +37,16 @@ class Building extends Model
         return false;
     }
 
+    // 所属商圈
+    public function block()
+    {
+        return $this->belongsTo(Block::class);
+    }
+
+    // 特色
+    public function features()
+    {
+        return $this->belongsToMany(BuildingFeature::class, 'CLW.building_has_features');
+    }
+
 }

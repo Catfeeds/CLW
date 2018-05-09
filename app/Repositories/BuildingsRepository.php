@@ -12,57 +12,79 @@ use Illuminate\Database\Eloquent\Model;
 class BuildingsRepository extends  Model
 {
     /**
-     * 说明: 首页楼盘列表
+     * 说明：分页列表数量
      *
+     * @param $request
      * @return mixed
-     * @author 罗振
+     * @author jacklin
      */
-    public function getList()
+    public function buildingList($request)
     {
-        $buildings = Building::with('buildingBlock')->paginate(20);
-        $data = array();
-        foreach ($buildings as $building) {
-            $buildingBlocks = $building->buildingBlock;
-            $data['img'] = empty($building->album[0])?'':config('setting.qiniu_url').$building->album[0]; // 图片
-            $data['name'] = $building->name;    // 名称
-            $data['address'] = $building->address;  // 地址
-            foreach ($buildingBlocks as $buildingBlock) {
-                $officeBuildingHouses[] = $buildingBlock->OfficeBuildingHouse;
-            }
-            $houses = collect($officeBuildingHouses)->flatten()->toArray();
-            $data['num'] = count($houses);   // 数量
-            $price = 0;
-            $number = 0;
-            foreach ($houses as $house) {
-                $station_number[] = trim(strstr($house['station_number'], '-'),'-');
-                $station_number[] = strstr($house['station_number'], '-',true);
-                if ($house['rent_price_unit'] == 2) {
-                    $number++;
-                    $price += $house->rent_price;
-                }
-            }
-            sort($station_number);
-            if (empty($station_number[0])) $station_number[0] = 0;
-            if (empty(end($station_number))) {
-                $data['station_number'] = 0;
-            } else {
-                $data['station_number'] = $station_number[0] . '-' . end($station_number);
-            }
-            if (!empty($price) && !empty($number)) {
-                $data['price'] = $price / $number;
+        // 取得符合条件的房子
+        $houses = $this->houseList($request);
 
-            } else {
-                $data['price'] = 0;
-            }
+        // 根据楼盘分组
+        $buildings = $this->groupByBuilding($houses);
 
-            $building->datas = $data;
-        }
+        $buildingData = Building::whereIn('id', $buildings->keys())->with('block')->with('features')->paginate($request->per_page);
 
-        return $buildings;
+        return $this->buildingDataComplete($buildings, $buildingData);
     }
 
-    // 待完成 楼盘筛选数据
-    public function buildingList($request)
+    /**
+     * 说明：图片、楼盘名、优标签、商圈、单价、符合条件的房源数量、特色
+     *
+     * @param $buildings
+     * @param $buildingData
+     * @return mixed
+     * @author jacklin
+     */
+    public function buildingDataComplete($buildings, $buildingData)
+    {
+        foreach ($buildingData as $index => $v) {
+            // 房源数量
+            $buildingData[$index]->house_count = $buildings[$v->id]->count();
+            // 价格
+            $buildingData[$index]->avg_price = $buildings[$v->id]->avg('unit_price');
+            // 工位
+            $buildingData[$index]->station_num = $this->buildingStationNum($buildings[$v->id]);
+        }
+        return $buildingData;
+    }
+
+    /**
+     * 说明：楼盘下的工位数统计
+     *
+     * @param $houses
+     * @return int|string
+     * @author jacklin
+     */
+    public function buildingStationNum($houses)
+    {
+        foreach ($houses as $house) {
+            if (empty($house->station_number)) continue;
+            $station_number[] = trim(strstr($house->station_number, '-'),'-');
+            $station_number[] = strstr($house->station_number, '-',true);
+        }
+        if (empty($station_number)) return '0';
+        sort($station_number);
+        if (empty($station_number[0])) $station_number[0] = 0;
+        if (empty(end($station_number))) {
+            $data['station_number'] = 0;
+        } else {
+            $data['station_number'] = $station_number[0] . '-' . end($station_number);
+        }
+        return $data['station_number'];
+    }
+
+    /**
+     * 说明：根据条件 查询符合条件的房子 根据 楼盘分组
+     *
+     * @param $request
+     * @return array
+     * @author jacklin
+     */
+    public function houseList($request)
     {
         $buildings = Building::make();
 
@@ -90,11 +112,13 @@ class BuildingsRepository extends  Model
 
             $buildings = array_intersect($buildings, $featureBuildings);
         }
-
+        // 筛选出符合条件的楼座
         $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
 
-        // 面积
         $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks);
+
+        // 面积
+        if (!empty($request->acreage)) $houses = $houses->whereIn('constru_acreage', $request->acreage);
 
         if (!empty($request->total_price)) {
             // 总价
@@ -108,6 +132,26 @@ class BuildingsRepository extends  Model
         if (!empty($request->renovation)) $houses = $houses->where('renovation', $request->renovation);
 
         return $houses;
+    }
+
+    public function groupByBuilding($houses)
+    {
+        // 对楼座进行分组
+        $buildingsBlocks = $houses->get()->groupBy('building_block_id');
+
+        // 将房源根据
+        foreach ($buildingsBlocks as $index => $buildingsBlock) {
+            $buildingsBlock->buildingId = BuildingBlock::find($index)->building_id;
+        }
+
+        $buildings = $buildingsBlocks->groupBy('buildingId');
+
+        // 将房源根据楼盘进行分组
+        foreach ($buildings as $index => $building) {
+            // 去除楼座那一层
+            $buildings[$index] = $building->collapse();
+        }
+        return $buildings;
     }
 
     /**
