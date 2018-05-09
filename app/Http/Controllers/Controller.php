@@ -76,7 +76,7 @@ class Controller extends BaseController
         $masterRedis->addString($key, $captcha, config('setting.sms_life_time'));
 
         return [
-            'success' => false,
+            'success' => true,
             'data' => true,
             'message' => '验证码发送成功!'
         ];
