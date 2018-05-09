@@ -29,21 +29,7 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function getShowOffice($id)
     {
-        $office = OfficeBuildingHouse::find($id);
 
-        // 总面积/取出单价
-        $constru_acreage = $office->constru_acreage;
-        $unit_price = $office->unit_price_cn;
-        // 因为有追加字段变成数组
-        //$arr = OfficeBuildingHouse::paginate(6)->toArray();
-        $arr = OfficeBuildingHouse::all();
-
-        $res = $arr->flatten()->where('unit_price_cn', '>', $unit_price - config('setting.float_price'))
-            ->where('unit_price_cn', '<', $unit_price + config('setting.float_price'))
-            ->where('constru_acreage', '>', $constru_acreage - config('setting.float_acreage'))
-            ->where('constru_acreage', '<', $constru_acreage + config('setting.float_acreage'));
-
-        return $res->toArray();
 
     }
 }
