@@ -2,22 +2,22 @@
 namespace App\Http\Controllers\API\App;
 
 use App\Http\Controllers\API\APIBaseController;
+use App\Http\Requests\App\LoginsRequest;
 use App\Models\User;
 use App\Services\LoginsService;
-use Illuminate\Http\Request;
 
 class LoginsController extends APIBaseController
 {
     /**
      * 说明: 账号密码登录
      *
-     * @param Request $request
+     * @param LoginsRequest $request
      * @param LoginsService $loginsService
      * @return \Illuminate\Http\JsonResponse
      * @author 罗振
      */
     public function store(
-        Request $request,
+        LoginsRequest $request,
         LoginsService $loginsService
     )
     {
@@ -41,5 +41,22 @@ class LoginsController extends APIBaseController
         }
 
         return $this->sendResponse($passport['data'], '获取token成功！');
+    }
+
+    /**
+     * 说明: 短信登录
+     *
+     * @param LoginsRequest $request
+     * @param LoginsService $loginsService
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function smsLogin(
+        LoginsRequest $request,
+        LoginsService $loginsService
+    )
+    {
+        $token = $loginsService->smsLogin($request);
+        return $this->sendResponse($token, '获取token成功！');
     }
 }

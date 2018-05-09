@@ -36,9 +36,14 @@ class Controller extends BaseController
                 $template = config('sms.clw.register');
                 $smsTemplate = sprintf($template, $captcha, config('setting.sms_life_time') / 60, config('sms.louWang.postfix'));
                 break;
+            case 'login':
+                $template = config('sms.clw.common');
+                $smsTemplate = sprintf($template, config('setting.set.prefix'), $captcha, config('sms.louWang.postfix'));
+                break;
             default:
                 return [
-                    'status' => false,
+                    'success' => false,
+                    'data' => false,
                     'message' => '模板错误'
                 ];
         }
@@ -47,7 +52,8 @@ class Controller extends BaseController
         if ($temp == 'register') {
             if (!empty(User::where('tel', $tel)->first()))
                 return [
-                    'status' => false,
+                    'success' => false,
+                    'data' => false,
                     'message' => '该手机号已注册!'
                 ];
         }
@@ -56,7 +62,8 @@ class Controller extends BaseController
         if (config('sms.open')) {
             $smsRes = $smsService->sendSMS($tel, $smsTemplate);
             if ($smsRes['status'] != true) return [
-                'status' => false,
+                'success' => false,
+                'data' => false,
                 'message' => $smsRes['message']
             ];
         } else {
@@ -69,7 +76,8 @@ class Controller extends BaseController
         $masterRedis->addString($key, $captcha, config('setting.sms_life_time'));
 
         return [
-            'status' => true,
+            'success' => false,
+            'data' => true,
             'message' => '验证码发送成功!'
         ];
     }
