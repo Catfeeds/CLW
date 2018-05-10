@@ -26,7 +26,7 @@ class OfficeBuildingHousesController extends APIBaseController
         return $this->sendResponse($res,'获取房源列表成功');
     }
 
-    
+
     public function showOffice
     (
         $id,
