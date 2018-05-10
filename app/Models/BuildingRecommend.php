@@ -19,6 +19,9 @@ class BuildingRecommend extends BaseModel
         return config('setting.qiniu_url').$this->img;
     }
 
-
+    public function building()
+    {
+        return $this->hasOne('App\Models\Building', 'id', 'building_id');
+    }
 
 }

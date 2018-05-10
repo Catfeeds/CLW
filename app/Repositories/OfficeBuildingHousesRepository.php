@@ -28,7 +28,17 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function getShowOffice($id)
     {
+        $house = OfficeBuildingHouse::find($id);
+        if (empty($house)) {
+            return ['status' => false, 'message' => '房源异常'];
+        }
 
-
+        // 查询这个房源周边房源
+        return OfficeBuildingHouse::where('id', '!=', $id)
+            ->where('constru_acreage', '>', $house->constru_acreage - config('setting.float_acreage'))
+            ->where('constru_acreage', '<', $house->constru_acreage + config('setting.float_acreage'))
+            ->where('unit_price', '>', $house->unit_price - config('setting.float_price'))
+            ->where('unit_price', '<', $house->unit_price + config('setting.float_price'))
+            ->paginate(6);
     }
 }
