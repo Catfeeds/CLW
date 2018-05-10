@@ -19,6 +19,7 @@ class CreateRecommendsTable extends Migration
             $table->string('introduce','32')->nullable()->comment('介绍');
             $table->string('pic','128')->nullable()->comment('图片');
             $table->json('building_id')->nullable()->comment('楼盘ID');
+            $table->json('building_info')->nullable()->comment('楼盘id与名称信息');
             $table->timestamps();
             $table->softDeletes();
         });

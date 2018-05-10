@@ -7,14 +7,19 @@ use App\Models\OfficeBuildingHouse;
 class OfficeBuildingHousesRepository extends Model
 {
     /**
-     * 说明: 查询房源
+     * 说明: 房源详情
      *
      * @param $office
      * @return mixed
-     * @author 王成
+     * @author 罗振
      */
     public function getShow($office)
     {
+        return $office;
+
+
+
+
         $office->buildings = $office->BuildingBlock->Building;
         return $office;
     }

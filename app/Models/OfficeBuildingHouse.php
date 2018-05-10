@@ -15,7 +15,7 @@ class OfficeBuildingHouse extends Model
     ];
 
     protected $appends = [
-        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_acreage_cn'
+        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_acreage_cn', 'house_type', 'payment_type_cn', 'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn', 'split_cn', 'register_company_cn', 'open_bill_cn', 'building_block_class', 'building_block_class'
     ];
 
     public function getIndoorImgCnAttribute()
@@ -37,11 +37,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getUnitPriceCnAttribute()
     {
-        if (empty($this->unit_price)) {
-            return '0';
-        } else {
-            return $this->unit_price.'元/㎡.月';
-        }
+        return $this->unit_price.'元/㎡.月';
     }
 
     /**
@@ -65,12 +61,257 @@ class OfficeBuildingHouse extends Model
      */
     public function getTotalAcreageCnAttribute()
     {
-        if (empty($this->unit_price)) {
-            return '0';
+        return $this->unit_price * $this->constru_acreage.'元/月';
+    }
+
+    /**
+     * 说明: 户型拼接
+     *
+     * @return string
+     * @use house_type
+     * @author 罗振
+     */
+    public function getHouseTypeAttribute()
+    {
+        $houseType = '';
+        if (!empty($this->room)) {
+            $houseType = $this->room.'室';
+        }
+        if (!empty($this->hall)) {
+            $houseType = $houseType.$this->hall.'厅';
+        }
+
+        return $houseType;
+    }
+
+    /**
+     * 说明: 支付方式中文
+     *
+     * @return string
+     * @use payment_type_cn
+     * @author 罗振
+     */
+    public function getPaymentTypeCnAttribute()
+    {
+        if ($this->payment_type == 1) {
+            return '押一付一';
+        } elseif ($this->payment_type == 2) {
+            return '押一付二';
+        } elseif ($this->payment_type == 3) {
+            return '押一付三';
+        } elseif ($this->payment_type == 4) {
+            return '押二付一';
+        } elseif ($this->payment_type == 5) {
+            return '押二付二';
+        } elseif ($this->payment_type == 6) {
+            return '押二付三';
+        } elseif ($this->payment_type == 7) {
+            return '押三付一';
+        } elseif ($this->payment_type == 8) {
+            return '押三付二';
+        } elseif ($this->payment_type == 9) {
+            return '押三付三';
+        } elseif ($this->payment_type == 10) {
+            return '半年付';
+        } elseif ($this->payment_type == 11) {
+            return '年付';
+        } elseif ($this->payment_type == 12) {
+            return '面谈';
         } else {
-            return $this->unit_price * $this->constru_acreage.'元/月';
+            return '';
         }
     }
 
+    /**
+     * 说明: 朝向中文
+     *
+     * @return string
+     * @use orientation_cn
+     * @author 罗振
+     */
+    public function getOrientationCnAttribute()
+    {
+        if ($this->orientation == 1) {
+            return '东';
+        } elseif ($this->orientation == 2) {
+            return '南';
+        } elseif ($this->orientation == 3) {
+            return '西';
+        } elseif ($this->orientation == 4) {
+            return '北';
+        } elseif ($this->orientation == 5) {
+            return '东南';
+        } elseif ($this->orientation == 6) {
+            return '东北';
+        } elseif ($this->orientation == 7) {
+            return '西南';
+        } elseif ($this->orientation == 8) {
+            return '西北';
+        }  elseif ($this->orientation == 9) {
+            return '东西';
+        } elseif ($this->orientation == 10) {
+            return '南北';
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 说明: 装修中文
+     *
+     * @return string
+     * @use renovation_cn
+     * @author 罗振
+     */
+    public function getRenovationCnAttribute()
+    {
+        if ($this->renovation == 1) {
+            return '豪华装修';
+        } elseif ($this->renovation == 2) {
+            return '精装修';
+        } elseif ($this->renovation == 3) {
+            return '中装修';
+        } elseif ($this->renovation == 4) {
+            return '间装修';
+        } elseif ($this->renovation == 5) {
+            return '毛坯';
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 说明: 写字楼类型中文
+     *
+     * @return string
+     * @use office_building_type_cn
+     * @author 罗振
+     */
+    public function getOfficeBuildingTypeCnAttribute()
+    {
+        if ($this->office_building_type == 1) {
+            return '纯写字楼';
+        } elseif ($this->office_building_type == 2) {
+            return '商住楼';
+        } elseif ($this->office_building_type == 3) {
+            return '商业综合体楼';
+        } elseif ($this->office_building_type == 4) {
+            return '酒店写字楼';
+        } elseif ($this->office_building_type == 5) {
+            return '其他';
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 说明: 入住时间中文
+     *
+     * @return string
+     * @use check_in_time_cn
+     * @author 罗振
+     */
+    public function getCheckInTimeCnAttribute()
+    {
+        if (empty($this->check_in_time)) {
+            return '';
+        } else {
+            return $this->check_in_time->format('Y-m-d');
+        }
+    }
+
+    /**
+     * 说明: 最短租期中文
+     *
+     * @return string
+     * @use shortest_lease_cn
+     * @author 罗振
+     */
+    public function getShortestLeaseCnAttribute()
+    {
+        if ($this->shortest_lease == 1) {
+            return '1-2年';
+        } elseif ($this->shortest_lease == 2) {
+            return '2-3年';
+        } elseif ($this->shortest_lease == 3) {
+            return '3-4年';
+        } elseif ($this->shortest_lease == 4) {
+            return '5年以上';
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 说明: 是否可拆分
+     *
+     * @return string
+     * @use split_cn
+     * @author 罗振
+     */
+    public function getSplitCnAttribute()
+    {
+        if ($this->split == 1) {
+            return '可拆分';
+        } elseif ($this->split == 2) {
+            return '不可拆分';
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 说明: 注册公司中文
+     *
+     * @return string
+     * @use register_company_cn
+     * @author 罗振
+     */
+    public function getRegisterCompanyCnAttribute()
+    {
+        if ($this->register_company == 1) {
+            return '可注册';
+        } elseif ($this->register_company == 2) {
+            return '不可注册';
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 说明: 可开发票中文
+     *
+     * @return string
+     * @use open_bill_cn
+     * @author 罗振
+     */
+    public function getOpenBillCnAttribute()
+    {
+        if ($this->open_bill == 1) {
+            return '可开发票';
+        } elseif ($this->open_bill == 2) {
+            return '不可开发票';
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 说明: 等级中文
+     *
+     * @return string
+     * @use buildng_block_class
+     * @author 罗振
+     */
+    public function getBuildingBlockClassAttribute()
+    {
+        if ($this->BuildingBlock->class == 1) {
+            return '甲';
+        } elseif ($this->BuildingBlock->class == 1) {
+            return '乙';
+        } elseif ($this->BuildingBlock->class == 3) {
+            return '丙';
+        }
+    }
     
 }

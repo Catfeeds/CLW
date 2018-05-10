@@ -17,7 +17,7 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'block_name_cn', 'area_name_cn',
+    protected $appends = ['label_cn', 'feature_cn', 'address_cn',
         'pic_url_cn', 'house_number_cn', 'house_price_cn'];
 
     // 楼座
@@ -78,20 +78,9 @@ class Building extends Model
      * @return mixed
      * @author 刘坤涛
      */
-    public function getBlockNameCnAttribute()
+    public function getAddressCnAttribute()
     {
-        return $this->block->name;
-    }
-
-    /**
-     * 说明: 获取该楼盘区域名称
-     *
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function getAreaNameCnAttribute()
-    {
-        return $this->area->name;
+        return $this->area->name.'-'.$this->block->name;
     }
 
     /**
@@ -135,6 +124,6 @@ class Building extends Model
      */
     public function getHousePriceCnAttribute()
     {
-        if ($this->house) return $this->house->sum('unit_price') / $this->house_number_cn;
+        if ($this->house && $this->house->sum('unit_price')) return $this->house->sum('unit_price') / $this->house_number_cn;
     }
 }

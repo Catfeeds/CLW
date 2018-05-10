@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Building;
 use App\Models\BuildingRecommend;
 use Illuminate\Database\Eloquent\Model;
 
