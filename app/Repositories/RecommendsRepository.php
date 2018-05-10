@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Building;
 use App\Models\Recommend;
 use Illuminate\Database\Eloquent\Model;
 
@@ -52,5 +53,17 @@ class RecommendsRepository extends Model
 
         if (!$recommend->save()) return false;
         return true;
+    }
+
+    /**
+     * 说明: 点击精品推荐跳转楼盘列表
+     *
+     * @param $request
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getBuildingList($request)
+    {
+       return Building::whereIn('id', $request->building_id)->get();
     }
 }
