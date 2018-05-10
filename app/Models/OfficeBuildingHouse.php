@@ -15,7 +15,7 @@ class OfficeBuildingHouse extends Model
     ];
 
     protected $appends = [
-        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_acreage_cn', 'house_type', 'payment_type_cn', 'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn', 'split_cn', 'register_company_cn', 'open_bill_cn', 'building_block_class', 'building_block_class'
+        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_acreage_cn', 'house_type', 'payment_type_cn', 'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn', 'split_cn', 'register_company_cn', 'open_bill_cn', 'class_cn', 'structure_cn', 'property_fee_cn', 'heating_cn', 'air_conditioner_cn'
     ];
 
     public function getIndoorImgCnAttribute()
@@ -37,7 +37,12 @@ class OfficeBuildingHouse extends Model
      */
     public function getUnitPriceCnAttribute()
     {
-        return $this->unit_price.'元/㎡.月';
+        if (empty($this->unit_price)) {
+            return '';
+        } else {
+            return $this->unit_price.'元/㎡.月';
+        }
+
     }
 
     /**
@@ -300,10 +305,10 @@ class OfficeBuildingHouse extends Model
      * 说明: 等级中文
      *
      * @return string
-     * @use buildng_block_class
+     * @use class_cn
      * @author 罗振
      */
-    public function getBuildingBlockClassAttribute()
+    public function getClassCnAttribute()
     {
         if ($this->BuildingBlock->class == 1) {
             return '甲';
@@ -313,5 +318,73 @@ class OfficeBuildingHouse extends Model
             return '丙';
         }
     }
-    
+
+    /**
+     * 说明: 房屋结构中文
+     *
+     * @return string
+     * @use structure_cn
+     * @author 罗振
+     */
+    public function getStructureCnAttribute()
+    {
+        if ($this->BuildingBlock->structure == 1) {
+            return '钢筋混凝土结构';
+        } elseif ($this->BuildingBlock->structure == 1) {
+            return '钢结构';
+        } elseif ($this->BuildingBlock->structure == 3) {
+            return '砖混结构';
+        } elseif ($this->BuildingBlock->structure == 4) {
+            return '砖木结构';
+        }
+    }
+
+    /**
+     * 说明: 物业费
+     *
+     * @return string
+     * @use property_fee_cn
+     * @author 罗振
+     */
+    public function getPropertyFeeCnAttribute()
+    {
+        if (empty($this->BuildingBlock->property_fee)) {
+            return '';
+        } else {
+            return $this->BuildingBlock->property_fee.'元/㎡.月';
+        }
+    }
+
+    /**
+     * 说明: 采暖方式中文
+     *
+     * @return string
+     * @use heating_cn
+     * @author 罗振
+     */
+    public function getHeatingCnAttribute()
+    {
+        if ($this->BuildingBlock->heating == 1) {
+            return '空调';
+        } elseif ($this->BuildingBlock->heating == 2) {
+            return '太阳能';
+        }
+    }
+
+    /**
+     * 说明: 空调类型中文
+     *
+     * @return string
+     * @use air_conditioner_cn
+     * @author 罗振
+     */
+    public function getAirConditionerCnAttribute()
+    {
+        if ($this->BuildingBlock->air_conditioner == 1) {
+            return '中央空调';
+        } elseif ($this->BuildingBlock->air_conditioner == 2) {
+            return '非中央空调';
+        }
+    }
+
 }

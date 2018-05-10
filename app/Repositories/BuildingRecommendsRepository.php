@@ -21,8 +21,9 @@ class BuildingRecommendsRepository extends Model
             return [
                 'building_name' => $v->building->name,
                 'address' => $v->building->block->area->name.'-'.$v->building->block->name,
-                'building_id' => $v->id,
-                'img' => config('setting.qiniu_url').$v->img,
+                'building_id' => $v->building_id,
+                'id' => $v->id,
+                'img' => config('setting.qiniu_url').$v->img
             ];
         });
     }
