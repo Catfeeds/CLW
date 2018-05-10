@@ -19,7 +19,6 @@ class RecommendsRequest extends FormRequest
         return true;
     }
 
-
     public function messages()
     {
         switch ($this->method()) {
@@ -27,13 +26,12 @@ class RecommendsRequest extends FormRequest
                 return [
                     'title.not_in' => '精品推荐标题不能重复',
                     'introduce.not_in' => '精品推荐介绍不能重复',
-                    'building_id.in' => '楼盘必须存在'
                 ];
             case 'PUT':
             case 'PATCH':
-            return [
-                'building_id.in' => '楼盘必须存在'
-            ];
+                return [
+
+                ];
             case 'GET':
             case 'DELETE':
             default:
@@ -72,9 +70,6 @@ class RecommendsRequest extends FormRequest
                     'building_id' => [
                         'required',
                         'array',
-                        Rule::in(
-                            Building::whereIn('id', $this->building_id)->pluck('id')->toArray()
-                        )
                     ],
                 ];
             case 'PUT':
@@ -92,9 +87,6 @@ class RecommendsRequest extends FormRequest
                 'building_id' => [
                     'required',
                     'array',
-                    Rule::in(
-                        Building::whereIn('id', $this->building_id)->pluck('id')->toArray()
-                    )
                 ],
             ];
             case 'GET':
