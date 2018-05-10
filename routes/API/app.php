@@ -79,4 +79,10 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
 
     //推荐服务管理
     Route::resource('service_recommends', 'ServiceRecommendsController');
+    /*
+    |--------------------------------------------------------------------------
+    | 找回密码
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('retrieve_pwd', 'RetrievePwdController');
 });

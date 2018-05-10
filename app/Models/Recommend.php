@@ -9,7 +9,7 @@ class Recommend extends BaseModel
     ];
 
     protected $appends = [
-        'pic_cn'
+        'pic_cn', 'pic_url'
     ];
 
     /**
@@ -21,5 +21,22 @@ class Recommend extends BaseModel
     public function getPicCnAttribute()
     {
         return config('setting.qiniu_url').$this->pic;
+    }
+
+    /**
+     * 说明: 图片处理
+     *
+     * @return static
+     * @use pic_url
+     * @author 罗振
+     */
+    public function getPicUrlAttribute()
+    {
+        return collect($this->pic)->map(function ($img) {
+            return [
+                'name' => $img,
+                'url' => config('setting.qiniu_url') . $img
+            ];
+        })->values();
     }
 }

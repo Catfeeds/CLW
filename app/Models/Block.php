@@ -26,6 +26,9 @@ class Block extends Model
         return Building::where('block_id', $this->id)->count();
     }
 
-
+    public function area()
+    {
+        return $this->belongsTo('App\Models\Area','area_id','id');
+    }
 
 }

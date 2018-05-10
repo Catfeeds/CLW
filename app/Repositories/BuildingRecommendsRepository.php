@@ -17,15 +17,15 @@ class BuildingRecommendsRepository extends Model
     public function recommendList()
     {
         $buildingRecommend = BuildingRecommend::all();
-        $datas = [];
-        foreach ($buildingRecommend as $values)
-        {
-            $building = Building::find($values->building_id);
 
-            $datas = [$building,$values];
-
-        }
-        return $datas;
+        return $buildingRecommend->map(function ($v) {
+            return [
+                'building_name' => $v->building->name,
+                'address' => $v->building->block->area->name.'-'.$v->building->block->name,
+                'building_id' => $v->id,
+                'img' => config('setting.qiniu_url').$v->img
+            ];
+        });
     }
 
     /**

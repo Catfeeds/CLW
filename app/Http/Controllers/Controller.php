@@ -34,11 +34,15 @@ class Controller extends BaseController
         switch ($temp) {
             case 'register':
                 $template = config('sms.clw.register');
-                $smsTemplate = sprintf($template, $captcha, config('setting.sms_life_time') / 60, config('sms.louWang.postfix'));
+                $smsTemplate = sprintf($template, $captcha, config('setting.sms_life_time') / 60, config('sms.clw.postfix'));
                 break;
             case 'login':
                 $template = config('sms.clw.common');
-                $smsTemplate = sprintf($template, config('setting.set.prefix'), $captcha, config('sms.louWang.postfix'));
+                $smsTemplate = sprintf($template, config('setting.set.prefix'), $captcha, config('sms.clw.postfix'));
+                break;
+            case 'retrieve_password':
+                $template = config('sms.clw.common');
+                $smsTemplate = sprintf($template, config('setting.set.prefix'), $captcha, config('sms.clw.postfix'));
                 break;
             default:
                 return [
