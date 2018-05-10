@@ -21,7 +21,7 @@ class BuildingRecommendsController extends APIBaseController
     )
     {
         $res = $BuildingRecommendsRepository->recommendList();
-        return $this->sendResponse($res,'列表');
+        return $this->sendResponse($res,'写字楼推荐列表');
     }
 
     /**
