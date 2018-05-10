@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
-class ThrowIn extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class ThrowIn extends Model
 {
-    //
+    protected $guarded = [];
+
+    protected $connection = 'mysql';
 }
