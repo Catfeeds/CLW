@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\API\App;
 
 use App\Http\Controllers\API\APIBaseController;
+use App\Models\HotBlock;
 use App\Repositories\HotBlocksRepository;
 
 class HotBlocksController extends APIBaseController
@@ -21,4 +22,13 @@ class HotBlocksController extends APIBaseController
         $res =  $repository->hotBlocksList();
         return $this->sendResponse($res, '热门商圈获取成功');
     }
+
+    public function show(
+        HotBlock $hotBlock
+    )
+    {
+        
+    }
+
+
 }
