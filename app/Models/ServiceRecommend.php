@@ -28,10 +28,10 @@ class ServiceRecommend extends BaseModel
      */
     public function getPicUrlAttribute()
     {
-        return [
+        return [[
             'name' => $this->pic,
             'url' => config('setting.qiniu_url') . $this->pic
-        ];
+        ]];
     }
 
 }
