@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
-class MessageRecord extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class MessageRecord extends Model
 {
-    //
+    protected $guarded = [];
+    protected $connection = 'mysql';
 }

@@ -361,7 +361,8 @@ class BuildingsRepository extends  Model
      */
     public function updateBuilding($request, $building)
     {
-        \DB::beginTransaction();
+        DB::connection('mysql')->beginTransaction();
+        DB::connection('media')->beginTransaction();
         try {
              $building->name = $request->name;
              $building->gps = $request->gps;
@@ -388,7 +389,7 @@ class BuildingsRepository extends  Model
             $addFeature = array_diff($buildingFeatures, $features);
             if (!empty($addFeature)) {
                 $res = BuildingHasFeature::where('building_id', $building->id)->whereIn('building_feature_id', $addFeature)->get();
-                if ($res) throw new \Exception('楼盘特色不能重复添加');
+                if (!$res->isEmpty()) throw new \Exception('楼盘特色不能重复添加');
                 foreach($addFeature as $v) {
                     BuildingHasFeature::create([
                         'building_id' => $building->id,
@@ -406,10 +407,12 @@ class BuildingsRepository extends  Model
                     ])->delete();
                 }
             }
-            \DB::commit();
+            DB::connection('mysql')->commit();
+            DB::connection('media')->commit();
             return true;
         } catch (\Exception $e) {
-            \DB::rollback();
+            DB::connection('mysql')->rollBack();
+            DB::connection('media')->rollBack();
             \Log::error('楼盘信息修改失败'. $e->getMessage());
             return false;
         }
