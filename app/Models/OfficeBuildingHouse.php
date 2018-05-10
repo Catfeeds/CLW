@@ -386,5 +386,4 @@ class OfficeBuildingHouse extends Model
             return '非中央空调';
         }
     }
-
 }
