@@ -11,6 +11,7 @@ class BuildingRecommendsController extends APIBaseController
 {
     /**
      * 说明:  获取列表
+     *
      * @param BuildingRecommendsRepository $BuildingRecommendsRepository
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
@@ -26,6 +27,7 @@ class BuildingRecommendsController extends APIBaseController
 
     /**
      * 说明: 添加
+     *
      * @param BuildingRecommendsRepository $BuildingRecommendsRepository
      * @param BuildingRecommendsRequest $request
      * @return \Illuminate\Http\JsonResponse
@@ -43,6 +45,7 @@ class BuildingRecommendsController extends APIBaseController
 
     /**
      * 说明: 获取修改推荐楼盘原生数据
+     *
      * @param BuildingRecommend $buildingRecommend
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
@@ -56,6 +59,7 @@ class BuildingRecommendsController extends APIBaseController
 
     /**
      * 说明: 修改
+     *
      * @param BuildingRecommendsRepository $BuildingRecommendsRepository
      * @param BuildingRecommendsRequest $request
      * @param BuildingRecommend $buildingRecommend
@@ -80,6 +84,7 @@ class BuildingRecommendsController extends APIBaseController
 
     /**
      * 说明: 删除
+     *
      * @param BuildingRecommend $buildingRecommend
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception

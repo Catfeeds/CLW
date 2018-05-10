@@ -23,7 +23,7 @@ class BuildingRecommendsRepository extends Model
                 'building_name' => $v->building->name,
                 'address' => $v->building->block->area->name.'-'.$v->building->block->name,
                 'building_id' => $v->id,
-                'img' => config('setting.qiniu_url').$v->img
+                'img' => config('setting.qiniu_url').$v->img,
             ];
         });
     }
@@ -39,7 +39,8 @@ class BuildingRecommendsRepository extends Model
     {
         return BuildingRecommend::create([
             'building_id' => $request->building_id,
-            'img' => $request->img
+            'img' => $request->img,
+            'name' => $request->name
         ]);
     }
 
@@ -55,6 +56,7 @@ class BuildingRecommendsRepository extends Model
     {
         $buildingRecommend->building_id = $request->building_id;
         $buildingRecommend->img = $request->img;
+        $buildingRecommend->name = $request->name;
         if(!$buildingRecommend->save()) return false;
         return true;
     }

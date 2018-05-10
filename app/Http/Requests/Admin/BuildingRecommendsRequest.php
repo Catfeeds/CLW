@@ -56,6 +56,7 @@ class BuildingRecommendsRequest extends FormRequest
                         )
                     ],
                     'img' => 'required|string|max:128',
+                    'name' => 'required|max:32'
                 ];
             case 'update':
                 return [
@@ -67,7 +68,7 @@ class BuildingRecommendsRequest extends FormRequest
                         )
                     ],
                     'img' => 'required|string|max:128',
-
+                    'name' => 'required|max:32'
                 ];
             default;
                 return [

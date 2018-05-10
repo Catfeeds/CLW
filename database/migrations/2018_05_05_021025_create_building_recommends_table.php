@@ -17,6 +17,7 @@ class CreateBuildingRecommendsTable extends Migration
             $table->increments('id');
             $table->integer('building_id')->nullable()->comment('楼盘id');
             $table->string('img',128)->comment('图片');
+            $table->string('name', 32)->nullable()->comment('楼盘名');
             $table->timestamps();
             $table->softDeletes();
 
