@@ -39,4 +39,6 @@ class Recommend extends BaseModel
             ];
         })->values();
     }
+
+
 }

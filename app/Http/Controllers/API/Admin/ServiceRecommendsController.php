@@ -80,7 +80,7 @@ class ServiceRecommendsController extends APIBaseController
         }
 
         //判断能否更新权重为1
-        if ($this->req->weight == 1) {
+        if ($this->req->weight == 1 && $serviceRecommend->weight != 1) {
             $weight = ServiceRecommend::where('weight', 1)->first();
             if ($weight) {
                 return $this->sendError('权重为1的推荐服务已存在,请勿重复修改');
