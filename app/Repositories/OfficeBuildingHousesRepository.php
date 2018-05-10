@@ -20,11 +20,11 @@ class OfficeBuildingHousesRepository extends Model
     }
 
     /**
-     * 说明:查询周边房源
+     * 说明: 房源详情相关房源
      *
      * @param $id
-     * @return mixed
-     * @author 王成
+     * @return array
+     * @author 罗振
      */
     public function getShowOffice($id)
     {

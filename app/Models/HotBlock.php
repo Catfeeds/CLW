@@ -5,7 +5,7 @@ namespace App\Models;
 class HotBlock extends BaseModel
 {
     protected $appends = [
-      'img_cn', 'buildings_number_cn', 'block_name_cn'
+      'img_cn', 'buildings_number_cn', 'block_name_cn', 'img_url'
     ];
 
     public function block()
@@ -52,6 +52,20 @@ class HotBlock extends BaseModel
     public function getBlockNameCnAttribute()
     {
         return $this->block->name;
+    }
+
+    /**
+     * 说明: 图片
+     *
+     * @return array
+     * @author 刘坤涛
+     */
+    public function getImgUrlAttribute()
+    {
+        return [[
+            'name' => $this->img,
+            'url' => config('setting.qiniu_url') . $this->img
+        ]];
     }
 
 }

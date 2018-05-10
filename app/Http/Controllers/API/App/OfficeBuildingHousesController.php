@@ -22,11 +22,19 @@ class OfficeBuildingHousesController extends APIBaseController
     )
     {
         $res = $buildingHousesRepository->getShow($officeBuildingHouse);
-
         return $this->sendResponse($res,'获取房源列表成功');
     }
 
-    
+
+    /**
+     * 说明: 房源详情相关房源
+     *
+     * @param $id
+     * @param OfficeBuildingHousesRepository $buildingHousesRepository
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+
     public function showOffice
     (
         $id,
@@ -34,7 +42,6 @@ class OfficeBuildingHousesController extends APIBaseController
     )
     {
         $res = $buildingHousesRepository->getShowOffice($id);
-
-        return $this->sendResponse($res,'获取房源列表成功');
+        return $this->sendResponse($res,'获取相关房源信息成功');
     }
 }
