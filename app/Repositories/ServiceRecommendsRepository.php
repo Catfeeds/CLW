@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceRecommendsRepository extends Model
 {
     /**
-     * 说明:推荐服务列表平
+     * 说明:推荐服务列列表
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 刘坤涛

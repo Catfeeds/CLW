@@ -24,7 +24,7 @@ class RecommendsController extends APIBaseController
     }
 
     /**
-     * 说明: 首页点击精品推荐跳转到楼盘类表
+     * 说明: 首页点击精品推荐跳转到楼盘列表
      *
      * @param RecommendsRepository $repository
      * @param Recommend $recommend
