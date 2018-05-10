@@ -31,6 +31,7 @@ class BuildingsController extends APIBaseController
      */
     public function index()
     {
+        
         $res = $this->repo->buildingLists();
         return $this->sendResponse($res, '楼盘列表获取成功');
     }

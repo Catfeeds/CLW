@@ -18,8 +18,8 @@ class ServiceRecommendsService
         $data = Service::all();
         return $data->map(function($v) {
             return [
-                'label' => $v->id,
-                'value' => $v->name
+                'label' => $v->name,
+                'value' => $v->id
             ];
         });
     }
