@@ -17,8 +17,9 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'block_name', 'area_name'];
+    protected $appends = ['label_cn', 'feature_cn', 'block_name', 'area_name', 'pic_url'];
 
+    // 楼座
     public function buildingBlock()
     {
         return $this->hasMany('App\Models\BuildingBlock','building_id','id');
@@ -91,5 +92,24 @@ class Building extends Model
     {
         return $this->area->name;
     }
+
+    /**
+     * 说明: 图片url
+     *
+     * @return static
+     * @author 刘坤涛
+     */
+    public function getPicUrlAttribute()
+    {
+        return collect($this->album)->map(function($img) {
+            return [
+                'name' => $img,
+                'url' => config('setting.qiniu_url') . $img
+            ];
+        });
+    }
+
+
+
 
 }
