@@ -8,24 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class BuildingRecommendsRepository extends Model
 {
     /**
-     * 说明:  列表操作
+     * 说明: 推荐楼盘列表
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
-     * @author 王成
+     * @author 刘坤涛
      */
     public function recommendList()
     {
-        $buildingRecommend = BuildingRecommend::all();
-
-        return $buildingRecommend->map(function ($v) {
-            return [
-                'building_name' => $v->building->name,
-                'address' => $v->building->block->area->name.'-'.$v->building->block->name,
-                'building_id' => $v->building_id,
-                'id' => $v->id,
-                'img' => config('setting.qiniu_url').$v->img
-            ];
-        });
+        return BuildingRecommend::all();
     }
 
     /**

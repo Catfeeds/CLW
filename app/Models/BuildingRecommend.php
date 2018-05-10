@@ -5,7 +5,7 @@ namespace App\Models;
 class BuildingRecommend extends BaseModel
 {
     protected $appends = [
-      'img_cn'
+      'img_cn', 'array_id_cn', 'pic_url_cn'
     ];
 
     /**
@@ -19,9 +19,36 @@ class BuildingRecommend extends BaseModel
         return config('setting.qiniu_url').$this->img;
     }
 
-    public function building()
+    /**
+     * 说明: 编辑页面图片拼接
+     *
+     * @return array
+     * @author 刘坤涛
+     */
+    public function getPicUrlCnAttribute()
     {
-        return $this->hasOne('App\Models\Building', 'id', 'building_id');
+        return [
+            [
+                'name' => $this->img,
+                'url' => config('setting.qiniu_url').$this->img
+            ]
+        ];
     }
 
+    //楼盘
+    public function building()
+    {
+        return $this->belongsTo('App\Models\Building');
+    }
+
+
+
+    //获取市 区域 楼盘 的ID
+    public function getArrayIdCnAttribute()
+    {
+        $data[] =  $this->building->area->city->id;
+        $data[] = $this->building->area->id;
+        $data[] = $this->building->id;
+        return $data;
+    }
 }
