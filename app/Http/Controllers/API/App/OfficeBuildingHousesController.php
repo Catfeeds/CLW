@@ -25,6 +25,7 @@ class OfficeBuildingHousesController extends APIBaseController
         return $this->sendResponse($res,'获取房源列表成功');
     }
 
+
     /**
      * 说明: 房源详情相关房源
      *
@@ -33,6 +34,7 @@ class OfficeBuildingHousesController extends APIBaseController
      * @return \Illuminate\Http\JsonResponse
      * @author 罗振
      */
+
     public function showOffice
     (
         $id,

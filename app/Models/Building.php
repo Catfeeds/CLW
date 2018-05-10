@@ -17,8 +17,10 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'block_name', 'area_name'];
+    protected $appends = ['label_cn', 'feature_cn', 'block_name_cn', 'area_name_cn',
+        'pic_url_cn', 'house_number_cn', 'house_price_cn'];
 
+    // 楼座
     public function buildingBlock()
     {
         return $this->hasMany('App\Models\BuildingBlock','building_id','id');
@@ -76,7 +78,7 @@ class Building extends Model
      * @return mixed
      * @author 刘坤涛
      */
-    public function getBlockNameAttribute()
+    public function getBlockNameCnAttribute()
     {
         return $this->block->name;
     }
@@ -87,9 +89,52 @@ class Building extends Model
      * @return mixed
      * @author 刘坤涛
      */
-    public function getAreaNameAttribute()
+    public function getAreaNameCnAttribute()
     {
         return $this->area->name;
     }
 
+    /**
+     * 说明: 图片url
+     *
+     * @return static
+     * @author 刘坤涛
+     */
+    public function getPicUrlCnAttribute()
+    {
+        return collect($this->album)->map(function($img) {
+            return [
+                'name' => $img,
+                'url' => config('setting.qiniu_url') . $img
+            ];
+        });
+    }
+
+    //楼盘关联房源
+    public function house()
+    {
+        return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class);
+    }
+
+    /**
+     * 说明: 获取该楼盘下的房源数量
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getHouseNumberCnAttribute()
+    {
+        return $this->house->count();
+    }
+
+    /**
+     * 说明: 该楼盘下的房源单价
+     *
+     * @return float|int
+     * @author 刘坤涛
+     */
+    public function getHousePriceCnAttribute()
+    {
+        if ($this->house) return $this->house->sum('unit_price') / $this->house_number_cn;
+    }
 }
