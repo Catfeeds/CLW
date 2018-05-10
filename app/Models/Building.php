@@ -17,7 +17,7 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn'];
+    protected $appends = ['label_cn', 'feature_cn', 'block_name', 'area_name'];
 
     public function buildingBlock()
     {
@@ -42,6 +42,12 @@ class Building extends Model
         return $this->hasOne(BuildingLabel::class);
     }
 
+    //区域
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
     /**
      * 说明: 楼盘列表是否有标签
      *
@@ -62,6 +68,28 @@ class Building extends Model
     public function getFeatureCnAttribute()
     {
         return $this->features;
+    }
+
+    /**
+     * 说明: 获取该楼盘商圈名称
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getBlockNameAttribute()
+    {
+        return $this->block->name;
+    }
+
+    /**
+     * 说明: 获取该楼盘区域名称
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getAreaNameAttribute()
+    {
+        return $this->area->name;
     }
 
 }

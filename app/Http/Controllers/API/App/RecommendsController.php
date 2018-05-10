@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\API\App;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\Admin\RecommendsRequest;
+use App\Models\Recommend;
 use App\Repositories\RecommendsRepository;
 
 class RecommendsController extends APIBaseController
@@ -24,20 +24,20 @@ class RecommendsController extends APIBaseController
     }
 
     /**
-     * 说明: 点击精品推荐跳转楼盘列表
+     * 说明: 首页点击精品推荐跳转到楼盘类表
      *
      * @param RecommendsRepository $repository
-     * @param RecommendsRequest $request
+     * @param Recommend $recommend
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
-    public function create
+    public function show
     (
         RecommendsRepository $repository,
-        RecommendsRequest $request
+        Recommend $recommend
     )
     {
-        $res = $repository->getBuildingList($request);
+        $res = $repository->getBuildingList($recommend);
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 }
