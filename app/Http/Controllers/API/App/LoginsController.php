@@ -59,4 +59,19 @@ class LoginsController extends APIBaseController
         $token = $loginsService->smsLogin($request);
         return $this->sendResponse(['status' => true, 'token' => $token], '获取token成功！');
     }
+
+    /**
+     * 说明: 退出登录
+     *
+     * @param LoginsService $loginsService
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function logout(
+        LoginsService $loginsService
+    )
+    {
+        $result = $loginsService->logout('api');
+        return $this->sendResponse($result, '退出成功！');
+    }
 }

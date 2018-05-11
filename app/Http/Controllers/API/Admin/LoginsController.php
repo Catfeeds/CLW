@@ -7,16 +7,35 @@ use App\Services\LoginsService;
 
 class LoginsController extends APIBaseController
 {
-
+    /**
+     * 说明: 登录
+     *
+     * @param LoginsRequest $request
+     * @param LoginsService $loginsService
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
     public function store(
         LoginsRequest $request,
         LoginsService $loginsService
     )
     {
-        $token = $loginsService->adminLogin($request);
-
-        return $this->sendResponse(['status' => true, 'token' => $token], '获取token成功！');
+        $result = $loginsService->adminLogin($request);
+        return $this->sendResponse($result, '获取token成功！');
     }
 
-
+    /**
+     * 说明: 退出登录
+     *
+     * @param LoginsService $loginsService
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function logout(
+        LoginsService $loginsService
+    )
+    {
+        $result = $loginsService->logout('admin');
+        return $this->sendResponse($result, '退出成功！');
+    }
 }

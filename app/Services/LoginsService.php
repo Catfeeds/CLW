@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Redis\MasterRedis;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Passport\Token;
 
 class LoginsService
 {
@@ -88,48 +90,58 @@ class LoginsService
         $user = User::where([
             'tel' => $request->tel,
         ])->first();
-        if (empty($user)) {
-            return ['status' => false, 'message' => '用户不存在'];
-        }
+        if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
 
         // 返回token
         $token = $user->createToken($request->tel)->accessToken;
-        if (empty($token)) {
-            return ['status' => false, 'message' => '获取令牌失败'];
-        }
+        if (empty($token)) return ['status' => false, 'message' => '获取令牌失败'];
 
         return $token;
     }
 
+    /**
+     * 说明: admin后台登录
+     *
+     * @param $request
+     * @return array
+     * @author 罗振
+     */
     public function adminLogin($request)
     {
-        dd(Auth::guard('admin')->attempt([
-            'name' => $request->name,
-            'password' => $request->password
-        ]));
-        dd($request->all());
-        if (empty(Auth::guard('admin')->attempt([
-            'name' => $request->name,
-            'password' => $request->password
-        ]))) {
-            return ['status' => false, 'message' => '账号密码有误'];
-        }
+        $admin = Admin::where(['name' => $request->name,])->first();
+        if (empty($admin)) return ['status' => false, 'message' => '用户不存在'];
 
-        $admin = Admin::where([
-            'name' => $request->name,
-        ])->first();
-        if (empty($admin)) {
-            return ['status' => false, 'message' => '用户不存在'];
-        }
+        // 验证新密码与原密码
+        if (!Hash::check($request->password, $admin->password)) return ['status' => false, 'message' => '密码不正确'];
 
         // 返回token
         $token = $admin->createToken($request->name)->accessToken;
-        if (empty($token)) {
-            return ['status' => false, 'message' => '获取令牌失败'];
-        }
+        if (empty($token)) return ['status' => false, 'message' => '获取令牌失败'];
 
-        return $token;
+        return ['status' => true, 'token' => $token];
     }
-    
-    
+
+    /**
+     * 说明: 退出登录
+     *
+     * @param $guard
+     * @return array
+     * @author 罗振
+     */
+    public function logout($guard)
+    {
+        $user = Auth::guard($guard)->user();
+        if (empty($user)) return ['status' => false, 'message' => '暂未登录'];
+
+        $accessToken = $user->access_token;
+
+        $token = Token::find($accessToken);
+        if (empty($token)) return ['status' => false, 'message' => '暂无有效令牌'];
+
+        if (!empty($token->delete())) {
+            return ['status' => true, 'message' => '退出成功'];
+        } else {
+            return ['status' => true, 'message' => '退出失败'];
+        }
+    }
 }

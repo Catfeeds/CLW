@@ -10,14 +10,22 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 七牛token
     Route::get('/get_qi_niu_token', 'BannerController@token');
 
+    // 登录
     Route::resource('logins','LoginsController');
+
+    // 退出
+    Route::post('logout','LoginsController@logout');
+//    Route::group(['middleware' => 'apiAuth:admin'], function () {
+
+        Route::resource('banners','BannerController');
+//    });
 
     /*
     |--------------------------------------------------------------------------
     | banner管理
     |--------------------------------------------------------------------------
     */
-    Route::resource('banners','BannerController');
+//    Route::resource('banners','BannerController');
 
     /*
     |--------------------------------------------------------------------------

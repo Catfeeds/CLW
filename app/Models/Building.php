@@ -80,7 +80,7 @@ class Building extends Model
      */
     public function getAddressCnAttribute()
     {
-        return $this->area->name.'-'.$this->block->name;
+        return $this->area->name.'/'.$this->block->name;
     }
 
     /**

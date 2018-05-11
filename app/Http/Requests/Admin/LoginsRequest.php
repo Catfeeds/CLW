@@ -57,7 +57,7 @@ class LoginsRequest extends FormRequest
                             Admin::all()->pluck('name')->toArray()
                         )
                     ],
-                    'password' => 'required|min:4|max:18',
+                    'password' => 'required|min:6|max:18',
                 ];
             default;
                 return [

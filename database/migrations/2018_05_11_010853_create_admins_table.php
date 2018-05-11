@@ -16,7 +16,7 @@ class CreateAdminsTable extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',32)->nullable()->comment('登录账号');
-            $table->string('passport',16)->nullable()->comment('登录密码');
+            $table->string('password')->nullable()->comment('登录密码');
             $table->string('nick_name',32)->nullable()->comment('昵称');
             $table->timestamps();
         });
