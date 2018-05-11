@@ -10,6 +10,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 七牛token
     Route::get('/get_qi_niu_token', 'BannerController@token');
 
+    Route::resource('logins','LoginsController');
+
     /*
     |--------------------------------------------------------------------------
     | banner管理

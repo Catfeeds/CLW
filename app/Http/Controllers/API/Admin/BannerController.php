@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\QiNiu;
 use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use App\Repositories\BannerRepository;
+use Illuminate\Support\Facades\Auth;
 
 class BannerController extends APIBaseController
 {
@@ -24,6 +25,7 @@ class BannerController extends APIBaseController
         BannerRepository $bannerRepository
     )
     {
+        dd(Auth::guard('admin')->user());
         $res = $bannerRepository->bannerList();
         return $this->sendResponse($res,'banner列表获取成功');
     }
