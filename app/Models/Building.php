@@ -120,7 +120,7 @@ class Building extends Model
     public function getImgCnAttribute()
     {
         if (empty($this->album)) {
-            return '';
+            return config('setting.building_default_img');
         } else {
             return config('setting.qiniu_url').$this->album[0];
         }

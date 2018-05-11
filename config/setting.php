@@ -24,4 +24,9 @@ return [
     'float_price' => 100,
     //浮动面积
     'float_acreage' => 100,
+
+    // 楼盘默认图片
+    'building_default_img' => 'https://cdn.chulouwang.com/app/imgs/building_none.jpg',
+    // 房源默认图片
+    'house_default_img' => 'https://cdn.chulouwang.com/app/imgs/house_none.jpg'
 ];
