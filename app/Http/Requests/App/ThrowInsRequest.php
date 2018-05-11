@@ -17,12 +17,27 @@ class ThrowInsRequest extends FormRequest
         return true;
     }
 
+
+    public function messages()
+    {
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'tel.unique' => '不能重复投放房源'
+                ];
+            default;
+                return [
+
+                ];
+        }
+    }
+
     public function rules()
     {
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'tel' => 'required|max:16'
+                    'tel' => 'required|max:16|unique:throw_ins'
                 ];
             case 'update':
                 return [

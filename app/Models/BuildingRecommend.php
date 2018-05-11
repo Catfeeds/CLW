@@ -5,7 +5,7 @@ namespace App\Models;
 class BuildingRecommend extends BaseModel
 {
     protected $appends = [
-      'img_cn', 'array_id_cn', 'pic_url_cn'
+      'img_cn', 'array_id_cn', 'pic_url_cn', 'area_block_name'
     ];
 
     /**
@@ -51,4 +51,12 @@ class BuildingRecommend extends BaseModel
         $data[] = $this->building->id;
         return $data;
     }
+
+
+    //获取区域商圈名称
+    public function getAreaBlockNameAttribute()
+    {
+        return $this->building->getAddressCnAttribute();
+    }
+
 }
