@@ -18,7 +18,7 @@ class Building extends Model
     protected $connection = 'media';
 
     protected $appends = ['label_cn', 'feature_cn', 'address_cn',
-        'pic_url_cn', 'house_number_cn', 'house_price_cn'];
+        'pic_url_cn', 'house_number_cn', 'house_price_cn', 'address_type', 'img_cn'];
 
     // 楼座
     public function buildingBlock()
@@ -80,6 +80,18 @@ class Building extends Model
      */
     public function getAddressCnAttribute()
     {
+        return $this->area->name.'-'.$this->block->name;
+    }
+
+    /**
+     * 说明: 地址
+     *
+     * @return string
+     * @use address_type
+     * @author 罗振
+     */
+    public function getAddressTypeAttribute()
+    {
         return $this->area->name.'/'.$this->block->name;
     }
 
@@ -98,6 +110,22 @@ class Building extends Model
             ];
         });
     }
+
+    /**
+     * 说明: 楼盘默认图片
+     *
+     * @return string
+     * @author 罗振
+     */
+    public function getImgCnAttribute()
+    {
+        if (empty($this->album)) {
+            return '';
+        } else {
+            return config('setting.qiniu_url').$this->album[0];
+        }
+    }
+
 
     //楼盘关联房源
     public function house()

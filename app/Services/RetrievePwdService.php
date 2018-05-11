@@ -33,8 +33,6 @@ class RetrievePwdService
         if (empty($telCaptcha)) return ['status' => false, 'message' => '验证码失效,请重新发送短息'];
         // 判断验证码是否正确
         if ($request->smsCode != $telCaptcha) return ['status' => false, 'message' => '手机验证码错误，请重新输入'];
-        // 验证成功，删除验证码
-        $masterRedis->delKey($key);
 
         // 验证新密码与原密码
         if (Hash::check($request->password, $user->password)) {
@@ -43,6 +41,9 @@ class RetrievePwdService
 
         $user->password = bcrypt($request->password);
         if (!$user->save()) return ['status' => false, 'message' => '密码修改失败'];
+
+        // 密码修改成功，删除验证码
+        $masterRedis->delKey($key);
 
         return ['status' => true, 'message' => '密码修改成功'];
     }

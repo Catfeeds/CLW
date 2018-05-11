@@ -28,8 +28,6 @@ class AuthServiceProvider extends ServiceProvider
 
         // 会注册一些在访问令牌、客户端、私人访问令牌的发放和吊销过程中会用到的必要路由
         Passport::routes();
-        // 简化授权
-        // Passport::enableImplicitGrant();
         // 定义令牌作用域
         Passport::tokensCan(config('passport.scopes'));
         // 访问令牌有效期（天）
