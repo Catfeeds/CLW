@@ -11,6 +11,6 @@ class OfficeSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\OfficeBuildingHouse::class, 100)->create();
+        factory(\App\Models\OfficeBuildingHouse::class, 10000)->create();
     }
 }

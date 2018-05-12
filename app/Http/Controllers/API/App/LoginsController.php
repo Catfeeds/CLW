@@ -28,7 +28,6 @@ class LoginsController extends APIBaseController
             return $this->sendError('用户不存在');
         }
         $passport = $loginsService->applyPasswordToken($request->tel, $request->password);
-
         if (empty($passport['success'])) {
             return $this->sendError($passport['message']);
         }
