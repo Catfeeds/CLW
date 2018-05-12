@@ -21,8 +21,10 @@ class BuildingsController extends APIBaseController
         Request $request
     )
     {
+        \DB::enableQueryLog();
         $res = $buildingsRepository->buildingList($request);
-        return $this->sendResponse($res,'显示楼盘分页列表');
+        return view('home')->with('res', $res);
+//        return $this->sendResponse($res,'显示楼盘分页列表');
     }
 
     /**
