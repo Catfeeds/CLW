@@ -149,8 +149,12 @@ class BuildingsRepository extends  Model
         $buildingsBlocks = $houses->get()->groupBy('building_block_id');
 
         // 将房源根据
+        $buildingsBlockIds = $buildingsBlocks->keys();
+        $buildingsBlocksData = BuildingBlock::find($buildingsBlockIds);
         foreach ($buildingsBlocks as $index => $buildingsBlock) {
-            $buildingsBlock->buildingId = BuildingBlock::find($index)->building_id;
+            // 当前的楼座
+            $buildingBlockCurr = $buildingsBlocksData->find($index);
+            $buildingsBlock->buildingId = $buildingBlockCurr->building_id;
         }
 
         $buildings = $buildingsBlocks->groupBy('buildingId');
