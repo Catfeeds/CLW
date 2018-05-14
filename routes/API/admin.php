@@ -120,7 +120,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     |--------------------------------------------------------------------------
     */
     // 推荐商圈列表数据
-    Route::get('all_building_blocks', 'AreaController@allBuildingBlock');
-
+    Route::get('all_building_blocks', 'BlocksController@allBuildingBlock');
+    // 推荐商圈
+    Route::resource('blocks', 'BlocksController');
 
 });

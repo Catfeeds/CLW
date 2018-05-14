@@ -23,9 +23,4 @@ class Area extends Model
     {
         return $this->hasMany(Building::class);
     }
-
-    public function block()
-    {
-        return $this->hasMany(Block::class);
-    }
 }
