@@ -22,7 +22,9 @@ class BespeaksRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'tel' => 'required|max:16'
+                    'tel' => 'required|max:16',
+                    'appellation' => 'required|max:32',
+                    'demand' => 'nullable'
                 ];
             case 'update':
                 return [

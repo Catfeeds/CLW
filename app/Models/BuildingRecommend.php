@@ -5,7 +5,7 @@ namespace App\Models;
 class BuildingRecommend extends BaseModel
 {
     protected $appends = [
-      'img_cn', 'array_id_cn', 'pic_url_cn', 'area_block_name'
+      'img_cn', 'array_id_cn', 'pic_url_cn', 'area_block_name', 'building_name'
     ];
 
     /**
@@ -41,9 +41,12 @@ class BuildingRecommend extends BaseModel
         return $this->belongsTo('App\Models\Building');
     }
 
-
-
-    //获取市 区域 楼盘 的ID
+    /**
+     * 说明: 获取市 区域 楼盘 的ID
+     *
+     * @return array
+     * @author 刘坤涛
+     */
     public function getArrayIdCnAttribute()
     {
         $data[] =  $this->building->area->city->id;
@@ -52,11 +55,26 @@ class BuildingRecommend extends BaseModel
         return $data;
     }
 
-
-    //获取区域商圈名称
+    /**
+     * 说明: 获取区域商圈名称
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
     public function getAreaBlockNameAttribute()
     {
         return $this->building->getAddressCnAttribute();
+    }
+
+    /**
+     * 说明: 楼盘名称
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getBuildingNameAttribute()
+    {
+        return $this->building->name;
     }
 
 }

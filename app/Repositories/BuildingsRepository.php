@@ -48,7 +48,7 @@ class BuildingsRepository extends  Model
             // 房源数量
             $buildingData[$index]->house_count = $buildings[$v->id]->count();
             // 价格
-            $buildingData[$index]->avg_price = $buildings[$v->id]->avg('unit_price');
+            $buildingData[$index]->avg_price = round($buildings[$v->id]->avg('unit_price'), 2);
             // 工位
             $buildingData[$index]->station_num = $this->buildingStationNum($buildings[$v->id]);
         }
@@ -281,8 +281,8 @@ class BuildingsRepository extends  Model
             $buildingId = array_column(Area::find($condition->area_id)->building->flatten()->toArray(), 'id');
             $result = $result->whereIn('id', $buildingId);
         }
+        return  $result->paginate($per_page??10);
 
-        return $result->paginate($per_page??10);
     }
 
     /**
@@ -395,7 +395,7 @@ class BuildingsRepository extends  Model
              $building->greening_rate = $request->greening_rate;
              $building->company = $request->company;
              $building->album = $request->album;
-             if ($building->save()) throw new \Exception('楼盘修改失败');
+            if (!$building->save()) throw new \Exception('楼盘修改失败');
             // 查询查该楼盘已经有的特色
             $features = BuildingHasFeature::where('building_id', $building->id)->pluck('building_feature_id')->toArray();
              // 获取要修改的特色
