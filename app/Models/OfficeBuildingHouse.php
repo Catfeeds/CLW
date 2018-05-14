@@ -60,7 +60,7 @@ class OfficeBuildingHouse extends Model
         if (!empty($this->constru_acreage)) {
             $string .= '-'.$this->constru_acreage.'㎡';
         }
-        
+
         return $string;
     }
 
@@ -257,7 +257,7 @@ class OfficeBuildingHouse extends Model
         if (empty($this->check_in_time)) {
             return '';
         } else {
-            return $this->check_in_time->format('Y-m-d');
+            return $this->check_in_time;
         }
     }
 

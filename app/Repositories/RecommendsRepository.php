@@ -57,15 +57,15 @@ class RecommendsRepository extends Model
     }
 
     /**
-     * 说明: 首页点击精品推荐跳转到楼盘列表
+     * 说明：首页点击精品推荐跳转到楼盘列表
      *
-     * @param $recommend
+     * @param $building_id
      * @return mixed
-     * @author 刘坤涛
+     * @author jacklin
      */
-    public function getBuildingList($recommend)
+    public function getBuildingList($building_id)
     {
-        return Building::whereIn('id', $recommend->building_id)->get();
+        return Building::whereIn('id', $building_id)->get();
     }
 
 

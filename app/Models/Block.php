@@ -23,6 +23,7 @@ class Block extends Model
      */
     public function getBuildingsNumberCnAttribute()
     {
+        // TODO
         return Building::where('block_id', $this->id)->count();
     }
 

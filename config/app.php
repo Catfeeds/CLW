@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         // passport
         Laravel\Passport\PassportServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
