@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\Area;
 use App\Models\Block;
 use App\Models\Building;
 use App\Models\BuildingFeature;
@@ -120,14 +121,14 @@ class BuildingsRepository extends  Model
         $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks);
 
         // 面积
-        if (!empty($request->acreage)) $houses = $houses->whereIn('constru_acreage', $request->acreage);
+        if (!empty($request->acreage)) $houses = $houses->whereBetween('constru_acreage', $request->acreage);
 
         if (!empty($request->total_price)) {
             // 总价
-            $houses = $houses->where('rent_price_unit', 1)->whereIn('rent_price', $request->total_price);
+            $houses = $houses->where('rent_price_unit', 1)->whereBetween('rent_price', $request->total_price);
         } elseif (!empty($request->unit_price)) {
             // 单价
-            $houses = $houses->where('rent_price_unit', 2)->whereIn('rent_price', $request->unit_price);
+            $houses = $houses->where('rent_price_unit', 2)->whereBetween('rent_price', $request->unit_price);
         }
 
         // 装修
@@ -176,6 +177,7 @@ class BuildingsRepository extends  Model
      */
     public function getShow($building)
     {
+
         $constru_acreage=[];
         $price =[];
         $station_number = [];
@@ -263,14 +265,24 @@ class BuildingsRepository extends  Model
     }
 
     /**
-     * 说明: 获取楼盘列表
+     * 说明: 楼盘分页列表
      *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @param $per_page
+     * @param $condition
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      * @author 刘坤涛
      */
-    public function buildingLists()
+    public function buildingLists($per_page, $condition)
     {
-        return Building::all();
+        $result = Building::with('buildingBlock')->orderBy('updated_at', 'desc');
+        if (!empty($condition->building_id)) {
+            $result = $result->where(['id' => $condition->building_id]);
+        } elseif(!empty($condition->area_id)) {
+            $buildingId = array_column(Area::find($condition->area_id)->building->flatten()->toArray(), 'id');
+            $result = $result->whereIn('id', $buildingId);
+        }
+
+        return $result->paginate($per_page??10);
     }
 
     /**
@@ -384,31 +396,32 @@ class BuildingsRepository extends  Model
              $building->company = $request->company;
              $building->album = $request->album;
              if ($building->save()) throw new \Exception('楼盘修改失败');
-             // 获取要修改的特色
-            $buildingFeatures = $request->building_feature;
             // 查询查该楼盘已经有的特色
             $features = BuildingHasFeature::where('building_id', $building->id)->pluck('building_feature_id')->toArray();
-
-            //修改特色-已有特色,得到要添加的特色
-            $addFeature = array_diff($buildingFeatures, $features);
-            if (!empty($addFeature)) {
-                $res = BuildingHasFeature::where('building_id', $building->id)->whereIn('building_feature_id', $addFeature)->get();
-                if (!$res->isEmpty()) throw new \Exception('楼盘特色不能重复添加');
-                foreach($addFeature as $v) {
-                    BuildingHasFeature::create([
-                        'building_id' => $building->id,
-                        'building_feature_id' => $v
-                    ]);
+             // 获取要修改的特色
+            $buildingFeatures = $request->building_feature;
+            if (!empty($buildingFeatures)) {
+                //修改特色-已有特色,得到要添加的特色
+                $addFeature = array_diff($buildingFeatures, $features);
+                if (!empty($addFeature)) {
+                    $res = BuildingHasFeature::where('building_id', $building->id)->whereIn('building_feature_id', $addFeature)->get();
+                    if (!$res->isEmpty()) throw new \Exception('楼盘特色不能重复添加');
+                    foreach($addFeature as $v) {
+                        BuildingHasFeature::create([
+                            'building_id' => $building->id,
+                            'building_feature_id' => $v
+                        ]);
+                    }
                 }
-            }
-            //已有特色-修改特色,得到要删除的特色
-            $delFeature = array_diff($features, $buildingFeatures);
-            if (!empty($delFeature)) {
-                foreach($delFeature as $v) {
-                    BuildingHasFeature::where([
-                        'building_id' => $building->id,
-                        'building_feature_id' => $v
-                    ])->delete();
+                //已有特色-修改特色,得到要删除的特色
+                $delFeature = array_diff($features, $buildingFeatures);
+                if (!empty($delFeature)) {
+                    foreach($delFeature as $v) {
+                        BuildingHasFeature::where([
+                            'building_id' => $building->id,
+                            'building_feature_id' => $v
+                        ])->delete();
+                    }
                 }
             }
             DB::connection('mysql')->commit();

@@ -31,8 +31,7 @@ class BuildingsController extends APIBaseController
      */
     public function index()
     {
-        
-        $res = $this->repo->buildingLists();
+        $res = $this->repo->buildingLists($this->req->per_page, json_decode($this->req->condition));
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 
@@ -64,6 +63,7 @@ class BuildingsController extends APIBaseController
      */
     public function edit(Building $building)
     {
+        $building->building_block = $building->buildingBlock;
         return $this->sendResponse($building, '修改楼盘之前原始数据');
     }
 
@@ -118,12 +118,8 @@ class BuildingsController extends APIBaseController
      */
     public function buildingFeatureList()
     {
-        $res = $this->repo->getBuildingFeatureList();
-        return $res->map(function($v) {
-            return [
-                'label' => $v->name,
-                'value' => $v->id
-            ];
-        });
+        $res = $this->repo->getBuildingFeatureList()->pluck('name', 'id')->toArray();
+        return $this->sendResponse($res, '获取楼盘特色下拉数据成功');
+
     }
 }

@@ -12,9 +12,15 @@ class Area extends Model
 
     protected $connection = 'media';
 
-
+    // 城市
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+    //楼盘
+    public function building()
+    {
+        return $this->hasMany(Building::class);
     }
 }

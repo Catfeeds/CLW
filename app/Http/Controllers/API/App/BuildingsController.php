@@ -12,6 +12,7 @@ class BuildingsController extends APIBaseController
      * 说明: 首页楼盘分页列表
      *
      * @param BuildingsRepository $buildingsRepository
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */

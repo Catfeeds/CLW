@@ -69,7 +69,7 @@ class Building extends Model
      */
     public function getFeatureCnAttribute()
     {
-        return $this->features;
+        return $this->features->pluck('name', 'id')->toArray();
     }
 
     /**
@@ -155,4 +155,6 @@ class Building extends Model
     {
         if ($this->house && $this->house->sum('unit_price')) return $this->house->sum('unit_price') / $this->house_number_cn;
     }
+    
+
 }
