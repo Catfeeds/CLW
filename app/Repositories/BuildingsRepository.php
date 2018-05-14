@@ -391,7 +391,7 @@ class BuildingsRepository extends  Model
              $building->greening_rate = $request->greening_rate;
              $building->company = $request->company;
              $building->album = $request->album;
-             if ($building->save()) throw new \Exception('楼盘修改失败');
+            if (!$building->save()) throw new \Exception('楼盘修改失败');
             // 查询查该楼盘已经有的特色
             $features = BuildingHasFeature::where('building_id', $building->id)->pluck('building_feature_id')->toArray();
              // 获取要修改的特色
