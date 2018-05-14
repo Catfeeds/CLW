@@ -281,8 +281,8 @@ class BuildingsRepository extends  Model
             $buildingId = array_column(Area::find($condition->area_id)->building->flatten()->toArray(), 'id');
             $result = $result->whereIn('id', $buildingId);
         }
+        return  $result->paginate($per_page??10);
 
-        return $result->paginate($per_page??10);
     }
 
     /**

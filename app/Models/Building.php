@@ -18,7 +18,7 @@ class Building extends Model
     protected $connection = 'media';
 
     protected $appends = ['label_cn', 'feature_cn', 'address_cn',
-        'pic_url_cn', 'house_number_cn', 'house_price_cn', 'address_type', 'img_cn'];
+        'pic_url_cn', 'house_number_cn', 'house_price_cn', 'address_type', 'img_cn', 'type_label'];
 
     // 楼座
     public function buildingBlock()
@@ -154,6 +154,24 @@ class Building extends Model
     public function getHousePriceCnAttribute()
     {
         if ($this->house && $this->house->sum('unit_price')) return $this->house->sum('unit_price') / $this->house_number_cn;
+    }
+
+    /**
+     * 说明：楼盘类型信息
+     *
+     * @return string
+     * @author jacklin
+     */
+    public function getTypeLabelAttribute()
+    {
+        switch ($this->type) {
+            case 1:
+                return '住宅';
+            case 2:
+                return '写字楼';
+            case 3:
+                return '商铺';
+        }
     }
     
 
