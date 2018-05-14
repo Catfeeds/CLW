@@ -3,9 +3,10 @@
 namespace App\Http\Requests\App;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
-
-class ThrowInsRequest extends FormRequest
+class CollectionsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,33 +18,32 @@ class ThrowInsRequest extends FormRequest
         return true;
     }
 
-
     public function messages()
     {
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'area_id.exists' =>'区域不存在',
-                    'block_id.exists' => '商圈不存在',
-                ];
-            default;
-                return [
-
+                    'house_id.exists' => '房源必须存在',
+                    'house_id.unique' => '不能重复收藏'
                 ];
         }
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'tel' => 'required|max:16',
-                    'appellation' => 'required|max:32',
-                    'area_id' => 'required|exists:media.areas,id',
-                    'block_id' => 'nullable|exists:media.blocks,id',
-                    'acreage' => 'required',
-                    'building_name' => 'nullable|max:32'
+                    'house_id' => [
+                        'required',
+                        'exists:media.office_building_houses,id',
+                        Rule::unique('collections')->where('user_id', Auth::guard('api')->user()->id)
+                    ]
                 ];
             case 'update':
                 return [
@@ -55,5 +55,4 @@ class ThrowInsRequest extends FormRequest
                 ];
         }
     }
-
 }

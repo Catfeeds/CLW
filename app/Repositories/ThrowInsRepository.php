@@ -13,11 +13,16 @@ class ThrowInsRepository extends Model
         \DB::beginTransaction();
         try {
             $throwIn = ThrowIn::create([
-                'tel' => $request->tel
+                'tel' => $request->tel,
+                'appellation' => $request->appellation,
+                'area_id' => $request->area_id,
+                'block_id' => $request->block_id,
+                'acreage' => $request->acreage,
+                'building_name' => $request->building_name
             ]);
             if (!$throwIn) throw new \Exception('投放房源添加失败');
             $message = MessageRecord::create([
-                'model_type' => 'App\\Models\\ThrowIn',
+                'model_type' => 'App\Models\ThrowIn',
                 'rel_id' => $throwIn->id
             ]);
             if (!$message) throw new \Exception('投放房源添加事变');

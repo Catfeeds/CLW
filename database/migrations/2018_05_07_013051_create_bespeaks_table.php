@@ -15,7 +15,9 @@ class CreateBespeaksTable extends Migration
     {
         Schema::create('bespeaks', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('appellation', 32)->nullable()->comment('称谓');
             $table->string('tel', 16)->nullable()->comment('手机号');
+            $table->text('demand', 16)->nullable()->comment('需求');
             $table->timestamps();
             $table->softDeletes();
         });

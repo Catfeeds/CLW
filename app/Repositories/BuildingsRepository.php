@@ -48,7 +48,7 @@ class BuildingsRepository extends  Model
             // 房源数量
             $buildingData[$index]->house_count = $buildings[$v->id]->count();
             // 价格
-            $buildingData[$index]->avg_price = $buildings[$v->id]->avg('unit_price');
+            $buildingData[$index]->avg_price = round($buildings[$v->id]->avg('unit_price'), 2);
             // 工位
             $buildingData[$index]->station_num = $this->buildingStationNum($buildings[$v->id]);
         }

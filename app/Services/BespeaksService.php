@@ -21,6 +21,8 @@ class BespeaksService
             // 添加预约表
             $addBespeak = Bespeak::create([
                 'tel' => $request->tel,
+                'appellation' => $request->appellation,
+                'demand' => $request->demand
             ]);
             if (!$addBespeak) throw new \Exception('预约失败');
 
