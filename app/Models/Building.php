@@ -141,7 +141,7 @@ class Building extends Model
      */
     public function getHouseNumberCnAttribute()
     {
-
+        // TODO
         return $this->house->count();
     }
 
