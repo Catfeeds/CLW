@@ -33,11 +33,21 @@ class AreasController extends APIBaseController
      */
     public function BlockList
     (
-        AreasRepository $repository, $area_id
+        AreasRepository $repository,
+        $area_id
     )
     {
         $res = $repository->getBlockList($area_id);
         return $this->sendResponse($res,'该区域下的商圈获取成功');
+    }
+
+    public function findHouse()
+    {
+
+
+
+
+
     }
 
 }
