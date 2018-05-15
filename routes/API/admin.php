@@ -105,8 +105,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::post('add_building_label', 'BuildingsController@addBuildingLabel');
     // 楼盘特色下拉数据
     Route::get('building_feature_list', 'BuildingsController@buildingFeatureList');
-
-
     /*
     |--------------------------------------------------------------------------
     | 房源管理
@@ -123,7 +121,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('all_building_blocks', 'BlocksController@allBuildingBlock');
     // 推荐商圈
     Route::resource('blocks', 'BlocksController');
-
-
+    /*
+    |--------------------------------------------------------------------------
+    | 系统日志管理
+    |--------------------------------------------------------------------------
+     */
+    Route::resource('sys_logs', 'SysLogController');
 
 });
