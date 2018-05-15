@@ -24,7 +24,15 @@ class BlocksController extends APIBaseController
         return $this->sendResponse($result,'所有商圈信息获取成功');
     }
 
-
+    /**
+     * 说明: 商圈添加推荐
+     *
+     * @param BlocksRequest $request
+     * @param Block $block
+     * @param BlocksRepository $blocksRepository
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
     public function update(
         BlocksRequest $request,
         Block $block,

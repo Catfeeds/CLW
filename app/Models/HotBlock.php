@@ -5,7 +5,7 @@ namespace App\Models;
 class HotBlock extends BaseModel
 {
     protected $appends = [
-      'img_cn', 'buildings_number_cn', 'block_name_cn', 'img_url'
+      'img_cn', 'block_name_cn', 'img_url'
     ];
 
     public function block()
@@ -28,18 +28,6 @@ class HotBlock extends BaseModel
     {
         $img = config('setting.qiniu_url').$this->img;
         return $img;
-    }
-
-    /**
-     * 说明: 获取该商圈下楼盘数量
-     *
-     * @return mixed
-     * @use buildings_number_cn
-     * @author 刘坤涛
-     */
-    public function getBuildingsNumberCnAttribute()
-    {
-        return $this->building->count();
     }
 
     /**

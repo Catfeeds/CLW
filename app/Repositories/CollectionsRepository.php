@@ -8,13 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CollectionsRepository extends Model
 {
-    protected $user;
-
-    public function __construct()
-    {
-       $this->user =  $this->user();
-    }
-
     /**
      * 说明: 获取当前登录用户
      *
@@ -34,7 +27,7 @@ class CollectionsRepository extends Model
      */
     public function collectionList()
     {
-        return Collection::where('user_id', $this->user->id)->get();
+        return Collection::where('user_id', $this->user()->id)->get();
     }
 
     /**
@@ -47,7 +40,7 @@ class CollectionsRepository extends Model
     public function addCollection($request)
     {
         return Collection::create([
-            'user_id' => $this->user->id,
+            'user_id' => $this->user()->id,
             'house_id' => $request->house_id
         ]);
     }
