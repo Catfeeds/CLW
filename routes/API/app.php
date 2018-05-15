@@ -113,4 +113,11 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('collections', 'CollectionsController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 收藏
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('browse_records', 'BrowseRecordsController');
 });

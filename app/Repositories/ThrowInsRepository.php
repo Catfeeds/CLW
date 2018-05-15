@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class ThrowInsRepository extends Model
 {
+    /**
+     * 说明: 添加投放房源
+     *
+     * @param $request
+     * @return bool
+     * @author 刘坤涛
+     */
     public function addThrowIn($request)
     {
         \DB::beginTransaction();

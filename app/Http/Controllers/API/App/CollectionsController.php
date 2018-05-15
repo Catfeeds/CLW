@@ -6,20 +6,20 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\CollectionsRequest;
 use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
+use App\Services\HousesService;
 
 class CollectionsController extends APIBaseController
 {
 
-    /**
-     * 说明: 获取收藏列表
-     *
-     * @param CollectionsRepository $repository
-     * @return \Illuminate\Http\JsonResponse
-     * @author 刘坤涛
-     */
-    public function index(CollectionsRepository $repository)
+
+    public function index
+    (
+        CollectionsRepository $repository,
+        HousesService $service
+    )
     {
         $res = $repository->collectionList();
+        $service->HouseInfo($res);
         return $this->sendResponse($res, '收藏列表获取成功');
     }
 

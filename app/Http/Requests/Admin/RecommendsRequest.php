@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Models\Building;
 use App\Models\Recommend;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;

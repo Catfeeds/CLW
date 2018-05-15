@@ -17,17 +17,54 @@ class OfficeBuildingHouse extends Model
     protected static $houseName;
 
     protected $appends = [
-        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn', 'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn', 'split_cn', 'register_company_cn', 'open_bill_cn', 'class_cn', 'structure_cn', 'property_fee_cn', 'heating_cn', 'air_conditioner_cn', 'house_title', 'house_feature'
+        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
+        'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
+        'split_cn', 'register_company_cn', 'open_bill_cn', 'class_cn', 'structure_cn', 'property_fee_cn',
+        'heating_cn', 'air_conditioner_cn', 'house_title', 'house_feature', 'label_cn', 'gps_cn'
     ];
 
+    /**
+     * 说明: 图片url
+     *
+     * @return \Illuminate\Config\Repository|mixed|string
+     * @author 罗振
+     */
     public function getIndoorImgCnAttribute()
     {
         return $this->indoor_img[0]?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
     }
 
+    /**
+     * 说明: 关联楼座
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @author 罗振
+     */
     public function BuildingBlock()
     {
         return $this->belongsTo('App\Models\BuildingBlock','building_block_id','id');
+    }
+
+    /**
+     * 说明: 关联房源标签表
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @author 刘坤涛
+     */
+    public function HouseLabel()
+    {
+        return $this->hasOne(HouseLabel::class, 'house_id', 'id');
+    }
+
+    /**
+     * 说明: 楼盘标签
+     *
+     * @return bool
+     * @author 刘坤涛
+     */
+    public function getLabelCnAttribute()
+    {
+        return !empty($this->houseLabel);
     }
 
     /**
@@ -88,7 +125,7 @@ class OfficeBuildingHouse extends Model
         if (empty($this->unit_price)) {
             return '';
         } else {
-            return $this->unit_price.'元/㎡.月';
+            return $this->unit_price.'元/㎡·月';
         }
 
     }
@@ -435,7 +472,12 @@ class OfficeBuildingHouse extends Model
         }
     }
 
-    //房源特色
+    /**
+     * 说明: 获取房源特色
+     *
+     * @return array
+     * @author 刘坤涛
+     */
     public function getHouseFeatureAttribute()
     {
         $data = [];
@@ -444,4 +486,18 @@ class OfficeBuildingHouse extends Model
         $data[] = $this->getRenovationCnAttribute();
         return $data;
     }
+
+
+    /**
+     * 说明: 获取gps
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getGpsCnAttribute()
+    {
+        dd($this->BuildingBlock->Building->gps);
+        return $this->BuildingBlock->Building->gps;
+    }
+
 }
