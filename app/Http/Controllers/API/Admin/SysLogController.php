@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 
 class SysLogController extends Controller
 {
-    public function index(SysLog $log)
+    public function index(SysLog $log, Request $request)
     {
-        $res = $log->get();
+        $res = $log->get($request->date);
         return response($res, 200);
     }
 }
