@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API\App;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\OfficeBuildingHouse;
 use App\Repositories\OfficeBuildingHousesRepository;
+use App\Services\BlocksService;
+use App\Services\OfficeBuildingHousesService;
 
 class OfficeBuildingHousesController extends APIBaseController
 {
@@ -43,5 +45,27 @@ class OfficeBuildingHousesController extends APIBaseController
     {
         $res = $buildingHousesRepository->getShowOffice($id);
         return $this->sendResponse($res,'获取相关房源信息成功');
+    }
+
+    /**
+     * 说明: 找房列表区域搜索条件
+     *
+     * @param OfficeBuildingHousesService $officeBuildingHousesService
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function blockCondition(
+        OfficeBuildingHousesService $officeBuildingHousesService
+    )
+    {
+        $res = $officeBuildingHousesService->blockCondition();
+        return $this->sendResponse($res,'找房列表区域搜索条件获取成功');
+    }
+
+    public function otherCondition(
+        OfficeBuildingHousesService $officeBuildingHousesService
+    )
+    {
+        $officeBuildingHousesService->otherCondition();
     }
 }

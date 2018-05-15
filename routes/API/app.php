@@ -101,7 +101,11 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     | 找房区域搜索添加
     |--------------------------------------------------------------------------
     */
-    Route::get('find_house', 'BlocksController@findHouse');
+    // 区域搜索条件
+    Route::get('block_condition', 'OfficeBuildingHousesController@blockCondition');
+    // 其他搜索添加(装修,标签)
+    Route::get('other_condition', 'OfficeBuildingHousesController@otherCondition');
+
 
     /*
     |--------------------------------------------------------------------------
