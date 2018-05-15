@@ -11,6 +11,6 @@ class SysLogController extends Controller
     public function index(SysLog $log, Request $request)
     {
         $res = $log->get($request->date);
-        return response($res, 200);
+        return response($res);
     }
 }
