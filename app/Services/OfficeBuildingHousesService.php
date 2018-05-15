@@ -72,39 +72,38 @@ class OfficeBuildingHousesService
         // 获取所有装修情况
         $renovation = [
             [
-                'renovation_name' => '不限',
-                'renovation_type' => 'all',
+                'name' => '不限',
+                'id' => 'all',
             ],
             [
-                'renovation_name' => '豪华装修',
-                'renovation_type' => 1,
+                'name' => '豪华装修',
+                'id' => 1,
             ],
             [
-                'renovation_name' => '精装修',
-                'renovation_type' => 2,
+                'name' => '精装修',
+                'id' => 2,
             ],
             [
-                'renovation_name' => '中装修',
-                'renovation_type' => 3,
+                'name' => '中装修',
+                'id' => 3,
             ],
             [
-                'renovation_name' => '间装修',
-                'renovation_type' => 4,
+                'name' => '间装修',
+                'id' => 4,
             ],
             [
-                'renovation_name' => '毛坯',
-                'renovation_type' => 5,
+                'name' => '毛坯',
+                'id' => 5,
             ]
         ];
 
-        $features = HouseFeature::all();
+        // 特色
+        $features = HouseFeature::orderBy('weight', 'desc')->get();
         $data = array();
         $temp = array();
         $temp[0]['name'] = '不限';
         $temp[0]['id'] = 'all';
         foreach ($features as $key => $feature) {
-
-
             $temp[$key+1]['name'] = $feature->name;
             $temp[$key+1]['id'] = $feature->id;
         }
