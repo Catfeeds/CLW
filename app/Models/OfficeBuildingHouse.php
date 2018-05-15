@@ -39,11 +39,15 @@ class OfficeBuildingHouse extends Model
     {
         $string = '';
 
-        $temp = $this::with(['BuildingBlock.Building.area'])->first();
+        $temp = $this->BuildingBlock->with(['Building.area'])->first();
+        $string .= $temp->Building->area->name;
+        $string .= '['.$temp->Building->name.']';
 
-        $string .= $temp->BuildingBlock->Building->area->name;
 
-        $string .= '['.$temp->BuildingBlock->Building->name.']';
+//        $temp = $this::with(['BuildingBlock.Building.area'])->first();
+//        $string .= $temp->BuildingBlock->Building->area->name;
+//        $string .= '['.$temp->BuildingBlock->Building->name.']';
+
 
         if (!empty($this->office_building_type)) {
             $string .= $this->getOfficeBuildingTypeCnAttribute();
@@ -102,7 +106,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getTotalPriceCnAttribute()
     {
-        return $this->unit_price * $this->constru_acreage.'元/月';
+        return empty($this->unit_price * $this->constru_acreage)?'':$this->unit_price * $this->constru_acreage.'元/月';
     }
 
     /**
@@ -432,8 +436,4 @@ class OfficeBuildingHouse extends Model
         $data[] = $this->getRenovationCnAttribute();
         return $data;
     }
-
-
-
-
 }

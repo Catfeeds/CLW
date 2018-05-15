@@ -18,7 +18,7 @@ class Building extends Model
     protected $connection = 'media';
 
     protected $appends = ['label_cn', 'feature_cn', 'address_cn',
-        'pic_url_cn', 'house_number_cn', 'house_price_cn', 'address_type', 'img_cn',
+        'pic_url_cn', 'address_type', 'img_cn',
         'type_label', 'feature'];
 
     // 楼座
@@ -49,6 +49,12 @@ class Building extends Model
     public function area()
     {
         return $this->belongsTo(Area::class);
+    }
+
+    //楼盘关联房源
+    public function house()
+    {
+        return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class);
     }
 
     /**
@@ -137,36 +143,6 @@ class Building extends Model
         } else {
             return config('setting.qiniu_url').$this->album[0];
         }
-    }
-
-
-    //楼盘关联房源
-    public function house()
-    {
-        return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class);
-    }
-
-    /**
-     * 说明: 获取该楼盘下的房源数量
-     *
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function getHouseNumberCnAttribute()
-    {
-        // TODO
-        return $this->house->count();
-    }
-
-    /**
-     * 说明: 该楼盘下的房源单价
-     *
-     * @return float|int
-     * @author 刘坤涛
-     */
-    public function getHousePriceCnAttribute()
-    {
-        if ($this->house && $this->house->sum('unit_price')) return $this->house->sum('unit_price') / $this->house_number_cn;
     }
 
     /**

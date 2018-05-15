@@ -29,7 +29,7 @@ class BuildingsRepository extends  Model
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
-        $buildingData = Building::whereIn('id', $buildings->keys())->with('block')->with('features')->paginate($request->per_page);
+        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label'])->paginate($request->per_page);
 
         return $this->buildingDataComplete($buildings, $buildingData);
     }
@@ -233,32 +233,19 @@ class BuildingsRepository extends  Model
            $OfficeBuildingHouse[] = $buildingBlock->OfficeBuildingHouse;
         }
 
-        $houses = collect($OfficeBuildingHouse)->flatten()->toArray();
+        $houses = collect($OfficeBuildingHouse)->flatten();
 
         foreach($houses as $getId)
         {
-            $arrId[] = $getId['id'];
+            $arrId[] = $getId->id;
         }
 
-        $res = OfficeBuildingHouse::whereIn('id', $arrId)->paginate(6);
+        $res = OfficeBuildingHouse::whereIn('id', $arrId)->with(['BuildingBlock', ])->paginate(6);
 
         foreach ($res as $office)
         {
-            if($office->rent_price_unit == 2 && !empty($office->constru_acreage) && !empty($office->rent_price))
-            {
-                // 总价
-                $office->priceArr = $office->rent_price*$office->constru_acreage.'元/月';
-                // 单价
-                $office->unitPrice =$office->rent_price.'元/㎡.月';
-            } elseif ($office->rent_price_unit == 1 && !empty($office->constru_acreage) && !empty($office->rent_price)) {
-                // 总价
-                $office->priceArr = $office->rent_price.'元/月';
-                // 单价
-                $office->unitPrice = $office->constru_acreage/$office->priceArr.'元/㎡.月';
-            } else {
-                $office->priceArr = 0;
-                $office->unitPrice = 0;
-            }
+            $office->unitPrice = empty($office->unit_price)?'':$office->unit_price.'元/㎡.月';
+            $office->priceArr = empty($office->unit_price * $office->constru_acreage)?'':$office->unit_price * $office->constru_acreage.'元/月';
         }
 
         return $res;

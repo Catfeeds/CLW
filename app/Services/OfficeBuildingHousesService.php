@@ -36,14 +36,14 @@ class OfficeBuildingHousesService
         $recommendBlocksData['block_list'] = $blocks;
 
         // 通过区域获取商圈
-        $areas = Area::all();
+        $areas = Area::with('block')->get();
+
         foreach ($areas as $k => $area) {
             $res[$k+1]['name'] = $area->name;
             $res[$k+1]['area_id'] = $area->id;
             // 获取楼盘数据
             $block_list = array();
-            $blockDatas = Block::where('area_id', $area->id)->withCount('building')->get();
-
+            $blockDatas = $area->block;
             foreach ($blockDatas as $key => $val) {
                 // 拼接数据
                 $block_list[0]['name'] = '';

@@ -134,7 +134,6 @@ class LoginsService
         if (empty($user)) return ['status' => false, 'message' => '暂未登录'];
 
         $accessToken = $user->access_token;
-
         $token = Token::find($accessToken);
         if (empty($token)) return ['status' => false, 'message' => '暂无有效令牌'];
 
