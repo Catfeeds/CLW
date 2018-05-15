@@ -61,6 +61,12 @@ class OfficeBuildingHousesService
         return array_prepend($res, $recommendBlocksData);
     }
 
+    /**
+     * 说明: 找房列表其他搜索条件
+     *
+     * @return array
+     * @author 罗振
+     */
     public function otherCondition()
     {
         // 获取所有装修情况

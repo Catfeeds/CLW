@@ -62,10 +62,18 @@ class OfficeBuildingHousesController extends APIBaseController
         return $this->sendResponse($res,'找房列表区域搜索条件获取成功');
     }
 
+    /**
+     * 说明: 找房列表其他搜索条件
+     *
+     * @param OfficeBuildingHousesService $officeBuildingHousesService
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
     public function otherCondition(
         OfficeBuildingHousesService $officeBuildingHousesService
     )
     {
-        $officeBuildingHousesService->otherCondition();
+        $res = $officeBuildingHousesService->otherCondition();
+        return $this->sendResponse($res,'找房列表其他搜索条件获取成功');
     }
 }
