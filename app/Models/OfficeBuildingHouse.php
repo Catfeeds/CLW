@@ -488,7 +488,6 @@ class OfficeBuildingHouse extends Model
      */
     public function getGpsCnAttribute()
     {
-        dd($this->BuildingBlock->Building->gps);
         return $this->BuildingBlock->Building->gps;
     }
 
