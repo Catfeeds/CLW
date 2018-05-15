@@ -14,8 +14,6 @@ class OfficeBuildingHouse extends Model
         'indoor_img' => 'array',
     ];
 
-    protected static $houseName;
-
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
@@ -76,24 +74,12 @@ class OfficeBuildingHouse extends Model
      */
     public function getHouseTitleAttribute()
     {
-        if (empty(self::$houseName)) {
-            $string = '';
-            $temp = $this->BuildingBlock->with(['Building.area'])->first();
-            $string .= $temp->Building->area->name;
-            $string .= '['.$temp->Building->name.']';
-            self::$houseName = $string;
-        }
+        $string = '';
 
-//        $temp = $this->BuildingBlock->with(['Building.area'])->first();
-//        $string .= $temp->Building->area->name;
-//        $string .= '['.$temp->Building->name.']';
+        $temp = $this->BuildingBlock->with(['Building.area'])->first();
+        $string .= $temp->Building->area->name;
+        $string .= '['.$temp->Building->name.']';
 
-
-//        $temp = $this::with(['BuildingBlock.Building.area'])->first();
-//        $string .= $temp->BuildingBlock->Building->area->name;
-//        $string .= '['.$temp->BuildingBlock->Building->name.']';
-
-        $string = self::$houseName;
         if (!empty($this->office_building_type)) {
             $string .= $this->getOfficeBuildingTypeCnAttribute();
         }
@@ -496,7 +482,6 @@ class OfficeBuildingHouse extends Model
      */
     public function getGpsCnAttribute()
     {
-        dd($this->BuildingBlock->Building->gps);
         return $this->BuildingBlock->Building->gps;
     }
 
