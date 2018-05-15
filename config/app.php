@@ -179,6 +179,7 @@ return [
         // passport
         Laravel\Passport\PassportServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*

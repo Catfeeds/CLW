@@ -124,4 +124,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 推荐商圈
     Route::resource('blocks', 'BlocksController');
 
+    /*
+    |--------------------------------------------------------------------------
+    | 系统日志管理
+    |--------------------------------------------------------------------------
+     */
+    Route::resource('sys_logs', 'SysLogController');
+
 });
