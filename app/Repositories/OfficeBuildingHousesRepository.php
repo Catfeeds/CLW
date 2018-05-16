@@ -39,12 +39,19 @@ class OfficeBuildingHousesRepository extends Model
         }
 
         // 查询这个房源周边房源
-        return OfficeBuildingHouse::where('id', '!=', $id)
+        $houses = OfficeBuildingHouse::where('id', '!=', $id)
             ->where('constru_acreage', '>', $house->constru_acreage - config('setting.float_acreage'))
             ->where('constru_acreage', '<', $house->constru_acreage + config('setting.float_acreage'))
             ->where('unit_price', '>', $house->unit_price - config('setting.float_price'))
             ->where('unit_price', '<', $house->unit_price + config('setting.float_price'))
+            ->with(['BuildingBlock', 'HouseLabel'])
             ->paginate(6);
+
+        foreach ($houses as $house) {
+            $house->label_cn = !empty($house->house_label);
+        }
+
+        return $houses;
     }
 
     /**

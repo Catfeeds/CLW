@@ -19,4 +19,9 @@ class BuildingBlock extends Model
     {
         return $this->belongsTo('App\Models\Building','building_id','id');
     }
+
+    public function house()
+    {
+        return $this->hasMany('App\Models\OfficeBuildingHouse', 'building_block_id', 'id');
+    }
 }

@@ -28,7 +28,4 @@ class ServiceRecommendsController extends APIBaseController
        $res = $this->repo->getList();
        return $this->sendResponse($res,'获取推荐服务列表');
     }
-
-
-
 }

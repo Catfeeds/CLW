@@ -240,7 +240,7 @@ class BuildingsRepository extends  Model
             $arrId[] = $getId->id;
         }
 
-        $res = OfficeBuildingHouse::whereIn('id', $arrId)->with(['BuildingBlock', ])->paginate(6);
+        $res = OfficeBuildingHouse::whereIn('id', $arrId)->with(['BuildingBlock'])->paginate(6);
 
         foreach ($res as $office)
         {
