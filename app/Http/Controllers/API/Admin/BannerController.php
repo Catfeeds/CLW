@@ -25,7 +25,6 @@ class BannerController extends APIBaseController
         BannerRepository $bannerRepository
     )
     {
-        dd(Auth::guard('admin')->user());
         $res = $bannerRepository->bannerList();
         return $this->sendResponse($res,'banner列表获取成功');
     }

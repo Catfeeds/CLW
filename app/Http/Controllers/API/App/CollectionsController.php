@@ -10,8 +10,14 @@ use App\Services\HousesService;
 
 class CollectionsController extends APIBaseController
 {
-
-
+    /**
+     * 说明: 收藏列表
+     *
+     * @param CollectionsRepository $repository
+     * @param HousesService $service
+     * @return \Illuminate\Http\JsonResponse
+     * @author 刘坤涛
+     */
     public function index
     (
         CollectionsRepository $repository,
