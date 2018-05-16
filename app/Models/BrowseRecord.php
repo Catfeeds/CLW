@@ -7,5 +7,4 @@ use Illuminate\Database\Eloquent\Model;
 class BrowseRecord extends Model
 {
     protected $guarded = [];
-
 }

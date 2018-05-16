@@ -39,10 +39,10 @@ class ThrowInsRequest extends FormRequest
             case 'POST':
                 return [
                     'tel' => 'required|max:16',
-                    'appellation' => 'required|max:32',
-                    'area_id' => 'required|exists:media.areas,id',
+                    'appellation' => 'nullable|max:32',
+                    'area_id' => 'nullable|exists:media.areas,id',
                     'block_id' => 'nullable|exists:media.blocks,id',
-                    'acreage' => 'required',
+                    'acreage' => 'nullable',
                     'building_name' => 'nullable|max:32'
                 ];
             case 'update':

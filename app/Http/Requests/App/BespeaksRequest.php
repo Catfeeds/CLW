@@ -23,7 +23,7 @@ class BespeaksRequest extends FormRequest
             case 'store':
                 return [
                     'tel' => 'required|max:16',
-                    'appellation' => 'required|max:32',
+                    'appellation' => 'nullable|max:32',
                     'demand' => 'nullable'
                 ];
             case 'update':

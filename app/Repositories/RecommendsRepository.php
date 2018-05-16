@@ -65,8 +65,27 @@ class RecommendsRepository extends Model
      */
     public function getBuildingList($building_id)
     {
-        return Building::whereIn('id', $building_id)->get();
+        $buildings = Building::whereIn('id', $building_id)->get();
+
+        foreach ($buildings as $v) {
+            $price = array_sum($v->house->pluck('unit_price')->toArray());
+            $count = $v->house->count();
+
+            // 单价
+            if (empty($price)) {
+                $v->price = '';
+            } else {
+                $v->price = $price / $v->count.'元/㎡.月';
+            }
+
+            // 数量
+            if (empty($count)) {
+                $v->count = '';
+            } else {
+                $v->count = $count.'套';
+            }
+        }
+
+        return $buildings;
     }
-
-
 }
