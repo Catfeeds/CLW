@@ -42,6 +42,20 @@ class SystemNoticesController extends APIBaseController
     }
 
     /**
+     * 说明: 获取修改前系统公告原始数据
+     *
+     * @param SystemNotice $systemNotice
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function edit(
+        SystemNotice $systemNotice
+    )
+    {
+        return $this->sendResponse($systemNotice, '获取修改前系统公告原始数据成功');
+    }
+
+    /**
      * 说明: 修改系统公告
      *
      * @param SystemNotice $systemNotice
