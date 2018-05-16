@@ -433,7 +433,11 @@ class OfficeBuildingHouse extends Model
     public function getHouseFeatureAttribute()
     {
         $data = [];
-        if ($this->rent_free > 6 && $this->rent_free != 11) $data[] = '免租期长';
+        if ($this->rent_free > 6 && $this->rent_free != 11) {
+            $data[] = '免租期长';
+        } else {
+            $data[] = '';
+        }
         $data[] = $this->getPaymentTypeCnAttribute();
         $data[] = $this->getRenovationCnAttribute();
         return $data;
