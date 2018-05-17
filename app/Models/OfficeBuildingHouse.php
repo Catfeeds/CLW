@@ -46,7 +46,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getPicUrlAttribute()
     {
-        return $this->indoor_img->map(function($img) {
+        return collect($this->indoor_img)->map(function($img) {
            return [
                'name' => $img,
                'url' => config('setting.qiniu_url') . $img
