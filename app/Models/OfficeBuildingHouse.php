@@ -24,7 +24,7 @@ class OfficeBuildingHouse extends Model
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
-        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature'
+        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url'
     ];
 
     /**
@@ -36,6 +36,22 @@ class OfficeBuildingHouse extends Model
     public function getIndoorImgCnAttribute()
     {
         return $this->indoor_img[0]?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
+    }
+
+    /**
+     * 说明: 获取房源轮播图
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getPicUrlAttribute()
+    {
+        return $this->indoor_img->map(function($img) {
+           return [
+               'name' => $img,
+               'url' => config('setting.qiniu_url') . $img
+           ];
+        });
     }
 
     /**
