@@ -88,7 +88,7 @@ class ResetInfoService
         // 密码修改成功，删除验证码
         $masterRedis->delKey($key);
 
-        return ['status' => false, 'message' => '新手机号绑定成功'];
+        return ['status' => true, 'message' => '新手机号绑定成功'];
     }
 
     /**

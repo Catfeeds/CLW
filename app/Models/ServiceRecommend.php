@@ -34,4 +34,9 @@ class ServiceRecommend extends BaseModel
         ]];
     }
 
+    public function service()
+    {
+        return $this->belongsTo('App\Models\Service');
+    }
+
 }
