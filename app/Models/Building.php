@@ -17,9 +17,7 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'address_cn',
-        'pic_url_cn', 'address_type', 'img_cn',
-        'type_label', 'feature', 'feature_name_pic'];
+    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic'];
 
     // 楼座
     public function buildingBlock()

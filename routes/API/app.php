@@ -24,6 +24,19 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('retrieve_pwd', 'RetrievePwdController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 重置基本信息
+    |--------------------------------------------------------------------------
+    */
+    // 修改密码
+    Route::post('reset_pwd', 'ResetInfoController@resetPwd');
+    // 换绑手机号(旧手机号验证)
+    Route::post('old_tel_validate', 'ResetInfoController@oldTelValidate');
+    // 换绑手机操作
+    Route::post('reset_tel', 'ResetInfoController@resetTel');
+
     /*
     |--------------------------------------------------------------------------
     | banner
@@ -36,6 +49,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('services','ServicesController');
+    Route::get('all_services','ServicesController@allService');
     /*
     |--------------------------------------------------------------------------
     | 系统公告
@@ -118,7 +132,6 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     // 其他搜索添加(装修,标签)
     Route::get('other_condition', 'OfficeBuildingHousesController@otherCondition');
 
-
     /*
     |--------------------------------------------------------------------------
     | 收藏
@@ -128,7 +141,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
 
     /*
     |--------------------------------------------------------------------------
-    | 收藏
+    | 浏览记录
     |--------------------------------------------------------------------------
     */
     Route::resource('browse_records', 'BrowseRecordsController');

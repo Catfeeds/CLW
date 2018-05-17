@@ -41,6 +41,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('services', 'ServicesController');
 
+    /*
+    |--------------------------------------------------------------------------
+    | 服务标签管理
+    |--------------------------------------------------------------------------
+     */
+    Route::resource('service_labels', 'ServiceLabelsController');
+    Route::get('all_service_labels', 'ServiceLabelsController@allServiceLabels');
+
 
     /*
     |--------------------------------------------------------------------------
@@ -127,5 +135,4 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     |--------------------------------------------------------------------------
      */
     Route::resource('sys_logs', 'SysLogController');
-
 });

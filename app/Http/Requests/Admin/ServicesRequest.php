@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\ServiceLabel;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ServicesRequest extends FormRequest
 {
@@ -22,13 +24,12 @@ class ServicesRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-
+                    'label_id.in' => '服务标签必须存在'
                 ];
-            case 'PUT':
             case 'PATCH':
-
-            case 'GET':
-            case 'DELETE':
+                return [
+                    'label_id.in' => '服务标签必须存在'
+                ];
             default:
                 {
                     return [];
@@ -51,21 +52,34 @@ class ServicesRequest extends FormRequest
                     'weight' => 'required|integer',
                     'shelf' => 'required|integer',
                     'show' => 'required|integer',
-                    'icon' => 'required',
-                    'detail' => 'required|array'
+                    'home_icon' => 'required',
+                    'list_icon' => 'required',
+                    'detail' => 'required|array',
+                    'label_id' => [
+                        'required',
+                        'integer',
+                        Rule::in(
+                            ServiceLabel::all()->pluck('id')->toArray()
+                        )
+                    ]
                 ];
-            case 'PUT':
             case 'PATCH':
-            return [
-                'name' => 'required|max:32',
-                'weight' => 'required|integer',
-                'shelf' => 'required|integer',
-                'show' => 'required|integer',
-                'icon' => 'required',
-                'detail' => 'required|array'
-            ];
-            case 'GET':
-            case 'DELETE':
+                return [
+                    'name' => 'required|max:32',
+                    'weight' => 'required|integer',
+                    'shelf' => 'required|integer',
+                    'show' => 'required|integer',
+                    'home_icon' => 'required',
+                    'list_icon' => 'required',
+                    'detail' => 'required|array',
+                    'label_id' => [
+                        'required',
+                        'integer',
+                        Rule::in(
+                            ServiceLabel::all()->pluck('id')->toArray()
+                        )
+                    ]
+                ];
             default:
                 {
                     return [];

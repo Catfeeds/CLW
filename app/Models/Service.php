@@ -9,14 +9,22 @@ class Service extends BaseModel
     ];
 
     protected $appends = [
-        'icon_cn', 'detail_cn', 'shelf_cn', 'show_cn', 'icon_url'
+        'list_icon_cn', 'home_icon_cn', 'detail_cn', 'shelf_cn', 'show_cn', 'list_icon_url', 'home_icon_url'
     ];
 
-    public function getIconCnAttribute()
+    public function getListIconCnAttribute()
     {
         return [[
             'name' => $this->id,
-            'url' => config('setting.qiniu_url').$this->icon
+            'url' => config('setting.qiniu_url').$this->list_icon
+        ]];
+    }
+
+    public function getHomeIconCnAttribute()
+    {
+        return [[
+            'name' => $this->id,
+            'url' => config('setting.qiniu_url').$this->home_icon
         ]];
     }
 
@@ -52,9 +60,13 @@ class Service extends BaseModel
         }
     }
 
-    public function getIconUrlAttribute()
+    public function getListIconUrlAttribute()
     {
-        return config('setting.qiniu_url').$this->icon;
+        return config('setting.qiniu_url').$this->list_icon;
     }
 
+    public function getHomeIconUrlAttribute()
+    {
+        return config('setting.qiniu_url').$this->home_icon;
+    }
 }

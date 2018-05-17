@@ -28,7 +28,7 @@ class HousesService
             //特色
             $v->feature = $house->getHouseFeatureAttribute();
             //标签
-            $v->label = $house->getLabelCnAttribute();
+//            $v->label = $house->getLabelCnAttribute();
             //图片
             $v->img = $house->getIndoorImgCnAttribute();
         }

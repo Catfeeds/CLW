@@ -37,5 +37,20 @@ class ServicesController extends APIBaseController
     {
         return $this->sendResponse($service, '获取服务信息成功');
     }
+
+    /**
+     * 说明: 获取服务列表
+     *
+     * @param ServicesService $servicesService
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function allService(
+        ServicesService $servicesService
+    )
+    {
+        $res = $servicesService->allService();
+        return $this->sendResponse($res,'获取服务列表数据成功');
+    }
 }
 

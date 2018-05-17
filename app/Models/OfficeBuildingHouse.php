@@ -14,13 +14,6 @@ class OfficeBuildingHouse extends Model
         'indoor_img' => 'array',
     ];
 
-//    protected $appends = [
-//        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
-//        'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
-//        'split_cn', 'register_company_cn', 'open_bill_cn', 'class_cn', 'structure_cn', 'property_fee_cn',
-//        'heating_cn', 'air_conditioner_cn', 'house_feature', 'gps_cn'
-//    ];
-
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
@@ -46,12 +39,21 @@ class OfficeBuildingHouse extends Model
      */
     public function getPicUrlAttribute()
     {
-        return collect($this->indoor_img)->map(function($img) {
-           return [
-               'name' => $img,
-               'url' => config('setting.qiniu_url') . $img
-           ];
-        });
+        if (!empty($this->indoor_img)) {
+            return collect($this->indoor_img)->map(function($img) {
+                return [
+                    'name' => $img,
+                    'url' => config('setting.qiniu_url') . $img
+                ];
+            });
+        } else {
+            return [
+                [
+                    'name' => '',
+                    'url' => config('setting.house_default_img')
+                ]
+            ];
+        }
     }
 
     /**
@@ -378,8 +380,5 @@ class OfficeBuildingHouse extends Model
         $data[] = $this->getRenovationCnAttribute();
         return $data;
     }
-
-
-
 
 }

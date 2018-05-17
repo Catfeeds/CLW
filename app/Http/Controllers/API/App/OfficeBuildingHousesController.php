@@ -17,7 +17,7 @@ class OfficeBuildingHousesController extends APIBaseController
      * 说明: 房源详情
      *
      * @param OfficeBuildingHouse $officeBuildingHouse
-     * @param OfficeBuildingHousesRepository $buildingHousesRepository
+     * @param OfficeBuildingHousesService $service
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */

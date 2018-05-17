@@ -44,6 +44,10 @@ class Controller extends BaseController
                 $template = config('sms.clw.common');
                 $smsTemplate = sprintf($template, config('setting.set.prefix'), $captcha, config('sms.clw.postfix'));
                 break;
+            case 'reset_tel':
+                $template = config('sms.clw.common');
+                $smsTemplate = sprintf($template, config('setting.set.prefix'), $captcha, config('sms.clw.postfix'));
+                break;
             default:
                 return [
                     'success' => false,
