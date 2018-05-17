@@ -23,7 +23,7 @@ class BuildingsRepository extends  Model
      */
     public function buildingList($request)
     {
-        // 取得符合条件的房子
+        // 取得符合条件房子
         $houses = $this->houseList($request);
 
         // 根据楼盘分组
