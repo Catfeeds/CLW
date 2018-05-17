@@ -52,7 +52,8 @@ class ServicesRequest extends FormRequest
                     'weight' => 'required|integer',
                     'shelf' => 'required|integer',
                     'show' => 'required|integer',
-                    'icon' => 'required',
+                    'home_icon' => 'required',
+                    'list_icon' => 'required',
                     'detail' => 'required|array',
                     'label_id' => [
                         'required',
@@ -68,7 +69,8 @@ class ServicesRequest extends FormRequest
                     'weight' => 'required|integer',
                     'shelf' => 'required|integer',
                     'show' => 'required|integer',
-                    'icon' => 'required',
+                    'home_icon' => 'required',
+                    'list_icon' => 'required',
                     'detail' => 'required|array',
                     'label_id' => [
                         'required',

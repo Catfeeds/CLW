@@ -24,7 +24,7 @@ class ThrowInsRequest extends FormRequest
             case 'POST':
                 return [
                     'area_id.exists' =>'区域不存在',
-                    'block_id.exists' => '商圈不存在',
+//                    'block_id.exists' => '商圈不存在',
                 ];
             default;
                 return [
@@ -41,7 +41,7 @@ class ThrowInsRequest extends FormRequest
                     'tel' => 'required|max:16',
                     'appellation' => 'nullable|max:32',
                     'area_id' => 'nullable|exists:media.areas,id',
-                    'block_id' => 'nullable|exists:media.blocks,id',
+//                    'block_id' => 'nullable|exists:media.blocks,id',
                     'acreage' => 'nullable',
                     'building_name' => 'nullable|max:32'
                 ];

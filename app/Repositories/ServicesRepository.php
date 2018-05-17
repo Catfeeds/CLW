@@ -32,7 +32,8 @@ class ServicesRepository extends Model
             'weight' => $request->weight,
             'shelf' => $request->shelf,
             'show' => $request->show,
-            'icon' => $request->icon,
+            'home_icon' => $request->home_icon,
+            'list_icon' => $request->list_icon,
             'detail' => $request->detail,
             'label_id' => $request->label_id,
         ]);
@@ -52,7 +53,8 @@ class ServicesRepository extends Model
         $service->weight = $request->weight;
         $service->shelf = $request->shelf;
         $service->show = $request->show;
-        $service->icon = $request->icon;
+        $service->home_icon = $request->home_icon;
+        $service->list_icon = $request->list_icon;
         $service->detail = $request->detail;
         $service->label_id = $request->label_id;
 

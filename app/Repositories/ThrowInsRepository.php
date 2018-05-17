@@ -23,7 +23,7 @@ class ThrowInsRepository extends Model
                 'tel' => $request->tel??'',
                 'appellation' => $request->appellation??'',
                 'area_id' => $request->area_id??'',
-                'block_id' => $request->block_id??'',
+//                'block_id' => $request->block_id??'',
                 'acreage' => $request->acreage??'',
                 'building_name' => $request->building_name??''
             ]);
