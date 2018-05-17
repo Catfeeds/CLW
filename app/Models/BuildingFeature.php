@@ -8,7 +8,7 @@ class BuildingFeature extends Model
 {
     protected $connection = 'mysql';
     protected $guarded = [];
-    protected $appends = ['feature_cn'];
+    protected $appends = ['feature_cn', 'pic_cn'];
 
     /**
      * 说明: 特色图片
@@ -23,5 +23,10 @@ class BuildingFeature extends Model
                 'url'  => config('setting.qiniu_url') . $img
             ];
         });
+    }
+
+    public function getPicCnAttribute()
+    {
+        return config('setting.qiniu_url').$this->pic;
     }
 }
