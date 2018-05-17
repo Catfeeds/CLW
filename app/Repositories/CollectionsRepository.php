@@ -22,12 +22,13 @@ class CollectionsRepository extends Model
     /**
      * 说明: 获取该用户的收藏列表
      *
+     * @param $request
      * @return mixed
      * @author 刘坤涛
      */
-    public function collectionList()
+    public function collectionList($request)
     {
-        return Collection::where('user_id', $this->user()->id)->get();
+        return Collection::where('user_id', $this->user()->id)->paginate($request->per_page??10);
     }
 
     /**

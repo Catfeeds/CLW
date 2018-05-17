@@ -11,12 +11,13 @@ class BrowseRecordsRepository extends Model
     /**
      * 说明: 获取该用户的浏览记录
      *
+     * @param $request
      * @return mixed
      * @author 刘坤涛
      */
-    public function browseRecordList()
+    public function browseRecordList($request)
     {
         $user = Auth::guard('api')->user();
-        return BrowseRecord::where('user_id', $user->id)->get();
+        return BrowseRecord::where('user_id', $user->id)->paginate($request->per_page??10);
     }
 }
