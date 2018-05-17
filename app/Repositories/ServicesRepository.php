@@ -33,7 +33,8 @@ class ServicesRepository extends Model
             'shelf' => $request->shelf,
             'show' => $request->show,
             'icon' => $request->icon,
-            'detail' => $request->detail
+            'detail' => $request->detail,
+            'label_id' => $request->label_id,
         ]);
     }
 
@@ -53,6 +54,7 @@ class ServicesRepository extends Model
         $service->show = $request->show;
         $service->icon = $request->icon;
         $service->detail = $request->detail;
+        $service->label_id = $request->label_id;
 
         if (!$service->save()) return false;
         return true;

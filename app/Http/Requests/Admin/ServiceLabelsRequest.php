@@ -51,11 +51,6 @@ class ServiceLabelsRequest extends FormRequest
                         'required',
                         'max:32',
                         'unique:service_labels,name'
-                    ],
-                    'service_id' => [
-                        'required',
-                        'integer',
-                        'exists:service'
                     ]
                 ];
             default;

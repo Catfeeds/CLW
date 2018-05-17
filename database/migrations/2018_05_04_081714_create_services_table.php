@@ -21,6 +21,7 @@ class CreateServicesTable extends Migration
             $table->tinyInteger('show')->nullable()->comment('是否显示在首页导航栏,1=>显示,2=>不显示');
             $table->string('icon','128')->nullable()->comment('图标');
             $table->json('detail')->nullable()->comment('服务详情');
+            $table->tinyInteger('label_id')->nullable()->comment('标签');
             $table->timestamps();
             $table->softDeletes();
         });

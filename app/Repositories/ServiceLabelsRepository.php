@@ -7,15 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceLabelsRepository extends Model
 {
+    public function serviceLabelList()
+    {
+        return ServiceLabel::paginate(10);
+    }
+
     public function addServiceLabel($request)
     {
         return ServiceLabel::create([
             'name' => $request->name,
-            'service_id' => $request->service_id
         ]);
-
-
     }
 
+    public function updateServiceLabel(
+        $request,
+        ServiceLabel $serviceLabel
+    )
+    {
+        $serviceLabel->name = $request->name;
+        if (!$serviceLabel->save()) {
+            return false;
+        }
 
+        return true;
+    }
 }

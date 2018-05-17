@@ -16,7 +16,6 @@ class CreateServiceLabelsTable extends Migration
         Schema::create('service_labels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',32)->nullable()->comment('标签名称');
-            $table->tinyInteger('service_id')->nullable()->comment('服务id');
             $table->timestamps();
             $table->softDeletes();
         });

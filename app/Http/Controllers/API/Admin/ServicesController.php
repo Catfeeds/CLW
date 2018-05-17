@@ -9,7 +9,6 @@ use App\Repositories\ServicesRepository;
 
 class ServicesController extends APIBaseController
 {
-
     /**
      * 说明:服务列表
      *
