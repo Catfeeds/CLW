@@ -17,6 +17,7 @@ class CreateBuildingFeaturesTable extends Migration
             $table->increments('id');
             $table->string('name','32')->nullable()->comment('名称');
             $table->tinyInteger('weight')->nullable()->comment('权重');
+            $table->string('pic', '128')->nullable()->comment('图片');
             $table->timestamps();
         });
         DB::statement("alter table `building_features` comment'楼盘特色表'");

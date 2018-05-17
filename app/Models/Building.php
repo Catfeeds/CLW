@@ -17,7 +17,7 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature'];
+    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic'];
 
     // 楼座
     public function buildingBlock()
@@ -86,6 +86,22 @@ class Building extends Model
     public function getFeatureAttribute()
     {
         return $this->features->pluck('name')->take(3)->toArray();
+    }
+
+    /**
+     * 说明: 楼盘详情特色图片,名称
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getFeatureNamePicAttribute()
+    {
+        return $this->features->map(function($v) {
+            return [
+                'name' => $v->name,
+                'pic' => config('setting.qiniu_url') . $v->pic
+            ];
+        });
     }
 
 
