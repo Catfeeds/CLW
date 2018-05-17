@@ -86,7 +86,7 @@ class ServiceLabelsController extends APIBaseController
         ServiceLabelsRepository $repository
     )
     {
-        $res = $repository->serviceLabelList();
+        $res = $repository->allServiceLabel();
         return $this->sendResponse($res->map(function ($v) {
             return [
                 'value' => $v->id,

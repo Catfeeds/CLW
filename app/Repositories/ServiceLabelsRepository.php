@@ -52,4 +52,15 @@ class ServiceLabelsRepository extends Model
 
         return true;
     }
+
+    /**
+     * 说明: 获取所有服务标签
+     *
+     * @return ServiceLabel[]|\Illuminate\Database\Eloquent\Collection
+     * @author 罗振
+     */
+    public function allServiceLabel()
+    {
+        return ServiceLabel::all();
+    }
 }
