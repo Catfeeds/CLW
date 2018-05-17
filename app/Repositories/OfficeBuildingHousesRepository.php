@@ -7,22 +7,6 @@ use App\Models\OfficeBuildingHouse;
 
 class OfficeBuildingHousesRepository extends Model
 {
-    /**
-     * 说明: 房源详情
-     *
-     * @param $office
-     * @return mixed
-     * @author 罗振
-     */
-    public function getShow($office)
-    {
-        $office->total_floor = $office->buildingBlock->total_floor;
-        $office->property_company = $office->buildingBlock->property_company;
-        $office->passenger_lift = $office->buildingBlock->passenger_lift;
-        $office->cargo_lift = $office->buildingBlock->cargo_lift;
-        $office->president_lift = $office->buildingBlock->president_lift;
-        return $office;
-    }
 
     /**
      * 说明: 房源详情相关房源

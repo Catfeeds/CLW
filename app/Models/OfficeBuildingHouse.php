@@ -349,92 +349,6 @@ class OfficeBuildingHouse extends Model
         }
     }
 
-//    /**
-//     * 说明: 等级中文
-//     *
-//     * @return string
-//     * @use class_cn
-//     * @author 罗振
-//     */
-//    public function getClassCnAttribute()
-//    {
-//        if ($this->BuildingBlock->class == 1) {
-//            return '甲';
-//        } elseif ($this->BuildingBlock->class == 1) {
-//            return '乙';
-//        } elseif ($this->BuildingBlock->class == 3) {
-//            return '丙';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 房屋结构中文
-//     *
-//     * @return string
-//     * @use structure_cn
-//     * @author 罗振
-//     */
-//    public function getStructureCnAttribute()
-//    {
-//        if ($this->BuildingBlock->structure == 1) {
-//            return '钢筋混凝土结构';
-//        } elseif ($this->BuildingBlock->structure == 1) {
-//            return '钢结构';
-//        } elseif ($this->BuildingBlock->structure == 3) {
-//            return '砖混结构';
-//        } elseif ($this->BuildingBlock->structure == 4) {
-//            return '砖木结构';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 物业费
-//     *
-//     * @return string
-//     * @use property_fee_cn
-//     * @author 罗振
-//     */
-//    public function getPropertyFeeCnAttribute()
-//    {
-//        if (empty($this->BuildingBlock->property_fee)) {
-//            return '';
-//        } else {
-//            return $this->BuildingBlock->property_fee.'元/㎡.月';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 采暖方式中文
-//     *
-//     * @return string
-//     * @use heating_cn
-//     * @author 罗振
-//     */
-//    public function getHeatingCnAttribute()
-//    {
-//        if ($this->BuildingBlock->heating == 1) {
-//            return '空调';
-//        } elseif ($this->BuildingBlock->heating == 2) {
-//            return '太阳能';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 空调类型中文
-//     *
-//     * @return string
-//     * @use air_conditioner_cn
-//     * @author 罗振
-//     */
-//    public function getAirConditionerCnAttribute()
-//    {
-//        if ($this->BuildingBlock->air_conditioner == 1) {
-//            return '中央空调';
-//        } elseif ($this->BuildingBlock->air_conditioner == 2) {
-//            return '非中央空调';
-//        }
-//    }
-
     /**
      * 说明: 获取房源特色
      *
@@ -455,15 +369,6 @@ class OfficeBuildingHouse extends Model
     }
 
 
-//    /**
-//     * 说明: 获取gps
-//     *
-//     * @return mixed
-//     * @author 刘坤涛
-//     */
-//    public function getGpsCnAttribute()
-//    {
-//        return $this->BuildingBlock->Building->gps;
-//    }
+
 
 }

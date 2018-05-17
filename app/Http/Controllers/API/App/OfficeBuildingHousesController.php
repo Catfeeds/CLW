@@ -24,10 +24,10 @@ class OfficeBuildingHousesController extends APIBaseController
     public function show
     (
         OfficeBuildingHouse $officeBuildingHouse,
-        OfficeBuildingHousesRepository $buildingHousesRepository
+        OfficeBuildingHousesService $service
     )
     {
-        $res = $buildingHousesRepository->getShow($officeBuildingHouse);
+        $res = $service->getShow($officeBuildingHouse);
         return $this->sendResponse($res,'获取房源列表成功');
     }
 

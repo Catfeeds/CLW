@@ -111,4 +111,85 @@ class OfficeBuildingHousesService
 
         return array_prepend($data, $renovation);
     }
+
+    /**
+     * 说明: 房源详情
+     *
+     * @param $office
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getShow($office)
+    {
+        //楼层总数
+        $office->total_floor = $office->BuildingBlock->total_floor;
+        //支付方式
+        $office->property_company = $office->BuildingBlock->property_company;
+        //客梯数量
+        $office->passenger_lift = $office->BuildingBlock->passenger_lift;
+        //货梯数量
+        $office->cargo_lift = $office->BuildingBlock->cargo_lift;
+        //总电梯数量
+        $office->president_lift = $office->BuildingBlock->president_lift;
+        //gps
+        $office->gps = $office->BuildingBlock->Building->gps;
+        //空调类型
+        switch ($office->BuildingBlock->air_conditioner) {
+            case 1:
+                $office->air_conditioner = '中央空调';
+                break;
+            case 2:
+                $office->air_conditioner = '非中央空调';
+                break;
+                default;
+                break;
+        }
+        //采暖方式
+        switch ($office->BuildingBlock->heating) {
+            case 1:
+                $office->heating = '空调';
+                break;
+            case 2:
+                $office->heating = '太阳能';
+                break;
+                default;
+                break;
+        }
+        //物业费
+        $office->property_fee = $office->BuildingBlock->property_fee . '元/㎡·月';
+        //房屋结构
+        switch ($office->BuildingBlock->structure) {
+            case 1:
+                $office->structure = '钢筋混凝土结构';
+                break;
+            case 2:
+                $office->structure = '钢结构';
+                break;
+            case 3:
+                $office->structure = '砖混结构';
+                break;
+            case 4:
+                $office->structure = '砖木结构';
+                break;
+                default;
+                break;
+        }
+
+        //等级
+        switch ($office->BuildingBlock->calss) {
+            case 1:
+                $office->calss = '甲';
+                break;
+            case 2:
+                $office->calss = '乙';
+                break;
+            case 3:
+                $office->calss = '丙';
+                break;
+                default;
+                break;
+        }
+        return $office;
+    }
+
 }
