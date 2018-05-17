@@ -17,7 +17,7 @@ class OfficeBuildingHouse extends Model
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
-        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url'
+        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'total_price'
     ];
 
     /**
@@ -117,6 +117,17 @@ class OfficeBuildingHouse extends Model
     public function getTotalPriceCnAttribute()
     {
         return empty($this->unit_price * $this->constru_acreage)?'':$this->unit_price * $this->constru_acreage.'元/月';
+    }
+
+    /**
+     * 说明: 总价
+     *
+     * @return float|int|string
+     * @author 刘坤涛
+     */
+    public function getTotalPriceAttribute()
+    {
+        return empty($this->unit_price * $this->constru_acreage)?'':$this->unit_price * $this->constru_acreage;
     }
 
     /**
