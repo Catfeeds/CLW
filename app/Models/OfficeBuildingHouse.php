@@ -48,8 +48,10 @@ class OfficeBuildingHouse extends Model
             });
         } else {
             return [
-                'name' => '',
-                'url' => config('setting.house_default_img')
+                [
+                    'name' => '',
+                    'url' => config('setting.house_default_img')
+                ]
             ];
         }
     }

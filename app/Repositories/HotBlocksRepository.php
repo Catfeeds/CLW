@@ -15,7 +15,7 @@ class HotBlocksRepository extends Model
      */
     public function hotBlocksList()
     {
-        return HotBlock::orderBy('sort', 'asc')->get();
+        return HotBlock::orderBy('sort', 'asc')->with('block')->get();
     }
 
     /**
