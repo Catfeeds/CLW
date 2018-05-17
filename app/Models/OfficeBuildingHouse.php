@@ -14,13 +14,6 @@ class OfficeBuildingHouse extends Model
         'indoor_img' => 'array',
     ];
 
-//    protected $appends = [
-//        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
-//        'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
-//        'split_cn', 'register_company_cn', 'open_bill_cn', 'class_cn', 'structure_cn', 'property_fee_cn',
-//        'heating_cn', 'air_conditioner_cn', 'house_feature', 'gps_cn'
-//    ];
-
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
@@ -46,12 +39,19 @@ class OfficeBuildingHouse extends Model
      */
     public function getPicUrlAttribute()
     {
-        return collect($this->indoor_img)->map(function($img) {
-           return [
-               'name' => $img,
-               'url' => config('setting.qiniu_url') . $img
-           ];
-        });
+        if (!empty($this->indoor_img)) {
+            return collect($this->indoor_img)->map(function($img) {
+                return [
+                    'name' => $img,
+                    'url' => config('setting.qiniu_url') . $img
+                ];
+            });
+        } else {
+            return [
+                'name' => '',
+                'url' => config('setting.house_default_img')
+            ];
+        }
     }
 
     /**
@@ -349,94 +349,6 @@ class OfficeBuildingHouse extends Model
         }
     }
 
-
-    // TODO
-//    /**
-//     * 说明: 等级中文
-//     *
-//     * @return string
-//     * @use class_cn
-//     * @author 罗振
-//     */
-//    public function getClassCnAttribute()
-//    {
-//        if ($this->BuildingBlock->class == 1) {
-//            return '甲';
-//        } elseif ($this->BuildingBlock->class == 1) {
-//            return '乙';
-//        } elseif ($this->BuildingBlock->class == 3) {
-//            return '丙';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 房屋结构中文
-//     *
-//     * @return string
-//     * @use structure_cn
-//     * @author 罗振
-//     */
-//    public function getStructureCnAttribute()
-//    {
-//        if ($this->BuildingBlock->structure == 1) {
-//            return '钢筋混凝土结构';
-//        } elseif ($this->BuildingBlock->structure == 1) {
-//            return '钢结构';
-//        } elseif ($this->BuildingBlock->structure == 3) {
-//            return '砖混结构';
-//        } elseif ($this->BuildingBlock->structure == 4) {
-//            return '砖木结构';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 物业费
-//     *
-//     * @return string
-//     * @use property_fee_cn
-//     * @author 罗振
-//     */
-//    public function getPropertyFeeCnAttribute()
-//    {
-//        if (empty($this->BuildingBlock->property_fee)) {
-//            return '';
-//        } else {
-//            return $this->BuildingBlock->property_fee.'元/㎡.月';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 采暖方式中文
-//     *
-//     * @return string
-//     * @use heating_cn
-//     * @author 罗振
-//     */
-//    public function getHeatingCnAttribute()
-//    {
-//        if ($this->BuildingBlock->heating == 1) {
-//            return '空调';
-//        } elseif ($this->BuildingBlock->heating == 2) {
-//            return '太阳能';
-//        }
-//    }
-//
-//    /**
-//     * 说明: 空调类型中文
-//     *
-//     * @return string
-//     * @use air_conditioner_cn
-//     * @author 罗振
-//     */
-//    public function getAirConditionerCnAttribute()
-//    {
-//        if ($this->BuildingBlock->air_conditioner == 1) {
-//            return '中央空调';
-//        } elseif ($this->BuildingBlock->air_conditioner == 2) {
-//            return '非中央空调';
-//        }
-//    }
-
     /**
      * 说明: 获取房源特色
      *
@@ -455,17 +367,5 @@ class OfficeBuildingHouse extends Model
         $data[] = $this->getRenovationCnAttribute();
         return $data;
     }
-
-
-//    /**
-//     * 说明: 获取gps
-//     *
-//     * @return mixed
-//     * @author 刘坤涛
-//     */
-//    public function getGpsCnAttribute()
-//    {
-//        return $this->BuildingBlock->Building->gps;
-//    }
 
 }

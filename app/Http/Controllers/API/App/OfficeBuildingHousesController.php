@@ -17,17 +17,17 @@ class OfficeBuildingHousesController extends APIBaseController
      * 说明: 房源详情
      *
      * @param OfficeBuildingHouse $officeBuildingHouse
-     * @param OfficeBuildingHousesRepository $buildingHousesRepository
+     * @param OfficeBuildingHousesService $service
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */
     public function show
     (
         OfficeBuildingHouse $officeBuildingHouse,
-        OfficeBuildingHousesRepository $buildingHousesRepository
+        OfficeBuildingHousesService $service
     )
     {
-        $res = $buildingHousesRepository->getShow($officeBuildingHouse);
+        $res = $service->getShow($officeBuildingHouse);
         return $this->sendResponse($res,'获取房源列表成功');
     }
 
