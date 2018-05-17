@@ -29,5 +29,8 @@ Route::group(['namespace' => 'API'], function () {
     include_route_files(__DIR__ . '/API/');
 
 });
+Route::get('/test', function(){
+    dd(bcrypt('chulouwang888'));
+});
 
 
