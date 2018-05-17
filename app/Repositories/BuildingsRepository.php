@@ -245,7 +245,7 @@ class BuildingsRepository extends  Model
         foreach ($res as $office)
         {
             $office->unitPrice = empty($office->unit_price)?'':$office->unit_price.'元/㎡.月';
-            $office->priceArr = empty($office->unit_price * $office->constru_acreage)?'':$office->unit_price * $office->constru_acreage;
+            $office->total_price = empty($office->unit_price * $office->constru_acreage)?'':$office->unit_price * $office->constru_acreage;
         }
 
         return $res;

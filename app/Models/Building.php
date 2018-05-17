@@ -160,6 +160,31 @@ class Building extends Model
     }
 
     /**
+     * 说明: 获取楼盘轮播图
+     *
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function getPicUrlAttribute()
+    {
+        if (!empty($this->album)) {
+            return collect($this->album)->map(function($img) {
+                return [
+                    'name' => $img,
+                    'url' => config('setting.qiniu_url') . $img
+                ];
+            });
+        } else {
+            return [
+                [
+                    'name' => '',
+                    'url' => config('setting.house_default_img')
+                ]
+            ];
+        }
+    }
+
+    /**
      * 说明：楼盘类型信息
      *
      * @return string
