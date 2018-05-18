@@ -28,7 +28,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getIndoorImgCnAttribute()
     {
-        return $this->indoor_img[0]?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
+        return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
     }
 
     /**
