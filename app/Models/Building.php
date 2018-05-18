@@ -17,7 +17,7 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic', 'pic_url'];
+    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic', 'pic_url', 'greening_rate_cn', 'acreage_cn'];
 
     // 楼座
     public function buildingBlock()
@@ -64,6 +64,28 @@ class Building extends Model
     public function getLabelCnAttribute()
     {
         return !empty($this->label);
+    }
+
+    /**
+     * 说明: 绿化绿加入单位
+     *
+     * @return string
+     * @author 刘坤涛
+     */
+    public function getGreeningRateCnAttribute()
+    {
+        if ($this->greening_rate) return $this->greening_rate . '%';
+    }
+
+    /**
+     * 说明: 总面积加入单位
+     *
+     * @return string
+     * @author 刘坤涛
+     */
+    public function getAcreageCnAttribute()
+    {
+        if ($this->acreage) return $this->acreage . '㎡';
     }
 
     /**
