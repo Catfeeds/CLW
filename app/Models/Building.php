@@ -17,7 +17,8 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic', 'pic_url', 'greening_rate_cn', 'acreage_cn'];
+    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
+        'parking_num_cn'];
 
     // 楼座
     public function buildingBlock()
@@ -97,6 +98,39 @@ class Building extends Model
     public function getFeatureCnAttribute()
     {
         return $this->features->pluck('name', 'id')->toArray();
+    }
+
+    /**
+     * 说明: 年份加入单位
+     *
+     * @return string
+     * @author 刘坤涛
+     */
+    public function getYearsCnAttribute()
+    {
+        if ($this->yearsget) return $this->yearsget . '年';
+    }
+
+    /**
+     * 说明: 楼座数量加入单位
+     *
+     * @return string
+     * @author 刘坤涛
+     */
+    public function getBuildingBlockNumCnAttribute()
+    {
+        if ($this->building_block_num) return $this->building_block_num . '座';
+    }
+
+    /**
+     * 说明: 车位数量加入单位
+     *
+     * @return string
+     * @author 刘坤涛
+     */
+    public function getParkingNumCnAttribute()
+    {
+        if ($this->parking_num) return $this->parking_num .'个';
     }
 
     /**
