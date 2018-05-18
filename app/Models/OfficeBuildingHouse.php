@@ -31,6 +31,8 @@ class OfficeBuildingHouse extends Model
         return $this->indoor_img[0]?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
     }
 
+
+
     /**
      * 说明: 获取房源轮播图
      *
@@ -77,6 +79,7 @@ class OfficeBuildingHouse extends Model
     {
         return $this->hasOne(HouseLabel::class, 'house_id', 'id');
     }
+
 
     /**
      * 说明: 单价加入单位

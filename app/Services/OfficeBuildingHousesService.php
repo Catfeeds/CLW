@@ -4,7 +4,9 @@ namespace App\Services;
 
 use App\Models\Area;
 use App\Models\Block;
+use App\Models\Collection;
 use App\Models\HouseFeature;
+use Illuminate\Support\Facades\Auth;
 
 class OfficeBuildingHousesService
 {
@@ -188,6 +190,14 @@ class OfficeBuildingHousesService
                 break;
                 default;
                 break;
+        }
+        $office->collection = false;
+        //获取当前登录用户
+        $user = Auth::guard('api')->user();
+        // 判断该房源是否被当前登录用户收藏
+        if ($user) {
+            $collection = Collection::where(['user_id' => $user->id, 'house_id' => $office->id])->first();
+            if ($collection) $office->collection = true;
         }
         return $office;
     }
