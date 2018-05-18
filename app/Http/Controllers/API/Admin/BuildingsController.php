@@ -100,16 +100,13 @@ class BuildingsController extends APIBaseController
     /**
      * 说明: 删除楼盘标签
      *
-     * @param BuildingLabel $buildingLabel
+     * @param $id
      * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
      * @author 刘坤涛
      */
-    public function destroy(
-        BuildingLabel $buildingLabel
-    )
+    public function destroy($id)
     {
-        $res = $buildingLabel->delete();
+        $res = BuildingLabel::where('building_id', $id)->first()->delete();
         return $this->sendResponse($res, '楼盘标签删除成功');
     }
 
