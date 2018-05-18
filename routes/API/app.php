@@ -16,26 +16,43 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     // 登录
     Route::resource('/logins', 'LoginsController');
     Route::post('/smsLogin', 'LoginsController@smsLogin');
-    // 退出0
-    Route::post('logout','LoginsController@logout');
+
+    Route::group(['middleware' => ['auth:api', 'token_invalid']], function () {
+        // 退出
+        Route::post('logout','LoginsController@logout');
+        /*
+        |--------------------------------------------------------------------------
+        | 重置基本信息
+        |--------------------------------------------------------------------------
+        */
+        // 修改密码
+        Route::post('reset_pwd', 'ResetInfoController@resetPwd');
+        // 换绑手机号(旧手机号验证)
+        Route::post('old_tel_validate', 'ResetInfoController@oldTelValidate');
+        // 换绑手机操作
+        Route::post('reset_tel', 'ResetInfoController@resetTel');
+
+        /*
+        |--------------------------------------------------------------------------
+        | 收藏
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('collections', 'CollectionsController');
+
+        /*
+        |--------------------------------------------------------------------------
+        | 浏览记录
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('browse_records', 'BrowseRecordsController');
+    });
+
     /*
     |--------------------------------------------------------------------------
     | 找回密码
     |--------------------------------------------------------------------------
     */
     Route::resource('retrieve_pwd', 'RetrievePwdController');
-
-    /*
-    |--------------------------------------------------------------------------
-    | 重置基本信息
-    |--------------------------------------------------------------------------
-    */
-    // 修改密码
-    Route::post('reset_pwd', 'ResetInfoController@resetPwd');
-    // 换绑手机号(旧手机号验证)
-    Route::post('old_tel_validate', 'ResetInfoController@oldTelValidate');
-    // 换绑手机操作
-    Route::post('reset_tel', 'ResetInfoController@resetTel');
 
     /*
     |--------------------------------------------------------------------------
@@ -131,18 +148,4 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::get('block_condition', 'OfficeBuildingHousesController@blockCondition');
     // 其他搜索添加(装修,标签)
     Route::get('other_condition', 'OfficeBuildingHousesController@otherCondition');
-
-    /*
-    |--------------------------------------------------------------------------
-    | 收藏
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('collections', 'CollectionsController');
-
-    /*
-    |--------------------------------------------------------------------------
-    | 浏览记录
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('browse_records', 'BrowseRecordsController');
 });
