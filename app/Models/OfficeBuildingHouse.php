@@ -10,7 +10,7 @@ class OfficeBuildingHouse extends Model
 
     protected $connection = 'media';
 
-    protected $cats = [
+    protected $casts = [
         'indoor_img' => 'array',
     ];
 

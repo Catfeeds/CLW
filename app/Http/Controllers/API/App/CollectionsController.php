@@ -7,12 +7,14 @@ use App\Http\Requests\App\CollectionsRequest;
 use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
 use App\Services\HousesService;
+use Illuminate\Http\Request;
 
 class CollectionsController extends APIBaseController
 {
     /**
      * 说明: 收藏列表
      *
+     * @param Request $request
      * @param CollectionsRepository $repository
      * @param HousesService $service
      * @return \Illuminate\Http\JsonResponse
@@ -20,11 +22,12 @@ class CollectionsController extends APIBaseController
      */
     public function index
     (
+        Request $request,
         CollectionsRepository $repository,
         HousesService $service
     )
     {
-        $res = $repository->collectionList();
+        $res = $repository->collectionList($request);
         $service->HouseInfo($res);
         return $this->sendResponse($res, '收藏列表获取成功');
     }

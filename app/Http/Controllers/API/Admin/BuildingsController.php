@@ -106,7 +106,7 @@ class BuildingsController extends APIBaseController
      */
     public function destroy($id)
     {
-        $res = BuildingLabel::find($id)->delete();
+        $res = BuildingLabel::where('building_id', $id)->first()->delete();
         return $this->sendResponse($res, '楼盘标签删除成功');
     }
 
