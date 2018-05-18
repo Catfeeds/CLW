@@ -4,7 +4,9 @@ namespace App\Services;
 
 use App\Models\Area;
 use App\Models\Block;
+use App\Models\Collection;
 use App\Models\HouseFeature;
+use Illuminate\Support\Facades\Auth;
 
 class OfficeBuildingHousesService
 {
@@ -129,7 +131,7 @@ class OfficeBuildingHousesService
         $office->passenger_lift = $office->BuildingBlock->passenger_lift;
         //货梯数量
         $office->cargo_lift = $office->BuildingBlock->cargo_lift;
-        //总电梯数量
+        //总裁电梯数量
         $office->president_lift = $office->BuildingBlock->president_lift;
         //gps
         $office->gps = $office->BuildingBlock->Building->gps;
@@ -157,6 +159,8 @@ class OfficeBuildingHousesService
         }
         //物业费
         $office->property_fee = $office->BuildingBlock->property_fee . '元/㎡·月';
+        //物业公司
+        $office->property_company = $office->BuildingBlock->property_company;
         //房屋结构
         switch ($office->BuildingBlock->structure) {
             case 1:
@@ -176,19 +180,29 @@ class OfficeBuildingHousesService
         }
 
         //等级
-        switch ($office->BuildingBlock->calss) {
+        switch ($office->BuildingBlock->class) {
             case 1:
-                $office->calss = '甲';
+                $office->class = '甲';
                 break;
             case 2:
-                $office->calss = '乙';
+                $office->class = '乙';
                 break;
             case 3:
-                $office->calss = '丙';
+                $office->class = '丙';
                 break;
                 default;
                 break;
         }
+        $office->collection = false;
+        //获取当前登录用户
+        $user = Auth::guard('api')->user();
+        // 判断该房源是否被当前登录用户收藏
+        if ($user) {
+            $collection = Collection::where(['user_id' => $user->id, 'house_id' => $office->id])->first();
+            if ($collection) $office->collection = true;
+        }
+        //房源地址
+        $office->address = $office->BuildingBlock->Building->address;
         return $office;
     }
 

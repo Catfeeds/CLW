@@ -199,7 +199,9 @@ class BuildingsRepository extends  Model
                     $station_number[] = (int)$house['station_number'];
                 }
             }
-
+            $min_price = $building->house->min('rent_price');
+            $max_price = $building->house->max('rent_price');
+            $building->unit_price =  $min_price. '-' . $max_price;
             sort($constru_acreage);
             if(!empty($price)){
                 //价格区间

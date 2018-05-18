@@ -31,6 +31,8 @@ class OfficeBuildingHouse extends Model
         return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
     }
 
+
+
     /**
      * 说明: 获取房源轮播图
      *
@@ -78,6 +80,7 @@ class OfficeBuildingHouse extends Model
         return $this->hasOne(HouseLabel::class, 'house_id', 'id');
     }
 
+
     /**
      * 说明: 单价加入单位
      *
@@ -116,7 +119,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getTotalPriceCnAttribute()
     {
-        return empty($this->unit_price * $this->constru_acreage)?'':$this->unit_price * $this->constru_acreage.'元/月';
+        return empty($this->unit_price * $this->constru_acreage)?'':round($this->unit_price * $this->constru_acreage, 1).'元/月';
     }
 
     /**
@@ -127,7 +130,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getTotalPriceAttribute()
     {
-        return empty($this->unit_price * $this->constru_acreage)?'':$this->unit_price * $this->constru_acreage;
+        return empty($this->unit_price * $this->constru_acreage)?'':round($this->unit_price * $this->constru_acreage, 1);
     }
 
     /**
