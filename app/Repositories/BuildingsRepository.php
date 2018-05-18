@@ -29,7 +29,9 @@ class BuildingsRepository extends  Model
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
-        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label'])->paginate($request->per_page);
+        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->paginate($request->per_page);
+
+        // TODO
 
         return $this->buildingDataComplete($buildings, $buildingData);
     }
@@ -125,10 +127,10 @@ class BuildingsRepository extends  Model
 
         if (!empty($request->total_price)) {
             // 总价
-            $houses = $houses->where('rent_price_unit', 1)->whereBetween('rent_price', $request->total_price);
+            $houses = $houses->whereBetween('total_price', $request->total_price);
         } elseif (!empty($request->unit_price)) {
             // 单价
-            $houses = $houses->where('rent_price_unit', 2)->whereBetween('rent_price', $request->unit_price);
+            $houses = $houses->whereBetween('unit_price', $request->unit_price);
         }
 
         // 装修

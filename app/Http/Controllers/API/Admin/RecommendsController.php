@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\RecommendsRequest;
-use App\Models\recommend;
+use App\Models\Recommend;
 use App\Repositories\RecommendsRepository;
 use App\Services\RecommendsService;
 
@@ -50,7 +50,7 @@ class RecommendsController extends APIBaseController
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
-    public function edit(recommend $recommend)
+    public function edit(Recommend $recommend)
     {
         return $this->sendResponse($recommend,'推荐修改之前原始数据');
     }
@@ -68,7 +68,7 @@ class RecommendsController extends APIBaseController
     (
         RecommendsRepository $repository,
         RecommendsRequest $request,
-        recommend $recommend
+        Recommend $recommend
     )
     {
         // 检测商圈是否重复
@@ -94,7 +94,7 @@ class RecommendsController extends APIBaseController
      * @throws \Exception
      * @author 刘坤涛
      */
-    public function destroy(recommend $recommend)
+    public function destroy(Recommend $recommend)
     {
         $res = $recommend->delete();
         return $this->sendResponse($res,'推荐删除成功');
