@@ -25,6 +25,7 @@ class ServicesService
             $data['id'] = $v->id;
             $data['name'] = $v->name;
             $data['icon'] = config('setting.qiniu_url').$v->home_icon;
+            $data['detail_url'] = $v->detail_url;
 
             if ($k > 4) {
                 if ($k > 9) {

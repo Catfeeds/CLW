@@ -9,7 +9,7 @@ class Service extends BaseModel
     ];
 
     protected $appends = [
-        'list_icon_cn', 'home_icon_cn', 'detail_cn', 'shelf_cn', 'show_cn', 'list_icon_url', 'home_icon_url'
+        'list_icon_cn', 'home_icon_cn', 'detail_cn', 'shelf_cn', 'show_cn', 'list_icon_url', 'home_icon_url', 'detail_url'
     ];
 
     public function getListIconCnAttribute()
@@ -36,6 +36,13 @@ class Service extends BaseModel
                 'url' => config('setting.qiniu_url') . $img
             ];
         })->values();
+    }
+
+    public function getDetailUrlAttribute()
+    {
+        return collect($this->detail)->map(function ($v) {
+            return config('setting.qiniu_url').$v;
+        });
     }
 
     public function getShelfCnAttribute()
