@@ -16,8 +16,5 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/jacklin', function(){
-    dd(2);
-});
 Route::get('/home', 'HomeController@index')->name('home');
 
