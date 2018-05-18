@@ -124,7 +124,7 @@ class OfficeBuildingHousesService
     public function getShow($office)
     {
         //楼层总数
-        $office->total_floor = $office->BuildingBlock->total_floor . '层';
+        $office->total_floor = $office->BuildingBlock->total_floor?$office->BuildingBlock->total_floor . '层' : '';
         //支付方式
         $office->property_company = $office->BuildingBlock->property_company;
         //客梯数量

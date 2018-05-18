@@ -34,7 +34,6 @@ class OfficeBuildingHousesRepository extends Model
         foreach ($houses as $house) {
             $house->label_cn = !empty($house->house_label);
         }
-
         return $houses;
     }
 
