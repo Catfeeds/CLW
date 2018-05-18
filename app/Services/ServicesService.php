@@ -15,7 +15,10 @@ class ServicesService
      */
     public function getServices()
     {
-        $allServices = Service::orderBy('weight', 'asc')->get();
+        $allServices = Service::orderBy('weight', 'asc')->where([
+            'show' => 1,
+            'shelf' => 1
+        ])->get();
 
         $datas = array();
         foreach ($allServices as $k => $v) {
