@@ -16,7 +16,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     // 登录
     Route::resource('/logins', 'LoginsController');
     Route::post('/smsLogin', 'LoginsController@smsLogin');
-    // 退出
+    // 退出0
     Route::post('logout','LoginsController@logout');
     /*
     |--------------------------------------------------------------------------

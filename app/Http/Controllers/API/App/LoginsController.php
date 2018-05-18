@@ -56,7 +56,7 @@ class LoginsController extends APIBaseController
     )
     {
         $token = $loginsService->smsLogin($request);
-        return $this->sendResponse(['status' => true, 'token' => $token], '获取token成功！');
+        return $this->sendResponse($token, '获取token成功！');
     }
 
     /**

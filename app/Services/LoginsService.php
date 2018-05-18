@@ -96,7 +96,7 @@ class LoginsService
         $token = $user->createToken($request->tel)->accessToken;
         if (empty($token)) return ['status' => false, 'message' => '获取令牌失败'];
 
-        return $token;
+        return ['status' => true, 'token' => $token];
     }
 
     /**
