@@ -28,4 +28,17 @@ class Area extends Model
     {
         return $this->hasMany('App\Models\Block')->withCount('building');
     }
+
+    /**
+     * 说明: 街道下所属楼盘
+     *
+     * @return mixed
+     * @author 罗振
+     */
+    public function getBuildingBlockAttribute()
+    {
+        return $this->building->map(function ($item) {
+            return BuildingBlock::where('building_id', $item->id)->get();
+        });
+    }
 }
