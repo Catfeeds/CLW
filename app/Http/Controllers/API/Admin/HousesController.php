@@ -85,6 +85,13 @@ class HousesController extends APIBaseController
         return $this->sendResponse($res, '房源标签删除成功');
     }
 
+    /**
+     * 说明: 房源下架
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @author 刘坤涛
+     */
     public function del($id)
     {
         $res = HouseLabel::where('house_id', $id)->update(['status' => 1]);
