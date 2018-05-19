@@ -82,7 +82,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     */
     Route::resource('recommends', 'RecommendsController');
 
-    /*
+    /*all_building_blocks
     |--------------------------------------------------------------------------
     | 热门商圈
     |--------------------------------------------------------------------------
