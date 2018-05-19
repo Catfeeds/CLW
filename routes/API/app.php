@@ -17,7 +17,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::resource('/logins', 'LoginsController');
     Route::post('/smsLogin', 'LoginsController@smsLogin');
 
-    Route::group(['middleware' => ['auth:api', 'token_invalid']], function () {
+    Route::group(['middleware' => ['auth:api']], function () {
         // 退出
         Route::post('logout','LoginsController@logout');
         /*
@@ -81,7 +81,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     */
     Route::resource('recommends', 'RecommendsController');
 
-    /*
+    /*all_building_blocks
     |--------------------------------------------------------------------------
     | 热门商圈
     |--------------------------------------------------------------------------
