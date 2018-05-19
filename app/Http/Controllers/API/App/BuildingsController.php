@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\App;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
+use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 
 class BuildingsController extends APIBaseController
@@ -55,10 +56,11 @@ class BuildingsController extends APIBaseController
     public function showOffice
     (
         BuildingsRepository $buildingsRepository,
+        OfficeBuildingHousesService $service,
         $id
     )
     {
-        $res = $buildingsRepository->OfficeHouseList($id);
+        $res = $buildingsRepository->OfficeHouseList($service, $id);
         return $this->sendResponse($res,'获取楼盘下房源列表');
     }
 }

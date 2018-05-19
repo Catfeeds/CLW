@@ -1,6 +1,8 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\Area;
+use App\Models\Building;
 use App\Models\HouseLabel;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\OfficeBuildingHouse;
@@ -15,7 +17,7 @@ class OfficeBuildingHousesRepository extends Model
      * @return array
      * @author 罗振
      */
-    public function getShowOffice($id)
+    public function getShowOffice($service, $id)
     {
         $house = OfficeBuildingHouse::find($id);
         if (empty($house)) {
@@ -33,6 +35,7 @@ class OfficeBuildingHousesRepository extends Model
 
         foreach ($houses as $house) {
             $house->label_cn = !empty($house->house_label);
+            $service->getShow($house);
         }
         return $houses;
     }
@@ -43,9 +46,34 @@ class OfficeBuildingHousesRepository extends Model
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 刘坤涛
      */
-    public function HouseList()
+    public function HouseList($request)
     {
-        return OfficeBuildingHouse::all();
+        $result = OfficeBuildingHouse::where('house_busine_state', 1);
+        if (!empty($request->region) && !empty($request->build)) {
+            // 楼盘包含的楼座
+            $blockId = array_column(Building::find($request->build)->buildingBlocks->toArray(), 'id');
+            $result = $result->whereIn('building_block_id', $blockId);
+        } elseif (!empty($request->region) && empty($request->build)) {
+            // 区域包含的楼座
+            $blockId = array_column(Area::find($request->region)->building_block->flatten()->toArray(), 'id');
+            $result = $result->whereIn('building_block_id', $blockId);
+        }
+
+        // 最小面积
+        if (!empty($request->min_acreage)) {
+            $result = $result->where('constru_acreage', ">=", (int)$request->min_acreage);
+        }
+        // 最大面积
+        if (!empty($request->max_acreage)) {
+            $result = $result->where('constru_acreage', "<=", (int)$request->max_acreage);
+        }
+
+        // 排序
+        if (!empty($request->order)) {
+            $result = $result->orderBy('updated_at', $request->order);
+        }
+
+        return $result->paginate($per_page??10);
     }
 
     /**
@@ -59,6 +87,7 @@ class OfficeBuildingHousesRepository extends Model
     {
         return HouseLabel::create([
             'house_id' => $request->house_id,
+            'status' => 1
         ]);
     }
 
@@ -72,7 +101,7 @@ class OfficeBuildingHousesRepository extends Model
     public function showHouse($request)
     {
         return HouseLabel::caeate([
-            'status' => $request->status
+            'status' => 1
         ]);
     }
 

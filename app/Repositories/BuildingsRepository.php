@@ -193,12 +193,18 @@ class BuildingsRepository extends  Model
      *
      * @param $id
      * @return mixed
-     * @author 王成
+     * @author 刘坤涛
      */
-    public function OfficeHouseList($id)
+    public function OfficeHouseList($service, $id)
     {
        $building = Building::find($id);
-       return $building->house()->paginate(6);
+       $res=  $building->house()->paginate(6);
+       foreach ($res as $v) {
+           $service->getShow($v);
+       }
+
+       return $res;
+
     }
 
     /**
