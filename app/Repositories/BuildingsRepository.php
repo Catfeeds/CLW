@@ -31,8 +31,6 @@ class BuildingsRepository extends  Model
 
         $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->paginate($request->per_page);
 
-        // TODO
-
         return $this->buildingDataComplete($buildings, $buildingData);
     }
 
@@ -53,7 +51,15 @@ class BuildingsRepository extends  Model
             $buildingData[$index]->avg_price = round($buildings[$v->id]->avg('unit_price'), 2);
             // 工位
             $buildingData[$index]->station_num = $this->buildingStationNum($buildings[$v->id]);
+            // 商圈推荐
+            $buildingData[$index]->block_recommend = $v->block->recommend??0;
+            // 标签
+            $buildingData[$index]->building_label = !empty($v->label)?1:2;
         }
+
+        // 排序
+        $buildingData->setCollection(collect($buildingData->items())->sortByDesc('block_recommend')->sortByDesc('house_count')->sortBy('building_label')->values());
+
         return $buildingData;
     }
 
