@@ -20,6 +20,9 @@ class Building extends Model
     protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
         'parking_num_cn','parking_fee_cn'];
 
+//    protected $appends = ['pic_url_cn', 'img_cn', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
+//        'parking_num_cn','parking_fee_cn'];
+
     // 楼座
     public function buildingBlock()
     {
