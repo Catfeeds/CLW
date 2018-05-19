@@ -32,7 +32,6 @@ class OfficeBuildingHousesRepository extends Model
             ->where('unit_price', '<', $house->unit_price + config('setting.float_price'))
             ->with(['BuildingBlock', 'HouseLabel'])
             ->paginate(6);
-
         foreach ($houses as $house) {
             $house->label_cn = !empty($house->house_label);
             $service->getShow($house);
@@ -46,34 +45,38 @@ class OfficeBuildingHousesRepository extends Model
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 刘坤涛
      */
-    public function HouseList($request)
+    public function HouseList($per_page, $condition)
     {
         $result = OfficeBuildingHouse::where('house_busine_state', 1);
-        if (!empty($request->region) && !empty($request->build)) {
+        if (!empty($condition->region) && !empty($condition->build)) {
             // 楼盘包含的楼座
-            $blockId = array_column(Building::find($request->build)->buildingBlocks->toArray(), 'id');
+            $blockId = array_column(Building::find($condition->build)->buildingBlocks->toArray(), 'id');
             $result = $result->whereIn('building_block_id', $blockId);
-        } elseif (!empty($request->region) && empty($request->build)) {
+        } elseif (!empty($condition->region) && empty($condition->build)) {
             // 区域包含的楼座
-            $blockId = array_column(Area::find($request->region)->building_block->flatten()->toArray(), 'id');
+            $blockId = array_column(Area::find($condition->region)->building_block->flatten()->toArray(), 'id');
             $result = $result->whereIn('building_block_id', $blockId);
         }
 
         // 最小面积
-        if (!empty($request->min_acreage)) {
-            $result = $result->where('constru_acreage', ">=", (int)$request->min_acreage);
+        if (!empty($condition->min_acreage)) {
+            $result = $result->where('constru_acreage', ">=", (int)$condition->min_acreage);
         }
         // 最大面积
-        if (!empty($request->max_acreage)) {
-            $result = $result->where('constru_acreage', "<=", (int)$request->max_acreage);
+        if (!empty($condition->max_acreage)) {
+            $result = $result->where('constru_acreage', "<=", (int)$condition->max_acreage);
         }
 
         // 排序
-        if (!empty($request->order)) {
-            $result = $result->orderBy('updated_at', $request->order);
+        if (!empty($condition->order)) {
+            $result = $result->orderBy('updated_at', $condition->order);
         }
+        $house =  $result->with('BuildingBlock', 'BuildingBlock.Building')->paginate($per_page??10);
+        foreach($house as $v) {
+            $v->building_name = $v->BuildingBlock->Building->name;
+        }
+        return $house;
 
-        return $result->paginate($per_page??10);
     }
 
     /**
@@ -87,8 +90,20 @@ class OfficeBuildingHousesRepository extends Model
     {
         return HouseLabel::create([
             'house_id' => $request->house_id,
-            'status' => 1
+            'label' => 1
         ]);
+    }
+
+    /**
+     * 说明: 更新房源标签
+     *
+     * @param $request
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function updateHouseLabel($request)
+    {
+        return HouseLabel::where('house_id', $request->house_id)->update(['label' => 1]);
     }
 
     /**
@@ -101,8 +116,21 @@ class OfficeBuildingHousesRepository extends Model
     public function showHouse($request)
     {
         return HouseLabel::caeate([
+            'house_id' => $request->house_id,
             'status' => 1
         ]);
+    }
+
+    /**
+     * 说明: 更新房源上架
+     *
+     * @param $request
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function updateShowHouse($request)
+    {
+        return HouseLabel::where('house_id', $request->house_id)->update(['status' =>1]);
     }
 
 }

@@ -58,10 +58,10 @@ class BuildingsRequest extends FormRequest
                     'parking_fee' => 'nullable|numeric|max:10000',
                     'greening_rate' => 'nullable|numeric|max:100',
 
-                    'company' => 'array',
+                    'company' => 'nullable|array',
                     'album' => 'array',
                     'building_block' => 'array',
-                    'building_feature' => 'array'
+                    'building_feature' => 'nullable|array'
                 ];
 
             case 'update':
@@ -82,9 +82,9 @@ class BuildingsRequest extends FormRequest
                     'parking_fee' => 'nullable|numeric|max:10000',
                     'greening_rate' => 'nullable|numeric|max:100',
 
-                    'company' => 'array',
+                    'company' => 'nullable|array',
                     'album' => 'array',
-                    'building_feature' => 'array'
+                    'building_feature' => 'nullable|array'
                 ];
             case 'addBuildingLabel':
                 return [

@@ -18,7 +18,7 @@ class Building extends Model
     protected $connection = 'media';
 
     protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
-        'parking_num_cn'];
+        'parking_num_cn','parking_fee_cn'];
 
     // 楼座
     public function buildingBlock()
@@ -131,6 +131,11 @@ class Building extends Model
     public function getParkingNumCnAttribute()
     {
         if ($this->parking_num) return $this->parking_num .'个';
+    }
+
+    public function getParkingFeeCnAttribute()
+    {
+        if ($this->parking_fee) return $this->parking_fee . '元';
     }
 
     /**

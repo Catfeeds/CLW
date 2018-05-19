@@ -130,11 +130,11 @@ class OfficeBuildingHousesService
         //支付方式
         $office->property_company = $office->BuildingBlock->property_company;
         //客梯数量
-        $office->passenger_lift = $office->BuildingBlock->passenger_lift;
+        $office->passenger_lift = $office->BuildingBlock->passenger_lift?$office->BuildingBlock->passenger_lift . '部': '';
         //货梯数量
-        $office->cargo_lift = $office->BuildingBlock->cargo_lift;
+        $office->cargo_lift = $office->BuildingBlock->cargo_lift?$office->BuildingBlock->cargo_lift. '部' : '';
         //总裁电梯数量
-        $office->president_lift = $office->BuildingBlock->president_lift;
+        $office->president_lift = $office->BuildingBlock->president_lift?$office->BuildingBlock->president_lift . '部' : '';
         //gps
         $office->gps = $office->BuildingBlock->Building->gps;
         //空调类型
@@ -160,7 +160,7 @@ class OfficeBuildingHousesService
                 break;
         }
         //物业费
-        $office->property_fee = $office->BuildingBlock->property_fee . '元/㎡·月';
+        $office->property_fee = $office->BuildingBlock->property_fee?$office->BuildingBlock->property_fee . '元/㎡·月' : '';
         //物业公司
         $office->property_company = $office->BuildingBlock->property_company;
         //房屋结构
@@ -180,7 +180,6 @@ class OfficeBuildingHousesService
                 default;
                 break;
         }
-
         //等级
         switch ($office->BuildingBlock->class) {
             case 1:

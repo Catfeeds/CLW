@@ -30,7 +30,7 @@ class HousesController extends APIBaseController
      */
     public function index()
     {
-        $res = $this->repo->HouseList($this->req);
+        $res = $this->repo->HouseList($this->req->per_page??null, json_decode($this->req->condition));
         return $this->sendResponse($res, '房源列表获取成功');
     }
 
@@ -42,16 +42,14 @@ class HousesController extends APIBaseController
      */
     public function store()
     {
-        //判断当前房源是否在标签表中
+        //判断当前房源是否存在
         $house = HouseLabel::where('house_id', $this->req->house_id)->first();
-        //如果有数据,则更新数据,否则则添加
+        //如果有数据,则更新数据,否则添加
         if ($house) {
-            $res = $this->repo->addHouseLabel($this->req);
+            $res = $this->repo->updateHouseLabel($this->req);
         } else {
-
+            $res = $this->repo->addHouseLabel($this->req);
         }
-
-
         return $this->sendResponse($res, '房源标签添加成功');
     }
 
@@ -63,8 +61,15 @@ class HousesController extends APIBaseController
      */
     public function showHouse()
     {
-        $res = $this->repo->showHouse($this->req);
-        return $this->sendResponse($res, '房源上架成功');
+        //判断当前房源是否存在
+        $house = HouseLabel::where('house_id', $this->req->house_id)->first();
+        //如果有数据,则更新数据,否则添加
+        if ($house) {
+            $res = $this->repo->updateShowHouse($this->req);
+        } else {
+            $res = $this->repo->showHouse($this->req);
+        }
+        return $this->sendResponse($res, '房源标签添加成功');
     }
     
     /**
@@ -84,8 +89,6 @@ class HousesController extends APIBaseController
     {
         $res = HouseLabel::where('house_id', $id)->update(['status' => 1]);
         return $this->sendResponse($res, '房源下架成功');
-
     }
-
 
 }

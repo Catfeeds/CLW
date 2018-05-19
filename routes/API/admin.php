@@ -119,6 +119,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('houses', 'HousesController');
+    //房源上架
+    Route::post('show_house', 'HousesController@showHouse');
+    //房源下架
+    Route::get('del', 'HousesController@del');
 
     /*
     |--------------------------------------------------------------------------
