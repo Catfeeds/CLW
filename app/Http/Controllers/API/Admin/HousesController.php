@@ -45,6 +45,18 @@ class HousesController extends APIBaseController
         $res = $this->repo->addHouseLabel($this->req);
         return $this->sendResponse($res, '房源标签添加成功');
     }
+
+    /**
+     * 说明: 房源上架
+     *
+     * @return \Illuminate\Http\JsonResponse
+     * @author 刘坤涛
+     */
+    public function showHouse()
+    {
+        $res = $this->repo->showHouse($this->req);
+        return $this->sendResponse($res, '房源上架成功');
+    }
     
     /**
      * 说明: 删除房源标签
@@ -55,7 +67,9 @@ class HousesController extends APIBaseController
      */
     public function destroy($id)
     {
-        $res = HouseLabel::find($id)->delete();
+        $res = HouseLabel::where('house_id', $id)->delete();
         return $this->sendResponse($res, '房源标签删除成功');
     }
+
+
 }

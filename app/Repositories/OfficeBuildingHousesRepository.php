@@ -58,7 +58,21 @@ class OfficeBuildingHousesRepository extends Model
     public function addHouseLabel($request)
     {
         return HouseLabel::create([
-            'house_id' => $request->house_id
+            'house_id' => $request->house_id,
+        ]);
+    }
+
+    /**
+     * 说明: 房源上架
+     *
+     * @param $request
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function showHouse($request)
+    {
+        return HouseLabel::caeate([
+            'status' => $request->status
         ]);
     }
 

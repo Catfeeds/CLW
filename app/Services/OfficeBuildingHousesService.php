@@ -123,6 +123,8 @@ class OfficeBuildingHousesService
      */
     public function getShow($office)
     {
+        //楼盘名称
+        $office->building_name = $office->BuildingBlock->Building->name;
         //楼层总数
         $office->total_floor = $office->BuildingBlock->total_floor?$office->BuildingBlock->total_floor . '层' : '';
         //支付方式

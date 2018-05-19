@@ -8,6 +8,7 @@ use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
 use App\Services\HousesService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CollectionsController extends APIBaseController
 {
@@ -51,7 +52,7 @@ class CollectionsController extends APIBaseController
     }
 
     /**
-     * 说明: 取消收藏
+     * 说明:收藏列表取消收藏
      *
      * @param Collection $collection
      * @return \Illuminate\Http\JsonResponse
@@ -63,4 +64,21 @@ class CollectionsController extends APIBaseController
         $res =  $collection->delete();
         return $this->sendResponse($res, '收藏删除成功');
     }
+
+    /**
+     * 说明: 房源详情取消收藏
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @author 刘坤涛
+     */
+    public function del($id)
+    {
+        $user = Auth::guard('api')->user();
+        $res = Collection::where(['user_id' => $user->id, 'house_id' => $id])->delete();
+        return $this->sendResponse($res, '取消收藏成功');
+    }
+
+
+
 }
