@@ -17,7 +17,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::resource('/logins', 'LoginsController');
     Route::post('/smsLogin', 'LoginsController@smsLogin');
 
-    Route::group(['middleware' => ['auth:api', 'token_invalid']], function () {
+    Route::group(['middleware' => ['auth:api']], function () {
         // 退出
         Route::post('logout','LoginsController@logout');
         /*
@@ -38,6 +38,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
         |--------------------------------------------------------------------------
         */
         Route::resource('collections', 'CollectionsController');
+        Route::get('del/{id}', 'CollectionsController@del');
 
         /*
         |--------------------------------------------------------------------------
@@ -120,7 +121,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     */
     // 楼盘详情
     Route::resource('buildings', 'BuildingsController');
-    // 楼盘写字楼详情
+    // 楼盘下房源类列表
     Route::get('buildings_office/{id}','BuildingsController@showOffice');
     /*
     |--------------------------------------------------------------------------
@@ -129,7 +130,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     */
     // 房源详情
     Route::resource('office_building_houses','OfficeBuildingHousesController');
-    // 周边房源
+    // 房源下的周边房源
     Route::get('rim_houses/{id}','OfficeBuildingHousesController@showOffice');
 
     /*

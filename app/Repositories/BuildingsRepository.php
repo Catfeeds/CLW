@@ -179,80 +179,26 @@ class BuildingsRepository extends  Model
      */
     public function getShow($building)
     {
-
-        $constru_acreage=[];
-        $price =[];
-        $station_number = [];
-        if(!empty($building->buildingBlock)) {
-            foreach ($building->buildingBlock as $buildingBlock) {
-                $OfficeBuildingHouse[] = $buildingBlock->OfficeBuildingHouse;
-            }
-
-            $houses = collect($OfficeBuildingHouse)->flatten()->toArray();
-
-            foreach ($houses as $house) {
-                $constru_acreage[] = (int)$house['constru_acreage'];
-
-                if ($house['rent_price_unit'] == 2) {
-                    $price[] = (int)$house['rent_price'];
-                }
-
-                if(!empty($house['station_number'])) {
-                    $station_number[] = (int)$house['station_number'];
-                }
-            }
-            $min_price = $building->house->min('rent_price');
-            $max_price = $building->house->max('rent_price');
-            $building->unit_price =  $min_price. '-' . $max_price;
-            sort($constru_acreage);
-            if(!empty($price)){
-                //价格区间
-                sort($price);
-                $building->price = reset($price) . '-' . end($price);
-            }
-            //工位数
-            if(!empty($station_number)){
-                sort($station_number);
-                $building->station_number = reset($station_number) . '-' . end($station_number);
-            }
-            //建筑面积
-            $building->constru_acreage = reset($constru_acreage) . '-' . end($constru_acreage);
-        }
-
+        //楼盘单价区间
+        $building->unit_price = $building->house->min('unit_price') . '-' . $building->house->max('unit_price');
+        //楼盘总价区间
+        $building->total_price= $building->house->min('total_price') . '-' . $building->house->max('total_price');
+        //楼盘面积区间
+        $building->constru_acreage = $building->house->min('constru_acreage') . '-' . $building->house->max('constru_acreage');
         return $building;
     }
 
     /**
-     * 说明: 获取详情
+     * 说明: 获取该楼盘下的房源列表
      *
      * @param $id
      * @return mixed
      * @author 王成
      */
-    public function getShowOffice($id)
+    public function OfficeHouseList($id)
     {
-        $building = Building::find($id);
-        $arrId = [];
-        foreach($building->buildingBlock as $buildingBlock) {
-           $OfficeBuildingHouse[] = $buildingBlock->OfficeBuildingHouse;
-        }
-
-        $houses = collect($OfficeBuildingHouse)->flatten();
-
-        foreach($houses as $getId)
-        {
-            $arrId[] = $getId->id;
-        }
-
-        $res = OfficeBuildingHouse::whereIn('id', $arrId)->with(['BuildingBlock'])->paginate(6);
-
-        foreach ($res as $office)
-        {
-            $office->unitPrice = empty($office->unit_price)?'':$office->unit_price.'元/㎡.月';
-            $office->total_price = empty($office->unit_price * $office->constru_acreage)?'':$office->unit_price * $office->constru_acreage;
-        }
-
-        return $res;
+       $building = Building::find($id);
+       return $building->house()->paginate(6);
     }
 
     /**

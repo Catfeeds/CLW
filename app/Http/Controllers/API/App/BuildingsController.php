@@ -45,7 +45,7 @@ class BuildingsController extends APIBaseController
     }
 
     /**
-     * 说明: 获取写字楼详情
+     * 说明: 楼盘下房源列表
      *
      * @param BuildingsRepository $buildingsRepository
      * @param $id
@@ -58,7 +58,7 @@ class BuildingsController extends APIBaseController
         $id
     )
     {
-        $res = $buildingsRepository->getShowOffice($id);
-        return $this->sendResponse($res,'获取楼盘详情');
+        $res = $buildingsRepository->OfficeHouseList($id);
+        return $this->sendResponse($res,'获取楼盘下房源列表');
     }
 }
