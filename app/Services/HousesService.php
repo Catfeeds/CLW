@@ -46,17 +46,10 @@ class HousesService
     public function labelShow($res)
     {
         foreach ($res as $v) {
-            $v->label = '无标签';
-            $v->show = '下架';
+            $v->label_cn = '无标签';
             if ($v->houseLabel) {
-                if ($v->houseLabel->label == 1) {
-                    $v->label = '有标签';
-                }
-                if ($v->houseLabel->status == 1) {
-                    $v->show = '上架';
-                }
+                $v->label_cn = '有标签';
             }
-
         }
         return $res;
     }

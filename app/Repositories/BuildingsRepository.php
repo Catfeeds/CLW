@@ -221,17 +221,20 @@ class BuildingsRepository extends  Model
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      * @author 刘坤涛
      */
-    public function buildingLists($per_page, $condition)
+    public function buildingLists($per_page, $condition, $service)
     {
-        $result = Building::with('buildingBlock')->orderBy('updated_at', 'desc');
+        $result = Building::with('buildingBlock', 'label')->orderBy('updated_at', 'desc');
         if (!empty($condition->building_id)) {
             $result = $result->where(['id' => $condition->building_id]);
         } elseif(!empty($condition->area_id)) {
             $buildingId = array_column(Area::find($condition->area_id)->building->flatten()->toArray(), 'id');
             $result = $result->whereIn('id', $buildingId);
         }
-        return  $result->paginate($per_page??10);
-
+        $buildings = $result->paginate($per_page??10);
+//        foreach($buildings as  $v) {
+//            $service->label($v);
+//        }
+        return $buildings;
     }
 
     /**

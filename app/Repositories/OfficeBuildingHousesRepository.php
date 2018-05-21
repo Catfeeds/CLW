@@ -90,20 +90,7 @@ class OfficeBuildingHousesRepository extends Model
     {
         return HouseLabel::create([
             'house_id' => $request->house_id,
-            'label' => 1
         ]);
-    }
-
-    /**
-     * 说明: 更新房源标签
-     *
-     * @param $request
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function updateHouseLabel($request)
-    {
-        return HouseLabel::where('house_id', $request->house_id)->update(['label' => 1]);
     }
 
     /**
@@ -115,22 +102,19 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function showHouse($request)
     {
-        return HouseLabel::create([
-            'house_id' => $request->house_id,
-            'status' => 1
-        ]);
+        return OfficeBuildingHouse::find($request->house_id)->update(['shelf' => 1]);
     }
 
     /**
-     * 说明: 更新房源上架
+     * 说明: 房源下架
      *
      * @param $request
      * @return mixed
      * @author 刘坤涛
      */
-    public function updateShowHouse($request)
+    public function delShowHouse($id)
     {
-        return HouseLabel::where('house_id', $request->house_id)->update(['status' =>1]);
+        return OfficeBuildingHouse::find($id)->update(['shelf' => 2]);
     }
 
 }

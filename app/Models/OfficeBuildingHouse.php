@@ -17,7 +17,7 @@ class OfficeBuildingHouse extends Model
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
-        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'floor_cn'
+        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'floor_cn', 'show_cn'
     ];
 
     /**
@@ -80,6 +80,11 @@ class OfficeBuildingHouse extends Model
         return $this->hasOne(HouseLabel::class, 'house_id', 'id');
     }
 
+    public function getShowCnAttribute()
+    {
+            if ($this->shelf == 1) return '上架';
+        return '下架';
+    }
 
     /**
      * 说明: 单价加入单位

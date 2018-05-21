@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\BuildingsRequest;
 use App\Models\Building;
 use App\Models\BuildingLabel;
 use App\Repositories\BuildingsRepository;
+use App\Services\BuildingsService;
 
 class BuildingsController extends APIBaseController
 {
@@ -29,9 +30,9 @@ class BuildingsController extends APIBaseController
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
-    public function index()
+    public function index(BuildingsService $service)
     {
-        $res = $this->repo->buildingLists($this->req->per_page, json_decode($this->req->condition));
+        $res = $this->repo->buildingLists($this->req->per_page, json_decode($this->req->condition), $service);
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 

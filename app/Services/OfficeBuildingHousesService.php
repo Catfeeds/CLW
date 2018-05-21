@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Area;
 use App\Models\Block;
+use App\Models\BuildingFeature;
 use App\Models\Collection;
 use App\Models\HouseFeature;
 use Illuminate\Support\Facades\Auth;
@@ -100,7 +101,7 @@ class OfficeBuildingHousesService
         ];
 
         // 特色
-        $features = HouseFeature::orderBy('weight', 'desc')->get();
+        $features = BuildingFeature::orderBy('weight', 'desc')->get();
         $data = array();
         $temp = array();
         $temp[0]['name'] = '不限';
