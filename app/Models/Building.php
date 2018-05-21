@@ -17,11 +17,8 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['label_cn', 'feature_cn', 'address_cn', 'pic_url_cn', 'address_type', 'img_cn', 'type_label', 'feature', 'feature_name_pic', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
+    protected $appends = ['pic_url_cn',  'img_cn', 'type_label', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
         'parking_num_cn','parking_fee_cn'];
-
-//    protected $appends = ['pic_url_cn', 'img_cn', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
-//        'parking_num_cn','parking_fee_cn'];
 
     // 楼座
     public function buildingBlock()
@@ -59,16 +56,7 @@ class Building extends Model
         return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class);
     }
 
-    /**
-     * 说明: 楼盘列表是否有标签
-     *
-     * @return bool
-     * @author 刘坤涛
-     */
-    public function getLabelCnAttribute()
-    {
-        return !empty($this->label);
-    }
+
 
     /**
      * 说明: 绿化绿加入单位
@@ -90,17 +78,6 @@ class Building extends Model
     public function getAcreageCnAttribute()
     {
         if ($this->acreage) return $this->acreage . '㎡';
-    }
-
-    /**
-     * 说明: 楼盘特色
-     *
-     * @return mixed
-     * @author
-     */
-    public function getFeatureCnAttribute()
-    {
-        return $this->features->pluck('name', 'id')->toArray();
     }
 
     /**
@@ -139,57 +116,6 @@ class Building extends Model
     public function getParkingFeeCnAttribute()
     {
         if ($this->parking_fee) return $this->parking_fee . '元';
-    }
-
-    /**
-     * 说明: 楼盘特色数组
-     *
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function getFeatureAttribute()
-    {
-        return $this->features->pluck('name')->take(3)->toArray();
-    }
-
-    /**
-     * 说明: 楼盘详情特色图片,名称
-     *
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function getFeatureNamePicAttribute()
-    {
-        return $this->features->map(function($v) {
-            return [
-                'name' => $v->name,
-                'pic' => config('setting.qiniu_url') . $v->pic
-            ];
-        });
-    }
-
-
-    /**
-     * 说明: 获取该楼盘商圈名称
-     *
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function getAddressCnAttribute()
-    {
-        return $this->area->name.'-'.$this->block->name;
-    }
-
-    /**
-     * 说明: 地址
-     *
-     * @return string
-     * @use address_type
-     * @author 罗振
-     */
-    public function getAddressTypeAttribute()
-    {
-        return $this->area->name.'/'.$this->block->name;
     }
 
     /**
@@ -265,6 +191,10 @@ class Building extends Model
                 return '商铺';
         }
     }
-    
+
+//    public function getAddressCnAttribute()
+//    {
+//        return $this->area->name . '-' . $this->block->name;;
+//    }
 
 }

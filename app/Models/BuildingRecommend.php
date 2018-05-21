@@ -4,9 +4,11 @@ namespace App\Models;
 
 class BuildingRecommend extends BaseModel
 {
-    protected $appends = [
-      'img_cn', 'array_id_cn', 'pic_url_cn', 'area_block_name', 'building_name'
-    ];
+//    protected $appends = [
+//      'img_cn', 'array_id_cn', 'pic_url_cn', 'area_block_name', 'building_name'
+//    ];
+
+    protected $appends = ['img_cn', 'pic_url_cn'];
 
     /**
      * 说明: 图片拼接
@@ -41,40 +43,40 @@ class BuildingRecommend extends BaseModel
         return $this->belongsTo('App\Models\Building');
     }
 
-    /**
-     * 说明: 获取市 区域 楼盘 的ID
-     *
-     * @return array
-     * @author 刘坤涛
-     */
-    public function getArrayIdCnAttribute()
-    {
-        $data[] =  $this->building->area->city->id;
-        $data[] = $this->building->area->id;
-        $data[] = $this->building->id;
-        return $data;
-    }
+//    /**
+//     * 说明: 获取市 区域 楼盘 的ID
+//     *
+//     * @return array
+//     * @author 刘坤涛
+//     */
+//    public function getArrayIdCnAttribute()
+//    {
+//        $data[] =  $this->building->area->city->id;
+//        $data[] = $this->building->area->id;
+//        $data[] = $this->building->id;
+//        return $data;
+//    }
 
-    /**
-     * 说明: 获取区域商圈名称
-     *
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function getAreaBlockNameAttribute()
-    {
-        return $this->building->getAddressCnAttribute();
-    }
+//    /**
+//     * 说明: 获取区域商圈名称
+//     *
+//     * @return mixed
+//     * @author 刘坤涛
+//     */
+//    public function getAreaBlockNameAttribute()
+//    {
+//        return $this->building->getAddressCnAttribute();
+//    }
 
-    /**
-     * 说明: 楼盘名称
-     *
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function getBuildingNameAttribute()
-    {
-        return $this->building->name;
-    }
+//    /**
+//     * 说明: 楼盘名称
+//     *
+//     * @return mixed
+//     * @author 刘坤涛
+//     */
+//    public function getBuildingNameAttribute()
+//    {
+//        return $this->building->name;
+//    }
 
 }

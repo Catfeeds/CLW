@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\HouseLabel;
 use App\Models\OfficeBuildingHouse;
 
 class HousesService
@@ -34,4 +35,6 @@ class HousesService
         }
         return $res;
     }
+
+
 }

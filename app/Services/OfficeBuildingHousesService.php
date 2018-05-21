@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Area;
 use App\Models\Block;
+use App\Models\BuildingFeature;
 use App\Models\Collection;
 use App\Models\HouseFeature;
 use Illuminate\Support\Facades\Auth;
@@ -100,7 +101,7 @@ class OfficeBuildingHousesService
         ];
 
         // 特色
-        $features = HouseFeature::orderBy('weight', 'desc')->get();
+        $features = BuildingFeature::orderBy('weight', 'desc')->get();
         $data = array();
         $temp = array();
         $temp[0]['name'] = '不限';
@@ -205,6 +206,33 @@ class OfficeBuildingHousesService
         //房源地址
         $office->address = $office->BuildingBlock->Building->address;
         return $office;
+    }
+
+    /**
+     * 说明: 房源列表添加标签标识
+     *
+     * @param $res
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function labelShow($res)
+    {
+        $res->label_cn = '无标签';
+        if ($res->houseLabel) {
+            $res->label_cn = '有标签';
+        }
+        return $res;
+    }
+
+    /**
+     * 说明: 房源获取楼盘名称
+     *
+     * @param $res
+     * @author 刘坤涛
+     */
+    public function getBuildingName($res)
+    {
+        $res->building_name = $res->BuildingBlock->Building->name;
     }
 
 }

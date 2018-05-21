@@ -20,13 +20,15 @@ class HousesRequest extends FormRequest
 
     public function messages()
     {
-        switch ($this->method()) {
-            case 'POST':
+        switch ($this->route()->getActionMethod()) {
+            case 'store':
                 return [
-                    'house_id.unique' => '不能重复添加标签',
                     'house_id.exists' => '房源必须存在'
                 ];
-            case 'PUT':
+            case 'showHouse':
+                return [
+                    'house_id.exists' => '房源必须存在'
+                ];
             case 'PATCH':
             case 'GET':
             case 'DELETE':
@@ -39,12 +41,15 @@ class HousesRequest extends FormRequest
 
     public function rules()
     {
-        switch ($this->method()) {
-            case 'POST':
+        switch ($this->route()->getActionMethod()) {
+            case 'store':
                 return [
-                    'house_id' => 'required|integer|unique:house_labels|exists:media.office_building_houses,id'
+                    'house_id' => 'required|integer|exists:media.office_building_houses,id',
                 ];
-            case 'update':
+            case 'showHouse':
+                return [
+                    'house_id' => 'required|integer|exists:media.office_building_houses,id',
+                ];
             default;
                 return [
 

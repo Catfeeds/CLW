@@ -25,17 +25,16 @@ class OfficeBuildingHousesRepository extends Model
         }
 
         // 查询这个房源周边房源
-        $houses = OfficeBuildingHouse::where('id', '!=', $id)
+        $houses = OfficeBuildingHouse::with('BuildingBlock.Building', 'houseLabel')->where('id', '!=', $id)
             ->where('constru_acreage', '>', $house->constru_acreage - config('setting.float_acreage'))
             ->where('constru_acreage', '<', $house->constru_acreage + config('setting.float_acreage'))
             ->where('unit_price', '>', $house->unit_price - config('setting.float_price'))
             ->where('unit_price', '<', $house->unit_price + config('setting.float_price'))
-            ->with(['BuildingBlock', 'HouseLabel'])
             ->paginate(6);
         foreach ($houses as $house) {
-            $house->label_cn = !empty($house->house_label);
-            $service->getShow($house);
-        }
+        $service->getShow($house);
+        $service->labelShow($house);
+    }
         return $houses;
     }
 
@@ -45,12 +44,12 @@ class OfficeBuildingHousesRepository extends Model
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 刘坤涛
      */
-    public function HouseList($per_page, $condition)
+    public function HouseList($per_page, $condition, $service)
     {
         $result = OfficeBuildingHouse::where('house_busine_state', 1);
         if (!empty($condition->region) && !empty($condition->build)) {
             // 楼盘包含的楼座
-            $blockId = array_column(Building::find($condition->build)->buildingBlocks->toArray(), 'id');
+            $blockId = array_column(Building::find($condition->build)->buildingBlock->toArray(), 'id');
             $result = $result->whereIn('building_block_id', $blockId);
         } elseif (!empty($condition->region) && empty($condition->build)) {
             // 区域包含的楼座
@@ -71,12 +70,12 @@ class OfficeBuildingHousesRepository extends Model
         if (!empty($condition->order)) {
             $result = $result->orderBy('updated_at', $condition->order);
         }
-        $house =  $result->with('BuildingBlock', 'BuildingBlock.Building')->paginate($per_page??10);
+        $house =  $result->with('BuildingBlock', 'BuildingBlock.Building', 'houseLabel')->paginate($per_page??10);
         foreach($house as $v) {
-            $v->building_name = $v->BuildingBlock->Building->name;
+            $service->labelShow($v);
+            $service->getBuildingName($v);
         }
         return $house;
-
     }
 
     /**
@@ -90,20 +89,7 @@ class OfficeBuildingHousesRepository extends Model
     {
         return HouseLabel::create([
             'house_id' => $request->house_id,
-            'label' => 1
         ]);
-    }
-
-    /**
-     * 说明: 更新房源标签
-     *
-     * @param $request
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function updateHouseLabel($request)
-    {
-        return HouseLabel::where('house_id', $request->house_id)->update(['label' => 1]);
     }
 
     /**
@@ -115,22 +101,19 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function showHouse($request)
     {
-        return HouseLabel::caeate([
-            'house_id' => $request->house_id,
-            'status' => 1
-        ]);
+        return OfficeBuildingHouse::find($request->house_id)->update(['shelf' => 1]);
     }
 
     /**
-     * 说明: 更新房源上架
+     * 说明: 房源下架
      *
      * @param $request
      * @return mixed
      * @author 刘坤涛
      */
-    public function updateShowHouse($request)
+    public function delShowHouse($id)
     {
-        return HouseLabel::where('house_id', $request->house_id)->update(['status' =>1]);
+        return OfficeBuildingHouse::find($id)->update(['shelf' => 2]);
     }
 
 }

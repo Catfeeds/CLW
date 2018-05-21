@@ -21,7 +21,7 @@ class BuildingsRepository extends  Model
      * @return mixed
      * @author jacklin
      */
-    public function buildingList($request)
+    public function buildingList($request, $service)
     {
         // 取得符合条件房子
         $houses = $this->houseList($request);
@@ -30,7 +30,12 @@ class BuildingsRepository extends  Model
         $buildings = $this->groupByBuilding($houses);
 
         $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->paginate($request->per_page);
+        foreach($buildingData as $v) {
+            $service->features($v);
+            $service->getAddress($v);
+            $service->label($v);
 
+        }
         return $this->buildingDataComplete($buildings, $buildingData);
     }
 
@@ -50,7 +55,7 @@ class BuildingsRepository extends  Model
             // 价格
             $buildingData[$index]->avg_price = round($buildings[$v->id]->avg('unit_price'), 2);
             // 工位
-            $buildingData[$index]->station_num = $this->buildingStationNum($buildings[$v->id]);
+//            $buildingData[$index]->station_num = $this->buildingStationNum($buildings[$v->id]);
             // 商圈推荐
             $buildingData[$index]->block_recommend = $v->block->recommend??0;
             // 标签
@@ -183,7 +188,7 @@ class BuildingsRepository extends  Model
      * @return mixed
      * @author 王成
      */
-    public function getShow($building)
+    public function getShow($building, $service)
     {
         //楼盘单价区间
         $building->unit_price = $building->house->min('unit_price') . '-' . $building->house->max('unit_price');
@@ -191,6 +196,8 @@ class BuildingsRepository extends  Model
         $building->total_price= $building->house->min('total_price') . '-' . $building->house->max('total_price');
         //楼盘面积区间
         $building->constru_acreage = $building->house->min('constru_acreage') . '-' . $building->house->max('constru_acreage');
+        $service->features($building);
+        $service->label($building);
         return $building;
     }
 
@@ -204,11 +211,11 @@ class BuildingsRepository extends  Model
     public function OfficeHouseList($service, $id)
     {
        $building = Building::find($id);
-       $res=  $building->house()->paginate(6);
+       $res=  $building->house()->with('houseLabel', 'BuildingBlock', 'BuildingBlock.Building')->paginate(6);
        foreach ($res as $v) {
            $service->getShow($v);
+           $service->labelShow($v);
        }
-
        return $res;
 
     }
@@ -221,17 +228,22 @@ class BuildingsRepository extends  Model
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      * @author 刘坤涛
      */
-    public function buildingLists($per_page, $condition)
+    public function buildingLists($per_page, $condition, $service)
     {
-        $result = Building::with('buildingBlock')->orderBy('updated_at', 'desc');
+        $result = Building::with('buildingBlock', 'features', 'label', 'area', 'block')->orderBy('updated_at', 'desc');
         if (!empty($condition->building_id)) {
             $result = $result->where(['id' => $condition->building_id]);
         } elseif(!empty($condition->area_id)) {
             $buildingId = array_column(Area::find($condition->area_id)->building->flatten()->toArray(), 'id');
             $result = $result->whereIn('id', $buildingId);
         }
-        return  $result->paginate($per_page??10);
-
+        $buildings = $result->paginate($per_page??10);
+        foreach($buildings as $v) {
+            $service->features($v);
+            $service->label($v);
+            $service->getAddress($v);
+        }
+        return $buildings;
     }
 
     /**

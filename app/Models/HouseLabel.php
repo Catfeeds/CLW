@@ -9,4 +9,6 @@ class HouseLabel extends Model
     protected $guarded = [];
 
     protected $connection = 'mysql';
+
+
 }
