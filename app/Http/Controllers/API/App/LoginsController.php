@@ -73,4 +73,9 @@ class LoginsController extends APIBaseController
         $result = $loginsService->logout('api');
         return $this->sendResponse($result, '退出成功！');
     }
+
+    public function agreement()
+    {
+        return view('mobile.agreement');
+    }
 }
