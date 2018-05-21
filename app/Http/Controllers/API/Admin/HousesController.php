@@ -6,6 +6,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\HousesRequest;
 use App\Models\HouseLabel;
 use App\Repositories\OfficeBuildingHousesRepository;
+use App\Services\HousesService;
 
 class HousesController extends APIBaseController
 {
@@ -28,9 +29,9 @@ class HousesController extends APIBaseController
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
-    public function index()
+    public function index(HousesService $service)
     {
-        $res = $this->repo->HouseList($this->req->per_page??null, json_decode($this->req->condition));
+        $res = $this->repo->HouseList($this->req->per_page??null, json_decode($this->req->condition), $service);
         return $this->sendResponse($res, '房源列表获取成功');
     }
 
@@ -69,7 +70,7 @@ class HousesController extends APIBaseController
         } else {
             $res = $this->repo->showHouse($this->req);
         }
-        return $this->sendResponse($res, '房源标签添加成功');
+        return $this->sendResponse($res, '房源上架成功');
     }
     
     /**
@@ -94,7 +95,7 @@ class HousesController extends APIBaseController
      */
     public function del($id)
     {
-        $res = HouseLabel::where('house_id', $id)->update(['status' => 1]);
+        $res = HouseLabel::where('house_id', $id)->update(['status' => 2]);
         return $this->sendResponse($res, '房源下架成功');
     }
 

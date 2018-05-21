@@ -45,12 +45,12 @@ class OfficeBuildingHousesRepository extends Model
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 刘坤涛
      */
-    public function HouseList($per_page, $condition)
+    public function HouseList($per_page, $condition, $service)
     {
         $result = OfficeBuildingHouse::where('house_busine_state', 1);
         if (!empty($condition->region) && !empty($condition->build)) {
             // 楼盘包含的楼座
-            $blockId = array_column(Building::find($condition->build)->buildingBlocks->toArray(), 'id');
+            $blockId = array_column(Building::find($condition->build)->buildingBlock->toArray(), 'id');
             $result = $result->whereIn('building_block_id', $blockId);
         } elseif (!empty($condition->region) && empty($condition->build)) {
             // 区域包含的楼座
@@ -71,12 +71,12 @@ class OfficeBuildingHousesRepository extends Model
         if (!empty($condition->order)) {
             $result = $result->orderBy('updated_at', $condition->order);
         }
-        $house =  $result->with('BuildingBlock', 'BuildingBlock.Building')->paginate($per_page??10);
+        $house =  $result->with('BuildingBlock', 'BuildingBlock.Building', 'houseLabel')->paginate($per_page??10);
         foreach($house as $v) {
             $v->building_name = $v->BuildingBlock->Building->name;
         }
+        $service->labelShow($house);
         return $house;
-
     }
 
     /**
@@ -115,7 +115,7 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function showHouse($request)
     {
-        return HouseLabel::caeate([
+        return HouseLabel::create([
             'house_id' => $request->house_id,
             'status' => 1
         ]);

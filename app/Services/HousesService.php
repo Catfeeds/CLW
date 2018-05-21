@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\HouseLabel;
 use App\Models\OfficeBuildingHouse;
 
 class HousesService
@@ -31,6 +32,31 @@ class HousesService
 //            $v->label = $house->getLabelCnAttribute();
             //图片
             $v->img = $house->getIndoorImgCnAttribute();
+        }
+        return $res;
+    }
+
+    /**
+     * 说明: 房源列表添加标签标示和是否上下架
+     *
+     * @param $res
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function labelShow($res)
+    {
+        foreach ($res as $v) {
+            $v->label = '无标签';
+            $v->show = '下架';
+            if ($v->houseLabel) {
+                if ($v->houseLabel->label == 1) {
+                    $v->label = '有标签';
+                }
+                if ($v->houseLabel->status == 1) {
+                    $v->show = '上架';
+                }
+            }
+
         }
         return $res;
     }

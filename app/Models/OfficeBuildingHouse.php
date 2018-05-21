@@ -75,7 +75,7 @@ class OfficeBuildingHouse extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      * @author 刘坤涛
      */
-    public function HouseLabel()
+    public function houseLabel()
     {
         return $this->hasOne(HouseLabel::class, 'house_id', 'id');
     }

@@ -98,13 +98,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     /*
     |--------------------------------------------------------------------------
-    | 房源特色管理
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('house_features', 'HouseFeaturesController');
-
-    /*
-    |--------------------------------------------------------------------------
     | 楼盘管理
     |--------------------------------------------------------------------------
     */
@@ -122,7 +115,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //房源上架
     Route::post('show_house', 'HousesController@showHouse');
     //房源下架
-    Route::get('del', 'HousesController@del');
+    Route::get('del/{id}', 'HousesController@del');
 
     /*
     |--------------------------------------------------------------------------
