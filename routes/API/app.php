@@ -15,6 +15,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
 
     // 登录
     Route::resource('/logins', 'LoginsController');
+    Route::get('/user_agreement', 'LoginsController@agreement');
     Route::post('/smsLogin', 'LoginsController@smsLogin');
 
     Route::group(['middleware' => ['auth:api']], function () {
