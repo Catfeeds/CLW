@@ -31,7 +31,7 @@ class ServicesService
                 if ($k > 9) {
                     $data['id'] = 'all';
                     $data['name'] = '全部';
-                    $data['icon'] = '../images/index_server_all.png'; // 全部默认图片
+                    $data['icon'] = 'https://upload.chulouwang.com/FuxNM53yDErXa0nTo8cZbGbk2y8K'; // 全部默认图片
                     $datas[1][4] = $data;
                 } else {
                     $datas[1][] = $data;
