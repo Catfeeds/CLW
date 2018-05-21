@@ -31,8 +31,6 @@ class OfficeBuildingHouse extends Model
         return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
     }
 
-
-
     /**
      * 说明: 获取房源轮播图
      *

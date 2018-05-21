@@ -6,7 +6,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\HousesRequest;
 use App\Models\HouseLabel;
 use App\Repositories\OfficeBuildingHousesRepository;
-use App\Services\HousesService;
+use App\Services\OfficeBuildingHousesService;
 
 class HousesController extends APIBaseController
 {
@@ -29,7 +29,7 @@ class HousesController extends APIBaseController
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
-    public function index(HousesService $service)
+    public function index(OfficeBuildingHousesService $service)
     {
         $res = $this->repo->HouseList($this->req->per_page??null, json_decode($this->req->condition), $service);
         return $this->sendResponse($res, '房源列表获取成功');

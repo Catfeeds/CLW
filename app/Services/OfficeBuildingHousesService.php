@@ -208,4 +208,31 @@ class OfficeBuildingHousesService
         return $office;
     }
 
+    /**
+     * 说明: 房源列表添加标签标识
+     *
+     * @param $res
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function labelShow($res)
+    {
+        $res->label_cn = '无标签';
+        if ($res->houseLabel) {
+            $res->label_cn = '有标签';
+        }
+        return $res;
+    }
+
+    /**
+     * 说明: 房源获取楼盘名称
+     *
+     * @param $res
+     * @author 刘坤涛
+     */
+    public function getBuildingName($res)
+    {
+        $res->building_name = $res->BuildingBlock->Building->name;
+    }
+
 }

@@ -62,9 +62,13 @@ class BuildingsController extends APIBaseController
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
-    public function edit(Building $building)
+    public function edit
+    (
+        Building $building,
+        BuildingsService $service
+    )
     {
-        $building->building_block = $building->buildingBlock;
+        $service->features($building);
         return $this->sendResponse($building, '修改楼盘之前原始数据');
     }
 

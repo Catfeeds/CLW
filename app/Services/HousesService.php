@@ -36,21 +36,5 @@ class HousesService
         return $res;
     }
 
-    /**
-     * 说明: 房源列表添加标签标示和是否上下架
-     *
-     * @param $res
-     * @return mixed
-     * @author 刘坤涛
-     */
-    public function labelShow($res)
-    {
-        foreach ($res as $v) {
-            $v->label_cn = '无标签';
-            if ($v->houseLabel) {
-                $v->label_cn = '有标签';
-            }
-        }
-        return $res;
-    }
+
 }

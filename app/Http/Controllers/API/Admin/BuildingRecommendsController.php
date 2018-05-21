@@ -6,6 +6,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\BuildingRecommendsRequest;
 use App\Models\BuildingRecommend;
 use App\Repositories\BuildingRecommendsRepository;
+use App\Services\BuildingsService;
 
 class BuildingRecommendsController extends APIBaseController
 {
@@ -18,10 +19,11 @@ class BuildingRecommendsController extends APIBaseController
      */
     public function index
     (
-        BuildingRecommendsRepository $BuildingRecommendsRepository
+        BuildingRecommendsRepository $BuildingRecommendsRepository,
+        BuildingsService $service
     )
     {
-        $res = $BuildingRecommendsRepository->recommendList();
+        $res = $BuildingRecommendsRepository->recommendList($service);
         return $this->sendResponse($res,'写字楼推荐列表');
     }
 

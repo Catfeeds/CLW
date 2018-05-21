@@ -13,9 +13,15 @@ class BuildingRecommendsRepository extends Model
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      * @author 刘坤涛
      */
-    public function recommendList()
+    public function recommendList($service)
     {
-        return BuildingRecommend::all();
+        $buildingRecommend =  BuildingRecommend::with('building', 'building.area', 'building.area.city', 'building.block')->get();
+        foreach($buildingRecommend as $v) {
+            $service->getName($v);
+            $service->getArrId($v);
+            $service->getBuildingAddress($v);
+        }
+        return $buildingRecommend;
     }
 
     /**
