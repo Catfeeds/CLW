@@ -18,3 +18,5 @@ Route::resource('houses', 'HouseController');
 
 // 服务
 Route::resource('servers', 'ServerController');
+// 地图
+Route::get('map', 'ServerController@map');
