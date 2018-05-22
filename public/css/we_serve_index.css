@@ -7,10 +7,6 @@ body header .mui-title {
   margin-top: 20px !important;
 }
 
-body .mui-content {
-  margin-top: 65px;
-}
-
 body .mui-content .banner {
   width: 100%;
 }
@@ -112,3 +108,4 @@ body .mui-content .finance .list .first div h5 {
   font-size: 13px;
   color: #333;
 }
+

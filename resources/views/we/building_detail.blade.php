@@ -8,7 +8,7 @@
 			<div id="Vuebuilding">
 				<div class="mui-content">
 					<div class="swiper-container">
-						{{--<detail-banner :list='$data->pic_url'></detail-banner>	--}}
+						<detail-banner :list='$data->pic_url'></detail-banner>
 				  </div>
 					<!--1标题栏-->
 					<div>
