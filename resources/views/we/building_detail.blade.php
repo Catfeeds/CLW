@@ -21,12 +21,12 @@
 							<div class="uls" style="padding-left:0;padding-right:0;">
 								<div class="mui-row">
 									<div class="mui-col-xs-4 bor"style="padding-right:10px;border:none !important;">
-										<h3 style="font-size:17px;color:#333333;">{{$data->unit_price}}</h3>
-										<h5>元/㎡•月</h5>
+										<h3 style="font-size:17px;color:#333333;text-align:center;">{{$data->unit_price}}</h3>
+										<h5 style="text-align:center;">元/㎡•月</h5>
 									</div>
 									<div class="mui-col-xs-4 bor"style="border-left:1px solid #f4f4f4;border-right:1px solid #f4f4f4">
-										<h3 style="font-size:17px;color:#333333">{{$data->total_price}}</h3>
-										<h5>万元/月</h5>
+										<h3 style="font-size:17px;color:#333333;text-align:center;">{{$data->total_price}}</h3>
+										<h5 style="text-align:center;">万元/月</h5>
 									</div>
 									<div class="mui-col-xs-4 las">
 										<h3 style="font-size:17px;color:#333333">{{$data->constru_acreage}}</h3>
