@@ -22,6 +22,10 @@ Route::resource('houses', 'HouseController');
 // 用户相关
 
 
+// 服务
+Route::resource('servers', 'ServerController');
+
+
 Route::group(['middleware' => ['web','weChat.login']], function () {
 
     Route::get('test', function () {
@@ -29,4 +33,3 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     });
 
 });
-
