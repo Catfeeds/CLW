@@ -1,0 +1,95 @@
+
+body {
+    header{
+      background-color: rgba(255,255,255,0.99) !important;
+      height: 64px !important;
+        .mui-title{
+            margin-top: 20px !important;
+        }
+    }
+  .mui-content{
+    .banner{
+      width: 100%;
+    }
+    .essential{
+      .title{
+        display: flex;
+        justify-content: flex-start;
+        padding: 15px;
+        .nav{
+          font-size: 15px;
+          color: #333;
+        }
+        .border{
+          width: 3px;
+          height: 14px;
+          background: #007bff;
+          margin-top: 4px;
+          margin-right: 6px;
+          border-radius: 1px;
+        }
+      }
+      .list{
+        border-top: 1px solid #f4f4f4;
+        padding: 20px 15px;
+        .first{
+          &:not(:first-child){
+            margin-top: 17px;
+          }
+          div{
+            text-align: center;
+            img{
+              width: 36px;
+              height: 36px;
+            }
+            h5{
+              font-size: 13px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+    .finance{
+      border-top: 10px solid #f4f4f4;
+      .title{
+        display: flex;
+        justify-content: flex-start;
+        padding: 15px;
+        .nav{
+          font-size: 15px;
+          color: #333;
+        }
+        .border{
+          width: 3px;
+          height: 14px;
+          background: #007bff;
+          margin-top: 4px;
+          margin-right: 6px;
+          border-radius: 1px;
+        }
+      }
+      .list{
+        border-top: 1px solid #f4f4f4;
+        padding: 20px 15px;
+        .first{
+          &:not(:first-child){
+            margin-top: 17px;
+          }
+          div{
+            text-align: center;
+            img{
+              width: 36px;
+              height: 36px;
+            }
+            h5{
+              font-size: 13px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

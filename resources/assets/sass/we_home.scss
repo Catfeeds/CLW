@@ -1,0 +1,408 @@
+body{
+  padding-bottom: 60px;
+}
+.swiper-slide{
+  img{
+    width: 100%;
+  }
+}
+.swiper-pagination{
+  bottom: 20px !important;
+  .swiper-pagination-bullet{
+    background: #ffffff !important;
+    opacity: 0.5;
+    &.swiper-pagination-bullet-active{
+      opacity: 1;
+    }
+  }
+}
+.main-content{
+  padding: 0 15px;
+  background: #FFFFFF;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  position: relative;
+  top: -18px;
+  z-index: 100;
+  // 分类按钮
+  .index_buttonList{
+    padding: 18px 0 3px;
+    .buttonList{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      .buttonItem{
+        display: inline-block;
+        width: 14%;
+        @media screen and (max-width: 350px) {
+          width: 17%;
+        }
+        a{
+          display: block;
+          text-align: center;
+          img{
+            max-width: 100%;
+          }
+          >div{
+            font-size: 12px;
+            color: #333333;
+            word-break: keep-all;
+          }
+        }
+      }
+    }
+  }
+  // 广播轮播
+  .broadcast-box{
+    display: flex;
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+    border: {
+      top: 1px solid rgb(244,244,244);
+      bottom: 1px solid rgb(244,244,244);
+    }
+    padding: {
+      top: 10px;
+      bottom: 10px;
+      left: 15px;
+      right: 15px;
+    }
+    .img-box{
+      padding-right: 10px;
+      display: flex;
+      align-content: center;
+      img{
+        width: 16px;
+        height: 22px;
+      }
+    }
+    .swiper-box{
+      flex: 1;
+      height: 22px;
+      overflow: hidden;
+      .swiper-container{
+        height: 100%;
+      }
+      a{
+        color: #333333;
+        font-size: 14px;
+      }
+    }
+  }
+  // 精品推荐（标题样式）
+  .index_title{
+    font-weight: 700;
+    color: #333333;
+    font-size: 18px;
+    padding: {
+      top: 30px;
+      bottom: 20px;
+    }
+  }
+  .indexSideslip{
+    overflow-x: scroll;
+    margin-right: -15px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    // 精品推荐列表
+    .qualityList{
+      display: flex;
+      width: auto;
+      .qualityItem{
+        display: flex;
+        margin-right: 10px;
+        flex-direction: column;
+        &:last-child{
+          padding-right: 15px;
+        }
+        img{
+          width: 170px;
+          border-radius: 5px;
+        }
+        .quality-text{
+          padding-left: 10px;
+          padding: {
+            top: 10px;
+            bottom: 20px;
+          }
+          .quality-title{
+            font-size: 15px;
+            color: #333333;
+            margin-bottom: 5px;
+          }
+          .quality-describe{
+            font-size: 12px;
+            color: rgb(94,94,94)
+          }
+        }
+      }
+    }
+    // 推荐服务列表
+    .serverList{
+      display: flex;
+      width: auto;
+      .serverItem{
+        margin-right: 10px;
+        &:last-child{
+          padding-right: 15px;
+        }
+        img{
+          width: 120px;
+        }
+      }
+    }
+    // 写字楼推荐列表
+    .buildingList{
+      display: flex;
+      width: auto;
+      .buildingItem{
+        margin-right: 10px;
+        &:last-child{
+          padding-right: 15px;
+        }
+        img{
+          width: 230px;
+          border-radius: 5px;
+        }
+        .building-text{
+          padding-left: 10px;
+          padding: {
+            top: 10px;
+            bottom: 20px;
+          }
+          .building-title{
+            font-size: 15px;
+            color: #333333;
+            margin-bottom: 5px;
+          }
+          .building-describe{
+            font-size: 12px;
+            color: rgb(94,94,94);
+            img{
+              width: auto;
+              position: relative;
+              width: 8px;
+              margin: {
+                right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // 投放房源
+  .launchHouse-box{
+    padding: 20px 15px;
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+    border: {
+      top: 1px solid rgb(244,244,244);
+      bottom: 1px solid rgb(244,244,244);
+    }
+    .launchHouse-content{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      img{
+        width: 100%;
+        border-radius: 5px;
+      }
+      .launchHouse-form{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        form{
+          padding: {
+            left: 20px;
+            right: 20px;
+          }
+          position: absolute;
+          bottom: 20px;
+          width: 100%;
+          display: flex;
+          .input-box{
+            flex: 1;
+            background: #FFFFFF;
+            margin-right: 5px;
+            border-radius: 3px;
+            overflow: hidden;
+            display: flex;
+            input{
+              width: 100%;
+              border: 0;
+              margin-bottom: 0 !important;
+              padding: {
+                left: 10px;
+                right: 10px;
+                top: 0;
+                bottom: 0;
+              }
+              height: auto;
+              &::placeholder{
+                color: #999999;
+                font-size: 14px;
+              }
+              flex: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  // 首要推荐服务
+  .index-serverFirst{
+    margin-bottom: 10px;
+    a{
+      display: flex;
+      flex-direction: column;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  // 热门商圈
+  .hot-block{
+    display: flex;
+    flex-direction: column;
+    margin: {
+      top: 15px;
+      left: -15px;
+      right: -15px;
+    }
+    padding: {
+      left: 15px;
+      right: 15px;
+      bottom: 20px;
+    }
+    border: {
+      top: 1px solid rgb(244,244,244);
+      bottom: 1px solid rgb(244,244,244);
+    }
+    div.hot-block-box{
+      display: flex;
+      justify-content: space-between;
+      a{
+        display: flex;
+        flex-direction: column;
+      }
+      a.hot-1{
+        width: 32.4%;
+      }
+      img{
+        width: 100%;
+        border-radius: 6px;
+      }
+      ul{
+        position: relative;
+        width: 66.2%;
+        padding: 0;
+        margin: 0;
+        li{
+          display: flex;
+          justify-content: space-between;
+          a{
+            width: 48.94%;
+          }
+        }
+        li:last-child{
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
+  }
+  // 区域标题
+  .area-title{
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+    border-top: 1px solid rgb(244,244,244);
+    color: #333333;
+    font-size: 18px;
+    padding: {
+      left: 15px;
+      top: 20px;
+      bottom: 14px;
+    }
+  }
+  .area-list{
+    margin: 0 -15px;
+    padding: 0 15px 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 30px;
+    border-bottom: 1px solid #f4f4f4;
+    a{
+      color: rgb(102, 102, 102);
+      font-size: 14px;
+      margin-right: 20px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  .better{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 -15px;
+    padding: 30px 15px 20px 15px;
+    border-bottom: 1px solid #f4f4f4;
+  }
+  .guessList{
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+  }
+}
+// 预定遮罩
+.mui-popover.bookHouse{
+  background: transparent;
+  position: fixed;
+  top: 200px;
+  width: 100%;
+  padding: {
+    left: 60px;
+    right: 60px;
+  }
+  .book-box{
+    background: #FFFFFF;
+    border-radius: 6px;
+    .title{
+      color: #333333;
+      padding: {
+        top: 25px;
+        bottom: 25px;
+      }
+      font: {
+        weight: 700;
+        size: 18px;
+      }
+      text-align: center;
+      border-bottom: 1px solid #f4f4f4;
+    }
+    .book-contentBox{
+      padding: 30px 45px;
+      .img-box{
+        display: flex;
+        justify-content: space-between;
+        img{
+          width: 60%;
+          &.right{
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

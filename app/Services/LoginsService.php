@@ -143,4 +143,25 @@ class LoginsService
             return ['status' => true, 'message' => '退出失败'];
         }
     }
+
+    /**
+     * 说明: 微信账号密码登录
+     *
+     * @param $request
+     * @return array
+     * @author 罗振
+     */
+    public function webPwdLogin($request)
+    {
+        $user = User::where(['name' => $request->name])->first();
+        if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
+
+        // 验证新密码与原密码
+        if (!Hash::check($request->password, $user->password)) return ['status' => false, 'message' => '密码不正确'];
+
+        session(['user' => $user]);
+
+        return ['status' => true, 'message' => '登录成功'];
+    }
+    
 }
