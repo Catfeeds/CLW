@@ -89,7 +89,7 @@
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>入驻企业</h4></div>
-									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->company}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->company_cn}}</h4></div>
 								</div>
 								</div>
 							</div>
