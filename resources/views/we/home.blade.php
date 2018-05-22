@@ -24,7 +24,7 @@
                     @foreach($items as $item)
                     <div class="buttonItem">
                             <span>
-                              <a href="{{url('/servers').'/'.$item['id']}}">
+                              <a href="@if($item['name']==='全部'){{url('/servers')}}@else{{url('/servers').'/'.$item['id']}}@endif">
                                 <img src="{{$item['icon']}}" />
                                 <div>{{$item['name']}}</div>
                               </a>

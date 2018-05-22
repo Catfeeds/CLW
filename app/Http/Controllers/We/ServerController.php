@@ -28,4 +28,7 @@ class ServerController extends Controller
         return view('we.server_detail', ['res' => $service]);
     }
 
+    public function map() {
+        return view('we.map');
+    }
 }
