@@ -2,8 +2,9 @@
 namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class LoginsController extends Controller
 {
     /**
      * 说明: 登录页面
@@ -15,6 +16,19 @@ class LoginController extends Controller
     {
         return view('we.login_new');
     }
+
+    public function store(
+        Request $request
+    )
+    {
+
+
+
+
+
+    }
+
+
 
     /**
      * 说明: 快速登录页面

@@ -9,7 +9,7 @@
             <!-- 轮播图 -->
             <div class="swiper-wrapper" id="VueBanner">
                 <div class="swiper-slide">
-                    <a href="#"><img :src="item.banner" /></a>
+                    <a href="#"><img src="/we_img/temp_index_1.png" /></a>
                 </div>
             </div>
             <!-- 如果需要分页器 -->
@@ -163,6 +163,7 @@
                 @endforeach
             </div>
             <div class="better">猜你喜欢</div>
+            {{--楼盘列表数据--}}
             <input id="listAppData" type="hidden" value="{{json_encode($buildings)}}">
             <div class="guessList">
                 <div id="listApp">
