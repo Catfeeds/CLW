@@ -6,7 +6,6 @@ use App\Models\Area;
 use App\Models\Block;
 use App\Models\BuildingFeature;
 use App\Models\Collection;
-use App\Models\HouseFeature;
 use Illuminate\Support\Facades\Auth;
 
 class OfficeBuildingHousesService
@@ -125,21 +124,21 @@ class OfficeBuildingHousesService
     public function getShow($office)
     {
         //楼盘名称
-        $office->building_name = $office->BuildingBlock->Building->name;
+        $office->building_name = $office->buildingBlock->building->name;
         //楼层总数
-        $office->total_floor = $office->BuildingBlock->total_floor?$office->BuildingBlock->total_floor . '层' : '';
+        $office->total_floor = $office->buildingBlock->total_floor?$office->buildingBlock->total_floor . '层' : '';
         //支付方式
-        $office->property_company = $office->BuildingBlock->property_company;
+        $office->property_company = $office->buildingBlock->property_company;
         //客梯数量
-        $office->passenger_lift = $office->BuildingBlock->passenger_lift?$office->BuildingBlock->passenger_lift . '部': '';
+        $office->passenger_lift = $office->buildingBlock->passenger_lift?$office->buildingBlock->passenger_lift . '部': '';
         //货梯数量
-        $office->cargo_lift = $office->BuildingBlock->cargo_lift?$office->BuildingBlock->cargo_lift. '部' : '';
+        $office->cargo_lift = $office->buildingBlock->cargo_lift?$office->buildingBlock->cargo_lift. '部' : '';
         //总裁电梯数量
-        $office->president_lift = $office->BuildingBlock->president_lift?$office->BuildingBlock->president_lift . '部' : '';
+        $office->president_lift = $office->buildingBlock->president_lift?$office->buildingBlock->president_lift . '部' : '';
         //gps
-        $office->gps = $office->BuildingBlock->Building->gps;
+        $office->gps = $office->buildingBlock->building->gps;
         //空调类型
-        switch ($office->BuildingBlock->air_conditioner) {
+        switch ($office->buildingBlock->air_conditioner) {
             case 1:
                 $office->air_conditioner = '中央空调';
                 break;
@@ -150,7 +149,7 @@ class OfficeBuildingHousesService
                 break;
         }
         //采暖方式
-        switch ($office->BuildingBlock->heating) {
+        switch ($office->buildingBlock->heating) {
             case 1:
                 $office->heating = '空调';
                 break;
@@ -161,11 +160,11 @@ class OfficeBuildingHousesService
                 break;
         }
         //物业费
-        $office->property_fee = $office->BuildingBlock->property_fee?$office->BuildingBlock->property_fee . '元/㎡·月' : '';
+        $office->property_fee = $office->buildingBlock->property_fee?$office->buildingBlock->property_fee . '元/㎡·月' : '';
         //物业公司
-        $office->property_company = $office->BuildingBlock->property_company;
+        $office->property_company = $office->buildingBlock->property_company;
         //房屋结构
-        switch ($office->BuildingBlock->structure) {
+        switch ($office->buildingBlock->structure) {
             case 1:
                 $office->structure = '钢筋混凝土结构';
                 break;
@@ -182,7 +181,7 @@ class OfficeBuildingHousesService
                 break;
         }
         //等级
-        switch ($office->BuildingBlock->class) {
+        switch ($office->buildingBlock->class) {
             case 1:
                 $office->class = '甲';
                 break;
@@ -204,7 +203,7 @@ class OfficeBuildingHousesService
             if ($collection) $office->collection = true;
         }
         //房源地址
-        $office->address = $office->BuildingBlock->Building->address;
+        $office->address = $office->buildingBlock->building->address;
         return $office;
     }
 
@@ -232,7 +231,34 @@ class OfficeBuildingHousesService
      */
     public function getBuildingName($res)
     {
-        $res->building_name = $res->BuildingBlock->Building->name;
+        $res->building_name = $res->buildingBlock->building->name;
+    }
+
+    /**
+     * 说明: 浏览记录,房源收藏获取房源相关信息
+     *
+     * @param $res
+     * @return mixed
+     * @author 刘坤涛
+     */
+    public function HouseInfo($res)
+    {
+            //房源标题
+        $res->house_title = $res->officeBuildingHouse->title;
+            //房源面积
+        $res->acreage = $res->officeBuildingHouse->getConstruAcreageCnAttribute();
+            //单价
+        $res->unit_proce = $res->officeBuildingHouse->getUnitPriceCnAttribute();
+            //总价
+        $res->total_price = $res->officeBuildingHouse->getTotalPriceCnAttribute();
+            //图片
+        $res->img = $res->officeBuildingHouse->getIndoorImgCnAttribute();
+            //标签
+        $res->label = '无标签';
+        if ($res->officeBuildingHouse->houseLabel) $res->label = '有标签';
+            //房源标签
+        $res->feature = $res->officeBuildingHouse->getHouseFeatureAttribute();
+        return $res;
     }
 
 }

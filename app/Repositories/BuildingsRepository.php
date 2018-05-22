@@ -34,7 +34,6 @@ class BuildingsRepository extends  Model
             $service->features($v);
             $service->getAddress($v);
             $service->label($v);
-
         }
         return $this->buildingDataComplete($buildings, $buildingData);
     }
@@ -211,7 +210,7 @@ class BuildingsRepository extends  Model
     public function OfficeHouseList($service, $id)
     {
        $building = Building::find($id);
-       $res=  $building->house()->with('houseLabel', 'BuildingBlock', 'BuildingBlock.Building')->paginate(6);
+       $res=  $building->house()->with('houseLabel', 'buildingBlock', 'buildingBlock.building')->paginate(6);
        foreach ($res as $v) {
            $service->getShow($v);
            $service->labelShow($v);

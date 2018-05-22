@@ -62,7 +62,7 @@ class OfficeBuildingHouse extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      * @author 罗振
      */
-    public function BuildingBlock()
+    public function buildingBlock()
     {
         return $this->belongsTo('App\Models\BuildingBlock','building_block_id','id');
     }

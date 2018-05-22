@@ -12,19 +12,19 @@
 				  </div>
 					<!--1标题栏-->
 					<div>
-						<div class="titles">	
+						<div class="titles" style="border-shadow:0;">	
 							<div class="mui-row">
 								<div class="mui-col-xs-9">
 									<h5>{{$data->name}}</h5>
 								</div>
 							</div>
-							<div class="uls">
+							<div class="uls" style="padding-left:0;padding-right:0;">
 								<div class="mui-row">
-									<div class="mui-col-xs-4 blu bor"style="padding-right:10px;">
-										<h3 style="font-size:17px;color:#333333">{{$data->unit_price}}</h3>
+									<div class="mui-col-xs-4 bor"style="padding-right:10px;border:none !important;">
+										<h3 style="font-size:17px;color:#333333;">{{$data->unit_price}}</h3>
 										<h5>元/㎡•月</h5>
 									</div>
-									<div class="mui-col-xs-4 bor">
+									<div class="mui-col-xs-4 bor"style="border-left:1px solid #f4f4f4;border-right:1px solid #f4f4f4">
 										<h3 style="font-size:17px;color:#333333">{{$data->total_price}}</h3>
 										<h5>万元/月</h5>
 									</div>
@@ -34,17 +34,17 @@
 									</div>
 								</div>
 							</div>
-							<div>
+							<div style="margin-left:-15px;">
 								<div>
-									<h5><img src="../images/house_detail_address.png">{{$data->address}}</h5>
+									<h5><img src="/we_img/house_detail_address.png">{{$data->address}}</h5>
 								</div>
 							</div>
 							<!--<div>
 								<div>
-									<h5><img src="../images/house_detail_bus.png"> 距离2号线 光谷广场 约183米</h5>
+									<h5><img src="/we_img/house_detail_bus.png"> 距离2号线 光谷广场 约183米</h5>
 								</div>
 							</div>-->
-							<img class="choice" v-if="($data->label_cn === true)" src="../images/house_detail_better.png">
+							<img class="choice" v-if="($data->label_cn === true)" src="/we_img/house_detail_better.png">
 						</div>
 						<!--2基础信息-->
 						<div class="firstcard">
@@ -105,14 +105,14 @@
 						<!--4最下推荐-->
 						<house-detail-list  @todetail='moreChange' :title="$data->name" :api='1' ref='houseDetailList' ></house-detail-list>
 						<!--5交通及周边配套-->
-						<div class="periphery">
+						<div class="periphery" style="margin-top:-10px !important;">
 							<div class="top">
-								<h3>交通及周边配套</h3>
+								<h3 style="margin-left:-25px;">交通及周边配套</h3>
 							</div>
 							<div>
 								<div id="secondmap"></div>
 							</div>
-							<img src="../images/house_detail_suppert.png" id="tomap" alt="" />
+							<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
 						</div>
 					</div>
 				</div>

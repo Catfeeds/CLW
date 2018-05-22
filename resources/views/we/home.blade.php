@@ -9,7 +9,7 @@
             <!-- 轮播图 -->
             <div class="swiper-wrapper" id="VueBanner">
                 <div class="swiper-slide">
-                    <a href="#"><img :src="item.banner" /></a>
+                    <a href="#"><img src="/we_img/temp_index_1.png" /></a>
                 </div>
             </div>
             <!-- 如果需要分页器 -->
@@ -159,11 +159,11 @@
             <div class="area-list">
                 <a href="javascript:void(0)">全部</a>
                 @foreach($areas as $item)
-                <a href="javascript:void(0)">{{substr($item->name,0,strlen($item->name)-1)}}</a>
+                <a href="javascript:void(0)">{{strchr($item->name, "区", true)}}</a>
                 @endforeach
             </div>
-
             <div class="better">猜你喜欢</div>
+            <input id="listAppData" type="hidden" value="{{json_encode($buildings)}}">
             <div class="guessList">
                 <div id="listApp">
                     <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
@@ -183,4 +183,5 @@
             </div>
         </div>
     </div>
+    <script src="/js/we_home.js"></script>
 @endsection
