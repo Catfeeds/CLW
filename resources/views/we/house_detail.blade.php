@@ -17,10 +17,10 @@
 					<input type="text" id="tel" placeholder="电话" />
 				</form>
 			</div>
-			    <div>
-			        <button type="button" id="upload" class="mui-btn mui-btn-primary">提交</button>
-			    </div>
+			<div>
+			    <button type="button" id="upload" class="mui-btn mui-btn-primary">提交</button>
 			</div>
+		</div>
 			<footer id="footer" class="mui-row">
 				<div class="collect mui-col-xs-2">
 					<img src="/we_img/detail_colletc1.png" class="mui-hidden" id="collect2">
@@ -70,7 +70,7 @@
 							</div>
 						</div>
 					</div>
-					<div>
+					<div style="padding-right: 15px;">
 						<div>
 							<h5><img src="/we_img/house_detail_address.png">{{$house->address}}</h5>
 						</div>
@@ -140,8 +140,8 @@
 		</div>
 		<!-- 楼座信息 -->
 		<ul class="mui-table-view secondCard" style="border-top:10px solid #f4f4f4;">
-			<li class="mui-table-view-cell mui-collapse mui-active">
-				<a href="#" style="line-height:18px;color:#333333;" class="mui-navigate-right top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;栋座信息</a> 
+			<li class="mui-table-view-cell mui-collapse" id="collapse">
+				<a style="line-height:40px;color:#333333;" class="mui-navigate-right top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;栋座信息</a> 
 					<div class="mui-collapse-content">
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>等级</h4></div>
@@ -192,15 +192,21 @@
 					<h3>房源优势</h3>
 				</div>
 				<div class="mui-row">
-					<div class="mui-col-xs-3" v-if="($house->house_feature[0] !== null)">
-						<h5>{{$house->house_feature[0]}}</h5>
-					</div>
-					<div class="mui-col-xs-3" v-if="($house->house_feature[1] !== null)">
-						<h5>{{$house->house_feature[1]}}</h5>
-					</div>
-					<div class="mui-col-xs-3" v-if="($house->house_feature[2] !== null)">
-						<h5>{{$house->house_feature[2]}}</h4>
-					</div>
+                    @if($house->house_feature[0] !== '')
+                        <div class="mui-col-xs-3">
+                            <h5>{{$house->house_feature[0]}}</h5>
+                        </div>
+                    @endif
+                    @if($house->house_feature[1] !== '')
+                        <div class="mui-col-xs-3">
+                            <h5>{{$house->house_feature[1]}}</h5>
+                        </div>
+                    @endif
+                    @if($house->house_feature[2] !== '')
+                        <div class="mui-col-xs-3">
+                            <h5>{{$house->house_feature[2]}}</h5>
+                        </div>
+                    @endif
 				</div>
 			</div>
 			<!--4交通及周边配套-->
@@ -220,4 +226,5 @@
 		</div>
     </div>
 </div>
+<script src="/js/we_house_detail.js"></script>
 @endsection

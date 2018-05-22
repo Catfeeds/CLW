@@ -21,5 +21,6 @@
     "/css/we_user_revise_password.css": "/css/we_user_revise_password.css",
     "/css/we_user_revise_phone1.css": "/css/we_user_revise_phone1.css",
     "/css/we_user_revise_phone2.css": "/css/we_user_revise_phone2.css",
-    "/css/we_user_setting.css": "/css/we_user_setting.css"
+    "/css/we_user_setting.css": "/css/we_user_setting.css",
+    "/js/we_house_detail.js": "/js/we_house_detail.js"
 }
