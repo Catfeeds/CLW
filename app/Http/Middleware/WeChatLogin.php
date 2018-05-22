@@ -3,8 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Cookie;
-use Illuminate\Support\Facades\Session;
 
 class WeChatLogin
 {
@@ -18,15 +16,9 @@ class WeChatLogin
      */
     public function handle($request, Closure $next)
     {
-        cookie('aa','bb',30,'/');
+        $user = session('user');
 
-
-//        dd(cookie('aa'));
-
-        dd(Cookie::get('aa'));
-
-
-
+        if (empty($user)) return redirect('/logins/create');
 
         return $next($request);
     }
