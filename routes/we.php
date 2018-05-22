@@ -1,4 +1,4 @@
 <?php
-// weChat.chulouwang.com
+// we.clw.com
 
 Route::get('/', 'IndexController@index');
