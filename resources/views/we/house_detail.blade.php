@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/css/we_house_detail.css">
 @endsection
 @section('body')
-{{dd($data)}}
 <div id="pullrefresh" class="mui-content">
 	<div class="pullrefresh" id="Vuehouse">
 		<div id="popover" class="mui-popover">
