@@ -163,6 +163,7 @@
                 @endforeach
             </div>
             <div class="better">猜你喜欢</div>
+            {{--楼盘列表数据--}}
             <input id="listAppData" type="hidden" value="{{json_encode($buildings)}}">
             <div class="guessList">
                 <div id="listApp">
