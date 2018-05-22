@@ -1,0 +1,31 @@
+
+html,
+body {
+  background-color: #f4f4f4;
+  .mui-bar-nav {
+    background: #ffffff;
+    height: 115px;
+    box-shadow: 0 0 0 transparent;
+    .mui-title{
+      margin-top: 20px;
+    }
+    .select-box{
+      margin: {
+        left: -10px;
+        top: -10px;
+      }
+      position: absolute;
+      border: {
+        top: 1px solid rgb(244,244,244);
+        bottom: 1px solid rgb(244,244,244);
+      }
+      bottom: 0;
+      height: 50px;
+      width: 100%;
+    }
+  }
+  .main-content{
+    margin-top: 125px;
+  }
+}
+
