@@ -68,8 +68,10 @@ class RegistersService
         ]);
         if (empty($user)) return ['status' => false, 'message' => '注册失败'];
 
+        dd(123);
+
         // 注册成功，删除验证码
-        $masterRedis->delKey($key);
+//        $masterRedis->delKey($key);
 
 
 

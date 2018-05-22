@@ -1,30 +1,20 @@
 <?php
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\App\RegistersRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\WeChat\RegistersRequest;
 use App\Services\RegistersService;
 
-class RegistersController extends APIBaseController
+class RegistersController extends Controller
 {
-    /**
-     * 说明: 注册
-     *
-     * @param RegistersRequest $request
-     * @param RegistersService $registersService
-     * @return \Illuminate\Http\JsonResponse
-     * @author 罗振
-     */
+
     public function store(
         RegistersRequest $request,
         RegistersService $registersService
     )
     {
+        dd(123123);
         $result = $registersService->weAddUser($request);
-        if ($result['status'] == false) {
-            return $this->sendError($result['message']);
-        }
 
-        return $this->sendResponse($result, '注册成功');
     }
 }
