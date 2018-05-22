@@ -22,5 +22,9 @@
     "/css/we_user_revise_phone1.css": "/css/we_user_revise_phone1.css",
     "/css/we_user_revise_phone2.css": "/css/we_user_revise_phone2.css",
     "/css/we_user_setting.css": "/css/we_user_setting.css",
+<<<<<<< HEAD
     "/js/we_house_detail.js": "/js/we_house_detail.js"
+=======
+    "/js/we_login_new.js": "/js/we_login_new.js"
+>>>>>>> origin/zxz
 }
