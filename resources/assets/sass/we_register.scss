@@ -1,4 +1,6 @@
-
+body{
+    background-color: #ffffff !important;
+}
  //TODO: scss注释补全
 header{
     margin-left: 5px;
@@ -13,7 +15,7 @@ header{
     margin-top: 100px;
     padding: 0 15px;
     background: #fff;
-    widows: 100%;
+    width: 100%;
     >.mui-title{
         font-size: 18px;
         color: #333;

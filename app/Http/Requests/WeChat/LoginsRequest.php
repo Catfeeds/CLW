@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\App;
+namespace App\Http\Requests\WeChat;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
@@ -31,7 +31,7 @@ class LoginsRequest extends FormRequest
                 return [
                     'tel.in' => '手机号必须存在'
                 ];
-            case 'smsLogin':
+            case 'quickLogin':
                 return [
                     'tel.in' => '手机号必须存在'
                 ];
@@ -62,7 +62,7 @@ class LoginsRequest extends FormRequest
                     ],
                     'password' => 'required|min:6|max:18',
                 ];
-            case 'smsLogin':
+            case 'quickLogin':
                 return [
                     'tel' => [
                         'required',

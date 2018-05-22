@@ -3,7 +3,6 @@
 
 // 首页
 Route::get('/', 'IndexController@index');
-
 // 获取手机验证码
 Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 
@@ -13,7 +12,8 @@ Route::resource('registers', 'RegistersController');
 // 密码登录
 Route::resource('logins', 'LoginsController');
 // 快速登录页面
-Route::get('quick_login', 'LoginsController@quickLogin');
+Route::get('quick_login_view', 'LoginsController@quickLoginView');
+Route::post('quick_login', 'LoginsController@quickLogin');
 
 // 楼盘列表页
 Route::resource('buildings', 'BuildingController');
@@ -25,7 +25,6 @@ Route::resource('houses', 'HouseController');
 // 服务
 Route::resource('servers', 'ServerController');
 
-
 Route::group(['middleware' => ['web','weChat.login']], function () {
 
     Route::get('test', function () {
@@ -33,3 +32,5 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     });
 
 });
+
+Route::get('map', 'ServerController@map');
