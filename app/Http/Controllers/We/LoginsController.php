@@ -64,5 +64,4 @@ class LoginsController extends Controller
 
         return $res;
     }
-    
 }
