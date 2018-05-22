@@ -1,0 +1,47 @@
+
+//TODO: scss注释补全
+#footer{
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 15px;
+    position:fixed;
+    bottom: 0px;
+    z-index: 10;
+    border-top: 1px solid #f4f4f4;
+    // box-shadow: 0px -6px 8px 0px rgba(185, 185, 185, 0.1);
+    .collect{
+        img{
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+            margin-bottom:7px;
+        }
+        span{
+            line-height: 44px;
+            font-size: 20px;
+            color: #333;
+            display: inline-block;
+            margin: {
+                left: 5px;
+            }
+        }
+    }
+    #free{
+        margin-left: 10px;
+        button{
+            width: 100%;
+            height: 48px;
+            font-size:18px;
+        }
+    }
+}
+#serveDetailVue{
+    margin-bottom: 50px;
+    span{
+        img{
+            width: 100%;
+        }
+    }
+}

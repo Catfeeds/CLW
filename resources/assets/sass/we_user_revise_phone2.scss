@@ -1,0 +1,103 @@
+
+body{
+    background: #f4f4f4 !important;
+    header{
+        height: 65px !important;
+        background: rgba(255,255,255,0.9) !important;
+        .mui-title{
+            margin-top: 20px !important;
+        }
+        a{
+            display: inline-block;
+            width: 100px;
+            height: 64px;
+        }
+    }
+    .mui-content{
+        margin: {
+            top: 75px;
+        }
+        background: #f4f4f4 !important;
+        .progress{
+            background: #fff;
+            height: 50px;
+            .mui-col-xs-2{
+                display: flex;
+                justify-content: center;
+                img{
+                    width: 11px;
+                    height: 18px;
+                    margin-top: 16px;
+                }
+            }
+            .mui-col-xs-5{
+                line-height: 50px;
+                color: #333;
+                font-size: 16px;
+            }
+            .original{
+                display: flex;
+                justify-content: flex-end;
+            }
+            .binding{
+                color: #007bff;
+            }
+        }
+        .first{
+            background: #fff;
+            margin-top: 10px;
+            .getSms{
+                height: 50px;
+                line-height: 30px;
+                border-bottom: 1px solid #f4f4f4;
+                display: flex;
+                justify-content: space-between;
+                font-size: 15px;
+                .tel{
+                    height: 50px;
+                    color: #333;
+                    input{
+                        margin-bottom: 0;
+                        border: none;
+                        height: 49px;
+                        &::placeholder{
+                            font-size: 15px;
+                        }
+                    }
+                }
+                .sms{
+                    height: 50px;
+                    line-height: 50px;
+                    color: #007bff;
+                    padding-right: 15px;
+                }
+            }
+            .setSms{
+                height: 50px;
+                input{
+                    &::placeholder{
+                        font-size: 15px;
+                    }
+                    height: 50px;
+                    border: none;
+                    margin: 0;
+                }
+            }
+        }
+        .loginOut{
+            display: flex;
+            justify-content: center;
+            button{
+                width: 80%;
+                height: 45px;
+                border-radius: 25px;
+                padding: 0;
+                font-size: 18px;
+                margin: 40px 0;
+                color: #FFF;
+                background: #0066ff;
+                border: none;
+            }
+        }
+    }
+}

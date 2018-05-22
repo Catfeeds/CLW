@@ -1,0 +1,42 @@
+
+body{
+    header{
+        height: 65px !important;
+        .mui-title{
+            margin-top: 20px !important;
+        }
+        a{
+            display: inline-block;
+            width: 100px;
+            height: 64px;
+        }
+    }
+    .mui-content{
+        margin-top: 64px;
+        border-top: 1px solid #f4f4f4;
+        .logo{
+            text-align: center;
+            margin-top: 20%;
+            img{
+                width: 164px;
+                height: 129px;
+            }
+        }
+        .title{
+            font-size: 15px;
+            color: #333;
+            text-align: center;
+            margin-top: 20%;
+            div{
+                &:not(:last-child){
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .agreement{
+            margin-top: 45%;
+            text-align: center;
+            font-size: 13px;
+        }
+    }
+}
