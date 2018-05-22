@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\App;
 use App\Http\Controllers\API\APIBaseController;
 use App\Repositories\BrowseRecordsRepository;
 use App\Services\HousesService;
+use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 
 class BrowseRecordsController extends APIBaseController
@@ -21,12 +22,11 @@ class BrowseRecordsController extends APIBaseController
     public function index
     (
         Request $request,
-        HousesService $service,
+        OfficeBuildingHousesService $service,
         BrowseRecordsRepository $repository
     )
     {
-        $res = $repository->browseRecordList($request);
-        $service->HouseInfo($res);
+        $res = $repository->browseRecordList($request, $service);
         return $this->sendResponse($res, '浏览记录获取成功');
     }
 }
