@@ -3,4 +3,6 @@
 @section('header')
 @endsection
 @section('body')
+<div>
+</div>
 @endsection
