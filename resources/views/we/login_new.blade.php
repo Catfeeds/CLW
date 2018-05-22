@@ -4,10 +4,6 @@
     <link rel="stylesheet" href="/css/we_login_new.css">
 @endsection
 @section('body')
-    <header id="header" class="mui-bar mui-bar-transparent">
-        <a id="nav" class="mui-pull-left"><img src="/we_img/login_close.png"></a>
-        <a href="/registers/create" class="mui-pull-right" id="register">注册</a>
-    </header>
     <div id="content" class="mui-content">
         <div class="login">
             账号密码登录
@@ -26,6 +22,7 @@
         </form>
         <div class="shortcut">
             <a href="#">手机快捷登录</a>
+            <a id="register">注册</a>
         </div>
         <!-- 第三方登录 -->
         <!-- <div class="other">
