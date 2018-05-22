@@ -8,7 +8,7 @@
 			<div id="Vuebuilding">
 				<div class="mui-content">
 					<div class="swiper-container">
-						<detail-banner :list='$data->pic_url'></detail-banner>	
+						{{--<detail-banner :list='$data->pic_url'></detail-banner>	--}}
 				  </div>
 					<!--1标题栏-->
 					<div>
@@ -50,7 +50,7 @@
 						<div class="firstcard">
 							<div class="special">楼盘特色</div>
 							<div class="swiper-container contain" id="swiperFeature">
-								<feature-banner :list='banner'></feature-banner>
+								{{--<feature-banner :list='banner'></feature-banner>--}}
 						  </div>
 						</div>
 						<!-- 楼盘信息 -->
