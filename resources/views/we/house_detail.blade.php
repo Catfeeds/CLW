@@ -6,7 +6,7 @@
 @section('body')
 <div id="pullrefresh" class="mui-content">
 	<div class="pullrefresh" id="Vuehouse">
-		<div id="popover" class="mui-popover">
+		<div id="popover" class="mui-popover" style="z-index:10;">
 			<div>
 			    <h4>预约信息</h4>
 			    <span class="closes">×</span>
@@ -14,7 +14,7 @@
 			<div>
 			    <form>
 					<input type="text" id="names" placeholder="称谓" />
-					<input type="text" id="tel" placeholder="电话" />
+					<input type="tel" id="tel" placeholder="电话" />
 				</form>
 			</div>
 			<div>
