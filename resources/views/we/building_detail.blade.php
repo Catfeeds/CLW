@@ -61,35 +61,35 @@
 							<div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>开发商</h4></div>
-									<div class="mui-col-xs-6"style="color:#333333"><h4>{{$data->developer}}</h4></div>
+									<div class="mui-col-xs-6" style="color:#333333"><h4>{{$data->developer}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>建筑年代</h4></div>
-									<div class="mui-col-xs-7"style="color:#333333"><h4>{{$data->years_cn}}</h4></div>
+									<div class="mui-col-xs-7" style="color:#333333"><h4>{{$data->years_cn}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>总建筑面积</h4></div>
-									<div class="mui-col-xs-8"style="color:#333333"><h4>{{$data->acreage_cn}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->acreage_cn}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>楼座数量</h4></div>
-									<div class="mui-col-xs-8"style="color:#333333"><h4>{{$data->building_block_num_cn}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->building_block_num_cn}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>车位数量</h4></div>
-									<div class="mui-col-xs-8"style="color:#333333"><h4>{{$data->parking_num_cn}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->parking_num_cn}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>停车费</h4></div>
-									<div class="mui-col-xs-8"style="color:#333333"><h4>{{$data->parking_fee_cn}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->parking_fee_cn}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>绿化率</h4></div>
-									<div class="mui-col-xs-8"style="color:#333333"><h4>{{$data->greening_rate_cn}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->greening_rate_cn}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>入驻企业</h4></div>
-									<div class="mui-col-xs-8"style="color:#333333"><h4>{{$data->company}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->company}}</h4></div>
 								</div>
 								</div>
 							</div>
