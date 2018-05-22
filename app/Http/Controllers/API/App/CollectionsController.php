@@ -7,6 +7,7 @@ use App\Http\Requests\App\CollectionsRequest;
 use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
 use App\Services\HousesService;
+use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,11 +26,10 @@ class CollectionsController extends APIBaseController
     (
         Request $request,
         CollectionsRepository $repository,
-        HousesService $service
+        OfficeBuildingHousesService $service
     )
     {
-        $res = $repository->collectionList($request);
-        $service->HouseInfo($res);
+        $res = $repository->collectionList($request, $service);
         return $this->sendResponse($res, '收藏列表获取成功');
     }
 

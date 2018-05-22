@@ -15,9 +15,13 @@ class BrowseRecordsRepository extends Model
      * @return mixed
      * @author 刘坤涛
      */
-    public function browseRecordList($request)
+    public function browseRecordList($request, $service)
     {
         $user = Auth::guard('api')->user();
-        return BrowseRecord::where('user_id', $user->id)->paginate($request->per_page??10);
+        $browseRecord =  BrowseRecord::with('officeBuildingHouse', 'officeBuildingHouse.houseLabel')->where('user_id', $user->id)->paginate($request->per_page??10);
+        foreach($browseRecord as $v) {
+            $service->houseInfo($v);
+        }
+        return $browseRecord;
     }
 }
