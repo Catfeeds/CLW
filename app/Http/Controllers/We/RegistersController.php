@@ -18,10 +18,11 @@ class RegistersController extends Controller
         RegistersService $registersService
     )
     {
+        dd(23);
         $result = $registersService->weAddUser($request);
 
 
-        return view('注册');
+        return '注册';
 
     }
 }
