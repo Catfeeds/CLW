@@ -17,4 +17,4 @@ Route::resource('houses', 'HouseController');
 // 用户相关
 
 // 服务
-Route::resource('server', 'ServerController');
+Route::resource('servers', 'ServerController');

@@ -12,17 +12,20 @@
             @foreach($res as $items)
                 <div class="title">
                     <div class="border"></div>
-                    <div class="nav">{{ $items['name'] }}</div>
+                    <div class="nav">{{ $items->name }}</div>
                 </div>
                 <div class="list">
                     <div class="first mui-row">
-                        @foreach($items['service'] as $ite)
+                        @foreach($items->service as $ite)
                             <div class="mui-col-xs-3" style="margin-bottom: 18px">
-                                <a href="javascript:void(0)"> <img src={{$ite['list_icon_url']}}"><h5>{{$ite['name']}}</h5></a>
+                                <a href="{{url('/servers').'/'.$ite->id}}"> <img src="{{$ite->list_icon_url}}"><h5>{{$ite->name}}</h5></a>
                             </div>
                         @endforeach
                     </div>
                 </div>
+                @if(!$loop->last)
+                    <div class="finance"></div>
+                @endif
             @endforeach
         </div>
     </div>

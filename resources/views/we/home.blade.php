@@ -24,7 +24,7 @@
                     @foreach($items as $item)
                     <div class="buttonItem">
                             <span>
-                              <a href="javascript:void(0)">
+                              <a href="{{url('/servers').'/'.$item['id']}}">
                                 <img src="{{$item['icon']}}" />
                                 <div>{{$item['name']}}</div>
                               </a>
@@ -90,7 +90,7 @@
             <div id="VueintroServer">
                 @if(!empty($serviceRecommends['first']))
                 <div class="index-serverFirst">
-                    <a href="javascript:void(0)">
+                    <a href="{{url('/servers').'/'.$serviceRecommends['first']['id']}}">
                     <img src="{{$serviceRecommends['first']['pic_cn']}}" alt="">
                     </a>
                 </div>
@@ -100,7 +100,7 @@
                     <div class="serverList">
                         @if(!empty($serviceRecommends['second']))
                             @foreach($serviceRecommends['second'] as $item)
-                                <a class="serverItem" href="javascript:void(0)">
+                                <a class="serverItem" href="{{url('/servers').'/'.$serviceRecommends['first']['id']}}">
                                     <img src="{{$item['pic_cn']}}" alt="">
                                 </a>
                             @endforeach
