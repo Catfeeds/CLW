@@ -20,3 +20,13 @@ Route::resource('buildings', 'BuildingController');
 // 房源详情页
 Route::resource('houses', 'HouseController');
 // 用户相关
+
+
+Route::group(['middleware' => ['web','weChat.login']], function () {
+
+    Route::get('test', function () {
+        dd(123);
+    });
+
+});
+
