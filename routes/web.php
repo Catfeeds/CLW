@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user_agreement', 'HomeController@agreement');
+
+
+/*
+ * 微信端路由
+ */
+
+Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () {
+    \Composer\Autoload\includeFile(__DIR__ . '/we.php');
+});
