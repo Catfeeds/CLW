@@ -8,7 +8,7 @@ Route::get('/', 'IndexController@index');
 Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 
 // 注册
-Route::resource('registers', 'RegistersController');
+//Route::resource('registers', 'RegistersController');
 
 // 密码登录
 Route::resource('logins', 'LoginsController');
@@ -20,3 +20,11 @@ Route::resource('buildings', 'BuildingController');
 // 房源详情页
 Route::resource('houses', 'HouseController');
 // 用户相关
+
+
+Route::group(['middleware' => ['weChat.login']], function () {
+
+    Route::resource('registers', 'RegistersController');
+
+});
+

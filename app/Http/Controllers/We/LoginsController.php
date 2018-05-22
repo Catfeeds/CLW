@@ -3,7 +3,7 @@ namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\Controller;
 
-class LoginController extends Controller
+class LoginsController extends Controller
 {
     /**
      * 说明: 登录页面
