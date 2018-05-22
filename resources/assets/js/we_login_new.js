@@ -31,7 +31,8 @@ $('.loginBtn').on('click','button',(e)=> {
     }).then(res => {
       if(res.data.status){
         alert('登录成功')
-        document.cookie = "access_token="+res.data.token
+        document.cookie = "access_token="+res.data.token+";path=/"
+        // setCookie("access_token", res.data.token)
       }
     })
   }
