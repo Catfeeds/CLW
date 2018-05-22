@@ -3,7 +3,6 @@
 
 // 首页
 Route::get('/', 'IndexController@index');
-
 // 获取手机验证码
 Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 
@@ -26,7 +25,6 @@ Route::resource('houses', 'HouseController');
 // 服务
 Route::resource('servers', 'ServerController');
 
-
 Route::group(['middleware' => ['web','weChat.login']], function () {
 
     Route::get('test', function () {
@@ -34,3 +32,5 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     });
 
 });
+
+Route::get('map', 'ServerController@map');

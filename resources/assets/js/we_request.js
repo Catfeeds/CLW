@@ -2,7 +2,7 @@
  * Created by zxz1992 on 2018/5/22.
  */
 import axios from 'axios'
-import { getCookie } from './auth'
+import { getCookie } from './we_auth'
 function Ajax() {
   // 创建axios实例
   const service = axios.create({

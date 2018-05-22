@@ -6,7 +6,7 @@
 @section('body')
     <header id="header" class="mui-bar mui-bar-transparent">
         <a id="nav" class="mui-pull-left"><img src="/we_img/login_close.png"></a>
-        <a href="#" class="mui-pull-right" id="register">注册</a>
+        <a href="/registers/create" class="mui-pull-right" id="register">注册</a>
     </header>
     <div id="content" class="mui-content">
         <div class="login">
