@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Redis\MasterRedis;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class RegistersService
 {
@@ -68,13 +69,11 @@ class RegistersService
         ]);
         if (empty($user)) return ['status' => false, 'message' => '注册失败'];
 
-        dd(123);
-
         // 注册成功，删除验证码
 //        $masterRedis->delKey($key);
 
 
-
+        Session('a','b');
 
 
 
