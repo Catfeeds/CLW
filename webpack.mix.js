@@ -42,7 +42,7 @@ var fileSCSSNameArr = [
 ];// 要打包的 scss 文件
 var fileSJSNameArr = [
   'we_home',
-  // 'we_building_detail',
+  'we_building_detail',
   // 'we_building_index',
   // 'we_house_detail',
   'we_login_new',

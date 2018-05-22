@@ -103,7 +103,7 @@
 							</div>
 						</div>
 						<!--4最下推荐-->
-						<house-detail-list  @todetail='moreChange' :title="$data->name" :api='1' ref='houseDetailList' ></house-detail-list>
+						<house-detail-list @todetail='moreChange' :title="$data->name" :api='1' ref='houseDetailList' ></house-detail-list>
 						<!--5交通及周边配套-->
 						<div class="periphery" style="margin-top:-10px !important;">
 							<div class="top">
@@ -118,4 +118,5 @@
 				</div>
 			</div>
 		</div>
+        <script src="/js/we_building_detail.js"></script>
 @endsection
