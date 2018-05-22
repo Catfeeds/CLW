@@ -29,7 +29,7 @@ class RegistersRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'tel.not_in' => '手机号不能重复'
+//                    'tel.not_in' => '手机号不能重复'
                 ];
             default;
                 return [
@@ -49,13 +49,13 @@ class RegistersRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'tel' => [
-                        'required',
-                        'max:16',
-                        Rule::notIn(
-                            User::all()->pluck('tel')->toArray()
-                        )
-                    ],
+//                    'tel' => [
+//                        'required',
+//                        'max:16',
+//                        Rule::notIn(
+//                            User::all()->pluck('tel')->toArray()
+//                        )
+//                    ],
                     'smsCode' => 'required|numeric|max:9999',
                     'password' => 'required|min:6|max:18',
                 ];

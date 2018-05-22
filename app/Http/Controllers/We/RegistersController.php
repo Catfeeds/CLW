@@ -8,13 +8,20 @@ use App\Services\RegistersService;
 class RegistersController extends Controller
 {
 
+    public function index()
+    {
+        return '注册';
+    }
+
     public function store(
         RegistersRequest $request,
         RegistersService $registersService
     )
     {
-        dd(123123);
         $result = $registersService->weAddUser($request);
+
+
+        return view('注册');
 
     }
 }
