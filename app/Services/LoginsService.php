@@ -163,5 +163,36 @@ class LoginsService
 
         return ['status' => true, 'message' => '登录成功'];
     }
-    
+
+    /**
+     * 说明: 短信登录
+     *
+     * @param $request
+     * @return array
+     * @author 罗振
+     */
+    public function quickLogin($request)
+    {
+        $masterRedis = new MasterRedis();
+
+        $key = config('redisKey.STRING_SMSCODE_') . 'login:' . $request->tel;
+        // 验证手机短信是否正确
+        $telCaptcha = $masterRedis->getString($key, 'old');
+        // 判断验证码是否存在
+        if (empty($telCaptcha)) return ['status' => false, 'message' => '验证码失效,请重新发送短息'];
+        // 判断验证码是否正确
+        if ($request->smsCode != $telCaptcha) return ['status' => false, 'message' => '手机验证码错误，请重新输入'];
+        // 验证成功，删除验证码
+        $masterRedis->delKey($key);
+
+        $user = User::where([
+            'tel' => $request->tel,
+        ])->first();
+        if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
+
+        session(['user' => $user]);
+
+        return ['status' => true, 'message' => '登录成功'];
+    }
+
 }
