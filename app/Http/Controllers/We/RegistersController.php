@@ -29,6 +29,5 @@ class RegistersController extends Controller
         dd($result);
 
         return '注册';
-
     }
 }
