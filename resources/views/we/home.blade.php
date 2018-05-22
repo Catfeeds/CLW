@@ -9,7 +9,7 @@
             <!-- 轮播图 -->
             <div class="swiper-wrapper" id="VueBanner">
                 <div class="swiper-slide">
-                    <a href="#"><img :src="item.banner" /></a>
+                    <a href="#"><img src="/we_img/temp_index_1.png" /></a>
                 </div>
             </div>
             <!-- 如果需要分页器 -->
