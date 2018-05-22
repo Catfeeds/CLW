@@ -25,10 +25,12 @@
 				<div class="collect mui-col-xs-2">
 					<img src="/we_img/detail_colletc1.png" class="mui-hidden" id="collect2">
 					<img src="/we_img/detail_collect.png" id="collect1"><span>收藏</span>
-				</div>
-				<div class="mui-col-xs-4" id="free">
-					<img src="/we_img/detail_free.png" class="freebtn">
-				</div>
+                </div>
+                <div class="mui-col-xs-4" id="free">
+                    <a href="tel:4000-580-888">
+                        <img src="/we_img/detail_free.png" class="freebtn">
+                    </a>
+                </div>
 				<div class="mui-col-xs-4" id="order">
 					<img src="/we_img/detail_order.png" class="freebtn">
 				</div>
