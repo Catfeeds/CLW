@@ -11,6 +11,7 @@ class BuildingRecommendsController extends APIBaseController
      * 说明: 楼盘推荐列表
      *
      * @param BuildingRecommendsRepository $buildingRecommendsRepository
+     * @param BuildingsService $service
      * @return \Illuminate\Http\JsonResponse
      * @author 王成
      */

@@ -15,8 +15,9 @@ class BuildingsController extends APIBaseController
      *
      * @param BuildingsRepository $buildingsRepository
      * @param Request $request
+     * @param BuildingsService $service
      * @return \Illuminate\Http\JsonResponse
-     * @author 王成
+     * @author 罗振
      */
     public function index
     (
