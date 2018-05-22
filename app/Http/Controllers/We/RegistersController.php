@@ -13,6 +13,11 @@ class RegistersController extends Controller
         return '注册';
     }
 
+    public function create()
+    {
+        return view('we.register');
+    }
+
     public function store(
         RegistersRequest $request,
         RegistersService $registersService
