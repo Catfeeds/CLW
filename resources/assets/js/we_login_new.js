@@ -1,8 +1,8 @@
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-import ajax from './request'
-import { setCookie } from './auth'
+import ajax from './we_request'
+import { setCookie } from './we_auth'
 var request = ajax();
 window.$ = window.jQuery = require('jquery');
 $('.loginBtn').on('click','button',(e)=> {
@@ -29,10 +29,10 @@ $('.loginBtn').on('click','button',(e)=> {
         password
       }
     }).then(res => {
-      if(res.data.status){
-        alert('登录成功')
-        document.cookie = "access_token="+res.data.token+";path=/"
-        // setCookie("access_token", res.data.token)
+      if(res.data.status) {
+        alert('登录成功');
+        document.cookie = "";
+        setCookie("access_token", res.data.token)
       }
     })
   }

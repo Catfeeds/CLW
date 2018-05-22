@@ -12,7 +12,7 @@ class BuildingController extends Controller
 {
     public function index()
     {
-        return view('we.building_list');
+        return view('we.building_index');
     }
 
     // 楼盘详情
