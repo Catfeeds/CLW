@@ -2,19 +2,15 @@
 namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\WeChat\RegistersRequest;
-use App\Services\RegistersService;
-use Illuminate\Support\Facades\Session;
 
 class RegistersController extends Controller
 {
-
-    public function index()
-    {
-        dd(Session::get('a'));
-        return '注册';
-    }
-
+    /**
+     * 说明: 注册页面
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author 罗振
+     */
     public function create()
     {
         return view('we.register');
