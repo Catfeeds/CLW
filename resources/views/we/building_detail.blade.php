@@ -1,3 +1,5 @@
 <div>
-    楼盘详情
+    @foreach($data->feature_cn as $index => $v) 
+    <span>{{$v}}</span><br>
+    @endforeach
 </div>
