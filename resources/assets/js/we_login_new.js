@@ -1,9 +1,11 @@
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-var request = require( './request');
+import ajax from './request'
+import { setCookie } from './auth'
+var request = ajax();
 window.$ = window.jQuery = require('jquery');
-$('.loginBtn').on('tap','button',(e)=> {
+$('.loginBtn').on('click','button',(e)=> {
   var tel = $('#tel')[0].value,
     password = $('#password')[0].value;
   // 隐藏键盘
@@ -27,7 +29,10 @@ $('.loginBtn').on('tap','button',(e)=> {
         password
       }
     }).then(res => {
-
+      if(res.data.status){
+        alert('登录成功')
+        document.cookie = "access_token="+res.data.token
+      }
     })
   }
 });

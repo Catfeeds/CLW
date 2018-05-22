@@ -2,7 +2,7 @@
  * Created by zxz1992 on 2018/5/22.
  */
 import axios from 'axios'
-
+import { getCookie } from './auth'
 function Ajax() {
   // 创建axios实例
   const service = axios.create({
@@ -13,8 +13,8 @@ function Ajax() {
   // request拦截器
   service.interceptors.request.use(config => {
     // TODO token 获取需要测试或者修改
-    if (plus.storage.getItem('access_token')) {
-    config.headers['Authorization'] = 'Bearer ' + plus.storage.getItem('access_token') // 让每个请求携带自定义token 请根据实际情况自行修改
+    if (getCookie('access_token')) {
+    config.headers['Authorization'] = 'Bearer ' + getCookie('access_token') // 让每个请求携带自定义token 请根据实际情况自行修改
   }
   return config
 }, error => {
