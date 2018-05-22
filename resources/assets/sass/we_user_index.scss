@@ -1,0 +1,100 @@
+
+body{
+    padding-bottom: 60px;
+}
+.header{
+    img{
+        width: 100%;
+    }
+    .picture{
+        position: absolute;
+        top: 50px;
+        left: 38%;
+        text-align: center;
+        h5{
+            font-size: 20px;
+            color: #fff;
+            margin-top: 20px;
+        }
+        img{
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+.main-content{
+	background: #FFFFFF;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	position: relative;
+	top: -18px;
+    z-index: 100;
+    box-shadow: 0px -5px 10px 0px rgba(5, 42, 97, 0.18);
+    .top{
+        padding: {
+            top: 20px;
+            bottom: 30px;
+        }
+        display: flex;
+        justify-content: space-between;
+        .entrust{
+            text-align: center;
+            img{
+                width: 27px;
+                height: 26px;
+            }
+            h5{
+                font-size: 14px;
+                color: #333;
+            }
+        }
+        .mui-col-xs-5{
+            .mui-row{
+                display: flex;
+                justify-content: space-between;
+                .border{
+                    margin-top: 3px;
+                    width: 1px;
+                    height: 45px;
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
+    .collection{
+        padding: 20px 25px;
+        border: {
+            top: 10px solid #f4f4f4;
+            bottom: 10px solid #f4f4f4;
+        }
+        span{
+            font-size: 15px;
+            color: #141414;
+        }
+        a{
+            img{
+                width: 7px;
+                height: 12px;
+            }
+        }
+    }
+    .userList{
+        padding: 20px 25px;
+        border-bottom: 1px solid #f4f4f4;
+        span{
+            font-size: 15px;
+            color: #141414;
+        }
+        a{
+            span{
+                font-size: 15px;
+                display: inline-block;
+                margin-right: 10px;
+            }
+            img{
+                width: 7px;
+                height: 12px;
+            }
+        }
+    }
+}
