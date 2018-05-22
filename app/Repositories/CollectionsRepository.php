@@ -26,9 +26,14 @@ class CollectionsRepository extends Model
      * @return mixed
      * @author 刘坤涛
      */
-    public function collectionList($request)
+    public function collectionList($request, $service)
     {
-        return Collection::where('user_id', $this->user()->id)->paginate($request->per_page??10);
+        $collection=  Collection::with('officeBuildingHouse', 'officeBuildingHouse.houseLabel')->where('user_id', $this->user()->id)->paginate($request->per_page??10);
+        foreach($collection as $v) {
+            $service->HouseInfo($v);
+        }
+
+        return $collection;
     }
 
     /**

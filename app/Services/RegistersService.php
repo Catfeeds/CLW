@@ -46,6 +46,4 @@ class RegistersService
 
         return ['status' => true, 'token' => $token];
     }
-    
-    
 }

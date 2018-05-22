@@ -10,7 +10,7 @@ class BuildingBlock extends Model
 
     protected $connection = 'media';
 
-    public function Building()
+    public function building()
     {
         return $this->belongsTo('App\Models\Building','building_id','id');
     }
