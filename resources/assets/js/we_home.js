@@ -25,3 +25,7 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
   autoplayDisableOnInteraction:false,
   paginationClickable:true
 });
+// 点击事件
+$('#alltab').on('touchend || tap', '.tabs', function(){
+  console.log(4564)
+})
