@@ -28,7 +28,7 @@ class BuildingController extends Controller
     )
     {
         $res = $buildingsRepository->buildingList($request, $service);
-        return view('we.building_index')->with('data', $res);
+        return view('we.building_index')->with(['data' =>  $res, 'req' => $request]);
     }
 
     /**
