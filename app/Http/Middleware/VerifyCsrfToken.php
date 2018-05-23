@@ -18,6 +18,7 @@ class VerifyCsrfToken extends Middleware
         'reset_pwd',
         'old_tel_validate',
         'reset_tel',
-        'throw_ins'
+        'throw_ins',
+        'bespeaks'
     ];
 }
