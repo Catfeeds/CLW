@@ -1,10 +1,18 @@
-window.$ = window.jQuery = require('jquery');
-var tel = $('#tel'),smsCode = $('#sms'),getSms = $('#getSms'), password = $('#password');
+webpackJsonp([14],{
 
-$(document).on('touchend || tap', '#getSms', (e) => {
+/***/ 100:
+/***/ (function(module, exports, __webpack_require__) {
+
+window.$ = window.jQuery = __webpack_require__(0);
+var tel = $('#tel'),
+    smsCode = $('#sms'),
+    getSms = $('#getSms'),
+    password = $('#password');
+
+$(document).on('touchend || tap', '#getSms', function (e) {
     if (!tel.val() || tel.val().trim() === '') {
         alert('请输入手机号码');
-        return false
+        return false;
     }
     var pathStr = tel.val() + '/' + 'login';
     $.ajax({
@@ -13,11 +21,11 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         },
         url: '/sms/captcha/' + pathStr,
         type: 'get',
-        success: function (res) {
+        success: function success(res) {
             if (res.success) {
                 getSms.html(120 + 's');
                 var time = setInterval(function () {
-                    getSms.html((parseInt(getSms.html()) - 1) + 's');
+                    getSms.html(parseInt(getSms.html()) - 1 + 's');
                     if (!parseInt(getSms.html())) {
                         getSms.html('获取验证码');
                         window.clearInterval(time);
@@ -26,43 +34,45 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                 alert('短信发送成功');
             }
         },
-        error: function (res) {
+        error: function error(res) {
             alert(responseJSON.message);
         }
     });
 });
 
-$(document).on('touchend || tap','.loginBtn button',(e)=> {
-    var tel_num = tel.val(), smsCode_num = smsCode.val(), password_num = password.val();
+$(document).on('touchend || tap', '.loginBtn button', function (e) {
+    var tel_num = tel.val(),
+        smsCode_num = smsCode.val(),
+        password_num = password.val();
 
     if (!tel_num || tel_num.trim() === '') {
         alert('请输入手机号码');
-        return false
+        return false;
     }
     if (!smsCode_num || smsCode_num.trim() === '') {
         alert('请输入验证码');
-        return false
+        return false;
     }
     if (!password_num || password_num.trim() === '') {
         TopTips({
             message: '请输入密码',
             duration: 3000
-        })
-        return false
+        });
+        return false;
     }
     if (password_num.length < 6) {
         TopTips({
             message: '密码最小长度为6',
             duration: 3000
-        })
-        return false
+        });
+        return false;
     }
     if (password_num.length > 18) {
         TopTips({
             message: '密码最大长度为18',
             duration: 3000
-        })
-        return false
+        });
+        return false;
     }
     $.ajax({
         headers: {
@@ -70,19 +80,31 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
         },
         url: "/retrieve_pwd",
         type: 'post',
-        data:{
+        data: {
             tel: tel_num,
             smsCode: smsCode_num,
             password: password_num
         },
-        success: function(data){
+        success: function success(data) {
             alert(data.message);
             if (data.status) {
-                window.location.href = '/user'
+                window.location.href = '/user';
             }
         },
-        error: function (data) {
+        error: function error(data) {
             alert(data.responseJSON.message);
         }
     });
 });
+
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(100);
+
+
+/***/ })
+
+},[99]);

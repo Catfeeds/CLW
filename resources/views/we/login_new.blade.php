@@ -14,15 +14,15 @@
             </div>
             <div class="mui-input-row marTop pwd">
                 <input name="password" id="password" value="" type="password" placeholder="请输入密码">
-                <a href="#" class="mui-pull-right">忘记密码?</a>
+                <a href="/forget_pwd" class="mui-pull-right">忘记密码?</a>
             </div>
             <div class="loginBtn">
                 <button type="button">登录</button>
             </div>
         </form>
         <div class="shortcut">
-            <a href="#">手机快捷登录</a>
-            <a id="register">注册</a>
+            <a href="{{url('/quick_login_view')}}">手机快捷登录</a>
+            <a href="{{url('/registers/create')}}" id="register">注册</a>
         </div>
         <!-- 第三方登录 -->
         <!-- <div class="other">

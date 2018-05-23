@@ -1,86 +1,61 @@
-webpackJsonp([11],{
+webpackJsonp([13],{
 
-/***/ 103:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(104);
+module.exports = __webpack_require__(102);
 
 
 /***/ }),
 
-/***/ 104:
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Created by zxz1992 on 2018/5/22.
- */
 window.$ = window.jQuery = __webpack_require__(0);
 var tel = $('#tel'),
-    sms = $('#sms'),
-    password = $('#password'),
-    time = $('#time'),
+    smsCode = $('#sms'),
     getSms = $('#getSms');
-
-$(document).on('touchend || tap', '#submit', function (e) {
+$(document).on('touchend || tap', '.loginBtn button', function (e) {
     var tel_num = tel.val(),
-        sms_num = tel.val(),
-        password_num = tel.val();
+        smsCode_num = smsCode.val();
+
     if (!tel_num || tel_num.trim() === '') {
         alert('请输入手机号码');
         return false;
     }
-    if (!sms_num || sms_num.trim() === '') {
-        alert('请输入短信验证码');
+    if (!smsCode_num || smsCode_num.trim() === '') {
+        alert('请输入验证码');
         return false;
     }
-    if (!password_num || password_num.trim() === '') {
-        alert('请输入密码');
-        return false;
-    }
-    if (password_num.length < 6) {
-        alert('密码最小长度为6');
-        return false;
-    }
-    if (password_num.length > 18) {
-        alert('密码最大长度为18');
-        return false;
-    }
-    var data = { tel: tel_num, smsCode: sms_num, password: password_num };
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: 'registers',
+        url: "/quick_login",
         type: 'post',
-        success: function success(res) {
-            if (res.status) {
-                alert('登录成功');
-            } else {
-                alert(res.data.message);
+        data: {
+            tel: tel_num,
+            smsCode: smsCode_num
+        },
+        success: function success(data) {
+            alert(data.message);
+            if (data.status) {
+                window.location.href = '/user';
             }
         },
-        error: function error(res) {
-            alert(responseJSON.message);
-        }
-    });
-    request({
-        url: 'registers',
-        type: 'post',
-        data: data
-    }).then(function (res) {
-        if (res.status) {
-            alert('登录成功');
-        } else {
-            alert('res.data.message');
+        error: function error(data) {
+            alert(data.responseJSON.message);
         }
     });
 });
+
 $(document).on('touchend || tap', '#getSms', function (e) {
-    if (!tel.val() || tel.val().trim() === '') {
+    var tel_num = tel.val();
+    if (!tel_num || tel_num.trim() === '') {
         alert('请输入手机号码');
         return false;
     }
-    var pathStr = tel.val() + '/' + 'register';
+    var pathStr = tel_num + '/' + 'login';
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -108,4 +83,4 @@ $(document).on('touchend || tap', '#getSms', function (e) {
 
 /***/ })
 
-},[103]);
+},[101]);

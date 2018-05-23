@@ -1,14 +1,40 @@
-webpackJsonp([7],{
+webpackJsonp([3],{
 
-/***/ 129:
+/***/ 56:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(57);
+
+
+/***/ }),
+
+/***/ 57:
+/***/ (function(module, exports, __webpack_require__) {
+
+window.$ = window.jQuery = __webpack_require__(0);
+window.Vue = __webpack_require__(2);
+// Vue.component('house-detail-list', require('./components/houseDetailList.vue.vue'));
+Vue.component('detail-banner', __webpack_require__(58));
+Vue.component('feature-banner', __webpack_require__(62));
+new Vue({
+  el: '#Vuebuilding',
+  data: {
+    imgList: JSON.parse($('#imgList').val()),
+    features: JSON.parse($('#features').val())
+  }
+});
+
+/***/ }),
+
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(38)
+var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(130)
+var __vue_script__ = __webpack_require__(59)
 /* template */
-var __vue_template__ = __webpack_require__(131)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48,12 +74,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 130:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 //
 //
@@ -87,7 +113,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 131:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -155,15 +181,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 132:
+/***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(38)
+var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(133)
+var __vue_script__ = __webpack_require__(63)
 /* template */
-var __vue_template__ = __webpack_require__(134)
+var __vue_template__ = __webpack_require__(64)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -203,12 +229,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 133:
+/***/ 63:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 //
 //
@@ -238,7 +264,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 134:
+/***/ 64:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -271,32 +297,6 @@ if (false) {
   }
 }
 
-/***/ }),
-
-/***/ 77:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(78);
-
-
-/***/ }),
-
-/***/ 78:
-/***/ (function(module, exports, __webpack_require__) {
-
-window.$ = window.jQuery = __webpack_require__(2);
-window.Vue = __webpack_require__(8);
-// Vue.component('house-detail-list', require('./components/houseDetailList.vue.vue'));
-Vue.component('detail-banner', __webpack_require__(129));
-Vue.component('feature-banner', __webpack_require__(132));
-new Vue({
-  el: '#Vuebuilding',
-  data: {
-    imgList: JSON.parse($('#imgList').val()),
-    features: JSON.parse($('#features').val())
-  }
-});
-
 /***/ })
 
-},[77]);
+},[56]);
