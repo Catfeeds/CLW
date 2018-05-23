@@ -23,7 +23,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
         },
         success: function(data){
             alert(data.message);
-            if (data.success) {
+            if (data.status) {
                 window.location.href = '/user'
             }
         },
@@ -47,7 +47,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         url: '/sms/captcha/' + pathStr,
         type: 'get',
         success: function (res) {
-            if (res.data) {
+            if (res.success) {
                 getSms.html(120 + 's');
                 var time = setInterval(function () {
                     getSms.html((parseInt(getSms.html()) - 1) + 's');

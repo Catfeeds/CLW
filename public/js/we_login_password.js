@@ -10459,7 +10459,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         alert('请输入手机号码');
         return false;
     }
-    var pathStr = tel.val() + '/' + 'register';
+    var pathStr = tel.val() + '/' + 'login';
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -10467,7 +10467,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         url: '/sms/captcha/' + pathStr,
         type: 'get',
         success: function success(res) {
-            if (res.data) {
+            if (res.success) {
                 getSms.html(120 + 's');
                 var time = setInterval(function () {
                     getSms.html(parseInt(getSms.html()) - 1 + 's');
@@ -10532,7 +10532,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
         },
         success: function success(data) {
             alert(data.message);
-            if (data.success) {
+            if (data.status) {
                 window.location.href = '/user';
             }
         },
