@@ -25,6 +25,3 @@
         @if(Request::segment(1) == 'user')<div style="font-size:11px;color:#276FFB;">我的</div>@endif
     </a>
 </div>
-<style>
-
-</style>

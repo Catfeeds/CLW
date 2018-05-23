@@ -114,8 +114,6 @@
 							</div>
 							<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
 						</div>
-						<!-- 底部导航 -->
-        		@include('we.tab')
 					</div>
 				</div>
 			</div>
