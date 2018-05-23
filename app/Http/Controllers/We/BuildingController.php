@@ -32,6 +32,7 @@ class BuildingController extends Controller
 
     {
         $res = $buildingsRepository->getShow($building, $service);
+        if (!empty($building->company)) $building->company_cn = implode(',', $building->company);
         return view('we.building_detail')->with('data', $res);
     }
 }
