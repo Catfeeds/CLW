@@ -41,6 +41,39 @@ Route::resource('user_find_house', 'FindHouseController');
 Route::resource('servers', 'ServerController');
 
 Route::group(['middleware' => ['web','weChat.login']], function () {
+    /*
+    |--------------------------------------------------------------------------
+    | 重置基本信息
+    |--------------------------------------------------------------------------
+    */
+    // 修改密码视图
+    Route::get('reset_pwd_view', 'ResetInfoController@resetPwdView');
+    // 修改密码
+    Route::post('reset_pwd', 'ResetInfoController@resetPwd');
+
+    // 换绑手机号(旧手机号验证视图)
+    Route::get('old_tel_validate_view', 'ResetInfoController@oldTelValidateView');
+    // 换绑手机号(旧手机号验证)
+    Route::post('old_tel_validate', 'ResetInfoController@oldTelValidate');
+    // 换绑手机操作视图
+    Route::get('reset_tel_view', 'ResetInfoController@resetTelView');
+    // 换绑手机操作
+    Route::post('reset_tel', 'ResetInfoController@resetTel');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 浏览记录
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('browse_records', 'BrowseRecordsController');
+
+    /*
+    |--------------------------------------------------------------------------
+    | 收藏
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('collections', 'CollectionsController');
+
 
 
 });

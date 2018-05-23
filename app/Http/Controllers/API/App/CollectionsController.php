@@ -6,7 +6,6 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\CollectionsRequest;
 use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
-use App\Services\HousesService;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +17,7 @@ class CollectionsController extends APIBaseController
      *
      * @param Request $request
      * @param CollectionsRepository $repository
-     * @param HousesService $service
+     * @param OfficeBuildingHousesService $service
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛
      */
