@@ -61,9 +61,9 @@ var fileSJSNameArr = [
   'we_user_find_house',
   'we_user_house_resources',
   'we_user_index',
-  // 'we_user_revise_password',
+  'we_user_revise_password',
   'we_user_revise_phone1',
-  // 'we_user_revise_phone2',
+  'we_user_revise_phone2',
   'we_user_setting'
 ];// 要打包的 js 文件
 function inOutCss(fileName) {

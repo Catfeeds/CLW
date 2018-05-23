@@ -7,9 +7,17 @@ $(document).on('touchend || tap', '.loginOut', function(){
     var tel = $('#tel').val()
     var demand = $('#requirement').val()
     if(!appellation || appellation.trim() == ''){
-        alert('请输入称谓')
+        Toast({
+            message: '请输入称谓',
+            position: 'top',
+            duration: 2000
+        })
     } else if(!tel || tel.trim() == ''){
-        alert('请输入手机号码')
+        Toast({
+            message: '请输入手机号码',
+            position: 'top',
+            duration: 2000
+        })
     } else {
         $.ajax({
             headers: {
@@ -36,7 +44,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             error: function (data) {
                 Toast({
                     message: data.responseJSON.message,
-                    position: 'bottom',
+                    position: 'top',
                     duration: 5000
                 })
             }

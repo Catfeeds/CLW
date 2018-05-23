@@ -27,4 +27,5 @@
         <button type="button">提交</button>
     </div>
   </div>
+  <script src="/js/we_user_revise_phone2.js"></script>
 @endsection

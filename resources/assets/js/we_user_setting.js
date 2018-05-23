@@ -7,3 +7,7 @@ $(document).on('touchend || tap', '#revisePwd', function(){
 $(document).on('touchend || tap', '#reviseTel', function(){
     window.location.href = '/revise_phone1'
 })
+// 退出登录
+$(document).on('touchend || tap', '.loginOut', function(){
+    console.log('退出成功')
+})

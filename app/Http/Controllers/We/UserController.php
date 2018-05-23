@@ -16,16 +16,16 @@ class UserController extends Controller
     {
        return view('we.user_find_house');
     }
-    public function resources(AreasRepository $repository)
+    public function getArea(AreasRepository $repository)
     {
         $res = $repository->areaList();
-        $data = $res->map(function($v) {
-            return [
-                'value' => $v->id,
-                'text' => $v->name
-            ];
-        });
-       return view('we.user_house_resources', ['res' => $data]);
+        $data = $res->pluck('name')->toArray();
+        $options = $res->pluck('id','name')->toArray();
+        return ['res' => $data,'option'=> $options];
+    }
+    public function resources()
+    {
+       return view('we.user_house_resources');
     }
     public function aboutUs()
     {

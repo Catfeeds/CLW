@@ -33,6 +33,8 @@ Route::resource('houses', 'HouseController');
 // 用户相关
 // 用户首页
 Route::resource('user', 'UserController');
+// 获取区域
+Route::get('get_area', 'UserController@getArea');
 // 委托找房
 Route::get('user_find_house', 'UserController@findHouse');
 // 投放房源

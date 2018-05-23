@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 102);
+/******/ 	return __webpack_require__(__webpack_require__.s = 105);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10437,15 +10437,15 @@ return jQuery;
 
 /***/ }),
 
-/***/ 102:
+/***/ 105:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(103);
+module.exports = __webpack_require__(106);
 
 
 /***/ }),
 
-/***/ 103:
+/***/ 106:
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
@@ -10456,6 +10456,10 @@ $(document).on('touchend || tap', '#revisePwd', function () {
 // 跳转至修改手机页面
 $(document).on('touchend || tap', '#reviseTel', function () {
     window.location.href = '/revise_phone1';
+});
+// 退出登录
+$(document).on('touchend || tap', '.loginOut', function () {
+    console.log('退出成功');
 });
 
 /***/ })
