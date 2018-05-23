@@ -113,23 +113,23 @@
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>
                 <div class="index_title">热门商圈</div>
                 <div class="hot-block-box">
-                    <a href="javascript:void(0)" class="hot-1">
+                    <a href="/buildings?block_id={{$hotBlocks[0]->block_id}}" class="hot-1">
                         <img src="{{$hotBlocks[0]->img_cn}}">
                     </a>
                     <ul>
                         <li class="display-flex">
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[1]->block_id}}" >
                             <img src="{{$hotBlocks[1]->img_cn}}">
                             </a>
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[2]->block_id}}" >
                             <img src="{{$hotBlocks[2]->img_cn}}">
                             </a>
                         </li>
                         <li class="display-flex">
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[3]->block_id}}" >
                             <img src="{{$hotBlocks[3]->img_cn}}">
                             </a>
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[4]->block_id}}" >
                             <img src="{{$hotBlocks[4]->img_cn}}">
                             </a>
                         </li>
@@ -142,11 +142,11 @@
             <div class="indexSideslip">
                 <div class="buildingList">
                     @foreach($buildingRecommends as $item)
-                    <a class='buildingItem' href="javascript:void(0)" >
+                    <a class='buildingItem' href="/buildings/{{$item->building_id}}" >
                     <img src="{{$item->img_cn}}" alt="">
                     <div class="building-text">
                         <div class="building-title">{{$item->building_name}}</div>
-                        <div class="building-describe"><img src="/we_img/index_positon.png" alt="">{{$item->area_block_name}}</div>
+                        <div class="building-describe"><img src="/we_img/index_positon.png" alt="">{{$item->address_cn}}</div>
                     </div>
                     </a>
                     @endforeach
@@ -157,9 +157,9 @@
                 区域
             </div>
             <div class="area-list">
-                <a href="javascript:void(0)">全部</a>
+                <a href="/buildings">全部</a>
                 @foreach($areas as $item)
-                <a href="javascript:void(0)">{{strchr($item->name, "区", true)}}</a>
+                <a href="/buildings?area_id={{$item->id}}">{{strchr($item->name, "区", true)}}</a>
                 @endforeach
             </div>
             <div class="better">猜你喜欢</div>
@@ -184,34 +184,8 @@
             </div>
         </div>
         <!-- 底部导航 -->
-        <div id="alltab" style="display:flex;position:fixed;justify-content:space-around;background:white;height:49px;z-index:300;bottom:0;
-        width:100%;padding:5px 0;border-top:1px solid #f4f4f4;">
-            <div class="tabs" style="text-align:center">
-                <img src="/we_img/tab1.png" style="display:none;height:22px;margin-bottom:-4px;">
-                <img src="/we_img/tab1_active.png" style="height:22px;margin-bottom:-4px;">
-                <div style="font-size:11px;" class="active">首页</div>
-            </div>
-            <div class="tabs" style="text-align:center">
-                <img src="/we_img/tab2.png" style="height:22px;margin-bottom:-4px;">
-                <img src="/we_img/tab2_active.png" style="display:none;height:22px;margin-bottom:-4px;">
-                <div style="font-size:11px;">找房</div>
-            </div>
-            <div class="tabs" style="text-align:center">
-                <img src="/we_img/tab3.png" style="height:22px;margin-bottom:-4px;">
-                <img src="/we_img/tab3_active.png" style="display:none;height:22px;margin-bottom:-4px;">
-                <div style="font-size:11px;">服务</div>
-            </div>
-            <div class="tabs" style="text-align:center">
-                <img src="/we_img/tab4.png" style="height:22px;margin-bottom:-4px;">
-                <img src="/we_img/tab4_active.png" style="display:none;height:22px;margin-bottom:-4px;">
-                <div style="font-size:11px;">我的</div>
-            </div>
-        </div>
+        @include('we.tab')
     </div>
     <script src="/js/we_home.js"></script>
-    <style>
-        .active{
-            color:#007AFF;
-        }
-    </style>
+
 @endsection

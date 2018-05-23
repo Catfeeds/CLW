@@ -4,15 +4,12 @@
     <link rel="stylesheet" href="/css/we_register.css">
 @endsection
 @section('body')
-    <header class="mui-bar mui-bar-transparent">
-        <span class="mui-title">注册账号</span>
-    </header>
     <div class="mui-content" id="app">
         <form class="mui-input-group">
             <div class="mui-input-row marTop phone">
                 <input type="tel" v-model="tel" id="tel" class="mui-numbox-input" placeholder="请输入手机号">
                 <a href="#" v-if='time<=0' class="mui-pull-right" @click="getSms">获取验证码</a>
-                <a href="#" v-else class="mui-pull-right" id="time">{{time}}s</a>
+                <a href="#" v-else class="mui-pull-right" id="time">10s</a>
             </div>
             <div class="mui-input-row marTop">
                 <input type="tel" v-model="sms" id="sms" placeholder="请输入验证码">

@@ -1,1 +1,84 @@
-body{background-color:#fff!important}header{margin-left:5px;margin-top:20px}header a{display:inline-block;width:100px;height:64px}.mui-content{margin-top:100px;padding:0 15px;background:#fff;width:100%}.mui-content>.mui-title{font-size:18px;color:#333}.mui-content>form:after,.mui-content>form:before{height:0}.mui-content>form{margin-top:40px;background:#fff}.mui-content>form>.loginBtn{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.mui-content>form>.loginBtn button{width:80%;height:45px;border-radius:25px;padding:0;font-size:18px;margin:30px 0;color:#fff;background:#06f;border:none}.mui-content>form>button:after{height:0}.mui-content>form>.marTop input{height:30px}.mui-content>form>.mui-input-row:after{position:absolute;left:15px;width:93%;background:#e6e6e6}.mui-content>form>.marTop input[placeholder]{font-size:16px!important;margin-top:20px!important}.mui-content>form>.marTop{height:60px}.mui-content>form>.phone>input{width:60%}.mui-content>form>.phone>a{display:inline-block;margin-top:25px;font-size:16px;margin-right:12px}
+body {
+  background-color: #ffffff !important;
+}
+
+.mui-content {
+  padding: 0 15px;
+  background: #fff;
+  width: 100%;
+}
+
+.mui-content>.mui-title {
+  font-size: 18px;
+  color: #333;
+}
+
+.mui-content>form:after {
+  height: 0;
+}
+
+.mui-content>form:before {
+  height: 0;
+}
+
+.mui-content>form {
+  margin-top: 40px;
+  background: #fff;
+}
+
+.mui-content>form>.loginBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mui-content>form>.loginBtn button {
+  width: 80%;
+  height: 45px;
+  border-radius: 25px;
+  padding: 0;
+  font-size: 18px;
+  margin: 30px 0;
+  color: #FFF;
+  background: #0066ff;
+  border: none;
+}
+
+.mui-content>form>button:after {
+  height: 0;
+}
+
+.mui-content>form>.marTop input {
+  height: 30px;
+}
+
+.mui-content>form>.mui-input-row:after {
+  position: absolute;
+  left: 15px;
+  width: 93%;
+  background: #e6e6e6;
+}
+
+.mui-content>form>.marTop input[placeholder] {
+  font-size: 16px !important;
+  margin-top: 20px !important;
+}
+
+.mui-content>form>.marTop {
+  height: 60px;
+}
+
+.mui-content>form>.phone>input {
+  width: 60%;
+}
+
+.mui-content>form>.phone>a {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 16px;
+  margin-right: 12px;
+}
+

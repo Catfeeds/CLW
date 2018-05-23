@@ -94,7 +94,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     | 楼盘推荐
     |--------------------------------------------------------------------------
     */
-    Route::resource('building_recommends', 'BuildingRecommendsController');
+    Route::resource('building_recommends', 'RecommendController');
     /*
     |--------------------------------------------------------------------------
     | 预约
