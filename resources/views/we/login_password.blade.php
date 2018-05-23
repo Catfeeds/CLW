@@ -4,10 +4,6 @@
     <link rel="stylesheet" href="/css/login_password.css">
 @endsection
 @section('body')
-    <header class="mui-bar mui-bar-transparent">
-        <a class="mui-action-back mui-pull-left"><img src="../images/login_back.png" style="width:10px;height:18px;margin-top:12px;"></a>
-        <span class="mui-title">找回密码</span>
-    </header>
     <div class="mui-content">
         <form class="mui-input-group">
             <div class="mui-input-row marTop phone">

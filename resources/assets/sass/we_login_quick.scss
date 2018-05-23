@@ -2,24 +2,7 @@ body{
     background-color: #ffffff !important;
 }
  //TODO: scss注释补全
-.header{
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    margin-top: 20px;
-    height: 44px;
-    line-height: 44px;
-    >a{
-        font-size: 16px;
-        color: #000;
-        >img{
-            width: 45%;
-            height: 15px;
-        }
-    }
-}
-.mui-content{
-    margin-top: 10px;
+ .mui-content{
     padding: 0 15px;
     background: #fff;
     widows: 100%;
@@ -85,37 +68,14 @@ body{
             }
         }
     }
-    >.shortcut a{
-        color: #333;
+    >.shortcut{
         display: inline-block;
-        font-size: 16px;
         display: flex;
-        justify-content: center;
-    }
-    >.other{
-        margin-top: 167px;
-        text-align: center;
-        >span{
-            font-size: 16px;
-            position: relative;
-            bottom: 11px;
-            background: #fff;
-            padding: {
-                left: 5px;
-                right: 5px;
-            }
-        }
-        >div{
-            display: flex;
-            justify-content: center;
-        }
-        >.dotted{
-            border-top: 1px dashed #e6e6e6;
-        }
-        >div img{
-            width: 7%;
-            height: 20px;
-            margin-top: 17px;
+        justify-content: space-between;
+        padding: 0 36px;
+        a{
+          color: #333;
+          font-size: 16px;
         }
     }
     >.agree{

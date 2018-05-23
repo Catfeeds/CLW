@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 69);
+/******/ 	return __webpack_require__(__webpack_require__.s = 84);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10437,51 +10437,111 @@ return jQuery;
 
 /***/ }),
 
-/***/ 69:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(70);
+module.exports = __webpack_require__(85);
 
 
 /***/ }),
 
-/***/ 70:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 85:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+/**
+ * Created by zxz1992 on 2018/5/22.
+ */
 window.$ = window.jQuery = __webpack_require__(1);
-var MapObj = null,
-    // 地图对象
-MapCenter = null; // 楼盘坐标对象
-var Map = function Map() {
-    if (!Vuebuilding.list.gps) {
+var tel = $('#tel'),
+    sms = $('#sms'),
+    password = $('#password'),
+    time = $('#time'),
+    getSms = $('#getSms');
+
+$(document).on('touchend || tap', '#submit', function (e) {
+    var tel_num = tel.val(),
+        sms_num = tel.val(),
+        password_num = tel.val();
+    if (!tel_num || tel_num.trim() === '') {
+        alert('请输入手机号码');
         return false;
     }
-    if (!MapCenter) {
-        MapCenter = new plus.maps.Point(114.30, 30.57);
-    } else {
-        MapCenter.setLng(Vuebuilding.list.gps[0]); // 经度
-        MapCenter.setLat(Vuebuilding.list.gps[1]); // 纬度
+    if (!sms_num || sms_num.trim() === '') {
+        alert('请输入短信验证码');
+        return false;
     }
-    if (!MapObj) {
-        MapObj = new plus.maps.Map('secondmap', {
-            center: MapCenter, // 地图中心位置
-            traffic: true, //显示交通信息
-            zoom: 16, //缩放级别 有效范围为1-22
-            zoomControls: true //显示地图的内置缩放控件
-        });
-    } else {
-        MapObj.setCenter(MapCenter);
-        MapObj.resize();
+    if (!password_num || password_num.trim() === '') {
+        alert('请输入密码');
+        return false;
     }
-    showBuildingPosition();
-};
-// 显示楼盘坐标
-var showBuildingPosition = function showBuildingPosition() {
-    var marker = new plus.maps.Marker(MapCenter);
-    MapObj.addOverlay(marker);
-};
-$('#secondmap').click(function () {
-    console.log('55555');
+    if (password_num.length < 6) {
+        alert('密码最小长度为6');
+        return false;
+    }
+    if (password_num.length > 18) {
+        alert('密码最大长度为18');
+        return false;
+    }
+    var data = { tel: tel_num, smsCode: sms_num, password: password_num };
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: 'registers',
+        type: 'post',
+        success: function success(res) {
+            if (res.status) {
+                alert('登录成功');
+            } else {
+                alert(res.data.message);
+            }
+        },
+        error: function error(res) {
+            alert(responseJSON.message);
+        }
+    });
+    request({
+        url: 'registers',
+        type: 'post',
+        data: data
+    }).then(function (res) {
+        if (res.status) {
+            alert('登录成功');
+        } else {
+            alert('res.data.message');
+        }
+    });
+});
+$(document).on('touchend || tap', '#getSms', function (e) {
+    if (!tel.val() || tel.val().trim() === '') {
+        alert('请输入手机号码');
+        return false;
+    }
+    var pathStr = tel.val() + '/' + 'register';
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/sms/captcha/' + pathStr,
+        type: 'get',
+        success: function success(res) {
+            if (res.data) {
+                getSms.html(120 + 's');
+                alert('短信发送成功');
+                var time = setInterval(function () {
+                    getSms.html(parseInt(getSms.html()) - 1 + 's');
+                    if (!parseInt(getSms.html())) {
+                        getSms.html('获取验证码');
+                        window.clearInterval(time);
+                    }
+                }, 1000);
+            }
+        },
+        error: function error(res) {
+            alert(responseJSON.message);
+        }
+    });
 });
 
 /***/ })
