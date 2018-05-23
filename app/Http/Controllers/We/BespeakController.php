@@ -13,7 +13,7 @@ class BespeakController extends Controller
      *
      * @param BespeaksRequest $request
      * @param BespeaksService $bespeaksService
-     * @return \Illuminate\Http\JsonResponse
+     * @return array
      * @author 罗振
      */
     public function store(
@@ -21,9 +21,10 @@ class BespeakController extends Controller
         BespeaksService $bespeaksService
     )
     {
-        if (empty($result = $bespeaksService->addBespeaks($request))) {
-            return false;
+        if (!empty($res = $bespeaksService->addBespeaks($request))) {
+            return ['status' => true, 'message' => '预约成功'];
+        } else {
+            return ['status' => false, 'message' => '预约失败'];
         }
-        return true;
     }
 }

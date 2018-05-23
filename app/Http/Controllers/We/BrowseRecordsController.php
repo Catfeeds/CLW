@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\API\App;
+namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\API\APIBaseController;
+use App\Http\Controllers\Controller;
 use App\Repositories\BrowseRecordsRepository;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 
-class BrowseRecordsController extends APIBaseController
+class BrowseRecordsController extends Controller
 {
     /**
-     * 说明: 获取浏览记录表
+     * 说明: 用户浏览记录
      *
      * @param Request $request
      * @param OfficeBuildingHousesService $service
      * @param BrowseRecordsRepository $repository
-     * @return \Illuminate\Http\JsonResponse
-     * @author 刘坤涛
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author 罗振
      */
     public function index
     (
@@ -25,7 +25,9 @@ class BrowseRecordsController extends APIBaseController
         BrowseRecordsRepository $repository
     )
     {
-        $res = $repository->browseRecordList($request, $service);
-        return $this->sendResponse($res, '浏览记录获取成功');
+        $res = $repository->browseRecordList($request, $service,true);
+        return view('we.user_browsing_history',['res' => $res]);
     }
+
+
 }

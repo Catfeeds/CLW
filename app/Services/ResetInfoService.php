@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Redis\MasterRedis;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class ResetInfoService
 {
@@ -99,7 +100,11 @@ class ResetInfoService
      */
     public function user()
     {
-        return Auth::guard('api')->user();
+        if (!empty(Auth::guard('api')->user())) {
+            return Auth::guard('api')->user();
+        } else {
+            return Session::get('user');
+        }
     }
 
 }

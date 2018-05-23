@@ -83,7 +83,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     */
     Route::resource('recommends', 'RecommendsController');
 
-    /*all_building_blocks
+    /*
     |--------------------------------------------------------------------------
     | 热门商圈
     |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     | 楼盘推荐
     |--------------------------------------------------------------------------
     */
-    Route::resource('building_recommends', 'RecommendController');
+    Route::resource('building_recommends', 'BuildingRecommendsController');
     /*
     |--------------------------------------------------------------------------
     | 预约

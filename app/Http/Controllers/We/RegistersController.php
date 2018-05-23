@@ -23,7 +23,7 @@ class RegistersController extends Controller
      *
      * @param RegistersRequest $request
      * @param RegistersService $registersService
-     * @return \Illuminate\Http\RedirectResponse
+     * @return array
      * @author 罗振
      */
     public function store(
@@ -32,9 +32,6 @@ class RegistersController extends Controller
     )
     {
         $res = $registersService->weAddUser($request);
-
-        if ($res['status'] == false) return redirect('/registers/create')->with('注册失败:'.$res['message']);
-
-        return redirect('/')->with('注册成功:'.$res['message']);
+        return $res;
     }
 }

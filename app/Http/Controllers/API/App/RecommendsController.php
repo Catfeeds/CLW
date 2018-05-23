@@ -3,8 +3,10 @@ namespace App\Http\Controllers\API\App;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Recommend;
+use App\Repositories\BuildingsRepository;
 use App\Repositories\RecommendsRepository;
 use App\Services\BuildingsService;
+use Illuminate\Http\Request;
 
 class RecommendsController extends APIBaseController
 {
@@ -24,6 +26,7 @@ class RecommendsController extends APIBaseController
         return $this->sendResponse($res,'精品推荐列表获取成功');
     }
 
+
     /**
      * 说明：首页点击精品推荐跳转到楼盘列表
      *
@@ -34,12 +37,14 @@ class RecommendsController extends APIBaseController
      */
     public function show
     (
-        RecommendsRepository $repository,
+        BuildingsRepository $repository,
         Recommend $recommend,
-        BuildingsService $service
+        BuildingsService $service,
+        Request $request
     )
     {
-        $res = $repository->getBuildingList($recommend->building_id, $service);
+        $res = $repository->buildingList($request, $service, $recommend->building_id);
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
+
 }
