@@ -97,5 +97,7 @@ JSObj.extract([ // 提出全局多次引入文件
   'vue',
   'jquery',
   './resources/assets/js/components/buildingList',
-  'vue-awesome-swiper'
+  'vue-awesome-swiper',
+  'mint-ui',
+  'mint-ui/lib/style.css'
 ]);

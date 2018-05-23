@@ -1,15 +1,8 @@
-webpackJsonp([3],Array(38).concat([
-/* 38 */
+webpackJsonp([3],Array(40).concat([
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(39);
-__webpack_require__(48);
-__webpack_require__(49);
-__webpack_require__(50);
-__webpack_require__(51);
-__webpack_require__(52);
-__webpack_require__(53);
-__webpack_require__(54);
+__webpack_require__(41);
 __webpack_require__(55);
 __webpack_require__(56);
 __webpack_require__(57);
@@ -24,16 +17,31 @@ __webpack_require__(65);
 __webpack_require__(66);
 __webpack_require__(67);
 __webpack_require__(68);
-module.exports = __webpack_require__(69);
+__webpack_require__(69);
+__webpack_require__(70);
+__webpack_require__(71);
+__webpack_require__(72);
+__webpack_require__(73);
+__webpack_require__(74);
+__webpack_require__(75);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 41 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
 window.$ = window.jQuery = __webpack_require__(2);
 window.Vue = __webpack_require__(8);
-var Swiper = __webpack_require__(42);
+
+
+var Swiper = __webpack_require__(49);
 Vue.component('building-list', __webpack_require__(32));
 var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
@@ -59,6 +67,16 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
   paginationClickable: true
 });
 $(document).on('tap || touchend', '#addBook', function () {
+  var tel = $('#telInput').val(),
+      telReg = /^[1][0-9]{10}$/;
+  if (!telReg.test(tel)) {
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+      message: '请输入11位手机号',
+      position: 'top',
+      duration: 3000
+    });
+    return false;
+  }
   $('#backdrop').fadeIn(300);
 });
 $(document).on('touchend || tap', '#backdrop', function () {
@@ -67,11 +85,92 @@ $(document).on('touchend || tap', '#backdrop', function () {
 $(document).on('touchend || tap', '#popover', function () {
   return false;
 });
+// 预约
+$(document).on('touchend || tap', '#lookForHouse', function () {
+  $.ajax({
+    url: '/bespeaks',
+    type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: {
+      tel: $('#telInput').val()
+    },
+    success: function success(data) {
+      $('#backdrop').fadeOut(300);
+      $('#telInput').val('');
+      if (data.status) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: data.message,
+          position: 'top',
+          duration: 3000
+        });
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: '预约失败',
+          position: 'top',
+          duration: 3000
+        });
+      }
+    },
+    error: function error() {
+      $('#backdrop').fadeOut(300);
+      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+        message: '服务器繁忙,请联系客服处理',
+        position: 'top',
+        duration: 3000
+      });
+    }
+  });
+});
+// 委托找房
+$(document).on('touchend || tap', '#peltHouse', function () {
+  $.ajax({
+    url: '/throw_ins',
+    type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: {
+      tel: $('#telInput').val()
+    },
+    success: function success(data) {
+      $('#backdrop').fadeOut(300);
+      $('#telInput').val('');
+      if (data.status) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: data.message,
+          position: 'top',
+          duration: 3000
+        });
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: '投放失败',
+          position: 'top',
+          duration: 3000
+        });
+      }
+    },
+    error: function error() {
+      $('#backdrop').fadeOut(300);
+      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+        message: '服务器繁忙,请联系客服处理',
+        position: 'top',
+        duration: 3000
+      });
+    }
+  });
+});
 
 /***/ }),
-/* 40 */,
-/* 41 */,
-/* 42 */
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5431,53 +5530,11 @@ else if (typeof define === 'function' && define.amd) {
 
 
 /***/ }),
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
 /* 55 */
 /***/ (function(module, exports) {
 
@@ -5567,5 +5624,47 @@ else if (typeof define === 'function' && define.amd) {
 
 // removed by extract-text-webpack-plugin
 
+/***/ }),
+/* 70 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
-]),[38]);
+]),[40]);

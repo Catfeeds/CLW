@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 82:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(83);
+module.exports = __webpack_require__(90);
 
 
 /***/ }),
 
-/***/ 83:
+/***/ 90:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -18,14 +18,13 @@ window.$ = window.jQuery = __webpack_require__(2);
 window.Vue = __webpack_require__(8);
 var listAppData = JSON.parse($('#listAppData').val());
 Vue.component('building-list', __webpack_require__(32));
-console.log(listAppData);
 var app = new Vue({
   el: '#app',
   data: {
-    list: listAppData
+    list: listAppData.data
   }
 });
 
 /***/ })
 
-},[82]);
+},[89]);

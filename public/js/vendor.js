@@ -1,6 +1,7 @@
-webpackJsonp([4],{
-
-/***/ 2:
+webpackJsonp([4],[
+/* 0 */,
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10371,8866 +10372,12 @@ return jQuery;
 
 
 /***/ }),
-
-/***/ 31:
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-
-/***/ 32:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(43)
-}
-var normalizeComponent = __webpack_require__(36)
-/* script */
-var __vue_script__ = __webpack_require__(46)
-/* template */
-var __vue_template__ = __webpack_require__(47)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-2638fbee"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/buildingList.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2638fbee", Component.options)
-  } else {
-    hotAPI.reload("data-v-2638fbee", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 33:
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
-/***/ 34:
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
-/***/ 35:
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(45)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-var options = null
-var ssrIdKey = 'data-vue-ssr-id'
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction, _options) {
-  isProduction = _isProduction
-
-  options = _options || {}
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-  if (options.ssrId) {
-    styleElement.setAttribute(ssrIdKey, obj.id)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-
-/***/ 36:
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
-/***/ 37:
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(e,t){ true?module.exports=t(__webpack_require__(78)):"function"==typeof define&&define.amd?define("VueAwesomeSwiper",["swiper"],t):"object"==typeof exports?exports.VueAwesomeSwiper=t(require("swiper/dist/js/swiper.js")):e.VueAwesomeSwiper=t(e.Swiper)}(this,function(e){return function(e){function t(i){if(n[i])return n[i].exports;var s=n[i]={i:i,l:!1,exports:{}};return e[i].call(s.exports,s,s.exports,t),s.l=!0,s.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,i){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=4)}([function(t,n){t.exports=e},function(e,t){e.exports=function(e,t,n,i,s,r){var o,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(o=e,a=e.default);var p="function"==typeof a?a.options:a;t&&(p.render=t.render,p.staticRenderFns=t.staticRenderFns,p._compiled=!0),n&&(p.functional=!0),s&&(p._scopeId=s);var l;if(r?(l=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(r)},p._ssrRegister=l):i&&(l=i),l){var c=p.functional,d=c?p.render:p.beforeCreate;c?(p._injectStyles=l,p.render=function(e,t){return l.call(t),d(e,t)}):p.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:a,options:p}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(5),s=n.n(i),r=n(8),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),s=n.n(i),r=n(7),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.install=t.swiperSlide=t.swiper=t.Swiper=void 0;var s=n(0),r=i(s),o=n(2),a=i(o),u=n(3),p=i(u),l=window.Swiper||r.default,c=p.default,d=a.default,f=function(e,t){t&&(p.default.props.globalOptions.default=function(){return t}),e.component(p.default.name,p.default),e.component(a.default.name,a.default)},h={Swiper:l,swiper:c,swiperSlide:d,install:f};t.default=h,t.Swiper=l,t.swiper=c,t.swiperSlide=d,t.install=f},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"swiper-slide",data:function(){return{slideClass:"swiper-slide"}},ready:function(){this.update()},mounted:function(){this.update(),this.$parent&&this.$parent.options&&this.$parent.options.slideClass&&(this.slideClass=this.$parent.options.slideClass)},updated:function(){this.update()},attached:function(){this.update()},methods:{update:function(){this.$parent&&this.$parent.swiper&&this.$parent.update()}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(0),s=function(e){return e&&e.__esModule?e:{default:e}}(i),r=window.Swiper||s.default;"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),i=1;i<arguments.length;i++){var s=arguments[i];if(null!=s)for(var r in s)Object.prototype.hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},writable:!0,configurable:!0});var o=["beforeDestroy","slideChange","slideChangeTransitionStart","slideChangeTransitionEnd","slideNextTransitionStart","slideNextTransitionEnd","slidePrevTransitionStart","slidePrevTransitionEnd","transitionStart","transitionEnd","touchStart","touchMove","touchMoveOpposite","sliderMove","touchEnd","click","tap","doubleTap","imagesReady","progress","reachBeginning","reachEnd","fromEdge","setTranslate","setTransition","resize"];t.default={name:"swiper",props:{options:{type:Object,default:function(){return{}}},globalOptions:{type:Object,required:!1,default:function(){return{}}}},data:function(){return{swiper:null,classes:{wrapperClass:"swiper-wrapper"}}},ready:function(){this.swiper||this.mountInstance()},mounted:function(){if(!this.swiper){var e=!1;for(var t in this.classes)this.classes.hasOwnProperty(t)&&this.options[t]&&(e=!0,this.classes[t]=this.options[t]);e?this.$nextTick(this.mountInstance):this.mountInstance()}},activated:function(){this.update()},updated:function(){this.update()},beforeDestroy:function(){this.$nextTick(function(){this.swiper&&(this.swiper.destroy&&this.swiper.destroy(),delete this.swiper)})},methods:{update:function(){this.swiper&&(this.swiper.update&&this.swiper.update(),this.swiper.navigation&&this.swiper.navigation.update(),this.swiper.pagination&&this.swiper.pagination.render(),this.swiper.pagination&&this.swiper.pagination.update())},mountInstance:function(){var e=Object.assign({},this.globalOptions,this.options);this.swiper=new r(this.$el,e),this.bindEvents(),this.$emit("ready",this.swiper)},bindEvents:function(){var e=this,t=this;o.forEach(function(n){e.swiper.on(n,function(){t.$emit.apply(t,[n].concat(Array.prototype.slice.call(arguments))),t.$emit.apply(t,[n.replace(/([A-Z])/g,"-$1").toLowerCase()].concat(Array.prototype.slice.call(arguments)))})})}}}},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"swiper-container"},[e._t("parallax-bg"),e._v(" "),n("div",{class:e.classes.wrapperClass},[e._t("default")],2),e._v(" "),e._t("pagination"),e._v(" "),e._t("button-prev"),e._v(" "),e._t("button-next"),e._v(" "),e._t("scrollbar")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{class:e.slideClass},[e._t("default")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r}])});
-
-/***/ }),
-
-/***/ 40:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
-            (typeof self !== "undefined" && self) ||
-            window;
-var apply = Function.prototype.apply;
-
-// DOM APIs, for completeness
-
-exports.setTimeout = function() {
-  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
-};
-exports.setInterval = function() {
-  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
-};
-exports.clearTimeout =
-exports.clearInterval = function(timeout) {
-  if (timeout) {
-    timeout.close();
-  }
-};
-
-function Timeout(id, clearFn) {
-  this._id = id;
-  this._clearFn = clearFn;
-}
-Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-Timeout.prototype.close = function() {
-  this._clearFn.call(scope, this._id);
-};
-
-// Does not start the time, just sets up the members needed.
-exports.enroll = function(item, msecs) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = msecs;
-};
-
-exports.unenroll = function(item) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = -1;
-};
-
-exports._unrefActive = exports.active = function(item) {
-  clearTimeout(item._idleTimeoutId);
-
-  var msecs = item._idleTimeout;
-  if (msecs >= 0) {
-    item._idleTimeoutId = setTimeout(function onTimeout() {
-      if (item._onTimeout)
-        item._onTimeout();
-    }, msecs);
-  }
-};
-
-// setimmediate attaches itself to the global object
-__webpack_require__(41);
-// On some exotic environments, it's not clear which object `setimmediate` was
-// able to install onto.  Search each possibility in the same order as the
-// `setimmediate` library.
-exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
-                       (typeof global !== "undefined" && global.setImmediate) ||
-                       (this && this.setImmediate);
-exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
-                         (typeof global !== "undefined" && global.clearImmediate) ||
-                         (this && this.clearImmediate);
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
-
-/***/ }),
-
-/***/ 41:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
-    "use strict";
-
-    if (global.setImmediate) {
-        return;
-    }
-
-    var nextHandle = 1; // Spec says greater than zero
-    var tasksByHandle = {};
-    var currentlyRunningATask = false;
-    var doc = global.document;
-    var registerImmediate;
-
-    function setImmediate(callback) {
-      // Callback can either be a function or a string
-      if (typeof callback !== "function") {
-        callback = new Function("" + callback);
-      }
-      // Copy function arguments
-      var args = new Array(arguments.length - 1);
-      for (var i = 0; i < args.length; i++) {
-          args[i] = arguments[i + 1];
-      }
-      // Store and register the task
-      var task = { callback: callback, args: args };
-      tasksByHandle[nextHandle] = task;
-      registerImmediate(nextHandle);
-      return nextHandle++;
-    }
-
-    function clearImmediate(handle) {
-        delete tasksByHandle[handle];
-    }
-
-    function run(task) {
-        var callback = task.callback;
-        var args = task.args;
-        switch (args.length) {
-        case 0:
-            callback();
-            break;
-        case 1:
-            callback(args[0]);
-            break;
-        case 2:
-            callback(args[0], args[1]);
-            break;
-        case 3:
-            callback(args[0], args[1], args[2]);
-            break;
-        default:
-            callback.apply(undefined, args);
-            break;
-        }
-    }
-
-    function runIfPresent(handle) {
-        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
-        // So if we're currently running a task, we'll need to delay this invocation.
-        if (currentlyRunningATask) {
-            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
-            // "too much recursion" error.
-            setTimeout(runIfPresent, 0, handle);
-        } else {
-            var task = tasksByHandle[handle];
-            if (task) {
-                currentlyRunningATask = true;
-                try {
-                    run(task);
-                } finally {
-                    clearImmediate(handle);
-                    currentlyRunningATask = false;
-                }
-            }
-        }
-    }
-
-    function installNextTickImplementation() {
-        registerImmediate = function(handle) {
-            process.nextTick(function () { runIfPresent(handle); });
-        };
-    }
-
-    function canUsePostMessage() {
-        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
-        // where `global.postMessage` means something completely different and can't be used for this purpose.
-        if (global.postMessage && !global.importScripts) {
-            var postMessageIsAsynchronous = true;
-            var oldOnMessage = global.onmessage;
-            global.onmessage = function() {
-                postMessageIsAsynchronous = false;
-            };
-            global.postMessage("", "*");
-            global.onmessage = oldOnMessage;
-            return postMessageIsAsynchronous;
-        }
-    }
-
-    function installPostMessageImplementation() {
-        // Installs an event handler on `global` for the `message` event: see
-        // * https://developer.mozilla.org/en/DOM/window.postMessage
-        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
-
-        var messagePrefix = "setImmediate$" + Math.random() + "$";
-        var onGlobalMessage = function(event) {
-            if (event.source === global &&
-                typeof event.data === "string" &&
-                event.data.indexOf(messagePrefix) === 0) {
-                runIfPresent(+event.data.slice(messagePrefix.length));
-            }
-        };
-
-        if (global.addEventListener) {
-            global.addEventListener("message", onGlobalMessage, false);
-        } else {
-            global.attachEvent("onmessage", onGlobalMessage);
-        }
-
-        registerImmediate = function(handle) {
-            global.postMessage(messagePrefix + handle, "*");
-        };
-    }
-
-    function installMessageChannelImplementation() {
-        var channel = new MessageChannel();
-        channel.port1.onmessage = function(event) {
-            var handle = event.data;
-            runIfPresent(handle);
-        };
-
-        registerImmediate = function(handle) {
-            channel.port2.postMessage(handle);
-        };
-    }
-
-    function installReadyStateChangeImplementation() {
-        var html = doc.documentElement;
-        registerImmediate = function(handle) {
-            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
-            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
-            var script = doc.createElement("script");
-            script.onreadystatechange = function () {
-                runIfPresent(handle);
-                script.onreadystatechange = null;
-                html.removeChild(script);
-                script = null;
-            };
-            html.appendChild(script);
-        };
-    }
-
-    function installSetTimeoutImplementation() {
-        registerImmediate = function(handle) {
-            setTimeout(runIfPresent, 0, handle);
-        };
-    }
-
-    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
-    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
-    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
-
-    // Don't get fooled by e.g. browserify environments.
-    if ({}.toString.call(global.process) === "[object process]") {
-        // For Node.js before 0.9
-        installNextTickImplementation();
-
-    } else if (canUsePostMessage()) {
-        // For non-IE10 modern browsers
-        installPostMessageImplementation();
-
-    } else if (global.MessageChannel) {
-        // For web workers, where supported
-        installMessageChannelImplementation();
-
-    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
-        // For IE 6–8
-        installReadyStateChangeImplementation();
-
-    } else {
-        // For older browsers
-        installSetTimeoutImplementation();
-    }
-
-    attachTo.setImmediate = setImmediate;
-    attachTo.clearImmediate = clearImmediate;
-}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33), __webpack_require__(31)))
-
-/***/ }),
-
-/***/ 43:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(44);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(35)("774d374a", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2638fbee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingList.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2638fbee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingList.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 44:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(34)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.mui-table-view[data-v-2638fbee]:before {\n  height: 0;\n  background-color: #f4f4f4;\n}\n.mui-table-view[data-v-2638fbee]:after {\n  height: 0;\n}\n.vueBuilding_list .mui-table-view-cell[data-v-2638fbee]:before {\n  height: 0;\n}\n.vueBuilding_list .mui-table-view-cell[data-v-2638fbee]:after {\n  height: 0;\n}\n.vueBuilding_list .building_item[data-v-2638fbee] {\n  padding: 15px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  border-bottom: 1px solid #f4f4f4;\n}\n.vueBuilding_list .building_item[data-v-2638fbee]:last-child {\n    border-bottom: none;\n}\n.vueBuilding_list .building_item > img.goodImg[data-v-2638fbee] {\n    position: absolute;\n    top: 0;\n    right: 15px;\n    width: 30px;\n}\n.vueBuilding_list .building_item .img-box[data-v-2638fbee] {\n    width: 35%;\n}\n.vueBuilding_list .building_item .img-box img[data-v-2638fbee] {\n      width: 100%;\n      height: 100%;\n      border-radius: 3px;\n}\n.vueBuilding_list .building_item .text-box[data-v-2638fbee] {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    padding-left: 15px;\n}\n.vueBuilding_list .building_item .text-box.active[data-v-2638fbee] {\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n}\n.vueBuilding_list .building_item .text-box .title-box[data-v-2638fbee] {\n      font-size: 16px;\n      color: #333333;\n}\n.vueBuilding_list .building_item .text-box .num-box[data-v-2638fbee] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      color: #787878;\n}\n.vueBuilding_list .building_item .text-box .num-box .allNum[data-v-2638fbee] {\n        font-size: 13px;\n}\n.vueBuilding_list .building_item .text-box .num-box .price[data-v-2638fbee] {\n        font-size: 13px;\n}\n.vueBuilding_list .building_item .text-box .num-box .price .priceNum[data-v-2638fbee] {\n          color: #ff7200;\n          font-size: 15px;\n          font-weight: 500;\n}\n.vueBuilding_list .building_item .text-box .position-box[data-v-2638fbee] {\n      margin-bottom: 7px;\n}\n.vueBuilding_list .building_item .text-box .position-box .position-img[data-v-2638fbee] {\n        width: 8px;\n}\n.vueBuilding_list .building_item .text-box .position-box span[data-v-2638fbee] {\n        font-size: 12px;\n        color: #787878;\n}\n.vueBuilding_list .building_item .text-box .speciality-box[data-v-2638fbee] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span[data-v-2638fbee] {\n        padding: 0 5px;\n        font-size: 12px;\n        border-radius: 3px;\n        margin-right: 5px;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span.pink[data-v-2638fbee] {\n          background-color: #ffedf3;\n          color: #d27b96;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span.green[data-v-2638fbee] {\n          background-color: #edfbee;\n          color: #5ec86f;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span.blue[data-v-2638fbee] {\n          background-color: #ecf5ff;\n          color: #6aa9d4;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span[data-v-2638fbee]:last-child {\n          margin-right: 0;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 45:
-/***/ (function(module, exports) {
-
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-module.exports = function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
-
-
-/***/ }),
-
-/***/ 46:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    positionImg: { // 定位图标
-      type: String,
-      default: ''
-    },
-    goodImg: { // 定位图标
-      type: String,
-      default: ''
-    },
-    list: {
-      type: Array,
-      default: []
-    }
-  },
-  data: function data() {
-    return {
-      labelClass: ['pink', 'green', 'blue'],
-      cropStyle: '?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'
-    };
-  },
-
-  methods: {
-    tobuildingDetail: function tobuildingDetail(item) {
-      var webview_building = plus.webview.create('building_detail.html', 'building_detail.html', {}, { item: item });
-      setTimeout(function () {
-        webview_building.show("slide-in-right", 300);
-      }, 150);
-      // const webView = plus.webview.getWebviewById('building_detail.html')
-      // mui.fire(webView, 'get_building', {
-      //   item: item,
-      // })
-      // setTimeout(function () {
-      //   webView.show("slide-in-right", 300)
-      // }, 150)
-    }
-  }
-});
-
-/***/ }),
-
-/***/ 47:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "vueBuilding_list mui-table-view" },
-    _vm._l(_vm.list, function(itme, index) {
-      return _c(
-        "a",
-        {
-          key: "buildingListVue" + index,
-          staticClass: "building_item mui-table-view-cell",
-          attrs: { href: "/buildings/" + itme.id }
-        },
-        [
-          _c("div", { staticClass: "img-box" }, [
-            _c("img", {
-              attrs: {
-                src: _vm.list[index].img_cn + _vm.cropStyle,
-                alt: _vm.list[index].name
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "text-box",
-              class: { active: _vm.list[index].feature.length > 0 }
-            },
-            [
-              _c("div", { staticClass: "title-box" }, [
-                _vm._v(_vm._s(_vm.list[index].name))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "num-box" }, [
-                _c("div", { staticClass: "allNum" }, [
-                  _vm._v(_vm._s(_vm.list[index].house_count) + "套")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "price" }, [
-                  _c("span", { staticClass: "priceNum" }, [
-                    _vm._v(_vm._s(_vm.list[index].avg_price))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("元/㎡·月")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "position-box" }, [
-                _c("img", {
-                  staticClass: "position-img",
-                  attrs: { src: _vm.positionImg, alt: "" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(_vm.list[index].address_type))])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "speciality-box" },
-                _vm._l(_vm.list[index].feature, function(item, num) {
-                  return _c(
-                    "span",
-                    { key: "featunumre" + num, class: _vm.labelClass[num] },
-                    [_vm._v(_vm._s(item))]
-                  )
-                })
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _vm.list[index].label_cn
-            ? _c("img", {
-                staticClass: "goodImg",
-                attrs: { src: _vm.goodImg, alt: "优" }
-              })
-            : _vm._e()
-        ]
-      )
-    })
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2638fbee", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 78:
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Swiper 4.2.6
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * http://www.idangero.us/swiper/
- *
- * Copyright 2014-2018 Vladimir Kharlampidi
- *
- * Released under the MIT License
- *
- * Released on: May 1, 2018
- */
-
-(function (global, factory) {
-   true ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global.Swiper = factory());
-}(this, (function () { 'use strict';
-
-  /**
-   * SSR Window 1.0.0
-   * Better handling for window object in SSR environment
-   * https://github.com/nolimits4web/ssr-window
-   *
-   * Copyright 2018, Vladimir Kharlampidi
-   *
-   * Licensed under MIT
-   *
-   * Released on: February 10, 2018
-   */
-  var d;
-  if (typeof document === 'undefined') {
-    d = {
-      body: {},
-      addEventListener: function addEventListener() {},
-      removeEventListener: function removeEventListener() {},
-      activeElement: {
-        blur: function blur() {},
-        nodeName: '',
-      },
-      querySelector: function querySelector() {
-        return null;
-      },
-      querySelectorAll: function querySelectorAll() {
-        return [];
-      },
-      getElementById: function getElementById() {
-        return null;
-      },
-      createEvent: function createEvent() {
-        return {
-          initEvent: function initEvent() {},
-        };
-      },
-      createElement: function createElement() {
-        return {
-          children: [],
-          childNodes: [],
-          style: {},
-          setAttribute: function setAttribute() {},
-          getElementsByTagName: function getElementsByTagName() {
-            return [];
-          },
-        };
-      },
-      location: { hash: '' },
-    };
-  } else {
-    // eslint-disable-next-line
-    d = document;
-  }
-
-  var doc = d;
-
-  var w;
-  if (typeof window === 'undefined') {
-    w = {
-      document: doc,
-      navigator: {
-        userAgent: '',
-      },
-      location: {},
-      history: {},
-      CustomEvent: function CustomEvent() {
-        return this;
-      },
-      addEventListener: function addEventListener() {},
-      removeEventListener: function removeEventListener() {},
-      getComputedStyle: function getComputedStyle() {
-        return {
-          getPropertyValue: function getPropertyValue() {
-            return '';
-          },
-        };
-      },
-      Image: function Image() {},
-      Date: function Date() {},
-      screen: {},
-      setTimeout: function setTimeout() {},
-      clearTimeout: function clearTimeout() {},
-    };
-  } else {
-    // eslint-disable-next-line
-    w = window;
-  }
-
-  var win = w;
-
-  /**
-   * Dom7 2.0.5
-   * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
-   * http://framework7.io/docs/dom.html
-   *
-   * Copyright 2018, Vladimir Kharlampidi
-   * The iDangero.us
-   * http://www.idangero.us/
-   *
-   * Licensed under MIT
-   *
-   * Released on: April 20, 2018
-   */
-
-  var Dom7 = function Dom7(arr) {
-    var self = this;
-    // Create array-like object
-    for (var i = 0; i < arr.length; i += 1) {
-      self[i] = arr[i];
-    }
-    self.length = arr.length;
-    // Return collection with methods
-    return this;
-  };
-
-  function $(selector, context) {
-    var arr = [];
-    var i = 0;
-    if (selector && !context) {
-      if (selector instanceof Dom7) {
-        return selector;
-      }
-    }
-    if (selector) {
-        // String
-      if (typeof selector === 'string') {
-        var els;
-        var tempParent;
-        var html = selector.trim();
-        if (html.indexOf('<') >= 0 && html.indexOf('>') >= 0) {
-          var toCreate = 'div';
-          if (html.indexOf('<li') === 0) { toCreate = 'ul'; }
-          if (html.indexOf('<tr') === 0) { toCreate = 'tbody'; }
-          if (html.indexOf('<td') === 0 || html.indexOf('<th') === 0) { toCreate = 'tr'; }
-          if (html.indexOf('<tbody') === 0) { toCreate = 'table'; }
-          if (html.indexOf('<option') === 0) { toCreate = 'select'; }
-          tempParent = doc.createElement(toCreate);
-          tempParent.innerHTML = html;
-          for (i = 0; i < tempParent.childNodes.length; i += 1) {
-            arr.push(tempParent.childNodes[i]);
-          }
-        } else {
-          if (!context && selector[0] === '#' && !selector.match(/[ .<>:~]/)) {
-            // Pure ID selector
-            els = [doc.getElementById(selector.trim().split('#')[1])];
-          } else {
-            // Other selectors
-            els = (context || doc).querySelectorAll(selector.trim());
-          }
-          for (i = 0; i < els.length; i += 1) {
-            if (els[i]) { arr.push(els[i]); }
-          }
-        }
-      } else if (selector.nodeType || selector === win || selector === doc) {
-        // Node/element
-        arr.push(selector);
-      } else if (selector.length > 0 && selector[0].nodeType) {
-        // Array of elements or instance of Dom
-        for (i = 0; i < selector.length; i += 1) {
-          arr.push(selector[i]);
-        }
-      }
-    }
-    return new Dom7(arr);
-  }
-
-  $.fn = Dom7.prototype;
-  $.Class = Dom7;
-  $.Dom7 = Dom7;
-
-  function unique(arr) {
-    var uniqueArray = [];
-    for (var i = 0; i < arr.length; i += 1) {
-      if (uniqueArray.indexOf(arr[i]) === -1) { uniqueArray.push(arr[i]); }
-    }
-    return uniqueArray;
-  }
-
-  // Classes and attributes
-  function addClass(className) {
-    var this$1 = this;
-
-    if (typeof className === 'undefined') {
-      return this;
-    }
-    var classes = className.split(' ');
-    for (var i = 0; i < classes.length; i += 1) {
-      for (var j = 0; j < this.length; j += 1) {
-        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.add(classes[i]); }
-      }
-    }
-    return this;
-  }
-  function removeClass(className) {
-    var this$1 = this;
-
-    var classes = className.split(' ');
-    for (var i = 0; i < classes.length; i += 1) {
-      for (var j = 0; j < this.length; j += 1) {
-        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.remove(classes[i]); }
-      }
-    }
-    return this;
-  }
-  function hasClass(className) {
-    if (!this[0]) { return false; }
-    return this[0].classList.contains(className);
-  }
-  function toggleClass(className) {
-    var this$1 = this;
-
-    var classes = className.split(' ');
-    for (var i = 0; i < classes.length; i += 1) {
-      for (var j = 0; j < this.length; j += 1) {
-        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.toggle(classes[i]); }
-      }
-    }
-    return this;
-  }
-  function attr(attrs, value) {
-    var arguments$1 = arguments;
-    var this$1 = this;
-
-    if (arguments.length === 1 && typeof attrs === 'string') {
-      // Get attr
-      if (this[0]) { return this[0].getAttribute(attrs); }
-      return undefined;
-    }
-
-    // Set attrs
-    for (var i = 0; i < this.length; i += 1) {
-      if (arguments$1.length === 2) {
-        // String
-        this$1[i].setAttribute(attrs, value);
-      } else {
-        // Object
-        // eslint-disable-next-line
-        for (var attrName in attrs) {
-          this$1[i][attrName] = attrs[attrName];
-          this$1[i].setAttribute(attrName, attrs[attrName]);
-        }
-      }
-    }
-    return this;
-  }
-  // eslint-disable-next-line
-  function removeAttr(attr) {
-    var this$1 = this;
-
-    for (var i = 0; i < this.length; i += 1) {
-      this$1[i].removeAttribute(attr);
-    }
-    return this;
-  }
-  function data(key, value) {
-    var this$1 = this;
-
-    var el;
-    if (typeof value === 'undefined') {
-      el = this[0];
-      // Get value
-      if (el) {
-        if (el.dom7ElementDataStorage && (key in el.dom7ElementDataStorage)) {
-          return el.dom7ElementDataStorage[key];
-        }
-
-        var dataKey = el.getAttribute(("data-" + key));
-        if (dataKey) {
-          return dataKey;
-        }
-        return undefined;
-      }
-      return undefined;
-    }
-
-    // Set value
-    for (var i = 0; i < this.length; i += 1) {
-      el = this$1[i];
-      if (!el.dom7ElementDataStorage) { el.dom7ElementDataStorage = {}; }
-      el.dom7ElementDataStorage[key] = value;
-    }
-    return this;
-  }
-  // Transforms
-  // eslint-disable-next-line
-  function transform(transform) {
-    var this$1 = this;
-
-    for (var i = 0; i < this.length; i += 1) {
-      var elStyle = this$1[i].style;
-      elStyle.webkitTransform = transform;
-      elStyle.transform = transform;
-    }
-    return this;
-  }
-  function transition(duration) {
-    var this$1 = this;
-
-    if (typeof duration !== 'string') {
-      duration = duration + "ms"; // eslint-disable-line
-    }
-    for (var i = 0; i < this.length; i += 1) {
-      var elStyle = this$1[i].style;
-      elStyle.webkitTransitionDuration = duration;
-      elStyle.transitionDuration = duration;
-    }
-    return this;
-  }
-  // Events
-  function on() {
-    var this$1 = this;
-    var assign;
-
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-    var eventType = args[0];
-    var targetSelector = args[1];
-    var listener = args[2];
-    var capture = args[3];
-    if (typeof args[1] === 'function') {
-      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
-      targetSelector = undefined;
-    }
-    if (!capture) { capture = false; }
-
-    function handleLiveEvent(e) {
-      var target = e.target;
-      if (!target) { return; }
-      var eventData = e.target.dom7EventData || [];
-      if (eventData.indexOf(e) < 0) {
-        eventData.unshift(e);
-      }
-      if ($(target).is(targetSelector)) { listener.apply(target, eventData); }
-      else {
-        var parents = $(target).parents(); // eslint-disable-line
-        for (var k = 0; k < parents.length; k += 1) {
-          if ($(parents[k]).is(targetSelector)) { listener.apply(parents[k], eventData); }
-        }
-      }
-    }
-    function handleEvent(e) {
-      var eventData = e && e.target ? e.target.dom7EventData || [] : [];
-      if (eventData.indexOf(e) < 0) {
-        eventData.unshift(e);
-      }
-      listener.apply(this, eventData);
-    }
-    var events = eventType.split(' ');
-    var j;
-    for (var i = 0; i < this.length; i += 1) {
-      var el = this$1[i];
-      if (!targetSelector) {
-        for (j = 0; j < events.length; j += 1) {
-          var event = events[j];
-          if (!el.dom7Listeners) { el.dom7Listeners = {}; }
-          if (!el.dom7Listeners[event]) { el.dom7Listeners[event] = []; }
-          el.dom7Listeners[event].push({
-            listener: listener,
-            proxyListener: handleEvent,
-          });
-          el.addEventListener(event, handleEvent, capture);
-        }
-      } else {
-        // Live events
-        for (j = 0; j < events.length; j += 1) {
-          var event$1 = events[j];
-          if (!el.dom7LiveListeners) { el.dom7LiveListeners = {}; }
-          if (!el.dom7LiveListeners[event$1]) { el.dom7LiveListeners[event$1] = []; }
-          el.dom7LiveListeners[event$1].push({
-            listener: listener,
-            proxyListener: handleLiveEvent,
-          });
-          el.addEventListener(event$1, handleLiveEvent, capture);
-        }
-      }
-    }
-    return this;
-  }
-  function off() {
-    var this$1 = this;
-    var assign;
-
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-    var eventType = args[0];
-    var targetSelector = args[1];
-    var listener = args[2];
-    var capture = args[3];
-    if (typeof args[1] === 'function') {
-      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
-      targetSelector = undefined;
-    }
-    if (!capture) { capture = false; }
-
-    var events = eventType.split(' ');
-    for (var i = 0; i < events.length; i += 1) {
-      var event = events[i];
-      for (var j = 0; j < this.length; j += 1) {
-        var el = this$1[j];
-        var handlers = (void 0);
-        if (!targetSelector && el.dom7Listeners) {
-          handlers = el.dom7Listeners[event];
-        } else if (targetSelector && el.dom7LiveListeners) {
-          handlers = el.dom7LiveListeners[event];
-        }
-        for (var k = handlers.length - 1; k >= 0; k -= 1) {
-          var handler = handlers[k];
-          if (listener && handler.listener === listener) {
-            el.removeEventListener(event, handler.proxyListener, capture);
-            handlers.splice(k, 1);
-          } else if (!listener) {
-            el.removeEventListener(event, handler.proxyListener, capture);
-            handlers.splice(k, 1);
-          }
-        }
-      }
-    }
-    return this;
-  }
-  function trigger() {
-    var this$1 = this;
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var events = args[0].split(' ');
-    var eventData = args[1];
-    for (var i = 0; i < events.length; i += 1) {
-      var event = events[i];
-      for (var j = 0; j < this.length; j += 1) {
-        var el = this$1[j];
-        var evt = (void 0);
-        try {
-          evt = new win.CustomEvent(event, {
-            detail: eventData,
-            bubbles: true,
-            cancelable: true,
-          });
-        } catch (e) {
-          evt = doc.createEvent('Event');
-          evt.initEvent(event, true, true);
-          evt.detail = eventData;
-        }
-        // eslint-disable-next-line
-        el.dom7EventData = args.filter(function (data, dataIndex) { return dataIndex > 0; });
-        el.dispatchEvent(evt);
-        el.dom7EventData = [];
-        delete el.dom7EventData;
-      }
-    }
-    return this;
-  }
-  function transitionEnd(callback) {
-    var events = ['webkitTransitionEnd', 'transitionend'];
-    var dom = this;
-    var i;
-    function fireCallBack(e) {
-      /* jshint validthis:true */
-      if (e.target !== this) { return; }
-      callback.call(this, e);
-      for (i = 0; i < events.length; i += 1) {
-        dom.off(events[i], fireCallBack);
-      }
-    }
-    if (callback) {
-      for (i = 0; i < events.length; i += 1) {
-        dom.on(events[i], fireCallBack);
-      }
-    }
-    return this;
-  }
-  function outerWidth(includeMargins) {
-    if (this.length > 0) {
-      if (includeMargins) {
-        // eslint-disable-next-line
-        var styles = this.styles();
-        return this[0].offsetWidth + parseFloat(styles.getPropertyValue('margin-right')) + parseFloat(styles.getPropertyValue('margin-left'));
-      }
-      return this[0].offsetWidth;
-    }
-    return null;
-  }
-  function outerHeight(includeMargins) {
-    if (this.length > 0) {
-      if (includeMargins) {
-        // eslint-disable-next-line
-        var styles = this.styles();
-        return this[0].offsetHeight + parseFloat(styles.getPropertyValue('margin-top')) + parseFloat(styles.getPropertyValue('margin-bottom'));
-      }
-      return this[0].offsetHeight;
-    }
-    return null;
-  }
-  function offset() {
-    if (this.length > 0) {
-      var el = this[0];
-      var box = el.getBoundingClientRect();
-      var body = doc.body;
-      var clientTop = el.clientTop || body.clientTop || 0;
-      var clientLeft = el.clientLeft || body.clientLeft || 0;
-      var scrollTop = el === win ? win.scrollY : el.scrollTop;
-      var scrollLeft = el === win ? win.scrollX : el.scrollLeft;
-      return {
-        top: (box.top + scrollTop) - clientTop,
-        left: (box.left + scrollLeft) - clientLeft,
-      };
-    }
-
-    return null;
-  }
-  function styles() {
-    if (this[0]) { return win.getComputedStyle(this[0], null); }
-    return {};
-  }
-  function css(props, value) {
-    var this$1 = this;
-
-    var i;
-    if (arguments.length === 1) {
-      if (typeof props === 'string') {
-        if (this[0]) { return win.getComputedStyle(this[0], null).getPropertyValue(props); }
-      } else {
-        for (i = 0; i < this.length; i += 1) {
-          // eslint-disable-next-line
-          for (var prop in props) {
-            this$1[i].style[prop] = props[prop];
-          }
-        }
-        return this;
-      }
-    }
-    if (arguments.length === 2 && typeof props === 'string') {
-      for (i = 0; i < this.length; i += 1) {
-        this$1[i].style[props] = value;
-      }
-      return this;
-    }
-    return this;
-  }
-  // Iterate over the collection passing elements to `callback`
-  function each(callback) {
-    var this$1 = this;
-
-    // Don't bother continuing without a callback
-    if (!callback) { return this; }
-    // Iterate over the current collection
-    for (var i = 0; i < this.length; i += 1) {
-      // If the callback returns false
-      if (callback.call(this$1[i], i, this$1[i]) === false) {
-        // End the loop early
-        return this$1;
-      }
-    }
-    // Return `this` to allow chained DOM operations
-    return this;
-  }
-  // eslint-disable-next-line
-  function html(html) {
-    var this$1 = this;
-
-    if (typeof html === 'undefined') {
-      return this[0] ? this[0].innerHTML : undefined;
-    }
-
-    for (var i = 0; i < this.length; i += 1) {
-      this$1[i].innerHTML = html;
-    }
-    return this;
-  }
-  // eslint-disable-next-line
-  function text(text) {
-    var this$1 = this;
-
-    if (typeof text === 'undefined') {
-      if (this[0]) {
-        return this[0].textContent.trim();
-      }
-      return null;
-    }
-
-    for (var i = 0; i < this.length; i += 1) {
-      this$1[i].textContent = text;
-    }
-    return this;
-  }
-  function is(selector) {
-    var el = this[0];
-    var compareWith;
-    var i;
-    if (!el || typeof selector === 'undefined') { return false; }
-    if (typeof selector === 'string') {
-      if (el.matches) { return el.matches(selector); }
-      else if (el.webkitMatchesSelector) { return el.webkitMatchesSelector(selector); }
-      else if (el.msMatchesSelector) { return el.msMatchesSelector(selector); }
-
-      compareWith = $(selector);
-      for (i = 0; i < compareWith.length; i += 1) {
-        if (compareWith[i] === el) { return true; }
-      }
-      return false;
-    } else if (selector === doc) { return el === doc; }
-    else if (selector === win) { return el === win; }
-
-    if (selector.nodeType || selector instanceof Dom7) {
-      compareWith = selector.nodeType ? [selector] : selector;
-      for (i = 0; i < compareWith.length; i += 1) {
-        if (compareWith[i] === el) { return true; }
-      }
-      return false;
-    }
-    return false;
-  }
-  function index() {
-    var child = this[0];
-    var i;
-    if (child) {
-      i = 0;
-      // eslint-disable-next-line
-      while ((child = child.previousSibling) !== null) {
-        if (child.nodeType === 1) { i += 1; }
-      }
-      return i;
-    }
-    return undefined;
-  }
-  // eslint-disable-next-line
-  function eq(index) {
-    if (typeof index === 'undefined') { return this; }
-    var length = this.length;
-    var returnIndex;
-    if (index > length - 1) {
-      return new Dom7([]);
-    }
-    if (index < 0) {
-      returnIndex = length + index;
-      if (returnIndex < 0) { return new Dom7([]); }
-      return new Dom7([this[returnIndex]]);
-    }
-    return new Dom7([this[index]]);
-  }
-  function append() {
-    var this$1 = this;
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var newChild;
-
-    for (var k = 0; k < args.length; k += 1) {
-      newChild = args[k];
-      for (var i = 0; i < this.length; i += 1) {
-        if (typeof newChild === 'string') {
-          var tempDiv = doc.createElement('div');
-          tempDiv.innerHTML = newChild;
-          while (tempDiv.firstChild) {
-            this$1[i].appendChild(tempDiv.firstChild);
-          }
-        } else if (newChild instanceof Dom7) {
-          for (var j = 0; j < newChild.length; j += 1) {
-            this$1[i].appendChild(newChild[j]);
-          }
-        } else {
-          this$1[i].appendChild(newChild);
-        }
-      }
-    }
-
-    return this;
-  }
-  function prepend(newChild) {
-    var this$1 = this;
-
-    var i;
-    var j;
-    for (i = 0; i < this.length; i += 1) {
-      if (typeof newChild === 'string') {
-        var tempDiv = doc.createElement('div');
-        tempDiv.innerHTML = newChild;
-        for (j = tempDiv.childNodes.length - 1; j >= 0; j -= 1) {
-          this$1[i].insertBefore(tempDiv.childNodes[j], this$1[i].childNodes[0]);
-        }
-      } else if (newChild instanceof Dom7) {
-        for (j = 0; j < newChild.length; j += 1) {
-          this$1[i].insertBefore(newChild[j], this$1[i].childNodes[0]);
-        }
-      } else {
-        this$1[i].insertBefore(newChild, this$1[i].childNodes[0]);
-      }
-    }
-    return this;
-  }
-  function next(selector) {
-    if (this.length > 0) {
-      if (selector) {
-        if (this[0].nextElementSibling && $(this[0].nextElementSibling).is(selector)) {
-          return new Dom7([this[0].nextElementSibling]);
-        }
-        return new Dom7([]);
-      }
-
-      if (this[0].nextElementSibling) { return new Dom7([this[0].nextElementSibling]); }
-      return new Dom7([]);
-    }
-    return new Dom7([]);
-  }
-  function nextAll(selector) {
-    var nextEls = [];
-    var el = this[0];
-    if (!el) { return new Dom7([]); }
-    while (el.nextElementSibling) {
-      var next = el.nextElementSibling; // eslint-disable-line
-      if (selector) {
-        if ($(next).is(selector)) { nextEls.push(next); }
-      } else { nextEls.push(next); }
-      el = next;
-    }
-    return new Dom7(nextEls);
-  }
-  function prev(selector) {
-    if (this.length > 0) {
-      var el = this[0];
-      if (selector) {
-        if (el.previousElementSibling && $(el.previousElementSibling).is(selector)) {
-          return new Dom7([el.previousElementSibling]);
-        }
-        return new Dom7([]);
-      }
-
-      if (el.previousElementSibling) { return new Dom7([el.previousElementSibling]); }
-      return new Dom7([]);
-    }
-    return new Dom7([]);
-  }
-  function prevAll(selector) {
-    var prevEls = [];
-    var el = this[0];
-    if (!el) { return new Dom7([]); }
-    while (el.previousElementSibling) {
-      var prev = el.previousElementSibling; // eslint-disable-line
-      if (selector) {
-        if ($(prev).is(selector)) { prevEls.push(prev); }
-      } else { prevEls.push(prev); }
-      el = prev;
-    }
-    return new Dom7(prevEls);
-  }
-  function parent(selector) {
-    var this$1 = this;
-
-    var parents = []; // eslint-disable-line
-    for (var i = 0; i < this.length; i += 1) {
-      if (this$1[i].parentNode !== null) {
-        if (selector) {
-          if ($(this$1[i].parentNode).is(selector)) { parents.push(this$1[i].parentNode); }
-        } else {
-          parents.push(this$1[i].parentNode);
-        }
-      }
-    }
-    return $(unique(parents));
-  }
-  function parents(selector) {
-    var this$1 = this;
-
-    var parents = []; // eslint-disable-line
-    for (var i = 0; i < this.length; i += 1) {
-      var parent = this$1[i].parentNode; // eslint-disable-line
-      while (parent) {
-        if (selector) {
-          if ($(parent).is(selector)) { parents.push(parent); }
-        } else {
-          parents.push(parent);
-        }
-        parent = parent.parentNode;
-      }
-    }
-    return $(unique(parents));
-  }
-  function closest(selector) {
-    var closest = this; // eslint-disable-line
-    if (typeof selector === 'undefined') {
-      return new Dom7([]);
-    }
-    if (!closest.is(selector)) {
-      closest = closest.parents(selector).eq(0);
-    }
-    return closest;
-  }
-  function find(selector) {
-    var this$1 = this;
-
-    var foundElements = [];
-    for (var i = 0; i < this.length; i += 1) {
-      var found = this$1[i].querySelectorAll(selector);
-      for (var j = 0; j < found.length; j += 1) {
-        foundElements.push(found[j]);
-      }
-    }
-    return new Dom7(foundElements);
-  }
-  function children(selector) {
-    var this$1 = this;
-
-    var children = []; // eslint-disable-line
-    for (var i = 0; i < this.length; i += 1) {
-      var childNodes = this$1[i].childNodes;
-
-      for (var j = 0; j < childNodes.length; j += 1) {
-        if (!selector) {
-          if (childNodes[j].nodeType === 1) { children.push(childNodes[j]); }
-        } else if (childNodes[j].nodeType === 1 && $(childNodes[j]).is(selector)) {
-          children.push(childNodes[j]);
-        }
-      }
-    }
-    return new Dom7(unique(children));
-  }
-  function remove() {
-    var this$1 = this;
-
-    for (var i = 0; i < this.length; i += 1) {
-      if (this$1[i].parentNode) { this$1[i].parentNode.removeChild(this$1[i]); }
-    }
-    return this;
-  }
-  function add() {
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var dom = this;
-    var i;
-    var j;
-    for (i = 0; i < args.length; i += 1) {
-      var toAdd = $(args[i]);
-      for (j = 0; j < toAdd.length; j += 1) {
-        dom[dom.length] = toAdd[j];
-        dom.length += 1;
-      }
-    }
-    return dom;
-  }
-
-  var Methods = {
-    addClass: addClass,
-    removeClass: removeClass,
-    hasClass: hasClass,
-    toggleClass: toggleClass,
-    attr: attr,
-    removeAttr: removeAttr,
-    data: data,
-    transform: transform,
-    transition: transition,
-    on: on,
-    off: off,
-    trigger: trigger,
-    transitionEnd: transitionEnd,
-    outerWidth: outerWidth,
-    outerHeight: outerHeight,
-    offset: offset,
-    css: css,
-    each: each,
-    html: html,
-    text: text,
-    is: is,
-    index: index,
-    eq: eq,
-    append: append,
-    prepend: prepend,
-    next: next,
-    nextAll: nextAll,
-    prev: prev,
-    prevAll: prevAll,
-    parent: parent,
-    parents: parents,
-    closest: closest,
-    find: find,
-    children: children,
-    remove: remove,
-    add: add,
-    styles: styles,
-  };
-
-  Object.keys(Methods).forEach(function (methodName) {
-    $.fn[methodName] = Methods[methodName];
-  });
-
-  var Utils = {
-    deleteProps: function deleteProps(obj) {
-      var object = obj;
-      Object.keys(object).forEach(function (key) {
-        try {
-          object[key] = null;
-        } catch (e) {
-          // no getter for object
-        }
-        try {
-          delete object[key];
-        } catch (e) {
-          // something got wrong
-        }
-      });
-    },
-    nextTick: function nextTick(callback, delay) {
-      if ( delay === void 0 ) delay = 0;
-
-      return setTimeout(callback, delay);
-    },
-    now: function now() {
-      return Date.now();
-    },
-    getTranslate: function getTranslate(el, axis) {
-      if ( axis === void 0 ) axis = 'x';
-
-      var matrix;
-      var curTransform;
-      var transformMatrix;
-
-      var curStyle = win.getComputedStyle(el, null);
-
-      if (win.WebKitCSSMatrix) {
-        curTransform = curStyle.transform || curStyle.webkitTransform;
-        if (curTransform.split(',').length > 6) {
-          curTransform = curTransform.split(', ').map(function (a) { return a.replace(',', '.'); }).join(', ');
-        }
-        // Some old versions of Webkit choke when 'none' is passed; pass
-        // empty string instead in this case
-        transformMatrix = new win.WebKitCSSMatrix(curTransform === 'none' ? '' : curTransform);
-      } else {
-        transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform || curStyle.transform || curStyle.getPropertyValue('transform').replace('translate(', 'matrix(1, 0, 0, 1,');
-        matrix = transformMatrix.toString().split(',');
-      }
-
-      if (axis === 'x') {
-        // Latest Chrome and webkits Fix
-        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m41; }
-        // Crazy IE10 Matrix
-        else if (matrix.length === 16) { curTransform = parseFloat(matrix[12]); }
-        // Normal Browsers
-        else { curTransform = parseFloat(matrix[4]); }
-      }
-      if (axis === 'y') {
-        // Latest Chrome and webkits Fix
-        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m42; }
-        // Crazy IE10 Matrix
-        else if (matrix.length === 16) { curTransform = parseFloat(matrix[13]); }
-        // Normal Browsers
-        else { curTransform = parseFloat(matrix[5]); }
-      }
-      return curTransform || 0;
-    },
-    parseUrlQuery: function parseUrlQuery(url) {
-      var query = {};
-      var urlToParse = url || win.location.href;
-      var i;
-      var params;
-      var param;
-      var length;
-      if (typeof urlToParse === 'string' && urlToParse.length) {
-        urlToParse = urlToParse.indexOf('?') > -1 ? urlToParse.replace(/\S*\?/, '') : '';
-        params = urlToParse.split('&').filter(function (paramsPart) { return paramsPart !== ''; });
-        length = params.length;
-
-        for (i = 0; i < length; i += 1) {
-          param = params[i].replace(/#\S+/g, '').split('=');
-          query[decodeURIComponent(param[0])] = typeof param[1] === 'undefined' ? undefined : decodeURIComponent(param[1]) || '';
-        }
-      }
-      return query;
-    },
-    isObject: function isObject(o) {
-      return typeof o === 'object' && o !== null && o.constructor && o.constructor === Object;
-    },
-    extend: function extend() {
-      var args = [], len$1 = arguments.length;
-      while ( len$1-- ) args[ len$1 ] = arguments[ len$1 ];
-
-      var to = Object(args[0]);
-      for (var i = 1; i < args.length; i += 1) {
-        var nextSource = args[i];
-        if (nextSource !== undefined && nextSource !== null) {
-          var keysArray = Object.keys(Object(nextSource));
-          for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
-            var nextKey = keysArray[nextIndex];
-            var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
-            if (desc !== undefined && desc.enumerable) {
-              if (Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
-                Utils.extend(to[nextKey], nextSource[nextKey]);
-              } else if (!Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
-                to[nextKey] = {};
-                Utils.extend(to[nextKey], nextSource[nextKey]);
-              } else {
-                to[nextKey] = nextSource[nextKey];
-              }
-            }
-          }
-        }
-      }
-      return to;
-    },
-  };
-
-  var Support = (function Support() {
-    var testDiv = doc.createElement('div');
-    return {
-      touch: (win.Modernizr && win.Modernizr.touch === true) || (function checkTouch() {
-        return !!(('ontouchstart' in win) || (win.DocumentTouch && doc instanceof win.DocumentTouch));
-      }()),
-
-      pointerEvents: !!(win.navigator.pointerEnabled || win.PointerEvent),
-      prefixedPointerEvents: !!win.navigator.msPointerEnabled,
-
-      transition: (function checkTransition() {
-        var style = testDiv.style;
-        return ('transition' in style || 'webkitTransition' in style || 'MozTransition' in style);
-      }()),
-      transforms3d: (win.Modernizr && win.Modernizr.csstransforms3d === true) || (function checkTransforms3d() {
-        var style = testDiv.style;
-        return ('webkitPerspective' in style || 'MozPerspective' in style || 'OPerspective' in style || 'MsPerspective' in style || 'perspective' in style);
-      }()),
-
-      flexbox: (function checkFlexbox() {
-        var style = testDiv.style;
-        var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
-        for (var i = 0; i < styles.length; i += 1) {
-          if (styles[i] in style) { return true; }
-        }
-        return false;
-      }()),
-
-      observer: (function checkObserver() {
-        return ('MutationObserver' in win || 'WebkitMutationObserver' in win);
-      }()),
-
-      passiveListener: (function checkPassiveListener() {
-        var supportsPassive = false;
-        try {
-          var opts = Object.defineProperty({}, 'passive', {
-            // eslint-disable-next-line
-            get: function get() {
-              supportsPassive = true;
-            },
-          });
-          win.addEventListener('testPassiveListener', null, opts);
-        } catch (e) {
-          // No support
-        }
-        return supportsPassive;
-      }()),
-
-      gestures: (function checkGestures() {
-        return 'ongesturestart' in win;
-      }()),
-    };
-  }());
-
-  var SwiperClass = function SwiperClass(params) {
-    if ( params === void 0 ) params = {};
-
-    var self = this;
-    self.params = params;
-
-    // Events
-    self.eventsListeners = {};
-
-    if (self.params && self.params.on) {
-      Object.keys(self.params.on).forEach(function (eventName) {
-        self.on(eventName, self.params.on[eventName]);
-      });
-    }
-  };
-
-  var staticAccessors = { components: { configurable: true } };
-  SwiperClass.prototype.on = function on (events, handler, priority) {
-    var self = this;
-    if (typeof handler !== 'function') { return self; }
-    var method = priority ? 'unshift' : 'push';
-    events.split(' ').forEach(function (event) {
-      if (!self.eventsListeners[event]) { self.eventsListeners[event] = []; }
-      self.eventsListeners[event][method](handler);
-    });
-    return self;
-  };
-  SwiperClass.prototype.once = function once (events, handler, priority) {
-    var self = this;
-    if (typeof handler !== 'function') { return self; }
-    function onceHandler() {
-        var args = [], len = arguments.length;
-        while ( len-- ) args[ len ] = arguments[ len ];
-
-      handler.apply(self, args);
-      self.off(events, onceHandler);
-    }
-    return self.on(events, onceHandler, priority);
-  };
-  SwiperClass.prototype.off = function off (events, handler) {
-    var self = this;
-    if (!self.eventsListeners) { return self; }
-    events.split(' ').forEach(function (event) {
-      if (typeof handler === 'undefined') {
-        self.eventsListeners[event] = [];
-      } else {
-        self.eventsListeners[event].forEach(function (eventHandler, index) {
-          if (eventHandler === handler) {
-            self.eventsListeners[event].splice(index, 1);
-          }
-        });
-      }
-    });
-    return self;
-  };
-  SwiperClass.prototype.emit = function emit () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-    var self = this;
-    if (!self.eventsListeners) { return self; }
-    var events;
-    var data;
-    var context;
-    if (typeof args[0] === 'string' || Array.isArray(args[0])) {
-      events = args[0];
-      data = args.slice(1, args.length);
-      context = self;
-    } else {
-      events = args[0].events;
-      data = args[0].data;
-      context = args[0].context || self;
-    }
-    var eventsArray = Array.isArray(events) ? events : events.split(' ');
-    eventsArray.forEach(function (event) {
-      if (self.eventsListeners && self.eventsListeners[event]) {
-        var handlers = [];
-        self.eventsListeners[event].forEach(function (eventHandler) {
-          handlers.push(eventHandler);
-        });
-        handlers.forEach(function (eventHandler) {
-          eventHandler.apply(context, data);
-        });
-      }
-    });
-    return self;
-  };
-  SwiperClass.prototype.useModulesParams = function useModulesParams (instanceParams) {
-    var instance = this;
-    if (!instance.modules) { return; }
-    Object.keys(instance.modules).forEach(function (moduleName) {
-      var module = instance.modules[moduleName];
-      // Extend params
-      if (module.params) {
-        Utils.extend(instanceParams, module.params);
-      }
-    });
-  };
-  SwiperClass.prototype.useModules = function useModules (modulesParams) {
-      if ( modulesParams === void 0 ) modulesParams = {};
-
-    var instance = this;
-    if (!instance.modules) { return; }
-    Object.keys(instance.modules).forEach(function (moduleName) {
-      var module = instance.modules[moduleName];
-      var moduleParams = modulesParams[moduleName] || {};
-      // Extend instance methods and props
-      if (module.instance) {
-        Object.keys(module.instance).forEach(function (modulePropName) {
-          var moduleProp = module.instance[modulePropName];
-          if (typeof moduleProp === 'function') {
-            instance[modulePropName] = moduleProp.bind(instance);
-          } else {
-            instance[modulePropName] = moduleProp;
-          }
-        });
-      }
-      // Add event listeners
-      if (module.on && instance.on) {
-        Object.keys(module.on).forEach(function (moduleEventName) {
-          instance.on(moduleEventName, module.on[moduleEventName]);
-        });
-      }
-
-      // Module create callback
-      if (module.create) {
-        module.create.bind(instance)(moduleParams);
-      }
-    });
-  };
-  staticAccessors.components.set = function (components) {
-    var Class = this;
-    if (!Class.use) { return; }
-    Class.use(components);
-  };
-  SwiperClass.installModule = function installModule (module) {
-      var params = [], len = arguments.length - 1;
-      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
-
-    var Class = this;
-    if (!Class.prototype.modules) { Class.prototype.modules = {}; }
-    var name = module.name || (((Object.keys(Class.prototype.modules).length) + "_" + (Utils.now())));
-    Class.prototype.modules[name] = module;
-    // Prototype
-    if (module.proto) {
-      Object.keys(module.proto).forEach(function (key) {
-        Class.prototype[key] = module.proto[key];
-      });
-    }
-    // Class
-    if (module.static) {
-      Object.keys(module.static).forEach(function (key) {
-        Class[key] = module.static[key];
-      });
-    }
-    // Callback
-    if (module.install) {
-      module.install.apply(Class, params);
-    }
-    return Class;
-  };
-  SwiperClass.use = function use (module) {
-      var params = [], len = arguments.length - 1;
-      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
-
-    var Class = this;
-    if (Array.isArray(module)) {
-      module.forEach(function (m) { return Class.installModule(m); });
-      return Class;
-    }
-    return Class.installModule.apply(Class, [ module ].concat( params ));
-  };
-
-  Object.defineProperties( SwiperClass, staticAccessors );
-
-  function updateSize () {
-    var swiper = this;
-    var width;
-    var height;
-    var $el = swiper.$el;
-    if (typeof swiper.params.width !== 'undefined') {
-      width = swiper.params.width;
-    } else {
-      width = $el[0].clientWidth;
-    }
-    if (typeof swiper.params.height !== 'undefined') {
-      height = swiper.params.height;
-    } else {
-      height = $el[0].clientHeight;
-    }
-    if ((width === 0 && swiper.isHorizontal()) || (height === 0 && swiper.isVertical())) {
-      return;
-    }
-
-    // Subtract paddings
-    width = width - parseInt($el.css('padding-left'), 10) - parseInt($el.css('padding-right'), 10);
-    height = height - parseInt($el.css('padding-top'), 10) - parseInt($el.css('padding-bottom'), 10);
-
-    Utils.extend(swiper, {
-      width: width,
-      height: height,
-      size: swiper.isHorizontal() ? width : height,
-    });
-  }
-
-  function updateSlides () {
-    var swiper = this;
-    var params = swiper.params;
-
-    var $wrapperEl = swiper.$wrapperEl;
-    var swiperSize = swiper.size;
-    var rtl = swiper.rtlTranslate;
-    var wrongRTL = swiper.wrongRTL;
-    var slides = $wrapperEl.children(("." + (swiper.params.slideClass)));
-    var isVirtual = swiper.virtual && params.virtual.enabled;
-    var slidesLength = isVirtual ? swiper.virtual.slides.length : slides.length;
-    var snapGrid = [];
-    var slidesGrid = [];
-    var slidesSizesGrid = [];
-
-    var offsetBefore = params.slidesOffsetBefore;
-    if (typeof offsetBefore === 'function') {
-      offsetBefore = params.slidesOffsetBefore.call(swiper);
-    }
-
-    var offsetAfter = params.slidesOffsetAfter;
-    if (typeof offsetAfter === 'function') {
-      offsetAfter = params.slidesOffsetAfter.call(swiper);
-    }
-
-    var previousSlidesLength = slidesLength;
-    var previousSnapGridLength = swiper.snapGrid.length;
-    var previousSlidesGridLength = swiper.snapGrid.length;
-
-    var spaceBetween = params.spaceBetween;
-    var slidePosition = -offsetBefore;
-    var prevSlideSize = 0;
-    var index = 0;
-    if (typeof swiperSize === 'undefined') {
-      return;
-    }
-    if (typeof spaceBetween === 'string' && spaceBetween.indexOf('%') >= 0) {
-      spaceBetween = (parseFloat(spaceBetween.replace('%', '')) / 100) * swiperSize;
-    }
-
-    swiper.virtualSize = -spaceBetween;
-
-    // reset margins
-    if (rtl) { slides.css({ marginLeft: '', marginTop: '' }); }
-    else { slides.css({ marginRight: '', marginBottom: '' }); }
-
-    var slidesNumberEvenToRows;
-    if (params.slidesPerColumn > 1) {
-      if (Math.floor(slidesLength / params.slidesPerColumn) === slidesLength / swiper.params.slidesPerColumn) {
-        slidesNumberEvenToRows = slidesLength;
-      } else {
-        slidesNumberEvenToRows = Math.ceil(slidesLength / params.slidesPerColumn) * params.slidesPerColumn;
-      }
-      if (params.slidesPerView !== 'auto' && params.slidesPerColumnFill === 'row') {
-        slidesNumberEvenToRows = Math.max(slidesNumberEvenToRows, params.slidesPerView * params.slidesPerColumn);
-      }
-    }
-
-    // Calc slides
-    var slideSize;
-    var slidesPerColumn = params.slidesPerColumn;
-    var slidesPerRow = slidesNumberEvenToRows / slidesPerColumn;
-    var numFullColumns = slidesPerRow - ((params.slidesPerColumn * slidesPerRow) - slidesLength);
-    for (var i = 0; i < slidesLength; i += 1) {
-      slideSize = 0;
-      var slide = slides.eq(i);
-      if (params.slidesPerColumn > 1) {
-        // Set slides order
-        var newSlideOrderIndex = (void 0);
-        var column = (void 0);
-        var row = (void 0);
-        if (params.slidesPerColumnFill === 'column') {
-          column = Math.floor(i / slidesPerColumn);
-          row = i - (column * slidesPerColumn);
-          if (column > numFullColumns || (column === numFullColumns && row === slidesPerColumn - 1)) {
-            row += 1;
-            if (row >= slidesPerColumn) {
-              row = 0;
-              column += 1;
-            }
-          }
-          newSlideOrderIndex = column + ((row * slidesNumberEvenToRows) / slidesPerColumn);
-          slide
-            .css({
-              '-webkit-box-ordinal-group': newSlideOrderIndex,
-              '-moz-box-ordinal-group': newSlideOrderIndex,
-              '-ms-flex-order': newSlideOrderIndex,
-              '-webkit-order': newSlideOrderIndex,
-              order: newSlideOrderIndex,
-            });
-        } else {
-          row = Math.floor(i / slidesPerRow);
-          column = i - (row * slidesPerRow);
-        }
-        slide
-          .css(
-            ("margin-" + (swiper.isHorizontal() ? 'top' : 'left')),
-            (row !== 0 && params.spaceBetween) && (((params.spaceBetween) + "px"))
-          )
-          .attr('data-swiper-column', column)
-          .attr('data-swiper-row', row);
-      }
-      if (slide.css('display') === 'none') { continue; } // eslint-disable-line
-
-      if (params.slidesPerView === 'auto') {
-        var slideStyles = win.getComputedStyle(slide[0], null);
-        var currentTransform = slide[0].style.transform;
-        if (currentTransform) {
-          slide[0].style.transform = 'none';
-        }
-        if (swiper.isHorizontal()) {
-          slideSize = slide[0].getBoundingClientRect().width +
-            parseFloat(slideStyles.getPropertyValue('margin-left')) +
-            parseFloat(slideStyles.getPropertyValue('margin-right'));
-        } else {
-          slideSize = slide[0].getBoundingClientRect().height +
-            parseFloat(slideStyles.getPropertyValue('margin-top')) +
-            parseFloat(slideStyles.getPropertyValue('margin-bottom'));
-        }
-        if (currentTransform) {
-          slide[0].style.transform = currentTransform;
-        }
-        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
-      } else {
-        slideSize = (swiperSize - ((params.slidesPerView - 1) * spaceBetween)) / params.slidesPerView;
-        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
-
-        if (slides[i]) {
-          if (swiper.isHorizontal()) {
-            slides[i].style.width = slideSize + "px";
-          } else {
-            slides[i].style.height = slideSize + "px";
-          }
-        }
-      }
-      if (slides[i]) {
-        slides[i].swiperSlideSize = slideSize;
-      }
-      slidesSizesGrid.push(slideSize);
-
-
-      if (params.centeredSlides) {
-        slidePosition = slidePosition + (slideSize / 2) + (prevSlideSize / 2) + spaceBetween;
-        if (prevSlideSize === 0 && i !== 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
-        if (i === 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
-        if (Math.abs(slidePosition) < 1 / 1000) { slidePosition = 0; }
-        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
-        slidesGrid.push(slidePosition);
-      } else {
-        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
-        slidesGrid.push(slidePosition);
-        slidePosition = slidePosition + slideSize + spaceBetween;
-      }
-
-      swiper.virtualSize += slideSize + spaceBetween;
-
-      prevSlideSize = slideSize;
-
-      index += 1;
-    }
-    swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
-    var newSlidesGrid;
-
-    if (
-      rtl && wrongRTL && (params.effect === 'slide' || params.effect === 'coverflow')) {
-      $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") });
-    }
-    if (!Support.flexbox || params.setWrapperSize) {
-      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-    }
-
-    if (params.slidesPerColumn > 1) {
-      swiper.virtualSize = (slideSize + params.spaceBetween) * slidesNumberEvenToRows;
-      swiper.virtualSize = Math.ceil(swiper.virtualSize / params.slidesPerColumn) - params.spaceBetween;
-      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-      if (params.centeredSlides) {
-        newSlidesGrid = [];
-        for (var i$1 = 0; i$1 < snapGrid.length; i$1 += 1) {
-          if (snapGrid[i$1] < swiper.virtualSize + snapGrid[0]) { newSlidesGrid.push(snapGrid[i$1]); }
-        }
-        snapGrid = newSlidesGrid;
-      }
-    }
-
-    // Remove last grid elements depending on width
-    if (!params.centeredSlides) {
-      newSlidesGrid = [];
-      for (var i$2 = 0; i$2 < snapGrid.length; i$2 += 1) {
-        if (snapGrid[i$2] <= swiper.virtualSize - swiperSize) {
-          newSlidesGrid.push(snapGrid[i$2]);
-        }
-      }
-      snapGrid = newSlidesGrid;
-      if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) {
-        snapGrid.push(swiper.virtualSize - swiperSize);
-      }
-    }
-    if (snapGrid.length === 0) { snapGrid = [0]; }
-
-    if (params.spaceBetween !== 0) {
-      if (swiper.isHorizontal()) {
-        if (rtl) { slides.css({ marginLeft: (spaceBetween + "px") }); }
-        else { slides.css({ marginRight: (spaceBetween + "px") }); }
-      } else { slides.css({ marginBottom: (spaceBetween + "px") }); }
-    }
-
-    Utils.extend(swiper, {
-      slides: slides,
-      snapGrid: snapGrid,
-      slidesGrid: slidesGrid,
-      slidesSizesGrid: slidesSizesGrid,
-    });
-
-    if (slidesLength !== previousSlidesLength) {
-      swiper.emit('slidesLengthChange');
-    }
-    if (snapGrid.length !== previousSnapGridLength) {
-      if (swiper.params.watchOverflow) { swiper.checkOverflow(); }
-      swiper.emit('snapGridLengthChange');
-    }
-    if (slidesGrid.length !== previousSlidesGridLength) {
-      swiper.emit('slidesGridLengthChange');
-    }
-
-    if (params.watchSlidesProgress || params.watchSlidesVisibility) {
-      swiper.updateSlidesOffset();
-    }
-  }
-
-  function updateAutoHeight (speed) {
-    var swiper = this;
-    var activeSlides = [];
-    var newHeight = 0;
-    var i;
-    if (typeof speed === 'number') {
-      swiper.setTransition(speed);
-    } else if (speed === true) {
-      swiper.setTransition(swiper.params.speed);
-    }
-    // Find slides currently in view
-    if (swiper.params.slidesPerView !== 'auto' && swiper.params.slidesPerView > 1) {
-      for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
-        var index = swiper.activeIndex + i;
-        if (index > swiper.slides.length) { break; }
-        activeSlides.push(swiper.slides.eq(index)[0]);
-      }
-    } else {
-      activeSlides.push(swiper.slides.eq(swiper.activeIndex)[0]);
-    }
-
-    // Find new height from highest slide in view
-    for (i = 0; i < activeSlides.length; i += 1) {
-      if (typeof activeSlides[i] !== 'undefined') {
-        var height = activeSlides[i].offsetHeight;
-        newHeight = height > newHeight ? height : newHeight;
-      }
-    }
-
-    // Update Height
-    if (newHeight) { swiper.$wrapperEl.css('height', (newHeight + "px")); }
-  }
-
-  function updateSlidesOffset () {
-    var swiper = this;
-    var slides = swiper.slides;
-    for (var i = 0; i < slides.length; i += 1) {
-      slides[i].swiperSlideOffset = swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop;
-    }
-  }
-
-  function updateSlidesProgress (translate) {
-    if ( translate === void 0 ) translate = (this && this.translate) || 0;
-
-    var swiper = this;
-    var params = swiper.params;
-
-    var slides = swiper.slides;
-    var rtl = swiper.rtlTranslate;
-
-    if (slides.length === 0) { return; }
-    if (typeof slides[0].swiperSlideOffset === 'undefined') { swiper.updateSlidesOffset(); }
-
-    var offsetCenter = -translate;
-    if (rtl) { offsetCenter = translate; }
-
-    // Visible Slides
-    slides.removeClass(params.slideVisibleClass);
-
-    for (var i = 0; i < slides.length; i += 1) {
-      var slide = slides[i];
-      var slideProgress =
-        (
-          (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0)) - slide.swiperSlideOffset
-        ) / (slide.swiperSlideSize + params.spaceBetween);
-      if (params.watchSlidesVisibility) {
-        var slideBefore = -(offsetCenter - slide.swiperSlideOffset);
-        var slideAfter = slideBefore + swiper.slidesSizesGrid[i];
-        var isVisible =
-                  (slideBefore >= 0 && slideBefore < swiper.size) ||
-                  (slideAfter > 0 && slideAfter <= swiper.size) ||
-                  (slideBefore <= 0 && slideAfter >= swiper.size);
-        if (isVisible) {
-          slides.eq(i).addClass(params.slideVisibleClass);
-        }
-      }
-      slide.progress = rtl ? -slideProgress : slideProgress;
-    }
-  }
-
-  function updateProgress (translate) {
-    if ( translate === void 0 ) translate = (this && this.translate) || 0;
-
-    var swiper = this;
-    var params = swiper.params;
-
-    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
-    var progress = swiper.progress;
-    var isBeginning = swiper.isBeginning;
-    var isEnd = swiper.isEnd;
-    var wasBeginning = isBeginning;
-    var wasEnd = isEnd;
-    if (translatesDiff === 0) {
-      progress = 0;
-      isBeginning = true;
-      isEnd = true;
-    } else {
-      progress = (translate - swiper.minTranslate()) / (translatesDiff);
-      isBeginning = progress <= 0;
-      isEnd = progress >= 1;
-    }
-    Utils.extend(swiper, {
-      progress: progress,
-      isBeginning: isBeginning,
-      isEnd: isEnd,
-    });
-
-    if (params.watchSlidesProgress || params.watchSlidesVisibility) { swiper.updateSlidesProgress(translate); }
-
-    if (isBeginning && !wasBeginning) {
-      swiper.emit('reachBeginning toEdge');
-    }
-    if (isEnd && !wasEnd) {
-      swiper.emit('reachEnd toEdge');
-    }
-    if ((wasBeginning && !isBeginning) || (wasEnd && !isEnd)) {
-      swiper.emit('fromEdge');
-    }
-
-    swiper.emit('progress', progress);
-  }
-
-  function updateSlidesClasses () {
-    var swiper = this;
-
-    var slides = swiper.slides;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var activeIndex = swiper.activeIndex;
-    var realIndex = swiper.realIndex;
-    var isVirtual = swiper.virtual && params.virtual.enabled;
-
-    slides.removeClass(((params.slideActiveClass) + " " + (params.slideNextClass) + " " + (params.slidePrevClass) + " " + (params.slideDuplicateActiveClass) + " " + (params.slideDuplicateNextClass) + " " + (params.slideDuplicatePrevClass)));
-
-    var activeSlide;
-    if (isVirtual) {
-      activeSlide = swiper.$wrapperEl.find(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + activeIndex + "\"]"));
-    } else {
-      activeSlide = slides.eq(activeIndex);
-    }
-
-    // Active classes
-    activeSlide.addClass(params.slideActiveClass);
-
-    if (params.loop) {
-      // Duplicate to all looped slides
-      if (activeSlide.hasClass(params.slideDuplicateClass)) {
-        $wrapperEl
-          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + realIndex + "\"]"))
-          .addClass(params.slideDuplicateActiveClass);
-      } else {
-        $wrapperEl
-          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]"))
-          .addClass(params.slideDuplicateActiveClass);
-      }
-    }
-    // Next Slide
-    var nextSlide = activeSlide.nextAll(("." + (params.slideClass))).eq(0).addClass(params.slideNextClass);
-    if (params.loop && nextSlide.length === 0) {
-      nextSlide = slides.eq(0);
-      nextSlide.addClass(params.slideNextClass);
-    }
-    // Prev Slide
-    var prevSlide = activeSlide.prevAll(("." + (params.slideClass))).eq(0).addClass(params.slidePrevClass);
-    if (params.loop && prevSlide.length === 0) {
-      prevSlide = slides.eq(-1);
-      prevSlide.addClass(params.slidePrevClass);
-    }
-    if (params.loop) {
-      // Duplicate to all looped slides
-      if (nextSlide.hasClass(params.slideDuplicateClass)) {
-        $wrapperEl
-          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicateNextClass);
-      } else {
-        $wrapperEl
-          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicateNextClass);
-      }
-      if (prevSlide.hasClass(params.slideDuplicateClass)) {
-        $wrapperEl
-          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicatePrevClass);
-      } else {
-        $wrapperEl
-          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicatePrevClass);
-      }
-    }
-  }
-
-  function updateActiveIndex (newActiveIndex) {
-    var swiper = this;
-    var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
-    var slidesGrid = swiper.slidesGrid;
-    var snapGrid = swiper.snapGrid;
-    var params = swiper.params;
-    var previousIndex = swiper.activeIndex;
-    var previousRealIndex = swiper.realIndex;
-    var previousSnapIndex = swiper.snapIndex;
-    var activeIndex = newActiveIndex;
-    var snapIndex;
-    if (typeof activeIndex === 'undefined') {
-      for (var i = 0; i < slidesGrid.length; i += 1) {
-        if (typeof slidesGrid[i + 1] !== 'undefined') {
-          if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1] - ((slidesGrid[i + 1] - slidesGrid[i]) / 2)) {
-            activeIndex = i;
-          } else if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1]) {
-            activeIndex = i + 1;
-          }
-        } else if (translate >= slidesGrid[i]) {
-          activeIndex = i;
-        }
-      }
-      // Normalize slideIndex
-      if (params.normalizeSlideIndex) {
-        if (activeIndex < 0 || typeof activeIndex === 'undefined') { activeIndex = 0; }
-      }
-    }
-    if (snapGrid.indexOf(translate) >= 0) {
-      snapIndex = snapGrid.indexOf(translate);
-    } else {
-      snapIndex = Math.floor(activeIndex / params.slidesPerGroup);
-    }
-    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
-    if (activeIndex === previousIndex) {
-      if (snapIndex !== previousSnapIndex) {
-        swiper.snapIndex = snapIndex;
-        swiper.emit('snapIndexChange');
-      }
-      return;
-    }
-
-    // Get real index
-    var realIndex = parseInt(swiper.slides.eq(activeIndex).attr('data-swiper-slide-index') || activeIndex, 10);
-
-    Utils.extend(swiper, {
-      snapIndex: snapIndex,
-      realIndex: realIndex,
-      previousIndex: previousIndex,
-      activeIndex: activeIndex,
-    });
-    swiper.emit('activeIndexChange');
-    swiper.emit('snapIndexChange');
-    if (previousRealIndex !== realIndex) {
-      swiper.emit('realIndexChange');
-    }
-    swiper.emit('slideChange');
-  }
-
-  function updateClickedSlide (e) {
-    var swiper = this;
-    var params = swiper.params;
-    var slide = $(e.target).closest(("." + (params.slideClass)))[0];
-    var slideFound = false;
-    if (slide) {
-      for (var i = 0; i < swiper.slides.length; i += 1) {
-        if (swiper.slides[i] === slide) { slideFound = true; }
-      }
-    }
-
-    if (slide && slideFound) {
-      swiper.clickedSlide = slide;
-      if (swiper.virtual && swiper.params.virtual.enabled) {
-        swiper.clickedIndex = parseInt($(slide).attr('data-swiper-slide-index'), 10);
-      } else {
-        swiper.clickedIndex = $(slide).index();
-      }
-    } else {
-      swiper.clickedSlide = undefined;
-      swiper.clickedIndex = undefined;
-      return;
-    }
-    if (params.slideToClickedSlide && swiper.clickedIndex !== undefined && swiper.clickedIndex !== swiper.activeIndex) {
-      swiper.slideToClickedSlide();
-    }
-  }
-
-  var update = {
-    updateSize: updateSize,
-    updateSlides: updateSlides,
-    updateAutoHeight: updateAutoHeight,
-    updateSlidesOffset: updateSlidesOffset,
-    updateSlidesProgress: updateSlidesProgress,
-    updateProgress: updateProgress,
-    updateSlidesClasses: updateSlidesClasses,
-    updateActiveIndex: updateActiveIndex,
-    updateClickedSlide: updateClickedSlide,
-  };
-
-  function getTranslate (axis) {
-    if ( axis === void 0 ) axis = this.isHorizontal() ? 'x' : 'y';
-
-    var swiper = this;
-
-    var params = swiper.params;
-    var rtl = swiper.rtlTranslate;
-    var translate = swiper.translate;
-    var $wrapperEl = swiper.$wrapperEl;
-
-    if (params.virtualTranslate) {
-      return rtl ? -translate : translate;
-    }
-
-    var currentTranslate = Utils.getTranslate($wrapperEl[0], axis);
-    if (rtl) { currentTranslate = -currentTranslate; }
-
-    return currentTranslate || 0;
-  }
-
-  function setTranslate (translate, byController) {
-    var swiper = this;
-    var rtl = swiper.rtlTranslate;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var progress = swiper.progress;
-    var x = 0;
-    var y = 0;
-    var z = 0;
-
-    if (swiper.isHorizontal()) {
-      x = rtl ? -translate : translate;
-    } else {
-      y = translate;
-    }
-
-    if (params.roundLengths) {
-      x = Math.floor(x);
-      y = Math.floor(y);
-    }
-
-    if (!params.virtualTranslate) {
-      if (Support.transforms3d) { $wrapperEl.transform(("translate3d(" + x + "px, " + y + "px, " + z + "px)")); }
-      else { $wrapperEl.transform(("translate(" + x + "px, " + y + "px)")); }
-    }
-
-    swiper.translate = swiper.isHorizontal() ? x : y;
-
-    // Check if we need to update progress
-    var newProgress;
-    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
-    if (translatesDiff === 0) {
-      newProgress = 0;
-    } else {
-      newProgress = (translate - swiper.minTranslate()) / (translatesDiff);
-    }
-    if (newProgress !== progress) {
-      swiper.updateProgress(translate);
-    }
-
-    swiper.emit('setTranslate', swiper.translate, byController);
-  }
-
-  function minTranslate () {
-    return (-this.snapGrid[0]);
-  }
-
-  function maxTranslate () {
-    return (-this.snapGrid[this.snapGrid.length - 1]);
-  }
-
-  var translate = {
-    getTranslate: getTranslate,
-    setTranslate: setTranslate,
-    minTranslate: minTranslate,
-    maxTranslate: maxTranslate,
-  };
-
-  function setTransition (duration, byController) {
-    var swiper = this;
-
-    swiper.$wrapperEl.transition(duration);
-
-    swiper.emit('setTransition', duration, byController);
-  }
-
-  function transitionStart (runCallbacks, direction) {
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var activeIndex = swiper.activeIndex;
-    var params = swiper.params;
-    var previousIndex = swiper.previousIndex;
-    if (params.autoHeight) {
-      swiper.updateAutoHeight();
-    }
-
-    var dir = direction;
-    if (!dir) {
-      if (activeIndex > previousIndex) { dir = 'next'; }
-      else if (activeIndex < previousIndex) { dir = 'prev'; }
-      else { dir = 'reset'; }
-    }
-
-    swiper.emit('transitionStart');
-
-    if (runCallbacks && activeIndex !== previousIndex) {
-      if (dir === 'reset') {
-        swiper.emit('slideResetTransitionStart');
-        return;
-      }
-      swiper.emit('slideChangeTransitionStart');
-      if (dir === 'next') {
-        swiper.emit('slideNextTransitionStart');
-      } else {
-        swiper.emit('slidePrevTransitionStart');
-      }
-    }
-  }
-
-  function transitionEnd$1 (runCallbacks, direction) {
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var activeIndex = swiper.activeIndex;
-    var previousIndex = swiper.previousIndex;
-    swiper.animating = false;
-    swiper.setTransition(0);
-
-    var dir = direction;
-    if (!dir) {
-      if (activeIndex > previousIndex) { dir = 'next'; }
-      else if (activeIndex < previousIndex) { dir = 'prev'; }
-      else { dir = 'reset'; }
-    }
-
-    swiper.emit('transitionEnd');
-
-    if (runCallbacks && activeIndex !== previousIndex) {
-      if (dir === 'reset') {
-        swiper.emit('slideResetTransitionEnd');
-        return;
-      }
-      swiper.emit('slideChangeTransitionEnd');
-      if (dir === 'next') {
-        swiper.emit('slideNextTransitionEnd');
-      } else {
-        swiper.emit('slidePrevTransitionEnd');
-      }
-    }
-  }
-
-  var transition$1 = {
-    setTransition: setTransition,
-    transitionStart: transitionStart,
-    transitionEnd: transitionEnd$1,
-  };
-
-  function slideTo (index, speed, runCallbacks, internal) {
-    if ( index === void 0 ) index = 0;
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var slideIndex = index;
-    if (slideIndex < 0) { slideIndex = 0; }
-
-    var params = swiper.params;
-    var snapGrid = swiper.snapGrid;
-    var slidesGrid = swiper.slidesGrid;
-    var previousIndex = swiper.previousIndex;
-    var activeIndex = swiper.activeIndex;
-    var rtl = swiper.rtlTranslate;
-    if (swiper.animating && params.preventIntercationOnTransition) {
-      return false;
-    }
-
-    var snapIndex = Math.floor(slideIndex / params.slidesPerGroup);
-    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
-
-    if ((activeIndex || params.initialSlide || 0) === (previousIndex || 0) && runCallbacks) {
-      swiper.emit('beforeSlideChangeStart');
-    }
-
-    var translate = -snapGrid[snapIndex];
-
-    // Update progress
-    swiper.updateProgress(translate);
-
-    // Normalize slideIndex
-    if (params.normalizeSlideIndex) {
-      for (var i = 0; i < slidesGrid.length; i += 1) {
-        if (-Math.floor(translate * 100) >= Math.floor(slidesGrid[i] * 100)) {
-          slideIndex = i;
-        }
-      }
-    }
-    // Directions locks
-    if (swiper.initialized && slideIndex !== activeIndex) {
-      if (!swiper.allowSlideNext && translate < swiper.translate && translate < swiper.minTranslate()) {
-        return false;
-      }
-      if (!swiper.allowSlidePrev && translate > swiper.translate && translate > swiper.maxTranslate()) {
-        if ((activeIndex || 0) !== slideIndex) { return false; }
-      }
-    }
-
-    var direction;
-    if (slideIndex > activeIndex) { direction = 'next'; }
-    else if (slideIndex < activeIndex) { direction = 'prev'; }
-    else { direction = 'reset'; }
-
-
-    // Update Index
-    if ((rtl && -translate === swiper.translate) || (!rtl && translate === swiper.translate)) {
-      swiper.updateActiveIndex(slideIndex);
-      // Update Height
-      if (params.autoHeight) {
-        swiper.updateAutoHeight();
-      }
-      swiper.updateSlidesClasses();
-      if (params.effect !== 'slide') {
-        swiper.setTranslate(translate);
-      }
-      if (direction !== 'reset') {
-        swiper.transitionStart(runCallbacks, direction);
-        swiper.transitionEnd(runCallbacks, direction);
-      }
-      return false;
-    }
-
-    if (speed === 0 || !Support.transition) {
-      swiper.setTransition(0);
-      swiper.setTranslate(translate);
-      swiper.updateActiveIndex(slideIndex);
-      swiper.updateSlidesClasses();
-      swiper.emit('beforeTransitionStart', speed, internal);
-      swiper.transitionStart(runCallbacks, direction);
-      swiper.transitionEnd(runCallbacks, direction);
-    } else {
-      swiper.setTransition(speed);
-      swiper.setTranslate(translate);
-      swiper.updateActiveIndex(slideIndex);
-      swiper.updateSlidesClasses();
-      swiper.emit('beforeTransitionStart', speed, internal);
-      swiper.transitionStart(runCallbacks, direction);
-      if (!swiper.animating) {
-        swiper.animating = true;
-        if (!swiper.onSlideToWrapperTransitionEnd) {
-          swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
-            if (!swiper || swiper.destroyed) { return; }
-            if (e.target !== this) { return; }
-            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
-            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
-            swiper.transitionEnd(runCallbacks, direction);
-          };
-        }
-        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
-        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
-      }
-    }
-
-    return true;
-  }
-
-  function slideToLoop (index, speed, runCallbacks, internal) {
-    if ( index === void 0 ) index = 0;
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var newIndex = index;
-    if (swiper.params.loop) {
-      newIndex += swiper.loopedSlides;
-    }
-
-    return swiper.slideTo(newIndex, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slideNext (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var params = swiper.params;
-    var animating = swiper.animating;
-    if (params.loop) {
-      if (animating) { return false; }
-      swiper.loopFix();
-      // eslint-disable-next-line
-      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
-      return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
-    }
-    return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slidePrev (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var params = swiper.params;
-    var animating = swiper.animating;
-    var snapGrid = swiper.snapGrid;
-    var slidesGrid = swiper.slidesGrid;
-    var rtlTranslate = swiper.rtlTranslate;
-
-    if (params.loop) {
-      if (animating) { return false; }
-      swiper.loopFix();
-      // eslint-disable-next-line
-      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
-    }
-    var translate = rtlTranslate ? swiper.translate : -swiper.translate;
-    var currentSnap = snapGrid[snapGrid.indexOf(translate)];
-    var prevSnap = snapGrid[snapGrid.indexOf(translate) - 1];
-    var prevIndex;
-
-    if (prevSnap) {
-      prevIndex = slidesGrid.indexOf(prevSnap);
-      if (prevIndex < 0) { prevIndex = swiper.activeIndex - 1; }
-    }
-    return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slideReset (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slideToClosest (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var index = swiper.activeIndex;
-    var snapIndex = Math.floor(index / swiper.params.slidesPerGroup);
-
-    if (snapIndex < swiper.snapGrid.length - 1) {
-      var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
-
-      var currentSnap = swiper.snapGrid[snapIndex];
-      var nextSnap = swiper.snapGrid[snapIndex + 1];
-
-      if ((translate - currentSnap) > (nextSnap - currentSnap) / 2) {
-        index = swiper.params.slidesPerGroup;
-      }
-    }
-
-    return swiper.slideTo(index, speed, runCallbacks, internal);
-  }
-
-  function slideToClickedSlide () {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-
-    var slidesPerView = params.slidesPerView === 'auto' ? swiper.slidesPerViewDynamic() : params.slidesPerView;
-    var slideToIndex = swiper.clickedIndex;
-    var realIndex;
-    if (params.loop) {
-      if (swiper.animating) { return; }
-      realIndex = parseInt($(swiper.clickedSlide).attr('data-swiper-slide-index'), 10);
-      if (params.centeredSlides) {
-        if (
-          (slideToIndex < swiper.loopedSlides - (slidesPerView / 2)) ||
-          (slideToIndex > (swiper.slides.length - swiper.loopedSlides) + (slidesPerView / 2))
-        ) {
-          swiper.loopFix();
-          slideToIndex = $wrapperEl
-            .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
-            .eq(0)
-            .index();
-
-          Utils.nextTick(function () {
-            swiper.slideTo(slideToIndex);
-          });
-        } else {
-          swiper.slideTo(slideToIndex);
-        }
-      } else if (slideToIndex > swiper.slides.length - slidesPerView) {
-        swiper.loopFix();
-        slideToIndex = $wrapperEl
-          .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
-          .eq(0)
-          .index();
-
-        Utils.nextTick(function () {
-          swiper.slideTo(slideToIndex);
-        });
-      } else {
-        swiper.slideTo(slideToIndex);
-      }
-    } else {
-      swiper.slideTo(slideToIndex);
-    }
-  }
-
-  var slide = {
-    slideTo: slideTo,
-    slideToLoop: slideToLoop,
-    slideNext: slideNext,
-    slidePrev: slidePrev,
-    slideReset: slideReset,
-    slideToClosest: slideToClosest,
-    slideToClickedSlide: slideToClickedSlide,
-  };
-
-  function loopCreate () {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    // Remove duplicated slides
-    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
-
-    var slides = $wrapperEl.children(("." + (params.slideClass)));
-
-    if (params.loopFillGroupWithBlank) {
-      var blankSlidesNum = params.slidesPerGroup - (slides.length % params.slidesPerGroup);
-      if (blankSlidesNum !== params.slidesPerGroup) {
-        for (var i = 0; i < blankSlidesNum; i += 1) {
-          var blankNode = $(doc.createElement('div')).addClass(((params.slideClass) + " " + (params.slideBlankClass)));
-          $wrapperEl.append(blankNode);
-        }
-        slides = $wrapperEl.children(("." + (params.slideClass)));
-      }
-    }
-
-    if (params.slidesPerView === 'auto' && !params.loopedSlides) { params.loopedSlides = slides.length; }
-
-    swiper.loopedSlides = parseInt(params.loopedSlides || params.slidesPerView, 10);
-    swiper.loopedSlides += params.loopAdditionalSlides;
-    if (swiper.loopedSlides > slides.length) {
-      swiper.loopedSlides = slides.length;
-    }
-
-    var prependSlides = [];
-    var appendSlides = [];
-    slides.each(function (index, el) {
-      var slide = $(el);
-      if (index < swiper.loopedSlides) { appendSlides.push(el); }
-      if (index < slides.length && index >= slides.length - swiper.loopedSlides) { prependSlides.push(el); }
-      slide.attr('data-swiper-slide-index', index);
-    });
-    for (var i$1 = 0; i$1 < appendSlides.length; i$1 += 1) {
-      $wrapperEl.append($(appendSlides[i$1].cloneNode(true)).addClass(params.slideDuplicateClass));
-    }
-    for (var i$2 = prependSlides.length - 1; i$2 >= 0; i$2 -= 1) {
-      $wrapperEl.prepend($(prependSlides[i$2].cloneNode(true)).addClass(params.slideDuplicateClass));
-    }
-  }
-
-  function loopFix () {
-    var swiper = this;
-    var params = swiper.params;
-    var activeIndex = swiper.activeIndex;
-    var slides = swiper.slides;
-    var loopedSlides = swiper.loopedSlides;
-    var allowSlidePrev = swiper.allowSlidePrev;
-    var allowSlideNext = swiper.allowSlideNext;
-    var snapGrid = swiper.snapGrid;
-    var rtl = swiper.rtlTranslate;
-    var newIndex;
-    swiper.allowSlidePrev = true;
-    swiper.allowSlideNext = true;
-
-    var snapTranslate = -snapGrid[activeIndex];
-    var diff = snapTranslate - swiper.getTranslate();
-
-
-    // Fix For Negative Oversliding
-    if (activeIndex < loopedSlides) {
-      newIndex = (slides.length - (loopedSlides * 3)) + activeIndex;
-      newIndex += loopedSlides;
-      var slideChanged = swiper.slideTo(newIndex, 0, false, true);
-      if (slideChanged && diff !== 0) {
-        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
-      }
-    } else if ((params.slidesPerView === 'auto' && activeIndex >= loopedSlides * 2) || (activeIndex > slides.length - (params.slidesPerView * 2))) {
-      // Fix For Positive Oversliding
-      newIndex = -slides.length + activeIndex + loopedSlides;
-      newIndex += loopedSlides;
-      var slideChanged$1 = swiper.slideTo(newIndex, 0, false, true);
-      if (slideChanged$1 && diff !== 0) {
-        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
-      }
-    }
-    swiper.allowSlidePrev = allowSlidePrev;
-    swiper.allowSlideNext = allowSlideNext;
-  }
-
-  function loopDestroy () {
-    var swiper = this;
-    var $wrapperEl = swiper.$wrapperEl;
-    var params = swiper.params;
-    var slides = swiper.slides;
-    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
-    slides.removeAttr('data-swiper-slide-index');
-  }
-
-  var loop = {
-    loopCreate: loopCreate,
-    loopFix: loopFix,
-    loopDestroy: loopDestroy,
-  };
-
-  function setGrabCursor (moving) {
-    var swiper = this;
-    if (Support.touch || !swiper.params.simulateTouch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
-    var el = swiper.el;
-    el.style.cursor = 'move';
-    el.style.cursor = moving ? '-webkit-grabbing' : '-webkit-grab';
-    el.style.cursor = moving ? '-moz-grabbin' : '-moz-grab';
-    el.style.cursor = moving ? 'grabbing' : 'grab';
-  }
-
-  function unsetGrabCursor () {
-    var swiper = this;
-    if (Support.touch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
-    swiper.el.style.cursor = '';
-  }
-
-  var grabCursor = {
-    setGrabCursor: setGrabCursor,
-    unsetGrabCursor: unsetGrabCursor,
-  };
-
-  function appendSlide (slides) {
-    var swiper = this;
-    var $wrapperEl = swiper.$wrapperEl;
-    var params = swiper.params;
-    if (params.loop) {
-      swiper.loopDestroy();
-    }
-    if (typeof slides === 'object' && 'length' in slides) {
-      for (var i = 0; i < slides.length; i += 1) {
-        if (slides[i]) { $wrapperEl.append(slides[i]); }
-      }
-    } else {
-      $wrapperEl.append(slides);
-    }
-    if (params.loop) {
-      swiper.loopCreate();
-    }
-    if (!(params.observer && Support.observer)) {
-      swiper.update();
-    }
-  }
-
-  function prependSlide (slides) {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var activeIndex = swiper.activeIndex;
-
-    if (params.loop) {
-      swiper.loopDestroy();
-    }
-    var newActiveIndex = activeIndex + 1;
-    if (typeof slides === 'object' && 'length' in slides) {
-      for (var i = 0; i < slides.length; i += 1) {
-        if (slides[i]) { $wrapperEl.prepend(slides[i]); }
-      }
-      newActiveIndex = activeIndex + slides.length;
-    } else {
-      $wrapperEl.prepend(slides);
-    }
-    if (params.loop) {
-      swiper.loopCreate();
-    }
-    if (!(params.observer && Support.observer)) {
-      swiper.update();
-    }
-    swiper.slideTo(newActiveIndex, 0, false);
-  }
-
-  function removeSlide (slidesIndexes) {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var activeIndex = swiper.activeIndex;
-
-    if (params.loop) {
-      swiper.loopDestroy();
-      swiper.slides = $wrapperEl.children(("." + (params.slideClass)));
-    }
-    var newActiveIndex = activeIndex;
-    var indexToRemove;
-
-    if (typeof slidesIndexes === 'object' && 'length' in slidesIndexes) {
-      for (var i = 0; i < slidesIndexes.length; i += 1) {
-        indexToRemove = slidesIndexes[i];
-        if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
-        if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
-      }
-      newActiveIndex = Math.max(newActiveIndex, 0);
-    } else {
-      indexToRemove = slidesIndexes;
-      if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
-      if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
-      newActiveIndex = Math.max(newActiveIndex, 0);
-    }
-
-    if (params.loop) {
-      swiper.loopCreate();
-    }
-
-    if (!(params.observer && Support.observer)) {
-      swiper.update();
-    }
-    if (params.loop) {
-      swiper.slideTo(newActiveIndex + swiper.loopedSlides, 0, false);
-    } else {
-      swiper.slideTo(newActiveIndex, 0, false);
-    }
-  }
-
-  function removeAllSlides () {
-    var swiper = this;
-
-    var slidesIndexes = [];
-    for (var i = 0; i < swiper.slides.length; i += 1) {
-      slidesIndexes.push(i);
-    }
-    swiper.removeSlide(slidesIndexes);
-  }
-
-  var manipulation = {
-    appendSlide: appendSlide,
-    prependSlide: prependSlide,
-    removeSlide: removeSlide,
-    removeAllSlides: removeAllSlides,
-  };
-
-  var Device = (function Device() {
-    var ua = win.navigator.userAgent;
-
-    var device = {
-      ios: false,
-      android: false,
-      androidChrome: false,
-      desktop: false,
-      windows: false,
-      iphone: false,
-      ipod: false,
-      ipad: false,
-      cordova: win.cordova || win.phonegap,
-      phonegap: win.cordova || win.phonegap,
-    };
-
-    var windows = ua.match(/(Windows Phone);?[\s\/]+([\d.]+)?/); // eslint-disable-line
-    var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/); // eslint-disable-line
-    var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
-    var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
-    var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
-
-
-    // Windows
-    if (windows) {
-      device.os = 'windows';
-      device.osVersion = windows[2];
-      device.windows = true;
-    }
-    // Android
-    if (android && !windows) {
-      device.os = 'android';
-      device.osVersion = android[2];
-      device.android = true;
-      device.androidChrome = ua.toLowerCase().indexOf('chrome') >= 0;
-    }
-    if (ipad || iphone || ipod) {
-      device.os = 'ios';
-      device.ios = true;
-    }
-    // iOS
-    if (iphone && !ipod) {
-      device.osVersion = iphone[2].replace(/_/g, '.');
-      device.iphone = true;
-    }
-    if (ipad) {
-      device.osVersion = ipad[2].replace(/_/g, '.');
-      device.ipad = true;
-    }
-    if (ipod) {
-      device.osVersion = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
-      device.iphone = true;
-    }
-    // iOS 8+ changed UA
-    if (device.ios && device.osVersion && ua.indexOf('Version/') >= 0) {
-      if (device.osVersion.split('.')[0] === '10') {
-        device.osVersion = ua.toLowerCase().split('version/')[1].split(' ')[0];
-      }
-    }
-
-    // Desktop
-    device.desktop = !(device.os || device.android || device.webView);
-
-    // Webview
-    device.webView = (iphone || ipad || ipod) && ua.match(/.*AppleWebKit(?!.*Safari)/i);
-
-    // Minimal UI
-    if (device.os && device.os === 'ios') {
-      var osVersionArr = device.osVersion.split('.');
-      var metaViewport = doc.querySelector('meta[name="viewport"]');
-      device.minimalUi =
-        !device.webView &&
-        (ipod || iphone) &&
-        (osVersionArr[0] * 1 === 7 ? osVersionArr[1] * 1 >= 1 : osVersionArr[0] * 1 > 7) &&
-        metaViewport && metaViewport.getAttribute('content').indexOf('minimal-ui') >= 0;
-    }
-
-    // Pixel Ratio
-    device.pixelRatio = win.devicePixelRatio || 1;
-
-    // Export object
-    return device;
-  }());
-
-  function onTouchStart (event) {
-    var swiper = this;
-    var data = swiper.touchEventsData;
-    var params = swiper.params;
-    var touches = swiper.touches;
-    if (swiper.animating && params.preventIntercationOnTransition) {
-      return;
-    }
-    var e = event;
-    if (e.originalEvent) { e = e.originalEvent; }
-    data.isTouchEvent = e.type === 'touchstart';
-    if (!data.isTouchEvent && 'which' in e && e.which === 3) { return; }
-    if (data.isTouched && data.isMoved) { return; }
-    if (params.noSwiping && $(e.target).closest(params.noSwipingSelector ? params.noSwipingSelector : ("." + (params.noSwipingClass)))[0]) {
-      swiper.allowClick = true;
-      return;
-    }
-    if (params.swipeHandler) {
-      if (!$(e).closest(params.swipeHandler)[0]) { return; }
-    }
-
-    touches.currentX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
-    touches.currentY = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
-    var startX = touches.currentX;
-    var startY = touches.currentY;
-
-    // Do NOT start if iOS edge swipe is detected. Otherwise iOS app (UIWebView) cannot swipe-to-go-back anymore
-
-    if (
-      Device.ios &&
-      !Device.cordova &&
-      params.iOSEdgeSwipeDetection &&
-      (startX <= params.iOSEdgeSwipeThreshold) &&
-      (startX >= win.screen.width - params.iOSEdgeSwipeThreshold)
-    ) {
-      return;
-    }
-
-    Utils.extend(data, {
-      isTouched: true,
-      isMoved: false,
-      allowTouchCallbacks: true,
-      isScrolling: undefined,
-      startMoving: undefined,
-    });
-
-    touches.startX = startX;
-    touches.startY = startY;
-    data.touchStartTime = Utils.now();
-    swiper.allowClick = true;
-    swiper.updateSize();
-    swiper.swipeDirection = undefined;
-    if (params.threshold > 0) { data.allowThresholdMove = false; }
-    if (e.type !== 'touchstart') {
-      var preventDefault = true;
-      if ($(e.target).is(data.formElements)) { preventDefault = false; }
-      if (
-        doc.activeElement &&
-        $(doc.activeElement).is(data.formElements) &&
-        doc.activeElement !== e.target
-      ) {
-        doc.activeElement.blur();
-      }
-      if (preventDefault && swiper.allowTouchMove) {
-        e.preventDefault();
-      }
-    }
-    swiper.emit('touchStart', e);
-  }
-
-  function onTouchMove (event) {
-    var swiper = this;
-    var data = swiper.touchEventsData;
-    var params = swiper.params;
-    var touches = swiper.touches;
-    var rtl = swiper.rtlTranslate;
-    var e = event;
-    if (e.originalEvent) { e = e.originalEvent; }
-    if (!data.isTouched) {
-      if (data.startMoving && data.isScrolling) {
-        swiper.emit('touchMoveOpposite', e);
-      }
-      return;
-    }
-    if (data.isTouchEvent && e.type === 'mousemove') { return; }
-    var pageX = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
-    var pageY = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
-    if (e.preventedByNestedSwiper) {
-      touches.startX = pageX;
-      touches.startY = pageY;
-      return;
-    }
-    if (!swiper.allowTouchMove) {
-      // isMoved = true;
-      swiper.allowClick = false;
-      if (data.isTouched) {
-        Utils.extend(touches, {
-          startX: pageX,
-          startY: pageY,
-          currentX: pageX,
-          currentY: pageY,
-        });
-        data.touchStartTime = Utils.now();
-      }
-      return;
-    }
-    if (data.isTouchEvent && params.touchReleaseOnEdges && !params.loop) {
-      if (swiper.isVertical()) {
-        // Vertical
-        if (
-          (pageY < touches.startY && swiper.translate <= swiper.maxTranslate()) ||
-          (pageY > touches.startY && swiper.translate >= swiper.minTranslate())
-        ) {
-          data.isTouched = false;
-          data.isMoved = false;
-          return;
-        }
-      } else if (
-        (pageX < touches.startX && swiper.translate <= swiper.maxTranslate()) ||
-        (pageX > touches.startX && swiper.translate >= swiper.minTranslate())
-      ) {
-        return;
-      }
-    }
-    if (data.isTouchEvent && doc.activeElement) {
-      if (e.target === doc.activeElement && $(e.target).is(data.formElements)) {
-        data.isMoved = true;
-        swiper.allowClick = false;
-        return;
-      }
-    }
-    if (data.allowTouchCallbacks) {
-      swiper.emit('touchMove', e);
-    }
-    if (e.targetTouches && e.targetTouches.length > 1) { return; }
-
-    touches.currentX = pageX;
-    touches.currentY = pageY;
-
-    var diffX = touches.currentX - touches.startX;
-    var diffY = touches.currentY - touches.startY;
-
-    if (typeof data.isScrolling === 'undefined') {
-      var touchAngle;
-      if ((swiper.isHorizontal() && touches.currentY === touches.startY) || (swiper.isVertical() && touches.currentX === touches.startX)) {
-        data.isScrolling = false;
-      } else {
-        // eslint-disable-next-line
-        if ((diffX * diffX) + (diffY * diffY) >= 25) {
-          touchAngle = (Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180) / Math.PI;
-          data.isScrolling = swiper.isHorizontal() ? touchAngle > params.touchAngle : (90 - touchAngle > params.touchAngle);
-        }
-      }
-    }
-    if (data.isScrolling) {
-      swiper.emit('touchMoveOpposite', e);
-    }
-    if (typeof startMoving === 'undefined') {
-      if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) {
-        data.startMoving = true;
-      }
-    }
-    if (data.isScrolling) {
-      data.isTouched = false;
-      return;
-    }
-    if (!data.startMoving) {
-      return;
-    }
-    swiper.allowClick = false;
-    e.preventDefault();
-    if (params.touchMoveStopPropagation && !params.nested) {
-      e.stopPropagation();
-    }
-
-    if (!data.isMoved) {
-      if (params.loop) {
-        swiper.loopFix();
-      }
-      data.startTranslate = swiper.getTranslate();
-      swiper.setTransition(0);
-      if (swiper.animating) {
-        swiper.$wrapperEl.trigger('webkitTransitionEnd transitionend');
-      }
-      data.allowMomentumBounce = false;
-      // Grab Cursor
-      if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
-        swiper.setGrabCursor(true);
-      }
-      swiper.emit('sliderFirstMove', e);
-    }
-    swiper.emit('sliderMove', e);
-    data.isMoved = true;
-
-    var diff = swiper.isHorizontal() ? diffX : diffY;
-    touches.diff = diff;
-
-    diff *= params.touchRatio;
-    if (rtl) { diff = -diff; }
-
-    swiper.swipeDirection = diff > 0 ? 'prev' : 'next';
-    data.currentTranslate = diff + data.startTranslate;
-
-    var disableParentSwiper = true;
-    var resistanceRatio = params.resistanceRatio;
-    if (params.touchReleaseOnEdges) {
-      resistanceRatio = 0;
-    }
-    if ((diff > 0 && data.currentTranslate > swiper.minTranslate())) {
-      disableParentSwiper = false;
-      if (params.resistance) { data.currentTranslate = (swiper.minTranslate() - 1) + (Math.pow( (-swiper.minTranslate() + data.startTranslate + diff), resistanceRatio )); }
-    } else if (diff < 0 && data.currentTranslate < swiper.maxTranslate()) {
-      disableParentSwiper = false;
-      if (params.resistance) { data.currentTranslate = (swiper.maxTranslate() + 1) - (Math.pow( (swiper.maxTranslate() - data.startTranslate - diff), resistanceRatio )); }
-    }
-
-    if (disableParentSwiper) {
-      e.preventedByNestedSwiper = true;
-    }
-
-    // Directions locks
-    if (!swiper.allowSlideNext && swiper.swipeDirection === 'next' && data.currentTranslate < data.startTranslate) {
-      data.currentTranslate = data.startTranslate;
-    }
-    if (!swiper.allowSlidePrev && swiper.swipeDirection === 'prev' && data.currentTranslate > data.startTranslate) {
-      data.currentTranslate = data.startTranslate;
-    }
-
-
-    // Threshold
-    if (params.threshold > 0) {
-      if (Math.abs(diff) > params.threshold || data.allowThresholdMove) {
-        if (!data.allowThresholdMove) {
-          data.allowThresholdMove = true;
-          touches.startX = touches.currentX;
-          touches.startY = touches.currentY;
-          data.currentTranslate = data.startTranslate;
-          touches.diff = swiper.isHorizontal() ? touches.currentX - touches.startX : touches.currentY - touches.startY;
-          return;
-        }
-      } else {
-        data.currentTranslate = data.startTranslate;
-        return;
-      }
-    }
-
-    if (!params.followFinger) { return; }
-
-    // Update active index in free mode
-    if (params.freeMode || params.watchSlidesProgress || params.watchSlidesVisibility) {
-      swiper.updateActiveIndex();
-      swiper.updateSlidesClasses();
-    }
-    if (params.freeMode) {
-      // Velocity
-      if (data.velocities.length === 0) {
-        data.velocities.push({
-          position: touches[swiper.isHorizontal() ? 'startX' : 'startY'],
-          time: data.touchStartTime,
-        });
-      }
-      data.velocities.push({
-        position: touches[swiper.isHorizontal() ? 'currentX' : 'currentY'],
-        time: Utils.now(),
-      });
-    }
-    // Update progress
-    swiper.updateProgress(data.currentTranslate);
-    // Update translate
-    swiper.setTranslate(data.currentTranslate);
-  }
-
-  function onTouchEnd (event) {
-    var swiper = this;
-    var data = swiper.touchEventsData;
-
-    var params = swiper.params;
-    var touches = swiper.touches;
-    var rtl = swiper.rtlTranslate;
-    var $wrapperEl = swiper.$wrapperEl;
-    var slidesGrid = swiper.slidesGrid;
-    var snapGrid = swiper.snapGrid;
-    var e = event;
-    if (e.originalEvent) { e = e.originalEvent; }
-    if (data.allowTouchCallbacks) {
-      swiper.emit('touchEnd', e);
-    }
-    data.allowTouchCallbacks = false;
-    if (!data.isTouched) {
-      if (data.isMoved && params.grabCursor) {
-        swiper.setGrabCursor(false);
-      }
-      data.isMoved = false;
-      data.startMoving = false;
-      return;
-    }
-    // Return Grab Cursor
-    if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
-      swiper.setGrabCursor(false);
-    }
-
-    // Time diff
-    var touchEndTime = Utils.now();
-    var timeDiff = touchEndTime - data.touchStartTime;
-
-    // Tap, doubleTap, Click
-    if (swiper.allowClick) {
-      swiper.updateClickedSlide(e);
-      swiper.emit('tap', e);
-      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) > 300) {
-        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
-        data.clickTimeout = Utils.nextTick(function () {
-          if (!swiper || swiper.destroyed) { return; }
-          swiper.emit('click', e);
-        }, 300);
-      }
-      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) < 300) {
-        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
-        swiper.emit('doubleTap', e);
-      }
-    }
-
-    data.lastClickTime = Utils.now();
-    Utils.nextTick(function () {
-      if (!swiper.destroyed) { swiper.allowClick = true; }
-    });
-
-    if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || touches.diff === 0 || data.currentTranslate === data.startTranslate) {
-      data.isTouched = false;
-      data.isMoved = false;
-      data.startMoving = false;
-      return;
-    }
-    data.isTouched = false;
-    data.isMoved = false;
-    data.startMoving = false;
-
-    var currentPos;
-    if (params.followFinger) {
-      currentPos = rtl ? swiper.translate : -swiper.translate;
-    } else {
-      currentPos = -data.currentTranslate;
-    }
-
-    if (params.freeMode) {
-      if (currentPos < -swiper.minTranslate()) {
-        swiper.slideTo(swiper.activeIndex);
-        return;
-      } else if (currentPos > -swiper.maxTranslate()) {
-        if (swiper.slides.length < snapGrid.length) {
-          swiper.slideTo(snapGrid.length - 1);
-        } else {
-          swiper.slideTo(swiper.slides.length - 1);
-        }
-        return;
-      }
-
-      if (params.freeModeMomentum) {
-        if (data.velocities.length > 1) {
-          var lastMoveEvent = data.velocities.pop();
-          var velocityEvent = data.velocities.pop();
-
-          var distance = lastMoveEvent.position - velocityEvent.position;
-          var time = lastMoveEvent.time - velocityEvent.time;
-          swiper.velocity = distance / time;
-          swiper.velocity /= 2;
-          if (Math.abs(swiper.velocity) < params.freeModeMinimumVelocity) {
-            swiper.velocity = 0;
-          }
-          // this implies that the user stopped moving a finger then released.
-          // There would be no events with distance zero, so the last event is stale.
-          if (time > 150 || (Utils.now() - lastMoveEvent.time) > 300) {
-            swiper.velocity = 0;
-          }
-        } else {
-          swiper.velocity = 0;
-        }
-        swiper.velocity *= params.freeModeMomentumVelocityRatio;
-
-        data.velocities.length = 0;
-        var momentumDuration = 1000 * params.freeModeMomentumRatio;
-        var momentumDistance = swiper.velocity * momentumDuration;
-
-        var newPosition = swiper.translate + momentumDistance;
-        if (rtl) { newPosition = -newPosition; }
-
-        var doBounce = false;
-        var afterBouncePosition;
-        var bounceAmount = Math.abs(swiper.velocity) * 20 * params.freeModeMomentumBounceRatio;
-        var needsLoopFix;
-        if (newPosition < swiper.maxTranslate()) {
-          if (params.freeModeMomentumBounce) {
-            if (newPosition + swiper.maxTranslate() < -bounceAmount) {
-              newPosition = swiper.maxTranslate() - bounceAmount;
-            }
-            afterBouncePosition = swiper.maxTranslate();
-            doBounce = true;
-            data.allowMomentumBounce = true;
-          } else {
-            newPosition = swiper.maxTranslate();
-          }
-          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
-        } else if (newPosition > swiper.minTranslate()) {
-          if (params.freeModeMomentumBounce) {
-            if (newPosition - swiper.minTranslate() > bounceAmount) {
-              newPosition = swiper.minTranslate() + bounceAmount;
-            }
-            afterBouncePosition = swiper.minTranslate();
-            doBounce = true;
-            data.allowMomentumBounce = true;
-          } else {
-            newPosition = swiper.minTranslate();
-          }
-          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
-        } else if (params.freeModeSticky) {
-          var nextSlide;
-          for (var j = 0; j < snapGrid.length; j += 1) {
-            if (snapGrid[j] > -newPosition) {
-              nextSlide = j;
-              break;
-            }
-          }
-
-          if (Math.abs(snapGrid[nextSlide] - newPosition) < Math.abs(snapGrid[nextSlide - 1] - newPosition) || swiper.swipeDirection === 'next') {
-            newPosition = snapGrid[nextSlide];
-          } else {
-            newPosition = snapGrid[nextSlide - 1];
-          }
-          newPosition = -newPosition;
-        }
-        if (needsLoopFix) {
-          swiper.once('transitionEnd', function () {
-            swiper.loopFix();
-          });
-        }
-        // Fix duration
-        if (swiper.velocity !== 0) {
-          if (rtl) {
-            momentumDuration = Math.abs((-newPosition - swiper.translate) / swiper.velocity);
-          } else {
-            momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
-          }
-        } else if (params.freeModeSticky) {
-          swiper.slideToClosest();
-          return;
-        }
-
-        if (params.freeModeMomentumBounce && doBounce) {
-          swiper.updateProgress(afterBouncePosition);
-          swiper.setTransition(momentumDuration);
-          swiper.setTranslate(newPosition);
-          swiper.transitionStart(true, swiper.swipeDirection);
-          swiper.animating = true;
-          $wrapperEl.transitionEnd(function () {
-            if (!swiper || swiper.destroyed || !data.allowMomentumBounce) { return; }
-            swiper.emit('momentumBounce');
-
-            swiper.setTransition(params.speed);
-            swiper.setTranslate(afterBouncePosition);
-            $wrapperEl.transitionEnd(function () {
-              if (!swiper || swiper.destroyed) { return; }
-              swiper.transitionEnd();
-            });
-          });
-        } else if (swiper.velocity) {
-          swiper.updateProgress(newPosition);
-          swiper.setTransition(momentumDuration);
-          swiper.setTranslate(newPosition);
-          swiper.transitionStart(true, swiper.swipeDirection);
-          if (!swiper.animating) {
-            swiper.animating = true;
-            $wrapperEl.transitionEnd(function () {
-              if (!swiper || swiper.destroyed) { return; }
-              swiper.transitionEnd();
-            });
-          }
-        } else {
-          swiper.updateProgress(newPosition);
-        }
-
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-      } else if (params.freeModeSticky) {
-        swiper.slideToClosest();
-        return;
-      }
-
-      if (!params.freeModeMomentum || timeDiff >= params.longSwipesMs) {
-        swiper.updateProgress();
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-      }
-      return;
-    }
-
-    // Find current slide
-    var stopIndex = 0;
-    var groupSize = swiper.slidesSizesGrid[0];
-    for (var i = 0; i < slidesGrid.length; i += params.slidesPerGroup) {
-      if (typeof slidesGrid[i + params.slidesPerGroup] !== 'undefined') {
-        if (currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + params.slidesPerGroup]) {
-          stopIndex = i;
-          groupSize = slidesGrid[i + params.slidesPerGroup] - slidesGrid[i];
-        }
-      } else if (currentPos >= slidesGrid[i]) {
-        stopIndex = i;
-        groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
-      }
-    }
-
-    // Find current slide size
-    var ratio = (currentPos - slidesGrid[stopIndex]) / groupSize;
-
-    if (timeDiff > params.longSwipesMs) {
-      // Long touches
-      if (!params.longSwipes) {
-        swiper.slideTo(swiper.activeIndex);
-        return;
-      }
-      if (swiper.swipeDirection === 'next') {
-        if (ratio >= params.longSwipesRatio) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
-        else { swiper.slideTo(stopIndex); }
-      }
-      if (swiper.swipeDirection === 'prev') {
-        if (ratio > (1 - params.longSwipesRatio)) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
-        else { swiper.slideTo(stopIndex); }
-      }
-    } else {
-      // Short swipes
-      if (!params.shortSwipes) {
-        swiper.slideTo(swiper.activeIndex);
-        return;
-      }
-      if (swiper.swipeDirection === 'next') {
-        swiper.slideTo(stopIndex + params.slidesPerGroup);
-      }
-      if (swiper.swipeDirection === 'prev') {
-        swiper.slideTo(stopIndex);
-      }
-    }
-  }
-
-  function onResize () {
-    var swiper = this;
-
-    var params = swiper.params;
-    var el = swiper.el;
-
-    if (el && el.offsetWidth === 0) { return; }
-
-    // Breakpoints
-    if (params.breakpoints) {
-      swiper.setBreakpoint();
-    }
-
-    // Save locks
-    var allowSlideNext = swiper.allowSlideNext;
-    var allowSlidePrev = swiper.allowSlidePrev;
-    var snapGrid = swiper.snapGrid;
-
-    // Disable locks on resize
-    swiper.allowSlideNext = true;
-    swiper.allowSlidePrev = true;
-
-    swiper.updateSize();
-    swiper.updateSlides();
-
-    if (params.freeMode) {
-      var newTranslate = Math.min(Math.max(swiper.translate, swiper.maxTranslate()), swiper.minTranslate());
-      swiper.setTranslate(newTranslate);
-      swiper.updateActiveIndex();
-      swiper.updateSlidesClasses();
-
-      if (params.autoHeight) {
-        swiper.updateAutoHeight();
-      }
-    } else {
-      swiper.updateSlidesClasses();
-      if ((params.slidesPerView === 'auto' || params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
-        swiper.slideTo(swiper.slides.length - 1, 0, false, true);
-      } else {
-        swiper.slideTo(swiper.activeIndex, 0, false, true);
-      }
-    }
-    // Return locks after resize
-    swiper.allowSlidePrev = allowSlidePrev;
-    swiper.allowSlideNext = allowSlideNext;
-
-    if (swiper.params.watchOverflow && snapGrid !== swiper.snapGrid) {
-      swiper.checkOverflow();
-    }
-  }
-
-  function onClick (e) {
-    var swiper = this;
-    if (!swiper.allowClick) {
-      if (swiper.params.preventClicks) { e.preventDefault(); }
-      if (swiper.params.preventClicksPropagation && swiper.animating) {
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-      }
-    }
-  }
-
-  function attachEvents() {
-    var swiper = this;
-    var params = swiper.params;
-    var touchEvents = swiper.touchEvents;
-    var el = swiper.el;
-    var wrapperEl = swiper.wrapperEl;
-
-    {
-      swiper.onTouchStart = onTouchStart.bind(swiper);
-      swiper.onTouchMove = onTouchMove.bind(swiper);
-      swiper.onTouchEnd = onTouchEnd.bind(swiper);
-    }
-
-    swiper.onClick = onClick.bind(swiper);
-
-    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
-    var capture = !!params.nested;
-
-    // Touch Events
-    {
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.addEventListener(touchEvents.start, swiper.onTouchStart, false);
-        doc.addEventListener(touchEvents.move, swiper.onTouchMove, capture);
-        doc.addEventListener(touchEvents.end, swiper.onTouchEnd, false);
-      } else {
-        if (Support.touch) {
-          var passiveListener = touchEvents.start === 'touchstart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
-          target.addEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
-          target.addEventListener(touchEvents.move, swiper.onTouchMove, Support.passiveListener ? { passive: false, capture: capture } : capture);
-          target.addEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.addEventListener('mousedown', swiper.onTouchStart, false);
-          doc.addEventListener('mousemove', swiper.onTouchMove, capture);
-          doc.addEventListener('mouseup', swiper.onTouchEnd, false);
-        }
-      }
-      // Prevent Links Clicks
-      if (params.preventClicks || params.preventClicksPropagation) {
-        target.addEventListener('click', swiper.onClick, true);
-      }
-    }
-
-    // Resize handler
-    swiper.on('resize observerUpdate', onResize, true);
-  }
-
-  function detachEvents() {
-    var swiper = this;
-
-    var params = swiper.params;
-    var touchEvents = swiper.touchEvents;
-    var el = swiper.el;
-    var wrapperEl = swiper.wrapperEl;
-
-    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
-    var capture = !!params.nested;
-
-    // Touch Events
-    {
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.removeEventListener(touchEvents.start, swiper.onTouchStart, false);
-        doc.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
-        doc.removeEventListener(touchEvents.end, swiper.onTouchEnd, false);
-      } else {
-        if (Support.touch) {
-          var passiveListener = touchEvents.start === 'onTouchStart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
-          target.removeEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
-          target.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
-          target.removeEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.removeEventListener('mousedown', swiper.onTouchStart, false);
-          doc.removeEventListener('mousemove', swiper.onTouchMove, capture);
-          doc.removeEventListener('mouseup', swiper.onTouchEnd, false);
-        }
-      }
-      // Prevent Links Clicks
-      if (params.preventClicks || params.preventClicksPropagation) {
-        target.removeEventListener('click', swiper.onClick, true);
-      }
-    }
-
-    // Resize handler
-    swiper.off('resize observerUpdate', onResize);
-  }
-
-  var events = {
-    attachEvents: attachEvents,
-    detachEvents: detachEvents,
-  };
-
-  function setBreakpoint () {
-    var swiper = this;
-    var activeIndex = swiper.activeIndex;
-    var initialized = swiper.initialized;
-    var loopedSlides = swiper.loopedSlides; if ( loopedSlides === void 0 ) loopedSlides = 0;
-    var params = swiper.params;
-    var breakpoints = params.breakpoints;
-    if (!breakpoints || (breakpoints && Object.keys(breakpoints).length === 0)) { return; }
-    // Set breakpoint for window width and update parameters
-    var breakpoint = swiper.getBreakpoint(breakpoints);
-    if (breakpoint && swiper.currentBreakpoint !== breakpoint) {
-      var breakPointsParams = breakpoint in breakpoints ? breakpoints[breakpoint] : swiper.originalParams;
-      var needsReLoop = params.loop && (breakPointsParams.slidesPerView !== params.slidesPerView);
-
-      Utils.extend(swiper.params, breakPointsParams);
-
-      Utils.extend(swiper, {
-        allowTouchMove: swiper.params.allowTouchMove,
-        allowSlideNext: swiper.params.allowSlideNext,
-        allowSlidePrev: swiper.params.allowSlidePrev,
-      });
-
-      swiper.currentBreakpoint = breakpoint;
-
-      if (needsReLoop && initialized) {
-        swiper.loopDestroy();
-        swiper.loopCreate();
-        swiper.updateSlides();
-        swiper.slideTo((activeIndex - loopedSlides) + swiper.loopedSlides, 0, false);
-      }
-      swiper.emit('breakpoint', breakPointsParams);
-    }
-  }
-
-  function getBreakpoint (breakpoints) {
-    // Get breakpoint for window width
-    if (!breakpoints) { return undefined; }
-    var breakpoint = false;
-    var points = [];
-    Object.keys(breakpoints).forEach(function (point) {
-      points.push(point);
-    });
-    points.sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
-    for (var i = 0; i < points.length; i += 1) {
-      var point = points[i];
-      if (point >= win.innerWidth && !breakpoint) {
-        breakpoint = point;
-      }
-    }
-    return breakpoint || 'max';
-  }
-
-  var breakpoints = { setBreakpoint: setBreakpoint, getBreakpoint: getBreakpoint };
-
-  var Browser = (function Browser() {
-    function isSafari() {
-      var ua = win.navigator.userAgent.toLowerCase();
-      return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
-    }
-    return {
-      isIE: !!win.navigator.userAgent.match(/Trident/g) || !!win.navigator.userAgent.match(/MSIE/g),
-      isSafari: isSafari(),
-      isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(win.navigator.userAgent),
-    };
-  }());
-
-  function addClasses () {
-    var swiper = this;
-    var classNames = swiper.classNames;
-    var params = swiper.params;
-    var rtl = swiper.rtl;
-    var $el = swiper.$el;
-    var suffixes = [];
-
-    suffixes.push(params.direction);
-
-    if (params.freeMode) {
-      suffixes.push('free-mode');
-    }
-    if (!Support.flexbox) {
-      suffixes.push('no-flexbox');
-    }
-    if (params.autoHeight) {
-      suffixes.push('autoheight');
-    }
-    if (rtl) {
-      suffixes.push('rtl');
-    }
-    if (params.slidesPerColumn > 1) {
-      suffixes.push('multirow');
-    }
-    if (Device.android) {
-      suffixes.push('android');
-    }
-    if (Device.ios) {
-      suffixes.push('ios');
-    }
-    // WP8 Touch Events Fix
-    if (Browser.isIE && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-      suffixes.push(("wp8-" + (params.direction)));
-    }
-
-    suffixes.forEach(function (suffix) {
-      classNames.push(params.containerModifierClass + suffix);
-    });
-
-    $el.addClass(classNames.join(' '));
-  }
-
-  function removeClasses () {
-    var swiper = this;
-    var $el = swiper.$el;
-    var classNames = swiper.classNames;
-
-    $el.removeClass(classNames.join(' '));
-  }
-
-  var classes = { addClasses: addClasses, removeClasses: removeClasses };
-
-  function loadImage (imageEl, src, srcset, sizes, checkForComplete, callback) {
-    var image;
-    function onReady() {
-      if (callback) { callback(); }
-    }
-    if (!imageEl.complete || !checkForComplete) {
-      if (src) {
-        image = new win.Image();
-        image.onload = onReady;
-        image.onerror = onReady;
-        if (sizes) {
-          image.sizes = sizes;
-        }
-        if (srcset) {
-          image.srcset = srcset;
-        }
-        if (src) {
-          image.src = src;
-        }
-      } else {
-        onReady();
-      }
-    } else {
-      // image already loaded...
-      onReady();
-    }
-  }
-
-  function preloadImages () {
-    var swiper = this;
-    swiper.imagesToLoad = swiper.$el.find('img');
-    function onReady() {
-      if (typeof swiper === 'undefined' || swiper === null || !swiper || swiper.destroyed) { return; }
-      if (swiper.imagesLoaded !== undefined) { swiper.imagesLoaded += 1; }
-      if (swiper.imagesLoaded === swiper.imagesToLoad.length) {
-        if (swiper.params.updateOnImagesReady) { swiper.update(); }
-        swiper.emit('imagesReady');
-      }
-    }
-    for (var i = 0; i < swiper.imagesToLoad.length; i += 1) {
-      var imageEl = swiper.imagesToLoad[i];
-      swiper.loadImage(
-        imageEl,
-        imageEl.currentSrc || imageEl.getAttribute('src'),
-        imageEl.srcset || imageEl.getAttribute('srcset'),
-        imageEl.sizes || imageEl.getAttribute('sizes'),
-        true,
-        onReady
-      );
-    }
-  }
-
-  var images = {
-    loadImage: loadImage,
-    preloadImages: preloadImages,
-  };
-
-  function checkOverflow() {
-    var swiper = this;
-    var wasLocked = swiper.isLocked;
-
-    swiper.isLocked = swiper.snapGrid.length === 1;
-    swiper.allowSlideNext = !swiper.isLocked;
-    swiper.allowSlidePrev = !swiper.isLocked;
-
-    // events
-    if (wasLocked !== swiper.isLocked) { swiper.emit(swiper.isLocked ? 'lock' : 'unlock'); }
-
-    if (wasLocked && wasLocked !== swiper.isLocked) {
-      swiper.isEnd = false;
-      swiper.navigation.update();
-    }
-  }
-
-  var checkOverflow$1 = { checkOverflow: checkOverflow };
-
-  var defaults = {
-    init: true,
-    direction: 'horizontal',
-    touchEventsTarget: 'container',
-    initialSlide: 0,
-    speed: 300,
-    //
-    preventIntercationOnTransition: false,
-
-    // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
-    iOSEdgeSwipeDetection: false,
-    iOSEdgeSwipeThreshold: 20,
-
-    // Free mode
-    freeMode: false,
-    freeModeMomentum: true,
-    freeModeMomentumRatio: 1,
-    freeModeMomentumBounce: true,
-    freeModeMomentumBounceRatio: 1,
-    freeModeMomentumVelocityRatio: 1,
-    freeModeSticky: false,
-    freeModeMinimumVelocity: 0.02,
-
-    // Autoheight
-    autoHeight: false,
-
-    // Set wrapper width
-    setWrapperSize: false,
-
-    // Virtual Translate
-    virtualTranslate: false,
-
-    // Effects
-    effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
-
-    // Breakpoints
-    breakpoints: undefined,
-
-    // Slides grid
-    spaceBetween: 0,
-    slidesPerView: 1,
-    slidesPerColumn: 1,
-    slidesPerColumnFill: 'column',
-    slidesPerGroup: 1,
-    centeredSlides: false,
-    slidesOffsetBefore: 0, // in px
-    slidesOffsetAfter: 0, // in px
-    normalizeSlideIndex: true,
-
-    // Disable swiper and hide navigation when container not overflow
-    watchOverflow: false,
-
-    // Round length
-    roundLengths: false,
-
-    // Touches
-    touchRatio: 1,
-    touchAngle: 45,
-    simulateTouch: true,
-    shortSwipes: true,
-    longSwipes: true,
-    longSwipesRatio: 0.5,
-    longSwipesMs: 300,
-    followFinger: true,
-    allowTouchMove: true,
-    threshold: 0,
-    touchMoveStopPropagation: true,
-    touchReleaseOnEdges: false,
-
-    // Unique Navigation Elements
-    uniqueNavElements: true,
-
-    // Resistance
-    resistance: true,
-    resistanceRatio: 0.85,
-
-    // Progress
-    watchSlidesProgress: false,
-    watchSlidesVisibility: false,
-
-    // Cursor
-    grabCursor: false,
-
-    // Clicks
-    preventClicks: true,
-    preventClicksPropagation: true,
-    slideToClickedSlide: false,
-
-    // Images
-    preloadImages: true,
-    updateOnImagesReady: true,
-
-    // loop
-    loop: false,
-    loopAdditionalSlides: 0,
-    loopedSlides: null,
-    loopFillGroupWithBlank: false,
-
-    // Swiping/no swiping
-    allowSlidePrev: true,
-    allowSlideNext: true,
-    swipeHandler: null, // '.swipe-handler',
-    noSwiping: true,
-    noSwipingClass: 'swiper-no-swiping',
-    noSwipingSelector: null,
-
-    // Passive Listeners
-    passiveListeners: true,
-
-    // NS
-    containerModifierClass: 'swiper-container-', // NEW
-    slideClass: 'swiper-slide',
-    slideBlankClass: 'swiper-slide-invisible-blank',
-    slideActiveClass: 'swiper-slide-active',
-    slideDuplicateActiveClass: 'swiper-slide-duplicate-active',
-    slideVisibleClass: 'swiper-slide-visible',
-    slideDuplicateClass: 'swiper-slide-duplicate',
-    slideNextClass: 'swiper-slide-next',
-    slideDuplicateNextClass: 'swiper-slide-duplicate-next',
-    slidePrevClass: 'swiper-slide-prev',
-    slideDuplicatePrevClass: 'swiper-slide-duplicate-prev',
-    wrapperClass: 'swiper-wrapper',
-
-    // Callbacks
-    runCallbacksOnInit: true,
-  };
-
-  var prototypes = {
-    update: update,
-    translate: translate,
-    transition: transition$1,
-    slide: slide,
-    loop: loop,
-    grabCursor: grabCursor,
-    manipulation: manipulation,
-    events: events,
-    breakpoints: breakpoints,
-    checkOverflow: checkOverflow$1,
-    classes: classes,
-    images: images,
-  };
-
-  var extendedDefaults = {};
-
-  var Swiper = (function (SwiperClass$$1) {
-    function Swiper() {
-      var assign;
-
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-      var el;
-      var params;
-      if (args.length === 1 && args[0].constructor && args[0].constructor === Object) {
-        params = args[0];
-      } else {
-        (assign = args, el = assign[0], params = assign[1]);
-      }
-      if (!params) { params = {}; }
-
-      params = Utils.extend({}, params);
-      if (el && !params.el) { params.el = el; }
-
-      SwiperClass$$1.call(this, params);
-
-      Object.keys(prototypes).forEach(function (prototypeGroup) {
-        Object.keys(prototypes[prototypeGroup]).forEach(function (protoMethod) {
-          if (!Swiper.prototype[protoMethod]) {
-            Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
-          }
-        });
-      });
-
-      // Swiper Instance
-      var swiper = this;
-      if (typeof swiper.modules === 'undefined') {
-        swiper.modules = {};
-      }
-      Object.keys(swiper.modules).forEach(function (moduleName) {
-        var module = swiper.modules[moduleName];
-        if (module.params) {
-          var moduleParamName = Object.keys(module.params)[0];
-          var moduleParams = module.params[moduleParamName];
-          if (typeof moduleParams !== 'object') { return; }
-          if (!(moduleParamName in params && 'enabled' in moduleParams)) { return; }
-          if (params[moduleParamName] === true) {
-            params[moduleParamName] = { enabled: true };
-          }
-          if (
-            typeof params[moduleParamName] === 'object' &&
-            !('enabled' in params[moduleParamName])
-          ) {
-            params[moduleParamName].enabled = true;
-          }
-          if (!params[moduleParamName]) { params[moduleParamName] = { enabled: false }; }
-        }
-      });
-
-      // Extend defaults with modules params
-      var swiperParams = Utils.extend({}, defaults);
-      swiper.useModulesParams(swiperParams);
-
-      // Extend defaults with passed params
-      swiper.params = Utils.extend({}, swiperParams, extendedDefaults, params);
-      swiper.originalParams = Utils.extend({}, swiper.params);
-      swiper.passedParams = Utils.extend({}, params);
-
-      // Save Dom lib
-      swiper.$ = $;
-
-      // Find el
-      var $el = $(swiper.params.el);
-      el = $el[0];
-
-      if (!el) {
-        return undefined;
-      }
-
-      if ($el.length > 1) {
-        var swipers = [];
-        $el.each(function (index, containerEl) {
-          var newParams = Utils.extend({}, params, { el: containerEl });
-          swipers.push(new Swiper(newParams));
-        });
-        return swipers;
-      }
-
-      el.swiper = swiper;
-      $el.data('swiper', swiper);
-
-      // Find Wrapper
-      var $wrapperEl = $el.children(("." + (swiper.params.wrapperClass)));
-
-      // Extend Swiper
-      Utils.extend(swiper, {
-        $el: $el,
-        el: el,
-        $wrapperEl: $wrapperEl,
-        wrapperEl: $wrapperEl[0],
-
-        // Classes
-        classNames: [],
-
-        // Slides
-        slides: $(),
-        slidesGrid: [],
-        snapGrid: [],
-        slidesSizesGrid: [],
-
-        // isDirection
-        isHorizontal: function isHorizontal() {
-          return swiper.params.direction === 'horizontal';
-        },
-        isVertical: function isVertical() {
-          return swiper.params.direction === 'vertical';
-        },
-        // RTL
-        rtl: (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
-        rtlTranslate: swiper.params.direction === 'horizontal' && (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
-        wrongRTL: $wrapperEl.css('display') === '-webkit-box',
-
-        // Indexes
-        activeIndex: 0,
-        realIndex: 0,
-
-        //
-        isBeginning: true,
-        isEnd: false,
-
-        // Props
-        translate: 0,
-        progress: 0,
-        velocity: 0,
-        animating: false,
-
-        // Locks
-        allowSlideNext: swiper.params.allowSlideNext,
-        allowSlidePrev: swiper.params.allowSlidePrev,
-
-        // Touch Events
-        touchEvents: (function touchEvents() {
-          var touch = ['touchstart', 'touchmove', 'touchend'];
-          var desktop = ['mousedown', 'mousemove', 'mouseup'];
-          if (Support.pointerEvents) {
-            desktop = ['pointerdown', 'pointermove', 'pointerup'];
-          } else if (Support.prefixedPointerEvents) {
-            desktop = ['MSPointerDown', 'MSPointerMove', 'MSPointerUp'];
-          }
-          swiper.touchEventsTouch = {
-            start: touch[0],
-            move: touch[1],
-            end: touch[2],
-          };
-          swiper.touchEventsDesktop = {
-            start: desktop[0],
-            move: desktop[1],
-            end: desktop[2],
-          };
-          return Support.touch || !swiper.params.simulateTouch ? swiper.touchEventsTouch : swiper.touchEventsDesktop;
-        }()),
-        touchEventsData: {
-          isTouched: undefined,
-          isMoved: undefined,
-          allowTouchCallbacks: undefined,
-          touchStartTime: undefined,
-          isScrolling: undefined,
-          currentTranslate: undefined,
-          startTranslate: undefined,
-          allowThresholdMove: undefined,
-          // Form elements to match
-          formElements: 'input, select, option, textarea, button, video',
-          // Last click time
-          lastClickTime: Utils.now(),
-          clickTimeout: undefined,
-          // Velocities
-          velocities: [],
-          allowMomentumBounce: undefined,
-          isTouchEvent: undefined,
-          startMoving: undefined,
-        },
-
-        // Clicks
-        allowClick: true,
-
-        // Touches
-        allowTouchMove: swiper.params.allowTouchMove,
-
-        touches: {
-          startX: 0,
-          startY: 0,
-          currentX: 0,
-          currentY: 0,
-          diff: 0,
-        },
-
-        // Images
-        imagesToLoad: [],
-        imagesLoaded: 0,
-
-      });
-
-      // Install Modules
-      swiper.useModules();
-
-      // Init
-      if (swiper.params.init) {
-        swiper.init();
-      }
-
-      // Return app instance
-      return swiper;
-    }
-
-    if ( SwiperClass$$1 ) Swiper.__proto__ = SwiperClass$$1;
-    Swiper.prototype = Object.create( SwiperClass$$1 && SwiperClass$$1.prototype );
-    Swiper.prototype.constructor = Swiper;
-
-    var staticAccessors = { extendedDefaults: { configurable: true },defaults: { configurable: true },Class: { configurable: true },$: { configurable: true } };
-    Swiper.prototype.slidesPerViewDynamic = function slidesPerViewDynamic () {
-      var swiper = this;
-      var params = swiper.params;
-      var slides = swiper.slides;
-      var slidesGrid = swiper.slidesGrid;
-      var swiperSize = swiper.size;
-      var activeIndex = swiper.activeIndex;
-      var spv = 1;
-      if (params.centeredSlides) {
-        var slideSize = slides[activeIndex].swiperSlideSize;
-        var breakLoop;
-        for (var i = activeIndex + 1; i < slides.length; i += 1) {
-          if (slides[i] && !breakLoop) {
-            slideSize += slides[i].swiperSlideSize;
-            spv += 1;
-            if (slideSize > swiperSize) { breakLoop = true; }
-          }
-        }
-        for (var i$1 = activeIndex - 1; i$1 >= 0; i$1 -= 1) {
-          if (slides[i$1] && !breakLoop) {
-            slideSize += slides[i$1].swiperSlideSize;
-            spv += 1;
-            if (slideSize > swiperSize) { breakLoop = true; }
-          }
-        }
-      } else {
-        for (var i$2 = activeIndex + 1; i$2 < slides.length; i$2 += 1) {
-          if (slidesGrid[i$2] - slidesGrid[activeIndex] < swiperSize) {
-            spv += 1;
-          }
-        }
-      }
-      return spv;
-    };
-    Swiper.prototype.update = function update$$1 () {
-      var swiper = this;
-      if (!swiper || swiper.destroyed) { return; }
-      var snapGrid = swiper.snapGrid;
-      var params = swiper.params;
-      // Breakpoints
-      if (params.breakpoints) {
-        swiper.setBreakpoint();
-      }
-      swiper.updateSize();
-      swiper.updateSlides();
-      swiper.updateProgress();
-      swiper.updateSlidesClasses();
-
-      function setTranslate() {
-        var translateValue = swiper.rtlTranslate ? swiper.translate * -1 : swiper.translate;
-        var newTranslate = Math.min(Math.max(translateValue, swiper.maxTranslate()), swiper.minTranslate());
-        swiper.setTranslate(newTranslate);
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-      }
-      var translated;
-      if (swiper.params.freeMode) {
-        setTranslate();
-        if (swiper.params.autoHeight) {
-          swiper.updateAutoHeight();
-        }
-      } else {
-        if ((swiper.params.slidesPerView === 'auto' || swiper.params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
-          translated = swiper.slideTo(swiper.slides.length - 1, 0, false, true);
-        } else {
-          translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
-        }
-        if (!translated) {
-          setTranslate();
-        }
-      }
-      if (params.watchOverflow && snapGrid !== swiper.snapGrid) {
-        swiper.checkOverflow();
-      }
-      swiper.emit('update');
-    };
-    Swiper.prototype.init = function init () {
-      var swiper = this;
-      if (swiper.initialized) { return; }
-
-      swiper.emit('beforeInit');
-
-      // Set breakpoint
-      if (swiper.params.breakpoints) {
-        swiper.setBreakpoint();
-      }
-
-      // Add Classes
-      swiper.addClasses();
-
-      // Create loop
-      if (swiper.params.loop) {
-        swiper.loopCreate();
-      }
-
-      // Update size
-      swiper.updateSize();
-
-      // Update slides
-      swiper.updateSlides();
-
-      if (swiper.params.watchOverflow) {
-        swiper.checkOverflow();
-      }
-
-      // Set Grab Cursor
-      if (swiper.params.grabCursor) {
-        swiper.setGrabCursor();
-      }
-
-      if (swiper.params.preloadImages) {
-        swiper.preloadImages();
-      }
-
-      // Slide To Initial Slide
-      if (swiper.params.loop) {
-        swiper.slideTo(swiper.params.initialSlide + swiper.loopedSlides, 0, swiper.params.runCallbacksOnInit);
-      } else {
-        swiper.slideTo(swiper.params.initialSlide, 0, swiper.params.runCallbacksOnInit);
-      }
-
-      // Attach events
-      swiper.attachEvents();
-
-      // Init Flag
-      swiper.initialized = true;
-
-      // Emit
-      swiper.emit('init');
-    };
-    Swiper.prototype.destroy = function destroy (deleteInstance, cleanStyles) {
-      if ( deleteInstance === void 0 ) deleteInstance = true;
-      if ( cleanStyles === void 0 ) cleanStyles = true;
-
-      var swiper = this;
-      var params = swiper.params;
-      var $el = swiper.$el;
-      var $wrapperEl = swiper.$wrapperEl;
-      var slides = swiper.slides;
-
-      if (typeof swiper.params === 'undefined' || swiper.destroyed) {
-        return null;
-      }
-
-      swiper.emit('beforeDestroy');
-
-      // Init Flag
-      swiper.initialized = false;
-
-      // Detach events
-      swiper.detachEvents();
-
-      // Destroy loop
-      if (params.loop) {
-        swiper.loopDestroy();
-      }
-
-      // Cleanup styles
-      if (cleanStyles) {
-        swiper.removeClasses();
-        $el.removeAttr('style');
-        $wrapperEl.removeAttr('style');
-        if (slides && slides.length) {
-          slides
-            .removeClass([
-              params.slideVisibleClass,
-              params.slideActiveClass,
-              params.slideNextClass,
-              params.slidePrevClass ].join(' '))
-            .removeAttr('style')
-            .removeAttr('data-swiper-slide-index')
-            .removeAttr('data-swiper-column')
-            .removeAttr('data-swiper-row');
-        }
-      }
-
-      swiper.emit('destroy');
-
-      // Detach emitter events
-      Object.keys(swiper.eventsListeners).forEach(function (eventName) {
-        swiper.off(eventName);
-      });
-
-      if (deleteInstance !== false) {
-        swiper.$el[0].swiper = null;
-        swiper.$el.data('swiper', null);
-        Utils.deleteProps(swiper);
-      }
-      swiper.destroyed = true;
-
-      return null;
-    };
-    Swiper.extendDefaults = function extendDefaults (newDefaults) {
-      Utils.extend(extendedDefaults, newDefaults);
-    };
-    staticAccessors.extendedDefaults.get = function () {
-      return extendedDefaults;
-    };
-    staticAccessors.defaults.get = function () {
-      return defaults;
-    };
-    staticAccessors.Class.get = function () {
-      return SwiperClass$$1;
-    };
-    staticAccessors.$.get = function () {
-      return $;
-    };
-
-    Object.defineProperties( Swiper, staticAccessors );
-
-    return Swiper;
-  }(SwiperClass));
-
-  var Device$1 = {
-    name: 'device',
-    proto: {
-      device: Device,
-    },
-    static: {
-      device: Device,
-    },
-  };
-
-  var Support$1 = {
-    name: 'support',
-    proto: {
-      support: Support,
-    },
-    static: {
-      support: Support,
-    },
-  };
-
-  var Browser$1 = {
-    name: 'browser',
-    proto: {
-      browser: Browser,
-    },
-    static: {
-      browser: Browser,
-    },
-  };
-
-  var Resize = {
-    name: 'resize',
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        resize: {
-          resizeHandler: function resizeHandler() {
-            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
-            swiper.emit('beforeResize');
-            swiper.emit('resize');
-          },
-          orientationChangeHandler: function orientationChangeHandler() {
-            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
-            swiper.emit('orientationchange');
-          },
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        // Emit resize
-        win.addEventListener('resize', swiper.resize.resizeHandler);
-
-        // Emit orientationchange
-        win.addEventListener('orientationchange', swiper.resize.orientationChangeHandler);
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        win.removeEventListener('resize', swiper.resize.resizeHandler);
-        win.removeEventListener('orientationchange', swiper.resize.orientationChangeHandler);
-      },
-    },
-  };
-
-  var Observer = {
-    func: win.MutationObserver || win.WebkitMutationObserver,
-    attach: function attach(target, options) {
-      if ( options === void 0 ) options = {};
-
-      var swiper = this;
-
-      var ObserverFunc = Observer.func;
-      var observer = new ObserverFunc(function (mutations) {
-        mutations.forEach(function (mutation) {
-          swiper.emit('observerUpdate', mutation);
-        });
-      });
-
-      observer.observe(target, {
-        attributes: typeof options.attributes === 'undefined' ? true : options.attributes,
-        childList: typeof options.childList === 'undefined' ? true : options.childList,
-        characterData: typeof options.characterData === 'undefined' ? true : options.characterData,
-      });
-
-      swiper.observer.observers.push(observer);
-    },
-    init: function init() {
-      var swiper = this;
-      if (!Support.observer || !swiper.params.observer) { return; }
-      if (swiper.params.observeParents) {
-        var containerParents = swiper.$el.parents();
-        for (var i = 0; i < containerParents.length; i += 1) {
-          swiper.observer.attach(containerParents[i]);
-        }
-      }
-      // Observe container
-      swiper.observer.attach(swiper.$el[0], { childList: false });
-
-      // Observe wrapper
-      swiper.observer.attach(swiper.$wrapperEl[0], { attributes: false });
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      swiper.observer.observers.forEach(function (observer) {
-        observer.disconnect();
-      });
-      swiper.observer.observers = [];
-    },
-  };
-
-  var Observer$1 = {
-    name: 'observer',
-    params: {
-      observer: false,
-      observeParents: false,
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        observer: {
-          init: Observer.init.bind(swiper),
-          attach: Observer.attach.bind(swiper),
-          destroy: Observer.destroy.bind(swiper),
-          observers: [],
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.observer.init();
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.observer.destroy();
-      },
-    },
-  };
-
-  var Virtual = {
-    update: function update(force) {
-      var swiper = this;
-      var ref = swiper.params;
-      var slidesPerView = ref.slidesPerView;
-      var slidesPerGroup = ref.slidesPerGroup;
-      var centeredSlides = ref.centeredSlides;
-      var ref$1 = swiper.virtual;
-      var previousFrom = ref$1.from;
-      var previousTo = ref$1.to;
-      var slides = ref$1.slides;
-      var previousSlidesGrid = ref$1.slidesGrid;
-      var renderSlide = ref$1.renderSlide;
-      var previousOffset = ref$1.offset;
-      swiper.updateActiveIndex();
-      var activeIndex = swiper.activeIndex || 0;
-
-      var offsetProp;
-      if (swiper.rtlTranslate) { offsetProp = 'right'; }
-      else { offsetProp = swiper.isHorizontal() ? 'left' : 'top'; }
-
-      var slidesAfter;
-      var slidesBefore;
-      if (centeredSlides) {
-        slidesAfter = Math.floor(slidesPerView / 2) + slidesPerGroup;
-        slidesBefore = Math.floor(slidesPerView / 2) + slidesPerGroup;
-      } else {
-        slidesAfter = slidesPerView + (slidesPerGroup - 1);
-        slidesBefore = slidesPerGroup;
-      }
-      var from = Math.max((activeIndex || 0) - slidesBefore, 0);
-      var to = Math.min((activeIndex || 0) + slidesAfter, slides.length - 1);
-      var offset = (swiper.slidesGrid[from] || 0) - (swiper.slidesGrid[0] || 0);
-
-      Utils.extend(swiper.virtual, {
-        from: from,
-        to: to,
-        offset: offset,
-        slidesGrid: swiper.slidesGrid,
-      });
-
-      function onRendered() {
-        swiper.updateSlides();
-        swiper.updateProgress();
-        swiper.updateSlidesClasses();
-        if (swiper.lazy && swiper.params.lazy.enabled) {
-          swiper.lazy.load();
-        }
-      }
-
-      if (previousFrom === from && previousTo === to && !force) {
-        if (swiper.slidesGrid !== previousSlidesGrid && offset !== previousOffset) {
-          swiper.slides.css(offsetProp, (offset + "px"));
-        }
-        swiper.updateProgress();
-        return;
-      }
-      if (swiper.params.virtual.renderExternal) {
-        swiper.params.virtual.renderExternal.call(swiper, {
-          offset: offset,
-          from: from,
-          to: to,
-          slides: (function getSlides() {
-            var slidesToRender = [];
-            for (var i = from; i <= to; i += 1) {
-              slidesToRender.push(slides[i]);
-            }
-            return slidesToRender;
-          }()),
-        });
-        onRendered();
-        return;
-      }
-      var prependIndexes = [];
-      var appendIndexes = [];
-      if (force) {
-        swiper.$wrapperEl.find(("." + (swiper.params.slideClass))).remove();
-      } else {
-        for (var i = previousFrom; i <= previousTo; i += 1) {
-          if (i < from || i > to) {
-            swiper.$wrapperEl.find(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + i + "\"]")).remove();
-          }
-        }
-      }
-      for (var i$1 = 0; i$1 < slides.length; i$1 += 1) {
-        if (i$1 >= from && i$1 <= to) {
-          if (typeof previousTo === 'undefined' || force) {
-            appendIndexes.push(i$1);
-          } else {
-            if (i$1 > previousTo) { appendIndexes.push(i$1); }
-            if (i$1 < previousFrom) { prependIndexes.push(i$1); }
-          }
-        }
-      }
-      appendIndexes.forEach(function (index) {
-        swiper.$wrapperEl.append(renderSlide(slides[index], index));
-      });
-      prependIndexes.sort(function (a, b) { return a < b; }).forEach(function (index) {
-        swiper.$wrapperEl.prepend(renderSlide(slides[index], index));
-      });
-      swiper.$wrapperEl.children('.swiper-slide').css(offsetProp, (offset + "px"));
-      onRendered();
-    },
-    renderSlide: function renderSlide(slide, index) {
-      var swiper = this;
-      var params = swiper.params.virtual;
-      if (params.cache && swiper.virtual.cache[index]) {
-        return swiper.virtual.cache[index];
-      }
-      var $slideEl = params.renderSlide
-        ? $(params.renderSlide.call(swiper, slide, index))
-        : $(("<div class=\"" + (swiper.params.slideClass) + "\" data-swiper-slide-index=\"" + index + "\">" + slide + "</div>"));
-      if (!$slideEl.attr('data-swiper-slide-index')) { $slideEl.attr('data-swiper-slide-index', index); }
-      if (params.cache) { swiper.virtual.cache[index] = $slideEl; }
-      return $slideEl;
-    },
-    appendSlide: function appendSlide(slide) {
-      var swiper = this;
-      swiper.virtual.slides.push(slide);
-      swiper.virtual.update(true);
-    },
-    prependSlide: function prependSlide(slide) {
-      var swiper = this;
-      swiper.virtual.slides.unshift(slide);
-      if (swiper.params.virtual.cache) {
-        var cache = swiper.virtual.cache;
-        var newCache = {};
-        Object.keys(cache).forEach(function (cachedIndex) {
-          newCache[cachedIndex + 1] = cache[cachedIndex];
-        });
-        swiper.virtual.cache = newCache;
-      }
-      swiper.virtual.update(true);
-      swiper.slideNext(0);
-    },
-  };
-
-  var Virtual$1 = {
-    name: 'virtual',
-    params: {
-      virtual: {
-        enabled: false,
-        slides: [],
-        cache: true,
-        renderSlide: null,
-        renderExternal: null,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        virtual: {
-          update: Virtual.update.bind(swiper),
-          appendSlide: Virtual.appendSlide.bind(swiper),
-          prependSlide: Virtual.prependSlide.bind(swiper),
-          renderSlide: Virtual.renderSlide.bind(swiper),
-          slides: swiper.params.virtual.slides,
-          cache: {},
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (!swiper.params.virtual.enabled) { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "virtual"));
-        var overwriteParams = {
-          watchSlidesProgress: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-
-        swiper.virtual.update();
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (!swiper.params.virtual.enabled) { return; }
-        swiper.virtual.update();
-      },
-    },
-  };
-
-  var Keyboard = {
-    handle: function handle(event) {
-      var swiper = this;
-      var rtl = swiper.rtlTranslate;
-      var e = event;
-      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
-      var kc = e.keyCode || e.charCode;
-      // Directions locks
-      if (!swiper.allowSlideNext && ((swiper.isHorizontal() && kc === 39) || (swiper.isVertical() && kc === 40))) {
-        return false;
-      }
-      if (!swiper.allowSlidePrev && ((swiper.isHorizontal() && kc === 37) || (swiper.isVertical() && kc === 38))) {
-        return false;
-      }
-      if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
-        return undefined;
-      }
-      if (doc.activeElement && doc.activeElement.nodeName && (doc.activeElement.nodeName.toLowerCase() === 'input' || doc.activeElement.nodeName.toLowerCase() === 'textarea')) {
-        return undefined;
-      }
-      if (swiper.params.keyboard.onlyInViewport && (kc === 37 || kc === 39 || kc === 38 || kc === 40)) {
-        var inView = false;
-        // Check that swiper should be inside of visible area of window
-        if (swiper.$el.parents(("." + (swiper.params.slideClass))).length > 0 && swiper.$el.parents(("." + (swiper.params.slideActiveClass))).length === 0) {
-          return undefined;
-        }
-        var windowWidth = win.innerWidth;
-        var windowHeight = win.innerHeight;
-        var swiperOffset = swiper.$el.offset();
-        if (rtl) { swiperOffset.left -= swiper.$el[0].scrollLeft; }
-        var swiperCoord = [
-          [swiperOffset.left, swiperOffset.top],
-          [swiperOffset.left + swiper.width, swiperOffset.top],
-          [swiperOffset.left, swiperOffset.top + swiper.height],
-          [swiperOffset.left + swiper.width, swiperOffset.top + swiper.height] ];
-        for (var i = 0; i < swiperCoord.length; i += 1) {
-          var point = swiperCoord[i];
-          if (
-            point[0] >= 0 && point[0] <= windowWidth &&
-            point[1] >= 0 && point[1] <= windowHeight
-          ) {
-            inView = true;
-          }
-        }
-        if (!inView) { return undefined; }
-      }
-      if (swiper.isHorizontal()) {
-        if (kc === 37 || kc === 39) {
-          if (e.preventDefault) { e.preventDefault(); }
-          else { e.returnValue = false; }
-        }
-        if ((kc === 39 && !rtl) || (kc === 37 && rtl)) { swiper.slideNext(); }
-        if ((kc === 37 && !rtl) || (kc === 39 && rtl)) { swiper.slidePrev(); }
-      } else {
-        if (kc === 38 || kc === 40) {
-          if (e.preventDefault) { e.preventDefault(); }
-          else { e.returnValue = false; }
-        }
-        if (kc === 40) { swiper.slideNext(); }
-        if (kc === 38) { swiper.slidePrev(); }
-      }
-      swiper.emit('keyPress', kc);
-      return undefined;
-    },
-    enable: function enable() {
-      var swiper = this;
-      if (swiper.keyboard.enabled) { return; }
-      $(doc).on('keydown', swiper.keyboard.handle);
-      swiper.keyboard.enabled = true;
-    },
-    disable: function disable() {
-      var swiper = this;
-      if (!swiper.keyboard.enabled) { return; }
-      $(doc).off('keydown', swiper.keyboard.handle);
-      swiper.keyboard.enabled = false;
-    },
-  };
-
-  var Keyboard$1 = {
-    name: 'keyboard',
-    params: {
-      keyboard: {
-        enabled: false,
-        onlyInViewport: true,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        keyboard: {
-          enabled: false,
-          enable: Keyboard.enable.bind(swiper),
-          disable: Keyboard.disable.bind(swiper),
-          handle: Keyboard.handle.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.keyboard.enabled) {
-          swiper.keyboard.enable();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.keyboard.enabled) {
-          swiper.keyboard.disable();
-        }
-      },
-    },
-  };
-
-  function isEventSupported() {
-    var eventName = 'onwheel';
-    var isSupported = eventName in doc;
-
-    if (!isSupported) {
-      var element = doc.createElement('div');
-      element.setAttribute(eventName, 'return;');
-      isSupported = typeof element[eventName] === 'function';
-    }
-
-    if (!isSupported &&
-      doc.implementation &&
-      doc.implementation.hasFeature &&
-      // always returns true in newer browsers as per the standard.
-      // @see http://dom.spec.whatwg.org/#dom-domimplementation-hasfeature
-      doc.implementation.hasFeature('', '') !== true
-    ) {
-      // This is the only way to test support for the `wheel` event in IE9+.
-      isSupported = doc.implementation.hasFeature('Events.wheel', '3.0');
-    }
-
-    return isSupported;
-  }
-  var Mousewheel = {
-    lastScrollTime: Utils.now(),
-    event: (function getEvent() {
-      if (win.navigator.userAgent.indexOf('firefox') > -1) { return 'DOMMouseScroll'; }
-      return isEventSupported() ? 'wheel' : 'mousewheel';
-    }()),
-    normalize: function normalize(e) {
-      // Reasonable defaults
-      var PIXEL_STEP = 10;
-      var LINE_HEIGHT = 40;
-      var PAGE_HEIGHT = 800;
-
-      var sX = 0;
-      var sY = 0; // spinX, spinY
-      var pX = 0;
-      var pY = 0; // pixelX, pixelY
-
-      // Legacy
-      if ('detail' in e) {
-        sY = e.detail;
-      }
-      if ('wheelDelta' in e) {
-        sY = -e.wheelDelta / 120;
-      }
-      if ('wheelDeltaY' in e) {
-        sY = -e.wheelDeltaY / 120;
-      }
-      if ('wheelDeltaX' in e) {
-        sX = -e.wheelDeltaX / 120;
-      }
-
-      // side scrolling on FF with DOMMouseScroll
-      if ('axis' in e && e.axis === e.HORIZONTAL_AXIS) {
-        sX = sY;
-        sY = 0;
-      }
-
-      pX = sX * PIXEL_STEP;
-      pY = sY * PIXEL_STEP;
-
-      if ('deltaY' in e) {
-        pY = e.deltaY;
-      }
-      if ('deltaX' in e) {
-        pX = e.deltaX;
-      }
-
-      if ((pX || pY) && e.deltaMode) {
-        if (e.deltaMode === 1) { // delta in LINE units
-          pX *= LINE_HEIGHT;
-          pY *= LINE_HEIGHT;
-        } else { // delta in PAGE units
-          pX *= PAGE_HEIGHT;
-          pY *= PAGE_HEIGHT;
-        }
-      }
-
-      // Fall-back if spin cannot be determined
-      if (pX && !sX) {
-        sX = (pX < 1) ? -1 : 1;
-      }
-      if (pY && !sY) {
-        sY = (pY < 1) ? -1 : 1;
-      }
-
-      return {
-        spinX: sX,
-        spinY: sY,
-        pixelX: pX,
-        pixelY: pY,
-      };
-    },
-    handleMouseEnter: function handleMouseEnter() {
-      var swiper = this;
-      swiper.mouseEntered = true;
-    },
-    handleMouseLeave: function handleMouseLeave() {
-      var swiper = this;
-      swiper.mouseEntered = false;
-    },
-    handle: function handle(event) {
-      var e = event;
-      var swiper = this;
-      var params = swiper.params.mousewheel;
-
-      if (!swiper.mouseEntered && !params.releaseOnEdges) { return true; }
-
-      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
-      var delta = 0;
-      var rtlFactor = swiper.rtlTranslate ? -1 : 1;
-
-      var data = Mousewheel.normalize(e);
-
-      if (params.forceToAxis) {
-        if (swiper.isHorizontal()) {
-          if (Math.abs(data.pixelX) > Math.abs(data.pixelY)) { delta = data.pixelX * rtlFactor; }
-          else { return true; }
-        } else if (Math.abs(data.pixelY) > Math.abs(data.pixelX)) { delta = data.pixelY; }
-        else { return true; }
-      } else {
-        delta = Math.abs(data.pixelX) > Math.abs(data.pixelY) ? -data.pixelX * rtlFactor : -data.pixelY;
-      }
-
-      if (delta === 0) { return true; }
-
-      if (params.invert) { delta = -delta; }
-
-      if (!swiper.params.freeMode) {
-        if (Utils.now() - swiper.mousewheel.lastScrollTime > 60) {
-          if (delta < 0) {
-            if ((!swiper.isEnd || swiper.params.loop) && !swiper.animating) {
-              swiper.slideNext();
-              swiper.emit('scroll', e);
-            } else if (params.releaseOnEdges) { return true; }
-          } else if ((!swiper.isBeginning || swiper.params.loop) && !swiper.animating) {
-            swiper.slidePrev();
-            swiper.emit('scroll', e);
-          } else if (params.releaseOnEdges) { return true; }
-        }
-        swiper.mousewheel.lastScrollTime = (new win.Date()).getTime();
-      } else {
-        // Freemode or scrollContainer:
-        if (swiper.params.loop) {
-          swiper.loopFix();
-        }
-        var position = swiper.getTranslate() + (delta * params.sensitivity);
-        var wasBeginning = swiper.isBeginning;
-        var wasEnd = swiper.isEnd;
-
-        if (position >= swiper.minTranslate()) { position = swiper.minTranslate(); }
-        if (position <= swiper.maxTranslate()) { position = swiper.maxTranslate(); }
-
-        swiper.setTransition(0);
-        swiper.setTranslate(position);
-        swiper.updateProgress();
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-
-        if ((!wasBeginning && swiper.isBeginning) || (!wasEnd && swiper.isEnd)) {
-          swiper.updateSlidesClasses();
-        }
-
-        if (swiper.params.freeModeSticky) {
-          clearTimeout(swiper.mousewheel.timeout);
-          swiper.mousewheel.timeout = Utils.nextTick(function () {
-            swiper.slideToClosest();
-          }, 300);
-        }
-        // Emit event
-        swiper.emit('scroll', e);
-
-        // Stop autoplay
-        if (swiper.params.autoplay && swiper.params.autoplayDisableOnInteraction) { swiper.stopAutoplay(); }
-        // Return page scroll on edge positions
-        if (position === swiper.minTranslate() || position === swiper.maxTranslate()) { return true; }
-      }
-
-      if (e.preventDefault) { e.preventDefault(); }
-      else { e.returnValue = false; }
-      return false;
-    },
-    enable: function enable() {
-      var swiper = this;
-      if (!Mousewheel.event) { return false; }
-      if (swiper.mousewheel.enabled) { return false; }
-      var target = swiper.$el;
-      if (swiper.params.mousewheel.eventsTarged !== 'container') {
-        target = $(swiper.params.mousewheel.eventsTarged);
-      }
-      target.on('mouseenter', swiper.mousewheel.handleMouseEnter);
-      target.on('mouseleave', swiper.mousewheel.handleMouseLeave);
-      target.on(Mousewheel.event, swiper.mousewheel.handle);
-      swiper.mousewheel.enabled = true;
-      return true;
-    },
-    disable: function disable() {
-      var swiper = this;
-      if (!Mousewheel.event) { return false; }
-      if (!swiper.mousewheel.enabled) { return false; }
-      var target = swiper.$el;
-      if (swiper.params.mousewheel.eventsTarged !== 'container') {
-        target = $(swiper.params.mousewheel.eventsTarged);
-      }
-      target.off(Mousewheel.event, swiper.mousewheel.handle);
-      swiper.mousewheel.enabled = false;
-      return true;
-    },
-  };
-
-  var Mousewheel$1 = {
-    name: 'mousewheel',
-    params: {
-      mousewheel: {
-        enabled: false,
-        releaseOnEdges: false,
-        invert: false,
-        forceToAxis: false,
-        sensitivity: 1,
-        eventsTarged: 'container',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        mousewheel: {
-          enabled: false,
-          enable: Mousewheel.enable.bind(swiper),
-          disable: Mousewheel.disable.bind(swiper),
-          handle: Mousewheel.handle.bind(swiper),
-          handleMouseEnter: Mousewheel.handleMouseEnter.bind(swiper),
-          handleMouseLeave: Mousewheel.handleMouseLeave.bind(swiper),
-          lastScrollTime: Utils.now(),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.mousewheel.enabled) { swiper.mousewheel.enable(); }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.mousewheel.enabled) { swiper.mousewheel.disable(); }
-      },
-    },
-  };
-
-  var Navigation = {
-    update: function update() {
-      // Update Navigation Buttons
-      var swiper = this;
-      var params = swiper.params.navigation;
-
-      if (swiper.params.loop) { return; }
-      var ref = swiper.navigation;
-      var $nextEl = ref.$nextEl;
-      var $prevEl = ref.$prevEl;
-
-      if ($prevEl && $prevEl.length > 0) {
-        if (swiper.isBeginning) {
-          $prevEl.addClass(params.disabledClass);
-        } else {
-          $prevEl.removeClass(params.disabledClass);
-        }
-        $prevEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
-      }
-      if ($nextEl && $nextEl.length > 0) {
-        if (swiper.isEnd) {
-          $nextEl.addClass(params.disabledClass);
-        } else {
-          $nextEl.removeClass(params.disabledClass);
-        }
-        $nextEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      var params = swiper.params.navigation;
-      if (!(params.nextEl || params.prevEl)) { return; }
-
-      var $nextEl;
-      var $prevEl;
-      if (params.nextEl) {
-        $nextEl = $(params.nextEl);
-        if (
-          swiper.params.uniqueNavElements &&
-          typeof params.nextEl === 'string' &&
-          $nextEl.length > 1 &&
-          swiper.$el.find(params.nextEl).length === 1
-        ) {
-          $nextEl = swiper.$el.find(params.nextEl);
-        }
-      }
-      if (params.prevEl) {
-        $prevEl = $(params.prevEl);
-        if (
-          swiper.params.uniqueNavElements &&
-          typeof params.prevEl === 'string' &&
-          $prevEl.length > 1 &&
-          swiper.$el.find(params.prevEl).length === 1
-        ) {
-          $prevEl = swiper.$el.find(params.prevEl);
-        }
-      }
-
-      if ($nextEl && $nextEl.length > 0) {
-        $nextEl.on('click', function (e) {
-          e.preventDefault();
-          if (swiper.isEnd && !swiper.params.loop) { return; }
-          swiper.slideNext();
-        });
-      }
-      if ($prevEl && $prevEl.length > 0) {
-        $prevEl.on('click', function (e) {
-          e.preventDefault();
-          if (swiper.isBeginning && !swiper.params.loop) { return; }
-          swiper.slidePrev();
-        });
-      }
-
-      Utils.extend(swiper.navigation, {
-        $nextEl: $nextEl,
-        nextEl: $nextEl && $nextEl[0],
-        $prevEl: $prevEl,
-        prevEl: $prevEl && $prevEl[0],
-      });
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      var ref = swiper.navigation;
-      var $nextEl = ref.$nextEl;
-      var $prevEl = ref.$prevEl;
-      if ($nextEl && $nextEl.length) {
-        $nextEl.off('click');
-        $nextEl.removeClass(swiper.params.navigation.disabledClass);
-      }
-      if ($prevEl && $prevEl.length) {
-        $prevEl.off('click');
-        $prevEl.removeClass(swiper.params.navigation.disabledClass);
-      }
-    },
-  };
-
-  var Navigation$1 = {
-    name: 'navigation',
-    params: {
-      navigation: {
-        nextEl: null,
-        prevEl: null,
-
-        hideOnClick: false,
-        disabledClass: 'swiper-button-disabled',
-        hiddenClass: 'swiper-button-hidden',
-        lockClass: 'swiper-button-lock',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        navigation: {
-          init: Navigation.init.bind(swiper),
-          update: Navigation.update.bind(swiper),
-          destroy: Navigation.destroy.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.navigation.init();
-        swiper.navigation.update();
-      },
-      toEdge: function toEdge() {
-        var swiper = this;
-        swiper.navigation.update();
-      },
-      fromEdge: function fromEdge() {
-        var swiper = this;
-        swiper.navigation.update();
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.navigation.destroy();
-      },
-      click: function click(e) {
-        var swiper = this;
-        var ref = swiper.navigation;
-        var $nextEl = ref.$nextEl;
-        var $prevEl = ref.$prevEl;
-        if (
-          swiper.params.navigation.hideOnClick &&
-          !$(e.target).is($prevEl) &&
-          !$(e.target).is($nextEl)
-        ) {
-          if ($nextEl) { $nextEl.toggleClass(swiper.params.navigation.hiddenClass); }
-          if ($prevEl) { $prevEl.toggleClass(swiper.params.navigation.hiddenClass); }
-        }
-      },
-    },
-  };
-
-  var Pagination = {
-    update: function update() {
-      // Render || Update Pagination bullets/items
-      var swiper = this;
-      var rtl = swiper.rtl;
-      var params = swiper.params.pagination;
-      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
-      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
-      var $el = swiper.pagination.$el;
-      // Current/Total
-      var current;
-      var total = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
-      if (swiper.params.loop) {
-        current = Math.ceil((swiper.activeIndex - swiper.loopedSlides) / swiper.params.slidesPerGroup);
-        if (current > slidesLength - 1 - (swiper.loopedSlides * 2)) {
-          current -= (slidesLength - (swiper.loopedSlides * 2));
-        }
-        if (current > total - 1) { current -= total; }
-        if (current < 0 && swiper.params.paginationType !== 'bullets') { current = total + current; }
-      } else if (typeof swiper.snapIndex !== 'undefined') {
-        current = swiper.snapIndex;
-      } else {
-        current = swiper.activeIndex || 0;
-      }
-      // Types
-      if (params.type === 'bullets' && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
-        var bullets = swiper.pagination.bullets;
-        var firstIndex;
-        var lastIndex;
-        var midIndex;
-        if (params.dynamicBullets) {
-          swiper.pagination.bulletSize = bullets.eq(0)[swiper.isHorizontal() ? 'outerWidth' : 'outerHeight'](true);
-          $el.css(swiper.isHorizontal() ? 'width' : 'height', ((swiper.pagination.bulletSize * (params.dynamicMainBullets + 4)) + "px"));
-          if (params.dynamicMainBullets > 1 && swiper.previousIndex !== undefined) {
-            swiper.pagination.dynamicBulletIndex += (current - swiper.previousIndex);
-            if (swiper.pagination.dynamicBulletIndex > (params.dynamicMainBullets - 1)) {
-              swiper.pagination.dynamicBulletIndex = params.dynamicMainBullets - 1;
-            } else if (swiper.pagination.dynamicBulletIndex < 0) {
-              swiper.pagination.dynamicBulletIndex = 0;
-            }
-          }
-          firstIndex = current - swiper.pagination.dynamicBulletIndex;
-          lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
-          midIndex = (lastIndex + firstIndex) / 2;
-        }
-        bullets.removeClass(((params.bulletActiveClass) + " " + (params.bulletActiveClass) + "-next " + (params.bulletActiveClass) + "-next-next " + (params.bulletActiveClass) + "-prev " + (params.bulletActiveClass) + "-prev-prev " + (params.bulletActiveClass) + "-main"));
-        if ($el.length > 1) {
-          bullets.each(function (index, bullet) {
-            var $bullet = $(bullet);
-            var bulletIndex = $bullet.index();
-            if (bulletIndex === current) {
-              $bullet.addClass(params.bulletActiveClass);
-            }
-            if (params.dynamicBullets) {
-              if (bulletIndex >= firstIndex && bulletIndex <= lastIndex) {
-                $bullet.addClass(((params.bulletActiveClass) + "-main"));
-              }
-              if (bulletIndex === firstIndex) {
-                $bullet
-                  .prev()
-                  .addClass(((params.bulletActiveClass) + "-prev"))
-                  .prev()
-                  .addClass(((params.bulletActiveClass) + "-prev-prev"));
-              }
-              if (bulletIndex === lastIndex) {
-                $bullet
-                  .next()
-                  .addClass(((params.bulletActiveClass) + "-next"))
-                  .next()
-                  .addClass(((params.bulletActiveClass) + "-next-next"));
-              }
-            }
-          });
-        } else {
-          var $bullet = bullets.eq(current);
-          $bullet.addClass(params.bulletActiveClass);
-          if (params.dynamicBullets) {
-            var $firstDisplayedBullet = bullets.eq(firstIndex);
-            var $lastDisplayedBullet = bullets.eq(lastIndex);
-            for (var i = firstIndex; i <= lastIndex; i += 1) {
-              bullets.eq(i).addClass(((params.bulletActiveClass) + "-main"));
-            }
-            $firstDisplayedBullet
-              .prev()
-              .addClass(((params.bulletActiveClass) + "-prev"))
-              .prev()
-              .addClass(((params.bulletActiveClass) + "-prev-prev"));
-            $lastDisplayedBullet
-              .next()
-              .addClass(((params.bulletActiveClass) + "-next"))
-              .next()
-              .addClass(((params.bulletActiveClass) + "-next-next"));
-          }
-        }
-        if (params.dynamicBullets) {
-          var dynamicBulletsLength = Math.min(bullets.length, params.dynamicMainBullets + 4);
-          var bulletsOffset = (((swiper.pagination.bulletSize * dynamicBulletsLength) - (swiper.pagination.bulletSize)) / 2) - (midIndex * swiper.pagination.bulletSize);
-          var offsetProp = rtl ? 'right' : 'left';
-          bullets.css(swiper.isHorizontal() ? offsetProp : 'top', (bulletsOffset + "px"));
-        }
-      }
-      if (params.type === 'fraction') {
-        $el.find(("." + (params.currentClass))).text(current + 1);
-        $el.find(("." + (params.totalClass))).text(total);
-      }
-      if (params.type === 'progressbar') {
-        var progressbarDirection;
-        if (params.progressbarOpposite) {
-          progressbarDirection = swiper.isHorizontal() ? 'vertical' : 'horizontal';
-        } else {
-          progressbarDirection = swiper.isHorizontal() ? 'horizontal' : 'vertical';
-        }
-        var scale = (current + 1) / total;
-        var scaleX = 1;
-        var scaleY = 1;
-        if (progressbarDirection === 'horizontal') {
-          scaleX = scale;
-        } else {
-          scaleY = scale;
-        }
-        $el.find(("." + (params.progressbarFillClass))).transform(("translate3d(0,0,0) scaleX(" + scaleX + ") scaleY(" + scaleY + ")")).transition(swiper.params.speed);
-      }
-      if (params.type === 'custom' && params.renderCustom) {
-        $el.html(params.renderCustom(swiper, current + 1, total));
-        swiper.emit('paginationRender', swiper, $el[0]);
-      } else {
-        swiper.emit('paginationUpdate', swiper, $el[0]);
-      }
-      $el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
-    },
-    render: function render() {
-      // Render Container
-      var swiper = this;
-      var params = swiper.params.pagination;
-      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
-      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
-
-      var $el = swiper.pagination.$el;
-      var paginationHTML = '';
-      if (params.type === 'bullets') {
-        var numberOfBullets = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
-        for (var i = 0; i < numberOfBullets; i += 1) {
-          if (params.renderBullet) {
-            paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass);
-          } else {
-            paginationHTML += "<" + (params.bulletElement) + " class=\"" + (params.bulletClass) + "\"></" + (params.bulletElement) + ">";
-          }
-        }
-        $el.html(paginationHTML);
-        swiper.pagination.bullets = $el.find(("." + (params.bulletClass)));
-      }
-      if (params.type === 'fraction') {
-        if (params.renderFraction) {
-          paginationHTML = params.renderFraction.call(swiper, params.currentClass, params.totalClass);
-        } else {
-          paginationHTML =
-          "<span class=\"" + (params.currentClass) + "\"></span>" +
-          ' / ' +
-          "<span class=\"" + (params.totalClass) + "\"></span>";
-        }
-        $el.html(paginationHTML);
-      }
-      if (params.type === 'progressbar') {
-        if (params.renderProgressbar) {
-          paginationHTML = params.renderProgressbar.call(swiper, params.progressbarFillClass);
-        } else {
-          paginationHTML = "<span class=\"" + (params.progressbarFillClass) + "\"></span>";
-        }
-        $el.html(paginationHTML);
-      }
-      if (params.type !== 'custom') {
-        swiper.emit('paginationRender', swiper.pagination.$el[0]);
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      var params = swiper.params.pagination;
-      if (!params.el) { return; }
-
-      var $el = $(params.el);
-      if ($el.length === 0) { return; }
-
-      if (
-        swiper.params.uniqueNavElements &&
-        typeof params.el === 'string' &&
-        $el.length > 1 &&
-        swiper.$el.find(params.el).length === 1
-      ) {
-        $el = swiper.$el.find(params.el);
-      }
-
-      if (params.type === 'bullets' && params.clickable) {
-        $el.addClass(params.clickableClass);
-      }
-
-      $el.addClass(params.modifierClass + params.type);
-
-      if (params.type === 'bullets' && params.dynamicBullets) {
-        $el.addClass(("" + (params.modifierClass) + (params.type) + "-dynamic"));
-        swiper.pagination.dynamicBulletIndex = 0;
-        if (params.dynamicMainBullets < 1) {
-          params.dynamicMainBullets = 1;
-        }
-      }
-      if (params.type === 'progressbar' && params.progressbarOpposite) {
-        $el.addClass(params.progressbarOppositeClass);
-      }
-
-      if (params.clickable) {
-        $el.on('click', ("." + (params.bulletClass)), function onClick(e) {
-          e.preventDefault();
-          var index = $(this).index() * swiper.params.slidesPerGroup;
-          if (swiper.params.loop) { index += swiper.loopedSlides; }
-          swiper.slideTo(index);
-        });
-      }
-
-      Utils.extend(swiper.pagination, {
-        $el: $el,
-        el: $el[0],
-      });
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      var params = swiper.params.pagination;
-      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
-      var $el = swiper.pagination.$el;
-
-      $el.removeClass(params.hiddenClass);
-      $el.removeClass(params.modifierClass + params.type);
-      if (swiper.pagination.bullets) { swiper.pagination.bullets.removeClass(params.bulletActiveClass); }
-      if (params.clickable) {
-        $el.off('click', ("." + (params.bulletClass)));
-      }
-    },
-  };
-
-  var Pagination$1 = {
-    name: 'pagination',
-    params: {
-      pagination: {
-        el: null,
-        bulletElement: 'span',
-        clickable: false,
-        hideOnClick: false,
-        renderBullet: null,
-        renderProgressbar: null,
-        renderFraction: null,
-        renderCustom: null,
-        progressbarOpposite: false,
-        type: 'bullets', // 'bullets' or 'progressbar' or 'fraction' or 'custom'
-        dynamicBullets: false,
-        dynamicMainBullets: 1,
-        bulletClass: 'swiper-pagination-bullet',
-        bulletActiveClass: 'swiper-pagination-bullet-active',
-        modifierClass: 'swiper-pagination-', // NEW
-        currentClass: 'swiper-pagination-current',
-        totalClass: 'swiper-pagination-total',
-        hiddenClass: 'swiper-pagination-hidden',
-        progressbarFillClass: 'swiper-pagination-progressbar-fill',
-        progressbarOppositeClass: 'swiper-pagination-progressbar-opposite',
-        clickableClass: 'swiper-pagination-clickable', // NEW
-        lockClass: 'swiper-pagination-lock',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        pagination: {
-          init: Pagination.init.bind(swiper),
-          render: Pagination.render.bind(swiper),
-          update: Pagination.update.bind(swiper),
-          destroy: Pagination.destroy.bind(swiper),
-          dynamicBulletIndex: 0,
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.pagination.init();
-        swiper.pagination.render();
-        swiper.pagination.update();
-      },
-      activeIndexChange: function activeIndexChange() {
-        var swiper = this;
-        if (swiper.params.loop) {
-          swiper.pagination.update();
-        } else if (typeof swiper.snapIndex === 'undefined') {
-          swiper.pagination.update();
-        }
-      },
-      snapIndexChange: function snapIndexChange() {
-        var swiper = this;
-        if (!swiper.params.loop) {
-          swiper.pagination.update();
-        }
-      },
-      slidesLengthChange: function slidesLengthChange() {
-        var swiper = this;
-        if (swiper.params.loop) {
-          swiper.pagination.render();
-          swiper.pagination.update();
-        }
-      },
-      snapGridLengthChange: function snapGridLengthChange() {
-        var swiper = this;
-        if (!swiper.params.loop) {
-          swiper.pagination.render();
-          swiper.pagination.update();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.pagination.destroy();
-      },
-      click: function click(e) {
-        var swiper = this;
-        if (
-          swiper.params.pagination.el &&
-          swiper.params.pagination.hideOnClick &&
-          swiper.pagination.$el.length > 0 &&
-          !$(e.target).hasClass(swiper.params.pagination.bulletClass)
-        ) {
-          swiper.pagination.$el.toggleClass(swiper.params.pagination.hiddenClass);
-        }
-      },
-    },
-  };
-
-  var Scrollbar = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var rtl = swiper.rtlTranslate;
-      var progress = swiper.progress;
-      var dragSize = scrollbar.dragSize;
-      var trackSize = scrollbar.trackSize;
-      var $dragEl = scrollbar.$dragEl;
-      var $el = scrollbar.$el;
-      var params = swiper.params.scrollbar;
-
-      var newSize = dragSize;
-      var newPos = (trackSize - dragSize) * progress;
-      if (rtl) {
-        newPos = -newPos;
-        if (newPos > 0) {
-          newSize = dragSize - newPos;
-          newPos = 0;
-        } else if (-newPos + dragSize > trackSize) {
-          newSize = trackSize + newPos;
-        }
-      } else if (newPos < 0) {
-        newSize = dragSize + newPos;
-        newPos = 0;
-      } else if (newPos + dragSize > trackSize) {
-        newSize = trackSize - newPos;
-      }
-      if (swiper.isHorizontal()) {
-        if (Support.transforms3d) {
-          $dragEl.transform(("translate3d(" + newPos + "px, 0, 0)"));
-        } else {
-          $dragEl.transform(("translateX(" + newPos + "px)"));
-        }
-        $dragEl[0].style.width = newSize + "px";
-      } else {
-        if (Support.transforms3d) {
-          $dragEl.transform(("translate3d(0px, " + newPos + "px, 0)"));
-        } else {
-          $dragEl.transform(("translateY(" + newPos + "px)"));
-        }
-        $dragEl[0].style.height = newSize + "px";
-      }
-      if (params.hide) {
-        clearTimeout(swiper.scrollbar.timeout);
-        $el[0].style.opacity = 1;
-        swiper.scrollbar.timeout = setTimeout(function () {
-          $el[0].style.opacity = 0;
-          $el.transition(400);
-        }, 1000);
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
-      swiper.scrollbar.$dragEl.transition(duration);
-    },
-    updateSize: function updateSize() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
-
-      var scrollbar = swiper.scrollbar;
-      var $dragEl = scrollbar.$dragEl;
-      var $el = scrollbar.$el;
-
-      $dragEl[0].style.width = '';
-      $dragEl[0].style.height = '';
-      var trackSize = swiper.isHorizontal() ? $el[0].offsetWidth : $el[0].offsetHeight;
-
-      var divider = swiper.size / swiper.virtualSize;
-      var moveDivider = divider * (trackSize / swiper.size);
-      var dragSize;
-      if (swiper.params.scrollbar.dragSize === 'auto') {
-        dragSize = trackSize * divider;
-      } else {
-        dragSize = parseInt(swiper.params.scrollbar.dragSize, 10);
-      }
-
-      if (swiper.isHorizontal()) {
-        $dragEl[0].style.width = dragSize + "px";
-      } else {
-        $dragEl[0].style.height = dragSize + "px";
-      }
-
-      if (divider >= 1) {
-        $el[0].style.display = 'none';
-      } else {
-        $el[0].style.display = '';
-      }
-      if (swiper.params.scrollbarHide) {
-        $el[0].style.opacity = 0;
-      }
-      Utils.extend(scrollbar, {
-        trackSize: trackSize,
-        divider: divider,
-        moveDivider: moveDivider,
-        dragSize: dragSize,
-      });
-      scrollbar.$el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](swiper.params.scrollbar.lockClass);
-    },
-    setDragPosition: function setDragPosition(e) {
-      var swiper = this;
-      var scrollbar = swiper.scrollbar;
-      var rtl = swiper.rtlTranslate;
-      var $el = scrollbar.$el;
-      var dragSize = scrollbar.dragSize;
-      var trackSize = scrollbar.trackSize;
-
-      var pointerPosition;
-      if (swiper.isHorizontal()) {
-        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageX : e.pageX || e.clientX);
-      } else {
-        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageY : e.pageY || e.clientY);
-      }
-      var positionRatio;
-      positionRatio = ((pointerPosition) - $el.offset()[swiper.isHorizontal() ? 'left' : 'top'] - (dragSize / 2)) / (trackSize - dragSize);
-      positionRatio = Math.max(Math.min(positionRatio, 1), 0);
-      if (rtl) {
-        positionRatio = 1 - positionRatio;
-      }
-
-      var position = swiper.minTranslate() + ((swiper.maxTranslate() - swiper.minTranslate()) * positionRatio);
-
-      swiper.updateProgress(position);
-      swiper.setTranslate(position);
-      swiper.updateActiveIndex();
-      swiper.updateSlidesClasses();
-    },
-    onDragStart: function onDragStart(e) {
-      var swiper = this;
-      var params = swiper.params.scrollbar;
-      var scrollbar = swiper.scrollbar;
-      var $wrapperEl = swiper.$wrapperEl;
-      var $el = scrollbar.$el;
-      var $dragEl = scrollbar.$dragEl;
-      swiper.scrollbar.isTouched = true;
-      e.preventDefault();
-      e.stopPropagation();
-
-      $wrapperEl.transition(100);
-      $dragEl.transition(100);
-      scrollbar.setDragPosition(e);
-
-      clearTimeout(swiper.scrollbar.dragTimeout);
-
-      $el.transition(0);
-      if (params.hide) {
-        $el.css('opacity', 1);
-      }
-      swiper.emit('scrollbarDragStart', e);
-    },
-    onDragMove: function onDragMove(e) {
-      var swiper = this;
-      var scrollbar = swiper.scrollbar;
-      var $wrapperEl = swiper.$wrapperEl;
-      var $el = scrollbar.$el;
-      var $dragEl = scrollbar.$dragEl;
-
-      if (!swiper.scrollbar.isTouched) { return; }
-      if (e.preventDefault) { e.preventDefault(); }
-      else { e.returnValue = false; }
-      scrollbar.setDragPosition(e);
-      $wrapperEl.transition(0);
-      $el.transition(0);
-      $dragEl.transition(0);
-      swiper.emit('scrollbarDragMove', e);
-    },
-    onDragEnd: function onDragEnd(e) {
-      var swiper = this;
-
-      var params = swiper.params.scrollbar;
-      var scrollbar = swiper.scrollbar;
-      var $el = scrollbar.$el;
-
-      if (!swiper.scrollbar.isTouched) { return; }
-      swiper.scrollbar.isTouched = false;
-      if (params.hide) {
-        clearTimeout(swiper.scrollbar.dragTimeout);
-        swiper.scrollbar.dragTimeout = Utils.nextTick(function () {
-          $el.css('opacity', 0);
-          $el.transition(400);
-        }, 1000);
-      }
-      swiper.emit('scrollbarDragEnd', e);
-      if (params.snapOnRelease) {
-        swiper.slideToClosest();
-      }
-    },
-    enableDraggable: function enableDraggable() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var touchEvents = swiper.touchEvents;
-      var touchEventsDesktop = swiper.touchEventsDesktop;
-      var params = swiper.params;
-      var $el = scrollbar.$el;
-      var target = $el[0];
-      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
-      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.addEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
-        doc.addEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
-        doc.addEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
-      } else {
-        if (Support.touch) {
-          target.addEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
-          target.addEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
-          target.addEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.addEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
-          doc.addEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
-          doc.addEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
-        }
-      }
-    },
-    disableDraggable: function disableDraggable() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var touchEvents = swiper.touchEvents;
-      var touchEventsDesktop = swiper.touchEventsDesktop;
-      var params = swiper.params;
-      var $el = scrollbar.$el;
-      var target = $el[0];
-      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
-      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.removeEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
-        doc.removeEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
-        doc.removeEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
-      } else {
-        if (Support.touch) {
-          target.removeEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
-          target.removeEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
-          target.removeEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.removeEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
-          doc.removeEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
-          doc.removeEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
-        }
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var $swiperEl = swiper.$el;
-      var params = swiper.params.scrollbar;
-
-      var $el = $(params.el);
-      if (swiper.params.uniqueNavElements && typeof params.el === 'string' && $el.length > 1 && $swiperEl.find(params.el).length === 1) {
-        $el = $swiperEl.find(params.el);
-      }
-
-      var $dragEl = $el.find(("." + (swiper.params.scrollbar.dragClass)));
-      if ($dragEl.length === 0) {
-        $dragEl = $(("<div class=\"" + (swiper.params.scrollbar.dragClass) + "\"></div>"));
-        $el.append($dragEl);
-      }
-
-      Utils.extend(scrollbar, {
-        $el: $el,
-        el: $el[0],
-        $dragEl: $dragEl,
-        dragEl: $dragEl[0],
-      });
-
-      if (params.draggable) {
-        scrollbar.enableDraggable();
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      swiper.scrollbar.disableDraggable();
-    },
-  };
-
-  var Scrollbar$1 = {
-    name: 'scrollbar',
-    params: {
-      scrollbar: {
-        el: null,
-        dragSize: 'auto',
-        hide: false,
-        draggable: false,
-        snapOnRelease: true,
-        lockClass: 'swiper-scrollbar-lock',
-        dragClass: 'swiper-scrollbar-drag',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        scrollbar: {
-          init: Scrollbar.init.bind(swiper),
-          destroy: Scrollbar.destroy.bind(swiper),
-          updateSize: Scrollbar.updateSize.bind(swiper),
-          setTranslate: Scrollbar.setTranslate.bind(swiper),
-          setTransition: Scrollbar.setTransition.bind(swiper),
-          enableDraggable: Scrollbar.enableDraggable.bind(swiper),
-          disableDraggable: Scrollbar.disableDraggable.bind(swiper),
-          setDragPosition: Scrollbar.setDragPosition.bind(swiper),
-          onDragStart: Scrollbar.onDragStart.bind(swiper),
-          onDragMove: Scrollbar.onDragMove.bind(swiper),
-          onDragEnd: Scrollbar.onDragEnd.bind(swiper),
-          isTouched: false,
-          timeout: null,
-          dragTimeout: null,
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.scrollbar.init();
-        swiper.scrollbar.updateSize();
-        swiper.scrollbar.setTranslate();
-      },
-      update: function update() {
-        var swiper = this;
-        swiper.scrollbar.updateSize();
-      },
-      resize: function resize() {
-        var swiper = this;
-        swiper.scrollbar.updateSize();
-      },
-      observerUpdate: function observerUpdate() {
-        var swiper = this;
-        swiper.scrollbar.updateSize();
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        swiper.scrollbar.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        swiper.scrollbar.setTransition(duration);
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.scrollbar.destroy();
-      },
-    },
-  };
-
-  var Parallax = {
-    setTransform: function setTransform(el, progress) {
-      var swiper = this;
-      var rtl = swiper.rtl;
-
-      var $el = $(el);
-      var rtlFactor = rtl ? -1 : 1;
-
-      var p = $el.attr('data-swiper-parallax') || '0';
-      var x = $el.attr('data-swiper-parallax-x');
-      var y = $el.attr('data-swiper-parallax-y');
-      var scale = $el.attr('data-swiper-parallax-scale');
-      var opacity = $el.attr('data-swiper-parallax-opacity');
-
-      if (x || y) {
-        x = x || '0';
-        y = y || '0';
-      } else if (swiper.isHorizontal()) {
-        x = p;
-        y = '0';
-      } else {
-        y = p;
-        x = '0';
-      }
-
-      if ((x).indexOf('%') >= 0) {
-        x = (parseInt(x, 10) * progress * rtlFactor) + "%";
-      } else {
-        x = (x * progress * rtlFactor) + "px";
-      }
-      if ((y).indexOf('%') >= 0) {
-        y = (parseInt(y, 10) * progress) + "%";
-      } else {
-        y = (y * progress) + "px";
-      }
-
-      if (typeof opacity !== 'undefined' && opacity !== null) {
-        var currentOpacity = opacity - ((opacity - 1) * (1 - Math.abs(progress)));
-        $el[0].style.opacity = currentOpacity;
-      }
-      if (typeof scale === 'undefined' || scale === null) {
-        $el.transform(("translate3d(" + x + ", " + y + ", 0px)"));
-      } else {
-        var currentScale = scale - ((scale - 1) * (1 - Math.abs(progress)));
-        $el.transform(("translate3d(" + x + ", " + y + ", 0px) scale(" + currentScale + ")"));
-      }
-    },
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var $el = swiper.$el;
-      var slides = swiper.slides;
-      var progress = swiper.progress;
-      var snapGrid = swiper.snapGrid;
-      $el.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
-        .each(function (index, el) {
-          swiper.parallax.setTransform(el, progress);
-        });
-      slides.each(function (slideIndex, slideEl) {
-        var slideProgress = slideEl.progress;
-        if (swiper.params.slidesPerGroup > 1 && swiper.params.slidesPerView !== 'auto') {
-          slideProgress += Math.ceil(slideIndex / 2) - (progress * (snapGrid.length - 1));
-        }
-        slideProgress = Math.min(Math.max(slideProgress, -1), 1);
-        $(slideEl).find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
-          .each(function (index, el) {
-            swiper.parallax.setTransform(el, slideProgress);
-          });
-      });
-    },
-    setTransition: function setTransition(duration) {
-      if ( duration === void 0 ) duration = this.params.speed;
-
-      var swiper = this;
-      var $el = swiper.$el;
-      $el.find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
-        .each(function (index, parallaxEl) {
-          var $parallaxEl = $(parallaxEl);
-          var parallaxDuration = parseInt($parallaxEl.attr('data-swiper-parallax-duration'), 10) || duration;
-          if (duration === 0) { parallaxDuration = 0; }
-          $parallaxEl.transition(parallaxDuration);
-        });
-    },
-  };
-
-  var Parallax$1 = {
-    name: 'parallax',
-    params: {
-      parallax: {
-        enabled: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        parallax: {
-          setTransform: Parallax.setTransform.bind(swiper),
-          setTranslate: Parallax.setTranslate.bind(swiper),
-          setTransition: Parallax.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (!swiper.params.parallax.enabled) { return; }
-        swiper.params.watchSlidesProgress = true;
-      },
-      init: function init() {
-        var swiper = this;
-        if (!swiper.params.parallax) { return; }
-        swiper.parallax.setTranslate();
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (!swiper.params.parallax) { return; }
-        swiper.parallax.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (!swiper.params.parallax) { return; }
-        swiper.parallax.setTransition(duration);
-      },
-    },
-  };
-
-  var Zoom = {
-    // Calc Scale From Multi-touches
-    getDistanceBetweenTouches: function getDistanceBetweenTouches(e) {
-      if (e.targetTouches.length < 2) { return 1; }
-      var x1 = e.targetTouches[0].pageX;
-      var y1 = e.targetTouches[0].pageY;
-      var x2 = e.targetTouches[1].pageX;
-      var y2 = e.targetTouches[1].pageY;
-      var distance = Math.sqrt((Math.pow( (x2 - x1), 2 )) + (Math.pow( (y2 - y1), 2 )));
-      return distance;
-    },
-    // Events
-    onGestureStart: function onGestureStart(e) {
-      var swiper = this;
-      var params = swiper.params.zoom;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      zoom.fakeGestureTouched = false;
-      zoom.fakeGestureMoved = false;
-      if (!Support.gestures) {
-        if (e.type !== 'touchstart' || (e.type === 'touchstart' && e.targetTouches.length < 2)) {
-          return;
-        }
-        zoom.fakeGestureTouched = true;
-        gesture.scaleStart = Zoom.getDistanceBetweenTouches(e);
-      }
-      if (!gesture.$slideEl || !gesture.$slideEl.length) {
-        gesture.$slideEl = $(e.target).closest('.swiper-slide');
-        if (gesture.$slideEl.length === 0) { gesture.$slideEl = swiper.slides.eq(swiper.activeIndex); }
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
-        gesture.maxRatio = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
-        if (gesture.$imageWrapEl.length === 0) {
-          gesture.$imageEl = undefined;
-          return;
-        }
-      }
-      gesture.$imageEl.transition(0);
-      swiper.zoom.isScaling = true;
-    },
-    onGestureChange: function onGestureChange(e) {
-      var swiper = this;
-      var params = swiper.params.zoom;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      if (!Support.gestures) {
-        if (e.type !== 'touchmove' || (e.type === 'touchmove' && e.targetTouches.length < 2)) {
-          return;
-        }
-        zoom.fakeGestureMoved = true;
-        gesture.scaleMove = Zoom.getDistanceBetweenTouches(e);
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      if (Support.gestures) {
-        swiper.zoom.scale = e.scale * zoom.currentScale;
-      } else {
-        zoom.scale = (gesture.scaleMove / gesture.scaleStart) * zoom.currentScale;
-      }
-      if (zoom.scale > gesture.maxRatio) {
-        zoom.scale = (gesture.maxRatio - 1) + (Math.pow( ((zoom.scale - gesture.maxRatio) + 1), 0.5 ));
-      }
-      if (zoom.scale < params.minRatio) {
-        zoom.scale = (params.minRatio + 1) - (Math.pow( ((params.minRatio - zoom.scale) + 1), 0.5 ));
-      }
-      gesture.$imageEl.transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
-    },
-    onGestureEnd: function onGestureEnd(e) {
-      var swiper = this;
-      var params = swiper.params.zoom;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      if (!Support.gestures) {
-        if (!zoom.fakeGestureTouched || !zoom.fakeGestureMoved) {
-          return;
-        }
-        if (e.type !== 'touchend' || (e.type === 'touchend' && e.changedTouches.length < 2 && !Device.android)) {
-          return;
-        }
-        zoom.fakeGestureTouched = false;
-        zoom.fakeGestureMoved = false;
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      zoom.scale = Math.max(Math.min(zoom.scale, gesture.maxRatio), params.minRatio);
-      gesture.$imageEl.transition(swiper.params.speed).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
-      zoom.currentScale = zoom.scale;
-      zoom.isScaling = false;
-      if (zoom.scale === 1) { gesture.$slideEl = undefined; }
-    },
-    onTouchStart: function onTouchStart(e) {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      if (image.isTouched) { return; }
-      if (Device.android) { e.preventDefault(); }
-      image.isTouched = true;
-      image.touchesStart.x = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
-      image.touchesStart.y = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
-    },
-    onTouchMove: function onTouchMove(e) {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-      var velocity = zoom.velocity;
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      swiper.allowClick = false;
-      if (!image.isTouched || !gesture.$slideEl) { return; }
-
-      if (!image.isMoved) {
-        image.width = gesture.$imageEl[0].offsetWidth;
-        image.height = gesture.$imageEl[0].offsetHeight;
-        image.startX = Utils.getTranslate(gesture.$imageWrapEl[0], 'x') || 0;
-        image.startY = Utils.getTranslate(gesture.$imageWrapEl[0], 'y') || 0;
-        gesture.slideWidth = gesture.$slideEl[0].offsetWidth;
-        gesture.slideHeight = gesture.$slideEl[0].offsetHeight;
-        gesture.$imageWrapEl.transition(0);
-        if (swiper.rtl) {
-          image.startX = -image.startX;
-          image.startY = -image.startY;
-        }
-      }
-      // Define if we need image drag
-      var scaledWidth = image.width * zoom.scale;
-      var scaledHeight = image.height * zoom.scale;
-
-      if (scaledWidth < gesture.slideWidth && scaledHeight < gesture.slideHeight) { return; }
-
-      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
-      image.maxX = -image.minX;
-      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
-      image.maxY = -image.minY;
-
-      image.touchesCurrent.x = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
-      image.touchesCurrent.y = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
-
-      if (!image.isMoved && !zoom.isScaling) {
-        if (
-          swiper.isHorizontal() &&
-          (
-            (Math.floor(image.minX) === Math.floor(image.startX) && image.touchesCurrent.x < image.touchesStart.x) ||
-            (Math.floor(image.maxX) === Math.floor(image.startX) && image.touchesCurrent.x > image.touchesStart.x)
-          )
-        ) {
-          image.isTouched = false;
-          return;
-        } else if (
-          !swiper.isHorizontal() &&
-          (
-            (Math.floor(image.minY) === Math.floor(image.startY) && image.touchesCurrent.y < image.touchesStart.y) ||
-            (Math.floor(image.maxY) === Math.floor(image.startY) && image.touchesCurrent.y > image.touchesStart.y)
-          )
-        ) {
-          image.isTouched = false;
-          return;
-        }
-      }
-      e.preventDefault();
-      e.stopPropagation();
-
-      image.isMoved = true;
-      image.currentX = (image.touchesCurrent.x - image.touchesStart.x) + image.startX;
-      image.currentY = (image.touchesCurrent.y - image.touchesStart.y) + image.startY;
-
-      if (image.currentX < image.minX) {
-        image.currentX = (image.minX + 1) - (Math.pow( ((image.minX - image.currentX) + 1), 0.8 ));
-      }
-      if (image.currentX > image.maxX) {
-        image.currentX = (image.maxX - 1) + (Math.pow( ((image.currentX - image.maxX) + 1), 0.8 ));
-      }
-
-      if (image.currentY < image.minY) {
-        image.currentY = (image.minY + 1) - (Math.pow( ((image.minY - image.currentY) + 1), 0.8 ));
-      }
-      if (image.currentY > image.maxY) {
-        image.currentY = (image.maxY - 1) + (Math.pow( ((image.currentY - image.maxY) + 1), 0.8 ));
-      }
-
-      // Velocity
-      if (!velocity.prevPositionX) { velocity.prevPositionX = image.touchesCurrent.x; }
-      if (!velocity.prevPositionY) { velocity.prevPositionY = image.touchesCurrent.y; }
-      if (!velocity.prevTime) { velocity.prevTime = Date.now(); }
-      velocity.x = (image.touchesCurrent.x - velocity.prevPositionX) / (Date.now() - velocity.prevTime) / 2;
-      velocity.y = (image.touchesCurrent.y - velocity.prevPositionY) / (Date.now() - velocity.prevTime) / 2;
-      if (Math.abs(image.touchesCurrent.x - velocity.prevPositionX) < 2) { velocity.x = 0; }
-      if (Math.abs(image.touchesCurrent.y - velocity.prevPositionY) < 2) { velocity.y = 0; }
-      velocity.prevPositionX = image.touchesCurrent.x;
-      velocity.prevPositionY = image.touchesCurrent.y;
-      velocity.prevTime = Date.now();
-
-      gesture.$imageWrapEl.transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
-    },
-    onTouchEnd: function onTouchEnd() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-      var velocity = zoom.velocity;
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      if (!image.isTouched || !image.isMoved) {
-        image.isTouched = false;
-        image.isMoved = false;
-        return;
-      }
-      image.isTouched = false;
-      image.isMoved = false;
-      var momentumDurationX = 300;
-      var momentumDurationY = 300;
-      var momentumDistanceX = velocity.x * momentumDurationX;
-      var newPositionX = image.currentX + momentumDistanceX;
-      var momentumDistanceY = velocity.y * momentumDurationY;
-      var newPositionY = image.currentY + momentumDistanceY;
-
-      // Fix duration
-      if (velocity.x !== 0) { momentumDurationX = Math.abs((newPositionX - image.currentX) / velocity.x); }
-      if (velocity.y !== 0) { momentumDurationY = Math.abs((newPositionY - image.currentY) / velocity.y); }
-      var momentumDuration = Math.max(momentumDurationX, momentumDurationY);
-
-      image.currentX = newPositionX;
-      image.currentY = newPositionY;
-
-      // Define if we need image drag
-      var scaledWidth = image.width * zoom.scale;
-      var scaledHeight = image.height * zoom.scale;
-      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
-      image.maxX = -image.minX;
-      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
-      image.maxY = -image.minY;
-      image.currentX = Math.max(Math.min(image.currentX, image.maxX), image.minX);
-      image.currentY = Math.max(Math.min(image.currentY, image.maxY), image.minY);
-
-      gesture.$imageWrapEl.transition(momentumDuration).transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
-    },
-    onTransitionEnd: function onTransitionEnd() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      if (gesture.$slideEl && swiper.previousIndex !== swiper.activeIndex) {
-        gesture.$imageEl.transform('translate3d(0,0,0) scale(1)');
-        gesture.$imageWrapEl.transform('translate3d(0,0,0)');
-        gesture.$slideEl = undefined;
-        gesture.$imageEl = undefined;
-        gesture.$imageWrapEl = undefined;
-
-        zoom.scale = 1;
-        zoom.currentScale = 1;
-      }
-    },
-    // Toggle Zoom
-    toggle: function toggle(e) {
-      var swiper = this;
-      var zoom = swiper.zoom;
-
-      if (zoom.scale && zoom.scale !== 1) {
-        // Zoom Out
-        zoom.out();
-      } else {
-        // Zoom In
-        zoom.in(e);
-      }
-    },
-    in: function in$1(e) {
-      var swiper = this;
-
-      var zoom = swiper.zoom;
-      var params = swiper.params.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-
-      if (!gesture.$slideEl) {
-        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-
-      gesture.$slideEl.addClass(("" + (params.zoomedSlideClass)));
-
-      var touchX;
-      var touchY;
-      var offsetX;
-      var offsetY;
-      var diffX;
-      var diffY;
-      var translateX;
-      var translateY;
-      var imageWidth;
-      var imageHeight;
-      var scaledWidth;
-      var scaledHeight;
-      var translateMinX;
-      var translateMinY;
-      var translateMaxX;
-      var translateMaxY;
-      var slideWidth;
-      var slideHeight;
-
-      if (typeof image.touchesStart.x === 'undefined' && e) {
-        touchX = e.type === 'touchend' ? e.changedTouches[0].pageX : e.pageX;
-        touchY = e.type === 'touchend' ? e.changedTouches[0].pageY : e.pageY;
-      } else {
-        touchX = image.touchesStart.x;
-        touchY = image.touchesStart.y;
-      }
-
-      zoom.scale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
-      zoom.currentScale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
-      if (e) {
-        slideWidth = gesture.$slideEl[0].offsetWidth;
-        slideHeight = gesture.$slideEl[0].offsetHeight;
-        offsetX = gesture.$slideEl.offset().left;
-        offsetY = gesture.$slideEl.offset().top;
-        diffX = (offsetX + (slideWidth / 2)) - touchX;
-        diffY = (offsetY + (slideHeight / 2)) - touchY;
-
-        imageWidth = gesture.$imageEl[0].offsetWidth;
-        imageHeight = gesture.$imageEl[0].offsetHeight;
-        scaledWidth = imageWidth * zoom.scale;
-        scaledHeight = imageHeight * zoom.scale;
-
-        translateMinX = Math.min(((slideWidth / 2) - (scaledWidth / 2)), 0);
-        translateMinY = Math.min(((slideHeight / 2) - (scaledHeight / 2)), 0);
-        translateMaxX = -translateMinX;
-        translateMaxY = -translateMinY;
-
-        translateX = diffX * zoom.scale;
-        translateY = diffY * zoom.scale;
-
-        if (translateX < translateMinX) {
-          translateX = translateMinX;
-        }
-        if (translateX > translateMaxX) {
-          translateX = translateMaxX;
-        }
-
-        if (translateY < translateMinY) {
-          translateY = translateMinY;
-        }
-        if (translateY > translateMaxY) {
-          translateY = translateMaxY;
-        }
-      } else {
-        translateX = 0;
-        translateY = 0;
-      }
-      gesture.$imageWrapEl.transition(300).transform(("translate3d(" + translateX + "px, " + translateY + "px,0)"));
-      gesture.$imageEl.transition(300).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
-    },
-    out: function out() {
-      var swiper = this;
-
-      var zoom = swiper.zoom;
-      var params = swiper.params.zoom;
-      var gesture = zoom.gesture;
-
-      if (!gesture.$slideEl) {
-        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-
-      zoom.scale = 1;
-      zoom.currentScale = 1;
-      gesture.$imageWrapEl.transition(300).transform('translate3d(0,0,0)');
-      gesture.$imageEl.transition(300).transform('translate3d(0,0,0) scale(1)');
-      gesture.$slideEl.removeClass(("" + (params.zoomedSlideClass)));
-      gesture.$slideEl = undefined;
-    },
-    // Attach/Detach Events
-    enable: function enable() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      if (zoom.enabled) { return; }
-      zoom.enabled = true;
-
-      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
-
-      // Scale image
-      if (Support.gestures) {
-        swiper.$wrapperEl.on('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.on('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.on('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      } else if (swiper.touchEvents.start === 'touchstart') {
-        swiper.$wrapperEl.on(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.on(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.on(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      }
-
-      // Move image
-      swiper.$wrapperEl.on(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
-    },
-    disable: function disable() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      if (!zoom.enabled) { return; }
-
-      swiper.zoom.enabled = false;
-
-      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
-
-      // Scale image
-      if (Support.gestures) {
-        swiper.$wrapperEl.off('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.off('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.off('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      } else if (swiper.touchEvents.start === 'touchstart') {
-        swiper.$wrapperEl.off(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.off(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.off(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      }
-
-      // Move image
-      swiper.$wrapperEl.off(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
-    },
-  };
-
-  var Zoom$1 = {
-    name: 'zoom',
-    params: {
-      zoom: {
-        enabled: false,
-        maxRatio: 3,
-        minRatio: 1,
-        toggle: true,
-        containerClass: 'swiper-zoom-container',
-        zoomedSlideClass: 'swiper-slide-zoomed',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      var zoom = {
-        enabled: false,
-        scale: 1,
-        currentScale: 1,
-        isScaling: false,
-        gesture: {
-          $slideEl: undefined,
-          slideWidth: undefined,
-          slideHeight: undefined,
-          $imageEl: undefined,
-          $imageWrapEl: undefined,
-          maxRatio: 3,
-        },
-        image: {
-          isTouched: undefined,
-          isMoved: undefined,
-          currentX: undefined,
-          currentY: undefined,
-          minX: undefined,
-          minY: undefined,
-          maxX: undefined,
-          maxY: undefined,
-          width: undefined,
-          height: undefined,
-          startX: undefined,
-          startY: undefined,
-          touchesStart: {},
-          touchesCurrent: {},
-        },
-        velocity: {
-          x: undefined,
-          y: undefined,
-          prevPositionX: undefined,
-          prevPositionY: undefined,
-          prevTime: undefined,
-        },
-      };
-      ('onGestureStart onGestureChange onGestureEnd onTouchStart onTouchMove onTouchEnd onTransitionEnd toggle enable disable in out').split(' ').forEach(function (methodName) {
-        zoom[methodName] = Zoom[methodName].bind(swiper);
-      });
-      Utils.extend(swiper, {
-        zoom: zoom,
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.zoom.enabled) {
-          swiper.zoom.enable();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.zoom.disable();
-      },
-      touchStart: function touchStart(e) {
-        var swiper = this;
-        if (!swiper.zoom.enabled) { return; }
-        swiper.zoom.onTouchStart(e);
-      },
-      touchEnd: function touchEnd(e) {
-        var swiper = this;
-        if (!swiper.zoom.enabled) { return; }
-        swiper.zoom.onTouchEnd(e);
-      },
-      doubleTap: function doubleTap(e) {
-        var swiper = this;
-        if (swiper.params.zoom.enabled && swiper.zoom.enabled && swiper.params.zoom.toggle) {
-          swiper.zoom.toggle(e);
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.zoom.enabled && swiper.params.zoom.enabled) {
-          swiper.zoom.onTransitionEnd();
-        }
-      },
-    },
-  };
-
-  var Lazy = {
-    loadInSlide: function loadInSlide(index, loadInDuplicate) {
-      if ( loadInDuplicate === void 0 ) loadInDuplicate = true;
-
-      var swiper = this;
-      var params = swiper.params.lazy;
-      if (typeof index === 'undefined') { return; }
-      if (swiper.slides.length === 0) { return; }
-      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
-
-      var $slideEl = isVirtual
-        ? swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]"))
-        : swiper.slides.eq(index);
-
-      var $images = $slideEl.find(("." + (params.elementClass) + ":not(." + (params.loadedClass) + "):not(." + (params.loadingClass) + ")"));
-      if ($slideEl.hasClass(params.elementClass) && !$slideEl.hasClass(params.loadedClass) && !$slideEl.hasClass(params.loadingClass)) {
-        $images = $images.add($slideEl[0]);
-      }
-      if ($images.length === 0) { return; }
-
-      $images.each(function (imageIndex, imageEl) {
-        var $imageEl = $(imageEl);
-        $imageEl.addClass(params.loadingClass);
-
-        var background = $imageEl.attr('data-background');
-        var src = $imageEl.attr('data-src');
-        var srcset = $imageEl.attr('data-srcset');
-        var sizes = $imageEl.attr('data-sizes');
-
-        swiper.loadImage($imageEl[0], (src || background), srcset, sizes, false, function () {
-          if (typeof swiper === 'undefined' || swiper === null || !swiper || (swiper && !swiper.params) || swiper.destroyed) { return; }
-          if (background) {
-            $imageEl.css('background-image', ("url(\"" + background + "\")"));
-            $imageEl.removeAttr('data-background');
-          } else {
-            if (srcset) {
-              $imageEl.attr('srcset', srcset);
-              $imageEl.removeAttr('data-srcset');
-            }
-            if (sizes) {
-              $imageEl.attr('sizes', sizes);
-              $imageEl.removeAttr('data-sizes');
-            }
-            if (src) {
-              $imageEl.attr('src', src);
-              $imageEl.removeAttr('data-src');
-            }
-          }
-
-          $imageEl.addClass(params.loadedClass).removeClass(params.loadingClass);
-          $slideEl.find(("." + (params.preloaderClass))).remove();
-          if (swiper.params.loop && loadInDuplicate) {
-            var slideOriginalIndex = $slideEl.attr('data-swiper-slide-index');
-            if ($slideEl.hasClass(swiper.params.slideDuplicateClass)) {
-              var originalSlide = swiper.$wrapperEl.children(("[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]:not(." + (swiper.params.slideDuplicateClass) + ")"));
-              swiper.lazy.loadInSlide(originalSlide.index(), false);
-            } else {
-              var duplicatedSlide = swiper.$wrapperEl.children(("." + (swiper.params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]"));
-              swiper.lazy.loadInSlide(duplicatedSlide.index(), false);
-            }
-          }
-          swiper.emit('lazyImageReady', $slideEl[0], $imageEl[0]);
-        });
-
-        swiper.emit('lazyImageLoad', $slideEl[0], $imageEl[0]);
-      });
-    },
-    load: function load() {
-      var swiper = this;
-      var $wrapperEl = swiper.$wrapperEl;
-      var swiperParams = swiper.params;
-      var slides = swiper.slides;
-      var activeIndex = swiper.activeIndex;
-      var isVirtual = swiper.virtual && swiperParams.virtual.enabled;
-      var params = swiperParams.lazy;
-
-      var slidesPerView = swiperParams.slidesPerView;
-      if (slidesPerView === 'auto') {
-        slidesPerView = 0;
-      }
-
-      function slideExist(index) {
-        if (isVirtual) {
-          if ($wrapperEl.children(("." + (swiperParams.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]")).length) {
-            return true;
-          }
-        } else if (slides[index]) { return true; }
-        return false;
-      }
-      function slideIndex(slideEl) {
-        if (isVirtual) {
-          return $(slideEl).attr('data-swiper-slide-index');
-        }
-        return $(slideEl).index();
-      }
-
-      if (!swiper.lazy.initialImageLoaded) { swiper.lazy.initialImageLoaded = true; }
-      if (swiper.params.watchSlidesVisibility) {
-        $wrapperEl.children(("." + (swiperParams.slideVisibleClass))).each(function (elIndex, slideEl) {
-          var index = isVirtual ? $(slideEl).attr('data-swiper-slide-index') : $(slideEl).index();
-          swiper.lazy.loadInSlide(index);
-        });
-      } else if (slidesPerView > 1) {
-        for (var i = activeIndex; i < activeIndex + slidesPerView; i += 1) {
-          if (slideExist(i)) { swiper.lazy.loadInSlide(i); }
-        }
-      } else {
-        swiper.lazy.loadInSlide(activeIndex);
-      }
-      if (params.loadPrevNext) {
-        if (slidesPerView > 1 || (params.loadPrevNextAmount && params.loadPrevNextAmount > 1)) {
-          var amount = params.loadPrevNextAmount;
-          var spv = slidesPerView;
-          var maxIndex = Math.min(activeIndex + spv + Math.max(amount, spv), slides.length);
-          var minIndex = Math.max(activeIndex - Math.max(spv, amount), 0);
-          // Next Slides
-          for (var i$1 = activeIndex + slidesPerView; i$1 < maxIndex; i$1 += 1) {
-            if (slideExist(i$1)) { swiper.lazy.loadInSlide(i$1); }
-          }
-          // Prev Slides
-          for (var i$2 = minIndex; i$2 < activeIndex; i$2 += 1) {
-            if (slideExist(i$2)) { swiper.lazy.loadInSlide(i$2); }
-          }
-        } else {
-          var nextSlide = $wrapperEl.children(("." + (swiperParams.slideNextClass)));
-          if (nextSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(nextSlide)); }
-
-          var prevSlide = $wrapperEl.children(("." + (swiperParams.slidePrevClass)));
-          if (prevSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(prevSlide)); }
-        }
-      }
-    },
-  };
-
-  var Lazy$1 = {
-    name: 'lazy',
-    params: {
-      lazy: {
-        enabled: false,
-        loadPrevNext: false,
-        loadPrevNextAmount: 1,
-        loadOnTransitionStart: false,
-
-        elementClass: 'swiper-lazy',
-        loadingClass: 'swiper-lazy-loading',
-        loadedClass: 'swiper-lazy-loaded',
-        preloaderClass: 'swiper-lazy-preloader',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        lazy: {
-          initialImageLoaded: false,
-          load: Lazy.load.bind(swiper),
-          loadInSlide: Lazy.loadInSlide.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled && swiper.params.preloadImages) {
-          swiper.params.preloadImages = false;
-        }
-      },
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled && !swiper.params.loop && swiper.params.initialSlide === 0) {
-          swiper.lazy.load();
-        }
-      },
-      scroll: function scroll() {
-        var swiper = this;
-        if (swiper.params.freeMode && !swiper.params.freeModeSticky) {
-          swiper.lazy.load();
-        }
-      },
-      resize: function resize() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled) {
-          swiper.lazy.load();
-        }
-      },
-      scrollbarDragMove: function scrollbarDragMove() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled) {
-          swiper.lazy.load();
-        }
-      },
-      transitionStart: function transitionStart() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled) {
-          if (swiper.params.lazy.loadOnTransitionStart || (!swiper.params.lazy.loadOnTransitionStart && !swiper.lazy.initialImageLoaded)) {
-            swiper.lazy.load();
-          }
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled && !swiper.params.lazy.loadOnTransitionStart) {
-          swiper.lazy.load();
-        }
-      },
-    },
-  };
-
-  /* eslint no-bitwise: ["error", { "allow": [">>"] }] */
-
-  var Controller = {
-    LinearSpline: function LinearSpline(x, y) {
-      var binarySearch = (function search() {
-        var maxIndex;
-        var minIndex;
-        var guess;
-        return function (array, val) {
-          minIndex = -1;
-          maxIndex = array.length;
-          while (maxIndex - minIndex > 1) {
-            guess = maxIndex + minIndex >> 1;
-            if (array[guess] <= val) {
-              minIndex = guess;
-            } else {
-              maxIndex = guess;
-            }
-          }
-          return maxIndex;
-        };
-      }());
-      this.x = x;
-      this.y = y;
-      this.lastIndex = x.length - 1;
-      // Given an x value (x2), return the expected y2 value:
-      // (x1,y1) is the known point before given value,
-      // (x3,y3) is the known point after given value.
-      var i1;
-      var i3;
-
-      this.interpolate = function interpolate(x2) {
-        if (!x2) { return 0; }
-
-        // Get the indexes of x1 and x3 (the array indexes before and after given x2):
-        i3 = binarySearch(this.x, x2);
-        i1 = i3 - 1;
-
-        // We have our indexes i1 & i3, so we can calculate already:
-        // y2 := ((x2−x1) × (y3−y1)) ÷ (x3−x1) + y1
-        return (((x2 - this.x[i1]) * (this.y[i3] - this.y[i1])) / (this.x[i3] - this.x[i1])) + this.y[i1];
-      };
-      return this;
-    },
-    // xxx: for now i will just save one spline function to to
-    getInterpolateFunction: function getInterpolateFunction(c) {
-      var swiper = this;
-      if (!swiper.controller.spline) {
-        swiper.controller.spline = swiper.params.loop ?
-          new Controller.LinearSpline(swiper.slidesGrid, c.slidesGrid) :
-          new Controller.LinearSpline(swiper.snapGrid, c.snapGrid);
-      }
-    },
-    setTranslate: function setTranslate(setTranslate$1, byController) {
-      var swiper = this;
-      var controlled = swiper.controller.control;
-      var multiplier;
-      var controlledTranslate;
-      function setControlledTranslate(c) {
-        // this will create an Interpolate function based on the snapGrids
-        // x is the Grid of the scrolled scroller and y will be the controlled scroller
-        // it makes sense to create this only once and recall it for the interpolation
-        // the function does a lot of value caching for performance
-        var translate = swiper.rtlTranslate ? -swiper.translate : swiper.translate;
-        if (swiper.params.controller.by === 'slide') {
-          swiper.controller.getInterpolateFunction(c);
-          // i am not sure why the values have to be multiplicated this way, tried to invert the snapGrid
-          // but it did not work out
-          controlledTranslate = -swiper.controller.spline.interpolate(-translate);
-        }
-
-        if (!controlledTranslate || swiper.params.controller.by === 'container') {
-          multiplier = (c.maxTranslate() - c.minTranslate()) / (swiper.maxTranslate() - swiper.minTranslate());
-          controlledTranslate = ((translate - swiper.minTranslate()) * multiplier) + c.minTranslate();
-        }
-
-        if (swiper.params.controller.inverse) {
-          controlledTranslate = c.maxTranslate() - controlledTranslate;
-        }
-        c.updateProgress(controlledTranslate);
-        c.setTranslate(controlledTranslate, swiper);
-        c.updateActiveIndex();
-        c.updateSlidesClasses();
-      }
-      if (Array.isArray(controlled)) {
-        for (var i = 0; i < controlled.length; i += 1) {
-          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
-            setControlledTranslate(controlled[i]);
-          }
-        }
-      } else if (controlled instanceof Swiper && byController !== controlled) {
-        setControlledTranslate(controlled);
-      }
-    },
-    setTransition: function setTransition(duration, byController) {
-      var swiper = this;
-      var controlled = swiper.controller.control;
-      var i;
-      function setControlledTransition(c) {
-        c.setTransition(duration, swiper);
-        if (duration !== 0) {
-          c.transitionStart();
-          c.$wrapperEl.transitionEnd(function () {
-            if (!controlled) { return; }
-            if (c.params.loop && swiper.params.controller.by === 'slide') {
-              c.loopFix();
-            }
-            c.transitionEnd();
-          });
-        }
-      }
-      if (Array.isArray(controlled)) {
-        for (i = 0; i < controlled.length; i += 1) {
-          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
-            setControlledTransition(controlled[i]);
-          }
-        }
-      } else if (controlled instanceof Swiper && byController !== controlled) {
-        setControlledTransition(controlled);
-      }
-    },
-  };
-  var Controller$1 = {
-    name: 'controller',
-    params: {
-      controller: {
-        control: undefined,
-        inverse: false,
-        by: 'slide', // or 'container'
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        controller: {
-          control: swiper.params.controller.control,
-          getInterpolateFunction: Controller.getInterpolateFunction.bind(swiper),
-          setTranslate: Controller.setTranslate.bind(swiper),
-          setTransition: Controller.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      update: function update() {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        if (swiper.controller.spline) {
-          swiper.controller.spline = undefined;
-          delete swiper.controller.spline;
-        }
-      },
-      resize: function resize() {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        if (swiper.controller.spline) {
-          swiper.controller.spline = undefined;
-          delete swiper.controller.spline;
-        }
-      },
-      observerUpdate: function observerUpdate() {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        if (swiper.controller.spline) {
-          swiper.controller.spline = undefined;
-          delete swiper.controller.spline;
-        }
-      },
-      setTranslate: function setTranslate(translate, byController) {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        swiper.controller.setTranslate(translate, byController);
-      },
-      setTransition: function setTransition(duration, byController) {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        swiper.controller.setTransition(duration, byController);
-      },
-    },
-  };
-
-  var a11y = {
-    makeElFocusable: function makeElFocusable($el) {
-      $el.attr('tabIndex', '0');
-      return $el;
-    },
-    addElRole: function addElRole($el, role) {
-      $el.attr('role', role);
-      return $el;
-    },
-    addElLabel: function addElLabel($el, label) {
-      $el.attr('aria-label', label);
-      return $el;
-    },
-    disableEl: function disableEl($el) {
-      $el.attr('aria-disabled', true);
-      return $el;
-    },
-    enableEl: function enableEl($el) {
-      $el.attr('aria-disabled', false);
-      return $el;
-    },
-    onEnterKey: function onEnterKey(e) {
-      var swiper = this;
-      var params = swiper.params.a11y;
-      if (e.keyCode !== 13) { return; }
-      var $targetEl = $(e.target);
-      if (swiper.navigation && swiper.navigation.$nextEl && $targetEl.is(swiper.navigation.$nextEl)) {
-        if (!(swiper.isEnd && !swiper.params.loop)) {
-          swiper.slideNext();
-        }
-        if (swiper.isEnd) {
-          swiper.a11y.notify(params.lastSlideMessage);
-        } else {
-          swiper.a11y.notify(params.nextSlideMessage);
-        }
-      }
-      if (swiper.navigation && swiper.navigation.$prevEl && $targetEl.is(swiper.navigation.$prevEl)) {
-        if (!(swiper.isBeginning && !swiper.params.loop)) {
-          swiper.slidePrev();
-        }
-        if (swiper.isBeginning) {
-          swiper.a11y.notify(params.firstSlideMessage);
-        } else {
-          swiper.a11y.notify(params.prevSlideMessage);
-        }
-      }
-      if (swiper.pagination && $targetEl.is(("." + (swiper.params.pagination.bulletClass)))) {
-        $targetEl[0].click();
-      }
-    },
-    notify: function notify(message) {
-      var swiper = this;
-      var notification = swiper.a11y.liveRegion;
-      if (notification.length === 0) { return; }
-      notification.html('');
-      notification.html(message);
-    },
-    updateNavigation: function updateNavigation() {
-      var swiper = this;
-
-      if (swiper.params.loop) { return; }
-      var ref = swiper.navigation;
-      var $nextEl = ref.$nextEl;
-      var $prevEl = ref.$prevEl;
-
-      if ($prevEl && $prevEl.length > 0) {
-        if (swiper.isBeginning) {
-          swiper.a11y.disableEl($prevEl);
-        } else {
-          swiper.a11y.enableEl($prevEl);
-        }
-      }
-      if ($nextEl && $nextEl.length > 0) {
-        if (swiper.isEnd) {
-          swiper.a11y.disableEl($nextEl);
-        } else {
-          swiper.a11y.enableEl($nextEl);
-        }
-      }
-    },
-    updatePagination: function updatePagination() {
-      var swiper = this;
-      var params = swiper.params.a11y;
-      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-        swiper.pagination.bullets.each(function (bulletIndex, bulletEl) {
-          var $bulletEl = $(bulletEl);
-          swiper.a11y.makeElFocusable($bulletEl);
-          swiper.a11y.addElRole($bulletEl, 'button');
-          swiper.a11y.addElLabel($bulletEl, params.paginationBulletMessage.replace(/{{index}}/, $bulletEl.index() + 1));
-        });
-      }
-    },
-    init: function init() {
-      var swiper = this;
-
-      swiper.$el.append(swiper.a11y.liveRegion);
-
-      // Navigation
-      var params = swiper.params.a11y;
-      var $nextEl;
-      var $prevEl;
-      if (swiper.navigation && swiper.navigation.$nextEl) {
-        $nextEl = swiper.navigation.$nextEl;
-      }
-      if (swiper.navigation && swiper.navigation.$prevEl) {
-        $prevEl = swiper.navigation.$prevEl;
-      }
-      if ($nextEl) {
-        swiper.a11y.makeElFocusable($nextEl);
-        swiper.a11y.addElRole($nextEl, 'button');
-        swiper.a11y.addElLabel($nextEl, params.nextSlideMessage);
-        $nextEl.on('keydown', swiper.a11y.onEnterKey);
-      }
-      if ($prevEl) {
-        swiper.a11y.makeElFocusable($prevEl);
-        swiper.a11y.addElRole($prevEl, 'button');
-        swiper.a11y.addElLabel($prevEl, params.prevSlideMessage);
-        $prevEl.on('keydown', swiper.a11y.onEnterKey);
-      }
-
-      // Pagination
-      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-        swiper.pagination.$el.on('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      if (swiper.a11y.liveRegion && swiper.a11y.liveRegion.length > 0) { swiper.a11y.liveRegion.remove(); }
-
-      var $nextEl;
-      var $prevEl;
-      if (swiper.navigation && swiper.navigation.$nextEl) {
-        $nextEl = swiper.navigation.$nextEl;
-      }
-      if (swiper.navigation && swiper.navigation.$prevEl) {
-        $prevEl = swiper.navigation.$prevEl;
-      }
-      if ($nextEl) {
-        $nextEl.off('keydown', swiper.a11y.onEnterKey);
-      }
-      if ($prevEl) {
-        $prevEl.off('keydown', swiper.a11y.onEnterKey);
-      }
-
-      // Pagination
-      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-        swiper.pagination.$el.off('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
-      }
-    },
-  };
-  var A11y = {
-    name: 'a11y',
-    params: {
-      a11y: {
-        enabled: true,
-        notificationClass: 'swiper-notification',
-        prevSlideMessage: 'Previous slide',
-        nextSlideMessage: 'Next slide',
-        firstSlideMessage: 'This is the first slide',
-        lastSlideMessage: 'This is the last slide',
-        paginationBulletMessage: 'Go to slide {{index}}',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        a11y: {
-          liveRegion: $(("<span class=\"" + (swiper.params.a11y.notificationClass) + "\" aria-live=\"assertive\" aria-atomic=\"true\"></span>")),
-        },
-      });
-      Object.keys(a11y).forEach(function (methodName) {
-        swiper.a11y[methodName] = a11y[methodName].bind(swiper);
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.init();
-        swiper.a11y.updateNavigation();
-      },
-      toEdge: function toEdge() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.updateNavigation();
-      },
-      fromEdge: function fromEdge() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.updateNavigation();
-      },
-      paginationUpdate: function paginationUpdate() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.updatePagination();
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.destroy();
-      },
-    },
-  };
-
-  var History = {
-    init: function init() {
-      var swiper = this;
-      if (!swiper.params.history) { return; }
-      if (!win.history || !win.history.pushState) {
-        swiper.params.history.enabled = false;
-        swiper.params.hashNavigation.enabled = true;
-        return;
-      }
-      var history = swiper.history;
-      history.initialized = true;
-      history.paths = History.getPathValues();
-      if (!history.paths.key && !history.paths.value) { return; }
-      history.scrollToSlide(0, history.paths.value, swiper.params.runCallbacksOnInit);
-      if (!swiper.params.history.replaceState) {
-        win.addEventListener('popstate', swiper.history.setHistoryPopState);
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      if (!swiper.params.history.replaceState) {
-        win.removeEventListener('popstate', swiper.history.setHistoryPopState);
-      }
-    },
-    setHistoryPopState: function setHistoryPopState() {
-      var swiper = this;
-      swiper.history.paths = History.getPathValues();
-      swiper.history.scrollToSlide(swiper.params.speed, swiper.history.paths.value, false);
-    },
-    getPathValues: function getPathValues() {
-      var pathArray = win.location.pathname.slice(1).split('/').filter(function (part) { return part !== ''; });
-      var total = pathArray.length;
-      var key = pathArray[total - 2];
-      var value = pathArray[total - 1];
-      return { key: key, value: value };
-    },
-    setHistory: function setHistory(key, index) {
-      var swiper = this;
-      if (!swiper.history.initialized || !swiper.params.history.enabled) { return; }
-      var slide = swiper.slides.eq(index);
-      var value = History.slugify(slide.attr('data-history'));
-      if (!win.location.pathname.includes(key)) {
-        value = key + "/" + value;
-      }
-      var currentState = win.history.state;
-      if (currentState && currentState.value === value) {
-        return;
-      }
-      if (swiper.params.history.replaceState) {
-        win.history.replaceState({ value: value }, null, value);
-      } else {
-        win.history.pushState({ value: value }, null, value);
-      }
-    },
-    slugify: function slugify(text) {
-      return text.toString().toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^\w-]+/g, '')
-        .replace(/--+/g, '-')
-        .replace(/^-+/, '')
-        .replace(/-+$/, '');
-    },
-    scrollToSlide: function scrollToSlide(speed, value, runCallbacks) {
-      var swiper = this;
-      if (value) {
-        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
-          var slide = swiper.slides.eq(i);
-          var slideHistory = History.slugify(slide.attr('data-history'));
-          if (slideHistory === value && !slide.hasClass(swiper.params.slideDuplicateClass)) {
-            var index = slide.index();
-            swiper.slideTo(index, speed, runCallbacks);
-          }
-        }
-      } else {
-        swiper.slideTo(0, speed, runCallbacks);
-      }
-    },
-  };
-
-  var History$1 = {
-    name: 'history',
-    params: {
-      history: {
-        enabled: false,
-        replaceState: false,
-        key: 'slides',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        history: {
-          init: History.init.bind(swiper),
-          setHistory: History.setHistory.bind(swiper),
-          setHistoryPopState: History.setHistoryPopState.bind(swiper),
-          scrollToSlide: History.scrollToSlide.bind(swiper),
-          destroy: History.destroy.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.history.enabled) {
-          swiper.history.init();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.params.history.enabled) {
-          swiper.history.destroy();
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.history.initialized) {
-          swiper.history.setHistory(swiper.params.history.key, swiper.activeIndex);
-        }
-      },
-    },
-  };
-
-  var HashNavigation = {
-    onHashCange: function onHashCange() {
-      var swiper = this;
-      var newHash = doc.location.hash.replace('#', '');
-      var activeSlideHash = swiper.slides.eq(swiper.activeIndex).attr('data-hash');
-      if (newHash !== activeSlideHash) {
-        swiper.slideTo(swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-hash=\"" + newHash + "\"]")).index());
-      }
-    },
-    setHash: function setHash() {
-      var swiper = this;
-      if (!swiper.hashNavigation.initialized || !swiper.params.hashNavigation.enabled) { return; }
-      if (swiper.params.hashNavigation.replaceState && win.history && win.history.replaceState) {
-        win.history.replaceState(null, null, (("#" + (swiper.slides.eq(swiper.activeIndex).attr('data-hash'))) || ''));
-      } else {
-        var slide = swiper.slides.eq(swiper.activeIndex);
-        var hash = slide.attr('data-hash') || slide.attr('data-history');
-        doc.location.hash = hash || '';
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      if (!swiper.params.hashNavigation.enabled || (swiper.params.history && swiper.params.history.enabled)) { return; }
-      swiper.hashNavigation.initialized = true;
-      var hash = doc.location.hash.replace('#', '');
-      if (hash) {
-        var speed = 0;
-        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
-          var slide = swiper.slides.eq(i);
-          var slideHash = slide.attr('data-hash') || slide.attr('data-history');
-          if (slideHash === hash && !slide.hasClass(swiper.params.slideDuplicateClass)) {
-            var index = slide.index();
-            swiper.slideTo(index, speed, swiper.params.runCallbacksOnInit, true);
-          }
-        }
-      }
-      if (swiper.params.hashNavigation.watchState) {
-        $(win).on('hashchange', swiper.hashNavigation.onHashCange);
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      if (swiper.params.hashNavigation.watchState) {
-        $(win).off('hashchange', swiper.hashNavigation.onHashCange);
-      }
-    },
-  };
-  var HashNavigation$1 = {
-    name: 'hash-navigation',
-    params: {
-      hashNavigation: {
-        enabled: false,
-        replaceState: false,
-        watchState: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        hashNavigation: {
-          initialized: false,
-          init: HashNavigation.init.bind(swiper),
-          destroy: HashNavigation.destroy.bind(swiper),
-          setHash: HashNavigation.setHash.bind(swiper),
-          onHashCange: HashNavigation.onHashCange.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.hashNavigation.enabled) {
-          swiper.hashNavigation.init();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.params.hashNavigation.enabled) {
-          swiper.hashNavigation.destroy();
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.hashNavigation.initialized) {
-          swiper.hashNavigation.setHash();
-        }
-      },
-    },
-  };
-
-  /* eslint no-underscore-dangle: "off" */
-
-  var Autoplay = {
-    run: function run() {
-      var swiper = this;
-      var $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
-      var delay = swiper.params.autoplay.delay;
-      if ($activeSlideEl.attr('data-swiper-autoplay')) {
-        delay = $activeSlideEl.attr('data-swiper-autoplay') || swiper.params.autoplay.delay;
-      }
-      swiper.autoplay.timeout = Utils.nextTick(function () {
-        if (swiper.params.autoplay.reverseDirection) {
-          if (swiper.params.loop) {
-            swiper.loopFix();
-            swiper.slidePrev(swiper.params.speed, true, true);
-            swiper.emit('autoplay');
-          } else if (!swiper.isBeginning) {
-            swiper.slidePrev(swiper.params.speed, true, true);
-            swiper.emit('autoplay');
-          } else if (!swiper.params.autoplay.stopOnLastSlide) {
-            swiper.slideTo(swiper.slides.length - 1, swiper.params.speed, true, true);
-            swiper.emit('autoplay');
-          } else {
-            swiper.autoplay.stop();
-          }
-        } else if (swiper.params.loop) {
-          swiper.loopFix();
-          swiper.slideNext(swiper.params.speed, true, true);
-          swiper.emit('autoplay');
-        } else if (!swiper.isEnd) {
-          swiper.slideNext(swiper.params.speed, true, true);
-          swiper.emit('autoplay');
-        } else if (!swiper.params.autoplay.stopOnLastSlide) {
-          swiper.slideTo(0, swiper.params.speed, true, true);
-          swiper.emit('autoplay');
-        } else {
-          swiper.autoplay.stop();
-        }
-      }, delay);
-    },
-    start: function start() {
-      var swiper = this;
-      if (typeof swiper.autoplay.timeout !== 'undefined') { return false; }
-      if (swiper.autoplay.running) { return false; }
-      swiper.autoplay.running = true;
-      swiper.emit('autoplayStart');
-      swiper.autoplay.run();
-      return true;
-    },
-    stop: function stop() {
-      var swiper = this;
-      if (!swiper.autoplay.running) { return false; }
-      if (typeof swiper.autoplay.timeout === 'undefined') { return false; }
-
-      if (swiper.autoplay.timeout) {
-        clearTimeout(swiper.autoplay.timeout);
-        swiper.autoplay.timeout = undefined;
-      }
-      swiper.autoplay.running = false;
-      swiper.emit('autoplayStop');
-      return true;
-    },
-    pause: function pause(speed) {
-      var swiper = this;
-      if (!swiper.autoplay.running) { return; }
-      if (swiper.autoplay.paused) { return; }
-      if (swiper.autoplay.timeout) { clearTimeout(swiper.autoplay.timeout); }
-      swiper.autoplay.paused = true;
-      if (speed === 0 || !swiper.params.autoplay.waitForTransition) {
-        swiper.autoplay.paused = false;
-        swiper.autoplay.run();
-      } else {
-        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.autoplay.onTransitionEnd);
-        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
-      }
-    },
-  };
-
-  var Autoplay$1 = {
-    name: 'autoplay',
-    params: {
-      autoplay: {
-        enabled: false,
-        delay: 3000,
-        waitForTransition: true,
-        disableOnInteraction: true,
-        stopOnLastSlide: false,
-        reverseDirection: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        autoplay: {
-          running: false,
-          paused: false,
-          run: Autoplay.run.bind(swiper),
-          start: Autoplay.start.bind(swiper),
-          stop: Autoplay.stop.bind(swiper),
-          pause: Autoplay.pause.bind(swiper),
-          onTransitionEnd: function onTransitionEnd(e) {
-            if (!swiper || swiper.destroyed || !swiper.$wrapperEl) { return; }
-            if (e.target !== this) { return; }
-            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.autoplay.onTransitionEnd);
-            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
-            swiper.autoplay.paused = false;
-            if (!swiper.autoplay.running) {
-              swiper.autoplay.stop();
-            } else {
-              swiper.autoplay.run();
-            }
-          },
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.autoplay.enabled) {
-          swiper.autoplay.start();
-        }
-      },
-      beforeTransitionStart: function beforeTransitionStart(speed, internal) {
-        var swiper = this;
-        if (swiper.autoplay.running) {
-          if (internal || !swiper.params.autoplay.disableOnInteraction) {
-            swiper.autoplay.pause(speed);
-          } else {
-            swiper.autoplay.stop();
-          }
-        }
-      },
-      sliderFirstMove: function sliderFirstMove() {
-        var swiper = this;
-        if (swiper.autoplay.running) {
-          if (swiper.params.autoplay.disableOnInteraction) {
-            swiper.autoplay.stop();
-          } else {
-            swiper.autoplay.pause();
-          }
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.autoplay.running) {
-          swiper.autoplay.stop();
-        }
-      },
-    },
-  };
-
-  var Fade = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var slides = swiper.slides;
-      for (var i = 0; i < slides.length; i += 1) {
-        var $slideEl = swiper.slides.eq(i);
-        var offset = $slideEl[0].swiperSlideOffset;
-        var tx = -offset;
-        if (!swiper.params.virtualTranslate) { tx -= swiper.translate; }
-        var ty = 0;
-        if (!swiper.isHorizontal()) {
-          ty = tx;
-          tx = 0;
-        }
-        var slideOpacity = swiper.params.fadeEffect.crossFade ?
-          Math.max(1 - Math.abs($slideEl[0].progress), 0) :
-          1 + Math.min(Math.max($slideEl[0].progress, -1), 0);
-        $slideEl
-          .css({
-            opacity: slideOpacity,
-          })
-          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px)"));
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      var slides = swiper.slides;
-      var $wrapperEl = swiper.$wrapperEl;
-      slides.transition(duration);
-      if (swiper.params.virtualTranslate && duration !== 0) {
-        var eventTriggered = false;
-        slides.transitionEnd(function () {
-          if (eventTriggered) { return; }
-          if (!swiper || swiper.destroyed) { return; }
-          eventTriggered = true;
-          swiper.animating = false;
-          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
-          for (var i = 0; i < triggerEvents.length; i += 1) {
-            $wrapperEl.trigger(triggerEvents[i]);
-          }
-        });
-      }
-    },
-  };
-
-  var EffectFade = {
-    name: 'effect-fade',
-    params: {
-      fadeEffect: {
-        crossFade: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        fadeEffect: {
-          setTranslate: Fade.setTranslate.bind(swiper),
-          setTransition: Fade.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'fade') { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "fade"));
-        var overwriteParams = {
-          slidesPerView: 1,
-          slidesPerColumn: 1,
-          slidesPerGroup: 1,
-          watchSlidesProgress: true,
-          spaceBetween: 0,
-          virtualTranslate: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'fade') { return; }
-        swiper.fadeEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'fade') { return; }
-        swiper.fadeEffect.setTransition(duration);
-      },
-    },
-  };
-
-  var Cube = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var $el = swiper.$el;
-      var $wrapperEl = swiper.$wrapperEl;
-      var slides = swiper.slides;
-      var swiperWidth = swiper.width;
-      var swiperHeight = swiper.height;
-      var rtl = swiper.rtlTranslate;
-      var swiperSize = swiper.size;
-      var params = swiper.params.cubeEffect;
-      var isHorizontal = swiper.isHorizontal();
-      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
-      var wrapperRotate = 0;
-      var $cubeShadowEl;
-      if (params.shadow) {
-        if (isHorizontal) {
-          $cubeShadowEl = $wrapperEl.find('.swiper-cube-shadow');
-          if ($cubeShadowEl.length === 0) {
-            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
-            $wrapperEl.append($cubeShadowEl);
-          }
-          $cubeShadowEl.css({ height: (swiperWidth + "px") });
-        } else {
-          $cubeShadowEl = $el.find('.swiper-cube-shadow');
-          if ($cubeShadowEl.length === 0) {
-            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
-            $el.append($cubeShadowEl);
-          }
-        }
-      }
-      for (var i = 0; i < slides.length; i += 1) {
-        var $slideEl = slides.eq(i);
-        var slideIndex = i;
-        if (isVirtual) {
-          slideIndex = parseInt($slideEl.attr('data-swiper-slide-index'), 10);
-        }
-        var slideAngle = slideIndex * 90;
-        var round = Math.floor(slideAngle / 360);
-        if (rtl) {
-          slideAngle = -slideAngle;
-          round = Math.floor(-slideAngle / 360);
-        }
-        var progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
-        var tx = 0;
-        var ty = 0;
-        var tz = 0;
-        if (slideIndex % 4 === 0) {
-          tx = -round * 4 * swiperSize;
-          tz = 0;
-        } else if ((slideIndex - 1) % 4 === 0) {
-          tx = 0;
-          tz = -round * 4 * swiperSize;
-        } else if ((slideIndex - 2) % 4 === 0) {
-          tx = swiperSize + (round * 4 * swiperSize);
-          tz = swiperSize;
-        } else if ((slideIndex - 3) % 4 === 0) {
-          tx = -swiperSize;
-          tz = (3 * swiperSize) + (swiperSize * 4 * round);
-        }
-        if (rtl) {
-          tx = -tx;
-        }
-
-        if (!isHorizontal) {
-          ty = tx;
-          tx = 0;
-        }
-
-        var transform = "rotateX(" + (isHorizontal ? 0 : -slideAngle) + "deg) rotateY(" + (isHorizontal ? slideAngle : 0) + "deg) translate3d(" + tx + "px, " + ty + "px, " + tz + "px)";
-        if (progress <= 1 && progress > -1) {
-          wrapperRotate = (slideIndex * 90) + (progress * 90);
-          if (rtl) { wrapperRotate = (-slideIndex * 90) - (progress * 90); }
-        }
-        $slideEl.transform(transform);
-        if (params.slideShadows) {
-          // Set shadows
-          var shadowBefore = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-          var shadowAfter = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-          if (shadowBefore.length === 0) {
-            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
-            $slideEl.append(shadowBefore);
-          }
-          if (shadowAfter.length === 0) {
-            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
-            $slideEl.append(shadowAfter);
-          }
-          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
-          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
-        }
-      }
-      $wrapperEl.css({
-        '-webkit-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-        '-moz-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-        '-ms-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-        'transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-      });
-
-      if (params.shadow) {
-        if (isHorizontal) {
-          $cubeShadowEl.transform(("translate3d(0px, " + ((swiperWidth / 2) + params.shadowOffset) + "px, " + (-swiperWidth / 2) + "px) rotateX(90deg) rotateZ(0deg) scale(" + (params.shadowScale) + ")"));
-        } else {
-          var shadowAngle = Math.abs(wrapperRotate) - (Math.floor(Math.abs(wrapperRotate) / 90) * 90);
-          var multiplier = 1.5 - (
-            (Math.sin((shadowAngle * 2 * Math.PI) / 360) / 2) +
-            (Math.cos((shadowAngle * 2 * Math.PI) / 360) / 2)
-          );
-          var scale1 = params.shadowScale;
-          var scale2 = params.shadowScale / multiplier;
-          var offset = params.shadowOffset;
-          $cubeShadowEl.transform(("scale3d(" + scale1 + ", 1, " + scale2 + ") translate3d(0px, " + ((swiperHeight / 2) + offset) + "px, " + (-swiperHeight / 2 / scale2) + "px) rotateX(-90deg)"));
-        }
-      }
-      var zFactor = (Browser.isSafari || Browser.isUiWebView) ? (-swiperSize / 2) : 0;
-      $wrapperEl
-        .transform(("translate3d(0px,0," + zFactor + "px) rotateX(" + (swiper.isHorizontal() ? 0 : wrapperRotate) + "deg) rotateY(" + (swiper.isHorizontal() ? -wrapperRotate : 0) + "deg)"));
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      var $el = swiper.$el;
-      var slides = swiper.slides;
-      slides
-        .transition(duration)
-        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-        .transition(duration);
-      if (swiper.params.cubeEffect.shadow && !swiper.isHorizontal()) {
-        $el.find('.swiper-cube-shadow').transition(duration);
-      }
-    },
-  };
-
-  var EffectCube = {
-    name: 'effect-cube',
-    params: {
-      cubeEffect: {
-        slideShadows: true,
-        shadow: true,
-        shadowOffset: 20,
-        shadowScale: 0.94,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        cubeEffect: {
-          setTranslate: Cube.setTranslate.bind(swiper),
-          setTransition: Cube.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'cube') { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "cube"));
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
-        var overwriteParams = {
-          slidesPerView: 1,
-          slidesPerColumn: 1,
-          slidesPerGroup: 1,
-          watchSlidesProgress: true,
-          resistanceRatio: 0,
-          spaceBetween: 0,
-          centeredSlides: false,
-          virtualTranslate: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'cube') { return; }
-        swiper.cubeEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'cube') { return; }
-        swiper.cubeEffect.setTransition(duration);
-      },
-    },
-  };
-
-  var Flip = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var slides = swiper.slides;
-      var rtl = swiper.rtlTranslate;
-      for (var i = 0; i < slides.length; i += 1) {
-        var $slideEl = slides.eq(i);
-        var progress = $slideEl[0].progress;
-        if (swiper.params.flipEffect.limitRotation) {
-          progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
-        }
-        var offset = $slideEl[0].swiperSlideOffset;
-        var rotate = -180 * progress;
-        var rotateY = rotate;
-        var rotateX = 0;
-        var tx = -offset;
-        var ty = 0;
-        if (!swiper.isHorizontal()) {
-          ty = tx;
-          tx = 0;
-          rotateX = -rotateY;
-          rotateY = 0;
-        } else if (rtl) {
-          rotateY = -rotateY;
-        }
-
-        $slideEl[0].style.zIndex = -Math.abs(Math.round(progress)) + slides.length;
-
-        if (swiper.params.flipEffect.slideShadows) {
-          // Set shadows
-          var shadowBefore = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-          var shadowAfter = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-          if (shadowBefore.length === 0) {
-            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'left' : 'top') + "\"></div>"));
-            $slideEl.append(shadowBefore);
-          }
-          if (shadowAfter.length === 0) {
-            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'right' : 'bottom') + "\"></div>"));
-            $slideEl.append(shadowAfter);
-          }
-          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
-          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
-        }
-        $slideEl
-          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)"));
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      var slides = swiper.slides;
-      var activeIndex = swiper.activeIndex;
-      var $wrapperEl = swiper.$wrapperEl;
-      slides
-        .transition(duration)
-        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-        .transition(duration);
-      if (swiper.params.virtualTranslate && duration !== 0) {
-        var eventTriggered = false;
-        // eslint-disable-next-line
-        slides.eq(activeIndex).transitionEnd(function onTransitionEnd() {
-          if (eventTriggered) { return; }
-          if (!swiper || swiper.destroyed) { return; }
-          // if (!$(this).hasClass(swiper.params.slideActiveClass)) return;
-          eventTriggered = true;
-          swiper.animating = false;
-          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
-          for (var i = 0; i < triggerEvents.length; i += 1) {
-            $wrapperEl.trigger(triggerEvents[i]);
-          }
-        });
-      }
-    },
-  };
-
-  var EffectFlip = {
-    name: 'effect-flip',
-    params: {
-      flipEffect: {
-        slideShadows: true,
-        limitRotation: true,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        flipEffect: {
-          setTranslate: Flip.setTranslate.bind(swiper),
-          setTransition: Flip.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'flip') { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "flip"));
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
-        var overwriteParams = {
-          slidesPerView: 1,
-          slidesPerColumn: 1,
-          slidesPerGroup: 1,
-          watchSlidesProgress: true,
-          spaceBetween: 0,
-          virtualTranslate: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'flip') { return; }
-        swiper.flipEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'flip') { return; }
-        swiper.flipEffect.setTransition(duration);
-      },
-    },
-  };
-
-  var Coverflow = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var swiperWidth = swiper.width;
-      var swiperHeight = swiper.height;
-      var slides = swiper.slides;
-      var $wrapperEl = swiper.$wrapperEl;
-      var slidesSizesGrid = swiper.slidesSizesGrid;
-      var params = swiper.params.coverflowEffect;
-      var isHorizontal = swiper.isHorizontal();
-      var transform = swiper.translate;
-      var center = isHorizontal ? -transform + (swiperWidth / 2) : -transform + (swiperHeight / 2);
-      var rotate = isHorizontal ? params.rotate : -params.rotate;
-      var translate = params.depth;
-      // Each slide offset from center
-      for (var i = 0, length = slides.length; i < length; i += 1) {
-        var $slideEl = slides.eq(i);
-        var slideSize = slidesSizesGrid[i];
-        var slideOffset = $slideEl[0].swiperSlideOffset;
-        var offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
-
-        var rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
-        var rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
-        // var rotateZ = 0
-        var translateZ = -translate * Math.abs(offsetMultiplier);
-
-        var translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
-        var translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
-
-        // Fix for ultra small values
-        if (Math.abs(translateX) < 0.001) { translateX = 0; }
-        if (Math.abs(translateY) < 0.001) { translateY = 0; }
-        if (Math.abs(translateZ) < 0.001) { translateZ = 0; }
-        if (Math.abs(rotateY) < 0.001) { rotateY = 0; }
-        if (Math.abs(rotateX) < 0.001) { rotateX = 0; }
-
-        var slideTransform = "translate3d(" + translateX + "px," + translateY + "px," + translateZ + "px)  rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
-
-        $slideEl.transform(slideTransform);
-        $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
-        if (params.slideShadows) {
-          // Set shadows
-          var $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-          var $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-          if ($shadowBeforeEl.length === 0) {
-            $shadowBeforeEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
-            $slideEl.append($shadowBeforeEl);
-          }
-          if ($shadowAfterEl.length === 0) {
-            $shadowAfterEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
-            $slideEl.append($shadowAfterEl);
-          }
-          if ($shadowBeforeEl.length) { $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0; }
-          if ($shadowAfterEl.length) { $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0; }
-        }
-      }
-
-      // Set correct perspective for IE10
-      if (Support.pointerEvents || Support.prefixedPointerEvents) {
-        var ws = $wrapperEl[0].style;
-        ws.perspectiveOrigin = center + "px 50%";
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      swiper.slides
-        .transition(duration)
-        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-        .transition(duration);
-    },
-  };
-
-  var EffectCoverflow = {
-    name: 'effect-coverflow',
-    params: {
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        coverflowEffect: {
-          setTranslate: Coverflow.setTranslate.bind(swiper),
-          setTransition: Coverflow.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'coverflow') { return; }
-
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "coverflow"));
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
-
-        swiper.params.watchSlidesProgress = true;
-        swiper.originalParams.watchSlidesProgress = true;
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'coverflow') { return; }
-        swiper.coverflowEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'coverflow') { return; }
-        swiper.coverflowEffect.setTransition(duration);
-      },
-    },
-  };
-
-  // Swiper Class
-
-  var components = [
-    Device$1,
-    Support$1,
-    Browser$1,
-    Resize,
-    Observer$1,
-    Virtual$1,
-    Keyboard$1,
-    Mousewheel$1,
-    Navigation$1,
-    Pagination$1,
-    Scrollbar$1,
-    Parallax$1,
-    Zoom$1,
-    Lazy$1,
-    Controller$1,
-    A11y,
-    History$1,
-    HashNavigation$1,
-    Autoplay$1,
-    EffectFade,
-    EffectCube,
-    EffectFlip,
-    EffectCoverflow
-  ];
-
-  if (typeof Swiper.use === 'undefined') {
-    Swiper.use = Swiper.Class.use;
-    Swiper.installModule = Swiper.Class.installModule;
-  }
-
-  Swiper.use(components);
-
-  return Swiper;
-
-})));
-
-
-/***/ }),
-
-/***/ 8:
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30193,19 +21340,19231 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33), __webpack_require__(40).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33), __webpack_require__(42).setImmediate))
 
 /***/ }),
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */
+/***/ (function(module, exports) {
 
-/***/ 88:
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(50)
+}
+var normalizeComponent = __webpack_require__(38)
+/* script */
+var __vue_script__ = __webpack_require__(53)
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2638fbee"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/buildingList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2638fbee", Component.options)
+  } else {
+    hotAPI.reload("data-v-2638fbee", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 202);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+module.exports = __webpack_require__(8);
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_cell_vue__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_cell_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_cell_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_cell_vue___default.a; });
+
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* unused harmony export on */
+/* unused harmony export off */
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return once; });
+/* unused harmony export hasClass */
+/* harmony export (immutable) */ exports["a"] = addClass;
+/* harmony export (immutable) */ exports["b"] = removeClass;
+/* unused harmony export getStyle */
+/* unused harmony export setStyle */
+/* istanbul ignore next */
+
+
+
+var isServer = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer;
+var SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
+var MOZ_HACK_REGEXP = /^moz([A-Z])/;
+var ieVersion = isServer ? 0 : Number(document.documentMode);
+
+/* istanbul ignore next */
+var trim = function(string) {
+  return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+};
+/* istanbul ignore next */
+var camelCase = function(name) {
+  return name.replace(SPECIAL_CHARS_REGEXP, function(_, separator, letter, offset) {
+    return offset ? letter.toUpperCase() : letter;
+  }).replace(MOZ_HACK_REGEXP, 'Moz$1');
+};
+
+/* istanbul ignore next */
+var on = (function() {
+  if (!isServer && document.addEventListener) {
+    return function(element, event, handler) {
+      if (element && event && handler) {
+        element.addEventListener(event, handler, false);
+      }
+    };
+  } else {
+    return function(element, event, handler) {
+      if (element && event && handler) {
+        element.attachEvent('on' + event, handler);
+      }
+    };
+  }
+})();
+
+/* istanbul ignore next */
+var off = (function() {
+  if (!isServer && document.removeEventListener) {
+    return function(element, event, handler) {
+      if (element && event) {
+        element.removeEventListener(event, handler, false);
+      }
+    };
+  } else {
+    return function(element, event, handler) {
+      if (element && event) {
+        element.detachEvent('on' + event, handler);
+      }
+    };
+  }
+})();
+
+/* istanbul ignore next */
+var once = function(el, event, fn) {
+  var listener = function() {
+    if (fn) {
+      fn.apply(this, arguments);
+    }
+    off(el, event, listener);
+  };
+  on(el, event, listener);
+};
+
+/* istanbul ignore next */
+function hasClass(el, cls) {
+  if (!el || !cls) return false;
+  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
+  if (el.classList) {
+    return el.classList.contains(cls);
+  } else {
+    return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
+  }
+};
+
+/* istanbul ignore next */
+function addClass(el, cls) {
+  if (!el) return;
+  var curClass = el.className;
+  var classes = (cls || '').split(' ');
+
+  for (var i = 0, j = classes.length; i < j; i++) {
+    var clsName = classes[i];
+    if (!clsName) continue;
+
+    if (el.classList) {
+      el.classList.add(clsName);
+    } else {
+      if (!hasClass(el, clsName)) {
+        curClass += ' ' + clsName;
+      }
+    }
+  }
+  if (!el.classList) {
+    el.className = curClass;
+  }
+};
+
+/* istanbul ignore next */
+function removeClass(el, cls) {
+  if (!el || !cls) return;
+  var classes = cls.split(' ');
+  var curClass = ' ' + el.className + ' ';
+
+  for (var i = 0, j = classes.length; i < j; i++) {
+    var clsName = classes[i];
+    if (!clsName) continue;
+
+    if (el.classList) {
+      el.classList.remove(clsName);
+    } else {
+      if (hasClass(el, clsName)) {
+        curClass = curClass.replace(' ' + clsName + ' ', ' ');
+      }
+    }
+  }
+  if (!el.classList) {
+    el.className = trim(curClass);
+  }
+};
+
+/* istanbul ignore next */
+var getStyle = ieVersion < 9 ? function(element, styleName) {
+  if (isServer) return;
+  if (!element || !styleName) return null;
+  styleName = camelCase(styleName);
+  if (styleName === 'float') {
+    styleName = 'styleFloat';
+  }
+  try {
+    switch (styleName) {
+      case 'opacity':
+        try {
+          return element.filters.item('alpha').opacity / 100;
+        } catch (e) {
+          return 1.0;
+        }
+      default:
+        return (element.style[styleName] || element.currentStyle ? element.currentStyle[styleName] : null);
+    }
+  } catch (e) {
+    return element.style[styleName];
+  }
+} : function(element, styleName) {
+  if (isServer) return;
+  if (!element || !styleName) return null;
+  styleName = camelCase(styleName);
+  if (styleName === 'float') {
+    styleName = 'cssFloat';
+  }
+  try {
+    var computed = document.defaultView.getComputedStyle(element, '');
+    return element.style[styleName] || computed ? computed[styleName] : null;
+  } catch (e) {
+    return element.style[styleName];
+  }
+};
+
+/* istanbul ignore next */
+function setStyle(element, styleName, value) {
+  if (!element || !styleName) return;
+
+  if (typeof styleName === 'object') {
+    for (var prop in styleName) {
+      if (styleName.hasOwnProperty(prop)) {
+        setStyle(element, prop, styleName[prop]);
+      }
+    }
+  } else {
+    styleName = camelCase(styleName);
+    if (styleName === 'opacity' && ieVersion < 9) {
+      element.style.filter = isNaN(value) ? '' : 'alpha(opacity=' + value * 100 + ')';
+    } else {
+      element.style[styleName] = value;
+    }
+  }
+};
+
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(39),
+  /* template */
+  null,
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_merge__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__ = __webpack_require__(90);
+/* unused harmony reexport PopupManager */
+
+
+
+
+var idSeed = 1;
+var transitions = [];
+
+var hookTransition = function (transition) {
+  if (transitions.indexOf(transition) !== -1) return;
+
+  var getVueInstance = function (element) {
+    var instance = element.__vue__;
+    if (!instance) {
+      var textNode = element.previousSibling;
+      if (textNode.__vue__) {
+        instance = textNode.__vue__;
+      }
+    }
+    return instance;
+  };
+
+  __WEBPACK_IMPORTED_MODULE_0_vue___default.a.transition(transition, {
+    afterEnter: function afterEnter(el) {
+      var instance = getVueInstance(el);
+
+      if (instance) {
+        instance.doAfterOpen && instance.doAfterOpen();
+      }
+    },
+    afterLeave: function afterLeave(el) {
+      var instance = getVueInstance(el);
+
+      if (instance) {
+        instance.doAfterClose && instance.doAfterClose();
+      }
+    }
+  });
+};
+
+var scrollBarWidth;
+var getScrollBarWidth = function () {
+  if (__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer) return;
+  if (scrollBarWidth !== undefined) return scrollBarWidth;
+
+  var outer = document.createElement('div');
+  outer.style.visibility = 'hidden';
+  outer.style.width = '100px';
+  outer.style.position = 'absolute';
+  outer.style.top = '-9999px';
+  document.body.appendChild(outer);
+
+  var widthNoScroll = outer.offsetWidth;
+  outer.style.overflow = 'scroll';
+
+  var inner = document.createElement('div');
+  inner.style.width = '100%';
+  outer.appendChild(inner);
+
+  var widthWithScroll = inner.offsetWidth;
+  outer.parentNode.removeChild(outer);
+
+  return widthNoScroll - widthWithScroll;
+};
+
+var getDOM = function(dom) {
+  if (dom.nodeType === 3) {
+    dom = dom.nextElementSibling || dom.nextSibling;
+    getDOM(dom);
+  }
+  return dom;
+};
+
+/* harmony default export */ exports["a"] = {
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
+    transition: {
+      type: String,
+      default: ''
+    },
+    openDelay: {},
+    closeDelay: {},
+    zIndex: {},
+    modal: {
+      type: Boolean,
+      default: false
+    },
+    modalFade: {
+      type: Boolean,
+      default: true
+    },
+    modalClass: {
+    },
+    lockScroll: {
+      type: Boolean,
+      default: true
+    },
+    closeOnPressEscape: {
+      type: Boolean,
+      default: false
+    },
+    closeOnClickModal: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  created: function created() {
+    if (this.transition) {
+      hookTransition(this.transition);
+    }
+  },
+
+  beforeMount: function beforeMount() {
+    this._popupId = 'popup-' + idSeed++;
+    __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].register(this._popupId, this);
+  },
+
+  beforeDestroy: function beforeDestroy() {
+    __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].deregister(this._popupId);
+    __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].closeModal(this._popupId);
+    if (this.modal && this.bodyOverflow !== null && this.bodyOverflow !== 'hidden') {
+      document.body.style.overflow = this.bodyOverflow;
+      document.body.style.paddingRight = this.bodyPaddingRight;
+    }
+    this.bodyOverflow = null;
+    this.bodyPaddingRight = null;
+  },
+
+  data: function data() {
+    return {
+      opened: false,
+      bodyOverflow: null,
+      bodyPaddingRight: null,
+      rendered: false
+    };
+  },
+
+  watch: {
+    value: function value(val) {
+      var this$1 = this;
+
+      if (val) {
+        if (this._opening) return;
+        if (!this.rendered) {
+          this.rendered = true;
+          __WEBPACK_IMPORTED_MODULE_0_vue___default.a.nextTick(function () {
+            this$1.open();
+          });
+        } else {
+          this.open();
+        }
+      } else {
+        this.close();
+      }
+    }
+  },
+
+  methods: {
+    open: function open(options) {
+      var this$1 = this;
+
+      if (!this.rendered) {
+        this.rendered = true;
+        this.$emit('input', true);
+      }
+
+      var props = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_merge__["a" /* default */])({}, this, options, this.$props);
+
+      if (this._closeTimer) {
+        clearTimeout(this._closeTimer);
+        this._closeTimer = null;
+      }
+      clearTimeout(this._openTimer);
+
+      var openDelay = Number(props.openDelay);
+      if (openDelay > 0) {
+        this._openTimer = setTimeout(function () {
+          this$1._openTimer = null;
+          this$1.doOpen(props);
+        }, openDelay);
+      } else {
+        this.doOpen(props);
+      }
+    },
+
+    doOpen: function doOpen(props) {
+      if (this.$isServer) return;
+      if (this.willOpen && !this.willOpen()) return;
+      if (this.opened) return;
+
+      this._opening = true;
+
+      // 使用 vue-popup 的组件，如果需要和父组件通信显示的状态，应该使用 value，它是一个 prop，
+      // 这样在父组件中用 v-model 即可；否则可以使用 visible，它是一个 data
+      this.visible = true;
+      this.$emit('input', true);
+
+      var dom = getDOM(this.$el);
+
+      var modal = props.modal;
+
+      var zIndex = props.zIndex;
+      if (zIndex) {
+        __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].zIndex = zIndex;
+      }
+
+      if (modal) {
+        if (this._closing) {
+          __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].closeModal(this._popupId);
+          this._closing = false;
+        }
+        __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].openModal(this._popupId, __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].nextZIndex(), dom, props.modalClass, props.modalFade);
+        if (props.lockScroll) {
+          if (!this.bodyOverflow) {
+            this.bodyPaddingRight = document.body.style.paddingRight;
+            this.bodyOverflow = document.body.style.overflow;
+          }
+          scrollBarWidth = getScrollBarWidth();
+          var bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight;
+          if (scrollBarWidth > 0 && bodyHasOverflow) {
+            document.body.style.paddingRight = scrollBarWidth + 'px';
+          }
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      if (getComputedStyle(dom).position === 'static') {
+        dom.style.position = 'absolute';
+      }
+
+      dom.style.zIndex = __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].nextZIndex();
+      this.opened = true;
+
+      this.onOpen && this.onOpen();
+
+      if (!this.transition) {
+        this.doAfterOpen();
+      }
+    },
+
+    doAfterOpen: function doAfterOpen() {
+      this._opening = false;
+    },
+
+    close: function close() {
+      var this$1 = this;
+
+      if (this.willClose && !this.willClose()) return;
+
+      if (this._openTimer !== null) {
+        clearTimeout(this._openTimer);
+        this._openTimer = null;
+      }
+      clearTimeout(this._closeTimer);
+
+      var closeDelay = Number(this.closeDelay);
+
+      if (closeDelay > 0) {
+        this._closeTimer = setTimeout(function () {
+          this$1._closeTimer = null;
+          this$1.doClose();
+        }, closeDelay);
+      } else {
+        this.doClose();
+      }
+    },
+
+    doClose: function doClose() {
+      var this$1 = this;
+
+      this.visible = false;
+      this.$emit('input', false);
+      this._closing = true;
+
+      this.onClose && this.onClose();
+
+      if (this.lockScroll) {
+        setTimeout(function () {
+          if (this$1.modal && this$1.bodyOverflow !== 'hidden') {
+            document.body.style.overflow = this$1.bodyOverflow;
+            document.body.style.paddingRight = this$1.bodyPaddingRight;
+          }
+          this$1.bodyOverflow = null;
+          this$1.bodyPaddingRight = null;
+        }, 200);
+      }
+
+      this.opened = false;
+
+      if (!this.transition) {
+        this.doAfterClose();
+      }
+    },
+
+    doAfterClose: function doAfterClose() {
+      __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_popup_popup_manager__["a" /* default */].closeModal(this._popupId);
+      this._closing = false;
+    }
+  }
+};
+
+
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_picker_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_picker_vue___default.a; });
+
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_popup_vue__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_popup_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_popup_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_popup_vue___default.a; });
+
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_spinner__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_spinner__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_spinner___default.a; });
+
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * v-clickoutside
+ * @desc 点击元素外面才会触发的事件
+ * @example
+ * ```vue
+ * <div v-element-clickoutside="handleClose">
+ * ```
+ */
+var clickoutsideContext = '@@clickoutsideContext';
+
+/* harmony default export */ exports["a"] = {
+  bind: function bind(el, binding, vnode) {
+    var documentHandler = function(e) {
+      if (vnode.context && !el.contains(e.target)) {
+        vnode.context[el[clickoutsideContext].methodName]();
+      }
+    };
+    el[clickoutsideContext] = {
+      documentHandler: documentHandler,
+      methodName: binding.expression,
+      arg: binding.arg || 'click'
+    };
+    document.addEventListener(el[clickoutsideContext].arg, documentHandler);
+  },
+
+  update: function update(el, binding) {
+    el[clickoutsideContext].methodName = binding.expression;
+  },
+
+  unbind: function unbind(el) {
+    document.removeEventListener(
+      el[clickoutsideContext].arg,
+      el[clickoutsideContext].documentHandler);
+  },
+
+  install: function install(Vue) {
+    Vue.directive('clickoutside', {
+      bind: this.bind,
+      unbind: this.unbind
+    });
+  }
+};
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ exports["a"] = function(target) {
+  var arguments$1 = arguments;
+
+  for (var i = 1, j = arguments.length; i < j; i++) {
+    var source = arguments$1[i] || {};
+    for (var prop in source) {
+      if (source.hasOwnProperty(prop)) {
+        var value = source[prop];
+        if (value !== undefined) {
+          target[prop] = value;
+        }
+      }
+    }
+  }
+
+  return target;
+};;
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(104)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(41),
+  /* template */
+  __webpack_require__(175),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__packages_header__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__packages_button__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__packages_cell__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__packages_cell_swipe__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__packages_field__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__packages_badge__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__packages_switch__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__packages_spinner__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__packages_tab_item__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__packages_tab_container_item__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__packages_tab_container__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__packages_navbar__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__packages_tabbar__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__packages_search__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__packages_checklist__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__packages_radio__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__packages_loadmore__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__packages_actionsheet__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__packages_popup__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__packages_swipe__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__packages_swipe_item__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__packages_range__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__packages_picker__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__packages_progress__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__packages_toast__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__packages_indicator__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__packages_message_box__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__packages_infinite_scroll__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__packages_lazyload__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__packages_datetime_picker__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__packages_index_list__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__packages_index_section__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__packages_palette_button__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__src_assets_font_iconfont_css__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__src_assets_font_iconfont_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__src_assets_font_iconfont_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__utils_merge__ = __webpack_require__(11);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var version = '2.2.13';
+var install = function(Vue, config) {
+  if ( config === void 0 ) config = {};
+
+  if (install.installed) return;
+
+  Vue.component(__WEBPACK_IMPORTED_MODULE_0__packages_header__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_0__packages_header__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_1__packages_button__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_1__packages_button__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_2__packages_cell__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_2__packages_cell__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_3__packages_cell_swipe__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_3__packages_cell_swipe__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_4__packages_field__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_4__packages_field__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_5__packages_badge__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_5__packages_badge__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_6__packages_switch__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_6__packages_switch__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_7__packages_spinner__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_7__packages_spinner__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_8__packages_tab_item__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_8__packages_tab_item__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_9__packages_tab_container_item__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_9__packages_tab_container_item__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_10__packages_tab_container__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_10__packages_tab_container__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_11__packages_navbar__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_11__packages_navbar__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_12__packages_tabbar__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_12__packages_tabbar__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_13__packages_search__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_13__packages_search__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_14__packages_checklist__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_14__packages_checklist__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_15__packages_radio__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_15__packages_radio__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_16__packages_loadmore__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_16__packages_loadmore__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_17__packages_actionsheet__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_17__packages_actionsheet__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_18__packages_popup__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_18__packages_popup__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_19__packages_swipe__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_19__packages_swipe__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_20__packages_swipe_item__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_20__packages_swipe_item__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_21__packages_range__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_21__packages_range__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_22__packages_picker__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_22__packages_picker__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_23__packages_progress__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_23__packages_progress__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_29__packages_datetime_picker__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_29__packages_datetime_picker__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_30__packages_index_list__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_30__packages_index_list__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_31__packages_index_section__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_31__packages_index_section__["a" /* default */]);
+  Vue.component(__WEBPACK_IMPORTED_MODULE_32__packages_palette_button__["a" /* default */].name, __WEBPACK_IMPORTED_MODULE_32__packages_palette_button__["a" /* default */]);
+  Vue.use(__WEBPACK_IMPORTED_MODULE_27__packages_infinite_scroll__["a" /* default */]);
+  Vue.use(__WEBPACK_IMPORTED_MODULE_28__packages_lazyload__["a" /* default */], __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_34__utils_merge__["a" /* default */])({
+    loading: __webpack_require__(127),
+    attempt: 3
+  }, config.lazyload));
+
+  Vue.$messagebox = Vue.prototype.$messagebox = __WEBPACK_IMPORTED_MODULE_26__packages_message_box__["a" /* default */];
+  Vue.$toast = Vue.prototype.$toast = __WEBPACK_IMPORTED_MODULE_24__packages_toast__["a" /* default */];
+  Vue.$indicator = Vue.prototype.$indicator = __WEBPACK_IMPORTED_MODULE_25__packages_indicator__["a" /* default */];
+};
+
+// auto install
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+};
+
+module.exports = {
+  install: install,
+  version: version,
+  Header: __WEBPACK_IMPORTED_MODULE_0__packages_header__["a" /* default */],
+  Button: __WEBPACK_IMPORTED_MODULE_1__packages_button__["a" /* default */],
+  Cell: __WEBPACK_IMPORTED_MODULE_2__packages_cell__["a" /* default */],
+  CellSwipe: __WEBPACK_IMPORTED_MODULE_3__packages_cell_swipe__["a" /* default */],
+  Field: __WEBPACK_IMPORTED_MODULE_4__packages_field__["a" /* default */],
+  Badge: __WEBPACK_IMPORTED_MODULE_5__packages_badge__["a" /* default */],
+  Switch: __WEBPACK_IMPORTED_MODULE_6__packages_switch__["a" /* default */],
+  Spinner: __WEBPACK_IMPORTED_MODULE_7__packages_spinner__["a" /* default */],
+  TabItem: __WEBPACK_IMPORTED_MODULE_8__packages_tab_item__["a" /* default */],
+  TabContainerItem: __WEBPACK_IMPORTED_MODULE_9__packages_tab_container_item__["a" /* default */],
+  TabContainer: __WEBPACK_IMPORTED_MODULE_10__packages_tab_container__["a" /* default */],
+  Navbar: __WEBPACK_IMPORTED_MODULE_11__packages_navbar__["a" /* default */],
+  Tabbar: __WEBPACK_IMPORTED_MODULE_12__packages_tabbar__["a" /* default */],
+  Search: __WEBPACK_IMPORTED_MODULE_13__packages_search__["a" /* default */],
+  Checklist: __WEBPACK_IMPORTED_MODULE_14__packages_checklist__["a" /* default */],
+  Radio: __WEBPACK_IMPORTED_MODULE_15__packages_radio__["a" /* default */],
+  Loadmore: __WEBPACK_IMPORTED_MODULE_16__packages_loadmore__["a" /* default */],
+  Actionsheet: __WEBPACK_IMPORTED_MODULE_17__packages_actionsheet__["a" /* default */],
+  Popup: __WEBPACK_IMPORTED_MODULE_18__packages_popup__["a" /* default */],
+  Swipe: __WEBPACK_IMPORTED_MODULE_19__packages_swipe__["a" /* default */],
+  SwipeItem: __WEBPACK_IMPORTED_MODULE_20__packages_swipe_item__["a" /* default */],
+  Range: __WEBPACK_IMPORTED_MODULE_21__packages_range__["a" /* default */],
+  Picker: __WEBPACK_IMPORTED_MODULE_22__packages_picker__["a" /* default */],
+  Progress: __WEBPACK_IMPORTED_MODULE_23__packages_progress__["a" /* default */],
+  Toast: __WEBPACK_IMPORTED_MODULE_24__packages_toast__["a" /* default */],
+  Indicator: __WEBPACK_IMPORTED_MODULE_25__packages_indicator__["a" /* default */],
+  MessageBox: __WEBPACK_IMPORTED_MODULE_26__packages_message_box__["a" /* default */],
+  InfiniteScroll: __WEBPACK_IMPORTED_MODULE_27__packages_infinite_scroll__["a" /* default */],
+  Lazyload: __WEBPACK_IMPORTED_MODULE_28__packages_lazyload__["a" /* default */],
+  DatetimePicker: __WEBPACK_IMPORTED_MODULE_29__packages_datetime_picker__["a" /* default */],
+  IndexList: __WEBPACK_IMPORTED_MODULE_30__packages_index_list__["a" /* default */],
+  IndexSection: __WEBPACK_IMPORTED_MODULE_31__packages_index_section__["a" /* default */],
+  PaletteButton: __WEBPACK_IMPORTED_MODULE_32__packages_palette_button__["a" /* default */]
+};
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_popup_css__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_popup_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_popup_css__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-actionsheet',
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__["a" /* default */]],
+
+  props: {
+    modal: {
+      default: true
+    },
+
+    modalFade: {
+      default: false
+    },
+
+    lockScroll: {
+      default: false
+    },
+
+    closeOnClickModal: {
+      default: true
+    },
+
+    cancelText: {
+      type: String,
+      default: '取消'
+    },
+
+    actions: {
+      type: Array,
+      default: function () { return []; }
+    }
+  },
+
+  data: function data() {
+    return {
+      currentValue: false
+    };
+  },
+
+  watch: {
+    currentValue: function currentValue(val) {
+      this.$emit('input', val);
+    },
+
+    value: function value(val) {
+      this.currentValue = val;
+    }
+  },
+
+  methods: {
+    itemClick: function itemClick(item, index) {
+      if (item.method && typeof item.method === 'function') {
+        item.method(item, index);
+      }
+      this.currentValue = false;
+    }
+  },
+
+  mounted: function mounted() {
+    if (this.value) {
+      this.rendered = true;
+      this.currentValue = true;
+      this.open();
+    }
+  }
+};
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-badge
+ * @module components/badge
+ * @desc 徽章
+ * @param {string} [type=primary] 组件样式，可选 primary, error, success, warning
+ * @param {string} [color] - 传入颜色值
+ * @param {string} [size=normal] - 尺寸，接受 normal, small, large
+ *
+ * @example
+ * <mt-badge color="error">错误</mt-badge>
+ * <mt-badge color="#333">30</mt-badge>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-badge',
+
+  props: {
+    color: String,
+    type: {
+      type: String,
+      default: 'primary'
+    },
+    size: {
+      type: String,
+      default: 'normal'
+    }
+  }
+};
+
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+if (false) {
+  require('mint-ui/packages/font/style.css');
+}
+
+/**
+ * mt-header
+ * @module components/button
+ * @desc 按钮
+ * @param {string} [type=default] - 显示类型，接受 default, primary, danger
+ * @param {boolean} [disabled=false] - 禁用
+ * @param {boolean} [plain=false] - 幽灵按钮
+ * @param {string} [size=normal] - 尺寸，接受 normal, small, large
+ * @param {string} [native-type] - 原生 type 属性
+ * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mintui-xxx）
+ * @param {slot} - 显示文本
+ * @param {slot} [icon] 显示图标
+ *
+ * @example
+ * <mt-button size="large" icon="back" type="primary">按钮</mt-button>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-button',
+
+  methods: {
+    handleClick: function handleClick(evt) {
+      this.$emit('click', evt);
+    }
+  },
+
+  props: {
+    icon: String,
+    disabled: Boolean,
+    nativeType: String,
+    plain: Boolean,
+    type: {
+      type: String,
+      default: 'default',
+      validator: function validator(value) {
+        return [
+          'default',
+          'danger',
+          'primary'
+        ].indexOf(value) > -1;
+      }
+    },
+    size: {
+      type: String,
+      default: 'normal',
+      validator: function validator$1(value) {
+        return [
+          'small',
+          'normal',
+          'large'
+        ].indexOf(value) > -1;
+      }
+    }
+  }
+};
+
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_cell_index_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_clickoutside__ = __webpack_require__(10);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+if (false) {
+  require('mint-ui/packages/cell/style.css');
+}
+
+/**
+ * mt-cell-swipe
+ * @desc 类似 iOS 滑动 Cell 的效果
+ * @module components/cell-swipe
+ *
+ * @example
+ * <mt-cell-swipe
+ *   :left=[
+ *     {
+ *       content: 'text',
+ *       style: {color: 'white', backgroundColor: 'red'},
+ *       handler(e) => console.log(123)
+ *     }
+ *   ]
+ *   :right=[{ content: 'allowed HTML' }]>
+ *   swipe me
+ * </mt-cell-swipe>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-cell-swipe',
+
+  components: { XCell: __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_cell_index_js__["a" /* default */] },
+
+  directives: { Clickoutside: __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_clickoutside__["a" /* default */] },
+
+  props: {
+    to: String,
+    left: Array,
+    right: Array,
+    icon: String,
+    title: String,
+    label: String,
+    isLink: Boolean,
+    value: {}
+  },
+
+  data: function data() {
+    return {
+      start: { x: 0, y: 0 }
+    };
+  },
+
+  mounted: function mounted() {
+    this.wrap = this.$refs.cell.$el.querySelector('.mint-cell-wrapper');
+    this.leftElm = this.$refs.left;
+    this.rightElm = this.$refs.right;
+    this.leftWrapElm = this.leftElm.parentNode;
+    this.rightWrapElm = this.rightElm.parentNode;
+    this.leftWidth = this.leftElm.getBoundingClientRect().width;
+    this.rightWidth = this.rightElm.getBoundingClientRect().width;
+
+    this.leftDefaultTransform = this.translate3d(-this.leftWidth - 1);
+    this.rightDefaultTransform = this.translate3d(this.rightWidth);
+
+    this.rightWrapElm.style.webkitTransform = this.rightDefaultTransform;
+    this.leftWrapElm.style.webkitTransform = this.leftDefaultTransform;
+  },
+
+  methods: {
+    resetSwipeStatus: function resetSwipeStatus() {
+      this.swiping = false;
+      this.opened = true;
+      this.offsetLeft = 0;
+    },
+
+    translate3d: function translate3d(offset) {
+      return ("translate3d(" + offset + "px, 0, 0)");
+    },
+
+    setAnimations: function setAnimations(val) {
+      this.wrap.style.transitionDuration = val;
+      this.rightWrapElm.style.transitionDuration = val;
+      this.leftWrapElm.style.transitionDuration = val;
+    },
+
+    swipeMove: function swipeMove(offset) {
+      if ( offset === void 0 ) offset = 0;
+
+      this.wrap.style.webkitTransform = this.translate3d(offset);
+      this.rightWrapElm.style.webkitTransform = this.translate3d(this.rightWidth + offset);
+      this.leftWrapElm.style.webkitTransform = this.translate3d(-this.leftWidth + offset);
+      offset && (this.swiping = true);
+    },
+
+    swipeLeaveTransition: function swipeLeaveTransition(direction) {
+      var this$1 = this;
+
+      setTimeout(function () {
+        this$1.swipeLeave = true;
+
+        // left
+        if (direction > 0 && -this$1.offsetLeft > this$1.rightWidth * 0.4) {
+          this$1.swipeMove(-this$1.rightWidth);
+          this$1.resetSwipeStatus();
+          return;
+        // right
+        } else if (direction < 0 && this$1.offsetLeft > this$1.leftWidth * 0.4) {
+          this$1.swipeMove(this$1.leftWidth);
+          this$1.resetSwipeStatus();
+          return;
+        }
+
+        this$1.swipeMove(0);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__["c" /* once */])(this$1.wrap, 'webkitTransitionEnd', function (_) {
+          this$1.wrap.style.webkitTransform = '';
+          this$1.rightWrapElm.style.webkitTransform = this$1.rightDefaultTransform;
+          this$1.leftWrapElm.style.webkitTransform = this$1.leftDefaultTransform;
+          this$1.swipeLeave = false;
+          this$1.swiping = false;
+        });
+      }, 0);
+    },
+
+    startDrag: function startDrag(evt) {
+      evt = evt.changedTouches ? evt.changedTouches[0] : evt;
+      this.dragging = true;
+      this.start.x = evt.pageX;
+      this.start.y = evt.pageY;
+      this.direction = '';
+    },
+
+    onDrag: function onDrag(evt) {
+      if (this.opened) {
+        if (!this.swiping) {
+          this.swipeMove(0);
+          this.setAnimations('');
+        }
+        this.opened = false;
+        return;
+      }
+      if (!this.dragging) return;
+
+      var swiping;
+      var e = evt.changedTouches ? evt.changedTouches[0] : evt;
+      var offsetTop = e.pageY - this.start.y;
+      var offsetLeft = this.offsetLeft = e.pageX - this.start.x;
+
+      var y = Math.abs(offsetTop);
+      var x = Math.abs(offsetLeft);
+
+      this.setAnimations('0ms');
+
+      if (this.direction === '') {
+        this.direction = x > y ? 'horizonal' : 'vertical';
+      }
+
+      if (this.direction === 'horizonal') {
+        evt.preventDefault();
+        evt.stopPropagation();
+
+        swiping = !(x < 5 || (x >= 5 && y >= x * 1.73));
+        if (!swiping) return;
+
+        if ((offsetLeft < 0 && -offsetLeft > this.rightWidth) ||
+          (offsetLeft > 0 && offsetLeft > this.leftWidth) ||
+          (offsetLeft > 0 && !this.leftWidth) ||
+          (offsetLeft < 0 && !this.rightWidth)) {
+        } else {
+          this.swipeMove(offsetLeft);
+        }
+      }
+    },
+
+    endDrag: function endDrag() {
+      this.direction = '';
+      this.setAnimations('');
+      if (!this.swiping) return;
+      this.swipeLeaveTransition(this.offsetLeft > 0 ? -1 : 1);
+    }
+  }
+};
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+if (false) {
+  require('mint-ui/packages/font/style.css');
+}
+
+/**
+ * mt-cell
+ * @module components/cell
+ * @desc 单元格
+ * @param {string|Object} [to] - 跳转链接，使用 vue-router 的情况下 to 会传递给 router.push，否则作为 a 标签的 href 属性处理
+ * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mintui-xxx）
+ * @param {string} [title] - 标题
+ * @param {string} [label] - 备注信息
+ * @param {boolean} [is-link=false] - 可点击的链接
+ * @param {string} [value] - 右侧显示文字
+ * @param {slot} - 同 value, 会覆盖 value 属性
+ * @param {slot} [title] - 同 title, 会覆盖 title 属性
+ * @param {slot} [icon] - 同 icon, 会覆盖 icon 属性，例如可以传入图片
+ *
+ * @example
+ * <mt-cell title="标题文字" icon="back" is-link value="描述文字"></mt-cell>
+ * <mt-cell title="标题文字" icon="back">
+ *   <div slot="value">描述文字啊哈</div>
+ * </mt-cell>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-cell',
+
+  props: {
+    to: [String, Object],
+    icon: String,
+    title: String,
+    label: String,
+    isLink: Boolean,
+    value: {}
+  },
+
+  computed: {
+    href: function href() {
+      var this$1 = this;
+
+      if (this.to && !this.added && this.$router) {
+        var resolved = this.$router.match(this.to);
+        if (!resolved.matched.length) return this.to;
+
+        this.$nextTick(function () {
+          this$1.added = true;
+          this$1.$el.addEventListener('click', this$1.handleClick);
+        });
+        return resolved.fullPath || resolved.path;
+      }
+      return this.to;
+    }
+  },
+
+  methods: {
+    handleClick: function handleClick($event) {
+      $event.preventDefault();
+      this.$router.push(this.href);
+    }
+  }
+};
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+if (false) {
+  require('mint-ui/packages/cell/style.css');
+}
+
+/**
+ * mt-checklist
+ * @module components/checklist
+ * @desc 复选框列表，依赖 cell 组件
+ *
+ * @param {(string[]|object[])} options - 选项数组，可以传入 [{label: 'label', value: 'value', disabled: true}] 或者 ['ab', 'cd', 'ef']
+ * @param {string[]} value - 选中值的数组
+ * @param {string} title - 标题
+ * @param {number} [max] - 最多可选的个数
+ * @param {string} [align=left] - checkbox 对齐位置，`left`, `right`
+ *
+ *
+ * @example
+ * <mt-checklist :v-model="value" :options="['a', 'b', 'c']"></mt-checklist>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-checklist',
+
+  props: {
+    max: Number,
+    title: String,
+    align: String,
+    options: {
+      type: Array,
+      required: true
+    },
+    value: Array
+  },
+
+  components: { XCell: __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__["a" /* default */] },
+
+  data: function data() {
+    return {
+      currentValue: this.value
+    };
+  },
+
+  computed: {
+    limit: function limit() {
+      return this.max < this.currentValue.length;
+    }
+  },
+
+  watch: {
+    value: function value(val) {
+      this.currentValue = val;
+    },
+
+    currentValue: function currentValue(val) {
+      if (this.limit) val.pop();
+      this.$emit('input', val);
+    }
+  }
+};
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_picker_index_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_popup_index_js__ = __webpack_require__(8);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+if (false) {
+  require('mint-ui/packages/picker/style.css');
+  require('mint-ui/packages/popup/style.css');
+}
+
+var FORMAT_MAP = {
+  Y: 'year',
+  M: 'month',
+  D: 'date',
+  H: 'hour',
+  m: 'minute'
+};
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-datetime-picker',
+
+  props: {
+    cancelText: {
+      type: String,
+      default: '取消'
+    },
+    confirmText: {
+      type: String,
+      default: '确定'
+    },
+    type: {
+      type: String,
+      default: 'datetime'
+    },
+    startDate: {
+      type: Date,
+      default: function default$1() {
+        return new Date(new Date().getFullYear() - 10, 0, 1);
+      }
+    },
+    endDate: {
+      type: Date,
+      default: function default$2() {
+        return new Date(new Date().getFullYear() + 10, 11, 31);
+      }
+    },
+    startHour: {
+      type: Number,
+      default: 0
+    },
+    endHour: {
+      type: Number,
+      default: 23
+    },
+    yearFormat: {
+      type: String,
+      default: '{value}'
+    },
+    monthFormat: {
+      type: String,
+      default: '{value}'
+    },
+    dateFormat: {
+      type: String,
+      default: '{value}'
+    },
+    hourFormat: {
+      type: String,
+      default: '{value}'
+    },
+    minuteFormat: {
+      type: String,
+      default: '{value}'
+    },
+    visibleItemCount: {
+      type: Number,
+      default: 7
+    },
+    closeOnClickModal: {
+      type: Boolean,
+      default: true
+    },
+    value: null
+  },
+
+  data: function data() {
+    return {
+      visible: false,
+      startYear: null,
+      endYear: null,
+      startMonth: 1,
+      endMonth: 12,
+      startDay: 1,
+      endDay: 31,
+      currentValue: null,
+      selfTriggered: false,
+      dateSlots: [],
+      shortMonthDates: [],
+      longMonthDates: [],
+      febDates: [],
+      leapFebDates: []
+    };
+  },
+
+  components: {
+    'mt-picker': __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_picker_index_js__["a" /* default */],
+    'mt-popup': __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_popup_index_js__["a" /* default */]
+  },
+
+  methods: {
+    open: function open() {
+      this.visible = true;
+    },
+
+    close: function close() {
+      this.visible = false;
+    },
+
+    isLeapYear: function isLeapYear(year) {
+      return (year % 400 === 0) || (year % 100 !== 0 && year % 4 === 0);
+    },
+
+    isShortMonth: function isShortMonth(month) {
+      return [4, 6, 9, 11].indexOf(month) > -1;
+    },
+
+    getMonthEndDay: function getMonthEndDay(year, month) {
+      if (this.isShortMonth(month)) {
+        return 30;
+      } else if (month === 2) {
+        return this.isLeapYear(year) ? 29 : 28;
+      } else {
+        return 31;
+      }
+    },
+
+    getTrueValue: function getTrueValue(formattedValue) {
+      if (!formattedValue) return;
+      while (isNaN(parseInt(formattedValue, 10))) {
+        formattedValue = formattedValue.slice(1);
+      }
+      return parseInt(formattedValue, 10);
+    },
+
+    getValue: function getValue(values) {
+      var this$1 = this;
+
+      var value;
+      if (this.type === 'time') {
+        value = values.map(function (value) { return ('0' + this$1.getTrueValue(value)).slice(-2); }).join(':');
+      } else {
+        var year = this.getTrueValue(values[0]);
+        var month = this.getTrueValue(values[1]);
+        var date = this.getTrueValue(values[2]);
+        var maxDate = this.getMonthEndDay(year, month);
+        if (date > maxDate) {
+          this.selfTriggered = true;
+          date = 1;
+        }
+        var hour = this.typeStr.indexOf('H') > -1 ? this.getTrueValue(values[this.typeStr.indexOf('H')]) : 0;
+        var minute = this.typeStr.indexOf('m') > -1 ? this.getTrueValue(values[this.typeStr.indexOf('m')]) : 0;
+        value = new Date(year, month - 1, date, hour, minute);
+      }
+      return value;
+    },
+
+    onChange: function onChange(picker) {
+      var values = picker.$children.filter(function (child) { return child.currentValue !== undefined; }).map(function (child) { return child.currentValue; });
+      if (this.selfTriggered) {
+        this.selfTriggered = false;
+        return;
+      }
+      if (values.length !== 0) {
+        this.currentValue = this.getValue(values);
+        this.handleValueChange();
+      }
+    },
+
+    fillValues: function fillValues(type, start, end) {
+      var this$1 = this;
+
+      var values = [];
+      for (var i = start; i <= end; i++) {
+        if (i < 10) {
+          values.push(this$1[((FORMAT_MAP[type]) + "Format")].replace('{value}', ('0' + i).slice(-2)));
+        } else {
+          values.push(this$1[((FORMAT_MAP[type]) + "Format")].replace('{value}', i));
+        }
+      }
+      return values;
+    },
+
+    pushSlots: function pushSlots(slots, type, start, end) {
+      slots.push({
+        flex: 1,
+        values: this.fillValues(type, start, end)
+      });
+    },
+
+    generateSlots: function generateSlots() {
+      var this$1 = this;
+
+      var dateSlots = [];
+      var INTERVAL_MAP = {
+        Y: this.rims.year,
+        M: this.rims.month,
+        D: this.rims.date,
+        H: this.rims.hour,
+        m: this.rims.min
+      };
+      var typesArr = this.typeStr.split('');
+      typesArr.forEach(function (type) {
+        if (INTERVAL_MAP[type]) {
+          this$1.pushSlots.apply(null, [dateSlots, type].concat(INTERVAL_MAP[type]));
+        }
+      });
+      if (this.typeStr === 'Hm') {
+        dateSlots.splice(1, 0, {
+          divider: true,
+          content: ':'
+        });
+      }
+      this.dateSlots = dateSlots;
+      this.handleExceededValue();
+    },
+
+    handleExceededValue: function handleExceededValue() {
+      var this$1 = this;
+
+      var values = [];
+      if (this.type === 'time') {
+        var currentValue = this.currentValue.split(':');
+        values = [
+          this.hourFormat.replace('{value}', currentValue[0]),
+          this.minuteFormat.replace('{value}', currentValue[1])
+        ];
+      } else {
+        values = [
+          this.yearFormat.replace('{value}', this.getYear(this.currentValue)),
+          this.monthFormat.replace('{value}', ('0' + this.getMonth(this.currentValue)).slice(-2)),
+          this.dateFormat.replace('{value}', ('0' + this.getDate(this.currentValue)).slice(-2))
+        ];
+        if (this.type === 'datetime') {
+          values.push(
+            this.hourFormat.replace('{value}', ('0' + this.getHour(this.currentValue)).slice(-2)),
+            this.minuteFormat.replace('{value}', ('0' + this.getMinute(this.currentValue)).slice(-2))
+          );
+        }
+      }
+      this.dateSlots.filter(function (child) { return child.values !== undefined; })
+        .map(function (slot) { return slot.values; }).forEach(function (slotValues, index) {
+          if (slotValues.indexOf(values[index]) === -1) {
+            values[index] = slotValues[0];
+          }
+        });
+      this.$nextTick(function () {
+        this$1.setSlotsByValues(values);
+      });
+    },
+
+    setSlotsByValues: function setSlotsByValues(values) {
+      var setSlotValue = this.$refs.picker.setSlotValue;
+      if (this.type === 'time') {
+        setSlotValue(0, values[0]);
+        setSlotValue(1, values[1]);
+      }
+      if (this.type !== 'time') {
+        setSlotValue(0, values[0]);
+        setSlotValue(1, values[1]);
+        setSlotValue(2, values[2]);
+        if (this.type === 'datetime') {
+          setSlotValue(3, values[3]);
+          setSlotValue(4, values[4]);
+        }
+      }
+      [].forEach.call(this.$refs.picker.$children, function (child) { return child.doOnValueChange(); });
+    },
+
+    rimDetect: function rimDetect(result, rim) {
+      var position = rim === 'start' ? 0 : 1;
+      var rimDate = rim === 'start' ? this.startDate : this.endDate;
+      if (this.getYear(this.currentValue) === rimDate.getFullYear()) {
+        result.month[position] = rimDate.getMonth() + 1;
+        if (this.getMonth(this.currentValue) === rimDate.getMonth() + 1) {
+          result.date[position] = rimDate.getDate();
+          if (this.getDate(this.currentValue) === rimDate.getDate()) {
+            result.hour[position] = rimDate.getHours();
+            if (this.getHour(this.currentValue) === rimDate.getHours()) {
+              result.min[position] = rimDate.getMinutes();
+            }
+          }
+        }
+      }
+    },
+
+    isDateString: function isDateString(str) {
+      return /\d{4}(\-|\/|.)\d{1,2}\1\d{1,2}/.test(str);
+    },
+
+    getYear: function getYear(value) {
+      return this.isDateString(value) ? value.split(' ')[0].split(/-|\/|\./)[0] : value.getFullYear();
+    },
+
+    getMonth: function getMonth(value) {
+      return this.isDateString(value) ? value.split(' ')[0].split(/-|\/|\./)[1] : value.getMonth() + 1;
+    },
+
+    getDate: function getDate(value) {
+      return this.isDateString(value) ? value.split(' ')[0].split(/-|\/|\./)[2] : value.getDate();
+    },
+
+    getHour: function getHour(value) {
+      if (this.isDateString(value)) {
+        var str = value.split(' ')[1] || '00:00:00';
+        return str.split(':')[0];
+      }
+      return value.getHours();
+    },
+
+    getMinute: function getMinute(value) {
+      if (this.isDateString(value)) {
+        var str = value.split(' ')[1] || '00:00:00';
+        return str.split(':')[1];
+      }
+      return value.getMinutes();
+    },
+
+    confirm: function confirm() {
+      this.visible = false;
+      this.$emit('confirm', this.currentValue);
+    },
+
+    handleValueChange: function handleValueChange() {
+      this.$emit('input', this.currentValue);
+    }
+  },
+
+  computed: {
+    rims: function rims() {
+      if (!this.currentValue) return { year: [], month: [], date: [], hour: [], min: [] };
+      var result;
+      if (this.type === 'time') {
+        result = {
+          hour: [this.startHour, this.endHour],
+          min: [0, 59]
+        };
+        return result;
+      }
+      result = {
+        year: [this.startDate.getFullYear(), this.endDate.getFullYear()],
+        month: [1, 12],
+        date: [1, this.getMonthEndDay(this.getYear(this.currentValue), this.getMonth(this.currentValue))],
+        hour: [0, 23],
+        min: [0, 59]
+      };
+      this.rimDetect(result, 'start');
+      this.rimDetect(result, 'end');
+      return result;
+    },
+
+    typeStr: function typeStr() {
+      if (this.type === 'time') {
+        return 'Hm';
+      } else if (this.type === 'date') {
+        return 'YMD';
+      } else {
+        return 'YMDHm';
+      }
+    }
+  },
+
+  watch: {
+    value: function value(val) {
+      this.currentValue = val;
+    },
+
+    rims: function rims$1() {
+      this.generateSlots();
+    },
+
+    visible: function visible(val) {
+      this.$emit('visible-change', val);
+    }
+  },
+
+  mounted: function mounted() {
+    this.currentValue = this.value;
+    if (!this.value) {
+      if (this.type.indexOf('date') > -1) {
+        this.currentValue = this.startDate;
+      } else {
+        this.currentValue = (('0' + this.startHour).slice(-2)) + ":00";
+      }
+    }
+    this.generateSlots();
+  }
+};
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_clickoutside__ = __webpack_require__(10);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+if (false) {
+  require('mint-ui/packages/cell/style.css');
+}
+
+/**
+ * mt-field
+ * @desc 编辑器，依赖 cell
+ * @module components/field
+ *
+ * @param {string} [type=text] - field 类型，接受 text, textarea 等
+ * @param {string} [label] - 标签
+ * @param {string} [rows] - textarea 的 rows
+ * @param {string} [placeholder] - placeholder
+ * @param {string} [disabled] - disabled
+ * @param {string} [readonly] - readonly
+ * @param {string} [state] - 表单校验状态样式，接受 error, warning, success
+ *
+ * @example
+ * <mt-field v-model="value" label="用户名"></mt-field>
+ * <mt-field v-model="value" label="密码" placeholder="请输入密码"></mt-field>
+ * <mt-field v-model="value" label="自我介绍" placeholder="自我介绍" type="textarea" rows="4"></mt-field>
+ * <mt-field v-model="value" label="邮箱" placeholder="成功状态" state="success"></mt-field>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-field',
+
+  data: function data() {
+    return {
+      active: false,
+      currentValue: this.value
+    };
+  },
+
+  directives: {
+    Clickoutside: __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_clickoutside__["a" /* default */]
+  },
+
+  props: {
+    type: {
+      type: String,
+      default: 'text'
+    },
+    rows: String,
+    label: String,
+    placeholder: String,
+    readonly: Boolean,
+    disabled: Boolean,
+    disableClear: Boolean,
+    state: {
+      type: String,
+      default: 'default'
+    },
+    value: {},
+    attr: Object
+  },
+
+  components: { XCell: __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__["a" /* default */] },
+
+  methods: {
+    doCloseActive: function doCloseActive() {
+      this.active = false;
+    },
+
+    handleInput: function handleInput(evt) {
+      this.currentValue = evt.target.value;
+    },
+
+    handleClear: function handleClear() {
+      if (this.disabled || this.readonly) return;
+      this.currentValue = '';
+    }
+  },
+
+  watch: {
+    value: function value(val) {
+      this.currentValue = val;
+    },
+
+    currentValue: function currentValue(val) {
+      this.$emit('input', val);
+    },
+
+    attr: {
+      immediate: true,
+      handler: function handler(attrs) {
+        var this$1 = this;
+
+        this.$nextTick(function () {
+          var target = [this$1.$refs.input, this$1.$refs.textarea];
+          target.forEach(function (el) {
+            if (!el || !attrs) return;
+            Object.keys(attrs).map(function (name) { return el.setAttribute(name, attrs[name]); });
+          });
+        });
+      }
+    }
+  }
+};
+
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-header
+ * @module components/header
+ * @desc 顶部导航
+ * @param {boolean} [fixed=false] - 固定顶部
+ * @param {string} [title] - 标题
+ * @param {slot} [left] - 显示在左侧区域
+ * @param {slot} [right] - 显示在右侧区域
+ *
+ * @example
+ * <mt-header title="我是标题" fixed>
+ *   <mt-button slot="left" icon="back" @click="handleBack">返回</mt-button>
+ *   <mt-button slot="right" icon="more"></mt-button>
+ * </mt-header>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-header',
+
+  props: {
+    fixed: Boolean,
+    title: String
+  }
+};
+
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-index-list',
+
+  props: {
+    height: Number,
+    showIndicator: {
+      type: Boolean,
+      default: true
+    }
+  },
+
+  data: function data() {
+    return {
+      sections: [],
+      navWidth: 0,
+      indicatorTime: null,
+      moving: false,
+      firstSection: null,
+      currentIndicator: '',
+      currentHeight: this.height,
+      navOffsetX: 0
+    };
+  },
+
+  watch: {
+    sections: function sections() {
+      this.init();
+    },
+    height: function height(val) {
+      if (val) {
+        this.currentHeight = val;
+      }
+    }
+  },
+
+  methods: {
+    init: function init() {
+      var this$1 = this;
+
+      this.$nextTick(function () {
+        this$1.navWidth = this$1.$refs.nav.clientWidth;
+      });
+      var listItems = this.$refs.content.getElementsByTagName('li');
+      if (listItems.length > 0) {
+        this.firstSection = listItems[0];
+      }
+    },
+
+    handleTouchStart: function handleTouchStart(e) {
+      if (e.target.tagName !== 'LI') {
+        return;
+      }
+      this.navOffsetX = e.changedTouches[0].clientX;
+      this.scrollList(e.changedTouches[0].clientY);
+      if (this.indicatorTime) {
+        clearTimeout(this.indicatorTime);
+      }
+      this.moving = true;
+      window.addEventListener('touchmove', this.handleTouchMove);
+      window.addEventListener('touchend', this.handleTouchEnd);
+    },
+
+    handleTouchMove: function handleTouchMove(e) {
+      e.preventDefault();
+      this.scrollList(e.changedTouches[0].clientY);
+    },
+
+    handleTouchEnd: function handleTouchEnd() {
+      var this$1 = this;
+
+      this.indicatorTime = setTimeout(function () {
+        this$1.moving = false;
+        this$1.currentIndicator = '';
+      }, 500);
+      window.removeEventListener('touchmove', this.handleTouchMove);
+      window.removeEventListener('touchend', this.handleTouchEnd);
+    },
+
+    scrollList: function scrollList(y) {
+      var currentItem = document.elementFromPoint(this.navOffsetX, y);
+      if (!currentItem || !currentItem.classList.contains('mint-indexlist-navitem')) {
+        return;
+      }
+      this.currentIndicator = currentItem.innerText;
+      var targets = this.sections.filter(function (section) { return section.index === currentItem.innerText; });
+      var targetDOM;
+      if (targets.length > 0) {
+        targetDOM = targets[0].$el;
+        this.$refs.content.scrollTop = targetDOM.getBoundingClientRect().top - this.firstSection.getBoundingClientRect().top;
+      }
+    }
+  },
+
+  mounted: function mounted() {
+    var this$1 = this;
+
+    if (!this.currentHeight) {
+      window.scrollTo(0, 0);
+      requestAnimationFrame(function (){
+        this$1.currentHeight = document.documentElement.clientHeight - this$1.$refs.content.getBoundingClientRect().top;
+      });
+    }
+    this.init();
+  }
+};
+
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-index-section',
+
+  props: {
+    index: {
+      type: String,
+      required: true
+    }
+  },
+
+  mounted: function mounted() {
+    this.$parent.sections.push(this);
+  },
+
+  beforeDestroy: function beforeDestroy() {
+    var index = this.$parent.sections.indexOf(this);
+    if (index > -1) {
+      this.$parent.sections.splice(index, 1);
+    }
+  }
+};
+
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_index_js__ = __webpack_require__(9);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+if (false) {
+  require('mint-ui/packages/spinner/style.css');
+}
+
+/* harmony default export */ exports["default"] = {
+  data: function data() {
+    return {
+      visible: false
+    };
+  },
+
+  components: {
+    Spinner: __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_index_js__["a" /* default */]
+  },
+
+  computed: {
+    convertedSpinnerType: function convertedSpinnerType() {
+      switch (this.spinnerType) {
+        case 'double-bounce':
+          return 1;
+        case 'triple-bounce':
+          return 2;
+        case 'fading-circle':
+          return 3;
+        default:
+          return 0;
+      }
+    }
+  },
+
+  props: {
+    text: String,
+    spinnerType: {
+      type: String,
+      default: 'snake'
+    }
+  }
+};
+
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_src_spinner_fading_circle_vue__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_src_spinner_fading_circle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_src_spinner_fading_circle_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-loadmore',
+  components: {
+    'spinner': __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_src_spinner_fading_circle_vue___default.a
+  },
+
+  props: {
+    maxDistance: {
+      type: Number,
+      default: 0
+    },
+    autoFill: {
+      type: Boolean,
+      default: true
+    },
+    distanceIndex: {
+      type: Number,
+      default: 2
+    },
+    topPullText: {
+      type: String,
+      default: '下拉刷新'
+    },
+    topDropText: {
+      type: String,
+      default: '释放更新'
+    },
+    topLoadingText: {
+      type: String,
+      default: '加载中...'
+    },
+    topDistance: {
+      type: Number,
+      default: 70
+    },
+    topMethod: {
+      type: Function
+    },
+    bottomPullText: {
+      type: String,
+      default: '上拉刷新'
+    },
+    bottomDropText: {
+      type: String,
+      default: '释放更新'
+    },
+    bottomLoadingText: {
+      type: String,
+      default: '加载中...'
+    },
+    bottomDistance: {
+      type: Number,
+      default: 70
+    },
+    bottomMethod: {
+      type: Function
+    },
+    bottomAllLoaded: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data: function data() {
+    return {
+      translate: 0,
+      scrollEventTarget: null,
+      containerFilled: false,
+      topText: '',
+      topDropped: false,
+      bottomText: '',
+      bottomDropped: false,
+      bottomReached: false,
+      direction: '',
+      startY: 0,
+      startScrollTop: 0,
+      currentY: 0,
+      topStatus: '',
+      bottomStatus: ''
+    };
+  },
+
+  computed: {
+    transform: function transform() {
+      return this.translate === 0 ? null : 'translate3d(0, ' + this.translate + 'px, 0)';
+    }
+  },
+
+  watch: {
+    topStatus: function topStatus(val) {
+      this.$emit('top-status-change', val);
+      switch (val) {
+        case 'pull':
+          this.topText = this.topPullText;
+          break;
+        case 'drop':
+          this.topText = this.topDropText;
+          break;
+        case 'loading':
+          this.topText = this.topLoadingText;
+          break;
+      }
+    },
+
+    bottomStatus: function bottomStatus(val) {
+      this.$emit('bottom-status-change', val);
+      switch (val) {
+        case 'pull':
+          this.bottomText = this.bottomPullText;
+          break;
+        case 'drop':
+          this.bottomText = this.bottomDropText;
+          break;
+        case 'loading':
+          this.bottomText = this.bottomLoadingText;
+          break;
+      }
+    }
+  },
+
+  methods: {
+    onTopLoaded: function onTopLoaded() {
+      var this$1 = this;
+
+      this.translate = 0;
+      setTimeout(function () {
+        this$1.topStatus = 'pull';
+      }, 200);
+    },
+
+    onBottomLoaded: function onBottomLoaded() {
+      var this$1 = this;
+
+      this.bottomStatus = 'pull';
+      this.bottomDropped = false;
+      this.$nextTick(function () {
+        if (this$1.scrollEventTarget === window) {
+          document.body.scrollTop += 50;
+        } else {
+          this$1.scrollEventTarget.scrollTop += 50;
+        }
+        this$1.translate = 0;
+      });
+      if (!this.bottomAllLoaded && !this.containerFilled) {
+        this.fillContainer();
+      }
+    },
+
+    getScrollEventTarget: function getScrollEventTarget(element) {
+      var currentNode = element;
+      while (currentNode && currentNode.tagName !== 'HTML' &&
+        currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
+        var overflowY = document.defaultView.getComputedStyle(currentNode).overflowY;
+        if (overflowY === 'scroll' || overflowY === 'auto') {
+          return currentNode;
+        }
+        currentNode = currentNode.parentNode;
+      }
+      return window;
+    },
+
+    getScrollTop: function getScrollTop(element) {
+      if (element === window) {
+        return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
+      } else {
+        return element.scrollTop;
+      }
+    },
+
+    bindTouchEvents: function bindTouchEvents() {
+      this.$el.addEventListener('touchstart', this.handleTouchStart);
+      this.$el.addEventListener('touchmove', this.handleTouchMove);
+      this.$el.addEventListener('touchend', this.handleTouchEnd);
+    },
+
+    init: function init() {
+      this.topStatus = 'pull';
+      this.bottomStatus = 'pull';
+      this.topText = this.topPullText;
+      this.scrollEventTarget = this.getScrollEventTarget(this.$el);
+      if (typeof this.bottomMethod === 'function') {
+        this.fillContainer();
+        this.bindTouchEvents();
+      }
+      if (typeof this.topMethod === 'function') {
+        this.bindTouchEvents();
+      }
+    },
+
+    fillContainer: function fillContainer() {
+      var this$1 = this;
+
+      if (this.autoFill) {
+        this.$nextTick(function () {
+          if (this$1.scrollEventTarget === window) {
+            this$1.containerFilled = this$1.$el.getBoundingClientRect().bottom >=
+              document.documentElement.getBoundingClientRect().bottom;
+          } else {
+            this$1.containerFilled = this$1.$el.getBoundingClientRect().bottom >=
+              this$1.scrollEventTarget.getBoundingClientRect().bottom;
+          }
+          if (!this$1.containerFilled) {
+            this$1.bottomStatus = 'loading';
+            this$1.bottomMethod();
+          }
+        });
+      }
+    },
+
+    checkBottomReached: function checkBottomReached() {
+      if (this.scrollEventTarget === window) {
+        return document.body.scrollTop + document.documentElement.clientHeight >= document.body.scrollHeight;
+      } else {
+        return this.$el.getBoundingClientRect().bottom <= this.scrollEventTarget.getBoundingClientRect().bottom + 1;
+      }
+    },
+
+    handleTouchStart: function handleTouchStart(event) {
+      this.startY = event.touches[0].clientY;
+      this.startScrollTop = this.getScrollTop(this.scrollEventTarget);
+      this.bottomReached = false;
+      if (this.topStatus !== 'loading') {
+        this.topStatus = 'pull';
+        this.topDropped = false;
+      }
+      if (this.bottomStatus !== 'loading') {
+        this.bottomStatus = 'pull';
+        this.bottomDropped = false;
+      }
+    },
+
+    handleTouchMove: function handleTouchMove(event) {
+      if (this.startY < this.$el.getBoundingClientRect().top && this.startY > this.$el.getBoundingClientRect().bottom) {
+        return;
+      }
+      this.currentY = event.touches[0].clientY;
+      var distance = (this.currentY - this.startY) / this.distanceIndex;
+      this.direction = distance > 0 ? 'down' : 'up';
+      if (typeof this.topMethod === 'function' && this.direction === 'down' &&
+        this.getScrollTop(this.scrollEventTarget) === 0 && this.topStatus !== 'loading') {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.maxDistance > 0) {
+          this.translate = distance <= this.maxDistance ? distance - this.startScrollTop : this.translate;
+        } else {
+          this.translate = distance - this.startScrollTop;
+        }
+        if (this.translate < 0) {
+          this.translate = 0;
+        }
+        this.topStatus = this.translate >= this.topDistance ? 'drop' : 'pull';
+      }
+
+      if (this.direction === 'up') {
+        this.bottomReached = this.bottomReached || this.checkBottomReached();
+      }
+      if (typeof this.bottomMethod === 'function' && this.direction === 'up' &&
+        this.bottomReached && this.bottomStatus !== 'loading' && !this.bottomAllLoaded) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.maxDistance > 0) {
+          this.translate = Math.abs(distance) <= this.maxDistance
+            ? this.getScrollTop(this.scrollEventTarget) - this.startScrollTop + distance : this.translate;
+        } else {
+          this.translate = this.getScrollTop(this.scrollEventTarget) - this.startScrollTop + distance;
+        }
+        if (this.translate > 0) {
+          this.translate = 0;
+        }
+        this.bottomStatus = -this.translate >= this.bottomDistance ? 'drop' : 'pull';
+      }
+      this.$emit('translate-change', this.translate);
+    },
+
+    handleTouchEnd: function handleTouchEnd() {
+      if (this.direction === 'down' && this.getScrollTop(this.scrollEventTarget) === 0 && this.translate > 0) {
+        this.topDropped = true;
+        if (this.topStatus === 'drop') {
+          this.translate = '50';
+          this.topStatus = 'loading';
+          this.topMethod();
+        } else {
+          this.translate = '0';
+          this.topStatus = 'pull';
+        }
+      }
+      if (this.direction === 'up' && this.bottomReached && this.translate < 0) {
+        this.bottomDropped = true;
+        this.bottomReached = false;
+        if (this.bottomStatus === 'drop') {
+          this.translate = '-50';
+          this.bottomStatus = 'loading';
+          this.bottomMethod();
+        } else {
+          this.translate = '0';
+          this.bottomStatus = 'pull';
+        }
+      }
+      this.$emit('translate-change', this.translate);
+      this.direction = '';
+    }
+  },
+
+  mounted: function mounted() {
+    this.init();
+  }
+};
+
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__ = __webpack_require__(6);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var CONFIRM_TEXT = '确定';
+var CANCEL_TEXT = '取消';
+
+
+
+/* harmony default export */ exports["default"] = {
+  mixins: [ __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__["a" /* default */] ],
+
+  props: {
+    modal: {
+      default: true
+    },
+    showClose: {
+      type: Boolean,
+      default: true
+    },
+    lockScroll: {
+      type: Boolean,
+      default: false
+    },
+    closeOnClickModal: {
+      default: true
+    },
+    closeOnPressEscape: {
+      default: true
+    },
+    inputType: {
+      type: String,
+      default: 'text'
+    }
+  },
+
+  computed: {
+    confirmButtonClasses: function confirmButtonClasses() {
+      var classes = 'mint-msgbox-btn mint-msgbox-confirm ' + this.confirmButtonClass;
+      if (this.confirmButtonHighlight) {
+        classes += ' mint-msgbox-confirm-highlight';
+      }
+      return classes;
+    },
+    cancelButtonClasses: function cancelButtonClasses() {
+      var classes = 'mint-msgbox-btn mint-msgbox-cancel ' + this.cancelButtonClass;
+      if (this.cancelButtonHighlight) {
+        classes += ' mint-msgbox-cancel-highlight';
+      }
+      return classes;
+    }
+  },
+
+  methods: {
+    doClose: function doClose() {
+      var this$1 = this;
+
+      this.value = false;
+      this._closing = true;
+
+      this.onClose && this.onClose();
+
+      setTimeout(function () {
+        if (this$1.modal && this$1.bodyOverflow !== 'hidden') {
+          document.body.style.overflow = this$1.bodyOverflow;
+          document.body.style.paddingRight = this$1.bodyPaddingRight;
+        }
+        this$1.bodyOverflow = null;
+        this$1.bodyPaddingRight = null;
+      }, 200);
+      this.opened = false;
+
+      if (!this.transition) {
+        this.doAfterClose();
+      }
+    },
+
+    handleAction: function handleAction(action) {
+      if (this.$type === 'prompt' && action === 'confirm' && !this.validate()) {
+        return;
+      }
+      var callback = this.callback;
+      this.value = false;
+      callback(action);
+    },
+
+    validate: function validate() {
+      if (this.$type === 'prompt') {
+        var inputPattern = this.inputPattern;
+        if (inputPattern && !inputPattern.test(this.inputValue || '')) {
+          this.editorErrorMessage = this.inputErrorMessage || '输入的数据不合法!';
+          this.$refs.input.classList.add('invalid');
+          return false;
+        }
+        var inputValidator = this.inputValidator;
+        if (typeof inputValidator === 'function') {
+          var validateResult = inputValidator(this.inputValue);
+          if (validateResult === false) {
+            this.editorErrorMessage = this.inputErrorMessage || '输入的数据不合法!';
+            this.$refs.input.classList.add('invalid');
+            return false;
+          }
+          if (typeof validateResult === 'string') {
+            this.editorErrorMessage = validateResult;
+            return false;
+          }
+        }
+      }
+      this.editorErrorMessage = '';
+      this.$refs.input.classList.remove('invalid');
+      return true;
+    },
+
+    handleInputType: function handleInputType(val) {
+      if (val === 'range' || !this.$refs.input) return;
+      this.$refs.input.type = val;
+    }
+  },
+
+  watch: {
+    inputValue: function inputValue() {
+      if (this.$type === 'prompt') {
+        this.validate();
+      }
+    },
+
+    value: function value(val) {
+      var this$1 = this;
+
+      this.handleInputType(this.inputType);
+      if (val && this.$type === 'prompt') {
+        setTimeout(function () {
+          if (this$1.$refs.input) {
+            this$1.$refs.input.focus();
+          }
+        }, 500);
+      }
+    },
+
+    inputType: function inputType(val) {
+      this.handleInputType(val);
+    }
+  },
+
+  data: function data() {
+    return {
+      title: '',
+      message: '',
+      type: '',
+      showInput: false,
+      inputValue: null,
+      inputPlaceholder: '',
+      inputPattern: null,
+      inputValidator: null,
+      inputErrorMessage: '',
+      showConfirmButton: true,
+      showCancelButton: false,
+      confirmButtonText: CONFIRM_TEXT,
+      cancelButtonText: CANCEL_TEXT,
+      confirmButtonClass: '',
+      confirmButtonDisabled: false,
+      cancelButtonClass: '',
+      editorErrorMessage: null,
+      callback: null
+    };
+  }
+};
+
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-navbar
+ * @module components/navbar
+ * @desc 顶部 tab，依赖 tab-item
+ *
+ * @param {boolean} [fixed=false] - 固定底部
+ * @param {*} selected - 返回 item component 传入的 value
+ *
+ * @example
+ * <mt-navbar :selected.sync="selected">
+ *   <mt-tab-item value="订单">
+ *     <span slot="label">订单</span>
+ *   </mt-tab-item>
+ * </mt-navbar>
+ *
+ * <mt-navbar :selected.sync="selected" fixed>
+ *   <mt-tab-item :value="['传入数组', '也是可以的']">
+ *     <span slot="label">订单</span>
+ *   </mt-tab-item>
+ * </mt-navbar>
+ *
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-navbar',
+
+  props: {
+    fixed: Boolean,
+    value: {}
+  }
+};
+
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-palette-button',
+
+  data: function() {
+    return {
+      transforming: false,    // 是否正在执行动画
+      expanded: false           // 是否已经展开子按钮
+    };
+  },
+
+  props: {
+    content: {
+      type: String,
+      default: ''
+    },
+
+    offset: {
+      type: Number,           // 扇面偏移角，默认是四分之π，配合默认方向lt
+      default: Math.PI / 4
+    },
+
+    direction: {
+      type: String,
+      default: 'lt'           // lt t rt this.radius rb b lb l 取值有8个方向，左上、上、右上、右、右下、下、左下、左，默认为左上
+    },
+
+    radius: {
+      type: Number,
+      default: 90
+    },
+
+    mainButtonStyle: {
+      type: String,           // 应用到 mint-main-button 上的 class
+      default: ''
+    }
+  },
+  methods: {
+    toggle: function toggle(event) {
+      if (!this.transforming) {
+        if (this.expanded) {
+          this.collapse(event);
+        } else {
+          this.expand(event);
+        }
+      }
+    },
+
+    onMainAnimationEnd: function onMainAnimationEnd(event) {
+      this.transforming = false;
+      this.$emit('expanded');
+    },
+
+    expand: function expand(event) {
+      this.expanded = true;
+      this.transforming = true;
+      this.$emit('expand', event);
+    },
+
+    collapse: function collapse(event) {
+      this.expanded = false;
+      this.$emit('collapse', event);
+    }
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.slotChildren = [];
+    for (var i = 0; i < this.$slots.default.length; i++) {
+      if (this$1.$slots.default[i].elm.nodeType !== 3) {
+        this$1.slotChildren.push(this$1.$slots.default[i]);
+      }
+    }
+
+    var css = '';
+    var direction_arc = Math.PI * (3 + Math.max(['lt', 't', 'rt', 'r', 'rb', 'b', 'lb', 'l'].indexOf(this.direction), 0)) / 4;
+    for (var i$1 = 0; i$1 < this.slotChildren.length; i$1++) {
+      var arc = (Math.PI - this$1.offset * 2) / (this$1.slotChildren.length - 1) * i$1 + this$1.offset + direction_arc;
+      var x = (Math.cos(arc) * this$1.radius).toFixed(2);
+      var y = (Math.sin(arc) * this$1.radius).toFixed(2);
+      var item_css = '.expand .palette-button-' + this$1._uid + '-sub-' + i$1 + '{transform:translate(' + x + 'px,' + y + 'px) rotate(720deg);transition-delay:' + 0.03 * i$1 + 's}';
+      css += item_css;
+
+      this$1.slotChildren[i$1].elm.className += (' palette-button-' + this$1._uid + '-sub-' + i$1);
+    }
+
+    this.styleNode = document.createElement('style');
+    this.styleNode.type = 'text/css';
+    this.styleNode.rel = 'stylesheet';
+    this.styleNode.title = 'palette button style';
+    this.styleNode.appendChild(document.createTextNode(css));
+    document.getElementsByTagName('head')[0].appendChild(this.styleNode);
+  },
+
+  destroyed: function destroyed() {
+    if (this.styleNode) {
+      this.styleNode.parentNode.removeChild(this.styleNode);
+    }
+  }
+};
+
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__draggable__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__translate__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_src_mixins_emitter__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+if (!__WEBPACK_IMPORTED_MODULE_4_vue___default.a.prototype.$isServer) {
+  __webpack_require__(200);
+}
+
+var rotateElement = function(element, angle) {
+  if (!element) return;
+  var transformProperty = __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].transformProperty;
+
+  element.style[transformProperty] = element.style[transformProperty].replace(/rotateX\(.+?deg\)/gi, '') + " rotateX(" + angle + "deg)";
+};
+
+var ITEM_HEIGHT = 36;
+var VISIBLE_ITEMS_ANGLE_MAP = {
+  3: -45,
+  5: -20,
+  7: -15
+};
+
+/* harmony default export */ exports["default"] = {
+  name: 'picker-slot',
+
+  props: {
+    values: {
+      type: Array,
+      default: function default$1() {
+        return [];
+      }
+    },
+    value: {},
+    visibleItemCount: {
+      type: Number,
+      default: 5
+    },
+    valueKey: String,
+    rotateEffect: {
+      type: Boolean,
+      default: false
+    },
+    divider: {
+      type: Boolean,
+      default: false
+    },
+    textAlign: {
+      type: String,
+      default: 'center'
+    },
+    flex: {},
+    className: {},
+    content: {},
+    itemHeight: {
+      type: Number,
+      default: ITEM_HEIGHT
+    },
+    defaultIndex: {
+      type: Number,
+      default: 0,
+      require: false
+    }
+  },
+
+  data: function data() {
+    return {
+      currentValue: this.value,
+      mutatingValues: this.values,
+      dragging: false,
+      animationFrameId: null
+    };
+  },
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_3_mint_ui_src_mixins_emitter__["a" /* default */]],
+
+  computed: {
+    flexStyle: function flexStyle() {
+      return {
+        'flex': this.flex,
+        '-webkit-box-flex': this.flex,
+        '-moz-box-flex': this.flex,
+        '-ms-flex': this.flex
+      };
+    },
+    classNames: function classNames() {
+      var PREFIX = 'picker-slot-';
+      var resultArray = [];
+
+      if (this.rotateEffect) {
+        resultArray.push(PREFIX + 'absolute');
+      }
+
+      var textAlign = this.textAlign || 'center';
+      resultArray.push(PREFIX + textAlign);
+
+      if (this.divider) {
+        resultArray.push(PREFIX + 'divider');
+      }
+
+      if (this.className) {
+        resultArray.push(this.className);
+      }
+
+      return resultArray.join(' ');
+    },
+    contentHeight: function contentHeight() {
+      return this.itemHeight * this.visibleItemCount;
+    },
+    valueIndex: function valueIndex() {
+      var this$1 = this;
+
+      var valueKey = this.valueKey;
+      if (this.currentValue instanceof Object) {
+        for (var i = 0, len = this.mutatingValues.length; i < len ; i++) {
+          if (this$1.currentValue[valueKey] === this$1.mutatingValues[i][valueKey]) {
+            return i;
+          }
+        }
+        return -1;
+      } else {
+        return this.mutatingValues.indexOf(this.currentValue);
+      }
+    },
+    dragRange: function dragRange() {
+      var values = this.mutatingValues;
+      var visibleItemCount = this.visibleItemCount;
+      var itemHeight = this.itemHeight;
+
+      return [ -itemHeight * (values.length - Math.ceil(visibleItemCount / 2)), itemHeight * Math.floor(visibleItemCount / 2) ];
+    },
+    minTranslateY: function minTranslateY() {
+      return this.itemHeight * (Math.ceil(this.visibleItemCount / 2) - this.mutatingValues.length);
+    },
+    maxTranslateY: function maxTranslateY() {
+      return this.itemHeight * Math.floor(this.visibleItemCount / 2);
+    }
+  },
+
+  methods: {
+    value2Translate: function value2Translate(value) {
+      var values = this.mutatingValues;
+      var valueIndex = values.indexOf(value);
+      var offset = Math.floor(this.visibleItemCount / 2);
+      var itemHeight = this.itemHeight;
+
+      if (valueIndex !== -1) {
+        return (valueIndex - offset) * -itemHeight;
+      }
+    },
+
+    translate2Value: function translate2Value(translate) {
+      var itemHeight = this.itemHeight;
+      translate = Math.round(translate / itemHeight) * itemHeight;
+      var index = -(translate - Math.floor(this.visibleItemCount / 2) * itemHeight) / itemHeight;
+
+      return this.mutatingValues[index];
+    },
+
+    updateRotate: function(currentTranslate, pickerItems) {
+      var this$1 = this;
+
+      if (this.divider) return;
+      var dragRange = this.dragRange;
+      var wrapper = this.$refs.wrapper;
+
+      if (!pickerItems) {
+        pickerItems = wrapper.querySelectorAll('.picker-item');
+      }
+
+      if (currentTranslate === undefined) {
+        currentTranslate = __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].getElementTranslate(wrapper).top;
+      }
+
+      var itemsFit = Math.ceil(this.visibleItemCount / 2);
+      var angleUnit = VISIBLE_ITEMS_ANGLE_MAP[this.visibleItemCount] || -20;
+
+      [].forEach.call(pickerItems, function (item, index) {
+        var itemOffsetTop = index * this$1.itemHeight;
+        var translateOffset = dragRange[1] - currentTranslate;
+        var itemOffset = itemOffsetTop - translateOffset;
+        var percentage = itemOffset / this$1.itemHeight;
+
+        var angle = angleUnit * percentage;
+        if (angle > 180) angle = 180;
+        if (angle < -180) angle = -180;
+
+        rotateElement(item, angle);
+
+        if (Math.abs(percentage) > itemsFit) {
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_dom__["a" /* addClass */])(item, 'picker-item-far');
+        } else {
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_dom__["b" /* removeClass */])(item, 'picker-item-far');
+        }
+      });
+    },
+
+    planUpdateRotate: function() {
+      var this$1 = this;
+
+      var el = this.$refs.wrapper;
+      cancelAnimationFrame(this.animationFrameId);
+
+      this.animationFrameId = requestAnimationFrame(function () {
+        this$1.updateRotate();
+      });
+
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_dom__["c" /* once */])(el, __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].transitionEndProperty, function () {
+        cancelAnimationFrame(this$1.animationFrameId);
+        this$1.animationFrameId = null;
+      });
+    },
+
+    initEvents: function initEvents() {
+      var this$1 = this;
+
+      var el = this.$refs.wrapper;
+      var dragState = {};
+
+      var velocityTranslate, prevTranslate, pickerItems;
+
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__draggable__["a" /* default */])(el, {
+        start: function (event) {
+          cancelAnimationFrame(this$1.animationFrameId);
+          this$1.animationFrameId = null;
+          dragState = {
+            range: this$1.dragRange,
+            start: new Date(),
+            startLeft: event.pageX,
+            startTop: event.pageY,
+            startTranslateTop: __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].getElementTranslate(el).top
+          };
+          pickerItems = el.querySelectorAll('.picker-item');
+        },
+
+        drag: function (event) {
+          this$1.dragging = true;
+
+          dragState.left = event.pageX;
+          dragState.top = event.pageY;
+
+          var deltaY = dragState.top - dragState.startTop;
+          var translate = dragState.startTranslateTop + deltaY;
+
+          __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].translateElement(el, null, translate);
+
+          velocityTranslate = translate - prevTranslate || translate;
+
+          prevTranslate = translate;
+
+          if (this$1.rotateEffect) {
+            this$1.updateRotate(prevTranslate, pickerItems);
+          }
+        },
+
+        end: function (event) {
+          this$1.dragging = false;
+
+          var momentumRatio = 7;
+          var currentTranslate = __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].getElementTranslate(el).top;
+          var duration = new Date() - dragState.start;
+          var distance = Math.abs(dragState.startTranslateTop - currentTranslate);
+          var itemHeight = this$1.itemHeight;
+          var visibleItemCount = this$1.visibleItemCount;
+
+          var rect, offset;
+          if (distance < 6) {
+            rect = this$1.$el.getBoundingClientRect();
+            offset = Math.floor((event.clientY - (rect.top + (visibleItemCount - 1) * itemHeight / 2)) / itemHeight) * itemHeight;
+
+            if (offset > this$1.maxTranslateY) {
+              offset = this$1.maxTranslateY;
+            }
+
+            velocityTranslate = 0;
+            currentTranslate -= offset;
+          }
+
+          var momentumTranslate;
+          if (duration < 300) {
+            momentumTranslate = currentTranslate + velocityTranslate * momentumRatio;
+          }
+
+          var dragRange = dragState.range;
+
+          this$1.$nextTick(function () {
+            var translate;
+            if (momentumTranslate) {
+              translate = Math.round(momentumTranslate / itemHeight) * itemHeight;
+            } else {
+              translate = Math.round(currentTranslate / itemHeight) * itemHeight;
+            }
+
+            translate = Math.max(Math.min(translate, dragRange[1]), dragRange[0]);
+
+            __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].translateElement(el, null, translate);
+
+            this$1.currentValue = this$1.translate2Value(translate);
+
+            if (this$1.rotateEffect) {
+              this$1.planUpdateRotate();
+            }
+          });
+
+          dragState = {};
+        }
+      });
+    },
+
+    doOnValueChange: function doOnValueChange() {
+      var value = this.currentValue;
+      var wrapper = this.$refs.wrapper;
+
+      __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].translateElement(wrapper, null, this.value2Translate(value));
+    },
+
+    doOnValuesChange: function doOnValuesChange() {
+      var this$1 = this;
+
+      var el = this.$el;
+      var items = el.querySelectorAll('.picker-item');
+      [].forEach.call(items, function (item, index) {
+        __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].translateElement(item, null, this$1.itemHeight * index);
+      });
+      if (this.rotateEffect) {
+        this.planUpdateRotate();
+      }
+    }
+  },
+
+  mounted: function mounted() {
+    this.ready = true;
+
+    if (!this.divider) {
+      this.initEvents();
+      this.doOnValueChange();
+    }
+
+    if (this.rotateEffect) {
+      this.doOnValuesChange();
+    }
+  },
+
+  watch: {
+    values: function values(val) {
+      this.mutatingValues = val;
+    },
+
+    mutatingValues: function mutatingValues(val) {
+      var this$1 = this;
+
+      if (this.valueIndex === -1) {
+        this.currentValue = (val || [])[0];
+      }
+      if (this.rotateEffect) {
+        this.$nextTick(function () {
+          this$1.doOnValuesChange();
+        });
+      }
+    },
+    currentValue: function currentValue(val) {
+      this.doOnValueChange();
+      if (this.rotateEffect) {
+        this.planUpdateRotate();
+      }
+      this.$emit('input', val);
+      this.dispatch('picker', 'slotValueChange', this);
+    },
+    defaultIndex: function defaultIndex(val) {
+      if ((this.mutatingValues[val] !== undefined) && (this.mutatingValues.length >= val + 1)) {
+        this.currentValue = this.mutatingValues[val];
+      }
+    }
+  }
+};
+
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-picker',
+
+  componentName: 'picker',
+
+  props: {
+    slots: {
+      type: Array
+    },
+    showToolbar: {
+      type: Boolean,
+      default: false
+    },
+    visibleItemCount: {
+      type: Number,
+      default: 5
+    },
+    valueKey: String,
+    rotateEffect: {
+      type: Boolean,
+      default: false
+    },
+    itemHeight: {
+      type: Number,
+      default: 36
+    }
+  },
+
+  created: function created() {
+    this.$on('slotValueChange', this.slotValueChange);
+    this.slotValueChange();
+  },
+
+  methods: {
+    slotValueChange: function slotValueChange() {
+      this.$emit('change', this, this.values);
+    },
+
+    getSlot: function getSlot(slotIndex) {
+      var slots = this.slots || [];
+      var count = 0;
+      var target;
+      var children = this.$children.filter(function (child) { return child.$options.name === 'picker-slot'; });
+
+      slots.forEach(function(slot, index) {
+        if (!slot.divider) {
+          if (slotIndex === count) {
+            target = children[index];
+          }
+          count++;
+        }
+      });
+
+      return target;
+    },
+    getSlotValue: function getSlotValue(index) {
+      var slot = this.getSlot(index);
+      if (slot) {
+        return slot.currentValue;
+      }
+      return null;
+    },
+    setSlotValue: function setSlotValue(index, value) {
+      var slot = this.getSlot(index);
+      if (slot) {
+        slot.currentValue = value;
+      }
+    },
+    getSlotValues: function getSlotValues(index) {
+      var slot = this.getSlot(index);
+      if (slot) {
+        return slot.mutatingValues;
+      }
+      return null;
+    },
+    setSlotValues: function setSlotValues(index, values) {
+      var slot = this.getSlot(index);
+      if (slot) {
+        slot.mutatingValues = values;
+      }
+    },
+    getValues: function getValues() {
+      return this.values;
+    },
+    setValues: function setValues(values) {
+      var this$1 = this;
+
+      var slotCount = this.slotCount;
+      values = values || [];
+      if (slotCount !== values.length) {
+        throw new Error('values length is not equal slot count.');
+      }
+      values.forEach(function (value, index) {
+        this$1.setSlotValue(index, value);
+      });
+    }
+  },
+
+  computed: {
+    values: {
+      get: function get() {
+        var slots = this.slots || [];
+        var values = [];
+        var valueIndexCount = 0;
+        slots.forEach(function (slot) {
+          if (!slot.divider) {
+            slot.valueIndex = valueIndexCount++;
+            values[slot.valueIndex] = (slot.values || [])[slot.defaultIndex || 0];
+          }
+        });
+        return values;
+      }
+    },
+    slotCount: function slotCount() {
+      var slots = this.slots || [];
+      var result = 0;
+      slots.forEach(function(slot) {
+        if (!slot.divider) result++;
+      });
+      return result;
+    }
+  },
+
+  components: {
+    PickerSlot: __webpack_require__(144)
+  }
+};
+
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+if (!__WEBPACK_IMPORTED_MODULE_1_vue___default.a.prototype.$isServer) {
+  __webpack_require__(12);
+}
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-popup',
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__["a" /* default */]],
+
+  props: {
+    modal: {
+      default: true
+    },
+
+    modalFade: {
+      default: false
+    },
+
+    lockScroll: {
+      default: false
+    },
+
+    closeOnClickModal: {
+      default: true
+    },
+
+    popupTransition: {
+      type: String,
+      default: 'popup-slide'
+    },
+
+    position: {
+      type: String,
+      default: ''
+    }
+  },
+
+  data: function data() {
+    return {
+      currentValue: false,
+      currentTransition: this.popupTransition
+    };
+  },
+
+  watch: {
+    currentValue: function currentValue(val) {
+      this.$emit('input', val);
+    },
+
+    value: function value(val) {
+      this.currentValue = val;
+    }
+  },
+
+  beforeMount: function beforeMount() {
+    if (this.popupTransition !== 'popup-fade') {
+      this.currentTransition = "popup-slide-" + (this.position);
+    }
+  },
+
+  mounted: function mounted() {
+    if (this.value) {
+      this.rendered = true;
+      this.currentValue = true;
+      this.open();
+    }
+  }
+};
+
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-progress',
+
+  props: {
+    value: Number,
+    barHeight: {
+      type: Number,
+      default: 3
+    }
+  }
+};
+
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+if (false) {
+  require('mint-ui/packages/cell/style.css');
+}
+/**
+ * mt-radio
+ * @module components/radio
+ * @desc 单选框列表，依赖 cell 组件
+ *
+ * @param {string[], object[]} options - 选项数组，可以传入 [{label: 'label', value: 'value', disabled: true}] 或者 ['ab', 'cd', 'ef']
+ * @param {string} value - 选中值
+ * @param {string} title - 标题
+ * @param {string} [align=left] - checkbox 对齐位置，`left`, `right`
+ *
+ * @example
+ * <mt-radio v-model="value" :options="['a', 'b', 'c']"></mt-radio>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-radio',
+
+  props: {
+    title: String,
+    align: String,
+    options: {
+      type: Array,
+      required: true
+    },
+    value: String
+  },
+
+  data: function data() {
+    return {
+      currentValue: this.value
+    };
+  },
+
+  watch: {
+    value: function value(val) {
+      this.currentValue = val;
+    },
+
+    currentValue: function currentValue(val) {
+      this.$emit('input', val);
+    }
+  },
+
+  components: {
+    XCell: __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__["a" /* default */]
+  }
+};
+
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__draggable__ = __webpack_require__(78);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-range',
+
+  props: {
+    min: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 100
+    },
+    step: {
+      type: Number,
+      default: 1
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: Number
+    },
+    barHeight: {
+      type: Number,
+      default: 1
+    }
+  },
+
+  computed: {
+    progress: function progress() {
+      var value = this.value;
+      if (typeof value === 'undefined' || value === null) return 0;
+      return Math.floor((value - this.min) / (this.max - this.min) * 100);
+    }
+  },
+
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var thumb = this.$refs.thumb;
+    var content = this.$refs.content;
+
+    var getThumbPosition = function () {
+      var contentBox = content.getBoundingClientRect();
+      var thumbBox = thumb.getBoundingClientRect();
+      return {
+        left: thumbBox.left - contentBox.left,
+        top: thumbBox.top - contentBox.top,
+        thumbBoxLeft: thumbBox.left
+      };
+    };
+
+    var dragState = {};
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__draggable__["a" /* default */])(thumb, {
+      start: function (event) {
+        if (this$1.disabled) return;
+        var position = getThumbPosition();
+        var thumbClickDetalX = event.clientX - position.thumbBoxLeft;
+        dragState = {
+          thumbStartLeft: position.left,
+          thumbStartTop: position.top,
+          thumbClickDetalX: thumbClickDetalX
+        };
+      },
+      drag: function (event) {
+        if (this$1.disabled) return;
+        var contentBox = content.getBoundingClientRect();
+        var deltaX = event.pageX - contentBox.left - dragState.thumbStartLeft - dragState.thumbClickDetalX;
+        var stepCount = Math.ceil((this$1.max - this$1.min) / this$1.step);
+        var newPosition = (dragState.thumbStartLeft + deltaX) - (dragState.thumbStartLeft + deltaX) % (contentBox.width / stepCount);
+
+        var newProgress = newPosition / contentBox.width;
+
+        if (newProgress < 0) {
+          newProgress = 0;
+        } else if (newProgress > 1) {
+          newProgress = 1;
+        }
+
+        this$1.$emit('input', Math.round(this$1.min + newProgress * (this$1.max - this$1.min)));
+      },
+      end: function () {
+        if (this$1.disabled) return;
+        this$1.$emit('change', this$1.value);
+        dragState = {};
+      }
+    });
+  }
+};
+
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+if (false) {
+  require('mint-ui/packages/cell/style.css');
+}
+
+/**
+ * mt-search
+ * @module components/search
+ * @desc 搜索框
+ * @param {string} value - 绑定值
+ * @param {string} [cancel-text=取消] - 取消按钮文字
+ * @param {string} [placeholder=取消] - 搜索框占位内容
+ * @param {boolean} [autofocus=false] - 自动 focus
+ * @param {boolean} [show=false] - 始终显示列表
+ * @param {string[]} [result] - 结果列表
+ * @param {slot} 结果列表
+ *
+ * @example
+ * <mt-search :value.sync="value" :result.sync="result"></mt-search>
+ * <mt-search :value.sync="value">
+ *   <mt-cell v-for="item in result" :title="item"></mt-cell>
+ * </mt-search>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-search',
+
+  data: function data() {
+    return {
+      visible: false,
+      currentValue: this.value
+    };
+  },
+
+  components: { XCell: __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__["a" /* default */] },
+
+  watch: {
+    currentValue: function currentValue(val) {
+      this.$emit('input', val);
+    },
+
+    value: function value(val) {
+      this.currentValue = val;
+    }
+  },
+
+  props: {
+    value: String,
+    autofocus: Boolean,
+    show: Boolean,
+    cancelText: {
+      default: '取消'
+    },
+    placeholder: {
+      default: '搜索'
+    },
+    result: Array
+  },
+
+  mounted: function mounted() {
+    this.autofocus && this.$refs.input.focus();
+  }
+};
+
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+
+var SPINNERS = [
+  'snake',
+  'double-bounce',
+  'triple-bounce',
+  'fading-circle'
+];
+var parseSpinner = function(index) {
+  if ({}.toString.call(index) === '[object Number]') {
+    if (SPINNERS.length <= index) {
+      console.warn(("'" + index + "' spinner not found, use the default spinner."));
+      index = 0;
+    }
+    return SPINNERS[index];
+  }
+
+  if (SPINNERS.indexOf(index) === -1) {
+    console.warn(("'" + index + "' spinner not found, use the default spinner."));
+    index = SPINNERS[0];
+  }
+  return index;
+};
+
+/**
+ * mt-spinner
+ * @module components/spinner
+ * @desc 加载动画
+ * @param {(string|number)} [type=snake] - 显示类型，传入类型名或者类型 id，可选 `snake`, `dobule-bounce`, `triple-bounce`, `fading-circle`
+ * @param {number} size - 尺寸
+ * @param {string} color - 颜色
+ *
+ * @example
+ * <mt-spinner type="snake"></mt-spinner>
+ *
+ * <!-- double-bounce -->
+ * <mt-spinner :type="1"></mt-spinner>
+ *
+ * <!-- default snake -->
+ * <mt-spinner :size="30" color="#999"></mt-spinner>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-spinner',
+
+  computed: {
+    spinner: function spinner() {
+      return ("spinner-" + (parseSpinner(this.type)));
+    }
+  },
+
+  components: {
+    SpinnerSnake: __webpack_require__(153),
+    SpinnerDoubleBounce: __webpack_require__(152),
+    SpinnerTripleBounce: __webpack_require__(154),
+    SpinnerFadingCircle: __webpack_require__(13)
+  },
+
+  props: {
+    type: {
+      default: 0
+    },
+    size: {
+      type: Number,
+      default: 28
+    },
+    color: {
+      type: String,
+      default: '#ccc'
+    }
+  }
+};
+
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+
+/* harmony default export */ exports["default"] = {
+  computed: {
+    spinnerColor: function spinnerColor() {
+      return this.color || this.$parent.color || '#ccc';
+    },
+
+    spinnerSize: function spinnerSize() {
+      return (this.size || this.$parent.size || 28) + 'px';
+    }
+  },
+
+  props: {
+    size: Number,
+    color: String
+  }
+};
+
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__common_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'double-bounce',
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_0__common_vue___default.a]
+};
+
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__common_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'fading-circle',
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_0__common_vue___default.a],
+
+  created: function created() {
+    if (this.$isServer) return;
+    this.styleNode = document.createElement('style');
+    var css = ".circle-color-" + (this._uid) + " > div::before { background-color: " + (this.spinnerColor) + "; }";
+
+    this.styleNode.type = 'text/css';
+    this.styleNode.rel = 'stylesheet';
+    this.styleNode.title = 'fading circle style';
+    document.getElementsByTagName('head')[0].appendChild(this.styleNode);
+    this.styleNode.appendChild(document.createTextNode(css));
+  },
+
+  destroyed: function destroyed() {
+    if (this.styleNode) {
+      this.styleNode.parentNode.removeChild(this.styleNode);
+    }
+  }
+};
+
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__common_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'snake',
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_0__common_vue___default.a]
+};
+
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__common_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'triple-bounce',
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_0__common_vue___default.a],
+
+  computed: {
+    spinnerSize: function spinnerSize() {
+      return ((this.size || this.$parent.size || 28) / 3) + 'px';
+    },
+
+    bounceStyle: function bounceStyle() {
+      return {
+        width: this.spinnerSize,
+        height: this.spinnerSize,
+        backgroundColor: this.spinnerColor
+      };
+    }
+  }
+};
+
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-swipe-item',
+
+  mounted: function mounted() {
+    this.$parent && this.$parent.swipeItemCreated(this);
+  },
+
+  destroyed: function destroyed() {
+    this.$parent && this.$parent.swipeItemDestroyed(this);
+  }
+};
+
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__ = __webpack_require__(3);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ exports["default"] = {
+  name: 'mt-swipe',
+
+  created: function created() {
+    this.dragState = {};
+  },
+
+  data: function data() {
+    return {
+      ready: false,
+      dragging: false,
+      userScrolling: false,
+      animating: false,
+      index: 0,
+      pages: [],
+      timer: null,
+      reInitTimer: null,
+      noDrag: false,
+      isDone: false
+    };
+  },
+
+  props: {
+    speed: {
+      type: Number,
+      default: 300
+    },
+
+    defaultIndex: {
+      type: Number,
+      default: 0
+    },
+
+    auto: {
+      type: Number,
+      default: 3000
+    },
+
+    continuous: {
+      type: Boolean,
+      default: true
+    },
+
+    showIndicators: {
+      type: Boolean,
+      default: true
+    },
+
+    noDragWhenSingle: {
+      type: Boolean,
+      default: true
+    },
+
+    prevent: {
+      type: Boolean,
+      default: false
+    },
+
+    stopPropagation: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  watch: {
+    index: function index(newIndex) {
+      this.$emit('change', newIndex);
+    }
+  },
+
+  methods: {
+    swipeItemCreated: function swipeItemCreated() {
+      var this$1 = this;
+
+      if (!this.ready) return;
+
+      clearTimeout(this.reInitTimer);
+      this.reInitTimer = setTimeout(function () {
+        this$1.reInitPages();
+      }, 100);
+    },
+
+    swipeItemDestroyed: function swipeItemDestroyed() {
+      var this$1 = this;
+
+      if (!this.ready) return;
+
+      clearTimeout(this.reInitTimer);
+      this.reInitTimer = setTimeout(function () {
+        this$1.reInitPages();
+      }, 100);
+    },
+
+    rafTranslate: function rafTranslate(element, initOffset, offset, callback, nextElement) {
+      var ALPHA = 0.88;
+      this.animating = true;
+      var _offset = initOffset;
+      var raf = 0;
+
+      function animationLoop() {
+        if (Math.abs(_offset - offset) < 0.5) {
+          this.animating = false;
+          _offset = offset;
+          element.style.webkitTransform = '';
+          if (nextElement) {
+            nextElement.style.webkitTransform = '';
+          }
+          cancelAnimationFrame(raf);
+
+          if (callback) {
+            callback();
+          }
+
+          return;
+        }
+
+        _offset = ALPHA * _offset + (1.0 - ALPHA) * offset;
+        element.style.webkitTransform = "translate3d(" + _offset + "px, 0, 0)";
+
+        if (nextElement) {
+          nextElement.style.webkitTransform = "translate3d(" + (_offset - offset) + "px, 0, 0)";
+        }
+
+        raf = requestAnimationFrame(animationLoop.bind(this));
+      }
+
+      animationLoop.call(this);
+    },
+
+    translate: function translate(element, offset, speed, callback) {
+      var arguments$1 = arguments;
+      var this$1 = this;
+
+      if (speed) {
+        this.animating = true;
+        element.style.webkitTransition = '-webkit-transform ' + speed + 'ms ease-in-out';
+        setTimeout(function () {
+          element.style.webkitTransform = "translate3d(" + offset + "px, 0, 0)";
+        }, 50);
+
+        var called = false;
+
+        var transitionEndCallback = function () {
+          if (called) return;
+          called = true;
+          this$1.animating = false;
+          element.style.webkitTransition = '';
+          element.style.webkitTransform = '';
+          if (callback) {
+            callback.apply(this$1, arguments$1);
+          }
+        };
+
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__["c" /* once */])(element, 'webkitTransitionEnd', transitionEndCallback);
+        setTimeout(transitionEndCallback, speed + 100); // webkitTransitionEnd maybe not fire on lower version android.
+      } else {
+        element.style.webkitTransition = '';
+        element.style.webkitTransform = "translate3d(" + offset + "px, 0, 0)";
+      }
+    },
+
+    reInitPages: function reInitPages() {
+      var children = this.$children;
+      this.noDrag = children.length === 1 && this.noDragWhenSingle;
+
+      var pages = [];
+      var intDefaultIndex = Math.floor(this.defaultIndex);
+      var defaultIndex = (intDefaultIndex >= 0 && intDefaultIndex < children.length) ? intDefaultIndex : 0;
+      this.index = defaultIndex;
+
+      children.forEach(function(child, index) {
+        pages.push(child.$el);
+
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__["b" /* removeClass */])(child.$el, 'is-active');
+
+        if (index === defaultIndex) {
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__["a" /* addClass */])(child.$el, 'is-active');
+        }
+      });
+
+      this.pages = pages;
+    },
+
+    doAnimate: function doAnimate(towards, options) {
+      var this$1 = this;
+
+      if (this.$children.length === 0) return;
+      if (!options && this.$children.length < 2) return;
+
+      var prevPage, nextPage, currentPage, pageWidth, offsetLeft, speedX;
+      var speed = this.speed || 300;
+      var index = this.index;
+      var pages = this.pages;
+      var pageCount = pages.length;
+
+      if (!options) {
+        pageWidth = this.$el.clientWidth;
+        currentPage = pages[index];
+        prevPage = pages[index - 1];
+        nextPage = pages[index + 1];
+        if (this.continuous && pages.length > 1) {
+          if (!prevPage) {
+            prevPage = pages[pages.length - 1];
+          }
+          if (!nextPage) {
+            nextPage = pages[0];
+          }
+        }
+        if (prevPage) {
+          prevPage.style.display = 'block';
+          this.translate(prevPage, -pageWidth);
+        }
+        if (nextPage) {
+          nextPage.style.display = 'block';
+          this.translate(nextPage, pageWidth);
+        }
+      } else {
+        prevPage = options.prevPage;
+        currentPage = options.currentPage;
+        nextPage = options.nextPage;
+        pageWidth = options.pageWidth;
+        offsetLeft = options.offsetLeft;
+        speedX = options.speedX;
+      }
+
+      var newIndex;
+
+      var oldPage = this.$children[index].$el;
+
+      if (towards === 'prev') {
+        if (index > 0) {
+          newIndex = index - 1;
+        }
+        if (this.continuous && index === 0) {
+          newIndex = pageCount - 1;
+        }
+      } else if (towards === 'next') {
+        if (index < pageCount - 1) {
+          newIndex = index + 1;
+        }
+        if (this.continuous && index === pageCount - 1) {
+          newIndex = 0;
+        }
+      }
+
+      var callback = function () {
+        if (newIndex !== undefined) {
+          var newPage = this$1.$children[newIndex].$el;
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__["b" /* removeClass */])(oldPage, 'is-active');
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__["a" /* addClass */])(newPage, 'is-active');
+
+          this$1.index = newIndex;
+        }
+        if (this$1.isDone) {
+          this$1.end();
+        }
+
+        if (prevPage) {
+          prevPage.style.display = '';
+        }
+
+        if (nextPage) {
+          nextPage.style.display = '';
+        }
+      };
+
+      setTimeout(function () {
+        if (towards === 'next') {
+          this$1.isDone = true;
+          this$1.before(currentPage);
+          if (speedX) {
+            this$1.rafTranslate(currentPage, offsetLeft, -pageWidth, callback, nextPage);
+          } else {
+            this$1.translate(currentPage, -pageWidth, speed, callback);
+            if (nextPage) {
+              this$1.translate(nextPage, 0, speed);
+            }
+          }
+        } else if (towards === 'prev') {
+          this$1.isDone = true;
+          this$1.before(currentPage);
+          if (speedX) {
+            this$1.rafTranslate(currentPage, offsetLeft, pageWidth, callback, prevPage);
+          } else {
+            this$1.translate(currentPage, pageWidth, speed, callback);
+            if (prevPage) {
+              this$1.translate(prevPage, 0, speed);
+            }
+          }
+        } else {
+          this$1.isDone = false;
+          this$1.translate(currentPage, 0, speed, callback);
+          if (typeof offsetLeft !== 'undefined') {
+            if (prevPage && offsetLeft > 0) {
+              this$1.translate(prevPage, pageWidth * -1, speed);
+            }
+            if (nextPage && offsetLeft < 0) {
+              this$1.translate(nextPage, pageWidth, speed);
+            }
+          } else {
+            if (prevPage) {
+              this$1.translate(prevPage, pageWidth * -1, speed);
+            }
+            if (nextPage) {
+              this$1.translate(nextPage, pageWidth, speed);
+            }
+          }
+        }
+      }, 10);
+    },
+
+    next: function next() {
+      this.doAnimate('next');
+    },
+
+    prev: function prev() {
+      this.doAnimate('prev');
+    },
+
+    before: function before() {
+      this.$emit('before', this.index);
+    },
+
+    end: function end() {
+      this.$emit('end', this.index);
+    },
+
+    doOnTouchStart: function doOnTouchStart(event) {
+      if (this.noDrag) return;
+
+      var element = this.$el;
+      var dragState = this.dragState;
+      var touch = event.touches[0];
+
+      dragState.startTime = new Date();
+      dragState.startLeft = touch.pageX;
+      dragState.startTop = touch.pageY;
+      dragState.startTopAbsolute = touch.clientY;
+
+      dragState.pageWidth = element.offsetWidth;
+      dragState.pageHeight = element.offsetHeight;
+
+      var prevPage = this.$children[this.index - 1];
+      var dragPage = this.$children[this.index];
+      var nextPage = this.$children[this.index + 1];
+
+      if (this.continuous && this.pages.length > 1) {
+        if (!prevPage) {
+          prevPage = this.$children[this.$children.length - 1];
+        }
+        if (!nextPage) {
+          nextPage = this.$children[0];
+        }
+      }
+
+      dragState.prevPage = prevPage ? prevPage.$el : null;
+      dragState.dragPage = dragPage ? dragPage.$el : null;
+      dragState.nextPage = nextPage ? nextPage.$el : null;
+
+      if (dragState.prevPage) {
+        dragState.prevPage.style.display = 'block';
+      }
+
+      if (dragState.nextPage) {
+        dragState.nextPage.style.display = 'block';
+      }
+    },
+
+    doOnTouchMove: function doOnTouchMove(event) {
+      if (this.noDrag) return;
+
+      var dragState = this.dragState;
+      var touch = event.touches[0];
+
+      dragState.speedX = touch.pageX - dragState.currentLeft;
+      dragState.currentLeft = touch.pageX;
+      dragState.currentTop = touch.pageY;
+      dragState.currentTopAbsolute = touch.clientY;
+
+      var offsetLeft = dragState.currentLeft - dragState.startLeft;
+      var offsetTop = dragState.currentTopAbsolute - dragState.startTopAbsolute;
+
+      var distanceX = Math.abs(offsetLeft);
+      var distanceY = Math.abs(offsetTop);
+      if (distanceX < 5 || (distanceX >= 5 && distanceY >= 1.73 * distanceX)) {
+        this.userScrolling = true;
+        return;
+      } else {
+        this.userScrolling = false;
+        event.preventDefault();
+      }
+      offsetLeft = Math.min(Math.max(-dragState.pageWidth + 1, offsetLeft), dragState.pageWidth - 1);
+
+      var towards = offsetLeft < 0 ? 'next' : 'prev';
+
+      if (dragState.prevPage && towards === 'prev') {
+        this.translate(dragState.prevPage, offsetLeft - dragState.pageWidth);
+      }
+      this.translate(dragState.dragPage, offsetLeft);
+      if (dragState.nextPage && towards === 'next') {
+        this.translate(dragState.nextPage, offsetLeft + dragState.pageWidth);
+      }
+    },
+
+    doOnTouchEnd: function doOnTouchEnd() {
+      if (this.noDrag) return;
+
+      var dragState = this.dragState;
+
+      var dragDuration = new Date() - dragState.startTime;
+      var towards = null;
+
+      var offsetLeft = dragState.currentLeft - dragState.startLeft;
+      var offsetTop = dragState.currentTop - dragState.startTop;
+      var pageWidth = dragState.pageWidth;
+      var index = this.index;
+      var pageCount = this.pages.length;
+
+      if (dragDuration < 300) {
+        var fireTap = Math.abs(offsetLeft) < 5 && Math.abs(offsetTop) < 5;
+        if (isNaN(offsetLeft) || isNaN(offsetTop)) {
+          fireTap = true;
+        }
+        if (fireTap) {
+          this.$children[this.index].$emit('tap');
+        }
+      }
+
+      if (dragDuration < 300 && dragState.currentLeft === undefined) return;
+
+      if (dragDuration < 300 || Math.abs(offsetLeft) > pageWidth / 2) {
+        towards = offsetLeft < 0 ? 'next' : 'prev';
+      }
+
+      if (!this.continuous) {
+        if ((index === 0 && towards === 'prev') || (index === pageCount - 1 && towards === 'next')) {
+          towards = null;
+        }
+      }
+
+      if (this.$children.length < 2) {
+        towards = null;
+      }
+
+      this.doAnimate(towards, {
+        offsetLeft: offsetLeft,
+        pageWidth: dragState.pageWidth,
+        prevPage: dragState.prevPage,
+        currentPage: dragState.dragPage,
+        nextPage: dragState.nextPage,
+        speedX: dragState.speedX
+      });
+
+      this.dragState = {};
+    },
+
+    initTimer: function initTimer() {
+      var this$1 = this;
+
+      if (this.auto > 0 && !this.timer) {
+        this.timer = setInterval(function () {
+          if (!this$1.continuous && (this$1.index >= this$1.pages.length - 1)) {
+            return this$1.clearTimer();
+          }
+          if (!this$1.dragging && !this$1.animating) {
+            this$1.next();
+          }
+        }, this.auto);
+      }
+    },
+
+    clearTimer: function clearTimer() {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  },
+
+  destroyed: function destroyed() {
+    if (this.timer) {
+      this.clearTimer();
+    }
+    if (this.reInitTimer) {
+      clearTimeout(this.reInitTimer);
+      this.reInitTimer = null;
+    }
+  },
+
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.ready = true;
+
+    this.initTimer();
+
+    this.reInitPages();
+
+    var element = this.$el;
+
+    element.addEventListener('touchstart', function (event) {
+      if (this$1.prevent) event.preventDefault();
+      if (this$1.stopPropagation) event.stopPropagation();
+      if (this$1.animating) return;
+      this$1.dragging = true;
+      this$1.userScrolling = false;
+      this$1.doOnTouchStart(event);
+    });
+
+    element.addEventListener('touchmove', function (event) {
+      if (!this$1.dragging) return;
+      if (this$1.timer) this$1.clearTimer();
+      this$1.doOnTouchMove(event);
+    });
+
+    element.addEventListener('touchend', function (event) {
+      if (this$1.userScrolling) {
+        this$1.dragging = false;
+        this$1.dragState = {};
+        return;
+      }
+      if (!this$1.dragging) return;
+      this$1.initTimer();
+      this$1.doOnTouchEnd(event);
+      this$1.dragging = false;
+    });
+  }
+};
+
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-switch
+ * @module components/switch
+ * @desc 切换按钮
+ * @param {boolean} [value] - 绑定值，支持双向绑定
+ * @param {slot} - 显示内容
+ *
+ * @example
+ * <mt-switch v-model="value"></mt-switch>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-switch',
+
+  props: {
+    value: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    currentValue: {
+      get: function get() {
+        return this.value;
+      },
+      set: function set(val) {
+        this.$emit('input', val);
+      }
+    }
+  }
+};
+
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-tab-container-item
+ * @desc 搭配 tab-container 使用
+ * @module components/tab-container-item
+ *
+ * @param {number|string} [id] - 该项的 id
+ *
+ * @example
+ * <mt-tab-container v-model="selected">
+ *   <mt-tab-container-item id="1"> 内容A </mt-tab-container-item>
+ *   <mt-tab-container-item id="2"> 内容B </mt-tab-container-item>
+ *   <mt-tab-container-item id="3"> 内容C </mt-tab-container-item>
+ * </mt-tab-container>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-tab-container-item',
+
+  props: ['id']
+};
+
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_array_find_index__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_array_find_index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_array_find_index__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/**
+ * mt-tab-container
+ * @desc 面板，搭配 tab-container-item 使用
+ * @module components/tab-container
+ *
+ * @param {number|string} [value] - 当前激活的 tabId
+ *
+ * @example
+ * <mt-tab-container v-model="selected">
+ *   <mt-tab-container-item id="1"> 内容A </mt-tab-container-item>
+ *   <mt-tab-container-item id="2"> 内容B </mt-tab-container-item>
+ *   <mt-tab-container-item id="3"> 内容C </mt-tab-container-item>
+ * </mt-tab-container>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-tab-container',
+
+  props: {
+    value: {},
+    swipeable: Boolean
+  },
+
+  data: function data() {
+    return {
+      start: { x: 0, y: 0 },
+      swiping: false,
+      activeItems: [],
+      pageWidth: 0,
+      currentActive: this.value
+    };
+  },
+
+  watch: {
+    value: function value(val) {
+      this.currentActive = val;
+    },
+
+    currentActive: function currentActive(val, oldValue) {
+      this.$emit('input', val);
+      if (!this.swipeable) return;
+      var lastIndex = __WEBPACK_IMPORTED_MODULE_1_array_find_index___default()(this.$children,
+        function (item) { return item.id === oldValue; });
+      this.swipeLeaveTransition(lastIndex);
+    }
+  },
+
+  mounted: function mounted() {
+    if (!this.swipeable) return;
+
+    this.wrap = this.$refs.wrap;
+    this.pageWidth = this.wrap.clientWidth;
+    this.limitWidth = this.pageWidth / 4;
+  },
+
+  methods: {
+    swipeLeaveTransition: function swipeLeaveTransition(lastIndex) {
+      var this$1 = this;
+      if ( lastIndex === void 0 ) lastIndex = 0;
+
+      if (typeof this.index !== 'number') {
+        this.index = __WEBPACK_IMPORTED_MODULE_1_array_find_index___default()(this.$children,
+          function (item) { return item.id === this$1.currentActive; });
+        this.swipeMove(-lastIndex * this.pageWidth);
+      }
+
+      setTimeout(function () {
+        this$1.wrap.classList.add('swipe-transition');
+        this$1.swipeMove(-this$1.index * this$1.pageWidth);
+
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__["c" /* once */])(this$1.wrap, 'webkitTransitionEnd', function (_) {
+          this$1.wrap.classList.remove('swipe-transition');
+          this$1.wrap.style.webkitTransform = '';
+          this$1.swiping = false;
+          this$1.index = null;
+        });
+      }, 0);
+    },
+
+    swipeMove: function swipeMove(offset) {
+      this.wrap.style.webkitTransform = "translate3d(" + offset + "px, 0, 0)";
+      this.swiping = true;
+    },
+
+    startDrag: function startDrag(evt) {
+      if (!this.swipeable) return;
+      evt = evt.changedTouches ? evt.changedTouches[0] : evt;
+      this.dragging = true;
+      this.start.x = evt.pageX;
+      this.start.y = evt.pageY;
+    },
+
+    onDrag: function onDrag(evt) {
+      var this$1 = this;
+
+      if (!this.dragging) return;
+      var swiping;
+      var e = evt.changedTouches ? evt.changedTouches[0] : evt;
+      var offsetTop = e.pageY - this.start.y;
+      var offsetLeft = e.pageX - this.start.x;
+      var y = Math.abs(offsetTop);
+      var x = Math.abs(offsetLeft);
+
+      swiping = !(x < 5 || (x >= 5 && y >= x * 1.73));
+      if (!swiping) return;
+      evt.preventDefault();
+
+      var len = this.$children.length - 1;
+      var index = __WEBPACK_IMPORTED_MODULE_1_array_find_index___default()(this.$children,
+        function (item) { return item.id === this$1.currentActive; });
+      var currentPageOffset = index * this.pageWidth;
+      var offset = offsetLeft - currentPageOffset;
+      var absOffset = Math.abs(offset);
+
+      if (absOffset > len * this.pageWidth ||
+          (offset > 0 && offset < this.pageWidth)) {
+        this.swiping = false;
+        return;
+      }
+
+      this.offsetLeft = offsetLeft;
+      this.index = index;
+      this.swipeMove(offset);
+    },
+
+    endDrag: function endDrag() {
+      if (!this.swiping) return;
+      this.dragging = false;
+      var direction = this.offsetLeft > 0 ? -1 : 1;
+      var isChange = Math.abs(this.offsetLeft) > this.limitWidth;
+
+      if (isChange) {
+        this.index += direction;
+        var child = this.$children[this.index];
+        if (child) {
+          this.currentActive = child.id;
+          return;
+        }
+      }
+
+      this.swipeLeaveTransition();
+    }
+  }
+};
+
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-tab-item
+ * @module components/tab-item
+ * @desc 搭配 tabbar 或 navbar 使用
+ * @param {*} id - 选中后的返回值，任意类型
+ * @param {slot} [icon] - icon 图标
+ * @param {slot} - 文字
+ *
+ * @example
+ * <mt-tab-item>
+ *   <img slot="icon" src="http://placehold.it/100x100">
+ *   订单
+ * </mt-tab-item>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-tab-item',
+
+  props: ['id']
+};
+
+
+/***/ },
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-tabbar
+ * @module components/tabbar
+ * @desc 底部 tab，依赖 tab-item
+ * @param {boolean} [fixed=false] - 固定底部
+ * @param {*} value - 返回 item component 传入的 id
+ *
+ * @example
+ * <mt-tabbar v-model="selected">
+ *   <mt-tab-item id="订单">
+ *     <img slot="icon" src="http://placehold.it/100x100">
+ *     <span slot="label">订单</span>
+ *   </mt-tab-item>
+ * </mt-tabbar>
+ *
+ * <mt-tabbar v-model="selected" fixed>
+ *   <mt-tab-item :id="['传入数组', '也是可以的']">
+ *     <img slot="icon" src="http://placehold.it/100x100">
+ *     <span slot="label">订单</span>
+ *   </mt-tab-item>
+ * </mt-tabbar>
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-tabbar',
+
+  props: {
+    fixed: Boolean,
+    value: {}
+  }
+};
+
+
+/***/ },
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ exports["default"] = {
+  props: {
+    message: String,
+    className: {
+      type: String,
+      default: ''
+    },
+    position: {
+      type: String,
+      default: 'middle'
+    },
+    iconClass: {
+      type: String,
+      default: ''
+    }
+  },
+
+  data: function data() {
+    return {
+      visible: false
+    };
+  },
+
+  computed: {
+    customClass: function customClass() {
+      var classes = [];
+      switch (this.position) {
+        case 'top':
+          classes.push('is-placetop');
+          break;
+        case 'bottom':
+          classes.push('is-placebottom');
+          break;
+        default:
+          classes.push('is-placemiddle');
+      }
+      classes.push(this.className);
+
+      return classes.join(' ');
+    }
+  }
+};
+
+
+/***/ },
+/* 52 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_actionsheet_vue__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_actionsheet_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_actionsheet_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_actionsheet_vue___default.a; });
+
+
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_badge_vue__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_badge_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_badge_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_badge_vue___default.a; });
+
+
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_button_vue__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_button_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_button_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_button_vue___default.a; });
+
+
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue___default.a; });
+
+
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_checklist_vue__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_checklist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_checklist_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_checklist_vue___default.a; });
+
+
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_datetime_picker_vue__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_datetime_picker_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_datetime_picker_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_datetime_picker_vue___default.a; });
+
+
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_field_vue__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_field_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_field_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_field_vue___default.a; });
+
+
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_header_vue__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_header_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_header_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_header_vue___default.a; });
+
+
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_index_list_vue__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_index_list_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_index_list_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_index_list_vue___default.a; });
+
+
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_index_section_vue__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_index_section_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_index_section_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_index_section_vue___default.a; });
+
+
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+var Indicator = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(139));
+var instance;
+
+/* harmony default export */ exports["a"] = {
+  open: function open(options) {
+    if ( options === void 0 ) options = {};
+
+    if (!instance) {
+      instance = new Indicator({
+        el: document.createElement('div')
+      });
+    }
+    if (instance.visible) return;
+    instance.text = typeof options === 'string' ? options : options.text || '';
+    instance.spinnerType = options.spinnerType || 'snake';
+    document.body.appendChild(instance.$el);
+
+    __WEBPACK_IMPORTED_MODULE_0_vue___default.a.nextTick(function () {
+      instance.visible = true;
+    });
+  },
+
+  close: function close() {
+    if (instance) {
+      instance.visible = false;
+    }
+  }
+};
+
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_infinite_scroll_js__ = __webpack_require__(65);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__src_infinite_scroll_js__["a"]; });
+
+
+
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+var ctx = '@@InfiniteScroll';
+
+var throttle = function(fn, delay) {
+  var now, lastExec, timer, context, args; //eslint-disable-line
+
+  var execute = function() {
+    fn.apply(context, args);
+    lastExec = now;
+  };
+
+  return function() {
+    context = this;
+    args = arguments;
+
+    now = Date.now();
+
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+
+    if (lastExec) {
+      var diff = delay - (now - lastExec);
+      if (diff < 0) {
+        execute();
+      } else {
+        timer = setTimeout(function () {
+          execute();
+        }, diff);
+      }
+    } else {
+      execute();
+    }
+  };
+};
+
+var getScrollTop = function(element) {
+  if (element === window) {
+    return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
+  }
+
+  return element.scrollTop;
+};
+
+var getComputedStyle = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer ? {} : document.defaultView.getComputedStyle;
+
+var getScrollEventTarget = function(element) {
+  var currentNode = element;
+  // bugfix, see http://w3help.org/zh-cn/causes/SD9013 and http://stackoverflow.com/questions/17016740/onscroll-function-is-not-working-for-chrome
+  while (currentNode && currentNode.tagName !== 'HTML' && currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
+    var overflowY = getComputedStyle(currentNode).overflowY;
+    if (overflowY === 'scroll' || overflowY === 'auto') {
+      return currentNode;
+    }
+    currentNode = currentNode.parentNode;
+  }
+  return window;
+};
+
+var getVisibleHeight = function(element) {
+  if (element === window) {
+    return document.documentElement.clientHeight;
+  }
+
+  return element.clientHeight;
+};
+
+var getElementTop = function(element) {
+  if (element === window) {
+    return getScrollTop(window);
+  }
+  return element.getBoundingClientRect().top + getScrollTop(window);
+};
+
+var isAttached = function(element) {
+  var currentNode = element.parentNode;
+  while (currentNode) {
+    if (currentNode.tagName === 'HTML') {
+      return true;
+    }
+    if (currentNode.nodeType === 11) {
+      return false;
+    }
+    currentNode = currentNode.parentNode;
+  }
+  return false;
+};
+
+var doBind = function() {
+  if (this.binded) return; // eslint-disable-line
+  this.binded = true;
+
+  var directive = this;
+  var element = directive.el;
+
+  directive.scrollEventTarget = getScrollEventTarget(element);
+  directive.scrollListener = throttle(doCheck.bind(directive), 200);
+  directive.scrollEventTarget.addEventListener('scroll', directive.scrollListener);
+
+  var disabledExpr = element.getAttribute('infinite-scroll-disabled');
+  var disabled = false;
+
+  if (disabledExpr) {
+    this.vm.$watch(disabledExpr, function(value) {
+      directive.disabled = value;
+      if (!value && directive.immediateCheck) {
+        doCheck.call(directive);
+      }
+    });
+    disabled = Boolean(directive.vm[disabledExpr]);
+  }
+  directive.disabled = disabled;
+
+  var distanceExpr = element.getAttribute('infinite-scroll-distance');
+  var distance = 0;
+  if (distanceExpr) {
+    distance = Number(directive.vm[distanceExpr] || distanceExpr);
+    if (isNaN(distance)) {
+      distance = 0;
+    }
+  }
+  directive.distance = distance;
+
+  var immediateCheckExpr = element.getAttribute('infinite-scroll-immediate-check');
+  var immediateCheck = true;
+  if (immediateCheckExpr) {
+    immediateCheck = Boolean(directive.vm[immediateCheckExpr]);
+  }
+  directive.immediateCheck = immediateCheck;
+
+  if (immediateCheck) {
+    doCheck.call(directive);
+  }
+
+  var eventName = element.getAttribute('infinite-scroll-listen-for-event');
+  if (eventName) {
+    directive.vm.$on(eventName, function() {
+      doCheck.call(directive);
+    });
+  }
+};
+
+var doCheck = function(force) {
+  var scrollEventTarget = this.scrollEventTarget;
+  var element = this.el;
+  var distance = this.distance;
+
+  if (force !== true && this.disabled) return; //eslint-disable-line
+  var viewportScrollTop = getScrollTop(scrollEventTarget);
+  var viewportBottom = viewportScrollTop + getVisibleHeight(scrollEventTarget);
+
+  var shouldTrigger = false;
+
+  if (scrollEventTarget === element) {
+    shouldTrigger = scrollEventTarget.scrollHeight - viewportBottom <= distance;
+  } else {
+    var elementBottom = getElementTop(element) - getElementTop(scrollEventTarget) + element.offsetHeight + viewportScrollTop;
+
+    shouldTrigger = viewportBottom + distance >= elementBottom;
+  }
+
+  if (shouldTrigger && this.expression) {
+    this.expression();
+  }
+};
+
+/* harmony default export */ exports["a"] = {
+  bind: function bind(el, binding, vnode) {
+    el[ctx] = {
+      el: el,
+      vm: vnode.context,
+      expression: binding.value
+    };
+    var args = arguments;
+    var cb = function() {
+      el[ctx].vm.$nextTick(function() {
+        if (isAttached(el)) {
+          doBind.call(el[ctx], args);
+        }
+
+        el[ctx].bindTryCount = 0;
+
+        var tryBind = function() {
+          if (el[ctx].bindTryCount > 10) return; //eslint-disable-line
+          el[ctx].bindTryCount++;
+          if (isAttached(el)) {
+            doBind.call(el[ctx], args);
+          } else {
+            setTimeout(tryBind, 50);
+          }
+        };
+
+        tryBind();
+      });
+    };
+    if (el[ctx].vm._isMounted) {
+      cb();
+      return;
+    }
+    el[ctx].vm.$on('hook:mounted', cb);
+  },
+
+  unbind: function unbind(el) {
+    if (el[ctx] && el[ctx].scrollEventTarget) {
+      el[ctx].scrollEventTarget.removeEventListener('scroll', el[ctx].scrollListener);
+    }
+  }
+};
+
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directive__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_empty_css__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_empty_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_empty_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue__);
+
+
+
+
+var install = function(Vue) {
+  Vue.directive('InfiniteScroll', __WEBPACK_IMPORTED_MODULE_0__directive__["a" /* default */]);
+};
+
+if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$isServer && window.Vue) {
+  window.infiniteScroll = __WEBPACK_IMPORTED_MODULE_0__directive__["a" /* default */];
+  __WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(install); // eslint-disable-line
+}
+
+__WEBPACK_IMPORTED_MODULE_0__directive__["a" /* default */].install = install;
+/* harmony default export */ exports["a"] = __WEBPACK_IMPORTED_MODULE_0__directive__["a" /* default */];
+
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_lazyload_js__ = __webpack_require__(67);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__src_lazyload_js__["a"]; });
+
+
+
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_lazyload__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_lazyload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_lazyload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_empty_css__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_empty_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_style_empty_css__);
+
+
+
+/* harmony default export */ exports["a"] = __WEBPACK_IMPORTED_MODULE_0_vue_lazyload___default.a;
+
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_loadmore_vue__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_loadmore_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_loadmore_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_loadmore_vue___default.a; });
+
+
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__ = __webpack_require__(70);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__["a"]; });
+
+
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__message_box_vue__);
+/* unused harmony export MessageBox */
+var CONFIRM_TEXT = '确定';
+var CANCEL_TEXT = '取消';
+
+var defaults = {
+  title: '提示',
+  message: '',
+  type: '',
+  showInput: false,
+  showClose: true,
+  modalFade: false,
+  lockScroll: false,
+  closeOnClickModal: true,
+  inputValue: null,
+  inputPlaceholder: '',
+  inputPattern: null,
+  inputValidator: null,
+  inputErrorMessage: '',
+  showConfirmButton: true,
+  showCancelButton: false,
+  confirmButtonPosition: 'right',
+  confirmButtonHighlight: false,
+  cancelButtonHighlight: false,
+  confirmButtonText: CONFIRM_TEXT,
+  cancelButtonText: CANCEL_TEXT,
+  confirmButtonClass: '',
+  cancelButtonClass: ''
+};
+
+
+
+
+var merge = function(target) {
+  var arguments$1 = arguments;
+
+  for (var i = 1, j = arguments.length; i < j; i++) {
+    var source = arguments$1[i];
+    for (var prop in source) {
+      if (source.hasOwnProperty(prop)) {
+        var value = source[prop];
+        if (value !== undefined) {
+          target[prop] = value;
+        }
+      }
+    }
+  }
+
+  return target;
+};
+
+var MessageBoxConstructor = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__WEBPACK_IMPORTED_MODULE_1__message_box_vue___default.a);
+
+var currentMsg, instance;
+var msgQueue = [];
+
+var defaultCallback = function (action) {
+  if (currentMsg) {
+    var callback = currentMsg.callback;
+    if (typeof callback === 'function') {
+      if (instance.showInput) {
+        callback(instance.inputValue, action);
+      } else {
+        callback(action);
+      }
+    }
+    if (currentMsg.resolve) {
+      var $type = currentMsg.options.$type;
+      if ($type === 'confirm' || $type === 'prompt') {
+        if (action === 'confirm') {
+          if (instance.showInput) {
+            currentMsg.resolve({ value: instance.inputValue, action: action });
+          } else {
+            currentMsg.resolve(action);
+          }
+        } else if (action === 'cancel' && currentMsg.reject) {
+          currentMsg.reject(action);
+        }
+      } else {
+        currentMsg.resolve(action);
+      }
+    }
+  }
+};
+
+var initInstance = function() {
+  instance = new MessageBoxConstructor({
+    el: document.createElement('div')
+  });
+
+  instance.callback = defaultCallback;
+};
+
+var showNextMsg = function() {
+  if (!instance) {
+    initInstance();
+  }
+
+  if (!instance.value || instance.closeTimer) {
+    if (msgQueue.length > 0) {
+      currentMsg = msgQueue.shift();
+
+      var options = currentMsg.options;
+      for (var prop in options) {
+        if (options.hasOwnProperty(prop)) {
+          instance[prop] = options[prop];
+        }
+      }
+      if (options.callback === undefined) {
+        instance.callback = defaultCallback;
+      }
+      ['modal', 'showClose', 'closeOnClickModal', 'closeOnPressEscape'].forEach(function (prop) {
+        if (instance[prop] === undefined) {
+          instance[prop] = true;
+        }
+      });
+      document.body.appendChild(instance.$el);
+
+      __WEBPACK_IMPORTED_MODULE_0_vue___default.a.nextTick(function () {
+        instance.value = true;
+      });
+    }
+  }
+};
+
+var MessageBox = function(options, callback) {
+  if (typeof options === 'string') {
+    options = {
+      title: options
+    };
+    if (arguments[1]) {
+      options.message = arguments[1];
+    }
+    if (arguments[2]) {
+      options.type = arguments[2];
+    }
+  } else if (options.callback && !callback) {
+    callback = options.callback;
+  }
+
+  if (typeof Promise !== 'undefined') {
+    return new Promise(function(resolve, reject) { // eslint-disable-line
+      msgQueue.push({
+        options: merge({}, defaults, MessageBox.defaults || {}, options),
+        callback: callback,
+        resolve: resolve,
+        reject: reject
+      });
+
+      showNextMsg();
+    });
+  } else {
+    msgQueue.push({
+      options: merge({}, defaults, MessageBox.defaults || {}, options),
+      callback: callback
+    });
+
+    showNextMsg();
+  }
+};
+
+MessageBox.setDefaults = function(defaults) {
+  MessageBox.defaults = defaults;
+};
+
+MessageBox.alert = function(message, title, options) {
+  if (typeof title === 'object') {
+    options = title;
+    title = '';
+  }
+  return MessageBox(merge({
+    title: title,
+    message: message,
+    $type: 'alert',
+    closeOnPressEscape: false,
+    closeOnClickModal: false
+  }, options));
+};
+
+MessageBox.confirm = function(message, title, options) {
+  if (typeof title === 'object') {
+    options = title;
+    title = '';
+  }
+  return MessageBox(merge({
+    title: title,
+    message: message,
+    $type: 'confirm',
+    showCancelButton: true
+  }, options));
+};
+
+MessageBox.prompt = function(message, title, options) {
+  if (typeof title === 'object') {
+    options = title;
+    title = '';
+  }
+  return MessageBox(merge({
+    title: title,
+    message: message,
+    showCancelButton: true,
+    showInput: true,
+    $type: 'prompt'
+  }, options));
+};
+
+MessageBox.close = function() {
+  if (!instance) return;
+  instance.value = false;
+  msgQueue = [];
+  currentMsg = null;
+};
+
+/* harmony default export */ exports["a"] = MessageBox;
+
+
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_navbar_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue___default.a; });
+
+
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue___default.a; });
+
+
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+var isDragging = false;
+
+
+var supportTouch = !__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer && 'ontouchstart' in window;
+
+/* harmony default export */ exports["a"] = function(element, options) {
+  var moveFn = function(event) {
+    if (options.drag) {
+      options.drag(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+    }
+  };
+
+  var endFn = function(event) {
+    if (!supportTouch) {
+      document.removeEventListener('mousemove', moveFn);
+      document.removeEventListener('mouseup', endFn);
+    }
+    document.onselectstart = null;
+    document.ondragstart = null;
+
+    isDragging = false;
+
+    if (options.end) {
+      options.end(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+    }
+  };
+
+  element.addEventListener(supportTouch ? 'touchstart' : 'mousedown', function(event) {
+    if (isDragging) return;
+    document.onselectstart = function() { return false; };
+    document.ondragstart = function() { return false; };
+
+    if (!supportTouch) {
+      document.addEventListener('mousemove', moveFn);
+      document.addEventListener('mouseup', endFn);
+    }
+    isDragging = true;
+
+    if (options.start) {
+      event.preventDefault();
+      options.start(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+    }
+  });
+
+  if (supportTouch) {
+    element.addEventListener('touchmove', moveFn);
+    element.addEventListener('touchend', endFn);
+    element.addEventListener('touchcancel', endFn);
+  }
+};;
+
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+var exportObj = {};
+
+if (!__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer) {
+  var docStyle = document.documentElement.style;
+  var engine;
+  var translate3d = false;
+
+  if (window.opera && Object.prototype.toString.call(opera) === '[object Opera]') {
+    engine = 'presto';
+  } else if ('MozAppearance' in docStyle) {
+    engine = 'gecko';
+  } else if ('WebkitAppearance' in docStyle) {
+    engine = 'webkit';
+  } else if (typeof navigator.cpuClass === 'string') {
+    engine = 'trident';
+  }
+
+  var cssPrefix = {trident: '-ms-', gecko: '-moz-', webkit: '-webkit-', presto: '-o-'}[engine];
+
+  var vendorPrefix = {trident: 'ms', gecko: 'Moz', webkit: 'Webkit', presto: 'O'}[engine];
+
+  var helperElem = document.createElement('div');
+  var perspectiveProperty = vendorPrefix + 'Perspective';
+  var transformProperty = vendorPrefix + 'Transform';
+  var transformStyleName = cssPrefix + 'transform';
+  var transitionProperty = vendorPrefix + 'Transition';
+  var transitionStyleName = cssPrefix + 'transition';
+  var transitionEndProperty = vendorPrefix.toLowerCase() + 'TransitionEnd';
+
+  if (helperElem.style[perspectiveProperty] !== undefined) {
+    translate3d = true;
+  }
+
+  var getTranslate = function(element) {
+    var result = {left: 0, top: 0};
+    if (element === null || element.style === null) return result;
+
+    var transform = element.style[transformProperty];
+    var matches = /translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/ig.exec(transform);
+    if (matches) {
+      result.left = +matches[1];
+      result.top = +matches[3];
+    }
+
+    return result;
+  };
+
+  var translateElement = function(element, x, y) {
+    if (x === null && y === null) return;
+
+    if (element === null || element === undefined || element.style === null) return;
+
+    if (!element.style[transformProperty] && x === 0 && y === 0) return;
+
+    if (x === null || y === null) {
+      var translate = getTranslate(element);
+      if (x === null) {
+        x = translate.left;
+      }
+      if (y === null) {
+        y = translate.top;
+      }
+    }
+
+    cancelTranslateElement(element);
+
+    if (translate3d) {
+      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ') translateZ(0px)';
+    } else {
+      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ')';
+    }
+  };
+
+  var cancelTranslateElement = function(element) {
+    if (element === null || element.style === null) return;
+    var transformValue = element.style[transformProperty];
+    if (transformValue) {
+      transformValue = transformValue.replace(/translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/g, '');
+      element.style[transformProperty] = transformValue;
+    }
+  };
+  exportObj = {
+    transformProperty: transformProperty,
+    transformStyleName: transformStyleName,
+    transitionProperty: transitionProperty,
+    transitionStyleName: transitionStyleName,
+    transitionEndProperty: transitionEndProperty,
+    getElementTranslate: getTranslate,
+    translateElement: translateElement,
+    cancelTranslateElement: cancelTranslateElement
+  };
+};
+
+/* harmony default export */ exports["a"] = exportObj;
+
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_progress_vue__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_progress_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_progress_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_progress_vue___default.a; });
+
+
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_radio_vue__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_radio_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_radio_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_radio_vue___default.a; });
+
+
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_index_vue__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_index_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_index_vue___default.a; });
+
+
+
+/***/ },
+/* 78 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+var isDragging = false;
+
+var supportTouch = !__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer && 'ontouchstart' in window;
+
+/* harmony default export */ exports["a"] = function(element, options) {
+  var moveFn = function(event) {
+    if (options.drag) {
+      options.drag(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+    }
+  };
+
+  var endFn = function(event) {
+    if (!supportTouch) {
+      document.removeEventListener('mousemove', moveFn);
+      document.removeEventListener('mouseup', endFn);
+    }
+    document.onselectstart = null;
+    document.ondragstart = null;
+
+    isDragging = false;
+
+    if (options.end) {
+      options.end(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+    }
+  };
+
+  element.addEventListener(supportTouch ? 'touchstart' : 'mousedown', function(event) {
+    if (isDragging) return;
+    event.preventDefault();
+    document.onselectstart = function() { return false; };
+    document.ondragstart = function() { return false; };
+
+    if (!supportTouch) {
+      document.addEventListener('mousemove', moveFn);
+      document.addEventListener('mouseup', endFn);
+    }
+    isDragging = true;
+
+    if (options.start) {
+      options.start(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+    }
+  });
+
+  if (supportTouch) {
+    element.addEventListener('touchmove', moveFn);
+    element.addEventListener('touchend', endFn);
+    element.addEventListener('touchcancel', endFn);
+  }
+};;
+
+
+/***/ },
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_search_vue__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_search_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_search_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_search_vue___default.a; });
+
+
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_style_empty_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__swipe_src_swipe_item_vue__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__swipe_src_swipe_item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__swipe_src_swipe_item_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__swipe_src_swipe_item_vue___default.a; });
+
+
+
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_swipe_vue__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_swipe_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_swipe_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_swipe_vue___default.a; });
+
+
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_switch_vue__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_switch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_switch_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_switch_vue___default.a; });
+
+
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_container_item_vue__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_container_item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_tab_container_item_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_tab_container_item_vue___default.a; });
+
+
+
+/***/ },
+/* 84 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_container_vue__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_container_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_tab_container_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_tab_container_vue___default.a; });
+
+
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue___default.a; });
+
+
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tabbar_vue__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tabbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_tabbar_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_tabbar_vue___default.a; });
+
+
+
+/***/ },
+/* 87 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_toast_js__ = __webpack_require__(88);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__src_toast_js__["a"]; });
+
+
+
+/***/ },
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+var ToastConstructor = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(162));
+var toastPool = [];
+
+var getAnInstance = function () {
+  if (toastPool.length > 0) {
+    var instance = toastPool[0];
+    toastPool.splice(0, 1);
+    return instance;
+  }
+  return new ToastConstructor({
+    el: document.createElement('div')
+  });
+};
+
+var returnAnInstance = function (instance) {
+  if (instance) {
+    toastPool.push(instance);
+  }
+};
+
+var removeDom = function (event) {
+  if (event.target.parentNode) {
+    event.target.parentNode.removeChild(event.target);
+  }
+};
+
+ToastConstructor.prototype.close = function() {
+  this.visible = false;
+  this.$el.addEventListener('transitionend', removeDom);
+  this.closed = true;
+  returnAnInstance(this);
+};
+
+var Toast = function (options) {
+  if ( options === void 0 ) options = {};
+
+  var duration = options.duration || 3000;
+
+  var instance = getAnInstance();
+  instance.closed = false;
+  clearTimeout(instance.timer);
+  instance.message = typeof options === 'string' ? options : options.message;
+  instance.position = options.position || 'middle';
+  instance.className = options.className || '';
+  instance.iconClass = options.iconClass || '';
+
+  document.body.appendChild(instance.$el);
+  __WEBPACK_IMPORTED_MODULE_0_vue___default.a.nextTick(function() {
+    instance.visible = true;
+    instance.$el.removeEventListener('transitionend', removeDom);
+    ~duration && (instance.timer = setTimeout(function() {
+      if (instance.closed) return;
+      instance.close();
+    }, duration));
+  });
+  return instance;
+};
+
+/* harmony default export */ exports["a"] = Toast;
+
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+function broadcast(componentName, eventName, params) {
+  this.$children.forEach(function (child) {
+    var name = child.$options.componentName;
+
+    if (name === componentName) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}
+/* harmony default export */ exports["a"] = {
+  methods: {
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent;
+      var name = parent.$options.componentName;
+
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+
+        if (parent) {
+          name = parent.$options.componentName;
+        }
+      }
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    broadcast: function broadcast$1(componentName, eventName, params) {
+      broadcast.call(this, componentName, eventName, params);
+    }
+  }
+};
+
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__ = __webpack_require__(3);
+
+
+
+var hasModal = false;
+
+var getModal = function() {
+  if (__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer) return;
+  var modalDom = PopupManager.modalDom;
+  if (modalDom) {
+    hasModal = true;
+  } else {
+    hasModal = false;
+    modalDom = document.createElement('div');
+    PopupManager.modalDom = modalDom;
+
+    modalDom.addEventListener('touchmove', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+
+    modalDom.addEventListener('click', function() {
+      PopupManager.doOnModalClick && PopupManager.doOnModalClick();
+    });
+  }
+
+  return modalDom;
+};
+
+var instances = {};
+
+var PopupManager = {
+  zIndex: 2000,
+
+  modalFade: true,
+
+  getInstance: function(id) {
+    return instances[id];
+  },
+
+  register: function(id, instance) {
+    if (id && instance) {
+      instances[id] = instance;
+    }
+  },
+
+  deregister: function(id) {
+    if (id) {
+      instances[id] = null;
+      delete instances[id];
+    }
+  },
+
+  nextZIndex: function() {
+    return PopupManager.zIndex++;
+  },
+
+  modalStack: [],
+
+  doOnModalClick: function() {
+    var topItem = PopupManager.modalStack[PopupManager.modalStack.length - 1];
+    if (!topItem) return;
+
+    var instance = PopupManager.getInstance(topItem.id);
+    if (instance && instance.closeOnClickModal) {
+      instance.close();
+    }
+  },
+
+  openModal: function(id, zIndex, dom, modalClass, modalFade) {
+    if (__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer) return;
+    if (!id || zIndex === undefined) return;
+    this.modalFade = modalFade;
+
+    var modalStack = this.modalStack;
+
+    for (var i = 0, j = modalStack.length; i < j; i++) {
+      var item = modalStack[i];
+      if (item.id === id) {
+        return;
+      }
+    }
+
+    var modalDom = getModal();
+
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__["a" /* addClass */])(modalDom, 'v-modal');
+    if (this.modalFade && !hasModal) {
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__["a" /* addClass */])(modalDom, 'v-modal-enter');
+    }
+    if (modalClass) {
+      var classArr = modalClass.trim().split(/\s+/);
+      classArr.forEach(function (item) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__["a" /* addClass */])(modalDom, item); });
+    }
+    setTimeout(function () {
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__["b" /* removeClass */])(modalDom, 'v-modal-enter');
+    }, 200);
+
+    if (dom && dom.parentNode && dom.parentNode.nodeType !== 11) {
+      dom.parentNode.appendChild(modalDom);
+    } else {
+      document.body.appendChild(modalDom);
+    }
+
+    if (zIndex) {
+      modalDom.style.zIndex = zIndex;
+    }
+    modalDom.style.display = '';
+
+    this.modalStack.push({ id: id, zIndex: zIndex, modalClass: modalClass });
+  },
+
+  closeModal: function(id) {
+    var modalStack = this.modalStack;
+    var modalDom = getModal();
+
+    if (modalStack.length > 0) {
+      var topItem = modalStack[modalStack.length - 1];
+      if (topItem.id === id) {
+        if (topItem.modalClass) {
+          var classArr = topItem.modalClass.trim().split(/\s+/);
+          classArr.forEach(function (item) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__["b" /* removeClass */])(modalDom, item); });
+        }
+
+        modalStack.pop();
+        if (modalStack.length > 0) {
+          modalDom.style.zIndex = modalStack[modalStack.length - 1].zIndex;
+        }
+      } else {
+        for (var i = modalStack.length - 1; i >= 0; i--) {
+          if (modalStack[i].id === id) {
+            modalStack.splice(i, 1);
+            break;
+          }
+        }
+      }
+    }
+
+    if (modalStack.length === 0) {
+      if (this.modalFade) {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__["a" /* addClass */])(modalDom, 'v-modal-leave');
+      }
+      setTimeout(function () {
+        if (modalStack.length === 0) {
+          if (modalDom.parentNode) modalDom.parentNode.removeChild(modalDom);
+          modalDom.style.display = 'none';
+          PopupManager.modalDom = undefined;
+        }
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_dom__["b" /* removeClass */])(modalDom, 'v-modal-leave');
+      }, 200);
+    }
+  }
+};
+!__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer && window.addEventListener('keydown', function(event) {
+  if (event.keyCode === 27) { // ESC
+    if (PopupManager.modalStack.length > 0) {
+      var topItem = PopupManager.modalStack[PopupManager.modalStack.length - 1];
+      if (!topItem) return;
+      var instance = PopupManager.getInstance(topItem.id);
+      if (instance.closeOnPressEscape) {
+        instance.close();
+      }
+    }
+  }
+});
+
+/* harmony default export */ exports["a"] = PopupManager;
+
+
+/***/ },
+/* 91 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 92 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 93 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 94 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 95 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 96 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 97 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 98 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 99 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 100 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 101 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 102 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 103 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 104 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 105 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 106 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 107 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 108 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 109 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 110 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 111 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 112 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 113 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 114 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 115 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 116 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 117 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 118 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 119 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 120 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 121 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 122 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 123 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 124 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 125 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 126 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 127 */
+/***/ function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMCBBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYiIGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgPC9wYXRoPgo8L3N2Zz4K"
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(100)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(15),
+  /* template */
+  __webpack_require__(171),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(102)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(16),
+  /* template */
+  __webpack_require__(173),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 130 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(106)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(17),
+  /* template */
+  __webpack_require__(177),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(98)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(18),
+  /* template */
+  __webpack_require__(169),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 132 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(113)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(19),
+  /* template */
+  __webpack_require__(185),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 133 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(124)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(20),
+  /* template */
+  __webpack_require__(196),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 134 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(109)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(21),
+  /* template */
+  __webpack_require__(181),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(116)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(22),
+  /* template */
+  __webpack_require__(187),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 136 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(108)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(23),
+  /* template */
+  __webpack_require__(179),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 137 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(93)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(24),
+  /* template */
+  __webpack_require__(164),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 138 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(94)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(25),
+  /* template */
+  __webpack_require__(165),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 139 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(119)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(26),
+  /* template */
+  __webpack_require__(191),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 140 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(121)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(27),
+  /* template */
+  __webpack_require__(193),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 141 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(114)
+  __webpack_require__(115)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(28),
+  /* template */
+  __webpack_require__(186),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 142 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(123)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(29),
+  /* template */
+  __webpack_require__(195),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 143 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(112)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(30),
+  /* template */
+  __webpack_require__(184),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 144 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(92)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(31),
+  /* template */
+  __webpack_require__(163),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 145 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(126)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(32),
+  /* template */
+  __webpack_require__(198),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 146 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(120)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(33),
+  /* template */
+  __webpack_require__(192),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 147 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(96)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(34),
+  /* template */
+  __webpack_require__(167),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 148 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(118)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(35),
+  /* template */
+  __webpack_require__(190),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 149 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(122)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(36),
+  /* template */
+  __webpack_require__(194),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 150 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(125)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(37),
+  /* template */
+  __webpack_require__(197),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 151 */
+/***/ function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(38),
+  /* template */
+  __webpack_require__(189),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 152 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(111)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(40),
+  /* template */
+  __webpack_require__(183),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 153 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(103)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(42),
+  /* template */
+  __webpack_require__(174),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 154 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(99)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(43),
+  /* template */
+  __webpack_require__(170),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 155 */
+/***/ function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(44),
+  /* template */
+  __webpack_require__(180),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 156 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(95)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(45),
+  /* template */
+  __webpack_require__(166),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 157 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(107)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(46),
+  /* template */
+  __webpack_require__(178),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 158 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(117)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(47),
+  /* template */
+  __webpack_require__(188),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(101)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(48),
+  /* template */
+  __webpack_require__(172),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(105)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(49),
+  /* template */
+  __webpack_require__(176),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(110)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(50),
+  /* template */
+  __webpack_require__(182),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(97)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(51),
+  /* template */
+  __webpack_require__(168),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+/* 163 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "picker-slot",
+    class: _vm.classNames,
+    style: (_vm.flexStyle)
+  }, [(!_vm.divider) ? _c('div', {
+    ref: "wrapper",
+    staticClass: "picker-slot-wrapper",
+    class: {
+      dragging: _vm.dragging
+    },
+    style: ({
+      height: _vm.contentHeight + 'px'
+    })
+  }, _vm._l((_vm.mutatingValues), function(itemValue) {
+    return _c('div', {
+      staticClass: "picker-item",
+      class: {
+        'picker-selected': itemValue === _vm.currentValue
+      },
+      style: ({
+        height: _vm.itemHeight + 'px',
+        lineHeight: _vm.itemHeight + 'px'
+      })
+    }, [_vm._v("\n      " + _vm._s(typeof itemValue === 'object' && itemValue[_vm.valueKey] ? itemValue[_vm.valueKey] : itemValue) + "\n    ")])
+  })) : _vm._e(), _vm._v(" "), (_vm.divider) ? _c('div', [_vm._v(_vm._s(_vm.content))]) : _vm._e()])
+},staticRenderFns: []}
+
+/***/ },
+/* 164 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-indexlist"
+  }, [_c('ul', {
+    ref: "content",
+    staticClass: "mint-indexlist-content",
+    style: ({
+      'height': _vm.currentHeight + 'px',
+      'margin-right': _vm.navWidth + 'px'
+    })
+  }, [_vm._t("default")], 2), _vm._v(" "), _c('div', {
+    ref: "nav",
+    staticClass: "mint-indexlist-nav",
+    on: {
+      "touchstart": _vm.handleTouchStart
+    }
+  }, [_c('ul', {
+    staticClass: "mint-indexlist-navlist"
+  }, _vm._l((_vm.sections), function(section) {
+    return _c('li', {
+      staticClass: "mint-indexlist-navitem"
+    }, [_vm._v(_vm._s(section.index))])
+  }))]), _vm._v(" "), (_vm.showIndicator) ? _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.moving),
+      expression: "moving"
+    }],
+    staticClass: "mint-indexlist-indicator"
+  }, [_vm._v(_vm._s(_vm.currentIndicator))]) : _vm._e()])
+},staticRenderFns: []}
+
+/***/ },
+/* 165 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('li', {
+    staticClass: "mint-indexsection"
+  }, [_c('p', {
+    staticClass: "mint-indexsection-index"
+  }, [_vm._v(_vm._s(_vm.index))]), _vm._v(" "), _c('ul', [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 166 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-swipe"
+  }, [_c('div', {
+    ref: "wrap",
+    staticClass: "mint-swipe-items-wrap"
+  }, [_vm._t("default")], 2), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showIndicators),
+      expression: "showIndicators"
+    }],
+    staticClass: "mint-swipe-indicators"
+  }, _vm._l((_vm.pages), function(page, $index) {
+    return _c('div', {
+      staticClass: "mint-swipe-indicator",
+      class: {
+        'is-active': $index === _vm.index
+      }
+    })
+  }))])
+},staticRenderFns: []}
+
+/***/ },
+/* 167 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mt-progress"
+  }, [_vm._t("start"), _vm._v(" "), _c('div', {
+    staticClass: "mt-progress-content"
+  }, [_c('div', {
+    staticClass: "mt-progress-runway",
+    style: ({
+      height: _vm.barHeight + 'px'
+    })
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mt-progress-progress",
+    style: ({
+      width: _vm.value + '%',
+      height: _vm.barHeight + 'px'
+    })
+  })]), _vm._v(" "), _vm._t("end")], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 168 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition', {
+    attrs: {
+      "name": "mint-toast-pop"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.visible),
+      expression: "visible"
+    }],
+    staticClass: "mint-toast",
+    class: _vm.customClass,
+    style: ({
+      'padding': _vm.iconClass === '' ? '10px' : '20px'
+    })
+  }, [(_vm.iconClass !== '') ? _c('i', {
+    staticClass: "mint-toast-icon",
+    class: _vm.iconClass
+  }) : _vm._e(), _vm._v(" "), _c('span', {
+    staticClass: "mint-toast-text",
+    style: ({
+      'padding-top': _vm.iconClass === '' ? '0' : '10px'
+    })
+  }, [_vm._v(_vm._s(_vm.message))])])])
+},staticRenderFns: []}
+
+/***/ },
+/* 169 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('x-cell', {
+    directives: [{
+      name: "clickoutside",
+      rawName: "v-clickoutside:touchstart",
+      value: (_vm.swipeMove),
+      expression: "swipeMove",
+      arg: "touchstart"
+    }],
+    ref: "cell",
+    staticClass: "mint-cell-swipe",
+    attrs: {
+      "title": _vm.title,
+      "icon": _vm.icon,
+      "label": _vm.label,
+      "to": _vm.to,
+      "is-link": _vm.isLink,
+      "value": _vm.value
+    },
+    nativeOn: {
+      "click": function($event) {
+        _vm.swipeMove()
+      },
+      "touchstart": function($event) {
+        _vm.startDrag($event)
+      },
+      "touchmove": function($event) {
+        _vm.onDrag($event)
+      },
+      "touchend": function($event) {
+        _vm.endDrag($event)
+      }
+    }
+  }, [_c('div', {
+    ref: "right",
+    staticClass: "mint-cell-swipe-buttongroup",
+    slot: "right"
+  }, _vm._l((_vm.right), function(btn) {
+    return _c('a', {
+      staticClass: "mint-cell-swipe-button",
+      style: (btn.style),
+      domProps: {
+        "innerHTML": _vm._s(btn.content)
+      },
+      on: {
+        "click": function($event) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          btn.handler && btn.handler(), _vm.swipeMove()
+        }
+      }
+    })
+  })), _vm._v(" "), _c('div', {
+    ref: "left",
+    staticClass: "mint-cell-swipe-buttongroup",
+    slot: "left"
+  }, _vm._l((_vm.left), function(btn) {
+    return _c('a', {
+      staticClass: "mint-cell-swipe-button",
+      style: (btn.style),
+      domProps: {
+        "innerHTML": _vm._s(btn.content)
+      },
+      on: {
+        "click": function($event) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          btn.handler && btn.handler(), _vm.swipeMove()
+        }
+      }
+    })
+  })), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.$slots.title) ? _c('span', {
+    slot: "title"
+  }, [_vm._t("title")], 2) : _vm._e(), _vm._v(" "), (_vm.$slots.icon) ? _c('span', {
+    slot: "icon"
+  }, [_vm._t("icon")], 2) : _vm._e()], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 170 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-spinner-triple-bounce"
+  }, [_c('div', {
+    staticClass: "mint-spinner-triple-bounce-bounce1",
+    style: (_vm.bounceStyle)
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mint-spinner-triple-bounce-bounce2",
+    style: (_vm.bounceStyle)
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mint-spinner-triple-bounce-bounce3",
+    style: (_vm.bounceStyle)
+  })])
+},staticRenderFns: []}
+
+/***/ },
+/* 171 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition', {
+    attrs: {
+      "name": "actionsheet-float"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.currentValue),
+      expression: "currentValue"
+    }],
+    staticClass: "mint-actionsheet"
+  }, [_c('ul', {
+    staticClass: "mint-actionsheet-list",
+    style: ({
+      'margin-bottom': _vm.cancelText ? '5px' : '0'
+    })
+  }, _vm._l((_vm.actions), function(item, index) {
+    return _c('li', {
+      staticClass: "mint-actionsheet-listitem",
+      on: {
+        "click": function($event) {
+          $event.stopPropagation();
+          _vm.itemClick(item, index)
+        }
+      }
+    }, [_vm._v(_vm._s(item.name))])
+  })), _vm._v(" "), (_vm.cancelText) ? _c('a', {
+    staticClass: "mint-actionsheet-button",
+    on: {
+      "click": function($event) {
+        $event.stopPropagation();
+        _vm.currentValue = false
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.cancelText))]) : _vm._e()])])
+},staticRenderFns: []}
+
+/***/ },
+/* 172 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-tab-container",
+    on: {
+      "touchstart": _vm.startDrag,
+      "mousedown": _vm.startDrag,
+      "touchmove": _vm.onDrag,
+      "mousemove": _vm.onDrag,
+      "mouseup": _vm.endDrag,
+      "touchend": _vm.endDrag
+    }
+  }, [_c('div', {
+    ref: "wrap",
+    staticClass: "mint-tab-container-wrap"
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 173 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "mint-badge",
+    class: ['is-' + _vm.type, 'is-size-' + _vm.size],
+    style: ({
+      backgroundColor: _vm.color
+    })
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 174 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-spinner-snake",
+    style: ({
+      'border-top-color': _vm.spinnerColor,
+      'border-left-color': _vm.spinnerColor,
+      'border-bottom-color': _vm.spinnerColor,
+      'height': _vm.spinnerSize,
+      'width': _vm.spinnerSize
+    })
+  })
+},staticRenderFns: []}
+
+/***/ },
+/* 175 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    class: ['mint-spinner-fading-circle circle-color-' + _vm._uid],
+    style: ({
+      width: _vm.spinnerSize,
+      height: _vm.spinnerSize
+    })
+  }, _vm._l((12), function(n) {
+    return _c('div', {
+      staticClass: "mint-spinner-fading-circle-circle",
+      class: ['is-circle' + (n + 1)]
+    })
+  }))
+},staticRenderFns: []}
+
+/***/ },
+/* 176 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('a', {
+    staticClass: "mint-tab-item",
+    class: {
+      'is-selected': _vm.$parent.value === _vm.id
+    },
+    on: {
+      "click": function($event) {
+        _vm.$parent.$emit('input', _vm.id)
+      }
+    }
+  }, [_c('div', {
+    staticClass: "mint-tab-item-icon"
+  }, [_vm._t("icon")], 2), _vm._v(" "), _c('div', {
+    staticClass: "mint-tab-item-label"
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 177 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('button', {
+    staticClass: "mint-button",
+    class: ['mint-button--' + _vm.type, 'mint-button--' + _vm.size, {
+      'is-disabled': _vm.disabled,
+      'is-plain': _vm.plain
+    }],
+    attrs: {
+      "type": _vm.nativeType,
+      "disabled": _vm.disabled
+    },
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [(_vm.icon || _vm.$slots.icon) ? _c('span', {
+    staticClass: "mint-button-icon"
+  }, [_vm._t("icon", [(_vm.icon) ? _c('i', {
+    staticClass: "mintui",
+    class: 'mintui-' + _vm.icon
+  }) : _vm._e()])], 2) : _vm._e(), _vm._v(" "), _c('label', {
+    staticClass: "mint-button-text"
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 178 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('label', {
+    staticClass: "mint-switch"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.currentValue),
+      expression: "currentValue"
+    }],
+    staticClass: "mint-switch-input",
+    attrs: {
+      "disabled": _vm.disabled,
+      "type": "checkbox"
+    },
+    domProps: {
+      "checked": Array.isArray(_vm.currentValue) ? _vm._i(_vm.currentValue, null) > -1 : (_vm.currentValue)
+    },
+    on: {
+      "change": function($event) {
+        _vm.$emit('change', _vm.currentValue)
+      },
+      "__c": function($event) {
+        var $$a = _vm.currentValue,
+          $$el = $event.target,
+          $$c = $$el.checked ? (true) : (false);
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v);
+          if ($$c) {
+            $$i < 0 && (_vm.currentValue = $$a.concat($$v))
+          } else {
+            $$i > -1 && (_vm.currentValue = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+          }
+        } else {
+          _vm.currentValue = $$c
+        }
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "mint-switch-core"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mint-switch-label"
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 179 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('header', {
+    staticClass: "mint-header",
+    class: {
+      'is-fixed': _vm.fixed
+    }
+  }, [_c('div', {
+    staticClass: "mint-header-button is-left"
+  }, [_vm._t("left")], 2), _vm._v(" "), _c('h1', {
+    staticClass: "mint-header-title",
+    domProps: {
+      "textContent": _vm._s(_vm.title)
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mint-header-button is-right"
+  }, [_vm._t("right")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 180 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-swipe-item"
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 181 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('mt-popup', {
+    staticClass: "mint-datetime",
+    attrs: {
+      "closeOnClickModal": _vm.closeOnClickModal,
+      "position": "bottom"
+    },
+    model: {
+      value: (_vm.visible),
+      callback: function($$v) {
+        _vm.visible = $$v
+      },
+      expression: "visible"
+    }
+  }, [_c('mt-picker', {
+    ref: "picker",
+    staticClass: "mint-datetime-picker",
+    attrs: {
+      "slots": _vm.dateSlots,
+      "visible-item-count": _vm.visibleItemCount,
+      "show-toolbar": ""
+    },
+    on: {
+      "change": _vm.onChange
+    }
+  }, [_c('span', {
+    staticClass: "mint-datetime-action mint-datetime-cancel",
+    on: {
+      "click": function($event) {
+        _vm.visible = false;
+        _vm.$emit('cancel')
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.cancelText))]), _vm._v(" "), _c('span', {
+    staticClass: "mint-datetime-action mint-datetime-confirm",
+    on: {
+      "click": _vm.confirm
+    }
+  }, [_vm._v(_vm._s(_vm.confirmText))])])], 1)
+},staticRenderFns: []}
+
+/***/ },
+/* 182 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-tabbar",
+    class: {
+      'is-fixed': _vm.fixed
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 183 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-spinner-double-bounce",
+    style: ({
+      width: _vm.spinnerSize,
+      height: _vm.spinnerSize
+    })
+  }, [_c('div', {
+    staticClass: "mint-spinner-double-bounce-bounce1",
+    style: ({
+      backgroundColor: _vm.spinnerColor
+    })
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mint-spinner-double-bounce-bounce2",
+    style: ({
+      backgroundColor: _vm.spinnerColor
+    })
+  })])
+},staticRenderFns: []}
+
+/***/ },
+/* 184 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-palette-button",
+    class: {
+      expand: _vm.expanded, 'mint-palette-button-active': _vm.transforming
+    },
+    on: {
+      "animationend": _vm.onMainAnimationEnd,
+      "webkitAnimationEnd": _vm.onMainAnimationEnd,
+      "mozAnimationEnd": _vm.onMainAnimationEnd
+    }
+  }, [_c('div', {
+    staticClass: "mint-sub-button-container"
+  }, [_vm._t("default")], 2), _vm._v(" "), _c('div', {
+    staticClass: "mint-main-button",
+    style: (_vm.mainButtonStyle),
+    on: {
+      "touchstart": _vm.toggle
+    }
+  }, [_vm._v("\n    " + _vm._s(_vm.content) + "\n  ")])])
+},staticRenderFns: []}
+
+/***/ },
+/* 185 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('a', {
+    staticClass: "mint-cell",
+    attrs: {
+      "href": _vm.href
+    }
+  }, [(_vm.isLink) ? _c('span', {
+    staticClass: "mint-cell-mask"
+  }) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "mint-cell-left"
+  }, [_vm._t("left")], 2), _vm._v(" "), _c('div', {
+    staticClass: "mint-cell-wrapper"
+  }, [_c('div', {
+    staticClass: "mint-cell-title"
+  }, [_vm._t("icon", [(_vm.icon) ? _c('i', {
+    staticClass: "mintui",
+    class: 'mintui-' + _vm.icon
+  }) : _vm._e()]), _vm._v(" "), _vm._t("title", [_c('span', {
+    staticClass: "mint-cell-text",
+    domProps: {
+      "textContent": _vm._s(_vm.title)
+    }
+  }), _vm._v(" "), (_vm.label) ? _c('span', {
+    staticClass: "mint-cell-label",
+    domProps: {
+      "textContent": _vm._s(_vm.label)
+    }
+  }) : _vm._e()])], 2), _vm._v(" "), _c('div', {
+    staticClass: "mint-cell-value",
+    class: {
+      'is-link': _vm.isLink
+    }
+  }, [_vm._t("default", [_c('span', {
+    domProps: {
+      "textContent": _vm._s(_vm.value)
+    }
+  })])], 2), _vm._v(" "), (_vm.isLink) ? _c('i', {
+    staticClass: "mint-cell-allow-right"
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "mint-cell-right"
+  }, [_vm._t("right")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 186 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-msgbox-wrapper"
+  }, [_c('transition', {
+    attrs: {
+      "name": "msgbox-bounce"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.value),
+      expression: "value"
+    }],
+    staticClass: "mint-msgbox"
+  }, [(_vm.title !== '') ? _c('div', {
+    staticClass: "mint-msgbox-header"
+  }, [_c('div', {
+    staticClass: "mint-msgbox-title"
+  }, [_vm._v(_vm._s(_vm.title))])]) : _vm._e(), _vm._v(" "), (_vm.message !== '') ? _c('div', {
+    staticClass: "mint-msgbox-content"
+  }, [_c('div', {
+    staticClass: "mint-msgbox-message",
+    domProps: {
+      "innerHTML": _vm._s(_vm.message)
+    }
+  }), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showInput),
+      expression: "showInput"
+    }],
+    staticClass: "mint-msgbox-input"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.inputValue),
+      expression: "inputValue"
+    }],
+    ref: "input",
+    attrs: {
+      "placeholder": _vm.inputPlaceholder
+    },
+    domProps: {
+      "value": (_vm.inputValue)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.inputValue = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mint-msgbox-errormsg",
+    style: ({
+      visibility: !!_vm.editorErrorMessage ? 'visible' : 'hidden'
+    })
+  }, [_vm._v(_vm._s(_vm.editorErrorMessage))])])]) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "mint-msgbox-btns"
+  }, [_c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showCancelButton),
+      expression: "showCancelButton"
+    }],
+    class: [_vm.cancelButtonClasses],
+    on: {
+      "click": function($event) {
+        _vm.handleAction('cancel')
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.cancelButtonText))]), _vm._v(" "), _c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showConfirmButton),
+      expression: "showConfirmButton"
+    }],
+    class: [_vm.confirmButtonClasses],
+    on: {
+      "click": function($event) {
+        _vm.handleAction('confirm')
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.confirmButtonText))])])])])], 1)
+},staticRenderFns: []}
+
+/***/ },
+/* 187 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('x-cell', {
+    directives: [{
+      name: "clickoutside",
+      rawName: "v-clickoutside",
+      value: (_vm.doCloseActive),
+      expression: "doCloseActive"
+    }],
+    staticClass: "mint-field",
+    class: [{
+      'is-textarea': _vm.type === 'textarea',
+      'is-nolabel': !_vm.label
+    }],
+    attrs: {
+      "title": _vm.label
+    }
+  }, [(_vm.type === 'textarea') ? _c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.currentValue),
+      expression: "currentValue"
+    }],
+    ref: "textarea",
+    staticClass: "mint-field-core",
+    attrs: {
+      "placeholder": _vm.placeholder,
+      "rows": _vm.rows,
+      "disabled": _vm.disabled,
+      "readonly": _vm.readonly
+    },
+    domProps: {
+      "value": (_vm.currentValue)
+    },
+    on: {
+      "change": function($event) {
+        _vm.$emit('change', _vm.currentValue)
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.currentValue = $event.target.value
+      }
+    }
+  }) : _c('input', {
+    ref: "input",
+    staticClass: "mint-field-core",
+    attrs: {
+      "placeholder": _vm.placeholder,
+      "number": _vm.type === 'number',
+      "type": _vm.type,
+      "disabled": _vm.disabled,
+      "readonly": _vm.readonly
+    },
+    domProps: {
+      "value": _vm.currentValue
+    },
+    on: {
+      "change": function($event) {
+        _vm.$emit('change', _vm.currentValue)
+      },
+      "focus": function($event) {
+        _vm.active = true
+      },
+      "input": _vm.handleInput
+    }
+  }), _vm._v(" "), (!_vm.disableClear) ? _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.currentValue && _vm.type !== 'textarea' && _vm.active),
+      expression: "currentValue && type !== 'textarea' && active"
+    }],
+    staticClass: "mint-field-clear",
+    on: {
+      "click": _vm.handleClear
+    }
+  }, [_c('i', {
+    staticClass: "mintui mintui-field-error"
+  })]) : _vm._e(), _vm._v(" "), (_vm.state) ? _c('span', {
+    staticClass: "mint-field-state",
+    class: ['is-' + _vm.state]
+  }, [_c('i', {
+    staticClass: "mintui",
+    class: ['mintui-field-' + _vm.state]
+  })]) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "mint-field-other"
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 188 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.$parent.swiping || _vm.id === _vm.$parent.currentActive),
+      expression: "$parent.swiping || id === $parent.currentActive"
+    }],
+    staticClass: "mint-tab-container-item"
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 189 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', [_c(_vm.spinner, {
+    tag: "component"
+  })], 1)
+},staticRenderFns: []}
+
+/***/ },
+/* 190 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-radiolist",
+    on: {
+      "change": function($event) {
+        _vm.$emit('change', _vm.currentValue)
+      }
+    }
+  }, [_c('label', {
+    staticClass: "mint-radiolist-title",
+    domProps: {
+      "textContent": _vm._s(_vm.title)
+    }
+  }), _vm._v(" "), _vm._l((_vm.options), function(option) {
+    return _c('x-cell', [_c('label', {
+      staticClass: "mint-radiolist-label",
+      slot: "title"
+    }, [_c('span', {
+      staticClass: "mint-radio",
+      class: {
+        'is-right': _vm.align === 'right'
+      }
+    }, [_c('input', {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: (_vm.currentValue),
+        expression: "currentValue"
+      }],
+      staticClass: "mint-radio-input",
+      attrs: {
+        "type": "radio",
+        "disabled": option.disabled
+      },
+      domProps: {
+        "value": option.value || option,
+        "checked": _vm._q(_vm.currentValue, option.value || option)
+      },
+      on: {
+        "__c": function($event) {
+          _vm.currentValue = option.value || option
+        }
+      }
+    }), _vm._v(" "), _c('span', {
+      staticClass: "mint-radio-core"
+    })]), _vm._v(" "), _c('span', {
+      staticClass: "mint-radio-label",
+      domProps: {
+        "textContent": _vm._s(option.label || option)
+      }
+    })])])
+  })], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 191 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition', {
+    attrs: {
+      "name": "mint-indicator"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.visible),
+      expression: "visible"
+    }],
+    staticClass: "mint-indicator"
+  }, [_c('div', {
+    staticClass: "mint-indicator-wrapper",
+    style: ({
+      'padding': _vm.text ? '20px' : '15px'
+    })
+  }, [_c('spinner', {
+    staticClass: "mint-indicator-spin",
+    attrs: {
+      "type": _vm.convertedSpinnerType,
+      "size": 32
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.text),
+      expression: "text"
+    }],
+    staticClass: "mint-indicator-text"
+  }, [_vm._v(_vm._s(_vm.text))])], 1), _vm._v(" "), _c('div', {
+    staticClass: "mint-indicator-mask",
+    on: {
+      "touchmove": function($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+      }
+    }
+  })])])
+},staticRenderFns: []}
+
+/***/ },
+/* 192 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition', {
+    attrs: {
+      "name": _vm.currentTransition
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.currentValue),
+      expression: "currentValue"
+    }],
+    staticClass: "mint-popup",
+    class: [_vm.position ? 'mint-popup-' + _vm.position : '']
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 193 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-loadmore"
+  }, [_c('div', {
+    staticClass: "mint-loadmore-content",
+    class: {
+      'is-dropped': _vm.topDropped || _vm.bottomDropped
+    },
+    style: ({
+      'transform': _vm.transform
+    })
+  }, [_vm._t("top", [(_vm.topMethod) ? _c('div', {
+    staticClass: "mint-loadmore-top"
+  }, [(_vm.topStatus === 'loading') ? _c('spinner', {
+    staticClass: "mint-loadmore-spinner",
+    attrs: {
+      "size": 20,
+      "type": "fading-circle"
+    }
+  }) : _vm._e(), _vm._v(" "), _c('span', {
+    staticClass: "mint-loadmore-text"
+  }, [_vm._v(_vm._s(_vm.topText))])], 1) : _vm._e()]), _vm._v(" "), _vm._t("default"), _vm._v(" "), _vm._t("bottom", [(_vm.bottomMethod) ? _c('div', {
+    staticClass: "mint-loadmore-bottom"
+  }, [(_vm.bottomStatus === 'loading') ? _c('spinner', {
+    staticClass: "mint-loadmore-spinner",
+    attrs: {
+      "size": 20,
+      "type": "fading-circle"
+    }
+  }) : _vm._e(), _vm._v(" "), _c('span', {
+    staticClass: "mint-loadmore-text"
+  }, [_vm._v(_vm._s(_vm.bottomText))])], 1) : _vm._e()])], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 194 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mt-range",
+    class: {
+      'mt-range--disabled': _vm.disabled
+    }
+  }, [_vm._t("start"), _vm._v(" "), _c('div', {
+    ref: "content",
+    staticClass: "mt-range-content"
+  }, [_c('div', {
+    staticClass: "mt-range-runway",
+    style: ({
+      'border-top-width': _vm.barHeight + 'px'
+    })
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mt-range-progress",
+    style: ({
+      width: _vm.progress + '%',
+      height: _vm.barHeight + 'px'
+    })
+  }), _vm._v(" "), _c('div', {
+    ref: "thumb",
+    staticClass: "mt-range-thumb",
+    style: ({
+      left: _vm.progress + '%'
+    })
+  })]), _vm._v(" "), _vm._t("end")], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 195 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-navbar",
+    class: {
+      'is-fixed': _vm.fixed
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 196 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-checklist",
+    class: {
+      'is-limit': _vm.max <= _vm.currentValue.length
+    },
+    on: {
+      "change": function($event) {
+        _vm.$emit('change', _vm.currentValue)
+      }
+    }
+  }, [_c('label', {
+    staticClass: "mint-checklist-title",
+    domProps: {
+      "textContent": _vm._s(_vm.title)
+    }
+  }), _vm._v(" "), _vm._l((_vm.options), function(option) {
+    return _c('x-cell', [_c('label', {
+      staticClass: "mint-checklist-label",
+      slot: "title"
+    }, [_c('span', {
+      staticClass: "mint-checkbox",
+      class: {
+        'is-right': _vm.align === 'right'
+      }
+    }, [_c('input', {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: (_vm.currentValue),
+        expression: "currentValue"
+      }],
+      staticClass: "mint-checkbox-input",
+      attrs: {
+        "type": "checkbox",
+        "disabled": option.disabled
+      },
+      domProps: {
+        "value": option.value || option,
+        "checked": Array.isArray(_vm.currentValue) ? _vm._i(_vm.currentValue, option.value || option) > -1 : (_vm.currentValue)
+      },
+      on: {
+        "__c": function($event) {
+          var $$a = _vm.currentValue,
+            $$el = $event.target,
+            $$c = $$el.checked ? (true) : (false);
+          if (Array.isArray($$a)) {
+            var $$v = option.value || option,
+              $$i = _vm._i($$a, $$v);
+            if ($$c) {
+              $$i < 0 && (_vm.currentValue = $$a.concat($$v))
+            } else {
+              $$i > -1 && (_vm.currentValue = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+            }
+          } else {
+            _vm.currentValue = $$c
+          }
+        }
+      }
+    }), _vm._v(" "), _c('span', {
+      staticClass: "mint-checkbox-core"
+    })]), _vm._v(" "), _c('span', {
+      staticClass: "mint-checkbox-label",
+      domProps: {
+        "textContent": _vm._s(option.label || option)
+      }
+    })])])
+  })], 2)
+},staticRenderFns: []}
+
+/***/ },
+/* 197 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-search"
+  }, [_c('div', {
+    staticClass: "mint-searchbar"
+  }, [_c('div', {
+    staticClass: "mint-searchbar-inner"
+  }, [_c('i', {
+    staticClass: "mintui mintui-search"
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.currentValue),
+      expression: "currentValue"
+    }],
+    ref: "input",
+    staticClass: "mint-searchbar-core",
+    attrs: {
+      "type": "search",
+      "placeholder": _vm.placeholder
+    },
+    domProps: {
+      "value": (_vm.currentValue)
+    },
+    on: {
+      "click": function($event) {
+        _vm.visible = true
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.currentValue = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('a', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.visible),
+      expression: "visible"
+    }],
+    staticClass: "mint-searchbar-cancel",
+    domProps: {
+      "textContent": _vm._s(_vm.cancelText)
+    },
+    on: {
+      "click": function($event) {
+        _vm.visible = false, _vm.currentValue = ''
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.show || _vm.currentValue),
+      expression: "show || currentValue"
+    }],
+    staticClass: "mint-search-list"
+  }, [_c('div', {
+    staticClass: "mint-search-list-warp"
+  }, [_vm._t("default", _vm._l((_vm.result), function(item, index) {
+    return _c('x-cell', {
+      key: index,
+      attrs: {
+        "title": item
+      }
+    })
+  }))], 2)])])
+},staticRenderFns: []}
+
+/***/ },
+/* 198 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "picker",
+    class: {
+      'picker-3d': _vm.rotateEffect
+    }
+  }, [(_vm.showToolbar) ? _c('div', {
+    staticClass: "picker-toolbar"
+  }, [_vm._t("default")], 2) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "picker-items"
+  }, [_vm._l((_vm.slots), function(slot) {
+    return _c('picker-slot', {
+      attrs: {
+        "valueKey": _vm.valueKey,
+        "values": slot.values || [],
+        "text-align": slot.textAlign || 'center',
+        "visible-item-count": _vm.visibleItemCount,
+        "class-name": slot.className,
+        "flex": slot.flex,
+        "rotate-effect": _vm.rotateEffect,
+        "divider": slot.divider,
+        "content": slot.content,
+        "itemHeight": _vm.itemHeight,
+        "default-index": slot.defaultIndex
+      },
+      model: {
+        value: (_vm.values[slot.valueIndex]),
+        callback: function($$v) {
+          var $$exp = _vm.values,
+            $$idx = slot.valueIndex;
+          if (!Array.isArray($$exp)) {
+            _vm.values[slot.valueIndex] = $$v
+          } else {
+            $$exp.splice($$idx, 1, $$v)
+          }
+        },
+        expression: "values[slot.valueIndex]"
+      }
+    })
+  }), _vm._v(" "), _c('div', {
+    staticClass: "picker-center-highlight",
+    style: ({
+      height: _vm.itemHeight + 'px',
+      marginTop: -_vm.itemHeight / 2 + 'px'
+    })
+  })], 2)])
+},staticRenderFns: []}
+
+/***/ },
+/* 199 */
+/***/ function(module, exports) {
+
+module.exports = __webpack_require__(44);
+
+/***/ },
+/* 200 */
+/***/ function(module, exports) {
+
+module.exports = __webpack_require__(45);
+
+/***/ },
+/* 201 */
+/***/ function(module, exports) {
+
+module.exports = __webpack_require__(46);
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(14);
+
+
+/***/ }
+/******/ ]);
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(47);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(48)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../css-loader/index.js!./style.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./style.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(52)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t(__webpack_require__(85)):"function"==typeof define&&define.amd?define("VueAwesomeSwiper",["swiper"],t):"object"==typeof exports?exports.VueAwesomeSwiper=t(require("swiper/dist/js/swiper.js")):e.VueAwesomeSwiper=t(e.Swiper)}(this,function(e){return function(e){function t(i){if(n[i])return n[i].exports;var s=n[i]={i:i,l:!1,exports:{}};return e[i].call(s.exports,s,s.exports,t),s.l=!0,s.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,i){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=4)}([function(t,n){t.exports=e},function(e,t){e.exports=function(e,t,n,i,s,r){var o,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(o=e,a=e.default);var p="function"==typeof a?a.options:a;t&&(p.render=t.render,p.staticRenderFns=t.staticRenderFns,p._compiled=!0),n&&(p.functional=!0),s&&(p._scopeId=s);var l;if(r?(l=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(r)},p._ssrRegister=l):i&&(l=i),l){var c=p.functional,d=c?p.render:p.beforeCreate;c?(p._injectStyles=l,p.render=function(e,t){return l.call(t),d(e,t)}):p.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:a,options:p}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(5),s=n.n(i),r=n(8),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),s=n.n(i),r=n(7),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.install=t.swiperSlide=t.swiper=t.Swiper=void 0;var s=n(0),r=i(s),o=n(2),a=i(o),u=n(3),p=i(u),l=window.Swiper||r.default,c=p.default,d=a.default,f=function(e,t){t&&(p.default.props.globalOptions.default=function(){return t}),e.component(p.default.name,p.default),e.component(a.default.name,a.default)},h={Swiper:l,swiper:c,swiperSlide:d,install:f};t.default=h,t.Swiper=l,t.swiper=c,t.swiperSlide=d,t.install=f},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"swiper-slide",data:function(){return{slideClass:"swiper-slide"}},ready:function(){this.update()},mounted:function(){this.update(),this.$parent&&this.$parent.options&&this.$parent.options.slideClass&&(this.slideClass=this.$parent.options.slideClass)},updated:function(){this.update()},attached:function(){this.update()},methods:{update:function(){this.$parent&&this.$parent.swiper&&this.$parent.update()}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(0),s=function(e){return e&&e.__esModule?e:{default:e}}(i),r=window.Swiper||s.default;"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),i=1;i<arguments.length;i++){var s=arguments[i];if(null!=s)for(var r in s)Object.prototype.hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},writable:!0,configurable:!0});var o=["beforeDestroy","slideChange","slideChangeTransitionStart","slideChangeTransitionEnd","slideNextTransitionStart","slideNextTransitionEnd","slidePrevTransitionStart","slidePrevTransitionEnd","transitionStart","transitionEnd","touchStart","touchMove","touchMoveOpposite","sliderMove","touchEnd","click","tap","doubleTap","imagesReady","progress","reachBeginning","reachEnd","fromEdge","setTranslate","setTransition","resize"];t.default={name:"swiper",props:{options:{type:Object,default:function(){return{}}},globalOptions:{type:Object,required:!1,default:function(){return{}}}},data:function(){return{swiper:null,classes:{wrapperClass:"swiper-wrapper"}}},ready:function(){this.swiper||this.mountInstance()},mounted:function(){if(!this.swiper){var e=!1;for(var t in this.classes)this.classes.hasOwnProperty(t)&&this.options[t]&&(e=!0,this.classes[t]=this.options[t]);e?this.$nextTick(this.mountInstance):this.mountInstance()}},activated:function(){this.update()},updated:function(){this.update()},beforeDestroy:function(){this.$nextTick(function(){this.swiper&&(this.swiper.destroy&&this.swiper.destroy(),delete this.swiper)})},methods:{update:function(){this.swiper&&(this.swiper.update&&this.swiper.update(),this.swiper.navigation&&this.swiper.navigation.update(),this.swiper.pagination&&this.swiper.pagination.render(),this.swiper.pagination&&this.swiper.pagination.update())},mountInstance:function(){var e=Object.assign({},this.globalOptions,this.options);this.swiper=new r(this.$el,e),this.bindEvents(),this.$emit("ready",this.swiper)},bindEvents:function(){var e=this,t=this;o.forEach(function(n){e.swiper.on(n,function(){t.$emit.apply(t,[n].concat(Array.prototype.slice.call(arguments))),t.$emit.apply(t,[n.replace(/([A-Z])/g,"-$1").toLowerCase()].concat(Array.prototype.slice.call(arguments)))})})}}}},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"swiper-container"},[e._t("parallax-bg"),e._v(" "),n("div",{class:e.classes.wrapperClass},[e._t("default")],2),e._v(" "),e._t("pagination"),e._v(" "),e._t("button-prev"),e._v(" "),e._t("button-next"),e._v(" "),e._t("scrollbar")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{class:e.slideClass},[e._t("default")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r}])});
+
+/***/ }),
+/* 40 */,
+/* 41 */,
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
+            (typeof self !== "undefined" && self) ||
+            window;
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(scope, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(43);
+// On some exotic environments, it's not clear which object `setimmediate` was
+// able to install onto.  Search each possibility in the same order as the
+// `setimmediate` library.
+exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
+                       (typeof global !== "undefined" && global.setImmediate) ||
+                       (this && this.setImmediate);
+exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
+                         (typeof global !== "undefined" && global.clearImmediate) ||
+                         (this && this.clearImmediate);
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+    "use strict";
+
+    if (global.setImmediate) {
+        return;
+    }
+
+    var nextHandle = 1; // Spec says greater than zero
+    var tasksByHandle = {};
+    var currentlyRunningATask = false;
+    var doc = global.document;
+    var registerImmediate;
+
+    function setImmediate(callback) {
+      // Callback can either be a function or a string
+      if (typeof callback !== "function") {
+        callback = new Function("" + callback);
+      }
+      // Copy function arguments
+      var args = new Array(arguments.length - 1);
+      for (var i = 0; i < args.length; i++) {
+          args[i] = arguments[i + 1];
+      }
+      // Store and register the task
+      var task = { callback: callback, args: args };
+      tasksByHandle[nextHandle] = task;
+      registerImmediate(nextHandle);
+      return nextHandle++;
+    }
+
+    function clearImmediate(handle) {
+        delete tasksByHandle[handle];
+    }
+
+    function run(task) {
+        var callback = task.callback;
+        var args = task.args;
+        switch (args.length) {
+        case 0:
+            callback();
+            break;
+        case 1:
+            callback(args[0]);
+            break;
+        case 2:
+            callback(args[0], args[1]);
+            break;
+        case 3:
+            callback(args[0], args[1], args[2]);
+            break;
+        default:
+            callback.apply(undefined, args);
+            break;
+        }
+    }
+
+    function runIfPresent(handle) {
+        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+        // So if we're currently running a task, we'll need to delay this invocation.
+        if (currentlyRunningATask) {
+            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+            // "too much recursion" error.
+            setTimeout(runIfPresent, 0, handle);
+        } else {
+            var task = tasksByHandle[handle];
+            if (task) {
+                currentlyRunningATask = true;
+                try {
+                    run(task);
+                } finally {
+                    clearImmediate(handle);
+                    currentlyRunningATask = false;
+                }
+            }
+        }
+    }
+
+    function installNextTickImplementation() {
+        registerImmediate = function(handle) {
+            process.nextTick(function () { runIfPresent(handle); });
+        };
+    }
+
+    function canUsePostMessage() {
+        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+        // where `global.postMessage` means something completely different and can't be used for this purpose.
+        if (global.postMessage && !global.importScripts) {
+            var postMessageIsAsynchronous = true;
+            var oldOnMessage = global.onmessage;
+            global.onmessage = function() {
+                postMessageIsAsynchronous = false;
+            };
+            global.postMessage("", "*");
+            global.onmessage = oldOnMessage;
+            return postMessageIsAsynchronous;
+        }
+    }
+
+    function installPostMessageImplementation() {
+        // Installs an event handler on `global` for the `message` event: see
+        // * https://developer.mozilla.org/en/DOM/window.postMessage
+        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+
+        var messagePrefix = "setImmediate$" + Math.random() + "$";
+        var onGlobalMessage = function(event) {
+            if (event.source === global &&
+                typeof event.data === "string" &&
+                event.data.indexOf(messagePrefix) === 0) {
+                runIfPresent(+event.data.slice(messagePrefix.length));
+            }
+        };
+
+        if (global.addEventListener) {
+            global.addEventListener("message", onGlobalMessage, false);
+        } else {
+            global.attachEvent("onmessage", onGlobalMessage);
+        }
+
+        registerImmediate = function(handle) {
+            global.postMessage(messagePrefix + handle, "*");
+        };
+    }
+
+    function installMessageChannelImplementation() {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function(event) {
+            var handle = event.data;
+            runIfPresent(handle);
+        };
+
+        registerImmediate = function(handle) {
+            channel.port2.postMessage(handle);
+        };
+    }
+
+    function installReadyStateChangeImplementation() {
+        var html = doc.documentElement;
+        registerImmediate = function(handle) {
+            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+            var script = doc.createElement("script");
+            script.onreadystatechange = function () {
+                runIfPresent(handle);
+                script.onreadystatechange = null;
+                html.removeChild(script);
+                script = null;
+            };
+            html.appendChild(script);
+        };
+    }
+
+    function installSetTimeoutImplementation() {
+        registerImmediate = function(handle) {
+            setTimeout(runIfPresent, 0, handle);
+        };
+    }
+
+    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+
+    // Don't get fooled by e.g. browserify environments.
+    if ({}.toString.call(global.process) === "[object process]") {
+        // For Node.js before 0.9
+        installNextTickImplementation();
+
+    } else if (canUsePostMessage()) {
+        // For non-IE10 modern browsers
+        installPostMessageImplementation();
+
+    } else if (global.MessageChannel) {
+        // For web workers, where supported
+        installMessageChannelImplementation();
+
+    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+        // For IE 6–8
+        installReadyStateChangeImplementation();
+
+    } else {
+        // For older browsers
+        installSetTimeoutImplementation();
+    }
+
+    attachTo.setImmediate = setImmediate;
+    attachTo.clearImmediate = clearImmediate;
+}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33), __webpack_require__(31)))
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function (arr, predicate, ctx) {
+	if (typeof Array.prototype.findIndex === 'function') {
+		return arr.findIndex(predicate, ctx);
+	}
+
+	if (typeof predicate !== 'function') {
+		throw new TypeError('predicate must be a function');
+	}
+
+	var list = Object(arr);
+	var len = list.length;
+
+	if (len === 0) {
+		return -1;
+	}
+
+	for (var i = 0; i < len; i++) {
+		if (predicate.call(ctx, list[i], i, list)) {
+			return i;
+		}
+	}
+
+	return -1;
+};
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+/*
+ * raf.js
+ * https://github.com/ngryman/raf.js
+ *
+ * original requestAnimationFrame polyfill by Erik Möller
+ * inspired from paul_irish gist and post
+ *
+ * Copyright (c) 2013 ngryman
+ * Licensed under the MIT license.
+ */
+
+(function(window) {
+	var lastTime = 0,
+		vendors = ['webkit', 'moz'],
+		requestAnimationFrame = window.requestAnimationFrame,
+		cancelAnimationFrame = window.cancelAnimationFrame,
+		i = vendors.length;
+
+	// try to un-prefix existing raf
+	while (--i >= 0 && !requestAnimationFrame) {
+		requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
+		cancelAnimationFrame = window[vendors[i] + 'CancelAnimationFrame'];
+	}
+
+	// polyfill with setTimeout fallback
+	// heavily inspired from @darius gist mod: https://gist.github.com/paulirish/1579671#comment-837945
+	if (!requestAnimationFrame || !cancelAnimationFrame) {
+		requestAnimationFrame = function(callback) {
+			var now = +new Date(), nextTime = Math.max(lastTime + 16, now);
+			return setTimeout(function() {
+				callback(lastTime = nextTime);
+			}, nextTime - now);
+		};
+
+		cancelAnimationFrame = clearTimeout;
+	}
+
+	// export to window
+	window.requestAnimationFrame = requestAnimationFrame;
+	window.cancelAnimationFrame = cancelAnimationFrame;
+}(window));
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * Vue-Lazyload.js v1.2.3
+ * (c) 2018 Awe <hilongjw@gmail.com>
+ * Released under the MIT License.
+ */
+!function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define(t):e.VueLazyload=t()}(this,function(){"use strict";function e(e){return e.constructor&&"function"==typeof e.constructor.isBuffer&&e.constructor.isBuffer(e)}function t(e){e=e||{};var t=arguments.length,i=0;if(1===t)return e;for(;++i<t;){var o=arguments[i];g(e)&&(e=o),r(o)&&n(e,o)}return e}function n(e,n){m(e,n);for(var o in n)if("__proto__"!==o&&i(n,o)){var a=n[o];r(a)?("undefined"===L(e[o])&&"function"===L(a)&&(e[o]=a),e[o]=t(e[o]||{},a)):e[o]=a}return e}function r(e){return"object"===L(e)||"function"===L(e)}function i(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function o(e,t){if(e.length){var n=e.indexOf(t);return n>-1?e.splice(n,1):void 0}}function a(e,t){for(var n=!1,r=0,i=e.length;r<i;r++)if(t(e[r])){n=!0;break}return n}function s(e,t){if("IMG"===e.tagName&&e.getAttribute("data-srcset")){var n=e.getAttribute("data-srcset"),r=[],i=e.parentNode,o=i.offsetWidth*t,a=void 0,s=void 0,u=void 0;n=n.trim().split(","),n.map(function(e){e=e.trim(),a=e.lastIndexOf(" "),-1===a?(s=e,u=999998):(s=e.substr(0,a),u=parseInt(e.substr(a+1,e.length-a-2),10)),r.push([u,s])}),r.sort(function(e,t){if(e[0]<t[0])return-1;if(e[0]>t[0])return 1;if(e[0]===t[0]){if(-1!==t[1].indexOf(".webp",t[1].length-5))return 1;if(-1!==e[1].indexOf(".webp",e[1].length-5))return-1}return 0});for(var l="",d=void 0,c=r.length,h=0;h<c;h++)if(d=r[h],d[0]>=o){l=d[1];break}return l}}function u(e,t){for(var n=void 0,r=0,i=e.length;r<i;r++)if(t(e[r])){n=e[r];break}return n}function l(){if(!k)return!1;var e=!0,t=document;try{var n=t.createElement("object");n.type="image/webp",n.style.visibility="hidden",n.innerHTML="!",t.body.appendChild(n),e=!n.offsetWidth,t.body.removeChild(n)}catch(t){e=!1}return e}function d(e,t){var n=null,r=0;return function(){if(!n){var i=Date.now()-r,o=this,a=arguments,s=function(){r=Date.now(),n=!1,e.apply(o,a)};i>=t?s():n=setTimeout(s,t)}}}function c(e){return null!==e&&"object"===(void 0===e?"undefined":p(e))}function h(e){if(!(e instanceof Object))return[];if(Object.keys)return Object.keys(e);var t=[];for(var n in e)e.hasOwnProperty(n)&&t.push(n);return t}function f(e){for(var t=e.length,n=[],r=0;r<t;r++)n.push(e[r]);return n}function v(){}var p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},b=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},y=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),g=function(e){return null==e||"function"!=typeof e&&"object"!==(void 0===e?"undefined":p(e))},m=function(e,t){if(null===e||void 0===e)throw new TypeError("expected first argument to be an object.");if(void 0===t||"undefined"==typeof Symbol)return e;if("function"!=typeof Object.getOwnPropertySymbols)return e;for(var n=Object.prototype.propertyIsEnumerable,r=Object(e),i=arguments.length,o=0;++o<i;)for(var a=Object(arguments[o]),s=Object.getOwnPropertySymbols(a),u=0;u<s.length;u++){var l=s[u];n.call(a,l)&&(r[l]=a[l])}return r},w=Object.prototype.toString,L=function(t){var n=void 0===t?"undefined":p(t);return"undefined"===n?"undefined":null===t?"null":!0===t||!1===t||t instanceof Boolean?"boolean":"string"===n||t instanceof String?"string":"number"===n||t instanceof Number?"number":"function"===n||t instanceof Function?void 0!==t.constructor.name&&"Generator"===t.constructor.name.slice(0,9)?"generatorfunction":"function":void 0!==Array.isArray&&Array.isArray(t)?"array":t instanceof RegExp?"regexp":t instanceof Date?"date":(n=w.call(t),"[object RegExp]"===n?"regexp":"[object Date]"===n?"date":"[object Arguments]"===n?"arguments":"[object Error]"===n?"error":"[object Promise]"===n?"promise":e(t)?"buffer":"[object Set]"===n?"set":"[object WeakSet]"===n?"weakset":"[object Map]"===n?"map":"[object WeakMap]"===n?"weakmap":"[object Symbol]"===n?"symbol":"[object Map Iterator]"===n?"mapiterator":"[object Set Iterator]"===n?"setiterator":"[object String Iterator]"===n?"stringiterator":"[object Array Iterator]"===n?"arrayiterator":"[object Int8Array]"===n?"int8array":"[object Uint8Array]"===n?"uint8array":"[object Uint8ClampedArray]"===n?"uint8clampedarray":"[object Int16Array]"===n?"int16array":"[object Uint16Array]"===n?"uint16array":"[object Int32Array]"===n?"int32array":"[object Uint32Array]"===n?"uint32array":"[object Float32Array]"===n?"float32array":"[object Float64Array]"===n?"float64array":"object")},_=t,k="undefined"!=typeof window,E=k&&"IntersectionObserver"in window,A={event:"event",observer:"observer"},j=function(){function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};var n=document.createEvent("CustomEvent");return n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),n}if(k)return"function"==typeof window.CustomEvent?window.CustomEvent:(e.prototype=window.Event.prototype,e)}(),z=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1;return k?window.devicePixelRatio||e:e},T=function(){if(k){var e=!1;try{var t=Object.defineProperty({},"passive",{get:function(){e=!0}});window.addEventListener("test",null,t)}catch(e){}return e}}(),O={on:function(e,t,n){var r=arguments.length>3&&void 0!==arguments[3]&&arguments[3];T?e.addEventListener(t,n,{capture:r,passive:!0}):e.addEventListener(t,n,r)},off:function(e,t,n){var r=arguments.length>3&&void 0!==arguments[3]&&arguments[3];e.removeEventListener(t,n,r)}},I=function(e,t,n){var r=new Image;r.src=e.src,r.onload=function(){t({naturalHeight:r.naturalHeight,naturalWidth:r.naturalWidth,src:r.src})},r.onerror=function(e){n(e)}},x=function(e,t){return"undefined"!=typeof getComputedStyle?getComputedStyle(e,null).getPropertyValue(t):e.style[t]},S=function(e){return x(e,"overflow")+x(e,"overflow-y")+x(e,"overflow-x")},$=function(e){if(k){if(!(e instanceof HTMLElement))return window;for(var t=e;t&&t!==document.body&&t!==document.documentElement&&t.parentNode;){if(/(scroll|auto)/.test(S(t)))return t;t=t.parentNode}return window}},H={},Q=function(){function e(t){var n=t.el,r=t.src,i=t.error,o=t.loading,a=t.bindType,s=t.$parent,u=t.options,l=t.elRenderer;b(this,e),this.el=n,this.src=r,this.error=i,this.loading=o,this.bindType=a,this.attempt=0,this.naturalHeight=0,this.naturalWidth=0,this.options=u,this.rect=null,this.$parent=s,this.elRenderer=l,this.performanceData={init:Date.now(),loadStart:0,loadEnd:0},this.filter(),this.initState(),this.render("loading",!1)}return y(e,[{key:"initState",value:function(){this.el.dataset.src=this.src,this.state={error:!1,loaded:!1,rendered:!1}}},{key:"record",value:function(e){this.performanceData[e]=Date.now()}},{key:"update",value:function(e){var t=e.src,n=e.loading,r=e.error,i=this.src;this.src=t,this.loading=n,this.error=r,this.filter(),i!==this.src&&(this.attempt=0,this.initState())}},{key:"getRect",value:function(){this.rect=this.el.getBoundingClientRect()}},{key:"checkInView",value:function(){return this.getRect(),this.rect.top<window.innerHeight*this.options.preLoad&&this.rect.bottom>this.options.preLoadTop&&this.rect.left<window.innerWidth*this.options.preLoad&&this.rect.right>0}},{key:"filter",value:function(){var e=this;h(this.options.filter).map(function(t){e.options.filter[t](e,e.options)})}},{key:"renderLoading",value:function(e){var t=this;I({src:this.loading},function(n){t.render("loading",!1),e()},function(){e(),t.options.silent||console.warn("VueLazyload log: load failed with loading image("+t.loading+")")})}},{key:"load",value:function(){var e=this,t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:v;return this.attempt>this.options.attempt-1&&this.state.error?(this.options.silent||console.log("VueLazyload log: "+this.src+" tried too more than "+this.options.attempt+" times"),void t()):this.state.loaded||H[this.src]?(this.state.loaded=!0,t(),this.render("loaded",!0)):void this.renderLoading(function(){e.attempt++,e.record("loadStart"),I({src:e.src},function(n){e.naturalHeight=n.naturalHeight,e.naturalWidth=n.naturalWidth,e.state.loaded=!0,e.state.error=!1,e.record("loadEnd"),e.render("loaded",!1),H[e.src]=1,t()},function(t){!e.options.silent&&console.error(t),e.state.error=!0,e.state.loaded=!1,e.render("error",!1)})})}},{key:"render",value:function(e,t){this.elRenderer(this,e,t)}},{key:"performance",value:function(){var e="loading",t=0;return this.state.loaded&&(e="loaded",t=(this.performanceData.loadEnd-this.performanceData.loadStart)/1e3),this.state.error&&(e="error"),{src:this.src,state:e,time:t}}},{key:"destroy",value:function(){this.el=null,this.src=null,this.error=null,this.loading=null,this.bindType=null,this.attempt=0}}]),e}(),C="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",R=["scroll","wheel","mousewheel","resize","animationend","transitionend","touchmove"],W={rootMargin:"0px",threshold:0},D=function(e){return function(){function t(e){var n=e.preLoad,r=e.error,i=e.throttleWait,o=e.preLoadTop,a=e.dispatchEvent,s=e.loading,u=e.attempt,c=e.silent,h=void 0===c||c,f=e.scale,v=e.listenEvents,p=(e.hasbind,e.filter),y=e.adapter,g=e.observer,m=e.observerOptions;b(this,t),this.version="1.2.3",this.mode=A.event,this.ListenerQueue=[],this.TargetIndex=0,this.TargetQueue=[],this.options={silent:h,dispatchEvent:!!a,throttleWait:i||200,preLoad:n||1.3,preLoadTop:o||0,error:r||C,loading:s||C,attempt:u||3,scale:f||z(f),ListenEvents:v||R,hasbind:!1,supportWebp:l(),filter:p||{},adapter:y||{},observer:!!g,observerOptions:m||W},this._initEvent(),this.lazyLoadHandler=d(this._lazyLoadHandler.bind(this),this.options.throttleWait),this.setMode(this.options.observer?A.observer:A.event)}return y(t,[{key:"config",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};_(this.options,e)}},{key:"performance",value:function(){var e=[];return this.ListenerQueue.map(function(t){e.push(t.performance())}),e}},{key:"addLazyBox",value:function(e){this.ListenerQueue.push(e),k&&(this._addListenerTarget(window),this._observer&&this._observer.observe(e.el),e.$el&&e.$el.parentNode&&this._addListenerTarget(e.$el.parentNode))}},{key:"add",value:function(t,n,r){var i=this;if(a(this.ListenerQueue,function(e){return e.el===t}))return this.update(t,n),e.nextTick(this.lazyLoadHandler);var o=this._valueFormatter(n.value),u=o.src,l=o.loading,d=o.error;e.nextTick(function(){u=s(t,i.options.scale)||u,i._observer&&i._observer.observe(t);var o=Object.keys(n.modifiers)[0],a=void 0;o&&(a=r.context.$refs[o],a=a?a.$el||a:document.getElementById(o)),a||(a=$(t));var c=new Q({bindType:n.arg,$parent:a,el:t,loading:l,error:d,src:u,elRenderer:i._elRenderer.bind(i),options:i.options});i.ListenerQueue.push(c),k&&(i._addListenerTarget(window),i._addListenerTarget(a)),i.lazyLoadHandler(),e.nextTick(function(){return i.lazyLoadHandler()})})}},{key:"update",value:function(t,n){var r=this,i=this._valueFormatter(n.value),o=i.src,a=i.loading,l=i.error;o=s(t,this.options.scale)||o;var d=u(this.ListenerQueue,function(e){return e.el===t});d&&d.update({src:o,loading:a,error:l}),this._observer&&(this._observer.unobserve(t),this._observer.observe(t)),this.lazyLoadHandler(),e.nextTick(function(){return r.lazyLoadHandler()})}},{key:"remove",value:function(e){if(e){this._observer&&this._observer.unobserve(e);var t=u(this.ListenerQueue,function(t){return t.el===e});t&&(this._removeListenerTarget(t.$parent),this._removeListenerTarget(window),o(this.ListenerQueue,t)&&t.destroy())}}},{key:"removeComponent",value:function(e){e&&(o(this.ListenerQueue,e),this._observer&&this._observer.unobserve(e.el),e.$parent&&e.$el.parentNode&&this._removeListenerTarget(e.$el.parentNode),this._removeListenerTarget(window))}},{key:"setMode",value:function(e){var t=this;E||e!==A.observer||(e=A.event),this.mode=e,e===A.event?(this._observer&&(this.ListenerQueue.forEach(function(e){t._observer.unobserve(e.el)}),this._observer=null),this.TargetQueue.forEach(function(e){t._initListen(e.el,!0)})):(this.TargetQueue.forEach(function(e){t._initListen(e.el,!1)}),this._initIntersectionObserver())}},{key:"_addListenerTarget",value:function(e){if(e){var t=u(this.TargetQueue,function(t){return t.el===e});return t?t.childrenCount++:(t={el:e,id:++this.TargetIndex,childrenCount:1,listened:!0},this.mode===A.event&&this._initListen(t.el,!0),this.TargetQueue.push(t)),this.TargetIndex}}},{key:"_removeListenerTarget",value:function(e){var t=this;this.TargetQueue.forEach(function(n,r){n.el===e&&(--n.childrenCount||(t._initListen(n.el,!1),t.TargetQueue.splice(r,1),n=null))})}},{key:"_initListen",value:function(e,t){var n=this;this.options.ListenEvents.forEach(function(r){return O[t?"on":"off"](e,r,n.lazyLoadHandler)})}},{key:"_initEvent",value:function(){var e=this;this.Event={listeners:{loading:[],loaded:[],error:[]}},this.$on=function(t,n){e.Event.listeners[t].push(n)},this.$once=function(t,n){function r(){i.$off(t,r),n.apply(i,arguments)}var i=e;e.$on(t,r)},this.$off=function(t,n){if(!n)return void(e.Event.listeners[t]=[]);o(e.Event.listeners[t],n)},this.$emit=function(t,n,r){e.Event.listeners[t].forEach(function(e){return e(n,r)})}}},{key:"_lazyLoadHandler",value:function(){var e=this,t=!1;this.ListenerQueue.forEach(function(n,r){n.state.loaded||(t=n.checkInView())&&n.load(function(){!n.error&&n.loaded&&e.ListenerQueue.splice(r,1)})})}},{key:"_initIntersectionObserver",value:function(){var e=this;E&&(this._observer=new IntersectionObserver(this._observerHandler.bind(this),this.options.observerOptions),this.ListenerQueue.length&&this.ListenerQueue.forEach(function(t){e._observer.observe(t.el)}))}},{key:"_observerHandler",value:function(e,t){var n=this;e.forEach(function(e){e.isIntersecting&&n.ListenerQueue.forEach(function(t){if(t.el===e.target){if(t.state.loaded)return n._observer.unobserve(t.el);t.load()}})})}},{key:"_elRenderer",value:function(e,t,n){if(e.el){var r=e.el,i=e.bindType,o=void 0;switch(t){case"loading":o=e.loading;break;case"error":o=e.error;break;default:o=e.src}if(i?r.style[i]='url("'+o+'")':r.getAttribute("src")!==o&&r.setAttribute("src",o),r.setAttribute("lazy",t),this.$emit(t,e,n),this.options.adapter[t]&&this.options.adapter[t](e,this.options),this.options.dispatchEvent){var a=new j(t,{detail:e});r.dispatchEvent(a)}}}},{key:"_valueFormatter",value:function(e){var t=e,n=this.options.loading,r=this.options.error;return c(e)&&(e.src||this.options.silent||console.error("Vue Lazyload warning: miss src with "+e),t=e.src,n=e.loading||this.options.loading,r=e.error||this.options.error),{src:t,loading:n,error:r}}}]),t}()},B=function(e){return{props:{tag:{type:String,default:"div"}},render:function(e){return!1===this.show?e(this.tag):e(this.tag,null,this.$slots.default)},data:function(){return{el:null,state:{loaded:!1},rect:{},show:!1}},mounted:function(){this.el=this.$el,e.addLazyBox(this),e.lazyLoadHandler()},beforeDestroy:function(){e.removeComponent(this)},methods:{getRect:function(){this.rect=this.$el.getBoundingClientRect()},checkInView:function(){return this.getRect(),k&&this.rect.top<window.innerHeight*e.options.preLoad&&this.rect.bottom>0&&this.rect.left<window.innerWidth*e.options.preLoad&&this.rect.right>0},load:function(){this.show=!0,this.state.loaded=!0,this.$emit("show",this)}}}},V=function(){function e(t){var n=t.lazy;b(this,e),this.lazy=n,n.lazyContainerMananger=this,this._queue=[]}return y(e,[{key:"bind",value:function(e,t,n){var r=new N({el:e,binding:t,vnode:n,lazy:this.lazy});this._queue.push(r)}},{key:"update",value:function(e,t,n){var r=u(this._queue,function(t){return t.el===e});r&&r.update({el:e,binding:t,vnode:n})}},{key:"unbind",value:function(e,t,n){var r=u(this._queue,function(t){return t.el===e});r&&(r.clear(),o(this._queue,r))}}]),e}(),M={selector:"img"},N=function(){function e(t){var n=t.el,r=t.binding,i=t.vnode,o=t.lazy;b(this,e),this.el=null,this.vnode=i,this.binding=r,this.options={},this.lazy=o,this._queue=[],this.update({el:n,binding:r})}return y(e,[{key:"update",value:function(e){var t=this,n=e.el,r=e.binding;this.el=n,this.options=_({},M,r.value),this.getImgs().forEach(function(e){t.lazy.add(e,_({},t.binding,{value:{src:e.dataset.src,error:e.dataset.error,loading:e.dataset.loading}}),t.vnode)})}},{key:"getImgs",value:function(){return f(this.el.querySelectorAll(this.options.selector))}},{key:"clear",value:function(){var e=this;this.getImgs().forEach(function(t){return e.lazy.remove(t)}),this.vnode=null,this.binding=null,this.lazy=null}}]),e}();return{install:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=D(e),r=new n(t),i=new V({lazy:r}),o="2"===e.version.split(".")[0];e.prototype.$Lazyload=r,t.lazyComponent&&e.component("lazy-component",B(r)),o?(e.directive("lazy",{bind:r.add.bind(r),update:r.update.bind(r),componentUpdated:r.lazyLoadHandler.bind(r),unbind:r.remove.bind(r)}),e.directive("lazy-container",{bind:i.bind.bind(i),update:i.update.bind(i),unbind:i.unbind.bind(i)})):(e.directive("lazy",{bind:r.lazyLoadHandler.bind(r),update:function(e,t){_(this.vm.$refs,this.vm.$els),r.add(this.el,{modifiers:this.modifiers||{},arg:this.arg,value:e,oldValue:t},{context:this.vm})},unbind:function(){r.remove(this.el)}}),e.directive("lazy-container",{update:function(e,t){i.update(this.el,{modifiers:this.modifiers||{},arg:this.arg,value:e,oldValue:t},{context:this.vm})},unbind:function(){i.unbind(this.el)}}))}}});
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(34)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-header {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background-color: #26a2ff;\n    box-sizing: border-box;\n    color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    font-size: 14px;\n    height: 40px;\n    line-height: 1;\n    padding: 0 10px;\n    position: relative;\n    text-align: center;\n    white-space: nowrap;\n}\n.mint-header .mint-button {\n    background-color: transparent;\n    border: 0;\n    box-shadow: none;\n    color: inherit;\n    display: inline-block;\n    padding: 0;\n    font-size: inherit\n}\n.mint-header .mint-button::after {\n    content: none;\n}\n.mint-header.is-fixed {\n    top: 0;\n    right: 0;\n    left: 0;\n    position: fixed;\n    z-index: 1;\n}\n.mint-header-button {\n    -webkit-box-flex: .5;\n        -ms-flex: .5;\n            flex: .5;\n}\n.mint-header-button > a {\n    color: inherit;\n}\n.mint-header-button.is-right {\n    text-align: right;\n}\n.mint-header-button.is-left {\n    text-align: left;\n}\n.mint-header-title {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    font-size: inherit;\n    font-weight: 400;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-button {\n    -webkit-appearance: none;\n       -moz-appearance: none;\n            appearance: none;\n    border-radius: 4px;\n    border: 0;\n    box-sizing: border-box;\n    color: inherit;\n    display: block;\n    font-size: 18px;\n    height: 41px;\n    outline: 0;\n    overflow: hidden;\n    position: relative;\n    text-align: center\n}\n.mint-button::after {\n    background-color: #000;\n    content: \" \";\n    opacity: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    position: absolute\n}\n.mint-button:not(.is-disabled):active::after {\n    opacity: .4\n}\n.mint-button.is-disabled {\n    opacity: .6\n}\n.mint-button-icon {\n    vertical-align: middle;\n    display: inline-block\n}\n.mint-button--default {\n    color: #656b79;\n    background-color: #f6f8fa;\n    box-shadow: 0 0 1px #b8bbbf\n}\n.mint-button--default.is-plain {\n    border: 1px solid #5a5a5a;\n    background-color: transparent;\n    box-shadow: none;\n    color: #5a5a5a\n}\n.mint-button--primary {\n    color: #fff;\n    background-color: #26a2ff\n}\n.mint-button--primary.is-plain {\n    border: 1px solid #26a2ff;\n    background-color: transparent;\n    color: #26a2ff\n}\n.mint-button--danger {\n    color: #fff;\n    background-color: #ef4f4f\n}\n.mint-button--danger.is-plain {\n    border: 1px solid #ef4f4f;\n    background-color: transparent;\n    color: #ef4f4f\n}\n.mint-button--large {\n    display: block;\n    width: 100%\n}\n.mint-button--normal {\n    display: inline-block;\n    padding: 0 12px\n}\n.mint-button--small {\n    display: inline-block;\n    font-size: 14px;\n    padding: 0 12px;\n    height: 33px\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-cell {\n    background-color:#fff;\n    box-sizing:border-box;\n    color:inherit;\n    min-height:48px;\n    display:block;\n    overflow:hidden;\n    position:relative;\n    text-decoration:none;\n}\n.mint-cell img {\n    vertical-align:middle;\n}\n.mint-cell:first-child .mint-cell-wrapper {\n    background-origin:border-box;\n}\n.mint-cell:last-child {\n    background-image:-webkit-linear-gradient(bottom, #d9d9d9, #d9d9d9 50%, transparent 50%);\n    background-image:linear-gradient(0deg, #d9d9d9, #d9d9d9 50%, transparent 50%);\n    background-size:100% 1px;\n    background-repeat:no-repeat;\n    background-position:bottom;\n}\n.mint-cell-wrapper {\n    background-image:-webkit-linear-gradient(top, #d9d9d9, #d9d9d9 50%, transparent 50%);\n    background-image:linear-gradient(180deg, #d9d9d9, #d9d9d9 50%, transparent 50%);\n    background-size: 120% 1px;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-origin: content-box;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    font-size: 16px;\n    line-height: 1;\n    min-height: inherit;\n    overflow: hidden;\n    padding: 0 10px;\n    width: 100%;\n}\n.mint-cell-mask {}\n.mint-cell-mask::after {\n    background-color:#000;\n    content:\" \";\n    opacity:0;\n    top:0;\n    right:0;\n    bottom:0;\n    left:0;\n    position:absolute;\n}\n.mint-cell-mask:active::after {\n    opacity:.1;\n}\n.mint-cell-text {\n    vertical-align: middle;\n}\n.mint-cell-label {\n    color: #888;\n    display: block;\n    font-size: 12px;\n    margin-top: 6px;\n}\n.mint-cell-title {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.mint-cell-value {\n    color: #888;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.mint-cell-value.is-link {\n    margin-right:24px;\n}\n.mint-cell-left {\n    position: absolute;\n    height: 100%;\n    left: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n            transform: translate3d(-100%, 0, 0);\n}\n.mint-cell-right {\n    position: absolute;\n    height: 100%;\n    right: 0;\n    top: 0;\n    -webkit-transform: translate3d(100%, 0, 0);\n            transform: translate3d(100%, 0, 0);\n}\n.mint-cell-allow-right::after {\n    border: solid 2px #c8c8cd;\n    border-bottom-width: 0;\n    border-left-width: 0;\n    content: \" \";\n    top:50%;\n    right:20px;\n    position: absolute;\n    width:5px;\n    height:5px;\n    -webkit-transform: translateY(-50%) rotate(45deg);\n            transform: translateY(-50%) rotate(45deg);\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-cell-swipe .mint-cell-wrapper {\n    position: relative;\n}\n.mint-cell-swipe .mint-cell-wrapper, .mint-cell-swipe .mint-cell-left, .mint-cell-swipe .mint-cell-right {\n    -webkit-transition: -webkit-transform 150ms ease-in-out;\n    transition: -webkit-transform 150ms ease-in-out;\n    transition: transform 150ms ease-in-out;\n    transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;\n}\n.mint-cell-swipe-buttongroup {\n    height: 100%;\n}\n.mint-cell-swipe-button {\n    height: 100%;\n    display: inline-block;\n    padding: 0 10px;\n    line-height: 48px;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-field {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.mint-field .mint-cell-title {\n    width: 105px;\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n}\n.mint-field .mint-cell-value {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    color: inherit;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.mint-field.is-nolabel .mint-cell-title {\n    display: none;\n}\n.mint-field.is-textarea {\n    -webkit-box-align: inherit;\n        -ms-flex-align: inherit;\n            align-items: inherit;\n}\n.mint-field.is-textarea .mint-cell-title {\n    padding: 10px 0;\n}\n.mint-field.is-textarea .mint-cell-value {\n    padding: 5px 0;\n}\n.mint-field-core {\n    -webkit-appearance: none;\n       -moz-appearance: none;\n            appearance: none;\n    border-radius: 0;\n    border: 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    outline: 0;\n    line-height: 1.6;\n    font-size: inherit;\n    width: 100%;\n}\n.mint-field-clear {\n    opacity: .2;\n}\n.mint-field-state {\n    color: inherit;\n    margin-left: 20px;\n}\n.mint-field-state .mintui {\n    font-size: 20px;\n}\n.mint-field-state.is-default {\n    margin-left: 0;\n}\n.mint-field-state.is-success {\n    color: #4caf50;\n}\n.mint-field-state.is-warning {\n    color: #ffc107;\n}\n.mint-field-state.is-error {\n    color: #f44336;\n}\n.mint-field-other {\n    top: 0;\n    right: 0;\n    position: relative;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-badge {\n    color: #fff;\n    text-align: center;\n    display: inline-block\n}\n.mint-badge.is-size-large {\n    border-radius: 14px;\n    font-size: 18px;\n    padding: 2px 10px\n}\n.mint-badge.is-size-small {\n    border-radius: 8px;\n    font-size: 12px;\n    padding: 2px 6px\n}\n.mint-badge.is-size-normal {\n    border-radius: 12px;\n    font-size: 15px;\n    padding: 2px 8px\n}\n.mint-badge.is-warning {\n    background-color: #ffc107\n}\n.mint-badge.is-error {\n    background-color: #f44336\n}\n.mint-badge.is-primary {\n    background-color: #26a2ff\n}\n.mint-badge.is-success {\n    background-color: #4caf50\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-switch {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    position: relative;\n}\n.mint-switch * {\n    pointer-events: none;\n}\n.mint-switch-label {\n    margin-left: 10px;\n    display: inline-block;\n}\n.mint-switch-label:empty {\n    margin-left: 0;\n}\n.mint-switch-core {\n    display: inline-block;\n    position: relative;\n    width: 52px;\n    height: 32px;\n    border: 1px solid #d9d9d9;\n    border-radius: 16px;\n    box-sizing: border-box;\n    background: #d9d9d9;\n}\n.mint-switch-core::after, .mint-switch-core::before {\n    content: \" \";\n    top: 0;\n    left: 0;\n    position: absolute;\n    -webkit-transition: -webkit-transform .3s;\n    transition: -webkit-transform .3s;\n    transition: transform .3s;\n    transition: transform .3s, -webkit-transform .3s;\n    border-radius: 15px;\n}\n.mint-switch-core::after {\n    width: 30px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, .4);\n}\n.mint-switch-core::before {\n    width: 50px;\n    height: 30px;\n    background-color: #fdfdfd;\n}\n.mint-switch-input {\n    display: none;\n}\n.mint-switch-input:checked + .mint-switch-core {\n    border-color: #26a2ff;\n    background-color: #26a2ff;\n}\n.mint-switch-input:checked + .mint-switch-core::before {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n.mint-switch-input:checked + .mint-switch-core::after {\n    -webkit-transform: translateX(20px);\n            transform: translateX(20px);\n}\n\n.mint-spinner-snake {\n  -webkit-animation: mint-spinner-rotate 0.8s infinite linear;\n          animation: mint-spinner-rotate 0.8s infinite linear;\n  border: 4px solid transparent;\n  border-radius: 50%;\n}\n@-webkit-keyframes mint-spinner-rotate {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes mint-spinner-rotate {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n\n.mint-spinner-double-bounce {\nposition: relative;\n}\n.mint-spinner-double-bounce-bounce1, .mint-spinner-double-bounce-bounce2 {\nwidth: 100%;\nheight: 100%;\nborder-radius: 50%;\nopacity: 0.6;\nposition: absolute;\ntop: 0;\nleft: 0;\n-webkit-animation: mint-spinner-double-bounce 2.0s infinite ease-in-out;\n        animation: mint-spinner-double-bounce 2.0s infinite ease-in-out;\n}\n.mint-spinner-double-bounce-bounce2 {\n-webkit-animation-delay: -1.0s;\n        animation-delay: -1.0s;\n}\n@-webkit-keyframes mint-spinner-double-bounce {\n0%, 100% {\n    -webkit-transform: scale(0.0);\n            transform: scale(0.0);\n}\n50% {\n    -webkit-transform: scale(1.0);\n            transform: scale(1.0);\n}\n}\n@keyframes mint-spinner-double-bounce {\n0%, 100% {\n    -webkit-transform: scale(0.0);\n            transform: scale(0.0);\n}\n50% {\n    -webkit-transform: scale(1.0);\n            transform: scale(1.0);\n}\n}\n\n.mint-spinner-triple-bounce {}\n.mint-spinner-triple-bounce-bounce1, .mint-spinner-triple-bounce-bounce2, .mint-spinner-triple-bounce-bounce3 {\nborder-radius: 100%;\ndisplay: inline-block;\n-webkit-animation: mint-spinner-triple-bounce 1.4s infinite ease-in-out both;\n        animation: mint-spinner-triple-bounce 1.4s infinite ease-in-out both;\n}\n.mint-spinner-triple-bounce-bounce1 {\n-webkit-animation-delay: -0.32s;\n        animation-delay: -0.32s;\n}\n.mint-spinner-triple-bounce-bounce2 {\n-webkit-animation-delay: -0.16s;\n        animation-delay: -0.16s;\n}\n@-webkit-keyframes mint-spinner-triple-bounce {\n0%, 80%, 100% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n40% {\n    -webkit-transform: scale(1.0);\n            transform: scale(1.0);\n}\n}\n@keyframes mint-spinner-triple-bounce {\n0%, 80%, 100% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n40% {\n    -webkit-transform: scale(1.0);\n            transform: scale(1.0);\n}\n}\n\n.mint-spinner-fading-circle {\n    position: relative\n}\n.mint-spinner-fading-circle-circle {\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    position: absolute\n}\n.mint-spinner-fading-circle-circle::before {\n    content: \" \";\n    display: block;\n    margin: 0 auto;\n    width: 15%;\n    height: 15%;\n    border-radius: 100%;\n    -webkit-animation: mint-fading-circle 1.2s infinite ease-in-out both;\n            animation: mint-fading-circle 1.2s infinite ease-in-out both\n}\n.mint-spinner-fading-circle-circle.is-circle2 {\n    -webkit-transform: rotate(30deg);\n            transform: rotate(30deg)\n}\n.mint-spinner-fading-circle-circle.is-circle2::before {\n    -webkit-animation-delay: -1.1s;\n            animation-delay: -1.1s\n}\n.mint-spinner-fading-circle-circle.is-circle3 {\n    -webkit-transform: rotate(60deg);\n            transform: rotate(60deg)\n}\n.mint-spinner-fading-circle-circle.is-circle3::before {\n    -webkit-animation-delay: -1s;\n            animation-delay: -1s\n}\n.mint-spinner-fading-circle-circle.is-circle4 {\n    -webkit-transform: rotate(90deg);\n            transform: rotate(90deg)\n}\n.mint-spinner-fading-circle-circle.is-circle4::before {\n    -webkit-animation-delay: -0.9s;\n            animation-delay: -0.9s\n}\n.mint-spinner-fading-circle-circle.is-circle5 {\n    -webkit-transform: rotate(120deg);\n            transform: rotate(120deg)\n}\n.mint-spinner-fading-circle-circle.is-circle5::before {\n    -webkit-animation-delay: -0.8s;\n            animation-delay: -0.8s\n}\n.mint-spinner-fading-circle-circle.is-circle6 {\n    -webkit-transform: rotate(150deg);\n            transform: rotate(150deg)\n}\n.mint-spinner-fading-circle-circle.is-circle6::before {\n    -webkit-animation-delay: -0.7s;\n            animation-delay: -0.7s\n}\n.mint-spinner-fading-circle-circle.is-circle7 {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg)\n}\n.mint-spinner-fading-circle-circle.is-circle7::before {\n    -webkit-animation-delay: -0.6s;\n            animation-delay: -0.6s\n}\n.mint-spinner-fading-circle-circle.is-circle8 {\n    -webkit-transform: rotate(210deg);\n            transform: rotate(210deg)\n}\n.mint-spinner-fading-circle-circle.is-circle8::before {\n    -webkit-animation-delay: -0.5s;\n            animation-delay: -0.5s\n}\n.mint-spinner-fading-circle-circle.is-circle9 {\n    -webkit-transform: rotate(240deg);\n            transform: rotate(240deg)\n}\n.mint-spinner-fading-circle-circle.is-circle9::before {\n    -webkit-animation-delay: -0.4s;\n            animation-delay: -0.4s\n}\n.mint-spinner-fading-circle-circle.is-circle10 {\n    -webkit-transform: rotate(270deg);\n            transform: rotate(270deg)\n}\n.mint-spinner-fading-circle-circle.is-circle10::before {\n    -webkit-animation-delay: -0.3s;\n            animation-delay: -0.3s\n}\n.mint-spinner-fading-circle-circle.is-circle11 {\n    -webkit-transform: rotate(300deg);\n            transform: rotate(300deg)\n}\n.mint-spinner-fading-circle-circle.is-circle11::before {\n    -webkit-animation-delay: -0.2s;\n            animation-delay: -0.2s\n}\n.mint-spinner-fading-circle-circle.is-circle12 {\n    -webkit-transform: rotate(330deg);\n            transform: rotate(330deg)\n}\n.mint-spinner-fading-circle-circle.is-circle12::before {\n    -webkit-animation-delay: -0.1s;\n            animation-delay: -0.1s\n}\n@-webkit-keyframes mint-fading-circle {\n    0%, 39%, 100% {\n        opacity: 0\n    }\n    40% {\n        opacity: 1\n    }\n}\n@keyframes mint-fading-circle {\n    0%, 39%, 100% {\n        opacity: 0\n    }\n    40% {\n        opacity: 1\n    }\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-tab-item {\n    display: block;\n    padding: 7px 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-decoration: none\n}\n.mint-tab-item-icon {\n    width: 24px;\n    height: 24px;\n    margin: 0 auto 5px\n}\n.mint-tab-item-icon:empty {\n    display: none\n}\n.mint-tab-item-icon > * {\n    display: block;\n    width: 100%;\n    height: 100%\n}\n.mint-tab-item-label {\n    color: inherit;\n    font-size: 12px;\n    line-height: 1\n}\n\n.mint-tab-container-item {\n    -ms-flex-negative: 0;\n        flex-shrink: 0;\n    width: 100%\n}\n\n.mint-tab-container {\n    overflow: hidden;\n    position: relative;\n}\n.mint-tab-container .swipe-transition {\n    -webkit-transition: -webkit-transform 150ms ease-in-out;\n    transition: -webkit-transform 150ms ease-in-out;\n    transition: transform 150ms ease-in-out;\n    transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;\n}\n.mint-tab-container-wrap {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-navbar {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    text-align: center;\n}\n.mint-navbar .mint-tab-item {\n    padding: 17px 0;\n    font-size: 15px\n}\n.mint-navbar .mint-tab-item:last-child {\n    border-right: 0;\n}\n.mint-navbar .mint-tab-item.is-selected {\n    border-bottom: 3px solid #26a2ff;\n    color: #26a2ff;\n    margin-bottom: -3px;\n}\n.mint-navbar.is-fixed {\n    top: 0;\n    right: 0;\n    left: 0;\n    position: fixed;\n    z-index: 1;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-tabbar {\n    background-image: -webkit-linear-gradient(top, #d9d9d9, #d9d9d9 50%, transparent 50%);\n    background-image: linear-gradient(180deg, #d9d9d9, #d9d9d9 50%, transparent 50%);\n    background-size: 100% 1px;\n    background-repeat: no-repeat;\n    background-position: top left;\n    position: relative;\n    background-color: #fafafa;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    position: absolute;\n    text-align: center;\n}\n.mint-tabbar > .mint-tab-item.is-selected {\n    background-color: #eaeaea;\n    color: #26a2ff;\n}\n.mint-tabbar.is-fixed {\n    right: 0;\n    bottom: 0;\n    left: 0;\n    position: fixed;\n    z-index: 1;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-search {\n    height: 100%;\n    height: 100vh;\n    overflow: hidden;\n}\n.mint-searchbar {\n    position: relative;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background-color: #d9d9d9;\n    box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding: 8px 10px;\n    z-index: 1;\n}\n.mint-searchbar-inner {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background-color: #fff;\n    border-radius: 2px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    height: 28px;\n    padding: 4px 6px;\n}\n.mint-searchbar-inner .mintui-search {\n    font-size: 12px;\n    color: #d9d9d9;\n}\n.mint-searchbar-core {\n    -webkit-appearance: none;\n       -moz-appearance: none;\n            appearance: none;\n    border: 0;\n    box-sizing: border-box;\n    width: 100%;\n    height: 100%;\n    outline: 0;\n}\n.mint-searchbar-cancel {\n    color: #26a2ff;\n    margin-left: 10px;\n    text-decoration: none;\n}\n.mint-search-list {\n    overflow: auto;\n    padding-top: 44px;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    position: absolute;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-checklist .mint-cell {\n    padding: 0;\n}\n.mint-checklist.is-limit .mint-checkbox-core:not(:checked) {\n    background-color: #d9d9d9;\n    border-color: #d9d9d9;\n}\n.mint-checklist-label {\n    display: block;\n    padding: 0 10px;\n}\n.mint-checklist-title {\n    color: #888;\n    display: block;\n    font-size: 12px;\n    margin: 8px;\n}\n.mint-checkbox {}\n.mint-checkbox.is-right {\n    float: right;\n}\n.mint-checkbox-label {\n    vertical-align: middle;\n    margin-left: 6px;\n}\n.mint-checkbox-input {\n    display: none;\n}\n.mint-checkbox-input:checked + .mint-checkbox-core {\n    background-color: #26a2ff;\n    border-color: #26a2ff;\n}\n.mint-checkbox-input:checked + .mint-checkbox-core::after {\n    border-color: #fff;\n    -webkit-transform: rotate(45deg) scale(1);\n            transform: rotate(45deg) scale(1);\n}\n.mint-checkbox-input[disabled] + .mint-checkbox-core {\n    background-color: #d9d9d9;\n    border-color: #ccc;\n}\n.mint-checkbox-core {\n    display: inline-block;\n    background-color: #fff;\n    border-radius: 100%;\n    border: 1px solid #ccc;\n    position: relative;\n    width: 20px;\n    height: 20px;\n    vertical-align: middle;\n}\n.mint-checkbox-core::after {\n    border: 2px solid transparent;\n    border-left: 0;\n    border-top: 0;\n    content: \" \";\n    top: 3px;\n    left: 6px;\n    position: absolute;\n    width: 4px;\n    height: 8px;\n    -webkit-transform: rotate(45deg) scale(0);\n            transform: rotate(45deg) scale(0);\n    -webkit-transition: -webkit-transform .2s;\n    transition: -webkit-transform .2s;\n    transition: transform .2s;\n    transition: transform .2s, -webkit-transform .2s;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-radiolist .mint-cell {\n    padding: 0;\n}\n.mint-radiolist-label {\n    display: block;\n    padding: 0 10px;\n}\n.mint-radiolist-title {\n    font-size: 12px;\n    margin: 8px;\n    display: block;\n    color: #888;\n}\n.mint-radio {}\n.mint-radio.is-right {\n    float: right;\n}\n.mint-radio-label {\n    vertical-align: middle;\n    margin-left: 6px;\n}\n.mint-radio-input {\n    display: none;\n}\n.mint-radio-input:checked + .mint-radio-core {\n    background-color: #26a2ff;\n    border-color: #26a2ff;\n}\n.mint-radio-input:checked + .mint-radio-core::after {\n    background-color: #fff;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n.mint-radio-input[disabled] + .mint-radio-core {\n    background-color: #d9d9d9;\n    border-color: #ccc;\n}\n.mint-radio-core {\n    box-sizing: border-box;\n    display: inline-block;\n    background-color: #fff;\n    border-radius: 100%;\n    border: 1px solid #ccc;\n    position: relative;\n    width: 20px;\n    height: 20px;\n    vertical-align: middle;\n}\n.mint-radio-core::after {\n    content: \" \";\n    border-radius: 100%;\n    top: 5px;\n    left: 5px;\n    position: absolute;\n    width: 8px;\n    height: 8px;\n    -webkit-transition: -webkit-transform .2s;\n    transition: -webkit-transform .2s;\n    transition: transform .2s;\n    transition: transform .2s, -webkit-transform .2s;\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n\n.mint-loadmore {\n    overflow: hidden\n}\n.mint-loadmore-content {}\n.mint-loadmore-content.is-dropped {\n    -webkit-transition: .2s;\n    transition: .2s\n}\n.mint-loadmore-top, .mint-loadmore-bottom {\n    text-align: center;\n    height: 50px;\n    line-height: 50px\n}\n.mint-loadmore-top {\n    margin-top: -50px\n}\n.mint-loadmore-bottom {\n    margin-bottom: -50px\n}\n.mint-loadmore-spinner {\n    display: inline-block;\n    margin-right: 5px;\n    vertical-align: middle\n}\n.mint-loadmore-text {\n    vertical-align: middle\n}\n\n.mint-actionsheet {\n  position: fixed;\n  background: #e0e0e0;\n  width: 100%;\n  text-align: center;\n  bottom: 0;\n  left: 50%;\n  -webkit-transform: translate3d(-50%, 0, 0);\n          transform: translate3d(-50%, 0, 0);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-transition: -webkit-transform .3s ease-out;\n  transition: -webkit-transform .3s ease-out;\n  transition: transform .3s ease-out;\n  transition: transform .3s ease-out, -webkit-transform .3s ease-out;\n}\n.mint-actionsheet-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.mint-actionsheet-listitem {\n  border-bottom: solid 1px #e0e0e0;\n}\n.mint-actionsheet-listitem, .mint-actionsheet-button {\n  display: block;\n  width: 100%;\n  height: 45px;\n  line-height: 45px;\n  font-size: 18px;\n  color: #333;\n  background-color: #fff;\n}\n.mint-actionsheet-listitem:active, .mint-actionsheet-button:active {\n  background-color: #f0f0f0;\n}\n.actionsheet-float-enter, .actionsheet-float-leave-active {\n  -webkit-transform: translate3d(-50%, 100%, 0);\n          transform: translate3d(-50%, 100%, 0);\n}\n.v-modal-enter {\n  -webkit-animation: v-modal-in .2s ease;\n          animation: v-modal-in .2s ease;\n}\n\n.v-modal-leave {\n  -webkit-animation: v-modal-out .2s ease forwards;\n          animation: v-modal-out .2s ease forwards;\n}\n\n@-webkit-keyframes v-modal-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n  }\n}\n\n@keyframes v-modal-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n  }\n}\n\n@-webkit-keyframes v-modal-out {\n  0% {\n  }\n  100% {\n    opacity: 0;\n  }\n}\n\n@keyframes v-modal-out {\n  0% {\n  }\n  100% {\n    opacity: 0;\n  }\n}\n\n.v-modal {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0.5;\n  background: #000;\n}\n\n.mint-popup {\n  position: fixed;\n  background: #fff;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate3d(-50%, -50%, 0);\n          transform: translate3d(-50%, -50%, 0);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-transition: .2s ease-out;\n  transition: .2s ease-out;\n}\n.mint-popup-top {\n  top: 0;\n  right: auto;\n  bottom: auto;\n  left: 50%;\n  -webkit-transform: translate3d(-50%, 0, 0);\n          transform: translate3d(-50%, 0, 0);\n}\n.mint-popup-right {\n  top: 50%;\n  right: 0;\n  bottom: auto;\n  left: auto;\n  -webkit-transform: translate3d(0, -50%, 0);\n          transform: translate3d(0, -50%, 0);\n}\n.mint-popup-bottom {\n  top: auto;\n  right: auto;\n  bottom: 0;\n  left: 50%;\n  -webkit-transform: translate3d(-50%, 0, 0);\n          transform: translate3d(-50%, 0, 0);\n}\n.mint-popup-left {\n  top: 50%;\n  right: auto;\n  bottom: auto;\n  left: 0;\n  -webkit-transform: translate3d(0, -50%, 0);\n          transform: translate3d(0, -50%, 0);\n}\n.popup-slide-top-enter, .popup-slide-top-leave-active {\n  -webkit-transform: translate3d(-50%, -100%, 0);\n          transform: translate3d(-50%, -100%, 0);\n}\n.popup-slide-right-enter, .popup-slide-right-leave-active {\n  -webkit-transform: translate3d(100%, -50%, 0);\n          transform: translate3d(100%, -50%, 0);\n}\n.popup-slide-bottom-enter, .popup-slide-bottom-leave-active {\n  -webkit-transform: translate3d(-50%, 100%, 0);\n          transform: translate3d(-50%, 100%, 0);\n}\n.popup-slide-left-enter, .popup-slide-left-leave-active {\n  -webkit-transform: translate3d(-100%, -50%, 0);\n          transform: translate3d(-100%, -50%, 0);\n}\n.popup-fade-enter, .popup-fade-leave-active {\n  opacity: 0;\n}\n\n.mint-swipe {\n    overflow: hidden;\n    position: relative;\n    height: 100%;\n}\n.mint-swipe-items-wrap {\n    position: relative;\n    overflow: hidden;\n    height: 100%;\n}\n.mint-swipe-items-wrap > div {\n    position: absolute;\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n    width: 100%;\n    height: 100%;\n    display: none\n}\n.mint-swipe-items-wrap > div.is-active {\n    display: block;\n    -webkit-transform: none;\n            transform: none;\n}\n.mint-swipe-indicators {\n    position: absolute;\n    bottom: 10px;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%);\n}\n.mint-swipe-indicator {\n    width: 8px;\n    height: 8px;\n    display: inline-block;\n    border-radius: 100%;\n    background: #000;\n    opacity: 0.2;\n    margin: 0 3px;\n}\n.mint-swipe-indicator.is-active {\n    background: #fff;\n}\n\n\n.mt-range {\n    position: relative;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 30px;\n    line-height: 30px\n}\n.mt-range > * {\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-box\n}\n.mt-range *[slot=start] {\n    margin-right: 5px\n}\n.mt-range *[slot=end] {\n    margin-left: 5px\n}\n.mt-range-content {\n    position: relative;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    margin-right: 30px\n}\n.mt-range-runway {\n    position: absolute;\n    top: 50%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    left: 0;\n    right: -30px;\n    border-top-color: #a9acb1;\n    border-top-style: solid\n}\n.mt-range-thumb {\n    background-color: #fff;\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: 30px;\n    height: 30px;\n    border-radius: 100%;\n    cursor: move;\n    box-shadow: 0 1px 3px rgba(0,0,0,.4)\n}\n.mt-range-progress {\n    position: absolute;\n    display: block;\n    background-color: #26a2ff;\n    top: 50%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    width: 0\n}\n.mt-range--disabled {\n    opacity: 0.5\n}\n\n.picker {\n  overflow: hidden;\n}\n.picker-toolbar {\n  height: 40px;\n}\n.picker-items {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0;\n  text-align: right;\n  font-size: 24px;\n  position: relative;\n}\n.picker-center-highlight {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  width: 100%;\n  top: 50%;\n  margin-top: -18px;\n  pointer-events: none\n}\n.picker-center-highlight:before, .picker-center-highlight:after {\n  content: '';\n  position: absolute;\n  height: 1px;\n  width: 100%;\n  background-color: #eaeaea;\n  display: block;\n  z-index: 15;\n  -webkit-transform: scaleY(0.5);\n          transform: scaleY(0.5);\n}\n.picker-center-highlight:before {\n  left: 0;\n  top: 0;\n  bottom: auto;\n  right: auto;\n}\n.picker-center-highlight:after {\n  left: 0;\n  bottom: 0;\n  right: auto;\n  top: auto;\n}\n\n.picker-slot {\n  font-size: 18px;\n  overflow: hidden;\n  position: relative;\n  max-height: 100%\n}\n.picker-slot.picker-slot-left {\n  text-align: left;\n}\n.picker-slot.picker-slot-center {\n  text-align: center;\n}\n.picker-slot.picker-slot-right {\n  text-align: right;\n}\n.picker-slot.picker-slot-divider {\n  color: #000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center\n}\n.picker-slot-wrapper {\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  -webkit-transition-timing-function: ease-out;\n          transition-timing-function: ease-out;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n}\n.picker-slot-wrapper.dragging, .picker-slot-wrapper.dragging .picker-item {\n  -webkit-transition-duration: 0s;\n          transition-duration: 0s;\n}\n.picker-item {\n  height: 36px;\n  line-height: 36px;\n  padding: 0 10px;\n  white-space: nowrap;\n  position: relative;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: #707274;\n  left: 0;\n  top: 0;\n  width: 100%;\n  box-sizing: border-box;\n  -webkit-transition-duration: .3s;\n          transition-duration: .3s;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n}\n.picker-slot-absolute .picker-item {\n  position: absolute;\n}\n.picker-item.picker-item-far {\n  pointer-events: none\n}\n.picker-item.picker-selected {\n  color: #000;\n  -webkit-transform: translate3d(0, 0, 0) rotateX(0);\n          transform: translate3d(0, 0, 0) rotateX(0);\n}\n.picker-3d .picker-items {\n  overflow: hidden;\n  -webkit-perspective: 700px;\n          perspective: 700px;\n}\n.picker-3d .picker-item, .picker-3d .picker-slot, .picker-3d .picker-slot-wrapper {\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d\n}\n.picker-3d .picker-slot {\n  overflow: visible\n}\n.picker-3d .picker-item {\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-transition-timing-function: ease-out;\n          transition-timing-function: ease-out\n}\n\n.mt-progress {\n    position: relative;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 30px;\n    line-height: 30px\n}\n.mt-progress > * {\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-box\n}\n.mt-progress *[slot=\"start\"] {\n    margin-right: 5px\n}\n.mt-progress *[slot=\"end\"] {\n    margin-left: 5px\n}\n.mt-progress-content {\n    position: relative;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1\n}\n.mt-progress-runway {\n    position: absolute;\n    -webkit-transform: translate(0, -50%);\n            transform: translate(0, -50%);\n    top: 50%;\n    left: 0;\n    right: 0;\n    background-color: #ebebeb;\n    height: 3px\n}\n.mt-progress-progress {\n    position: absolute;\n    display: block;\n    background-color: #26a2ff;\n    top: 50%;\n    -webkit-transform: translate(0, -50%);\n            transform: translate(0, -50%);\n    width: 0\n}\n\n.mint-toast {\n    position: fixed;\n    max-width: 80%;\n    border-radius: 5px;\n    background: rgba(0, 0, 0, 0.7);\n    color: #fff;\n    box-sizing: border-box;\n    text-align: center;\n    z-index: 1000;\n    -webkit-transition: opacity .3s linear;\n    transition: opacity .3s linear\n}\n.mint-toast.is-placebottom {\n    bottom: 50px;\n    left: 50%;\n    -webkit-transform: translate(-50%, 0);\n            transform: translate(-50%, 0)\n}\n.mint-toast.is-placemiddle {\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%)\n}\n.mint-toast.is-placetop {\n    top: 50px;\n    left: 50%;\n    -webkit-transform: translate(-50%, 0);\n            transform: translate(-50%, 0)\n}\n.mint-toast-icon {\n    display: block;\n    text-align: center;\n    font-size: 56px\n}\n.mint-toast-text {\n    font-size: 14px;\n    display: block;\n    text-align: center\n}\n.mint-toast-pop-enter, .mint-toast-pop-leave-active {\n    opacity: 0\n}\n\n.mint-indicator {\n  -webkit-transition: opacity .2s linear;\n  transition: opacity .2s linear;\n}\n.mint-indicator-wrapper {\n  top: 50%;\n  left: 50%;\n  position: fixed;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  border-radius: 5px;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  box-sizing: border-box;\n  text-align: center;\n}\n.mint-indicator-text {\n  display: block;\n  color: #fff;\n  text-align: center;\n  margin-top: 10px;\n  font-size: 16px;\n}\n.mint-indicator-spin {\n  display: inline-block;\n  text-align: center;\n}\n.mint-indicator-mask {\n  top: 0;\n  left: 0;\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  background: transparent;\n}\n.mint-indicator-enter, .mint-indicator-leave-active {\n  opacity: 0;\n}\n\n.mint-msgbox {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate3d(-50%, -50%, 0);\n          transform: translate3d(-50%, -50%, 0);\n  background-color: #fff;\n  width: 85%;\n  border-radius: 3px;\n  font-size: 16px;\n  -webkit-user-select: none;\n  overflow: hidden;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-transition: .2s;\n  transition: .2s;\n}\n.mint-msgbox-header {\n  padding: 15px 0 0;\n}\n.mint-msgbox-content {\n  padding: 10px 20px 15px;\n  border-bottom: 1px solid #ddd;\n  min-height: 36px;\n  position: relative;\n}\n.mint-msgbox-input {\n  padding-top: 15px;\n}\n.mint-msgbox-input input {\n  border: 1px solid #dedede;\n  border-radius: 5px;\n  padding: 4px 5px;\n  width: 100%;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  outline: none;\n}\n.mint-msgbox-input input.invalid {\n  border-color: #ff4949;\n}\n.mint-msgbox-input input.invalid:focus {\n  border-color: #ff4949;\n}\n.mint-msgbox-errormsg {\n  color: red;\n  font-size: 12px;\n  min-height: 18px;\n  margin-top: 2px;\n}\n.mint-msgbox-title {\n  text-align: center;\n  padding-left: 0;\n  margin-bottom: 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #333;\n}\n.mint-msgbox-message {\n  color: #999;\n  margin: 0;\n  text-align: center;\n  line-height: 36px;\n}\n.mint-msgbox-btns {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 40px;\n  line-height: 40px;\n}\n.mint-msgbox-btn {\n  line-height: 35px;\n  display: block;\n  background-color: #fff;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  margin: 0;\n  border: 0;\n}\n.mint-msgbox-btn:focus {\n  outline: none;\n}\n.mint-msgbox-btn:active {\n  background-color: #fff;\n}\n.mint-msgbox-cancel {\n  width: 50%;\n  border-right: 1px solid #ddd;\n}\n.mint-msgbox-cancel:active {\n  color: #000;\n}\n.mint-msgbox-confirm {\n  color: #26a2ff;\n  width: 50%;\n}\n.mint-msgbox-confirm:active {\n  color: #26a2ff;\n}\n.msgbox-bounce-enter {\n  opacity: 0;\n  -webkit-transform: translate3d(-50%, -50%, 0) scale(0.7);\n          transform: translate3d(-50%, -50%, 0) scale(0.7);\n}\n.msgbox-bounce-leave-active {\n  opacity: 0;\n  -webkit-transform: translate3d(-50%, -50%, 0) scale(0.9);\n          transform: translate3d(-50%, -50%, 0) scale(0.9);\n}\n\n.v-modal-enter {\n  -webkit-animation: v-modal-in .2s ease;\n          animation: v-modal-in .2s ease;\n}\n.v-modal-leave {\n  -webkit-animation: v-modal-out .2s ease forwards;\n          animation: v-modal-out .2s ease forwards;\n}\n@-webkit-keyframes v-modal-in {\n0% {\n    opacity: 0;\n}\n100% {\n}\n}\n@keyframes v-modal-in {\n0% {\n    opacity: 0;\n}\n100% {\n}\n}\n@-webkit-keyframes v-modal-out {\n0% {\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes v-modal-out {\n0% {\n}\n100% {\n    opacity: 0;\n}\n}\n.v-modal {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0.5;\n  background: #000;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-datetime {\n    width: 100%;\n}\n.mint-datetime .picker-slot-wrapper, .mint-datetime .picker-item {\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n}\n.mint-datetime .picker-toolbar {\n    border-bottom: solid 1px #eaeaea;\n}\n.mint-datetime-action {\n    display: inline-block;\n    width: 50%;\n    text-align: center;\n    line-height: 40px;\n    font-size: 16px;\n    color: #26a2ff;\n}\n.mint-datetime-cancel {\n    float: left;\n}\n.mint-datetime-confirm {\n    float: right;\n}\n/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-indexlist {\n    width: 100%;\n    position: relative;\n    overflow: hidden\n}\n.mint-indexlist-content {\n    margin: 0;\n    padding: 0;\n    overflow: auto\n}\n.mint-indexlist-nav {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    right: 0;\n    margin: 0;\n    background-color: #fff;\n    border-left: solid 1px #ddd;\n    text-align: center;\n    max-height: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center\n}\n.mint-indexlist-navlist {\n    padding: 0;\n    margin: 0;\n    list-style: none;\n    max-height: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column\n}\n.mint-indexlist-navitem {\n    padding: 2px 6px;\n    font-size: 12px;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    -webkit-touch-callout: none\n}\n.mint-indexlist-indicator {\n    position: absolute;\n    width: 50px;\n    height: 50px;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    text-align: center;\n    line-height: 50px;\n    background-color: rgba(0, 0, 0, .7);\n    border-radius: 5px;\n    color: #fff;\n    font-size: 22px\n}\n\n.mint-indexsection {\n    padding: 0;\n    margin: 0\n}\n.mint-indexsection-index {\n    margin: 0;\n    padding: 10px;\n    background-color: #fafafa\n}\n.mint-indexsection-index + ul {\n    padding: 0\n}\n\n.mint-palette-button{\n  display:inline-block;\n  position:relative;\n  border-radius:50%;\n  width: 56px;\n  height:56px;\n  line-height:56px;\n  text-align:center;\n  -webkit-transition:-webkit-transform .1s ease-in-out;\n  transition:-webkit-transform .1s ease-in-out;\n  transition:transform .1s ease-in-out;\n  transition:transform .1s ease-in-out, -webkit-transform .1s ease-in-out;\n}\n.mint-main-button{\n  position:absolute;\n  top:0;\n  left:0;\n  width:100%;\n  height:100%;\n  border-radius:50%;\n  background-color:blue;\n  font-size:2em;\n}\n.mint-palette-button-active{\n  -webkit-animation: mint-zoom 0.5s ease-in-out;\n          animation: mint-zoom 0.5s ease-in-out;\n}\n.mint-sub-button-container>*{\n  position:absolute;\n  top:15px;\n  left:15px;\n  width:25px;\n  height:25px;\n  -webkit-transition:-webkit-transform .3s ease-in-out;\n  transition:-webkit-transform .3s ease-in-out;\n  transition:transform .3s ease-in-out;\n  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;\n}\n@-webkit-keyframes mint-zoom{\n0% {-webkit-transform:scale(1);transform:scale(1)\n}\n10% {-webkit-transform:scale(1.1);transform:scale(1.1)\n}\n30% {-webkit-transform:scale(0.9);transform:scale(0.9)\n}\n50% {-webkit-transform:scale(1.05);transform:scale(1.05)\n}\n70% {-webkit-transform:scale(0.95);transform:scale(0.95)\n}\n90% {-webkit-transform:scale(1.01);transform:scale(1.01)\n}\n100% {-webkit-transform:scale(1);transform:scale(1)\n}\n}\n@keyframes mint-zoom{\n0% {-webkit-transform:scale(1);transform:scale(1)\n}\n10% {-webkit-transform:scale(1.1);transform:scale(1.1)\n}\n30% {-webkit-transform:scale(0.9);transform:scale(0.9)\n}\n50% {-webkit-transform:scale(1.05);transform:scale(1.05)\n}\n70% {-webkit-transform:scale(0.95);transform:scale(0.95)\n}\n90% {-webkit-transform:scale(1.01);transform:scale(1.01)\n}\n100% {-webkit-transform:scale(1);transform:scale(1)\n}\n}\n\n@font-face {font-family: \"mintui\";\n  src: url(data:application/x-font-ttf;base64,AAEAAAAPAIAAAwBwRkZUTXMrDTgAAAD8AAAAHE9TLzJXb1zGAAABGAAAAGBjbWFwsbgH3gAAAXgAAAFaY3Z0IA1j/vQAAA2UAAAAJGZwZ20w956VAAANuAAACZZnYXNwAAAAEAAADYwAAAAIZ2x5Zm8hHaQAAALUAAAHeGhlYWQKwq5kAAAKTAAAADZoaGVhCJMESQAACoQAAAAkaG10eBuiAmQAAAqoAAAAKGxvY2EJUArqAAAK0AAAABhtYXhwAS4KKwAACugAAAAgbmFtZal8DOEAAAsIAAACE3Bvc3QbrFqUAAANHAAAAHBwcmVwpbm+ZgAAF1AAAACVAAAAAQAAAADMPaLPAAAAANN2tTQAAAAA03a1NAAEBBIB9AAFAAACmQLMAAAAjwKZAswAAAHrADMBCQAAAgAGAwAAAAAAAAAAAAEQAAAAAAAAAAAAAABQZkVkAMAAeOYJA4D/gABcA38AgAAAAAEAAAAAAxgAAAAAACAAAQAAAAMAAAADAAAAHAABAAAAAABUAAMAAQAAABwABAA4AAAACgAIAAIAAgB45gLmBeYJ//8AAAB45gDmBOYI////ixoEGgMaAQABAAAAAAAAAAAAAAAAAQYAAAEAAAAAAAAAAQIAAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACIAAAEyAqoAAwAHAClAJgAAAAMCAANXAAIBAQJLAAICAU8EAQECAUMAAAcGBQQAAwADEQUPKzMRIREnMxEjIgEQ7szMAqr9ViICZgAAAAUALP/hA7wDGAAWADAAOgBSAF4Bd0uwE1BYQEoCAQANDg0ADmYAAw4BDgNeAAEICAFcEAEJCAoGCV4RAQwGBAYMXgALBAtpDwEIAAYMCAZYAAoHBQIECwoEWRIBDg4NUQANDQoOQhtLsBdQWEBLAgEADQ4NAA5mAAMOAQ4DXgABCAgBXBABCQgKCAkKZhEBDAYEBgxeAAsEC2kPAQgABgwIBlgACgcFAgQLCgRZEgEODg1RAA0NCg5CG0uwGFBYQEwCAQANDg0ADmYAAw4BDgNeAAEICAFcEAEJCAoICQpmEQEMBgQGDARmAAsEC2kPAQgABgwIBlgACgcFAgQLCgRZEgEODg1RAA0NCg5CG0BOAgEADQ4NAA5mAAMOAQ4DAWYAAQgOAQhkEAEJCAoICQpmEQEMBgQGDARmAAsEC2kPAQgABgwIBlgACgcFAgQLCgRZEgEODg1RAA0NCg5CWVlZQChTUzs7MjEXF1NeU15bWDtSO1JLQzc1MToyOhcwFzBRETEYESgVQBMWKwEGKwEiDgIdASE1NCY1NC4CKwEVIQUVFBYUDgIjBiYrASchBysBIiciLgI9ARciBhQWMzI2NCYXBgcOAx4BOwYyNicuAScmJwE1ND4COwEyFh0BARkbGlMSJRwSA5ABChgnHoX+SgKiARUfIw4OHw4gLf5JLB0iFBkZIBMIdwwSEgwNEhKMCAYFCwQCBA8OJUNRUEAkFxYJBQkFBQb+pAUPGhW8HykCHwEMGScaTCkQHAQNIBsSYYg0Fzo6JRcJAQGAgAETGyAOpz8RGhERGhF8GhYTJA4QDQgYGg0jERMUAXfkCxgTDB0m4wAAAQDp//UCugMMABEASLYKAQIAAQFAS7AaUFhACwABAQpBAAAACwBCG0uwKlBYQAsAAAABUQABAQoAQhtAEAABAAABTQABAQBRAAABAEVZWbMYFQIQKwkCFhQGIicBJjcmNwE2MhYUArD+iQF3ChQcCv5yCgEBCgGOChwUAtT+rf6sCRwTCgFoCw8OCwFoChMcAAAAAAMAXgElA6EB2gAHAA8AFwAhQB4EAgIAAQEATQQCAgAAAVEFAwIBAAFFExMTExMQBhQrEiIGFBYyNjQkIgYUFjI2NCQiBhQWMjY03ks1NUs1ARNLNTVLNQERSzU1SzUB2jVLNTVLNTVLNTVLNTVLNTVLAAAAAQAA/4AEtgN/ABAAEkAPBwYFAwAFAD0AAABfHQEPKwEEAQcmATcBNiQ+AT8BMh4BBLb/AP6adZT+uW0BJZkBCJ5uGBUFDicDNuP95Le4AUdu/wCa+YVeDg4EIwACAE7/6AO4A1IAGAAgACdAJBEDAgMEAUAAAAAEAwAEWQADAAECAwFZAAICCwJCExMVJRgFEyslJyYnNjU0LgEiDgEUHgEzMjcWHwEWMjY0JCImNDYyFhQDrdQFB0lfpMKkX1+kYYZlAwTUCx8W/nb4sLD4sCrYBgJie2KoYWGoxahhWwYE2QsXH5a0/rOz/gAGAEH/wAO/Az4ADwAbADMAQwBPAFsAVUBSW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEGxoZGBcWFRQTEhEQJAEAAUAAAwADaAACAQJpBAEAAQEATQQBAAABUQUBAQABRT08NTQpKB0cFxAGECsAIg4CFB4CMj4CNC4BAwcnByc3JzcXNxcHEiInLgEnJjQ3PgE3NjIXHgEXFhQHDgEHAiIOAhQeAjI+AjQuAQMnByc3JzcXNxcHFyEXNxc3JzcnBycHFwJataZ3R0d3prWmd0dHd0Qimpoimpoimpoimjm2U1F7IiMjIntRU7ZTUHwiIyMifFBUtaV4RkZ4pbWleEdHeGWamiOamiOamiOamv6IIZqaIZqaIZqaIZoDPkd3praleEZGeKW2pnf97yKamiKamiKamiKa/kAjInxQU7ZTUXsiIyMie1FTtlNQfCIDWkZ4pbWleEdHeKW1pXj9zJqaI5qaI5qaI5qaIZqaIZqaIZqaIZoAAAAABABHAAIDtwLdAA0AHQAwADEAMUAuMQEEBQFAAAAABQQABVkABAADAgQDWQACAQECTQACAgFRAAECAUU2NDU1NRIGFCslASYiBwEGFxYzITI3NiUUBisBIiY9ATQ2OwEyFhUnBiMnIiY1JzU0NjsBMhYdAhQHA7f+dxA+EP53EREQHwMSHxAR/mkKCD4ICwsIPggKBQUIPggKAQsHPwgKBVACdBkZ/YwbGhkZGjEJDQ0JJQoNDQpWBQEIB2mmBgkJBqVrBgQAAAADAED/wwO+A0IAAAAQABYAJkAjFhUUExIRBgEAAUAAAQA+AAABAQBNAAAAAVEAAQABRRcRAhArATIiDgIUHgIyPgI0LgEBJzcXARcB/1u2pndHR3emtqZ3R0d3/sXCI58BIyMDQkd4pbameEdHeKa2pXj9w8MjnwEkIwAAAQAAAAEAACFDvy9fDzz1AAsEAAAAAADTdrU0AAAAANN2tTQAAP+ABLYDfwAAAAgAAgAAAAAAAAABAAADf/+AAFwEvwAAAAAEtgABAAAAAAAAAAAAAAAAAAAACQF2ACIAAAAAAVUAAAPpACwEAADpBAAAXgS/AAAD6ABOBAAAQQBHAEAAAAAoACgAKAFkAa4B6AIWAl4DGgN+A7wAAQAAAAsAXwAGAAAAAAACACYANABsAAAAigmWAAAAAAAAAAwAlgABAAAAAAABAAYAAAABAAAAAAACAAYABgABAAAAAAADACEADAABAAAAAAAEAAYALQABAAAAAAAFAEYAMwABAAAAAAAGAAYAeQADAAEECQABAAwAfwADAAEECQACAAwAiwADAAEECQADAEIAlwADAAEECQAEAAwA2QADAAEECQAFAIwA5QADAAEECQAGAAwBcW1pbnR1aU1lZGl1bUZvbnRGb3JnZSAyLjAgOiBtaW50dWkgOiAzLTYtMjAxNm1pbnR1aVZlcnNpb24gMS4wIDsgdHRmYXV0b2hpbnQgKHYwLjk0KSAtbCA4IC1yIDUwIC1HIDIwMCAteCAxNCAtdyAiRyIgLWYgLXNtaW50dWkAbQBpAG4AdAB1AGkATQBlAGQAaQB1AG0ARgBvAG4AdABGAG8AcgBnAGUAIAAyAC4AMAAgADoAIABtAGkAbgB0AHUAaQAgADoAIAAzAC0ANgAtADIAMAAxADYAbQBpAG4AdAB1AGkAVgBlAHIAcwBpAG8AbgAgADEALgAwACAAOwAgAHQAdABmAGEAdQB0AG8AaABpAG4AdAAgACgAdgAwAC4AOQA0ACkAIAAtAGwAIAA4ACAALQByACAANQAwACAALQBHACAAMgAwADAAIAAtAHgAIAAxADQAIAAtAHcAIAAiAEcAIgAgAC0AZgAgAC0AcwBtAGkAbgB0AHUAaQAAAgAAAAAAAP+DADIAAAAAAAAAAAAAAAAAAAAAAAAAAAALAAAAAQACAFsBAgEDAQQBBQEGAQcBCAd1bmlFNjAwB3VuaUU2MDEHdW5pRTYwMgd1bmlFNjA0B3VuaUU2MDUHdW5pRTYwOAd1bmlFNjA5AAEAAf//AA8AAAAAAAAAAAAAAAAAAAAAADIAMgMY/+EDf/+AAxj/4QN//4CwACywIGBmLbABLCBkILDAULAEJlqwBEVbWCEjIRuKWCCwUFBYIbBAWRsgsDhQWCGwOFlZILAKRWFksChQWCGwCkUgsDBQWCGwMFkbILDAUFggZiCKimEgsApQWGAbILAgUFghsApgGyCwNlBYIbA2YBtgWVlZG7AAK1lZI7AAUFhlWVktsAIsIEUgsAQlYWQgsAVDUFiwBSNCsAYjQhshIVmwAWAtsAMsIyEjISBksQViQiCwBiNCsgoAAiohILAGQyCKIIqwACuxMAUlilFYYFAbYVJZWCNZISCwQFNYsAArGyGwQFkjsABQWGVZLbAELLAII0KwByNCsAAjQrAAQ7AHQ1FYsAhDK7IAAQBDYEKwFmUcWS2wBSywAEMgRSCwAkVjsAFFYmBELbAGLLAAQyBFILAAKyOxBAQlYCBFiiNhIGQgsCBQWCGwABuwMFBYsCAbsEBZWSOwAFBYZVmwAyUjYURELbAHLLEFBUWwAWFELbAILLABYCAgsApDSrAAUFggsAojQlmwC0NKsABSWCCwCyNCWS2wCSwguAQAYiC4BABjiiNhsAxDYCCKYCCwDCNCIy2wCixLVFixBwFEWSSwDWUjeC2wCyxLUVhLU1ixBwFEWRshWSSwE2UjeC2wDCyxAA1DVVixDQ1DsAFhQrAJK1mwAEOwAiVCsgABAENgQrEKAiVCsQsCJUKwARYjILADJVBYsABDsAQlQoqKIIojYbAIKiEjsAFhIIojYbAIKiEbsABDsAIlQrACJWGwCCohWbAKQ0ewC0NHYLCAYiCwAkVjsAFFYmCxAAATI0SwAUOwAD6yAQEBQ2BCLbANLLEABUVUWACwDSNCIGCwAWG1Dg4BAAwAQkKKYLEMBCuwaysbIlktsA4ssQANKy2wDyyxAQ0rLbAQLLECDSstsBEssQMNKy2wEiyxBA0rLbATLLEFDSstsBQssQYNKy2wFSyxBw0rLbAWLLEIDSstsBcssQkNKy2wGCywByuxAAVFVFgAsA0jQiBgsAFhtQ4OAQAMAEJCimCxDAQrsGsrGyJZLbAZLLEAGCstsBossQEYKy2wGyyxAhgrLbAcLLEDGCstsB0ssQQYKy2wHiyxBRgrLbAfLLEGGCstsCAssQcYKy2wISyxCBgrLbAiLLEJGCstsCMsIGCwDmAgQyOwAWBDsAIlsAIlUVgjIDywAWAjsBJlHBshIVktsCQssCMrsCMqLbAlLCAgRyAgsAJFY7ABRWJgI2E4IyCKVVggRyAgsAJFY7ABRWJgI2E4GyFZLbAmLLEABUVUWACwARawJSqwARUwGyJZLbAnLLAHK7EABUVUWACwARawJSqwARUwGyJZLbAoLCA1sAFgLbApLACwA0VjsAFFYrAAK7ACRWOwAUVisAArsAAWtAAAAAAARD4jOLEoARUqLbAqLCA8IEcgsAJFY7ABRWJgsABDYTgtsCssLhc8LbAsLCA8IEcgsAJFY7ABRWJgsABDYbABQ2M4LbAtLLECABYlIC4gR7AAI0KwAiVJiopHI0cjYSBYYhshWbABI0KyLAEBFRQqLbAuLLAAFrAEJbAEJUcjRyNhsAZFK2WKLiMgIDyKOC2wLyywABawBCWwBCUgLkcjRyNhILAEI0KwBkUrILBgUFggsEBRWLMCIAMgG7MCJgMaWUJCIyCwCUMgiiNHI0cjYSNGYLAEQ7CAYmAgsAArIIqKYSCwAkNgZCOwA0NhZFBYsAJDYRuwA0NgWbADJbCAYmEjICCwBCYjRmE4GyOwCUNGsAIlsAlDRyNHI2FgILAEQ7CAYmAjILAAKyOwBENgsAArsAUlYbAFJbCAYrAEJmEgsAQlYGQjsAMlYGRQWCEbIyFZIyAgsAQmI0ZhOFktsDAssAAWICAgsAUmIC5HI0cjYSM8OC2wMSywABYgsAkjQiAgIEYjR7AAKyNhOC2wMiywABawAyWwAiVHI0cjYbAAVFguIDwjIRuwAiWwAiVHI0cjYSCwBSWwBCVHI0cjYbAGJbAFJUmwAiVhsAFFYyMgWGIbIVljsAFFYmAjLiMgIDyKOCMhWS2wMyywABYgsAlDIC5HI0cjYSBgsCBgZrCAYiMgIDyKOC2wNCwjIC5GsAIlRlJYIDxZLrEkARQrLbA1LCMgLkawAiVGUFggPFkusSQBFCstsDYsIyAuRrACJUZSWCA8WSMgLkawAiVGUFggPFkusSQBFCstsDcssC4rIyAuRrACJUZSWCA8WS6xJAEUKy2wOCywLyuKICA8sAQjQoo4IyAuRrACJUZSWCA8WS6xJAEUK7AEQy6wJCstsDkssAAWsAQlsAQmIC5HI0cjYbAGRSsjIDwgLiM4sSQBFCstsDossQkEJUKwABawBCWwBCUgLkcjRyNhILAEI0KwBkUrILBgUFggsEBRWLMCIAMgG7MCJgMaWUJCIyBHsARDsIBiYCCwACsgiophILACQ2BkI7ADQ2FkUFiwAkNhG7ADQ2BZsAMlsIBiYbACJUZhOCMgPCM4GyEgIEYjR7AAKyNhOCFZsSQBFCstsDsssC4rLrEkARQrLbA8LLAvKyEjICA8sAQjQiM4sSQBFCuwBEMusCQrLbA9LLAAFSBHsAAjQrIAAQEVFBMusCoqLbA+LLAAFSBHsAAjQrIAAQEVFBMusCoqLbA/LLEAARQTsCsqLbBALLAtKi2wQSywABZFIyAuIEaKI2E4sSQBFCstsEIssAkjQrBBKy2wQyyyAAA6Ky2wRCyyAAE6Ky2wRSyyAQA6Ky2wRiyyAQE6Ky2wRyyyAAA7Ky2wSCyyAAE7Ky2wSSyyAQA7Ky2wSiyyAQE7Ky2wSyyyAAA3Ky2wTCyyAAE3Ky2wTSyyAQA3Ky2wTiyyAQE3Ky2wTyyyAAA5Ky2wUCyyAAE5Ky2wUSyyAQA5Ky2wUiyyAQE5Ky2wUyyyAAA8Ky2wVCyyAAE8Ky2wVSyyAQA8Ky2wViyyAQE8Ky2wVyyyAAA4Ky2wWCyyAAE4Ky2wWSyyAQA4Ky2wWiyyAQE4Ky2wWyywMCsusSQBFCstsFwssDArsDQrLbBdLLAwK7A1Ky2wXiywABawMCuwNistsF8ssDErLrEkARQrLbBgLLAxK7A0Ky2wYSywMSuwNSstsGIssDErsDYrLbBjLLAyKy6xJAEUKy2wZCywMiuwNCstsGUssDIrsDUrLbBmLLAyK7A2Ky2wZyywMysusSQBFCstsGgssDMrsDQrLbBpLLAzK7A1Ky2waiywMyuwNistsGssK7AIZbADJFB4sAEVMC0AAEu4AMhSWLEBAY5ZuQgACABjILABI0QgsAMjcLAORSAgS7gADlFLsAZTWliwNBuwKFlgZiCKVViwAiVhsAFFYyNisAIjRLMKCQUEK7MKCwUEK7MODwUEK1myBCgJRVJEswoNBgQrsQYBRLEkAYhRWLBAiFixBgNEsSYBiFFYuAQAiFixBgFEWVlZWbgB/4WwBI2xBQBEAAAA)\n}\n\n.mintui {\n  font-family:\"mintui\" !important;\n  font-size:16px;\n  font-style:normal;\n  -webkit-font-smoothing: antialiased;\n  -webkit-text-stroke-width: 0.2px;\n  -moz-osx-font-smoothing: grayscale;\n}\n.mintui-search:before { content: \"\\E604\"; }\n.mintui-more:before { content: \"\\E601\"; }\n.mintui-back:before { content: \"\\E600\"; }\n.mintui-field-error:before { content: \"\\E605\"; }\n.mintui-field-warning:before { content: \"\\E608\"; }\n.mintui-success:before { content: \"\\E602\"; }\n.mintui-field-success:before { content: \"\\E609\"; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+var stylesInDom = {},
+	memoize = function(fn) {
+		var memo;
+		return function () {
+			if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+			return memo;
+		};
+	},
+	isOldIE = memoize(function() {
+		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
+	}),
+	getHeadElement = memoize(function () {
+		return document.head || document.getElementsByTagName("head")[0];
+	}),
+	singletonElement = null,
+	singletonCounter = 0,
+	styleElementsInsertedAtTop = [];
+
+module.exports = function(list, options) {
+	if(typeof DEBUG !== "undefined" && DEBUG) {
+		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the bottom of <head>.
+	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+	var styles = listToStyles(list);
+	addStylesToDom(styles, options);
+
+	return function update(newList) {
+		var mayRemove = [];
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+		if(newList) {
+			var newStyles = listToStyles(newList);
+			addStylesToDom(newStyles, options);
+		}
+		for(var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+			if(domStyle.refs === 0) {
+				for(var j = 0; j < domStyle.parts.length; j++)
+					domStyle.parts[j]();
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+}
+
+function addStylesToDom(styles, options) {
+	for(var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+		if(domStyle) {
+			domStyle.refs++;
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles(list) {
+	var styles = [];
+	var newStyles = {};
+	for(var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+		if(!newStyles[id])
+			styles.push(newStyles[id] = {id: id, parts: [part]});
+		else
+			newStyles[id].parts.push(part);
+	}
+	return styles;
+}
+
+function insertStyleElement(options, styleElement) {
+	var head = getHeadElement();
+	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+	if (options.insertAt === "top") {
+		if(!lastStyleElementInsertedAtTop) {
+			head.insertBefore(styleElement, head.firstChild);
+		} else if(lastStyleElementInsertedAtTop.nextSibling) {
+			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			head.appendChild(styleElement);
+		}
+		styleElementsInsertedAtTop.push(styleElement);
+	} else if (options.insertAt === "bottom") {
+		head.appendChild(styleElement);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement(styleElement) {
+	styleElement.parentNode.removeChild(styleElement);
+	var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+	if(idx >= 0) {
+		styleElementsInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement(options) {
+	var styleElement = document.createElement("style");
+	styleElement.type = "text/css";
+	insertStyleElement(options, styleElement);
+	return styleElement;
+}
+
+function createLinkElement(options) {
+	var linkElement = document.createElement("link");
+	linkElement.rel = "stylesheet";
+	insertStyleElement(options, linkElement);
+	return linkElement;
+}
+
+function addStyle(obj, options) {
+	var styleElement, update, remove;
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+		styleElement = singletonElement || (singletonElement = createStyleElement(options));
+		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+	} else if(obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function") {
+		styleElement = createLinkElement(options);
+		update = updateLink.bind(null, styleElement);
+		remove = function() {
+			removeStyleElement(styleElement);
+			if(styleElement.href)
+				URL.revokeObjectURL(styleElement.href);
+		};
+	} else {
+		styleElement = createStyleElement(options);
+		update = applyToTag.bind(null, styleElement);
+		remove = function() {
+			removeStyleElement(styleElement);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle(newObj) {
+		if(newObj) {
+			if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+				return;
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag(styleElement, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = styleElement.childNodes;
+		if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+		if (childNodes.length) {
+			styleElement.insertBefore(cssNode, childNodes[index]);
+		} else {
+			styleElement.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag(styleElement, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		styleElement.setAttribute("media", media)
+	}
+
+	if(styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = css;
+	} else {
+		while(styleElement.firstChild) {
+			styleElement.removeChild(styleElement.firstChild);
+		}
+		styleElement.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink(linkElement, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	if(sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = linkElement.href;
+
+	linkElement.href = URL.createObjectURL(blob);
+
+	if(oldSrc)
+		URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 49 */,
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(51);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(37)("774d374a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2638fbee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2638fbee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingList.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(34)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.mui-table-view[data-v-2638fbee]:before {\n  height: 0;\n  background-color: #f4f4f4;\n}\n.mui-table-view[data-v-2638fbee]:after {\n  height: 0;\n}\n.vueBuilding_list .mui-table-view-cell[data-v-2638fbee]:before {\n  height: 0;\n}\n.vueBuilding_list .mui-table-view-cell[data-v-2638fbee]:after {\n  height: 0;\n}\n.vueBuilding_list .building_item[data-v-2638fbee] {\n  padding: 15px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  border-bottom: 1px solid #f4f4f4;\n}\n.vueBuilding_list .building_item[data-v-2638fbee]:last-child {\n    border-bottom: none;\n}\n.vueBuilding_list .building_item > img.goodImg[data-v-2638fbee] {\n    position: absolute;\n    top: 0;\n    right: 15px;\n    width: 30px;\n}\n.vueBuilding_list .building_item .img-box[data-v-2638fbee] {\n    width: 35%;\n}\n.vueBuilding_list .building_item .img-box img[data-v-2638fbee] {\n      width: 100%;\n      height: 100%;\n      border-radius: 3px;\n}\n.vueBuilding_list .building_item .text-box[data-v-2638fbee] {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    padding-left: 15px;\n}\n.vueBuilding_list .building_item .text-box.active[data-v-2638fbee] {\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n}\n.vueBuilding_list .building_item .text-box .title-box[data-v-2638fbee] {\n      font-size: 16px;\n      color: #333333;\n}\n.vueBuilding_list .building_item .text-box .num-box[data-v-2638fbee] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      color: #787878;\n}\n.vueBuilding_list .building_item .text-box .num-box .allNum[data-v-2638fbee] {\n        font-size: 13px;\n}\n.vueBuilding_list .building_item .text-box .num-box .price[data-v-2638fbee] {\n        font-size: 13px;\n}\n.vueBuilding_list .building_item .text-box .num-box .price .priceNum[data-v-2638fbee] {\n          color: #ff7200;\n          font-size: 15px;\n          font-weight: 500;\n}\n.vueBuilding_list .building_item .text-box .position-box[data-v-2638fbee] {\n      margin-bottom: 7px;\n}\n.vueBuilding_list .building_item .text-box .position-box .position-img[data-v-2638fbee] {\n        width: 8px;\n}\n.vueBuilding_list .building_item .text-box .position-box span[data-v-2638fbee] {\n        font-size: 12px;\n        color: #787878;\n}\n.vueBuilding_list .building_item .text-box .speciality-box[data-v-2638fbee] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span[data-v-2638fbee] {\n        padding: 0 5px;\n        font-size: 12px;\n        border-radius: 3px;\n        margin-right: 5px;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span.pink[data-v-2638fbee] {\n          background-color: #ffedf3;\n          color: #d27b96;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span.green[data-v-2638fbee] {\n          background-color: #edfbee;\n          color: #5ec86f;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span.blue[data-v-2638fbee] {\n          background-color: #ecf5ff;\n          color: #6aa9d4;\n}\n.vueBuilding_list .building_item .text-box .speciality-box span[data-v-2638fbee]:last-child {\n          margin-right: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    positionImg: { // 定位图标
+      type: String,
+      default: ''
+    },
+    goodImg: { // 定位图标
+      type: String,
+      default: ''
+    },
+    list: {
+      type: Array,
+      default: []
+    }
+  },
+  data: function data() {
+    return {
+      labelClass: ['pink', 'green', 'blue'],
+      cropStyle: '?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'
+    };
+  },
+
+  methods: {
+    tobuildingDetail: function tobuildingDetail(item) {
+      var webview_building = plus.webview.create('building_detail.html', 'building_detail.html', {}, { item: item });
+      setTimeout(function () {
+        webview_building.show("slide-in-right", 300);
+      }, 150);
+      // const webView = plus.webview.getWebviewById('building_detail.html')
+      // mui.fire(webView, 'get_building', {
+      //   item: item,
+      // })
+      // setTimeout(function () {
+      //   webView.show("slide-in-right", 300)
+      // }, 150)
+    }
+  }
+});
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "vueBuilding_list mui-table-view" },
+    _vm._l(_vm.list, function(itme, index) {
+      return _c(
+        "a",
+        {
+          key: "buildingListVue" + index,
+          staticClass: "building_item mui-table-view-cell",
+          attrs: { href: "/buildings/" + itme.id }
+        },
+        [
+          _c("div", { staticClass: "img-box" }, [
+            _c("img", {
+              attrs: {
+                src: _vm.list[index].img_cn + _vm.cropStyle,
+                alt: _vm.list[index].name
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "text-box",
+              class: { active: _vm.list[index].feature.length > 0 }
+            },
+            [
+              _c("div", { staticClass: "title-box" }, [
+                _vm._v(_vm._s(_vm.list[index].name))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "num-box" }, [
+                _c("div", { staticClass: "allNum" }, [
+                  _vm._v(_vm._s(_vm.list[index].house_count) + "套")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "price" }, [
+                  _c("span", { staticClass: "priceNum" }, [
+                    _vm._v(_vm._s(_vm.list[index].avg_price))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("元/㎡·月")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "position-box" }, [
+                _c("img", {
+                  staticClass: "position-img",
+                  attrs: { src: _vm.positionImg, alt: "" }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(_vm.list[index].address_type))])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "speciality-box" },
+                _vm._l(_vm.list[index].feature, function(item, num) {
+                  return _c(
+                    "span",
+                    { key: "featunumre" + num, class: _vm.labelClass[num] },
+                    [_vm._v(_vm._s(item))]
+                  )
+                })
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _vm.list[index].label_cn
+            ? _c("img", {
+                staticClass: "goodImg",
+                attrs: { src: _vm.goodImg, alt: "优" }
+              })
+            : _vm._e()
+        ]
+      )
+    })
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2638fbee", module.exports)
+  }
+}
+
+/***/ }),
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Swiper 4.2.6
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * http://www.idangero.us/swiper/
+ *
+ * Copyright 2014-2018 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: May 1, 2018
+ */
+
+(function (global, factory) {
+   true ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.Swiper = factory());
+}(this, (function () { 'use strict';
+
+  /**
+   * SSR Window 1.0.0
+   * Better handling for window object in SSR environment
+   * https://github.com/nolimits4web/ssr-window
+   *
+   * Copyright 2018, Vladimir Kharlampidi
+   *
+   * Licensed under MIT
+   *
+   * Released on: February 10, 2018
+   */
+  var d;
+  if (typeof document === 'undefined') {
+    d = {
+      body: {},
+      addEventListener: function addEventListener() {},
+      removeEventListener: function removeEventListener() {},
+      activeElement: {
+        blur: function blur() {},
+        nodeName: '',
+      },
+      querySelector: function querySelector() {
+        return null;
+      },
+      querySelectorAll: function querySelectorAll() {
+        return [];
+      },
+      getElementById: function getElementById() {
+        return null;
+      },
+      createEvent: function createEvent() {
+        return {
+          initEvent: function initEvent() {},
+        };
+      },
+      createElement: function createElement() {
+        return {
+          children: [],
+          childNodes: [],
+          style: {},
+          setAttribute: function setAttribute() {},
+          getElementsByTagName: function getElementsByTagName() {
+            return [];
+          },
+        };
+      },
+      location: { hash: '' },
+    };
+  } else {
+    // eslint-disable-next-line
+    d = document;
+  }
+
+  var doc = d;
+
+  var w;
+  if (typeof window === 'undefined') {
+    w = {
+      document: doc,
+      navigator: {
+        userAgent: '',
+      },
+      location: {},
+      history: {},
+      CustomEvent: function CustomEvent() {
+        return this;
+      },
+      addEventListener: function addEventListener() {},
+      removeEventListener: function removeEventListener() {},
+      getComputedStyle: function getComputedStyle() {
+        return {
+          getPropertyValue: function getPropertyValue() {
+            return '';
+          },
+        };
+      },
+      Image: function Image() {},
+      Date: function Date() {},
+      screen: {},
+      setTimeout: function setTimeout() {},
+      clearTimeout: function clearTimeout() {},
+    };
+  } else {
+    // eslint-disable-next-line
+    w = window;
+  }
+
+  var win = w;
+
+  /**
+   * Dom7 2.0.5
+   * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
+   * http://framework7.io/docs/dom.html
+   *
+   * Copyright 2018, Vladimir Kharlampidi
+   * The iDangero.us
+   * http://www.idangero.us/
+   *
+   * Licensed under MIT
+   *
+   * Released on: April 20, 2018
+   */
+
+  var Dom7 = function Dom7(arr) {
+    var self = this;
+    // Create array-like object
+    for (var i = 0; i < arr.length; i += 1) {
+      self[i] = arr[i];
+    }
+    self.length = arr.length;
+    // Return collection with methods
+    return this;
+  };
+
+  function $(selector, context) {
+    var arr = [];
+    var i = 0;
+    if (selector && !context) {
+      if (selector instanceof Dom7) {
+        return selector;
+      }
+    }
+    if (selector) {
+        // String
+      if (typeof selector === 'string') {
+        var els;
+        var tempParent;
+        var html = selector.trim();
+        if (html.indexOf('<') >= 0 && html.indexOf('>') >= 0) {
+          var toCreate = 'div';
+          if (html.indexOf('<li') === 0) { toCreate = 'ul'; }
+          if (html.indexOf('<tr') === 0) { toCreate = 'tbody'; }
+          if (html.indexOf('<td') === 0 || html.indexOf('<th') === 0) { toCreate = 'tr'; }
+          if (html.indexOf('<tbody') === 0) { toCreate = 'table'; }
+          if (html.indexOf('<option') === 0) { toCreate = 'select'; }
+          tempParent = doc.createElement(toCreate);
+          tempParent.innerHTML = html;
+          for (i = 0; i < tempParent.childNodes.length; i += 1) {
+            arr.push(tempParent.childNodes[i]);
+          }
+        } else {
+          if (!context && selector[0] === '#' && !selector.match(/[ .<>:~]/)) {
+            // Pure ID selector
+            els = [doc.getElementById(selector.trim().split('#')[1])];
+          } else {
+            // Other selectors
+            els = (context || doc).querySelectorAll(selector.trim());
+          }
+          for (i = 0; i < els.length; i += 1) {
+            if (els[i]) { arr.push(els[i]); }
+          }
+        }
+      } else if (selector.nodeType || selector === win || selector === doc) {
+        // Node/element
+        arr.push(selector);
+      } else if (selector.length > 0 && selector[0].nodeType) {
+        // Array of elements or instance of Dom
+        for (i = 0; i < selector.length; i += 1) {
+          arr.push(selector[i]);
+        }
+      }
+    }
+    return new Dom7(arr);
+  }
+
+  $.fn = Dom7.prototype;
+  $.Class = Dom7;
+  $.Dom7 = Dom7;
+
+  function unique(arr) {
+    var uniqueArray = [];
+    for (var i = 0; i < arr.length; i += 1) {
+      if (uniqueArray.indexOf(arr[i]) === -1) { uniqueArray.push(arr[i]); }
+    }
+    return uniqueArray;
+  }
+
+  // Classes and attributes
+  function addClass(className) {
+    var this$1 = this;
+
+    if (typeof className === 'undefined') {
+      return this;
+    }
+    var classes = className.split(' ');
+    for (var i = 0; i < classes.length; i += 1) {
+      for (var j = 0; j < this.length; j += 1) {
+        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.add(classes[i]); }
+      }
+    }
+    return this;
+  }
+  function removeClass(className) {
+    var this$1 = this;
+
+    var classes = className.split(' ');
+    for (var i = 0; i < classes.length; i += 1) {
+      for (var j = 0; j < this.length; j += 1) {
+        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.remove(classes[i]); }
+      }
+    }
+    return this;
+  }
+  function hasClass(className) {
+    if (!this[0]) { return false; }
+    return this[0].classList.contains(className);
+  }
+  function toggleClass(className) {
+    var this$1 = this;
+
+    var classes = className.split(' ');
+    for (var i = 0; i < classes.length; i += 1) {
+      for (var j = 0; j < this.length; j += 1) {
+        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.toggle(classes[i]); }
+      }
+    }
+    return this;
+  }
+  function attr(attrs, value) {
+    var arguments$1 = arguments;
+    var this$1 = this;
+
+    if (arguments.length === 1 && typeof attrs === 'string') {
+      // Get attr
+      if (this[0]) { return this[0].getAttribute(attrs); }
+      return undefined;
+    }
+
+    // Set attrs
+    for (var i = 0; i < this.length; i += 1) {
+      if (arguments$1.length === 2) {
+        // String
+        this$1[i].setAttribute(attrs, value);
+      } else {
+        // Object
+        // eslint-disable-next-line
+        for (var attrName in attrs) {
+          this$1[i][attrName] = attrs[attrName];
+          this$1[i].setAttribute(attrName, attrs[attrName]);
+        }
+      }
+    }
+    return this;
+  }
+  // eslint-disable-next-line
+  function removeAttr(attr) {
+    var this$1 = this;
+
+    for (var i = 0; i < this.length; i += 1) {
+      this$1[i].removeAttribute(attr);
+    }
+    return this;
+  }
+  function data(key, value) {
+    var this$1 = this;
+
+    var el;
+    if (typeof value === 'undefined') {
+      el = this[0];
+      // Get value
+      if (el) {
+        if (el.dom7ElementDataStorage && (key in el.dom7ElementDataStorage)) {
+          return el.dom7ElementDataStorage[key];
+        }
+
+        var dataKey = el.getAttribute(("data-" + key));
+        if (dataKey) {
+          return dataKey;
+        }
+        return undefined;
+      }
+      return undefined;
+    }
+
+    // Set value
+    for (var i = 0; i < this.length; i += 1) {
+      el = this$1[i];
+      if (!el.dom7ElementDataStorage) { el.dom7ElementDataStorage = {}; }
+      el.dom7ElementDataStorage[key] = value;
+    }
+    return this;
+  }
+  // Transforms
+  // eslint-disable-next-line
+  function transform(transform) {
+    var this$1 = this;
+
+    for (var i = 0; i < this.length; i += 1) {
+      var elStyle = this$1[i].style;
+      elStyle.webkitTransform = transform;
+      elStyle.transform = transform;
+    }
+    return this;
+  }
+  function transition(duration) {
+    var this$1 = this;
+
+    if (typeof duration !== 'string') {
+      duration = duration + "ms"; // eslint-disable-line
+    }
+    for (var i = 0; i < this.length; i += 1) {
+      var elStyle = this$1[i].style;
+      elStyle.webkitTransitionDuration = duration;
+      elStyle.transitionDuration = duration;
+    }
+    return this;
+  }
+  // Events
+  function on() {
+    var this$1 = this;
+    var assign;
+
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+    var eventType = args[0];
+    var targetSelector = args[1];
+    var listener = args[2];
+    var capture = args[3];
+    if (typeof args[1] === 'function') {
+      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
+      targetSelector = undefined;
+    }
+    if (!capture) { capture = false; }
+
+    function handleLiveEvent(e) {
+      var target = e.target;
+      if (!target) { return; }
+      var eventData = e.target.dom7EventData || [];
+      if (eventData.indexOf(e) < 0) {
+        eventData.unshift(e);
+      }
+      if ($(target).is(targetSelector)) { listener.apply(target, eventData); }
+      else {
+        var parents = $(target).parents(); // eslint-disable-line
+        for (var k = 0; k < parents.length; k += 1) {
+          if ($(parents[k]).is(targetSelector)) { listener.apply(parents[k], eventData); }
+        }
+      }
+    }
+    function handleEvent(e) {
+      var eventData = e && e.target ? e.target.dom7EventData || [] : [];
+      if (eventData.indexOf(e) < 0) {
+        eventData.unshift(e);
+      }
+      listener.apply(this, eventData);
+    }
+    var events = eventType.split(' ');
+    var j;
+    for (var i = 0; i < this.length; i += 1) {
+      var el = this$1[i];
+      if (!targetSelector) {
+        for (j = 0; j < events.length; j += 1) {
+          var event = events[j];
+          if (!el.dom7Listeners) { el.dom7Listeners = {}; }
+          if (!el.dom7Listeners[event]) { el.dom7Listeners[event] = []; }
+          el.dom7Listeners[event].push({
+            listener: listener,
+            proxyListener: handleEvent,
+          });
+          el.addEventListener(event, handleEvent, capture);
+        }
+      } else {
+        // Live events
+        for (j = 0; j < events.length; j += 1) {
+          var event$1 = events[j];
+          if (!el.dom7LiveListeners) { el.dom7LiveListeners = {}; }
+          if (!el.dom7LiveListeners[event$1]) { el.dom7LiveListeners[event$1] = []; }
+          el.dom7LiveListeners[event$1].push({
+            listener: listener,
+            proxyListener: handleLiveEvent,
+          });
+          el.addEventListener(event$1, handleLiveEvent, capture);
+        }
+      }
+    }
+    return this;
+  }
+  function off() {
+    var this$1 = this;
+    var assign;
+
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+    var eventType = args[0];
+    var targetSelector = args[1];
+    var listener = args[2];
+    var capture = args[3];
+    if (typeof args[1] === 'function') {
+      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
+      targetSelector = undefined;
+    }
+    if (!capture) { capture = false; }
+
+    var events = eventType.split(' ');
+    for (var i = 0; i < events.length; i += 1) {
+      var event = events[i];
+      for (var j = 0; j < this.length; j += 1) {
+        var el = this$1[j];
+        var handlers = (void 0);
+        if (!targetSelector && el.dom7Listeners) {
+          handlers = el.dom7Listeners[event];
+        } else if (targetSelector && el.dom7LiveListeners) {
+          handlers = el.dom7LiveListeners[event];
+        }
+        for (var k = handlers.length - 1; k >= 0; k -= 1) {
+          var handler = handlers[k];
+          if (listener && handler.listener === listener) {
+            el.removeEventListener(event, handler.proxyListener, capture);
+            handlers.splice(k, 1);
+          } else if (!listener) {
+            el.removeEventListener(event, handler.proxyListener, capture);
+            handlers.splice(k, 1);
+          }
+        }
+      }
+    }
+    return this;
+  }
+  function trigger() {
+    var this$1 = this;
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var events = args[0].split(' ');
+    var eventData = args[1];
+    for (var i = 0; i < events.length; i += 1) {
+      var event = events[i];
+      for (var j = 0; j < this.length; j += 1) {
+        var el = this$1[j];
+        var evt = (void 0);
+        try {
+          evt = new win.CustomEvent(event, {
+            detail: eventData,
+            bubbles: true,
+            cancelable: true,
+          });
+        } catch (e) {
+          evt = doc.createEvent('Event');
+          evt.initEvent(event, true, true);
+          evt.detail = eventData;
+        }
+        // eslint-disable-next-line
+        el.dom7EventData = args.filter(function (data, dataIndex) { return dataIndex > 0; });
+        el.dispatchEvent(evt);
+        el.dom7EventData = [];
+        delete el.dom7EventData;
+      }
+    }
+    return this;
+  }
+  function transitionEnd(callback) {
+    var events = ['webkitTransitionEnd', 'transitionend'];
+    var dom = this;
+    var i;
+    function fireCallBack(e) {
+      /* jshint validthis:true */
+      if (e.target !== this) { return; }
+      callback.call(this, e);
+      for (i = 0; i < events.length; i += 1) {
+        dom.off(events[i], fireCallBack);
+      }
+    }
+    if (callback) {
+      for (i = 0; i < events.length; i += 1) {
+        dom.on(events[i], fireCallBack);
+      }
+    }
+    return this;
+  }
+  function outerWidth(includeMargins) {
+    if (this.length > 0) {
+      if (includeMargins) {
+        // eslint-disable-next-line
+        var styles = this.styles();
+        return this[0].offsetWidth + parseFloat(styles.getPropertyValue('margin-right')) + parseFloat(styles.getPropertyValue('margin-left'));
+      }
+      return this[0].offsetWidth;
+    }
+    return null;
+  }
+  function outerHeight(includeMargins) {
+    if (this.length > 0) {
+      if (includeMargins) {
+        // eslint-disable-next-line
+        var styles = this.styles();
+        return this[0].offsetHeight + parseFloat(styles.getPropertyValue('margin-top')) + parseFloat(styles.getPropertyValue('margin-bottom'));
+      }
+      return this[0].offsetHeight;
+    }
+    return null;
+  }
+  function offset() {
+    if (this.length > 0) {
+      var el = this[0];
+      var box = el.getBoundingClientRect();
+      var body = doc.body;
+      var clientTop = el.clientTop || body.clientTop || 0;
+      var clientLeft = el.clientLeft || body.clientLeft || 0;
+      var scrollTop = el === win ? win.scrollY : el.scrollTop;
+      var scrollLeft = el === win ? win.scrollX : el.scrollLeft;
+      return {
+        top: (box.top + scrollTop) - clientTop,
+        left: (box.left + scrollLeft) - clientLeft,
+      };
+    }
+
+    return null;
+  }
+  function styles() {
+    if (this[0]) { return win.getComputedStyle(this[0], null); }
+    return {};
+  }
+  function css(props, value) {
+    var this$1 = this;
+
+    var i;
+    if (arguments.length === 1) {
+      if (typeof props === 'string') {
+        if (this[0]) { return win.getComputedStyle(this[0], null).getPropertyValue(props); }
+      } else {
+        for (i = 0; i < this.length; i += 1) {
+          // eslint-disable-next-line
+          for (var prop in props) {
+            this$1[i].style[prop] = props[prop];
+          }
+        }
+        return this;
+      }
+    }
+    if (arguments.length === 2 && typeof props === 'string') {
+      for (i = 0; i < this.length; i += 1) {
+        this$1[i].style[props] = value;
+      }
+      return this;
+    }
+    return this;
+  }
+  // Iterate over the collection passing elements to `callback`
+  function each(callback) {
+    var this$1 = this;
+
+    // Don't bother continuing without a callback
+    if (!callback) { return this; }
+    // Iterate over the current collection
+    for (var i = 0; i < this.length; i += 1) {
+      // If the callback returns false
+      if (callback.call(this$1[i], i, this$1[i]) === false) {
+        // End the loop early
+        return this$1;
+      }
+    }
+    // Return `this` to allow chained DOM operations
+    return this;
+  }
+  // eslint-disable-next-line
+  function html(html) {
+    var this$1 = this;
+
+    if (typeof html === 'undefined') {
+      return this[0] ? this[0].innerHTML : undefined;
+    }
+
+    for (var i = 0; i < this.length; i += 1) {
+      this$1[i].innerHTML = html;
+    }
+    return this;
+  }
+  // eslint-disable-next-line
+  function text(text) {
+    var this$1 = this;
+
+    if (typeof text === 'undefined') {
+      if (this[0]) {
+        return this[0].textContent.trim();
+      }
+      return null;
+    }
+
+    for (var i = 0; i < this.length; i += 1) {
+      this$1[i].textContent = text;
+    }
+    return this;
+  }
+  function is(selector) {
+    var el = this[0];
+    var compareWith;
+    var i;
+    if (!el || typeof selector === 'undefined') { return false; }
+    if (typeof selector === 'string') {
+      if (el.matches) { return el.matches(selector); }
+      else if (el.webkitMatchesSelector) { return el.webkitMatchesSelector(selector); }
+      else if (el.msMatchesSelector) { return el.msMatchesSelector(selector); }
+
+      compareWith = $(selector);
+      for (i = 0; i < compareWith.length; i += 1) {
+        if (compareWith[i] === el) { return true; }
+      }
+      return false;
+    } else if (selector === doc) { return el === doc; }
+    else if (selector === win) { return el === win; }
+
+    if (selector.nodeType || selector instanceof Dom7) {
+      compareWith = selector.nodeType ? [selector] : selector;
+      for (i = 0; i < compareWith.length; i += 1) {
+        if (compareWith[i] === el) { return true; }
+      }
+      return false;
+    }
+    return false;
+  }
+  function index() {
+    var child = this[0];
+    var i;
+    if (child) {
+      i = 0;
+      // eslint-disable-next-line
+      while ((child = child.previousSibling) !== null) {
+        if (child.nodeType === 1) { i += 1; }
+      }
+      return i;
+    }
+    return undefined;
+  }
+  // eslint-disable-next-line
+  function eq(index) {
+    if (typeof index === 'undefined') { return this; }
+    var length = this.length;
+    var returnIndex;
+    if (index > length - 1) {
+      return new Dom7([]);
+    }
+    if (index < 0) {
+      returnIndex = length + index;
+      if (returnIndex < 0) { return new Dom7([]); }
+      return new Dom7([this[returnIndex]]);
+    }
+    return new Dom7([this[index]]);
+  }
+  function append() {
+    var this$1 = this;
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var newChild;
+
+    for (var k = 0; k < args.length; k += 1) {
+      newChild = args[k];
+      for (var i = 0; i < this.length; i += 1) {
+        if (typeof newChild === 'string') {
+          var tempDiv = doc.createElement('div');
+          tempDiv.innerHTML = newChild;
+          while (tempDiv.firstChild) {
+            this$1[i].appendChild(tempDiv.firstChild);
+          }
+        } else if (newChild instanceof Dom7) {
+          for (var j = 0; j < newChild.length; j += 1) {
+            this$1[i].appendChild(newChild[j]);
+          }
+        } else {
+          this$1[i].appendChild(newChild);
+        }
+      }
+    }
+
+    return this;
+  }
+  function prepend(newChild) {
+    var this$1 = this;
+
+    var i;
+    var j;
+    for (i = 0; i < this.length; i += 1) {
+      if (typeof newChild === 'string') {
+        var tempDiv = doc.createElement('div');
+        tempDiv.innerHTML = newChild;
+        for (j = tempDiv.childNodes.length - 1; j >= 0; j -= 1) {
+          this$1[i].insertBefore(tempDiv.childNodes[j], this$1[i].childNodes[0]);
+        }
+      } else if (newChild instanceof Dom7) {
+        for (j = 0; j < newChild.length; j += 1) {
+          this$1[i].insertBefore(newChild[j], this$1[i].childNodes[0]);
+        }
+      } else {
+        this$1[i].insertBefore(newChild, this$1[i].childNodes[0]);
+      }
+    }
+    return this;
+  }
+  function next(selector) {
+    if (this.length > 0) {
+      if (selector) {
+        if (this[0].nextElementSibling && $(this[0].nextElementSibling).is(selector)) {
+          return new Dom7([this[0].nextElementSibling]);
+        }
+        return new Dom7([]);
+      }
+
+      if (this[0].nextElementSibling) { return new Dom7([this[0].nextElementSibling]); }
+      return new Dom7([]);
+    }
+    return new Dom7([]);
+  }
+  function nextAll(selector) {
+    var nextEls = [];
+    var el = this[0];
+    if (!el) { return new Dom7([]); }
+    while (el.nextElementSibling) {
+      var next = el.nextElementSibling; // eslint-disable-line
+      if (selector) {
+        if ($(next).is(selector)) { nextEls.push(next); }
+      } else { nextEls.push(next); }
+      el = next;
+    }
+    return new Dom7(nextEls);
+  }
+  function prev(selector) {
+    if (this.length > 0) {
+      var el = this[0];
+      if (selector) {
+        if (el.previousElementSibling && $(el.previousElementSibling).is(selector)) {
+          return new Dom7([el.previousElementSibling]);
+        }
+        return new Dom7([]);
+      }
+
+      if (el.previousElementSibling) { return new Dom7([el.previousElementSibling]); }
+      return new Dom7([]);
+    }
+    return new Dom7([]);
+  }
+  function prevAll(selector) {
+    var prevEls = [];
+    var el = this[0];
+    if (!el) { return new Dom7([]); }
+    while (el.previousElementSibling) {
+      var prev = el.previousElementSibling; // eslint-disable-line
+      if (selector) {
+        if ($(prev).is(selector)) { prevEls.push(prev); }
+      } else { prevEls.push(prev); }
+      el = prev;
+    }
+    return new Dom7(prevEls);
+  }
+  function parent(selector) {
+    var this$1 = this;
+
+    var parents = []; // eslint-disable-line
+    for (var i = 0; i < this.length; i += 1) {
+      if (this$1[i].parentNode !== null) {
+        if (selector) {
+          if ($(this$1[i].parentNode).is(selector)) { parents.push(this$1[i].parentNode); }
+        } else {
+          parents.push(this$1[i].parentNode);
+        }
+      }
+    }
+    return $(unique(parents));
+  }
+  function parents(selector) {
+    var this$1 = this;
+
+    var parents = []; // eslint-disable-line
+    for (var i = 0; i < this.length; i += 1) {
+      var parent = this$1[i].parentNode; // eslint-disable-line
+      while (parent) {
+        if (selector) {
+          if ($(parent).is(selector)) { parents.push(parent); }
+        } else {
+          parents.push(parent);
+        }
+        parent = parent.parentNode;
+      }
+    }
+    return $(unique(parents));
+  }
+  function closest(selector) {
+    var closest = this; // eslint-disable-line
+    if (typeof selector === 'undefined') {
+      return new Dom7([]);
+    }
+    if (!closest.is(selector)) {
+      closest = closest.parents(selector).eq(0);
+    }
+    return closest;
+  }
+  function find(selector) {
+    var this$1 = this;
+
+    var foundElements = [];
+    for (var i = 0; i < this.length; i += 1) {
+      var found = this$1[i].querySelectorAll(selector);
+      for (var j = 0; j < found.length; j += 1) {
+        foundElements.push(found[j]);
+      }
+    }
+    return new Dom7(foundElements);
+  }
+  function children(selector) {
+    var this$1 = this;
+
+    var children = []; // eslint-disable-line
+    for (var i = 0; i < this.length; i += 1) {
+      var childNodes = this$1[i].childNodes;
+
+      for (var j = 0; j < childNodes.length; j += 1) {
+        if (!selector) {
+          if (childNodes[j].nodeType === 1) { children.push(childNodes[j]); }
+        } else if (childNodes[j].nodeType === 1 && $(childNodes[j]).is(selector)) {
+          children.push(childNodes[j]);
+        }
+      }
+    }
+    return new Dom7(unique(children));
+  }
+  function remove() {
+    var this$1 = this;
+
+    for (var i = 0; i < this.length; i += 1) {
+      if (this$1[i].parentNode) { this$1[i].parentNode.removeChild(this$1[i]); }
+    }
+    return this;
+  }
+  function add() {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var dom = this;
+    var i;
+    var j;
+    for (i = 0; i < args.length; i += 1) {
+      var toAdd = $(args[i]);
+      for (j = 0; j < toAdd.length; j += 1) {
+        dom[dom.length] = toAdd[j];
+        dom.length += 1;
+      }
+    }
+    return dom;
+  }
+
+  var Methods = {
+    addClass: addClass,
+    removeClass: removeClass,
+    hasClass: hasClass,
+    toggleClass: toggleClass,
+    attr: attr,
+    removeAttr: removeAttr,
+    data: data,
+    transform: transform,
+    transition: transition,
+    on: on,
+    off: off,
+    trigger: trigger,
+    transitionEnd: transitionEnd,
+    outerWidth: outerWidth,
+    outerHeight: outerHeight,
+    offset: offset,
+    css: css,
+    each: each,
+    html: html,
+    text: text,
+    is: is,
+    index: index,
+    eq: eq,
+    append: append,
+    prepend: prepend,
+    next: next,
+    nextAll: nextAll,
+    prev: prev,
+    prevAll: prevAll,
+    parent: parent,
+    parents: parents,
+    closest: closest,
+    find: find,
+    children: children,
+    remove: remove,
+    add: add,
+    styles: styles,
+  };
+
+  Object.keys(Methods).forEach(function (methodName) {
+    $.fn[methodName] = Methods[methodName];
+  });
+
+  var Utils = {
+    deleteProps: function deleteProps(obj) {
+      var object = obj;
+      Object.keys(object).forEach(function (key) {
+        try {
+          object[key] = null;
+        } catch (e) {
+          // no getter for object
+        }
+        try {
+          delete object[key];
+        } catch (e) {
+          // something got wrong
+        }
+      });
+    },
+    nextTick: function nextTick(callback, delay) {
+      if ( delay === void 0 ) delay = 0;
+
+      return setTimeout(callback, delay);
+    },
+    now: function now() {
+      return Date.now();
+    },
+    getTranslate: function getTranslate(el, axis) {
+      if ( axis === void 0 ) axis = 'x';
+
+      var matrix;
+      var curTransform;
+      var transformMatrix;
+
+      var curStyle = win.getComputedStyle(el, null);
+
+      if (win.WebKitCSSMatrix) {
+        curTransform = curStyle.transform || curStyle.webkitTransform;
+        if (curTransform.split(',').length > 6) {
+          curTransform = curTransform.split(', ').map(function (a) { return a.replace(',', '.'); }).join(', ');
+        }
+        // Some old versions of Webkit choke when 'none' is passed; pass
+        // empty string instead in this case
+        transformMatrix = new win.WebKitCSSMatrix(curTransform === 'none' ? '' : curTransform);
+      } else {
+        transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform || curStyle.transform || curStyle.getPropertyValue('transform').replace('translate(', 'matrix(1, 0, 0, 1,');
+        matrix = transformMatrix.toString().split(',');
+      }
+
+      if (axis === 'x') {
+        // Latest Chrome and webkits Fix
+        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m41; }
+        // Crazy IE10 Matrix
+        else if (matrix.length === 16) { curTransform = parseFloat(matrix[12]); }
+        // Normal Browsers
+        else { curTransform = parseFloat(matrix[4]); }
+      }
+      if (axis === 'y') {
+        // Latest Chrome and webkits Fix
+        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m42; }
+        // Crazy IE10 Matrix
+        else if (matrix.length === 16) { curTransform = parseFloat(matrix[13]); }
+        // Normal Browsers
+        else { curTransform = parseFloat(matrix[5]); }
+      }
+      return curTransform || 0;
+    },
+    parseUrlQuery: function parseUrlQuery(url) {
+      var query = {};
+      var urlToParse = url || win.location.href;
+      var i;
+      var params;
+      var param;
+      var length;
+      if (typeof urlToParse === 'string' && urlToParse.length) {
+        urlToParse = urlToParse.indexOf('?') > -1 ? urlToParse.replace(/\S*\?/, '') : '';
+        params = urlToParse.split('&').filter(function (paramsPart) { return paramsPart !== ''; });
+        length = params.length;
+
+        for (i = 0; i < length; i += 1) {
+          param = params[i].replace(/#\S+/g, '').split('=');
+          query[decodeURIComponent(param[0])] = typeof param[1] === 'undefined' ? undefined : decodeURIComponent(param[1]) || '';
+        }
+      }
+      return query;
+    },
+    isObject: function isObject(o) {
+      return typeof o === 'object' && o !== null && o.constructor && o.constructor === Object;
+    },
+    extend: function extend() {
+      var args = [], len$1 = arguments.length;
+      while ( len$1-- ) args[ len$1 ] = arguments[ len$1 ];
+
+      var to = Object(args[0]);
+      for (var i = 1; i < args.length; i += 1) {
+        var nextSource = args[i];
+        if (nextSource !== undefined && nextSource !== null) {
+          var keysArray = Object.keys(Object(nextSource));
+          for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
+            var nextKey = keysArray[nextIndex];
+            var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+            if (desc !== undefined && desc.enumerable) {
+              if (Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
+                Utils.extend(to[nextKey], nextSource[nextKey]);
+              } else if (!Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
+                to[nextKey] = {};
+                Utils.extend(to[nextKey], nextSource[nextKey]);
+              } else {
+                to[nextKey] = nextSource[nextKey];
+              }
+            }
+          }
+        }
+      }
+      return to;
+    },
+  };
+
+  var Support = (function Support() {
+    var testDiv = doc.createElement('div');
+    return {
+      touch: (win.Modernizr && win.Modernizr.touch === true) || (function checkTouch() {
+        return !!(('ontouchstart' in win) || (win.DocumentTouch && doc instanceof win.DocumentTouch));
+      }()),
+
+      pointerEvents: !!(win.navigator.pointerEnabled || win.PointerEvent),
+      prefixedPointerEvents: !!win.navigator.msPointerEnabled,
+
+      transition: (function checkTransition() {
+        var style = testDiv.style;
+        return ('transition' in style || 'webkitTransition' in style || 'MozTransition' in style);
+      }()),
+      transforms3d: (win.Modernizr && win.Modernizr.csstransforms3d === true) || (function checkTransforms3d() {
+        var style = testDiv.style;
+        return ('webkitPerspective' in style || 'MozPerspective' in style || 'OPerspective' in style || 'MsPerspective' in style || 'perspective' in style);
+      }()),
+
+      flexbox: (function checkFlexbox() {
+        var style = testDiv.style;
+        var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
+        for (var i = 0; i < styles.length; i += 1) {
+          if (styles[i] in style) { return true; }
+        }
+        return false;
+      }()),
+
+      observer: (function checkObserver() {
+        return ('MutationObserver' in win || 'WebkitMutationObserver' in win);
+      }()),
+
+      passiveListener: (function checkPassiveListener() {
+        var supportsPassive = false;
+        try {
+          var opts = Object.defineProperty({}, 'passive', {
+            // eslint-disable-next-line
+            get: function get() {
+              supportsPassive = true;
+            },
+          });
+          win.addEventListener('testPassiveListener', null, opts);
+        } catch (e) {
+          // No support
+        }
+        return supportsPassive;
+      }()),
+
+      gestures: (function checkGestures() {
+        return 'ongesturestart' in win;
+      }()),
+    };
+  }());
+
+  var SwiperClass = function SwiperClass(params) {
+    if ( params === void 0 ) params = {};
+
+    var self = this;
+    self.params = params;
+
+    // Events
+    self.eventsListeners = {};
+
+    if (self.params && self.params.on) {
+      Object.keys(self.params.on).forEach(function (eventName) {
+        self.on(eventName, self.params.on[eventName]);
+      });
+    }
+  };
+
+  var staticAccessors = { components: { configurable: true } };
+  SwiperClass.prototype.on = function on (events, handler, priority) {
+    var self = this;
+    if (typeof handler !== 'function') { return self; }
+    var method = priority ? 'unshift' : 'push';
+    events.split(' ').forEach(function (event) {
+      if (!self.eventsListeners[event]) { self.eventsListeners[event] = []; }
+      self.eventsListeners[event][method](handler);
+    });
+    return self;
+  };
+  SwiperClass.prototype.once = function once (events, handler, priority) {
+    var self = this;
+    if (typeof handler !== 'function') { return self; }
+    function onceHandler() {
+        var args = [], len = arguments.length;
+        while ( len-- ) args[ len ] = arguments[ len ];
+
+      handler.apply(self, args);
+      self.off(events, onceHandler);
+    }
+    return self.on(events, onceHandler, priority);
+  };
+  SwiperClass.prototype.off = function off (events, handler) {
+    var self = this;
+    if (!self.eventsListeners) { return self; }
+    events.split(' ').forEach(function (event) {
+      if (typeof handler === 'undefined') {
+        self.eventsListeners[event] = [];
+      } else {
+        self.eventsListeners[event].forEach(function (eventHandler, index) {
+          if (eventHandler === handler) {
+            self.eventsListeners[event].splice(index, 1);
+          }
+        });
+      }
+    });
+    return self;
+  };
+  SwiperClass.prototype.emit = function emit () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+    var self = this;
+    if (!self.eventsListeners) { return self; }
+    var events;
+    var data;
+    var context;
+    if (typeof args[0] === 'string' || Array.isArray(args[0])) {
+      events = args[0];
+      data = args.slice(1, args.length);
+      context = self;
+    } else {
+      events = args[0].events;
+      data = args[0].data;
+      context = args[0].context || self;
+    }
+    var eventsArray = Array.isArray(events) ? events : events.split(' ');
+    eventsArray.forEach(function (event) {
+      if (self.eventsListeners && self.eventsListeners[event]) {
+        var handlers = [];
+        self.eventsListeners[event].forEach(function (eventHandler) {
+          handlers.push(eventHandler);
+        });
+        handlers.forEach(function (eventHandler) {
+          eventHandler.apply(context, data);
+        });
+      }
+    });
+    return self;
+  };
+  SwiperClass.prototype.useModulesParams = function useModulesParams (instanceParams) {
+    var instance = this;
+    if (!instance.modules) { return; }
+    Object.keys(instance.modules).forEach(function (moduleName) {
+      var module = instance.modules[moduleName];
+      // Extend params
+      if (module.params) {
+        Utils.extend(instanceParams, module.params);
+      }
+    });
+  };
+  SwiperClass.prototype.useModules = function useModules (modulesParams) {
+      if ( modulesParams === void 0 ) modulesParams = {};
+
+    var instance = this;
+    if (!instance.modules) { return; }
+    Object.keys(instance.modules).forEach(function (moduleName) {
+      var module = instance.modules[moduleName];
+      var moduleParams = modulesParams[moduleName] || {};
+      // Extend instance methods and props
+      if (module.instance) {
+        Object.keys(module.instance).forEach(function (modulePropName) {
+          var moduleProp = module.instance[modulePropName];
+          if (typeof moduleProp === 'function') {
+            instance[modulePropName] = moduleProp.bind(instance);
+          } else {
+            instance[modulePropName] = moduleProp;
+          }
+        });
+      }
+      // Add event listeners
+      if (module.on && instance.on) {
+        Object.keys(module.on).forEach(function (moduleEventName) {
+          instance.on(moduleEventName, module.on[moduleEventName]);
+        });
+      }
+
+      // Module create callback
+      if (module.create) {
+        module.create.bind(instance)(moduleParams);
+      }
+    });
+  };
+  staticAccessors.components.set = function (components) {
+    var Class = this;
+    if (!Class.use) { return; }
+    Class.use(components);
+  };
+  SwiperClass.installModule = function installModule (module) {
+      var params = [], len = arguments.length - 1;
+      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
+
+    var Class = this;
+    if (!Class.prototype.modules) { Class.prototype.modules = {}; }
+    var name = module.name || (((Object.keys(Class.prototype.modules).length) + "_" + (Utils.now())));
+    Class.prototype.modules[name] = module;
+    // Prototype
+    if (module.proto) {
+      Object.keys(module.proto).forEach(function (key) {
+        Class.prototype[key] = module.proto[key];
+      });
+    }
+    // Class
+    if (module.static) {
+      Object.keys(module.static).forEach(function (key) {
+        Class[key] = module.static[key];
+      });
+    }
+    // Callback
+    if (module.install) {
+      module.install.apply(Class, params);
+    }
+    return Class;
+  };
+  SwiperClass.use = function use (module) {
+      var params = [], len = arguments.length - 1;
+      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
+
+    var Class = this;
+    if (Array.isArray(module)) {
+      module.forEach(function (m) { return Class.installModule(m); });
+      return Class;
+    }
+    return Class.installModule.apply(Class, [ module ].concat( params ));
+  };
+
+  Object.defineProperties( SwiperClass, staticAccessors );
+
+  function updateSize () {
+    var swiper = this;
+    var width;
+    var height;
+    var $el = swiper.$el;
+    if (typeof swiper.params.width !== 'undefined') {
+      width = swiper.params.width;
+    } else {
+      width = $el[0].clientWidth;
+    }
+    if (typeof swiper.params.height !== 'undefined') {
+      height = swiper.params.height;
+    } else {
+      height = $el[0].clientHeight;
+    }
+    if ((width === 0 && swiper.isHorizontal()) || (height === 0 && swiper.isVertical())) {
+      return;
+    }
+
+    // Subtract paddings
+    width = width - parseInt($el.css('padding-left'), 10) - parseInt($el.css('padding-right'), 10);
+    height = height - parseInt($el.css('padding-top'), 10) - parseInt($el.css('padding-bottom'), 10);
+
+    Utils.extend(swiper, {
+      width: width,
+      height: height,
+      size: swiper.isHorizontal() ? width : height,
+    });
+  }
+
+  function updateSlides () {
+    var swiper = this;
+    var params = swiper.params;
+
+    var $wrapperEl = swiper.$wrapperEl;
+    var swiperSize = swiper.size;
+    var rtl = swiper.rtlTranslate;
+    var wrongRTL = swiper.wrongRTL;
+    var slides = $wrapperEl.children(("." + (swiper.params.slideClass)));
+    var isVirtual = swiper.virtual && params.virtual.enabled;
+    var slidesLength = isVirtual ? swiper.virtual.slides.length : slides.length;
+    var snapGrid = [];
+    var slidesGrid = [];
+    var slidesSizesGrid = [];
+
+    var offsetBefore = params.slidesOffsetBefore;
+    if (typeof offsetBefore === 'function') {
+      offsetBefore = params.slidesOffsetBefore.call(swiper);
+    }
+
+    var offsetAfter = params.slidesOffsetAfter;
+    if (typeof offsetAfter === 'function') {
+      offsetAfter = params.slidesOffsetAfter.call(swiper);
+    }
+
+    var previousSlidesLength = slidesLength;
+    var previousSnapGridLength = swiper.snapGrid.length;
+    var previousSlidesGridLength = swiper.snapGrid.length;
+
+    var spaceBetween = params.spaceBetween;
+    var slidePosition = -offsetBefore;
+    var prevSlideSize = 0;
+    var index = 0;
+    if (typeof swiperSize === 'undefined') {
+      return;
+    }
+    if (typeof spaceBetween === 'string' && spaceBetween.indexOf('%') >= 0) {
+      spaceBetween = (parseFloat(spaceBetween.replace('%', '')) / 100) * swiperSize;
+    }
+
+    swiper.virtualSize = -spaceBetween;
+
+    // reset margins
+    if (rtl) { slides.css({ marginLeft: '', marginTop: '' }); }
+    else { slides.css({ marginRight: '', marginBottom: '' }); }
+
+    var slidesNumberEvenToRows;
+    if (params.slidesPerColumn > 1) {
+      if (Math.floor(slidesLength / params.slidesPerColumn) === slidesLength / swiper.params.slidesPerColumn) {
+        slidesNumberEvenToRows = slidesLength;
+      } else {
+        slidesNumberEvenToRows = Math.ceil(slidesLength / params.slidesPerColumn) * params.slidesPerColumn;
+      }
+      if (params.slidesPerView !== 'auto' && params.slidesPerColumnFill === 'row') {
+        slidesNumberEvenToRows = Math.max(slidesNumberEvenToRows, params.slidesPerView * params.slidesPerColumn);
+      }
+    }
+
+    // Calc slides
+    var slideSize;
+    var slidesPerColumn = params.slidesPerColumn;
+    var slidesPerRow = slidesNumberEvenToRows / slidesPerColumn;
+    var numFullColumns = slidesPerRow - ((params.slidesPerColumn * slidesPerRow) - slidesLength);
+    for (var i = 0; i < slidesLength; i += 1) {
+      slideSize = 0;
+      var slide = slides.eq(i);
+      if (params.slidesPerColumn > 1) {
+        // Set slides order
+        var newSlideOrderIndex = (void 0);
+        var column = (void 0);
+        var row = (void 0);
+        if (params.slidesPerColumnFill === 'column') {
+          column = Math.floor(i / slidesPerColumn);
+          row = i - (column * slidesPerColumn);
+          if (column > numFullColumns || (column === numFullColumns && row === slidesPerColumn - 1)) {
+            row += 1;
+            if (row >= slidesPerColumn) {
+              row = 0;
+              column += 1;
+            }
+          }
+          newSlideOrderIndex = column + ((row * slidesNumberEvenToRows) / slidesPerColumn);
+          slide
+            .css({
+              '-webkit-box-ordinal-group': newSlideOrderIndex,
+              '-moz-box-ordinal-group': newSlideOrderIndex,
+              '-ms-flex-order': newSlideOrderIndex,
+              '-webkit-order': newSlideOrderIndex,
+              order: newSlideOrderIndex,
+            });
+        } else {
+          row = Math.floor(i / slidesPerRow);
+          column = i - (row * slidesPerRow);
+        }
+        slide
+          .css(
+            ("margin-" + (swiper.isHorizontal() ? 'top' : 'left')),
+            (row !== 0 && params.spaceBetween) && (((params.spaceBetween) + "px"))
+          )
+          .attr('data-swiper-column', column)
+          .attr('data-swiper-row', row);
+      }
+      if (slide.css('display') === 'none') { continue; } // eslint-disable-line
+
+      if (params.slidesPerView === 'auto') {
+        var slideStyles = win.getComputedStyle(slide[0], null);
+        var currentTransform = slide[0].style.transform;
+        if (currentTransform) {
+          slide[0].style.transform = 'none';
+        }
+        if (swiper.isHorizontal()) {
+          slideSize = slide[0].getBoundingClientRect().width +
+            parseFloat(slideStyles.getPropertyValue('margin-left')) +
+            parseFloat(slideStyles.getPropertyValue('margin-right'));
+        } else {
+          slideSize = slide[0].getBoundingClientRect().height +
+            parseFloat(slideStyles.getPropertyValue('margin-top')) +
+            parseFloat(slideStyles.getPropertyValue('margin-bottom'));
+        }
+        if (currentTransform) {
+          slide[0].style.transform = currentTransform;
+        }
+        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
+      } else {
+        slideSize = (swiperSize - ((params.slidesPerView - 1) * spaceBetween)) / params.slidesPerView;
+        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
+
+        if (slides[i]) {
+          if (swiper.isHorizontal()) {
+            slides[i].style.width = slideSize + "px";
+          } else {
+            slides[i].style.height = slideSize + "px";
+          }
+        }
+      }
+      if (slides[i]) {
+        slides[i].swiperSlideSize = slideSize;
+      }
+      slidesSizesGrid.push(slideSize);
+
+
+      if (params.centeredSlides) {
+        slidePosition = slidePosition + (slideSize / 2) + (prevSlideSize / 2) + spaceBetween;
+        if (prevSlideSize === 0 && i !== 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
+        if (i === 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
+        if (Math.abs(slidePosition) < 1 / 1000) { slidePosition = 0; }
+        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
+        slidesGrid.push(slidePosition);
+      } else {
+        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
+        slidesGrid.push(slidePosition);
+        slidePosition = slidePosition + slideSize + spaceBetween;
+      }
+
+      swiper.virtualSize += slideSize + spaceBetween;
+
+      prevSlideSize = slideSize;
+
+      index += 1;
+    }
+    swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
+    var newSlidesGrid;
+
+    if (
+      rtl && wrongRTL && (params.effect === 'slide' || params.effect === 'coverflow')) {
+      $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") });
+    }
+    if (!Support.flexbox || params.setWrapperSize) {
+      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+    }
+
+    if (params.slidesPerColumn > 1) {
+      swiper.virtualSize = (slideSize + params.spaceBetween) * slidesNumberEvenToRows;
+      swiper.virtualSize = Math.ceil(swiper.virtualSize / params.slidesPerColumn) - params.spaceBetween;
+      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+      if (params.centeredSlides) {
+        newSlidesGrid = [];
+        for (var i$1 = 0; i$1 < snapGrid.length; i$1 += 1) {
+          if (snapGrid[i$1] < swiper.virtualSize + snapGrid[0]) { newSlidesGrid.push(snapGrid[i$1]); }
+        }
+        snapGrid = newSlidesGrid;
+      }
+    }
+
+    // Remove last grid elements depending on width
+    if (!params.centeredSlides) {
+      newSlidesGrid = [];
+      for (var i$2 = 0; i$2 < snapGrid.length; i$2 += 1) {
+        if (snapGrid[i$2] <= swiper.virtualSize - swiperSize) {
+          newSlidesGrid.push(snapGrid[i$2]);
+        }
+      }
+      snapGrid = newSlidesGrid;
+      if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) {
+        snapGrid.push(swiper.virtualSize - swiperSize);
+      }
+    }
+    if (snapGrid.length === 0) { snapGrid = [0]; }
+
+    if (params.spaceBetween !== 0) {
+      if (swiper.isHorizontal()) {
+        if (rtl) { slides.css({ marginLeft: (spaceBetween + "px") }); }
+        else { slides.css({ marginRight: (spaceBetween + "px") }); }
+      } else { slides.css({ marginBottom: (spaceBetween + "px") }); }
+    }
+
+    Utils.extend(swiper, {
+      slides: slides,
+      snapGrid: snapGrid,
+      slidesGrid: slidesGrid,
+      slidesSizesGrid: slidesSizesGrid,
+    });
+
+    if (slidesLength !== previousSlidesLength) {
+      swiper.emit('slidesLengthChange');
+    }
+    if (snapGrid.length !== previousSnapGridLength) {
+      if (swiper.params.watchOverflow) { swiper.checkOverflow(); }
+      swiper.emit('snapGridLengthChange');
+    }
+    if (slidesGrid.length !== previousSlidesGridLength) {
+      swiper.emit('slidesGridLengthChange');
+    }
+
+    if (params.watchSlidesProgress || params.watchSlidesVisibility) {
+      swiper.updateSlidesOffset();
+    }
+  }
+
+  function updateAutoHeight (speed) {
+    var swiper = this;
+    var activeSlides = [];
+    var newHeight = 0;
+    var i;
+    if (typeof speed === 'number') {
+      swiper.setTransition(speed);
+    } else if (speed === true) {
+      swiper.setTransition(swiper.params.speed);
+    }
+    // Find slides currently in view
+    if (swiper.params.slidesPerView !== 'auto' && swiper.params.slidesPerView > 1) {
+      for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
+        var index = swiper.activeIndex + i;
+        if (index > swiper.slides.length) { break; }
+        activeSlides.push(swiper.slides.eq(index)[0]);
+      }
+    } else {
+      activeSlides.push(swiper.slides.eq(swiper.activeIndex)[0]);
+    }
+
+    // Find new height from highest slide in view
+    for (i = 0; i < activeSlides.length; i += 1) {
+      if (typeof activeSlides[i] !== 'undefined') {
+        var height = activeSlides[i].offsetHeight;
+        newHeight = height > newHeight ? height : newHeight;
+      }
+    }
+
+    // Update Height
+    if (newHeight) { swiper.$wrapperEl.css('height', (newHeight + "px")); }
+  }
+
+  function updateSlidesOffset () {
+    var swiper = this;
+    var slides = swiper.slides;
+    for (var i = 0; i < slides.length; i += 1) {
+      slides[i].swiperSlideOffset = swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop;
+    }
+  }
+
+  function updateSlidesProgress (translate) {
+    if ( translate === void 0 ) translate = (this && this.translate) || 0;
+
+    var swiper = this;
+    var params = swiper.params;
+
+    var slides = swiper.slides;
+    var rtl = swiper.rtlTranslate;
+
+    if (slides.length === 0) { return; }
+    if (typeof slides[0].swiperSlideOffset === 'undefined') { swiper.updateSlidesOffset(); }
+
+    var offsetCenter = -translate;
+    if (rtl) { offsetCenter = translate; }
+
+    // Visible Slides
+    slides.removeClass(params.slideVisibleClass);
+
+    for (var i = 0; i < slides.length; i += 1) {
+      var slide = slides[i];
+      var slideProgress =
+        (
+          (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0)) - slide.swiperSlideOffset
+        ) / (slide.swiperSlideSize + params.spaceBetween);
+      if (params.watchSlidesVisibility) {
+        var slideBefore = -(offsetCenter - slide.swiperSlideOffset);
+        var slideAfter = slideBefore + swiper.slidesSizesGrid[i];
+        var isVisible =
+                  (slideBefore >= 0 && slideBefore < swiper.size) ||
+                  (slideAfter > 0 && slideAfter <= swiper.size) ||
+                  (slideBefore <= 0 && slideAfter >= swiper.size);
+        if (isVisible) {
+          slides.eq(i).addClass(params.slideVisibleClass);
+        }
+      }
+      slide.progress = rtl ? -slideProgress : slideProgress;
+    }
+  }
+
+  function updateProgress (translate) {
+    if ( translate === void 0 ) translate = (this && this.translate) || 0;
+
+    var swiper = this;
+    var params = swiper.params;
+
+    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    var progress = swiper.progress;
+    var isBeginning = swiper.isBeginning;
+    var isEnd = swiper.isEnd;
+    var wasBeginning = isBeginning;
+    var wasEnd = isEnd;
+    if (translatesDiff === 0) {
+      progress = 0;
+      isBeginning = true;
+      isEnd = true;
+    } else {
+      progress = (translate - swiper.minTranslate()) / (translatesDiff);
+      isBeginning = progress <= 0;
+      isEnd = progress >= 1;
+    }
+    Utils.extend(swiper, {
+      progress: progress,
+      isBeginning: isBeginning,
+      isEnd: isEnd,
+    });
+
+    if (params.watchSlidesProgress || params.watchSlidesVisibility) { swiper.updateSlidesProgress(translate); }
+
+    if (isBeginning && !wasBeginning) {
+      swiper.emit('reachBeginning toEdge');
+    }
+    if (isEnd && !wasEnd) {
+      swiper.emit('reachEnd toEdge');
+    }
+    if ((wasBeginning && !isBeginning) || (wasEnd && !isEnd)) {
+      swiper.emit('fromEdge');
+    }
+
+    swiper.emit('progress', progress);
+  }
+
+  function updateSlidesClasses () {
+    var swiper = this;
+
+    var slides = swiper.slides;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var activeIndex = swiper.activeIndex;
+    var realIndex = swiper.realIndex;
+    var isVirtual = swiper.virtual && params.virtual.enabled;
+
+    slides.removeClass(((params.slideActiveClass) + " " + (params.slideNextClass) + " " + (params.slidePrevClass) + " " + (params.slideDuplicateActiveClass) + " " + (params.slideDuplicateNextClass) + " " + (params.slideDuplicatePrevClass)));
+
+    var activeSlide;
+    if (isVirtual) {
+      activeSlide = swiper.$wrapperEl.find(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + activeIndex + "\"]"));
+    } else {
+      activeSlide = slides.eq(activeIndex);
+    }
+
+    // Active classes
+    activeSlide.addClass(params.slideActiveClass);
+
+    if (params.loop) {
+      // Duplicate to all looped slides
+      if (activeSlide.hasClass(params.slideDuplicateClass)) {
+        $wrapperEl
+          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + realIndex + "\"]"))
+          .addClass(params.slideDuplicateActiveClass);
+      } else {
+        $wrapperEl
+          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]"))
+          .addClass(params.slideDuplicateActiveClass);
+      }
+    }
+    // Next Slide
+    var nextSlide = activeSlide.nextAll(("." + (params.slideClass))).eq(0).addClass(params.slideNextClass);
+    if (params.loop && nextSlide.length === 0) {
+      nextSlide = slides.eq(0);
+      nextSlide.addClass(params.slideNextClass);
+    }
+    // Prev Slide
+    var prevSlide = activeSlide.prevAll(("." + (params.slideClass))).eq(0).addClass(params.slidePrevClass);
+    if (params.loop && prevSlide.length === 0) {
+      prevSlide = slides.eq(-1);
+      prevSlide.addClass(params.slidePrevClass);
+    }
+    if (params.loop) {
+      // Duplicate to all looped slides
+      if (nextSlide.hasClass(params.slideDuplicateClass)) {
+        $wrapperEl
+          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicateNextClass);
+      } else {
+        $wrapperEl
+          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicateNextClass);
+      }
+      if (prevSlide.hasClass(params.slideDuplicateClass)) {
+        $wrapperEl
+          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicatePrevClass);
+      } else {
+        $wrapperEl
+          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicatePrevClass);
+      }
+    }
+  }
+
+  function updateActiveIndex (newActiveIndex) {
+    var swiper = this;
+    var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    var slidesGrid = swiper.slidesGrid;
+    var snapGrid = swiper.snapGrid;
+    var params = swiper.params;
+    var previousIndex = swiper.activeIndex;
+    var previousRealIndex = swiper.realIndex;
+    var previousSnapIndex = swiper.snapIndex;
+    var activeIndex = newActiveIndex;
+    var snapIndex;
+    if (typeof activeIndex === 'undefined') {
+      for (var i = 0; i < slidesGrid.length; i += 1) {
+        if (typeof slidesGrid[i + 1] !== 'undefined') {
+          if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1] - ((slidesGrid[i + 1] - slidesGrid[i]) / 2)) {
+            activeIndex = i;
+          } else if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1]) {
+            activeIndex = i + 1;
+          }
+        } else if (translate >= slidesGrid[i]) {
+          activeIndex = i;
+        }
+      }
+      // Normalize slideIndex
+      if (params.normalizeSlideIndex) {
+        if (activeIndex < 0 || typeof activeIndex === 'undefined') { activeIndex = 0; }
+      }
+    }
+    if (snapGrid.indexOf(translate) >= 0) {
+      snapIndex = snapGrid.indexOf(translate);
+    } else {
+      snapIndex = Math.floor(activeIndex / params.slidesPerGroup);
+    }
+    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
+    if (activeIndex === previousIndex) {
+      if (snapIndex !== previousSnapIndex) {
+        swiper.snapIndex = snapIndex;
+        swiper.emit('snapIndexChange');
+      }
+      return;
+    }
+
+    // Get real index
+    var realIndex = parseInt(swiper.slides.eq(activeIndex).attr('data-swiper-slide-index') || activeIndex, 10);
+
+    Utils.extend(swiper, {
+      snapIndex: snapIndex,
+      realIndex: realIndex,
+      previousIndex: previousIndex,
+      activeIndex: activeIndex,
+    });
+    swiper.emit('activeIndexChange');
+    swiper.emit('snapIndexChange');
+    if (previousRealIndex !== realIndex) {
+      swiper.emit('realIndexChange');
+    }
+    swiper.emit('slideChange');
+  }
+
+  function updateClickedSlide (e) {
+    var swiper = this;
+    var params = swiper.params;
+    var slide = $(e.target).closest(("." + (params.slideClass)))[0];
+    var slideFound = false;
+    if (slide) {
+      for (var i = 0; i < swiper.slides.length; i += 1) {
+        if (swiper.slides[i] === slide) { slideFound = true; }
+      }
+    }
+
+    if (slide && slideFound) {
+      swiper.clickedSlide = slide;
+      if (swiper.virtual && swiper.params.virtual.enabled) {
+        swiper.clickedIndex = parseInt($(slide).attr('data-swiper-slide-index'), 10);
+      } else {
+        swiper.clickedIndex = $(slide).index();
+      }
+    } else {
+      swiper.clickedSlide = undefined;
+      swiper.clickedIndex = undefined;
+      return;
+    }
+    if (params.slideToClickedSlide && swiper.clickedIndex !== undefined && swiper.clickedIndex !== swiper.activeIndex) {
+      swiper.slideToClickedSlide();
+    }
+  }
+
+  var update = {
+    updateSize: updateSize,
+    updateSlides: updateSlides,
+    updateAutoHeight: updateAutoHeight,
+    updateSlidesOffset: updateSlidesOffset,
+    updateSlidesProgress: updateSlidesProgress,
+    updateProgress: updateProgress,
+    updateSlidesClasses: updateSlidesClasses,
+    updateActiveIndex: updateActiveIndex,
+    updateClickedSlide: updateClickedSlide,
+  };
+
+  function getTranslate (axis) {
+    if ( axis === void 0 ) axis = this.isHorizontal() ? 'x' : 'y';
+
+    var swiper = this;
+
+    var params = swiper.params;
+    var rtl = swiper.rtlTranslate;
+    var translate = swiper.translate;
+    var $wrapperEl = swiper.$wrapperEl;
+
+    if (params.virtualTranslate) {
+      return rtl ? -translate : translate;
+    }
+
+    var currentTranslate = Utils.getTranslate($wrapperEl[0], axis);
+    if (rtl) { currentTranslate = -currentTranslate; }
+
+    return currentTranslate || 0;
+  }
+
+  function setTranslate (translate, byController) {
+    var swiper = this;
+    var rtl = swiper.rtlTranslate;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var progress = swiper.progress;
+    var x = 0;
+    var y = 0;
+    var z = 0;
+
+    if (swiper.isHorizontal()) {
+      x = rtl ? -translate : translate;
+    } else {
+      y = translate;
+    }
+
+    if (params.roundLengths) {
+      x = Math.floor(x);
+      y = Math.floor(y);
+    }
+
+    if (!params.virtualTranslate) {
+      if (Support.transforms3d) { $wrapperEl.transform(("translate3d(" + x + "px, " + y + "px, " + z + "px)")); }
+      else { $wrapperEl.transform(("translate(" + x + "px, " + y + "px)")); }
+    }
+
+    swiper.translate = swiper.isHorizontal() ? x : y;
+
+    // Check if we need to update progress
+    var newProgress;
+    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    if (translatesDiff === 0) {
+      newProgress = 0;
+    } else {
+      newProgress = (translate - swiper.minTranslate()) / (translatesDiff);
+    }
+    if (newProgress !== progress) {
+      swiper.updateProgress(translate);
+    }
+
+    swiper.emit('setTranslate', swiper.translate, byController);
+  }
+
+  function minTranslate () {
+    return (-this.snapGrid[0]);
+  }
+
+  function maxTranslate () {
+    return (-this.snapGrid[this.snapGrid.length - 1]);
+  }
+
+  var translate = {
+    getTranslate: getTranslate,
+    setTranslate: setTranslate,
+    minTranslate: minTranslate,
+    maxTranslate: maxTranslate,
+  };
+
+  function setTransition (duration, byController) {
+    var swiper = this;
+
+    swiper.$wrapperEl.transition(duration);
+
+    swiper.emit('setTransition', duration, byController);
+  }
+
+  function transitionStart (runCallbacks, direction) {
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var activeIndex = swiper.activeIndex;
+    var params = swiper.params;
+    var previousIndex = swiper.previousIndex;
+    if (params.autoHeight) {
+      swiper.updateAutoHeight();
+    }
+
+    var dir = direction;
+    if (!dir) {
+      if (activeIndex > previousIndex) { dir = 'next'; }
+      else if (activeIndex < previousIndex) { dir = 'prev'; }
+      else { dir = 'reset'; }
+    }
+
+    swiper.emit('transitionStart');
+
+    if (runCallbacks && activeIndex !== previousIndex) {
+      if (dir === 'reset') {
+        swiper.emit('slideResetTransitionStart');
+        return;
+      }
+      swiper.emit('slideChangeTransitionStart');
+      if (dir === 'next') {
+        swiper.emit('slideNextTransitionStart');
+      } else {
+        swiper.emit('slidePrevTransitionStart');
+      }
+    }
+  }
+
+  function transitionEnd$1 (runCallbacks, direction) {
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var activeIndex = swiper.activeIndex;
+    var previousIndex = swiper.previousIndex;
+    swiper.animating = false;
+    swiper.setTransition(0);
+
+    var dir = direction;
+    if (!dir) {
+      if (activeIndex > previousIndex) { dir = 'next'; }
+      else if (activeIndex < previousIndex) { dir = 'prev'; }
+      else { dir = 'reset'; }
+    }
+
+    swiper.emit('transitionEnd');
+
+    if (runCallbacks && activeIndex !== previousIndex) {
+      if (dir === 'reset') {
+        swiper.emit('slideResetTransitionEnd');
+        return;
+      }
+      swiper.emit('slideChangeTransitionEnd');
+      if (dir === 'next') {
+        swiper.emit('slideNextTransitionEnd');
+      } else {
+        swiper.emit('slidePrevTransitionEnd');
+      }
+    }
+  }
+
+  var transition$1 = {
+    setTransition: setTransition,
+    transitionStart: transitionStart,
+    transitionEnd: transitionEnd$1,
+  };
+
+  function slideTo (index, speed, runCallbacks, internal) {
+    if ( index === void 0 ) index = 0;
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var slideIndex = index;
+    if (slideIndex < 0) { slideIndex = 0; }
+
+    var params = swiper.params;
+    var snapGrid = swiper.snapGrid;
+    var slidesGrid = swiper.slidesGrid;
+    var previousIndex = swiper.previousIndex;
+    var activeIndex = swiper.activeIndex;
+    var rtl = swiper.rtlTranslate;
+    if (swiper.animating && params.preventIntercationOnTransition) {
+      return false;
+    }
+
+    var snapIndex = Math.floor(slideIndex / params.slidesPerGroup);
+    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
+
+    if ((activeIndex || params.initialSlide || 0) === (previousIndex || 0) && runCallbacks) {
+      swiper.emit('beforeSlideChangeStart');
+    }
+
+    var translate = -snapGrid[snapIndex];
+
+    // Update progress
+    swiper.updateProgress(translate);
+
+    // Normalize slideIndex
+    if (params.normalizeSlideIndex) {
+      for (var i = 0; i < slidesGrid.length; i += 1) {
+        if (-Math.floor(translate * 100) >= Math.floor(slidesGrid[i] * 100)) {
+          slideIndex = i;
+        }
+      }
+    }
+    // Directions locks
+    if (swiper.initialized && slideIndex !== activeIndex) {
+      if (!swiper.allowSlideNext && translate < swiper.translate && translate < swiper.minTranslate()) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && translate > swiper.translate && translate > swiper.maxTranslate()) {
+        if ((activeIndex || 0) !== slideIndex) { return false; }
+      }
+    }
+
+    var direction;
+    if (slideIndex > activeIndex) { direction = 'next'; }
+    else if (slideIndex < activeIndex) { direction = 'prev'; }
+    else { direction = 'reset'; }
+
+
+    // Update Index
+    if ((rtl && -translate === swiper.translate) || (!rtl && translate === swiper.translate)) {
+      swiper.updateActiveIndex(slideIndex);
+      // Update Height
+      if (params.autoHeight) {
+        swiper.updateAutoHeight();
+      }
+      swiper.updateSlidesClasses();
+      if (params.effect !== 'slide') {
+        swiper.setTranslate(translate);
+      }
+      if (direction !== 'reset') {
+        swiper.transitionStart(runCallbacks, direction);
+        swiper.transitionEnd(runCallbacks, direction);
+      }
+      return false;
+    }
+
+    if (speed === 0 || !Support.transition) {
+      swiper.setTransition(0);
+      swiper.setTranslate(translate);
+      swiper.updateActiveIndex(slideIndex);
+      swiper.updateSlidesClasses();
+      swiper.emit('beforeTransitionStart', speed, internal);
+      swiper.transitionStart(runCallbacks, direction);
+      swiper.transitionEnd(runCallbacks, direction);
+    } else {
+      swiper.setTransition(speed);
+      swiper.setTranslate(translate);
+      swiper.updateActiveIndex(slideIndex);
+      swiper.updateSlidesClasses();
+      swiper.emit('beforeTransitionStart', speed, internal);
+      swiper.transitionStart(runCallbacks, direction);
+      if (!swiper.animating) {
+        swiper.animating = true;
+        if (!swiper.onSlideToWrapperTransitionEnd) {
+          swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
+            if (!swiper || swiper.destroyed) { return; }
+            if (e.target !== this) { return; }
+            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
+            swiper.transitionEnd(runCallbacks, direction);
+          };
+        }
+        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
+      }
+    }
+
+    return true;
+  }
+
+  function slideToLoop (index, speed, runCallbacks, internal) {
+    if ( index === void 0 ) index = 0;
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var newIndex = index;
+    if (swiper.params.loop) {
+      newIndex += swiper.loopedSlides;
+    }
+
+    return swiper.slideTo(newIndex, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slideNext (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var params = swiper.params;
+    var animating = swiper.animating;
+    if (params.loop) {
+      if (animating) { return false; }
+      swiper.loopFix();
+      // eslint-disable-next-line
+      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
+      return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
+    }
+    return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slidePrev (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var params = swiper.params;
+    var animating = swiper.animating;
+    var snapGrid = swiper.snapGrid;
+    var slidesGrid = swiper.slidesGrid;
+    var rtlTranslate = swiper.rtlTranslate;
+
+    if (params.loop) {
+      if (animating) { return false; }
+      swiper.loopFix();
+      // eslint-disable-next-line
+      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
+    }
+    var translate = rtlTranslate ? swiper.translate : -swiper.translate;
+    var currentSnap = snapGrid[snapGrid.indexOf(translate)];
+    var prevSnap = snapGrid[snapGrid.indexOf(translate) - 1];
+    var prevIndex;
+
+    if (prevSnap) {
+      prevIndex = slidesGrid.indexOf(prevSnap);
+      if (prevIndex < 0) { prevIndex = swiper.activeIndex - 1; }
+    }
+    return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slideReset (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slideToClosest (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var index = swiper.activeIndex;
+    var snapIndex = Math.floor(index / swiper.params.slidesPerGroup);
+
+    if (snapIndex < swiper.snapGrid.length - 1) {
+      var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+
+      var currentSnap = swiper.snapGrid[snapIndex];
+      var nextSnap = swiper.snapGrid[snapIndex + 1];
+
+      if ((translate - currentSnap) > (nextSnap - currentSnap) / 2) {
+        index = swiper.params.slidesPerGroup;
+      }
+    }
+
+    return swiper.slideTo(index, speed, runCallbacks, internal);
+  }
+
+  function slideToClickedSlide () {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+
+    var slidesPerView = params.slidesPerView === 'auto' ? swiper.slidesPerViewDynamic() : params.slidesPerView;
+    var slideToIndex = swiper.clickedIndex;
+    var realIndex;
+    if (params.loop) {
+      if (swiper.animating) { return; }
+      realIndex = parseInt($(swiper.clickedSlide).attr('data-swiper-slide-index'), 10);
+      if (params.centeredSlides) {
+        if (
+          (slideToIndex < swiper.loopedSlides - (slidesPerView / 2)) ||
+          (slideToIndex > (swiper.slides.length - swiper.loopedSlides) + (slidesPerView / 2))
+        ) {
+          swiper.loopFix();
+          slideToIndex = $wrapperEl
+            .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
+            .eq(0)
+            .index();
+
+          Utils.nextTick(function () {
+            swiper.slideTo(slideToIndex);
+          });
+        } else {
+          swiper.slideTo(slideToIndex);
+        }
+      } else if (slideToIndex > swiper.slides.length - slidesPerView) {
+        swiper.loopFix();
+        slideToIndex = $wrapperEl
+          .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
+          .eq(0)
+          .index();
+
+        Utils.nextTick(function () {
+          swiper.slideTo(slideToIndex);
+        });
+      } else {
+        swiper.slideTo(slideToIndex);
+      }
+    } else {
+      swiper.slideTo(slideToIndex);
+    }
+  }
+
+  var slide = {
+    slideTo: slideTo,
+    slideToLoop: slideToLoop,
+    slideNext: slideNext,
+    slidePrev: slidePrev,
+    slideReset: slideReset,
+    slideToClosest: slideToClosest,
+    slideToClickedSlide: slideToClickedSlide,
+  };
+
+  function loopCreate () {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    // Remove duplicated slides
+    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
+
+    var slides = $wrapperEl.children(("." + (params.slideClass)));
+
+    if (params.loopFillGroupWithBlank) {
+      var blankSlidesNum = params.slidesPerGroup - (slides.length % params.slidesPerGroup);
+      if (blankSlidesNum !== params.slidesPerGroup) {
+        for (var i = 0; i < blankSlidesNum; i += 1) {
+          var blankNode = $(doc.createElement('div')).addClass(((params.slideClass) + " " + (params.slideBlankClass)));
+          $wrapperEl.append(blankNode);
+        }
+        slides = $wrapperEl.children(("." + (params.slideClass)));
+      }
+    }
+
+    if (params.slidesPerView === 'auto' && !params.loopedSlides) { params.loopedSlides = slides.length; }
+
+    swiper.loopedSlides = parseInt(params.loopedSlides || params.slidesPerView, 10);
+    swiper.loopedSlides += params.loopAdditionalSlides;
+    if (swiper.loopedSlides > slides.length) {
+      swiper.loopedSlides = slides.length;
+    }
+
+    var prependSlides = [];
+    var appendSlides = [];
+    slides.each(function (index, el) {
+      var slide = $(el);
+      if (index < swiper.loopedSlides) { appendSlides.push(el); }
+      if (index < slides.length && index >= slides.length - swiper.loopedSlides) { prependSlides.push(el); }
+      slide.attr('data-swiper-slide-index', index);
+    });
+    for (var i$1 = 0; i$1 < appendSlides.length; i$1 += 1) {
+      $wrapperEl.append($(appendSlides[i$1].cloneNode(true)).addClass(params.slideDuplicateClass));
+    }
+    for (var i$2 = prependSlides.length - 1; i$2 >= 0; i$2 -= 1) {
+      $wrapperEl.prepend($(prependSlides[i$2].cloneNode(true)).addClass(params.slideDuplicateClass));
+    }
+  }
+
+  function loopFix () {
+    var swiper = this;
+    var params = swiper.params;
+    var activeIndex = swiper.activeIndex;
+    var slides = swiper.slides;
+    var loopedSlides = swiper.loopedSlides;
+    var allowSlidePrev = swiper.allowSlidePrev;
+    var allowSlideNext = swiper.allowSlideNext;
+    var snapGrid = swiper.snapGrid;
+    var rtl = swiper.rtlTranslate;
+    var newIndex;
+    swiper.allowSlidePrev = true;
+    swiper.allowSlideNext = true;
+
+    var snapTranslate = -snapGrid[activeIndex];
+    var diff = snapTranslate - swiper.getTranslate();
+
+
+    // Fix For Negative Oversliding
+    if (activeIndex < loopedSlides) {
+      newIndex = (slides.length - (loopedSlides * 3)) + activeIndex;
+      newIndex += loopedSlides;
+      var slideChanged = swiper.slideTo(newIndex, 0, false, true);
+      if (slideChanged && diff !== 0) {
+        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
+      }
+    } else if ((params.slidesPerView === 'auto' && activeIndex >= loopedSlides * 2) || (activeIndex > slides.length - (params.slidesPerView * 2))) {
+      // Fix For Positive Oversliding
+      newIndex = -slides.length + activeIndex + loopedSlides;
+      newIndex += loopedSlides;
+      var slideChanged$1 = swiper.slideTo(newIndex, 0, false, true);
+      if (slideChanged$1 && diff !== 0) {
+        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
+      }
+    }
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+  }
+
+  function loopDestroy () {
+    var swiper = this;
+    var $wrapperEl = swiper.$wrapperEl;
+    var params = swiper.params;
+    var slides = swiper.slides;
+    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
+    slides.removeAttr('data-swiper-slide-index');
+  }
+
+  var loop = {
+    loopCreate: loopCreate,
+    loopFix: loopFix,
+    loopDestroy: loopDestroy,
+  };
+
+  function setGrabCursor (moving) {
+    var swiper = this;
+    if (Support.touch || !swiper.params.simulateTouch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
+    var el = swiper.el;
+    el.style.cursor = 'move';
+    el.style.cursor = moving ? '-webkit-grabbing' : '-webkit-grab';
+    el.style.cursor = moving ? '-moz-grabbin' : '-moz-grab';
+    el.style.cursor = moving ? 'grabbing' : 'grab';
+  }
+
+  function unsetGrabCursor () {
+    var swiper = this;
+    if (Support.touch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
+    swiper.el.style.cursor = '';
+  }
+
+  var grabCursor = {
+    setGrabCursor: setGrabCursor,
+    unsetGrabCursor: unsetGrabCursor,
+  };
+
+  function appendSlide (slides) {
+    var swiper = this;
+    var $wrapperEl = swiper.$wrapperEl;
+    var params = swiper.params;
+    if (params.loop) {
+      swiper.loopDestroy();
+    }
+    if (typeof slides === 'object' && 'length' in slides) {
+      for (var i = 0; i < slides.length; i += 1) {
+        if (slides[i]) { $wrapperEl.append(slides[i]); }
+      }
+    } else {
+      $wrapperEl.append(slides);
+    }
+    if (params.loop) {
+      swiper.loopCreate();
+    }
+    if (!(params.observer && Support.observer)) {
+      swiper.update();
+    }
+  }
+
+  function prependSlide (slides) {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var activeIndex = swiper.activeIndex;
+
+    if (params.loop) {
+      swiper.loopDestroy();
+    }
+    var newActiveIndex = activeIndex + 1;
+    if (typeof slides === 'object' && 'length' in slides) {
+      for (var i = 0; i < slides.length; i += 1) {
+        if (slides[i]) { $wrapperEl.prepend(slides[i]); }
+      }
+      newActiveIndex = activeIndex + slides.length;
+    } else {
+      $wrapperEl.prepend(slides);
+    }
+    if (params.loop) {
+      swiper.loopCreate();
+    }
+    if (!(params.observer && Support.observer)) {
+      swiper.update();
+    }
+    swiper.slideTo(newActiveIndex, 0, false);
+  }
+
+  function removeSlide (slidesIndexes) {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var activeIndex = swiper.activeIndex;
+
+    if (params.loop) {
+      swiper.loopDestroy();
+      swiper.slides = $wrapperEl.children(("." + (params.slideClass)));
+    }
+    var newActiveIndex = activeIndex;
+    var indexToRemove;
+
+    if (typeof slidesIndexes === 'object' && 'length' in slidesIndexes) {
+      for (var i = 0; i < slidesIndexes.length; i += 1) {
+        indexToRemove = slidesIndexes[i];
+        if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
+        if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
+      }
+      newActiveIndex = Math.max(newActiveIndex, 0);
+    } else {
+      indexToRemove = slidesIndexes;
+      if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
+      if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
+      newActiveIndex = Math.max(newActiveIndex, 0);
+    }
+
+    if (params.loop) {
+      swiper.loopCreate();
+    }
+
+    if (!(params.observer && Support.observer)) {
+      swiper.update();
+    }
+    if (params.loop) {
+      swiper.slideTo(newActiveIndex + swiper.loopedSlides, 0, false);
+    } else {
+      swiper.slideTo(newActiveIndex, 0, false);
+    }
+  }
+
+  function removeAllSlides () {
+    var swiper = this;
+
+    var slidesIndexes = [];
+    for (var i = 0; i < swiper.slides.length; i += 1) {
+      slidesIndexes.push(i);
+    }
+    swiper.removeSlide(slidesIndexes);
+  }
+
+  var manipulation = {
+    appendSlide: appendSlide,
+    prependSlide: prependSlide,
+    removeSlide: removeSlide,
+    removeAllSlides: removeAllSlides,
+  };
+
+  var Device = (function Device() {
+    var ua = win.navigator.userAgent;
+
+    var device = {
+      ios: false,
+      android: false,
+      androidChrome: false,
+      desktop: false,
+      windows: false,
+      iphone: false,
+      ipod: false,
+      ipad: false,
+      cordova: win.cordova || win.phonegap,
+      phonegap: win.cordova || win.phonegap,
+    };
+
+    var windows = ua.match(/(Windows Phone);?[\s\/]+([\d.]+)?/); // eslint-disable-line
+    var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/); // eslint-disable-line
+    var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
+    var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
+    var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
+
+
+    // Windows
+    if (windows) {
+      device.os = 'windows';
+      device.osVersion = windows[2];
+      device.windows = true;
+    }
+    // Android
+    if (android && !windows) {
+      device.os = 'android';
+      device.osVersion = android[2];
+      device.android = true;
+      device.androidChrome = ua.toLowerCase().indexOf('chrome') >= 0;
+    }
+    if (ipad || iphone || ipod) {
+      device.os = 'ios';
+      device.ios = true;
+    }
+    // iOS
+    if (iphone && !ipod) {
+      device.osVersion = iphone[2].replace(/_/g, '.');
+      device.iphone = true;
+    }
+    if (ipad) {
+      device.osVersion = ipad[2].replace(/_/g, '.');
+      device.ipad = true;
+    }
+    if (ipod) {
+      device.osVersion = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
+      device.iphone = true;
+    }
+    // iOS 8+ changed UA
+    if (device.ios && device.osVersion && ua.indexOf('Version/') >= 0) {
+      if (device.osVersion.split('.')[0] === '10') {
+        device.osVersion = ua.toLowerCase().split('version/')[1].split(' ')[0];
+      }
+    }
+
+    // Desktop
+    device.desktop = !(device.os || device.android || device.webView);
+
+    // Webview
+    device.webView = (iphone || ipad || ipod) && ua.match(/.*AppleWebKit(?!.*Safari)/i);
+
+    // Minimal UI
+    if (device.os && device.os === 'ios') {
+      var osVersionArr = device.osVersion.split('.');
+      var metaViewport = doc.querySelector('meta[name="viewport"]');
+      device.minimalUi =
+        !device.webView &&
+        (ipod || iphone) &&
+        (osVersionArr[0] * 1 === 7 ? osVersionArr[1] * 1 >= 1 : osVersionArr[0] * 1 > 7) &&
+        metaViewport && metaViewport.getAttribute('content').indexOf('minimal-ui') >= 0;
+    }
+
+    // Pixel Ratio
+    device.pixelRatio = win.devicePixelRatio || 1;
+
+    // Export object
+    return device;
+  }());
+
+  function onTouchStart (event) {
+    var swiper = this;
+    var data = swiper.touchEventsData;
+    var params = swiper.params;
+    var touches = swiper.touches;
+    if (swiper.animating && params.preventIntercationOnTransition) {
+      return;
+    }
+    var e = event;
+    if (e.originalEvent) { e = e.originalEvent; }
+    data.isTouchEvent = e.type === 'touchstart';
+    if (!data.isTouchEvent && 'which' in e && e.which === 3) { return; }
+    if (data.isTouched && data.isMoved) { return; }
+    if (params.noSwiping && $(e.target).closest(params.noSwipingSelector ? params.noSwipingSelector : ("." + (params.noSwipingClass)))[0]) {
+      swiper.allowClick = true;
+      return;
+    }
+    if (params.swipeHandler) {
+      if (!$(e).closest(params.swipeHandler)[0]) { return; }
+    }
+
+    touches.currentX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
+    touches.currentY = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
+    var startX = touches.currentX;
+    var startY = touches.currentY;
+
+    // Do NOT start if iOS edge swipe is detected. Otherwise iOS app (UIWebView) cannot swipe-to-go-back anymore
+
+    if (
+      Device.ios &&
+      !Device.cordova &&
+      params.iOSEdgeSwipeDetection &&
+      (startX <= params.iOSEdgeSwipeThreshold) &&
+      (startX >= win.screen.width - params.iOSEdgeSwipeThreshold)
+    ) {
+      return;
+    }
+
+    Utils.extend(data, {
+      isTouched: true,
+      isMoved: false,
+      allowTouchCallbacks: true,
+      isScrolling: undefined,
+      startMoving: undefined,
+    });
+
+    touches.startX = startX;
+    touches.startY = startY;
+    data.touchStartTime = Utils.now();
+    swiper.allowClick = true;
+    swiper.updateSize();
+    swiper.swipeDirection = undefined;
+    if (params.threshold > 0) { data.allowThresholdMove = false; }
+    if (e.type !== 'touchstart') {
+      var preventDefault = true;
+      if ($(e.target).is(data.formElements)) { preventDefault = false; }
+      if (
+        doc.activeElement &&
+        $(doc.activeElement).is(data.formElements) &&
+        doc.activeElement !== e.target
+      ) {
+        doc.activeElement.blur();
+      }
+      if (preventDefault && swiper.allowTouchMove) {
+        e.preventDefault();
+      }
+    }
+    swiper.emit('touchStart', e);
+  }
+
+  function onTouchMove (event) {
+    var swiper = this;
+    var data = swiper.touchEventsData;
+    var params = swiper.params;
+    var touches = swiper.touches;
+    var rtl = swiper.rtlTranslate;
+    var e = event;
+    if (e.originalEvent) { e = e.originalEvent; }
+    if (!data.isTouched) {
+      if (data.startMoving && data.isScrolling) {
+        swiper.emit('touchMoveOpposite', e);
+      }
+      return;
+    }
+    if (data.isTouchEvent && e.type === 'mousemove') { return; }
+    var pageX = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
+    var pageY = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
+    if (e.preventedByNestedSwiper) {
+      touches.startX = pageX;
+      touches.startY = pageY;
+      return;
+    }
+    if (!swiper.allowTouchMove) {
+      // isMoved = true;
+      swiper.allowClick = false;
+      if (data.isTouched) {
+        Utils.extend(touches, {
+          startX: pageX,
+          startY: pageY,
+          currentX: pageX,
+          currentY: pageY,
+        });
+        data.touchStartTime = Utils.now();
+      }
+      return;
+    }
+    if (data.isTouchEvent && params.touchReleaseOnEdges && !params.loop) {
+      if (swiper.isVertical()) {
+        // Vertical
+        if (
+          (pageY < touches.startY && swiper.translate <= swiper.maxTranslate()) ||
+          (pageY > touches.startY && swiper.translate >= swiper.minTranslate())
+        ) {
+          data.isTouched = false;
+          data.isMoved = false;
+          return;
+        }
+      } else if (
+        (pageX < touches.startX && swiper.translate <= swiper.maxTranslate()) ||
+        (pageX > touches.startX && swiper.translate >= swiper.minTranslate())
+      ) {
+        return;
+      }
+    }
+    if (data.isTouchEvent && doc.activeElement) {
+      if (e.target === doc.activeElement && $(e.target).is(data.formElements)) {
+        data.isMoved = true;
+        swiper.allowClick = false;
+        return;
+      }
+    }
+    if (data.allowTouchCallbacks) {
+      swiper.emit('touchMove', e);
+    }
+    if (e.targetTouches && e.targetTouches.length > 1) { return; }
+
+    touches.currentX = pageX;
+    touches.currentY = pageY;
+
+    var diffX = touches.currentX - touches.startX;
+    var diffY = touches.currentY - touches.startY;
+
+    if (typeof data.isScrolling === 'undefined') {
+      var touchAngle;
+      if ((swiper.isHorizontal() && touches.currentY === touches.startY) || (swiper.isVertical() && touches.currentX === touches.startX)) {
+        data.isScrolling = false;
+      } else {
+        // eslint-disable-next-line
+        if ((diffX * diffX) + (diffY * diffY) >= 25) {
+          touchAngle = (Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180) / Math.PI;
+          data.isScrolling = swiper.isHorizontal() ? touchAngle > params.touchAngle : (90 - touchAngle > params.touchAngle);
+        }
+      }
+    }
+    if (data.isScrolling) {
+      swiper.emit('touchMoveOpposite', e);
+    }
+    if (typeof startMoving === 'undefined') {
+      if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) {
+        data.startMoving = true;
+      }
+    }
+    if (data.isScrolling) {
+      data.isTouched = false;
+      return;
+    }
+    if (!data.startMoving) {
+      return;
+    }
+    swiper.allowClick = false;
+    e.preventDefault();
+    if (params.touchMoveStopPropagation && !params.nested) {
+      e.stopPropagation();
+    }
+
+    if (!data.isMoved) {
+      if (params.loop) {
+        swiper.loopFix();
+      }
+      data.startTranslate = swiper.getTranslate();
+      swiper.setTransition(0);
+      if (swiper.animating) {
+        swiper.$wrapperEl.trigger('webkitTransitionEnd transitionend');
+      }
+      data.allowMomentumBounce = false;
+      // Grab Cursor
+      if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+        swiper.setGrabCursor(true);
+      }
+      swiper.emit('sliderFirstMove', e);
+    }
+    swiper.emit('sliderMove', e);
+    data.isMoved = true;
+
+    var diff = swiper.isHorizontal() ? diffX : diffY;
+    touches.diff = diff;
+
+    diff *= params.touchRatio;
+    if (rtl) { diff = -diff; }
+
+    swiper.swipeDirection = diff > 0 ? 'prev' : 'next';
+    data.currentTranslate = diff + data.startTranslate;
+
+    var disableParentSwiper = true;
+    var resistanceRatio = params.resistanceRatio;
+    if (params.touchReleaseOnEdges) {
+      resistanceRatio = 0;
+    }
+    if ((diff > 0 && data.currentTranslate > swiper.minTranslate())) {
+      disableParentSwiper = false;
+      if (params.resistance) { data.currentTranslate = (swiper.minTranslate() - 1) + (Math.pow( (-swiper.minTranslate() + data.startTranslate + diff), resistanceRatio )); }
+    } else if (diff < 0 && data.currentTranslate < swiper.maxTranslate()) {
+      disableParentSwiper = false;
+      if (params.resistance) { data.currentTranslate = (swiper.maxTranslate() + 1) - (Math.pow( (swiper.maxTranslate() - data.startTranslate - diff), resistanceRatio )); }
+    }
+
+    if (disableParentSwiper) {
+      e.preventedByNestedSwiper = true;
+    }
+
+    // Directions locks
+    if (!swiper.allowSlideNext && swiper.swipeDirection === 'next' && data.currentTranslate < data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (!swiper.allowSlidePrev && swiper.swipeDirection === 'prev' && data.currentTranslate > data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+
+
+    // Threshold
+    if (params.threshold > 0) {
+      if (Math.abs(diff) > params.threshold || data.allowThresholdMove) {
+        if (!data.allowThresholdMove) {
+          data.allowThresholdMove = true;
+          touches.startX = touches.currentX;
+          touches.startY = touches.currentY;
+          data.currentTranslate = data.startTranslate;
+          touches.diff = swiper.isHorizontal() ? touches.currentX - touches.startX : touches.currentY - touches.startY;
+          return;
+        }
+      } else {
+        data.currentTranslate = data.startTranslate;
+        return;
+      }
+    }
+
+    if (!params.followFinger) { return; }
+
+    // Update active index in free mode
+    if (params.freeMode || params.watchSlidesProgress || params.watchSlidesVisibility) {
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    }
+    if (params.freeMode) {
+      // Velocity
+      if (data.velocities.length === 0) {
+        data.velocities.push({
+          position: touches[swiper.isHorizontal() ? 'startX' : 'startY'],
+          time: data.touchStartTime,
+        });
+      }
+      data.velocities.push({
+        position: touches[swiper.isHorizontal() ? 'currentX' : 'currentY'],
+        time: Utils.now(),
+      });
+    }
+    // Update progress
+    swiper.updateProgress(data.currentTranslate);
+    // Update translate
+    swiper.setTranslate(data.currentTranslate);
+  }
+
+  function onTouchEnd (event) {
+    var swiper = this;
+    var data = swiper.touchEventsData;
+
+    var params = swiper.params;
+    var touches = swiper.touches;
+    var rtl = swiper.rtlTranslate;
+    var $wrapperEl = swiper.$wrapperEl;
+    var slidesGrid = swiper.slidesGrid;
+    var snapGrid = swiper.snapGrid;
+    var e = event;
+    if (e.originalEvent) { e = e.originalEvent; }
+    if (data.allowTouchCallbacks) {
+      swiper.emit('touchEnd', e);
+    }
+    data.allowTouchCallbacks = false;
+    if (!data.isTouched) {
+      if (data.isMoved && params.grabCursor) {
+        swiper.setGrabCursor(false);
+      }
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    // Return Grab Cursor
+    if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+      swiper.setGrabCursor(false);
+    }
+
+    // Time diff
+    var touchEndTime = Utils.now();
+    var timeDiff = touchEndTime - data.touchStartTime;
+
+    // Tap, doubleTap, Click
+    if (swiper.allowClick) {
+      swiper.updateClickedSlide(e);
+      swiper.emit('tap', e);
+      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) > 300) {
+        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
+        data.clickTimeout = Utils.nextTick(function () {
+          if (!swiper || swiper.destroyed) { return; }
+          swiper.emit('click', e);
+        }, 300);
+      }
+      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) < 300) {
+        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
+        swiper.emit('doubleTap', e);
+      }
+    }
+
+    data.lastClickTime = Utils.now();
+    Utils.nextTick(function () {
+      if (!swiper.destroyed) { swiper.allowClick = true; }
+    });
+
+    if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || touches.diff === 0 || data.currentTranslate === data.startTranslate) {
+      data.isTouched = false;
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    data.isTouched = false;
+    data.isMoved = false;
+    data.startMoving = false;
+
+    var currentPos;
+    if (params.followFinger) {
+      currentPos = rtl ? swiper.translate : -swiper.translate;
+    } else {
+      currentPos = -data.currentTranslate;
+    }
+
+    if (params.freeMode) {
+      if (currentPos < -swiper.minTranslate()) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      } else if (currentPos > -swiper.maxTranslate()) {
+        if (swiper.slides.length < snapGrid.length) {
+          swiper.slideTo(snapGrid.length - 1);
+        } else {
+          swiper.slideTo(swiper.slides.length - 1);
+        }
+        return;
+      }
+
+      if (params.freeModeMomentum) {
+        if (data.velocities.length > 1) {
+          var lastMoveEvent = data.velocities.pop();
+          var velocityEvent = data.velocities.pop();
+
+          var distance = lastMoveEvent.position - velocityEvent.position;
+          var time = lastMoveEvent.time - velocityEvent.time;
+          swiper.velocity = distance / time;
+          swiper.velocity /= 2;
+          if (Math.abs(swiper.velocity) < params.freeModeMinimumVelocity) {
+            swiper.velocity = 0;
+          }
+          // this implies that the user stopped moving a finger then released.
+          // There would be no events with distance zero, so the last event is stale.
+          if (time > 150 || (Utils.now() - lastMoveEvent.time) > 300) {
+            swiper.velocity = 0;
+          }
+        } else {
+          swiper.velocity = 0;
+        }
+        swiper.velocity *= params.freeModeMomentumVelocityRatio;
+
+        data.velocities.length = 0;
+        var momentumDuration = 1000 * params.freeModeMomentumRatio;
+        var momentumDistance = swiper.velocity * momentumDuration;
+
+        var newPosition = swiper.translate + momentumDistance;
+        if (rtl) { newPosition = -newPosition; }
+
+        var doBounce = false;
+        var afterBouncePosition;
+        var bounceAmount = Math.abs(swiper.velocity) * 20 * params.freeModeMomentumBounceRatio;
+        var needsLoopFix;
+        if (newPosition < swiper.maxTranslate()) {
+          if (params.freeModeMomentumBounce) {
+            if (newPosition + swiper.maxTranslate() < -bounceAmount) {
+              newPosition = swiper.maxTranslate() - bounceAmount;
+            }
+            afterBouncePosition = swiper.maxTranslate();
+            doBounce = true;
+            data.allowMomentumBounce = true;
+          } else {
+            newPosition = swiper.maxTranslate();
+          }
+          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
+        } else if (newPosition > swiper.minTranslate()) {
+          if (params.freeModeMomentumBounce) {
+            if (newPosition - swiper.minTranslate() > bounceAmount) {
+              newPosition = swiper.minTranslate() + bounceAmount;
+            }
+            afterBouncePosition = swiper.minTranslate();
+            doBounce = true;
+            data.allowMomentumBounce = true;
+          } else {
+            newPosition = swiper.minTranslate();
+          }
+          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
+        } else if (params.freeModeSticky) {
+          var nextSlide;
+          for (var j = 0; j < snapGrid.length; j += 1) {
+            if (snapGrid[j] > -newPosition) {
+              nextSlide = j;
+              break;
+            }
+          }
+
+          if (Math.abs(snapGrid[nextSlide] - newPosition) < Math.abs(snapGrid[nextSlide - 1] - newPosition) || swiper.swipeDirection === 'next') {
+            newPosition = snapGrid[nextSlide];
+          } else {
+            newPosition = snapGrid[nextSlide - 1];
+          }
+          newPosition = -newPosition;
+        }
+        if (needsLoopFix) {
+          swiper.once('transitionEnd', function () {
+            swiper.loopFix();
+          });
+        }
+        // Fix duration
+        if (swiper.velocity !== 0) {
+          if (rtl) {
+            momentumDuration = Math.abs((-newPosition - swiper.translate) / swiper.velocity);
+          } else {
+            momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
+          }
+        } else if (params.freeModeSticky) {
+          swiper.slideToClosest();
+          return;
+        }
+
+        if (params.freeModeMomentumBounce && doBounce) {
+          swiper.updateProgress(afterBouncePosition);
+          swiper.setTransition(momentumDuration);
+          swiper.setTranslate(newPosition);
+          swiper.transitionStart(true, swiper.swipeDirection);
+          swiper.animating = true;
+          $wrapperEl.transitionEnd(function () {
+            if (!swiper || swiper.destroyed || !data.allowMomentumBounce) { return; }
+            swiper.emit('momentumBounce');
+
+            swiper.setTransition(params.speed);
+            swiper.setTranslate(afterBouncePosition);
+            $wrapperEl.transitionEnd(function () {
+              if (!swiper || swiper.destroyed) { return; }
+              swiper.transitionEnd();
+            });
+          });
+        } else if (swiper.velocity) {
+          swiper.updateProgress(newPosition);
+          swiper.setTransition(momentumDuration);
+          swiper.setTranslate(newPosition);
+          swiper.transitionStart(true, swiper.swipeDirection);
+          if (!swiper.animating) {
+            swiper.animating = true;
+            $wrapperEl.transitionEnd(function () {
+              if (!swiper || swiper.destroyed) { return; }
+              swiper.transitionEnd();
+            });
+          }
+        } else {
+          swiper.updateProgress(newPosition);
+        }
+
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      } else if (params.freeModeSticky) {
+        swiper.slideToClosest();
+        return;
+      }
+
+      if (!params.freeModeMomentum || timeDiff >= params.longSwipesMs) {
+        swiper.updateProgress();
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      }
+      return;
+    }
+
+    // Find current slide
+    var stopIndex = 0;
+    var groupSize = swiper.slidesSizesGrid[0];
+    for (var i = 0; i < slidesGrid.length; i += params.slidesPerGroup) {
+      if (typeof slidesGrid[i + params.slidesPerGroup] !== 'undefined') {
+        if (currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + params.slidesPerGroup]) {
+          stopIndex = i;
+          groupSize = slidesGrid[i + params.slidesPerGroup] - slidesGrid[i];
+        }
+      } else if (currentPos >= slidesGrid[i]) {
+        stopIndex = i;
+        groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
+      }
+    }
+
+    // Find current slide size
+    var ratio = (currentPos - slidesGrid[stopIndex]) / groupSize;
+
+    if (timeDiff > params.longSwipesMs) {
+      // Long touches
+      if (!params.longSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      if (swiper.swipeDirection === 'next') {
+        if (ratio >= params.longSwipesRatio) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
+        else { swiper.slideTo(stopIndex); }
+      }
+      if (swiper.swipeDirection === 'prev') {
+        if (ratio > (1 - params.longSwipesRatio)) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
+        else { swiper.slideTo(stopIndex); }
+      }
+    } else {
+      // Short swipes
+      if (!params.shortSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      if (swiper.swipeDirection === 'next') {
+        swiper.slideTo(stopIndex + params.slidesPerGroup);
+      }
+      if (swiper.swipeDirection === 'prev') {
+        swiper.slideTo(stopIndex);
+      }
+    }
+  }
+
+  function onResize () {
+    var swiper = this;
+
+    var params = swiper.params;
+    var el = swiper.el;
+
+    if (el && el.offsetWidth === 0) { return; }
+
+    // Breakpoints
+    if (params.breakpoints) {
+      swiper.setBreakpoint();
+    }
+
+    // Save locks
+    var allowSlideNext = swiper.allowSlideNext;
+    var allowSlidePrev = swiper.allowSlidePrev;
+    var snapGrid = swiper.snapGrid;
+
+    // Disable locks on resize
+    swiper.allowSlideNext = true;
+    swiper.allowSlidePrev = true;
+
+    swiper.updateSize();
+    swiper.updateSlides();
+
+    if (params.freeMode) {
+      var newTranslate = Math.min(Math.max(swiper.translate, swiper.maxTranslate()), swiper.minTranslate());
+      swiper.setTranslate(newTranslate);
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+
+      if (params.autoHeight) {
+        swiper.updateAutoHeight();
+      }
+    } else {
+      swiper.updateSlidesClasses();
+      if ((params.slidesPerView === 'auto' || params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
+        swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+      } else {
+        swiper.slideTo(swiper.activeIndex, 0, false, true);
+      }
+    }
+    // Return locks after resize
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+
+    if (swiper.params.watchOverflow && snapGrid !== swiper.snapGrid) {
+      swiper.checkOverflow();
+    }
+  }
+
+  function onClick (e) {
+    var swiper = this;
+    if (!swiper.allowClick) {
+      if (swiper.params.preventClicks) { e.preventDefault(); }
+      if (swiper.params.preventClicksPropagation && swiper.animating) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+      }
+    }
+  }
+
+  function attachEvents() {
+    var swiper = this;
+    var params = swiper.params;
+    var touchEvents = swiper.touchEvents;
+    var el = swiper.el;
+    var wrapperEl = swiper.wrapperEl;
+
+    {
+      swiper.onTouchStart = onTouchStart.bind(swiper);
+      swiper.onTouchMove = onTouchMove.bind(swiper);
+      swiper.onTouchEnd = onTouchEnd.bind(swiper);
+    }
+
+    swiper.onClick = onClick.bind(swiper);
+
+    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
+    var capture = !!params.nested;
+
+    // Touch Events
+    {
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.addEventListener(touchEvents.start, swiper.onTouchStart, false);
+        doc.addEventListener(touchEvents.move, swiper.onTouchMove, capture);
+        doc.addEventListener(touchEvents.end, swiper.onTouchEnd, false);
+      } else {
+        if (Support.touch) {
+          var passiveListener = touchEvents.start === 'touchstart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
+          target.addEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
+          target.addEventListener(touchEvents.move, swiper.onTouchMove, Support.passiveListener ? { passive: false, capture: capture } : capture);
+          target.addEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.addEventListener('mousedown', swiper.onTouchStart, false);
+          doc.addEventListener('mousemove', swiper.onTouchMove, capture);
+          doc.addEventListener('mouseup', swiper.onTouchEnd, false);
+        }
+      }
+      // Prevent Links Clicks
+      if (params.preventClicks || params.preventClicksPropagation) {
+        target.addEventListener('click', swiper.onClick, true);
+      }
+    }
+
+    // Resize handler
+    swiper.on('resize observerUpdate', onResize, true);
+  }
+
+  function detachEvents() {
+    var swiper = this;
+
+    var params = swiper.params;
+    var touchEvents = swiper.touchEvents;
+    var el = swiper.el;
+    var wrapperEl = swiper.wrapperEl;
+
+    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
+    var capture = !!params.nested;
+
+    // Touch Events
+    {
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.removeEventListener(touchEvents.start, swiper.onTouchStart, false);
+        doc.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
+        doc.removeEventListener(touchEvents.end, swiper.onTouchEnd, false);
+      } else {
+        if (Support.touch) {
+          var passiveListener = touchEvents.start === 'onTouchStart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
+          target.removeEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
+          target.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
+          target.removeEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.removeEventListener('mousedown', swiper.onTouchStart, false);
+          doc.removeEventListener('mousemove', swiper.onTouchMove, capture);
+          doc.removeEventListener('mouseup', swiper.onTouchEnd, false);
+        }
+      }
+      // Prevent Links Clicks
+      if (params.preventClicks || params.preventClicksPropagation) {
+        target.removeEventListener('click', swiper.onClick, true);
+      }
+    }
+
+    // Resize handler
+    swiper.off('resize observerUpdate', onResize);
+  }
+
+  var events = {
+    attachEvents: attachEvents,
+    detachEvents: detachEvents,
+  };
+
+  function setBreakpoint () {
+    var swiper = this;
+    var activeIndex = swiper.activeIndex;
+    var initialized = swiper.initialized;
+    var loopedSlides = swiper.loopedSlides; if ( loopedSlides === void 0 ) loopedSlides = 0;
+    var params = swiper.params;
+    var breakpoints = params.breakpoints;
+    if (!breakpoints || (breakpoints && Object.keys(breakpoints).length === 0)) { return; }
+    // Set breakpoint for window width and update parameters
+    var breakpoint = swiper.getBreakpoint(breakpoints);
+    if (breakpoint && swiper.currentBreakpoint !== breakpoint) {
+      var breakPointsParams = breakpoint in breakpoints ? breakpoints[breakpoint] : swiper.originalParams;
+      var needsReLoop = params.loop && (breakPointsParams.slidesPerView !== params.slidesPerView);
+
+      Utils.extend(swiper.params, breakPointsParams);
+
+      Utils.extend(swiper, {
+        allowTouchMove: swiper.params.allowTouchMove,
+        allowSlideNext: swiper.params.allowSlideNext,
+        allowSlidePrev: swiper.params.allowSlidePrev,
+      });
+
+      swiper.currentBreakpoint = breakpoint;
+
+      if (needsReLoop && initialized) {
+        swiper.loopDestroy();
+        swiper.loopCreate();
+        swiper.updateSlides();
+        swiper.slideTo((activeIndex - loopedSlides) + swiper.loopedSlides, 0, false);
+      }
+      swiper.emit('breakpoint', breakPointsParams);
+    }
+  }
+
+  function getBreakpoint (breakpoints) {
+    // Get breakpoint for window width
+    if (!breakpoints) { return undefined; }
+    var breakpoint = false;
+    var points = [];
+    Object.keys(breakpoints).forEach(function (point) {
+      points.push(point);
+    });
+    points.sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
+    for (var i = 0; i < points.length; i += 1) {
+      var point = points[i];
+      if (point >= win.innerWidth && !breakpoint) {
+        breakpoint = point;
+      }
+    }
+    return breakpoint || 'max';
+  }
+
+  var breakpoints = { setBreakpoint: setBreakpoint, getBreakpoint: getBreakpoint };
+
+  var Browser = (function Browser() {
+    function isSafari() {
+      var ua = win.navigator.userAgent.toLowerCase();
+      return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
+    }
+    return {
+      isIE: !!win.navigator.userAgent.match(/Trident/g) || !!win.navigator.userAgent.match(/MSIE/g),
+      isSafari: isSafari(),
+      isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(win.navigator.userAgent),
+    };
+  }());
+
+  function addClasses () {
+    var swiper = this;
+    var classNames = swiper.classNames;
+    var params = swiper.params;
+    var rtl = swiper.rtl;
+    var $el = swiper.$el;
+    var suffixes = [];
+
+    suffixes.push(params.direction);
+
+    if (params.freeMode) {
+      suffixes.push('free-mode');
+    }
+    if (!Support.flexbox) {
+      suffixes.push('no-flexbox');
+    }
+    if (params.autoHeight) {
+      suffixes.push('autoheight');
+    }
+    if (rtl) {
+      suffixes.push('rtl');
+    }
+    if (params.slidesPerColumn > 1) {
+      suffixes.push('multirow');
+    }
+    if (Device.android) {
+      suffixes.push('android');
+    }
+    if (Device.ios) {
+      suffixes.push('ios');
+    }
+    // WP8 Touch Events Fix
+    if (Browser.isIE && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+      suffixes.push(("wp8-" + (params.direction)));
+    }
+
+    suffixes.forEach(function (suffix) {
+      classNames.push(params.containerModifierClass + suffix);
+    });
+
+    $el.addClass(classNames.join(' '));
+  }
+
+  function removeClasses () {
+    var swiper = this;
+    var $el = swiper.$el;
+    var classNames = swiper.classNames;
+
+    $el.removeClass(classNames.join(' '));
+  }
+
+  var classes = { addClasses: addClasses, removeClasses: removeClasses };
+
+  function loadImage (imageEl, src, srcset, sizes, checkForComplete, callback) {
+    var image;
+    function onReady() {
+      if (callback) { callback(); }
+    }
+    if (!imageEl.complete || !checkForComplete) {
+      if (src) {
+        image = new win.Image();
+        image.onload = onReady;
+        image.onerror = onReady;
+        if (sizes) {
+          image.sizes = sizes;
+        }
+        if (srcset) {
+          image.srcset = srcset;
+        }
+        if (src) {
+          image.src = src;
+        }
+      } else {
+        onReady();
+      }
+    } else {
+      // image already loaded...
+      onReady();
+    }
+  }
+
+  function preloadImages () {
+    var swiper = this;
+    swiper.imagesToLoad = swiper.$el.find('img');
+    function onReady() {
+      if (typeof swiper === 'undefined' || swiper === null || !swiper || swiper.destroyed) { return; }
+      if (swiper.imagesLoaded !== undefined) { swiper.imagesLoaded += 1; }
+      if (swiper.imagesLoaded === swiper.imagesToLoad.length) {
+        if (swiper.params.updateOnImagesReady) { swiper.update(); }
+        swiper.emit('imagesReady');
+      }
+    }
+    for (var i = 0; i < swiper.imagesToLoad.length; i += 1) {
+      var imageEl = swiper.imagesToLoad[i];
+      swiper.loadImage(
+        imageEl,
+        imageEl.currentSrc || imageEl.getAttribute('src'),
+        imageEl.srcset || imageEl.getAttribute('srcset'),
+        imageEl.sizes || imageEl.getAttribute('sizes'),
+        true,
+        onReady
+      );
+    }
+  }
+
+  var images = {
+    loadImage: loadImage,
+    preloadImages: preloadImages,
+  };
+
+  function checkOverflow() {
+    var swiper = this;
+    var wasLocked = swiper.isLocked;
+
+    swiper.isLocked = swiper.snapGrid.length === 1;
+    swiper.allowSlideNext = !swiper.isLocked;
+    swiper.allowSlidePrev = !swiper.isLocked;
+
+    // events
+    if (wasLocked !== swiper.isLocked) { swiper.emit(swiper.isLocked ? 'lock' : 'unlock'); }
+
+    if (wasLocked && wasLocked !== swiper.isLocked) {
+      swiper.isEnd = false;
+      swiper.navigation.update();
+    }
+  }
+
+  var checkOverflow$1 = { checkOverflow: checkOverflow };
+
+  var defaults = {
+    init: true,
+    direction: 'horizontal',
+    touchEventsTarget: 'container',
+    initialSlide: 0,
+    speed: 300,
+    //
+    preventIntercationOnTransition: false,
+
+    // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
+    iOSEdgeSwipeDetection: false,
+    iOSEdgeSwipeThreshold: 20,
+
+    // Free mode
+    freeMode: false,
+    freeModeMomentum: true,
+    freeModeMomentumRatio: 1,
+    freeModeMomentumBounce: true,
+    freeModeMomentumBounceRatio: 1,
+    freeModeMomentumVelocityRatio: 1,
+    freeModeSticky: false,
+    freeModeMinimumVelocity: 0.02,
+
+    // Autoheight
+    autoHeight: false,
+
+    // Set wrapper width
+    setWrapperSize: false,
+
+    // Virtual Translate
+    virtualTranslate: false,
+
+    // Effects
+    effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
+
+    // Breakpoints
+    breakpoints: undefined,
+
+    // Slides grid
+    spaceBetween: 0,
+    slidesPerView: 1,
+    slidesPerColumn: 1,
+    slidesPerColumnFill: 'column',
+    slidesPerGroup: 1,
+    centeredSlides: false,
+    slidesOffsetBefore: 0, // in px
+    slidesOffsetAfter: 0, // in px
+    normalizeSlideIndex: true,
+
+    // Disable swiper and hide navigation when container not overflow
+    watchOverflow: false,
+
+    // Round length
+    roundLengths: false,
+
+    // Touches
+    touchRatio: 1,
+    touchAngle: 45,
+    simulateTouch: true,
+    shortSwipes: true,
+    longSwipes: true,
+    longSwipesRatio: 0.5,
+    longSwipesMs: 300,
+    followFinger: true,
+    allowTouchMove: true,
+    threshold: 0,
+    touchMoveStopPropagation: true,
+    touchReleaseOnEdges: false,
+
+    // Unique Navigation Elements
+    uniqueNavElements: true,
+
+    // Resistance
+    resistance: true,
+    resistanceRatio: 0.85,
+
+    // Progress
+    watchSlidesProgress: false,
+    watchSlidesVisibility: false,
+
+    // Cursor
+    grabCursor: false,
+
+    // Clicks
+    preventClicks: true,
+    preventClicksPropagation: true,
+    slideToClickedSlide: false,
+
+    // Images
+    preloadImages: true,
+    updateOnImagesReady: true,
+
+    // loop
+    loop: false,
+    loopAdditionalSlides: 0,
+    loopedSlides: null,
+    loopFillGroupWithBlank: false,
+
+    // Swiping/no swiping
+    allowSlidePrev: true,
+    allowSlideNext: true,
+    swipeHandler: null, // '.swipe-handler',
+    noSwiping: true,
+    noSwipingClass: 'swiper-no-swiping',
+    noSwipingSelector: null,
+
+    // Passive Listeners
+    passiveListeners: true,
+
+    // NS
+    containerModifierClass: 'swiper-container-', // NEW
+    slideClass: 'swiper-slide',
+    slideBlankClass: 'swiper-slide-invisible-blank',
+    slideActiveClass: 'swiper-slide-active',
+    slideDuplicateActiveClass: 'swiper-slide-duplicate-active',
+    slideVisibleClass: 'swiper-slide-visible',
+    slideDuplicateClass: 'swiper-slide-duplicate',
+    slideNextClass: 'swiper-slide-next',
+    slideDuplicateNextClass: 'swiper-slide-duplicate-next',
+    slidePrevClass: 'swiper-slide-prev',
+    slideDuplicatePrevClass: 'swiper-slide-duplicate-prev',
+    wrapperClass: 'swiper-wrapper',
+
+    // Callbacks
+    runCallbacksOnInit: true,
+  };
+
+  var prototypes = {
+    update: update,
+    translate: translate,
+    transition: transition$1,
+    slide: slide,
+    loop: loop,
+    grabCursor: grabCursor,
+    manipulation: manipulation,
+    events: events,
+    breakpoints: breakpoints,
+    checkOverflow: checkOverflow$1,
+    classes: classes,
+    images: images,
+  };
+
+  var extendedDefaults = {};
+
+  var Swiper = (function (SwiperClass$$1) {
+    function Swiper() {
+      var assign;
+
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+      var el;
+      var params;
+      if (args.length === 1 && args[0].constructor && args[0].constructor === Object) {
+        params = args[0];
+      } else {
+        (assign = args, el = assign[0], params = assign[1]);
+      }
+      if (!params) { params = {}; }
+
+      params = Utils.extend({}, params);
+      if (el && !params.el) { params.el = el; }
+
+      SwiperClass$$1.call(this, params);
+
+      Object.keys(prototypes).forEach(function (prototypeGroup) {
+        Object.keys(prototypes[prototypeGroup]).forEach(function (protoMethod) {
+          if (!Swiper.prototype[protoMethod]) {
+            Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+          }
+        });
+      });
+
+      // Swiper Instance
+      var swiper = this;
+      if (typeof swiper.modules === 'undefined') {
+        swiper.modules = {};
+      }
+      Object.keys(swiper.modules).forEach(function (moduleName) {
+        var module = swiper.modules[moduleName];
+        if (module.params) {
+          var moduleParamName = Object.keys(module.params)[0];
+          var moduleParams = module.params[moduleParamName];
+          if (typeof moduleParams !== 'object') { return; }
+          if (!(moduleParamName in params && 'enabled' in moduleParams)) { return; }
+          if (params[moduleParamName] === true) {
+            params[moduleParamName] = { enabled: true };
+          }
+          if (
+            typeof params[moduleParamName] === 'object' &&
+            !('enabled' in params[moduleParamName])
+          ) {
+            params[moduleParamName].enabled = true;
+          }
+          if (!params[moduleParamName]) { params[moduleParamName] = { enabled: false }; }
+        }
+      });
+
+      // Extend defaults with modules params
+      var swiperParams = Utils.extend({}, defaults);
+      swiper.useModulesParams(swiperParams);
+
+      // Extend defaults with passed params
+      swiper.params = Utils.extend({}, swiperParams, extendedDefaults, params);
+      swiper.originalParams = Utils.extend({}, swiper.params);
+      swiper.passedParams = Utils.extend({}, params);
+
+      // Save Dom lib
+      swiper.$ = $;
+
+      // Find el
+      var $el = $(swiper.params.el);
+      el = $el[0];
+
+      if (!el) {
+        return undefined;
+      }
+
+      if ($el.length > 1) {
+        var swipers = [];
+        $el.each(function (index, containerEl) {
+          var newParams = Utils.extend({}, params, { el: containerEl });
+          swipers.push(new Swiper(newParams));
+        });
+        return swipers;
+      }
+
+      el.swiper = swiper;
+      $el.data('swiper', swiper);
+
+      // Find Wrapper
+      var $wrapperEl = $el.children(("." + (swiper.params.wrapperClass)));
+
+      // Extend Swiper
+      Utils.extend(swiper, {
+        $el: $el,
+        el: el,
+        $wrapperEl: $wrapperEl,
+        wrapperEl: $wrapperEl[0],
+
+        // Classes
+        classNames: [],
+
+        // Slides
+        slides: $(),
+        slidesGrid: [],
+        snapGrid: [],
+        slidesSizesGrid: [],
+
+        // isDirection
+        isHorizontal: function isHorizontal() {
+          return swiper.params.direction === 'horizontal';
+        },
+        isVertical: function isVertical() {
+          return swiper.params.direction === 'vertical';
+        },
+        // RTL
+        rtl: (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
+        rtlTranslate: swiper.params.direction === 'horizontal' && (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
+        wrongRTL: $wrapperEl.css('display') === '-webkit-box',
+
+        // Indexes
+        activeIndex: 0,
+        realIndex: 0,
+
+        //
+        isBeginning: true,
+        isEnd: false,
+
+        // Props
+        translate: 0,
+        progress: 0,
+        velocity: 0,
+        animating: false,
+
+        // Locks
+        allowSlideNext: swiper.params.allowSlideNext,
+        allowSlidePrev: swiper.params.allowSlidePrev,
+
+        // Touch Events
+        touchEvents: (function touchEvents() {
+          var touch = ['touchstart', 'touchmove', 'touchend'];
+          var desktop = ['mousedown', 'mousemove', 'mouseup'];
+          if (Support.pointerEvents) {
+            desktop = ['pointerdown', 'pointermove', 'pointerup'];
+          } else if (Support.prefixedPointerEvents) {
+            desktop = ['MSPointerDown', 'MSPointerMove', 'MSPointerUp'];
+          }
+          swiper.touchEventsTouch = {
+            start: touch[0],
+            move: touch[1],
+            end: touch[2],
+          };
+          swiper.touchEventsDesktop = {
+            start: desktop[0],
+            move: desktop[1],
+            end: desktop[2],
+          };
+          return Support.touch || !swiper.params.simulateTouch ? swiper.touchEventsTouch : swiper.touchEventsDesktop;
+        }()),
+        touchEventsData: {
+          isTouched: undefined,
+          isMoved: undefined,
+          allowTouchCallbacks: undefined,
+          touchStartTime: undefined,
+          isScrolling: undefined,
+          currentTranslate: undefined,
+          startTranslate: undefined,
+          allowThresholdMove: undefined,
+          // Form elements to match
+          formElements: 'input, select, option, textarea, button, video',
+          // Last click time
+          lastClickTime: Utils.now(),
+          clickTimeout: undefined,
+          // Velocities
+          velocities: [],
+          allowMomentumBounce: undefined,
+          isTouchEvent: undefined,
+          startMoving: undefined,
+        },
+
+        // Clicks
+        allowClick: true,
+
+        // Touches
+        allowTouchMove: swiper.params.allowTouchMove,
+
+        touches: {
+          startX: 0,
+          startY: 0,
+          currentX: 0,
+          currentY: 0,
+          diff: 0,
+        },
+
+        // Images
+        imagesToLoad: [],
+        imagesLoaded: 0,
+
+      });
+
+      // Install Modules
+      swiper.useModules();
+
+      // Init
+      if (swiper.params.init) {
+        swiper.init();
+      }
+
+      // Return app instance
+      return swiper;
+    }
+
+    if ( SwiperClass$$1 ) Swiper.__proto__ = SwiperClass$$1;
+    Swiper.prototype = Object.create( SwiperClass$$1 && SwiperClass$$1.prototype );
+    Swiper.prototype.constructor = Swiper;
+
+    var staticAccessors = { extendedDefaults: { configurable: true },defaults: { configurable: true },Class: { configurable: true },$: { configurable: true } };
+    Swiper.prototype.slidesPerViewDynamic = function slidesPerViewDynamic () {
+      var swiper = this;
+      var params = swiper.params;
+      var slides = swiper.slides;
+      var slidesGrid = swiper.slidesGrid;
+      var swiperSize = swiper.size;
+      var activeIndex = swiper.activeIndex;
+      var spv = 1;
+      if (params.centeredSlides) {
+        var slideSize = slides[activeIndex].swiperSlideSize;
+        var breakLoop;
+        for (var i = activeIndex + 1; i < slides.length; i += 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += slides[i].swiperSlideSize;
+            spv += 1;
+            if (slideSize > swiperSize) { breakLoop = true; }
+          }
+        }
+        for (var i$1 = activeIndex - 1; i$1 >= 0; i$1 -= 1) {
+          if (slides[i$1] && !breakLoop) {
+            slideSize += slides[i$1].swiperSlideSize;
+            spv += 1;
+            if (slideSize > swiperSize) { breakLoop = true; }
+          }
+        }
+      } else {
+        for (var i$2 = activeIndex + 1; i$2 < slides.length; i$2 += 1) {
+          if (slidesGrid[i$2] - slidesGrid[activeIndex] < swiperSize) {
+            spv += 1;
+          }
+        }
+      }
+      return spv;
+    };
+    Swiper.prototype.update = function update$$1 () {
+      var swiper = this;
+      if (!swiper || swiper.destroyed) { return; }
+      var snapGrid = swiper.snapGrid;
+      var params = swiper.params;
+      // Breakpoints
+      if (params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+      swiper.updateSize();
+      swiper.updateSlides();
+      swiper.updateProgress();
+      swiper.updateSlidesClasses();
+
+      function setTranslate() {
+        var translateValue = swiper.rtlTranslate ? swiper.translate * -1 : swiper.translate;
+        var newTranslate = Math.min(Math.max(translateValue, swiper.maxTranslate()), swiper.minTranslate());
+        swiper.setTranslate(newTranslate);
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      }
+      var translated;
+      if (swiper.params.freeMode) {
+        setTranslate();
+        if (swiper.params.autoHeight) {
+          swiper.updateAutoHeight();
+        }
+      } else {
+        if ((swiper.params.slidesPerView === 'auto' || swiper.params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
+          translated = swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+        } else {
+          translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
+        }
+        if (!translated) {
+          setTranslate();
+        }
+      }
+      if (params.watchOverflow && snapGrid !== swiper.snapGrid) {
+        swiper.checkOverflow();
+      }
+      swiper.emit('update');
+    };
+    Swiper.prototype.init = function init () {
+      var swiper = this;
+      if (swiper.initialized) { return; }
+
+      swiper.emit('beforeInit');
+
+      // Set breakpoint
+      if (swiper.params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+
+      // Add Classes
+      swiper.addClasses();
+
+      // Create loop
+      if (swiper.params.loop) {
+        swiper.loopCreate();
+      }
+
+      // Update size
+      swiper.updateSize();
+
+      // Update slides
+      swiper.updateSlides();
+
+      if (swiper.params.watchOverflow) {
+        swiper.checkOverflow();
+      }
+
+      // Set Grab Cursor
+      if (swiper.params.grabCursor) {
+        swiper.setGrabCursor();
+      }
+
+      if (swiper.params.preloadImages) {
+        swiper.preloadImages();
+      }
+
+      // Slide To Initial Slide
+      if (swiper.params.loop) {
+        swiper.slideTo(swiper.params.initialSlide + swiper.loopedSlides, 0, swiper.params.runCallbacksOnInit);
+      } else {
+        swiper.slideTo(swiper.params.initialSlide, 0, swiper.params.runCallbacksOnInit);
+      }
+
+      // Attach events
+      swiper.attachEvents();
+
+      // Init Flag
+      swiper.initialized = true;
+
+      // Emit
+      swiper.emit('init');
+    };
+    Swiper.prototype.destroy = function destroy (deleteInstance, cleanStyles) {
+      if ( deleteInstance === void 0 ) deleteInstance = true;
+      if ( cleanStyles === void 0 ) cleanStyles = true;
+
+      var swiper = this;
+      var params = swiper.params;
+      var $el = swiper.$el;
+      var $wrapperEl = swiper.$wrapperEl;
+      var slides = swiper.slides;
+
+      if (typeof swiper.params === 'undefined' || swiper.destroyed) {
+        return null;
+      }
+
+      swiper.emit('beforeDestroy');
+
+      // Init Flag
+      swiper.initialized = false;
+
+      // Detach events
+      swiper.detachEvents();
+
+      // Destroy loop
+      if (params.loop) {
+        swiper.loopDestroy();
+      }
+
+      // Cleanup styles
+      if (cleanStyles) {
+        swiper.removeClasses();
+        $el.removeAttr('style');
+        $wrapperEl.removeAttr('style');
+        if (slides && slides.length) {
+          slides
+            .removeClass([
+              params.slideVisibleClass,
+              params.slideActiveClass,
+              params.slideNextClass,
+              params.slidePrevClass ].join(' '))
+            .removeAttr('style')
+            .removeAttr('data-swiper-slide-index')
+            .removeAttr('data-swiper-column')
+            .removeAttr('data-swiper-row');
+        }
+      }
+
+      swiper.emit('destroy');
+
+      // Detach emitter events
+      Object.keys(swiper.eventsListeners).forEach(function (eventName) {
+        swiper.off(eventName);
+      });
+
+      if (deleteInstance !== false) {
+        swiper.$el[0].swiper = null;
+        swiper.$el.data('swiper', null);
+        Utils.deleteProps(swiper);
+      }
+      swiper.destroyed = true;
+
+      return null;
+    };
+    Swiper.extendDefaults = function extendDefaults (newDefaults) {
+      Utils.extend(extendedDefaults, newDefaults);
+    };
+    staticAccessors.extendedDefaults.get = function () {
+      return extendedDefaults;
+    };
+    staticAccessors.defaults.get = function () {
+      return defaults;
+    };
+    staticAccessors.Class.get = function () {
+      return SwiperClass$$1;
+    };
+    staticAccessors.$.get = function () {
+      return $;
+    };
+
+    Object.defineProperties( Swiper, staticAccessors );
+
+    return Swiper;
+  }(SwiperClass));
+
+  var Device$1 = {
+    name: 'device',
+    proto: {
+      device: Device,
+    },
+    static: {
+      device: Device,
+    },
+  };
+
+  var Support$1 = {
+    name: 'support',
+    proto: {
+      support: Support,
+    },
+    static: {
+      support: Support,
+    },
+  };
+
+  var Browser$1 = {
+    name: 'browser',
+    proto: {
+      browser: Browser,
+    },
+    static: {
+      browser: Browser,
+    },
+  };
+
+  var Resize = {
+    name: 'resize',
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        resize: {
+          resizeHandler: function resizeHandler() {
+            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
+            swiper.emit('beforeResize');
+            swiper.emit('resize');
+          },
+          orientationChangeHandler: function orientationChangeHandler() {
+            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
+            swiper.emit('orientationchange');
+          },
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        // Emit resize
+        win.addEventListener('resize', swiper.resize.resizeHandler);
+
+        // Emit orientationchange
+        win.addEventListener('orientationchange', swiper.resize.orientationChangeHandler);
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        win.removeEventListener('resize', swiper.resize.resizeHandler);
+        win.removeEventListener('orientationchange', swiper.resize.orientationChangeHandler);
+      },
+    },
+  };
+
+  var Observer = {
+    func: win.MutationObserver || win.WebkitMutationObserver,
+    attach: function attach(target, options) {
+      if ( options === void 0 ) options = {};
+
+      var swiper = this;
+
+      var ObserverFunc = Observer.func;
+      var observer = new ObserverFunc(function (mutations) {
+        mutations.forEach(function (mutation) {
+          swiper.emit('observerUpdate', mutation);
+        });
+      });
+
+      observer.observe(target, {
+        attributes: typeof options.attributes === 'undefined' ? true : options.attributes,
+        childList: typeof options.childList === 'undefined' ? true : options.childList,
+        characterData: typeof options.characterData === 'undefined' ? true : options.characterData,
+      });
+
+      swiper.observer.observers.push(observer);
+    },
+    init: function init() {
+      var swiper = this;
+      if (!Support.observer || !swiper.params.observer) { return; }
+      if (swiper.params.observeParents) {
+        var containerParents = swiper.$el.parents();
+        for (var i = 0; i < containerParents.length; i += 1) {
+          swiper.observer.attach(containerParents[i]);
+        }
+      }
+      // Observe container
+      swiper.observer.attach(swiper.$el[0], { childList: false });
+
+      // Observe wrapper
+      swiper.observer.attach(swiper.$wrapperEl[0], { attributes: false });
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      swiper.observer.observers.forEach(function (observer) {
+        observer.disconnect();
+      });
+      swiper.observer.observers = [];
+    },
+  };
+
+  var Observer$1 = {
+    name: 'observer',
+    params: {
+      observer: false,
+      observeParents: false,
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        observer: {
+          init: Observer.init.bind(swiper),
+          attach: Observer.attach.bind(swiper),
+          destroy: Observer.destroy.bind(swiper),
+          observers: [],
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.observer.init();
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.observer.destroy();
+      },
+    },
+  };
+
+  var Virtual = {
+    update: function update(force) {
+      var swiper = this;
+      var ref = swiper.params;
+      var slidesPerView = ref.slidesPerView;
+      var slidesPerGroup = ref.slidesPerGroup;
+      var centeredSlides = ref.centeredSlides;
+      var ref$1 = swiper.virtual;
+      var previousFrom = ref$1.from;
+      var previousTo = ref$1.to;
+      var slides = ref$1.slides;
+      var previousSlidesGrid = ref$1.slidesGrid;
+      var renderSlide = ref$1.renderSlide;
+      var previousOffset = ref$1.offset;
+      swiper.updateActiveIndex();
+      var activeIndex = swiper.activeIndex || 0;
+
+      var offsetProp;
+      if (swiper.rtlTranslate) { offsetProp = 'right'; }
+      else { offsetProp = swiper.isHorizontal() ? 'left' : 'top'; }
+
+      var slidesAfter;
+      var slidesBefore;
+      if (centeredSlides) {
+        slidesAfter = Math.floor(slidesPerView / 2) + slidesPerGroup;
+        slidesBefore = Math.floor(slidesPerView / 2) + slidesPerGroup;
+      } else {
+        slidesAfter = slidesPerView + (slidesPerGroup - 1);
+        slidesBefore = slidesPerGroup;
+      }
+      var from = Math.max((activeIndex || 0) - slidesBefore, 0);
+      var to = Math.min((activeIndex || 0) + slidesAfter, slides.length - 1);
+      var offset = (swiper.slidesGrid[from] || 0) - (swiper.slidesGrid[0] || 0);
+
+      Utils.extend(swiper.virtual, {
+        from: from,
+        to: to,
+        offset: offset,
+        slidesGrid: swiper.slidesGrid,
+      });
+
+      function onRendered() {
+        swiper.updateSlides();
+        swiper.updateProgress();
+        swiper.updateSlidesClasses();
+        if (swiper.lazy && swiper.params.lazy.enabled) {
+          swiper.lazy.load();
+        }
+      }
+
+      if (previousFrom === from && previousTo === to && !force) {
+        if (swiper.slidesGrid !== previousSlidesGrid && offset !== previousOffset) {
+          swiper.slides.css(offsetProp, (offset + "px"));
+        }
+        swiper.updateProgress();
+        return;
+      }
+      if (swiper.params.virtual.renderExternal) {
+        swiper.params.virtual.renderExternal.call(swiper, {
+          offset: offset,
+          from: from,
+          to: to,
+          slides: (function getSlides() {
+            var slidesToRender = [];
+            for (var i = from; i <= to; i += 1) {
+              slidesToRender.push(slides[i]);
+            }
+            return slidesToRender;
+          }()),
+        });
+        onRendered();
+        return;
+      }
+      var prependIndexes = [];
+      var appendIndexes = [];
+      if (force) {
+        swiper.$wrapperEl.find(("." + (swiper.params.slideClass))).remove();
+      } else {
+        for (var i = previousFrom; i <= previousTo; i += 1) {
+          if (i < from || i > to) {
+            swiper.$wrapperEl.find(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + i + "\"]")).remove();
+          }
+        }
+      }
+      for (var i$1 = 0; i$1 < slides.length; i$1 += 1) {
+        if (i$1 >= from && i$1 <= to) {
+          if (typeof previousTo === 'undefined' || force) {
+            appendIndexes.push(i$1);
+          } else {
+            if (i$1 > previousTo) { appendIndexes.push(i$1); }
+            if (i$1 < previousFrom) { prependIndexes.push(i$1); }
+          }
+        }
+      }
+      appendIndexes.forEach(function (index) {
+        swiper.$wrapperEl.append(renderSlide(slides[index], index));
+      });
+      prependIndexes.sort(function (a, b) { return a < b; }).forEach(function (index) {
+        swiper.$wrapperEl.prepend(renderSlide(slides[index], index));
+      });
+      swiper.$wrapperEl.children('.swiper-slide').css(offsetProp, (offset + "px"));
+      onRendered();
+    },
+    renderSlide: function renderSlide(slide, index) {
+      var swiper = this;
+      var params = swiper.params.virtual;
+      if (params.cache && swiper.virtual.cache[index]) {
+        return swiper.virtual.cache[index];
+      }
+      var $slideEl = params.renderSlide
+        ? $(params.renderSlide.call(swiper, slide, index))
+        : $(("<div class=\"" + (swiper.params.slideClass) + "\" data-swiper-slide-index=\"" + index + "\">" + slide + "</div>"));
+      if (!$slideEl.attr('data-swiper-slide-index')) { $slideEl.attr('data-swiper-slide-index', index); }
+      if (params.cache) { swiper.virtual.cache[index] = $slideEl; }
+      return $slideEl;
+    },
+    appendSlide: function appendSlide(slide) {
+      var swiper = this;
+      swiper.virtual.slides.push(slide);
+      swiper.virtual.update(true);
+    },
+    prependSlide: function prependSlide(slide) {
+      var swiper = this;
+      swiper.virtual.slides.unshift(slide);
+      if (swiper.params.virtual.cache) {
+        var cache = swiper.virtual.cache;
+        var newCache = {};
+        Object.keys(cache).forEach(function (cachedIndex) {
+          newCache[cachedIndex + 1] = cache[cachedIndex];
+        });
+        swiper.virtual.cache = newCache;
+      }
+      swiper.virtual.update(true);
+      swiper.slideNext(0);
+    },
+  };
+
+  var Virtual$1 = {
+    name: 'virtual',
+    params: {
+      virtual: {
+        enabled: false,
+        slides: [],
+        cache: true,
+        renderSlide: null,
+        renderExternal: null,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        virtual: {
+          update: Virtual.update.bind(swiper),
+          appendSlide: Virtual.appendSlide.bind(swiper),
+          prependSlide: Virtual.prependSlide.bind(swiper),
+          renderSlide: Virtual.renderSlide.bind(swiper),
+          slides: swiper.params.virtual.slides,
+          cache: {},
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (!swiper.params.virtual.enabled) { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "virtual"));
+        var overwriteParams = {
+          watchSlidesProgress: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+
+        swiper.virtual.update();
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (!swiper.params.virtual.enabled) { return; }
+        swiper.virtual.update();
+      },
+    },
+  };
+
+  var Keyboard = {
+    handle: function handle(event) {
+      var swiper = this;
+      var rtl = swiper.rtlTranslate;
+      var e = event;
+      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
+      var kc = e.keyCode || e.charCode;
+      // Directions locks
+      if (!swiper.allowSlideNext && ((swiper.isHorizontal() && kc === 39) || (swiper.isVertical() && kc === 40))) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && ((swiper.isHorizontal() && kc === 37) || (swiper.isVertical() && kc === 38))) {
+        return false;
+      }
+      if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
+        return undefined;
+      }
+      if (doc.activeElement && doc.activeElement.nodeName && (doc.activeElement.nodeName.toLowerCase() === 'input' || doc.activeElement.nodeName.toLowerCase() === 'textarea')) {
+        return undefined;
+      }
+      if (swiper.params.keyboard.onlyInViewport && (kc === 37 || kc === 39 || kc === 38 || kc === 40)) {
+        var inView = false;
+        // Check that swiper should be inside of visible area of window
+        if (swiper.$el.parents(("." + (swiper.params.slideClass))).length > 0 && swiper.$el.parents(("." + (swiper.params.slideActiveClass))).length === 0) {
+          return undefined;
+        }
+        var windowWidth = win.innerWidth;
+        var windowHeight = win.innerHeight;
+        var swiperOffset = swiper.$el.offset();
+        if (rtl) { swiperOffset.left -= swiper.$el[0].scrollLeft; }
+        var swiperCoord = [
+          [swiperOffset.left, swiperOffset.top],
+          [swiperOffset.left + swiper.width, swiperOffset.top],
+          [swiperOffset.left, swiperOffset.top + swiper.height],
+          [swiperOffset.left + swiper.width, swiperOffset.top + swiper.height] ];
+        for (var i = 0; i < swiperCoord.length; i += 1) {
+          var point = swiperCoord[i];
+          if (
+            point[0] >= 0 && point[0] <= windowWidth &&
+            point[1] >= 0 && point[1] <= windowHeight
+          ) {
+            inView = true;
+          }
+        }
+        if (!inView) { return undefined; }
+      }
+      if (swiper.isHorizontal()) {
+        if (kc === 37 || kc === 39) {
+          if (e.preventDefault) { e.preventDefault(); }
+          else { e.returnValue = false; }
+        }
+        if ((kc === 39 && !rtl) || (kc === 37 && rtl)) { swiper.slideNext(); }
+        if ((kc === 37 && !rtl) || (kc === 39 && rtl)) { swiper.slidePrev(); }
+      } else {
+        if (kc === 38 || kc === 40) {
+          if (e.preventDefault) { e.preventDefault(); }
+          else { e.returnValue = false; }
+        }
+        if (kc === 40) { swiper.slideNext(); }
+        if (kc === 38) { swiper.slidePrev(); }
+      }
+      swiper.emit('keyPress', kc);
+      return undefined;
+    },
+    enable: function enable() {
+      var swiper = this;
+      if (swiper.keyboard.enabled) { return; }
+      $(doc).on('keydown', swiper.keyboard.handle);
+      swiper.keyboard.enabled = true;
+    },
+    disable: function disable() {
+      var swiper = this;
+      if (!swiper.keyboard.enabled) { return; }
+      $(doc).off('keydown', swiper.keyboard.handle);
+      swiper.keyboard.enabled = false;
+    },
+  };
+
+  var Keyboard$1 = {
+    name: 'keyboard',
+    params: {
+      keyboard: {
+        enabled: false,
+        onlyInViewport: true,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        keyboard: {
+          enabled: false,
+          enable: Keyboard.enable.bind(swiper),
+          disable: Keyboard.disable.bind(swiper),
+          handle: Keyboard.handle.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.keyboard.enabled) {
+          swiper.keyboard.enable();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.keyboard.enabled) {
+          swiper.keyboard.disable();
+        }
+      },
+    },
+  };
+
+  function isEventSupported() {
+    var eventName = 'onwheel';
+    var isSupported = eventName in doc;
+
+    if (!isSupported) {
+      var element = doc.createElement('div');
+      element.setAttribute(eventName, 'return;');
+      isSupported = typeof element[eventName] === 'function';
+    }
+
+    if (!isSupported &&
+      doc.implementation &&
+      doc.implementation.hasFeature &&
+      // always returns true in newer browsers as per the standard.
+      // @see http://dom.spec.whatwg.org/#dom-domimplementation-hasfeature
+      doc.implementation.hasFeature('', '') !== true
+    ) {
+      // This is the only way to test support for the `wheel` event in IE9+.
+      isSupported = doc.implementation.hasFeature('Events.wheel', '3.0');
+    }
+
+    return isSupported;
+  }
+  var Mousewheel = {
+    lastScrollTime: Utils.now(),
+    event: (function getEvent() {
+      if (win.navigator.userAgent.indexOf('firefox') > -1) { return 'DOMMouseScroll'; }
+      return isEventSupported() ? 'wheel' : 'mousewheel';
+    }()),
+    normalize: function normalize(e) {
+      // Reasonable defaults
+      var PIXEL_STEP = 10;
+      var LINE_HEIGHT = 40;
+      var PAGE_HEIGHT = 800;
+
+      var sX = 0;
+      var sY = 0; // spinX, spinY
+      var pX = 0;
+      var pY = 0; // pixelX, pixelY
+
+      // Legacy
+      if ('detail' in e) {
+        sY = e.detail;
+      }
+      if ('wheelDelta' in e) {
+        sY = -e.wheelDelta / 120;
+      }
+      if ('wheelDeltaY' in e) {
+        sY = -e.wheelDeltaY / 120;
+      }
+      if ('wheelDeltaX' in e) {
+        sX = -e.wheelDeltaX / 120;
+      }
+
+      // side scrolling on FF with DOMMouseScroll
+      if ('axis' in e && e.axis === e.HORIZONTAL_AXIS) {
+        sX = sY;
+        sY = 0;
+      }
+
+      pX = sX * PIXEL_STEP;
+      pY = sY * PIXEL_STEP;
+
+      if ('deltaY' in e) {
+        pY = e.deltaY;
+      }
+      if ('deltaX' in e) {
+        pX = e.deltaX;
+      }
+
+      if ((pX || pY) && e.deltaMode) {
+        if (e.deltaMode === 1) { // delta in LINE units
+          pX *= LINE_HEIGHT;
+          pY *= LINE_HEIGHT;
+        } else { // delta in PAGE units
+          pX *= PAGE_HEIGHT;
+          pY *= PAGE_HEIGHT;
+        }
+      }
+
+      // Fall-back if spin cannot be determined
+      if (pX && !sX) {
+        sX = (pX < 1) ? -1 : 1;
+      }
+      if (pY && !sY) {
+        sY = (pY < 1) ? -1 : 1;
+      }
+
+      return {
+        spinX: sX,
+        spinY: sY,
+        pixelX: pX,
+        pixelY: pY,
+      };
+    },
+    handleMouseEnter: function handleMouseEnter() {
+      var swiper = this;
+      swiper.mouseEntered = true;
+    },
+    handleMouseLeave: function handleMouseLeave() {
+      var swiper = this;
+      swiper.mouseEntered = false;
+    },
+    handle: function handle(event) {
+      var e = event;
+      var swiper = this;
+      var params = swiper.params.mousewheel;
+
+      if (!swiper.mouseEntered && !params.releaseOnEdges) { return true; }
+
+      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
+      var delta = 0;
+      var rtlFactor = swiper.rtlTranslate ? -1 : 1;
+
+      var data = Mousewheel.normalize(e);
+
+      if (params.forceToAxis) {
+        if (swiper.isHorizontal()) {
+          if (Math.abs(data.pixelX) > Math.abs(data.pixelY)) { delta = data.pixelX * rtlFactor; }
+          else { return true; }
+        } else if (Math.abs(data.pixelY) > Math.abs(data.pixelX)) { delta = data.pixelY; }
+        else { return true; }
+      } else {
+        delta = Math.abs(data.pixelX) > Math.abs(data.pixelY) ? -data.pixelX * rtlFactor : -data.pixelY;
+      }
+
+      if (delta === 0) { return true; }
+
+      if (params.invert) { delta = -delta; }
+
+      if (!swiper.params.freeMode) {
+        if (Utils.now() - swiper.mousewheel.lastScrollTime > 60) {
+          if (delta < 0) {
+            if ((!swiper.isEnd || swiper.params.loop) && !swiper.animating) {
+              swiper.slideNext();
+              swiper.emit('scroll', e);
+            } else if (params.releaseOnEdges) { return true; }
+          } else if ((!swiper.isBeginning || swiper.params.loop) && !swiper.animating) {
+            swiper.slidePrev();
+            swiper.emit('scroll', e);
+          } else if (params.releaseOnEdges) { return true; }
+        }
+        swiper.mousewheel.lastScrollTime = (new win.Date()).getTime();
+      } else {
+        // Freemode or scrollContainer:
+        if (swiper.params.loop) {
+          swiper.loopFix();
+        }
+        var position = swiper.getTranslate() + (delta * params.sensitivity);
+        var wasBeginning = swiper.isBeginning;
+        var wasEnd = swiper.isEnd;
+
+        if (position >= swiper.minTranslate()) { position = swiper.minTranslate(); }
+        if (position <= swiper.maxTranslate()) { position = swiper.maxTranslate(); }
+
+        swiper.setTransition(0);
+        swiper.setTranslate(position);
+        swiper.updateProgress();
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+
+        if ((!wasBeginning && swiper.isBeginning) || (!wasEnd && swiper.isEnd)) {
+          swiper.updateSlidesClasses();
+        }
+
+        if (swiper.params.freeModeSticky) {
+          clearTimeout(swiper.mousewheel.timeout);
+          swiper.mousewheel.timeout = Utils.nextTick(function () {
+            swiper.slideToClosest();
+          }, 300);
+        }
+        // Emit event
+        swiper.emit('scroll', e);
+
+        // Stop autoplay
+        if (swiper.params.autoplay && swiper.params.autoplayDisableOnInteraction) { swiper.stopAutoplay(); }
+        // Return page scroll on edge positions
+        if (position === swiper.minTranslate() || position === swiper.maxTranslate()) { return true; }
+      }
+
+      if (e.preventDefault) { e.preventDefault(); }
+      else { e.returnValue = false; }
+      return false;
+    },
+    enable: function enable() {
+      var swiper = this;
+      if (!Mousewheel.event) { return false; }
+      if (swiper.mousewheel.enabled) { return false; }
+      var target = swiper.$el;
+      if (swiper.params.mousewheel.eventsTarged !== 'container') {
+        target = $(swiper.params.mousewheel.eventsTarged);
+      }
+      target.on('mouseenter', swiper.mousewheel.handleMouseEnter);
+      target.on('mouseleave', swiper.mousewheel.handleMouseLeave);
+      target.on(Mousewheel.event, swiper.mousewheel.handle);
+      swiper.mousewheel.enabled = true;
+      return true;
+    },
+    disable: function disable() {
+      var swiper = this;
+      if (!Mousewheel.event) { return false; }
+      if (!swiper.mousewheel.enabled) { return false; }
+      var target = swiper.$el;
+      if (swiper.params.mousewheel.eventsTarged !== 'container') {
+        target = $(swiper.params.mousewheel.eventsTarged);
+      }
+      target.off(Mousewheel.event, swiper.mousewheel.handle);
+      swiper.mousewheel.enabled = false;
+      return true;
+    },
+  };
+
+  var Mousewheel$1 = {
+    name: 'mousewheel',
+    params: {
+      mousewheel: {
+        enabled: false,
+        releaseOnEdges: false,
+        invert: false,
+        forceToAxis: false,
+        sensitivity: 1,
+        eventsTarged: 'container',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        mousewheel: {
+          enabled: false,
+          enable: Mousewheel.enable.bind(swiper),
+          disable: Mousewheel.disable.bind(swiper),
+          handle: Mousewheel.handle.bind(swiper),
+          handleMouseEnter: Mousewheel.handleMouseEnter.bind(swiper),
+          handleMouseLeave: Mousewheel.handleMouseLeave.bind(swiper),
+          lastScrollTime: Utils.now(),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.mousewheel.enabled) { swiper.mousewheel.enable(); }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.mousewheel.enabled) { swiper.mousewheel.disable(); }
+      },
+    },
+  };
+
+  var Navigation = {
+    update: function update() {
+      // Update Navigation Buttons
+      var swiper = this;
+      var params = swiper.params.navigation;
+
+      if (swiper.params.loop) { return; }
+      var ref = swiper.navigation;
+      var $nextEl = ref.$nextEl;
+      var $prevEl = ref.$prevEl;
+
+      if ($prevEl && $prevEl.length > 0) {
+        if (swiper.isBeginning) {
+          $prevEl.addClass(params.disabledClass);
+        } else {
+          $prevEl.removeClass(params.disabledClass);
+        }
+        $prevEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+      }
+      if ($nextEl && $nextEl.length > 0) {
+        if (swiper.isEnd) {
+          $nextEl.addClass(params.disabledClass);
+        } else {
+          $nextEl.removeClass(params.disabledClass);
+        }
+        $nextEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      var params = swiper.params.navigation;
+      if (!(params.nextEl || params.prevEl)) { return; }
+
+      var $nextEl;
+      var $prevEl;
+      if (params.nextEl) {
+        $nextEl = $(params.nextEl);
+        if (
+          swiper.params.uniqueNavElements &&
+          typeof params.nextEl === 'string' &&
+          $nextEl.length > 1 &&
+          swiper.$el.find(params.nextEl).length === 1
+        ) {
+          $nextEl = swiper.$el.find(params.nextEl);
+        }
+      }
+      if (params.prevEl) {
+        $prevEl = $(params.prevEl);
+        if (
+          swiper.params.uniqueNavElements &&
+          typeof params.prevEl === 'string' &&
+          $prevEl.length > 1 &&
+          swiper.$el.find(params.prevEl).length === 1
+        ) {
+          $prevEl = swiper.$el.find(params.prevEl);
+        }
+      }
+
+      if ($nextEl && $nextEl.length > 0) {
+        $nextEl.on('click', function (e) {
+          e.preventDefault();
+          if (swiper.isEnd && !swiper.params.loop) { return; }
+          swiper.slideNext();
+        });
+      }
+      if ($prevEl && $prevEl.length > 0) {
+        $prevEl.on('click', function (e) {
+          e.preventDefault();
+          if (swiper.isBeginning && !swiper.params.loop) { return; }
+          swiper.slidePrev();
+        });
+      }
+
+      Utils.extend(swiper.navigation, {
+        $nextEl: $nextEl,
+        nextEl: $nextEl && $nextEl[0],
+        $prevEl: $prevEl,
+        prevEl: $prevEl && $prevEl[0],
+      });
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      var ref = swiper.navigation;
+      var $nextEl = ref.$nextEl;
+      var $prevEl = ref.$prevEl;
+      if ($nextEl && $nextEl.length) {
+        $nextEl.off('click');
+        $nextEl.removeClass(swiper.params.navigation.disabledClass);
+      }
+      if ($prevEl && $prevEl.length) {
+        $prevEl.off('click');
+        $prevEl.removeClass(swiper.params.navigation.disabledClass);
+      }
+    },
+  };
+
+  var Navigation$1 = {
+    name: 'navigation',
+    params: {
+      navigation: {
+        nextEl: null,
+        prevEl: null,
+
+        hideOnClick: false,
+        disabledClass: 'swiper-button-disabled',
+        hiddenClass: 'swiper-button-hidden',
+        lockClass: 'swiper-button-lock',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        navigation: {
+          init: Navigation.init.bind(swiper),
+          update: Navigation.update.bind(swiper),
+          destroy: Navigation.destroy.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.navigation.init();
+        swiper.navigation.update();
+      },
+      toEdge: function toEdge() {
+        var swiper = this;
+        swiper.navigation.update();
+      },
+      fromEdge: function fromEdge() {
+        var swiper = this;
+        swiper.navigation.update();
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.navigation.destroy();
+      },
+      click: function click(e) {
+        var swiper = this;
+        var ref = swiper.navigation;
+        var $nextEl = ref.$nextEl;
+        var $prevEl = ref.$prevEl;
+        if (
+          swiper.params.navigation.hideOnClick &&
+          !$(e.target).is($prevEl) &&
+          !$(e.target).is($nextEl)
+        ) {
+          if ($nextEl) { $nextEl.toggleClass(swiper.params.navigation.hiddenClass); }
+          if ($prevEl) { $prevEl.toggleClass(swiper.params.navigation.hiddenClass); }
+        }
+      },
+    },
+  };
+
+  var Pagination = {
+    update: function update() {
+      // Render || Update Pagination bullets/items
+      var swiper = this;
+      var rtl = swiper.rtl;
+      var params = swiper.params.pagination;
+      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
+      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
+      var $el = swiper.pagination.$el;
+      // Current/Total
+      var current;
+      var total = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+      if (swiper.params.loop) {
+        current = Math.ceil((swiper.activeIndex - swiper.loopedSlides) / swiper.params.slidesPerGroup);
+        if (current > slidesLength - 1 - (swiper.loopedSlides * 2)) {
+          current -= (slidesLength - (swiper.loopedSlides * 2));
+        }
+        if (current > total - 1) { current -= total; }
+        if (current < 0 && swiper.params.paginationType !== 'bullets') { current = total + current; }
+      } else if (typeof swiper.snapIndex !== 'undefined') {
+        current = swiper.snapIndex;
+      } else {
+        current = swiper.activeIndex || 0;
+      }
+      // Types
+      if (params.type === 'bullets' && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
+        var bullets = swiper.pagination.bullets;
+        var firstIndex;
+        var lastIndex;
+        var midIndex;
+        if (params.dynamicBullets) {
+          swiper.pagination.bulletSize = bullets.eq(0)[swiper.isHorizontal() ? 'outerWidth' : 'outerHeight'](true);
+          $el.css(swiper.isHorizontal() ? 'width' : 'height', ((swiper.pagination.bulletSize * (params.dynamicMainBullets + 4)) + "px"));
+          if (params.dynamicMainBullets > 1 && swiper.previousIndex !== undefined) {
+            swiper.pagination.dynamicBulletIndex += (current - swiper.previousIndex);
+            if (swiper.pagination.dynamicBulletIndex > (params.dynamicMainBullets - 1)) {
+              swiper.pagination.dynamicBulletIndex = params.dynamicMainBullets - 1;
+            } else if (swiper.pagination.dynamicBulletIndex < 0) {
+              swiper.pagination.dynamicBulletIndex = 0;
+            }
+          }
+          firstIndex = current - swiper.pagination.dynamicBulletIndex;
+          lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
+          midIndex = (lastIndex + firstIndex) / 2;
+        }
+        bullets.removeClass(((params.bulletActiveClass) + " " + (params.bulletActiveClass) + "-next " + (params.bulletActiveClass) + "-next-next " + (params.bulletActiveClass) + "-prev " + (params.bulletActiveClass) + "-prev-prev " + (params.bulletActiveClass) + "-main"));
+        if ($el.length > 1) {
+          bullets.each(function (index, bullet) {
+            var $bullet = $(bullet);
+            var bulletIndex = $bullet.index();
+            if (bulletIndex === current) {
+              $bullet.addClass(params.bulletActiveClass);
+            }
+            if (params.dynamicBullets) {
+              if (bulletIndex >= firstIndex && bulletIndex <= lastIndex) {
+                $bullet.addClass(((params.bulletActiveClass) + "-main"));
+              }
+              if (bulletIndex === firstIndex) {
+                $bullet
+                  .prev()
+                  .addClass(((params.bulletActiveClass) + "-prev"))
+                  .prev()
+                  .addClass(((params.bulletActiveClass) + "-prev-prev"));
+              }
+              if (bulletIndex === lastIndex) {
+                $bullet
+                  .next()
+                  .addClass(((params.bulletActiveClass) + "-next"))
+                  .next()
+                  .addClass(((params.bulletActiveClass) + "-next-next"));
+              }
+            }
+          });
+        } else {
+          var $bullet = bullets.eq(current);
+          $bullet.addClass(params.bulletActiveClass);
+          if (params.dynamicBullets) {
+            var $firstDisplayedBullet = bullets.eq(firstIndex);
+            var $lastDisplayedBullet = bullets.eq(lastIndex);
+            for (var i = firstIndex; i <= lastIndex; i += 1) {
+              bullets.eq(i).addClass(((params.bulletActiveClass) + "-main"));
+            }
+            $firstDisplayedBullet
+              .prev()
+              .addClass(((params.bulletActiveClass) + "-prev"))
+              .prev()
+              .addClass(((params.bulletActiveClass) + "-prev-prev"));
+            $lastDisplayedBullet
+              .next()
+              .addClass(((params.bulletActiveClass) + "-next"))
+              .next()
+              .addClass(((params.bulletActiveClass) + "-next-next"));
+          }
+        }
+        if (params.dynamicBullets) {
+          var dynamicBulletsLength = Math.min(bullets.length, params.dynamicMainBullets + 4);
+          var bulletsOffset = (((swiper.pagination.bulletSize * dynamicBulletsLength) - (swiper.pagination.bulletSize)) / 2) - (midIndex * swiper.pagination.bulletSize);
+          var offsetProp = rtl ? 'right' : 'left';
+          bullets.css(swiper.isHorizontal() ? offsetProp : 'top', (bulletsOffset + "px"));
+        }
+      }
+      if (params.type === 'fraction') {
+        $el.find(("." + (params.currentClass))).text(current + 1);
+        $el.find(("." + (params.totalClass))).text(total);
+      }
+      if (params.type === 'progressbar') {
+        var progressbarDirection;
+        if (params.progressbarOpposite) {
+          progressbarDirection = swiper.isHorizontal() ? 'vertical' : 'horizontal';
+        } else {
+          progressbarDirection = swiper.isHorizontal() ? 'horizontal' : 'vertical';
+        }
+        var scale = (current + 1) / total;
+        var scaleX = 1;
+        var scaleY = 1;
+        if (progressbarDirection === 'horizontal') {
+          scaleX = scale;
+        } else {
+          scaleY = scale;
+        }
+        $el.find(("." + (params.progressbarFillClass))).transform(("translate3d(0,0,0) scaleX(" + scaleX + ") scaleY(" + scaleY + ")")).transition(swiper.params.speed);
+      }
+      if (params.type === 'custom' && params.renderCustom) {
+        $el.html(params.renderCustom(swiper, current + 1, total));
+        swiper.emit('paginationRender', swiper, $el[0]);
+      } else {
+        swiper.emit('paginationUpdate', swiper, $el[0]);
+      }
+      $el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+    },
+    render: function render() {
+      // Render Container
+      var swiper = this;
+      var params = swiper.params.pagination;
+      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
+      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
+
+      var $el = swiper.pagination.$el;
+      var paginationHTML = '';
+      if (params.type === 'bullets') {
+        var numberOfBullets = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+        for (var i = 0; i < numberOfBullets; i += 1) {
+          if (params.renderBullet) {
+            paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass);
+          } else {
+            paginationHTML += "<" + (params.bulletElement) + " class=\"" + (params.bulletClass) + "\"></" + (params.bulletElement) + ">";
+          }
+        }
+        $el.html(paginationHTML);
+        swiper.pagination.bullets = $el.find(("." + (params.bulletClass)));
+      }
+      if (params.type === 'fraction') {
+        if (params.renderFraction) {
+          paginationHTML = params.renderFraction.call(swiper, params.currentClass, params.totalClass);
+        } else {
+          paginationHTML =
+          "<span class=\"" + (params.currentClass) + "\"></span>" +
+          ' / ' +
+          "<span class=\"" + (params.totalClass) + "\"></span>";
+        }
+        $el.html(paginationHTML);
+      }
+      if (params.type === 'progressbar') {
+        if (params.renderProgressbar) {
+          paginationHTML = params.renderProgressbar.call(swiper, params.progressbarFillClass);
+        } else {
+          paginationHTML = "<span class=\"" + (params.progressbarFillClass) + "\"></span>";
+        }
+        $el.html(paginationHTML);
+      }
+      if (params.type !== 'custom') {
+        swiper.emit('paginationRender', swiper.pagination.$el[0]);
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      var params = swiper.params.pagination;
+      if (!params.el) { return; }
+
+      var $el = $(params.el);
+      if ($el.length === 0) { return; }
+
+      if (
+        swiper.params.uniqueNavElements &&
+        typeof params.el === 'string' &&
+        $el.length > 1 &&
+        swiper.$el.find(params.el).length === 1
+      ) {
+        $el = swiper.$el.find(params.el);
+      }
+
+      if (params.type === 'bullets' && params.clickable) {
+        $el.addClass(params.clickableClass);
+      }
+
+      $el.addClass(params.modifierClass + params.type);
+
+      if (params.type === 'bullets' && params.dynamicBullets) {
+        $el.addClass(("" + (params.modifierClass) + (params.type) + "-dynamic"));
+        swiper.pagination.dynamicBulletIndex = 0;
+        if (params.dynamicMainBullets < 1) {
+          params.dynamicMainBullets = 1;
+        }
+      }
+      if (params.type === 'progressbar' && params.progressbarOpposite) {
+        $el.addClass(params.progressbarOppositeClass);
+      }
+
+      if (params.clickable) {
+        $el.on('click', ("." + (params.bulletClass)), function onClick(e) {
+          e.preventDefault();
+          var index = $(this).index() * swiper.params.slidesPerGroup;
+          if (swiper.params.loop) { index += swiper.loopedSlides; }
+          swiper.slideTo(index);
+        });
+      }
+
+      Utils.extend(swiper.pagination, {
+        $el: $el,
+        el: $el[0],
+      });
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      var params = swiper.params.pagination;
+      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
+      var $el = swiper.pagination.$el;
+
+      $el.removeClass(params.hiddenClass);
+      $el.removeClass(params.modifierClass + params.type);
+      if (swiper.pagination.bullets) { swiper.pagination.bullets.removeClass(params.bulletActiveClass); }
+      if (params.clickable) {
+        $el.off('click', ("." + (params.bulletClass)));
+      }
+    },
+  };
+
+  var Pagination$1 = {
+    name: 'pagination',
+    params: {
+      pagination: {
+        el: null,
+        bulletElement: 'span',
+        clickable: false,
+        hideOnClick: false,
+        renderBullet: null,
+        renderProgressbar: null,
+        renderFraction: null,
+        renderCustom: null,
+        progressbarOpposite: false,
+        type: 'bullets', // 'bullets' or 'progressbar' or 'fraction' or 'custom'
+        dynamicBullets: false,
+        dynamicMainBullets: 1,
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
+        modifierClass: 'swiper-pagination-', // NEW
+        currentClass: 'swiper-pagination-current',
+        totalClass: 'swiper-pagination-total',
+        hiddenClass: 'swiper-pagination-hidden',
+        progressbarFillClass: 'swiper-pagination-progressbar-fill',
+        progressbarOppositeClass: 'swiper-pagination-progressbar-opposite',
+        clickableClass: 'swiper-pagination-clickable', // NEW
+        lockClass: 'swiper-pagination-lock',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        pagination: {
+          init: Pagination.init.bind(swiper),
+          render: Pagination.render.bind(swiper),
+          update: Pagination.update.bind(swiper),
+          destroy: Pagination.destroy.bind(swiper),
+          dynamicBulletIndex: 0,
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.pagination.init();
+        swiper.pagination.render();
+        swiper.pagination.update();
+      },
+      activeIndexChange: function activeIndexChange() {
+        var swiper = this;
+        if (swiper.params.loop) {
+          swiper.pagination.update();
+        } else if (typeof swiper.snapIndex === 'undefined') {
+          swiper.pagination.update();
+        }
+      },
+      snapIndexChange: function snapIndexChange() {
+        var swiper = this;
+        if (!swiper.params.loop) {
+          swiper.pagination.update();
+        }
+      },
+      slidesLengthChange: function slidesLengthChange() {
+        var swiper = this;
+        if (swiper.params.loop) {
+          swiper.pagination.render();
+          swiper.pagination.update();
+        }
+      },
+      snapGridLengthChange: function snapGridLengthChange() {
+        var swiper = this;
+        if (!swiper.params.loop) {
+          swiper.pagination.render();
+          swiper.pagination.update();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.pagination.destroy();
+      },
+      click: function click(e) {
+        var swiper = this;
+        if (
+          swiper.params.pagination.el &&
+          swiper.params.pagination.hideOnClick &&
+          swiper.pagination.$el.length > 0 &&
+          !$(e.target).hasClass(swiper.params.pagination.bulletClass)
+        ) {
+          swiper.pagination.$el.toggleClass(swiper.params.pagination.hiddenClass);
+        }
+      },
+    },
+  };
+
+  var Scrollbar = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var rtl = swiper.rtlTranslate;
+      var progress = swiper.progress;
+      var dragSize = scrollbar.dragSize;
+      var trackSize = scrollbar.trackSize;
+      var $dragEl = scrollbar.$dragEl;
+      var $el = scrollbar.$el;
+      var params = swiper.params.scrollbar;
+
+      var newSize = dragSize;
+      var newPos = (trackSize - dragSize) * progress;
+      if (rtl) {
+        newPos = -newPos;
+        if (newPos > 0) {
+          newSize = dragSize - newPos;
+          newPos = 0;
+        } else if (-newPos + dragSize > trackSize) {
+          newSize = trackSize + newPos;
+        }
+      } else if (newPos < 0) {
+        newSize = dragSize + newPos;
+        newPos = 0;
+      } else if (newPos + dragSize > trackSize) {
+        newSize = trackSize - newPos;
+      }
+      if (swiper.isHorizontal()) {
+        if (Support.transforms3d) {
+          $dragEl.transform(("translate3d(" + newPos + "px, 0, 0)"));
+        } else {
+          $dragEl.transform(("translateX(" + newPos + "px)"));
+        }
+        $dragEl[0].style.width = newSize + "px";
+      } else {
+        if (Support.transforms3d) {
+          $dragEl.transform(("translate3d(0px, " + newPos + "px, 0)"));
+        } else {
+          $dragEl.transform(("translateY(" + newPos + "px)"));
+        }
+        $dragEl[0].style.height = newSize + "px";
+      }
+      if (params.hide) {
+        clearTimeout(swiper.scrollbar.timeout);
+        $el[0].style.opacity = 1;
+        swiper.scrollbar.timeout = setTimeout(function () {
+          $el[0].style.opacity = 0;
+          $el.transition(400);
+        }, 1000);
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
+      swiper.scrollbar.$dragEl.transition(duration);
+    },
+    updateSize: function updateSize() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
+
+      var scrollbar = swiper.scrollbar;
+      var $dragEl = scrollbar.$dragEl;
+      var $el = scrollbar.$el;
+
+      $dragEl[0].style.width = '';
+      $dragEl[0].style.height = '';
+      var trackSize = swiper.isHorizontal() ? $el[0].offsetWidth : $el[0].offsetHeight;
+
+      var divider = swiper.size / swiper.virtualSize;
+      var moveDivider = divider * (trackSize / swiper.size);
+      var dragSize;
+      if (swiper.params.scrollbar.dragSize === 'auto') {
+        dragSize = trackSize * divider;
+      } else {
+        dragSize = parseInt(swiper.params.scrollbar.dragSize, 10);
+      }
+
+      if (swiper.isHorizontal()) {
+        $dragEl[0].style.width = dragSize + "px";
+      } else {
+        $dragEl[0].style.height = dragSize + "px";
+      }
+
+      if (divider >= 1) {
+        $el[0].style.display = 'none';
+      } else {
+        $el[0].style.display = '';
+      }
+      if (swiper.params.scrollbarHide) {
+        $el[0].style.opacity = 0;
+      }
+      Utils.extend(scrollbar, {
+        trackSize: trackSize,
+        divider: divider,
+        moveDivider: moveDivider,
+        dragSize: dragSize,
+      });
+      scrollbar.$el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](swiper.params.scrollbar.lockClass);
+    },
+    setDragPosition: function setDragPosition(e) {
+      var swiper = this;
+      var scrollbar = swiper.scrollbar;
+      var rtl = swiper.rtlTranslate;
+      var $el = scrollbar.$el;
+      var dragSize = scrollbar.dragSize;
+      var trackSize = scrollbar.trackSize;
+
+      var pointerPosition;
+      if (swiper.isHorizontal()) {
+        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageX : e.pageX || e.clientX);
+      } else {
+        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageY : e.pageY || e.clientY);
+      }
+      var positionRatio;
+      positionRatio = ((pointerPosition) - $el.offset()[swiper.isHorizontal() ? 'left' : 'top'] - (dragSize / 2)) / (trackSize - dragSize);
+      positionRatio = Math.max(Math.min(positionRatio, 1), 0);
+      if (rtl) {
+        positionRatio = 1 - positionRatio;
+      }
+
+      var position = swiper.minTranslate() + ((swiper.maxTranslate() - swiper.minTranslate()) * positionRatio);
+
+      swiper.updateProgress(position);
+      swiper.setTranslate(position);
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    },
+    onDragStart: function onDragStart(e) {
+      var swiper = this;
+      var params = swiper.params.scrollbar;
+      var scrollbar = swiper.scrollbar;
+      var $wrapperEl = swiper.$wrapperEl;
+      var $el = scrollbar.$el;
+      var $dragEl = scrollbar.$dragEl;
+      swiper.scrollbar.isTouched = true;
+      e.preventDefault();
+      e.stopPropagation();
+
+      $wrapperEl.transition(100);
+      $dragEl.transition(100);
+      scrollbar.setDragPosition(e);
+
+      clearTimeout(swiper.scrollbar.dragTimeout);
+
+      $el.transition(0);
+      if (params.hide) {
+        $el.css('opacity', 1);
+      }
+      swiper.emit('scrollbarDragStart', e);
+    },
+    onDragMove: function onDragMove(e) {
+      var swiper = this;
+      var scrollbar = swiper.scrollbar;
+      var $wrapperEl = swiper.$wrapperEl;
+      var $el = scrollbar.$el;
+      var $dragEl = scrollbar.$dragEl;
+
+      if (!swiper.scrollbar.isTouched) { return; }
+      if (e.preventDefault) { e.preventDefault(); }
+      else { e.returnValue = false; }
+      scrollbar.setDragPosition(e);
+      $wrapperEl.transition(0);
+      $el.transition(0);
+      $dragEl.transition(0);
+      swiper.emit('scrollbarDragMove', e);
+    },
+    onDragEnd: function onDragEnd(e) {
+      var swiper = this;
+
+      var params = swiper.params.scrollbar;
+      var scrollbar = swiper.scrollbar;
+      var $el = scrollbar.$el;
+
+      if (!swiper.scrollbar.isTouched) { return; }
+      swiper.scrollbar.isTouched = false;
+      if (params.hide) {
+        clearTimeout(swiper.scrollbar.dragTimeout);
+        swiper.scrollbar.dragTimeout = Utils.nextTick(function () {
+          $el.css('opacity', 0);
+          $el.transition(400);
+        }, 1000);
+      }
+      swiper.emit('scrollbarDragEnd', e);
+      if (params.snapOnRelease) {
+        swiper.slideToClosest();
+      }
+    },
+    enableDraggable: function enableDraggable() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var touchEvents = swiper.touchEvents;
+      var touchEventsDesktop = swiper.touchEventsDesktop;
+      var params = swiper.params;
+      var $el = scrollbar.$el;
+      var target = $el[0];
+      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
+      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.addEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
+        doc.addEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
+        doc.addEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
+      } else {
+        if (Support.touch) {
+          target.addEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
+          target.addEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
+          target.addEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.addEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
+          doc.addEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
+          doc.addEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
+        }
+      }
+    },
+    disableDraggable: function disableDraggable() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var touchEvents = swiper.touchEvents;
+      var touchEventsDesktop = swiper.touchEventsDesktop;
+      var params = swiper.params;
+      var $el = scrollbar.$el;
+      var target = $el[0];
+      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
+      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.removeEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
+        doc.removeEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
+        doc.removeEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
+      } else {
+        if (Support.touch) {
+          target.removeEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
+          target.removeEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
+          target.removeEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.removeEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
+          doc.removeEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
+          doc.removeEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
+        }
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var $swiperEl = swiper.$el;
+      var params = swiper.params.scrollbar;
+
+      var $el = $(params.el);
+      if (swiper.params.uniqueNavElements && typeof params.el === 'string' && $el.length > 1 && $swiperEl.find(params.el).length === 1) {
+        $el = $swiperEl.find(params.el);
+      }
+
+      var $dragEl = $el.find(("." + (swiper.params.scrollbar.dragClass)));
+      if ($dragEl.length === 0) {
+        $dragEl = $(("<div class=\"" + (swiper.params.scrollbar.dragClass) + "\"></div>"));
+        $el.append($dragEl);
+      }
+
+      Utils.extend(scrollbar, {
+        $el: $el,
+        el: $el[0],
+        $dragEl: $dragEl,
+        dragEl: $dragEl[0],
+      });
+
+      if (params.draggable) {
+        scrollbar.enableDraggable();
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      swiper.scrollbar.disableDraggable();
+    },
+  };
+
+  var Scrollbar$1 = {
+    name: 'scrollbar',
+    params: {
+      scrollbar: {
+        el: null,
+        dragSize: 'auto',
+        hide: false,
+        draggable: false,
+        snapOnRelease: true,
+        lockClass: 'swiper-scrollbar-lock',
+        dragClass: 'swiper-scrollbar-drag',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        scrollbar: {
+          init: Scrollbar.init.bind(swiper),
+          destroy: Scrollbar.destroy.bind(swiper),
+          updateSize: Scrollbar.updateSize.bind(swiper),
+          setTranslate: Scrollbar.setTranslate.bind(swiper),
+          setTransition: Scrollbar.setTransition.bind(swiper),
+          enableDraggable: Scrollbar.enableDraggable.bind(swiper),
+          disableDraggable: Scrollbar.disableDraggable.bind(swiper),
+          setDragPosition: Scrollbar.setDragPosition.bind(swiper),
+          onDragStart: Scrollbar.onDragStart.bind(swiper),
+          onDragMove: Scrollbar.onDragMove.bind(swiper),
+          onDragEnd: Scrollbar.onDragEnd.bind(swiper),
+          isTouched: false,
+          timeout: null,
+          dragTimeout: null,
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.scrollbar.init();
+        swiper.scrollbar.updateSize();
+        swiper.scrollbar.setTranslate();
+      },
+      update: function update() {
+        var swiper = this;
+        swiper.scrollbar.updateSize();
+      },
+      resize: function resize() {
+        var swiper = this;
+        swiper.scrollbar.updateSize();
+      },
+      observerUpdate: function observerUpdate() {
+        var swiper = this;
+        swiper.scrollbar.updateSize();
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        swiper.scrollbar.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        swiper.scrollbar.setTransition(duration);
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.scrollbar.destroy();
+      },
+    },
+  };
+
+  var Parallax = {
+    setTransform: function setTransform(el, progress) {
+      var swiper = this;
+      var rtl = swiper.rtl;
+
+      var $el = $(el);
+      var rtlFactor = rtl ? -1 : 1;
+
+      var p = $el.attr('data-swiper-parallax') || '0';
+      var x = $el.attr('data-swiper-parallax-x');
+      var y = $el.attr('data-swiper-parallax-y');
+      var scale = $el.attr('data-swiper-parallax-scale');
+      var opacity = $el.attr('data-swiper-parallax-opacity');
+
+      if (x || y) {
+        x = x || '0';
+        y = y || '0';
+      } else if (swiper.isHorizontal()) {
+        x = p;
+        y = '0';
+      } else {
+        y = p;
+        x = '0';
+      }
+
+      if ((x).indexOf('%') >= 0) {
+        x = (parseInt(x, 10) * progress * rtlFactor) + "%";
+      } else {
+        x = (x * progress * rtlFactor) + "px";
+      }
+      if ((y).indexOf('%') >= 0) {
+        y = (parseInt(y, 10) * progress) + "%";
+      } else {
+        y = (y * progress) + "px";
+      }
+
+      if (typeof opacity !== 'undefined' && opacity !== null) {
+        var currentOpacity = opacity - ((opacity - 1) * (1 - Math.abs(progress)));
+        $el[0].style.opacity = currentOpacity;
+      }
+      if (typeof scale === 'undefined' || scale === null) {
+        $el.transform(("translate3d(" + x + ", " + y + ", 0px)"));
+      } else {
+        var currentScale = scale - ((scale - 1) * (1 - Math.abs(progress)));
+        $el.transform(("translate3d(" + x + ", " + y + ", 0px) scale(" + currentScale + ")"));
+      }
+    },
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var $el = swiper.$el;
+      var slides = swiper.slides;
+      var progress = swiper.progress;
+      var snapGrid = swiper.snapGrid;
+      $el.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+        .each(function (index, el) {
+          swiper.parallax.setTransform(el, progress);
+        });
+      slides.each(function (slideIndex, slideEl) {
+        var slideProgress = slideEl.progress;
+        if (swiper.params.slidesPerGroup > 1 && swiper.params.slidesPerView !== 'auto') {
+          slideProgress += Math.ceil(slideIndex / 2) - (progress * (snapGrid.length - 1));
+        }
+        slideProgress = Math.min(Math.max(slideProgress, -1), 1);
+        $(slideEl).find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+          .each(function (index, el) {
+            swiper.parallax.setTransform(el, slideProgress);
+          });
+      });
+    },
+    setTransition: function setTransition(duration) {
+      if ( duration === void 0 ) duration = this.params.speed;
+
+      var swiper = this;
+      var $el = swiper.$el;
+      $el.find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+        .each(function (index, parallaxEl) {
+          var $parallaxEl = $(parallaxEl);
+          var parallaxDuration = parseInt($parallaxEl.attr('data-swiper-parallax-duration'), 10) || duration;
+          if (duration === 0) { parallaxDuration = 0; }
+          $parallaxEl.transition(parallaxDuration);
+        });
+    },
+  };
+
+  var Parallax$1 = {
+    name: 'parallax',
+    params: {
+      parallax: {
+        enabled: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        parallax: {
+          setTransform: Parallax.setTransform.bind(swiper),
+          setTranslate: Parallax.setTranslate.bind(swiper),
+          setTransition: Parallax.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (!swiper.params.parallax.enabled) { return; }
+        swiper.params.watchSlidesProgress = true;
+      },
+      init: function init() {
+        var swiper = this;
+        if (!swiper.params.parallax) { return; }
+        swiper.parallax.setTranslate();
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (!swiper.params.parallax) { return; }
+        swiper.parallax.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (!swiper.params.parallax) { return; }
+        swiper.parallax.setTransition(duration);
+      },
+    },
+  };
+
+  var Zoom = {
+    // Calc Scale From Multi-touches
+    getDistanceBetweenTouches: function getDistanceBetweenTouches(e) {
+      if (e.targetTouches.length < 2) { return 1; }
+      var x1 = e.targetTouches[0].pageX;
+      var y1 = e.targetTouches[0].pageY;
+      var x2 = e.targetTouches[1].pageX;
+      var y2 = e.targetTouches[1].pageY;
+      var distance = Math.sqrt((Math.pow( (x2 - x1), 2 )) + (Math.pow( (y2 - y1), 2 )));
+      return distance;
+    },
+    // Events
+    onGestureStart: function onGestureStart(e) {
+      var swiper = this;
+      var params = swiper.params.zoom;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      zoom.fakeGestureTouched = false;
+      zoom.fakeGestureMoved = false;
+      if (!Support.gestures) {
+        if (e.type !== 'touchstart' || (e.type === 'touchstart' && e.targetTouches.length < 2)) {
+          return;
+        }
+        zoom.fakeGestureTouched = true;
+        gesture.scaleStart = Zoom.getDistanceBetweenTouches(e);
+      }
+      if (!gesture.$slideEl || !gesture.$slideEl.length) {
+        gesture.$slideEl = $(e.target).closest('.swiper-slide');
+        if (gesture.$slideEl.length === 0) { gesture.$slideEl = swiper.slides.eq(swiper.activeIndex); }
+        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
+        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
+        gesture.maxRatio = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+        if (gesture.$imageWrapEl.length === 0) {
+          gesture.$imageEl = undefined;
+          return;
+        }
+      }
+      gesture.$imageEl.transition(0);
+      swiper.zoom.isScaling = true;
+    },
+    onGestureChange: function onGestureChange(e) {
+      var swiper = this;
+      var params = swiper.params.zoom;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      if (!Support.gestures) {
+        if (e.type !== 'touchmove' || (e.type === 'touchmove' && e.targetTouches.length < 2)) {
+          return;
+        }
+        zoom.fakeGestureMoved = true;
+        gesture.scaleMove = Zoom.getDistanceBetweenTouches(e);
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      if (Support.gestures) {
+        swiper.zoom.scale = e.scale * zoom.currentScale;
+      } else {
+        zoom.scale = (gesture.scaleMove / gesture.scaleStart) * zoom.currentScale;
+      }
+      if (zoom.scale > gesture.maxRatio) {
+        zoom.scale = (gesture.maxRatio - 1) + (Math.pow( ((zoom.scale - gesture.maxRatio) + 1), 0.5 ));
+      }
+      if (zoom.scale < params.minRatio) {
+        zoom.scale = (params.minRatio + 1) - (Math.pow( ((params.minRatio - zoom.scale) + 1), 0.5 ));
+      }
+      gesture.$imageEl.transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
+    },
+    onGestureEnd: function onGestureEnd(e) {
+      var swiper = this;
+      var params = swiper.params.zoom;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      if (!Support.gestures) {
+        if (!zoom.fakeGestureTouched || !zoom.fakeGestureMoved) {
+          return;
+        }
+        if (e.type !== 'touchend' || (e.type === 'touchend' && e.changedTouches.length < 2 && !Device.android)) {
+          return;
+        }
+        zoom.fakeGestureTouched = false;
+        zoom.fakeGestureMoved = false;
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      zoom.scale = Math.max(Math.min(zoom.scale, gesture.maxRatio), params.minRatio);
+      gesture.$imageEl.transition(swiper.params.speed).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
+      zoom.currentScale = zoom.scale;
+      zoom.isScaling = false;
+      if (zoom.scale === 1) { gesture.$slideEl = undefined; }
+    },
+    onTouchStart: function onTouchStart(e) {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      if (image.isTouched) { return; }
+      if (Device.android) { e.preventDefault(); }
+      image.isTouched = true;
+      image.touchesStart.x = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
+      image.touchesStart.y = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
+    },
+    onTouchMove: function onTouchMove(e) {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+      var velocity = zoom.velocity;
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      swiper.allowClick = false;
+      if (!image.isTouched || !gesture.$slideEl) { return; }
+
+      if (!image.isMoved) {
+        image.width = gesture.$imageEl[0].offsetWidth;
+        image.height = gesture.$imageEl[0].offsetHeight;
+        image.startX = Utils.getTranslate(gesture.$imageWrapEl[0], 'x') || 0;
+        image.startY = Utils.getTranslate(gesture.$imageWrapEl[0], 'y') || 0;
+        gesture.slideWidth = gesture.$slideEl[0].offsetWidth;
+        gesture.slideHeight = gesture.$slideEl[0].offsetHeight;
+        gesture.$imageWrapEl.transition(0);
+        if (swiper.rtl) {
+          image.startX = -image.startX;
+          image.startY = -image.startY;
+        }
+      }
+      // Define if we need image drag
+      var scaledWidth = image.width * zoom.scale;
+      var scaledHeight = image.height * zoom.scale;
+
+      if (scaledWidth < gesture.slideWidth && scaledHeight < gesture.slideHeight) { return; }
+
+      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
+      image.maxX = -image.minX;
+      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
+      image.maxY = -image.minY;
+
+      image.touchesCurrent.x = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
+      image.touchesCurrent.y = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
+
+      if (!image.isMoved && !zoom.isScaling) {
+        if (
+          swiper.isHorizontal() &&
+          (
+            (Math.floor(image.minX) === Math.floor(image.startX) && image.touchesCurrent.x < image.touchesStart.x) ||
+            (Math.floor(image.maxX) === Math.floor(image.startX) && image.touchesCurrent.x > image.touchesStart.x)
+          )
+        ) {
+          image.isTouched = false;
+          return;
+        } else if (
+          !swiper.isHorizontal() &&
+          (
+            (Math.floor(image.minY) === Math.floor(image.startY) && image.touchesCurrent.y < image.touchesStart.y) ||
+            (Math.floor(image.maxY) === Math.floor(image.startY) && image.touchesCurrent.y > image.touchesStart.y)
+          )
+        ) {
+          image.isTouched = false;
+          return;
+        }
+      }
+      e.preventDefault();
+      e.stopPropagation();
+
+      image.isMoved = true;
+      image.currentX = (image.touchesCurrent.x - image.touchesStart.x) + image.startX;
+      image.currentY = (image.touchesCurrent.y - image.touchesStart.y) + image.startY;
+
+      if (image.currentX < image.minX) {
+        image.currentX = (image.minX + 1) - (Math.pow( ((image.minX - image.currentX) + 1), 0.8 ));
+      }
+      if (image.currentX > image.maxX) {
+        image.currentX = (image.maxX - 1) + (Math.pow( ((image.currentX - image.maxX) + 1), 0.8 ));
+      }
+
+      if (image.currentY < image.minY) {
+        image.currentY = (image.minY + 1) - (Math.pow( ((image.minY - image.currentY) + 1), 0.8 ));
+      }
+      if (image.currentY > image.maxY) {
+        image.currentY = (image.maxY - 1) + (Math.pow( ((image.currentY - image.maxY) + 1), 0.8 ));
+      }
+
+      // Velocity
+      if (!velocity.prevPositionX) { velocity.prevPositionX = image.touchesCurrent.x; }
+      if (!velocity.prevPositionY) { velocity.prevPositionY = image.touchesCurrent.y; }
+      if (!velocity.prevTime) { velocity.prevTime = Date.now(); }
+      velocity.x = (image.touchesCurrent.x - velocity.prevPositionX) / (Date.now() - velocity.prevTime) / 2;
+      velocity.y = (image.touchesCurrent.y - velocity.prevPositionY) / (Date.now() - velocity.prevTime) / 2;
+      if (Math.abs(image.touchesCurrent.x - velocity.prevPositionX) < 2) { velocity.x = 0; }
+      if (Math.abs(image.touchesCurrent.y - velocity.prevPositionY) < 2) { velocity.y = 0; }
+      velocity.prevPositionX = image.touchesCurrent.x;
+      velocity.prevPositionY = image.touchesCurrent.y;
+      velocity.prevTime = Date.now();
+
+      gesture.$imageWrapEl.transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
+    },
+    onTouchEnd: function onTouchEnd() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+      var velocity = zoom.velocity;
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      if (!image.isTouched || !image.isMoved) {
+        image.isTouched = false;
+        image.isMoved = false;
+        return;
+      }
+      image.isTouched = false;
+      image.isMoved = false;
+      var momentumDurationX = 300;
+      var momentumDurationY = 300;
+      var momentumDistanceX = velocity.x * momentumDurationX;
+      var newPositionX = image.currentX + momentumDistanceX;
+      var momentumDistanceY = velocity.y * momentumDurationY;
+      var newPositionY = image.currentY + momentumDistanceY;
+
+      // Fix duration
+      if (velocity.x !== 0) { momentumDurationX = Math.abs((newPositionX - image.currentX) / velocity.x); }
+      if (velocity.y !== 0) { momentumDurationY = Math.abs((newPositionY - image.currentY) / velocity.y); }
+      var momentumDuration = Math.max(momentumDurationX, momentumDurationY);
+
+      image.currentX = newPositionX;
+      image.currentY = newPositionY;
+
+      // Define if we need image drag
+      var scaledWidth = image.width * zoom.scale;
+      var scaledHeight = image.height * zoom.scale;
+      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
+      image.maxX = -image.minX;
+      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
+      image.maxY = -image.minY;
+      image.currentX = Math.max(Math.min(image.currentX, image.maxX), image.minX);
+      image.currentY = Math.max(Math.min(image.currentY, image.maxY), image.minY);
+
+      gesture.$imageWrapEl.transition(momentumDuration).transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
+    },
+    onTransitionEnd: function onTransitionEnd() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      if (gesture.$slideEl && swiper.previousIndex !== swiper.activeIndex) {
+        gesture.$imageEl.transform('translate3d(0,0,0) scale(1)');
+        gesture.$imageWrapEl.transform('translate3d(0,0,0)');
+        gesture.$slideEl = undefined;
+        gesture.$imageEl = undefined;
+        gesture.$imageWrapEl = undefined;
+
+        zoom.scale = 1;
+        zoom.currentScale = 1;
+      }
+    },
+    // Toggle Zoom
+    toggle: function toggle(e) {
+      var swiper = this;
+      var zoom = swiper.zoom;
+
+      if (zoom.scale && zoom.scale !== 1) {
+        // Zoom Out
+        zoom.out();
+      } else {
+        // Zoom In
+        zoom.in(e);
+      }
+    },
+    in: function in$1(e) {
+      var swiper = this;
+
+      var zoom = swiper.zoom;
+      var params = swiper.params.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+
+      if (!gesture.$slideEl) {
+        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
+        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
+        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+
+      gesture.$slideEl.addClass(("" + (params.zoomedSlideClass)));
+
+      var touchX;
+      var touchY;
+      var offsetX;
+      var offsetY;
+      var diffX;
+      var diffY;
+      var translateX;
+      var translateY;
+      var imageWidth;
+      var imageHeight;
+      var scaledWidth;
+      var scaledHeight;
+      var translateMinX;
+      var translateMinY;
+      var translateMaxX;
+      var translateMaxY;
+      var slideWidth;
+      var slideHeight;
+
+      if (typeof image.touchesStart.x === 'undefined' && e) {
+        touchX = e.type === 'touchend' ? e.changedTouches[0].pageX : e.pageX;
+        touchY = e.type === 'touchend' ? e.changedTouches[0].pageY : e.pageY;
+      } else {
+        touchX = image.touchesStart.x;
+        touchY = image.touchesStart.y;
+      }
+
+      zoom.scale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+      zoom.currentScale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+      if (e) {
+        slideWidth = gesture.$slideEl[0].offsetWidth;
+        slideHeight = gesture.$slideEl[0].offsetHeight;
+        offsetX = gesture.$slideEl.offset().left;
+        offsetY = gesture.$slideEl.offset().top;
+        diffX = (offsetX + (slideWidth / 2)) - touchX;
+        diffY = (offsetY + (slideHeight / 2)) - touchY;
+
+        imageWidth = gesture.$imageEl[0].offsetWidth;
+        imageHeight = gesture.$imageEl[0].offsetHeight;
+        scaledWidth = imageWidth * zoom.scale;
+        scaledHeight = imageHeight * zoom.scale;
+
+        translateMinX = Math.min(((slideWidth / 2) - (scaledWidth / 2)), 0);
+        translateMinY = Math.min(((slideHeight / 2) - (scaledHeight / 2)), 0);
+        translateMaxX = -translateMinX;
+        translateMaxY = -translateMinY;
+
+        translateX = diffX * zoom.scale;
+        translateY = diffY * zoom.scale;
+
+        if (translateX < translateMinX) {
+          translateX = translateMinX;
+        }
+        if (translateX > translateMaxX) {
+          translateX = translateMaxX;
+        }
+
+        if (translateY < translateMinY) {
+          translateY = translateMinY;
+        }
+        if (translateY > translateMaxY) {
+          translateY = translateMaxY;
+        }
+      } else {
+        translateX = 0;
+        translateY = 0;
+      }
+      gesture.$imageWrapEl.transition(300).transform(("translate3d(" + translateX + "px, " + translateY + "px,0)"));
+      gesture.$imageEl.transition(300).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
+    },
+    out: function out() {
+      var swiper = this;
+
+      var zoom = swiper.zoom;
+      var params = swiper.params.zoom;
+      var gesture = zoom.gesture;
+
+      if (!gesture.$slideEl) {
+        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
+        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
+        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+
+      zoom.scale = 1;
+      zoom.currentScale = 1;
+      gesture.$imageWrapEl.transition(300).transform('translate3d(0,0,0)');
+      gesture.$imageEl.transition(300).transform('translate3d(0,0,0) scale(1)');
+      gesture.$slideEl.removeClass(("" + (params.zoomedSlideClass)));
+      gesture.$slideEl = undefined;
+    },
+    // Attach/Detach Events
+    enable: function enable() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      if (zoom.enabled) { return; }
+      zoom.enabled = true;
+
+      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
+
+      // Scale image
+      if (Support.gestures) {
+        swiper.$wrapperEl.on('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.on('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.on('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      } else if (swiper.touchEvents.start === 'touchstart') {
+        swiper.$wrapperEl.on(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.on(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.on(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      }
+
+      // Move image
+      swiper.$wrapperEl.on(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
+    },
+    disable: function disable() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      if (!zoom.enabled) { return; }
+
+      swiper.zoom.enabled = false;
+
+      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
+
+      // Scale image
+      if (Support.gestures) {
+        swiper.$wrapperEl.off('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.off('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.off('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      } else if (swiper.touchEvents.start === 'touchstart') {
+        swiper.$wrapperEl.off(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.off(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.off(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      }
+
+      // Move image
+      swiper.$wrapperEl.off(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
+    },
+  };
+
+  var Zoom$1 = {
+    name: 'zoom',
+    params: {
+      zoom: {
+        enabled: false,
+        maxRatio: 3,
+        minRatio: 1,
+        toggle: true,
+        containerClass: 'swiper-zoom-container',
+        zoomedSlideClass: 'swiper-slide-zoomed',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      var zoom = {
+        enabled: false,
+        scale: 1,
+        currentScale: 1,
+        isScaling: false,
+        gesture: {
+          $slideEl: undefined,
+          slideWidth: undefined,
+          slideHeight: undefined,
+          $imageEl: undefined,
+          $imageWrapEl: undefined,
+          maxRatio: 3,
+        },
+        image: {
+          isTouched: undefined,
+          isMoved: undefined,
+          currentX: undefined,
+          currentY: undefined,
+          minX: undefined,
+          minY: undefined,
+          maxX: undefined,
+          maxY: undefined,
+          width: undefined,
+          height: undefined,
+          startX: undefined,
+          startY: undefined,
+          touchesStart: {},
+          touchesCurrent: {},
+        },
+        velocity: {
+          x: undefined,
+          y: undefined,
+          prevPositionX: undefined,
+          prevPositionY: undefined,
+          prevTime: undefined,
+        },
+      };
+      ('onGestureStart onGestureChange onGestureEnd onTouchStart onTouchMove onTouchEnd onTransitionEnd toggle enable disable in out').split(' ').forEach(function (methodName) {
+        zoom[methodName] = Zoom[methodName].bind(swiper);
+      });
+      Utils.extend(swiper, {
+        zoom: zoom,
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.zoom.enabled) {
+          swiper.zoom.enable();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.zoom.disable();
+      },
+      touchStart: function touchStart(e) {
+        var swiper = this;
+        if (!swiper.zoom.enabled) { return; }
+        swiper.zoom.onTouchStart(e);
+      },
+      touchEnd: function touchEnd(e) {
+        var swiper = this;
+        if (!swiper.zoom.enabled) { return; }
+        swiper.zoom.onTouchEnd(e);
+      },
+      doubleTap: function doubleTap(e) {
+        var swiper = this;
+        if (swiper.params.zoom.enabled && swiper.zoom.enabled && swiper.params.zoom.toggle) {
+          swiper.zoom.toggle(e);
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.zoom.enabled && swiper.params.zoom.enabled) {
+          swiper.zoom.onTransitionEnd();
+        }
+      },
+    },
+  };
+
+  var Lazy = {
+    loadInSlide: function loadInSlide(index, loadInDuplicate) {
+      if ( loadInDuplicate === void 0 ) loadInDuplicate = true;
+
+      var swiper = this;
+      var params = swiper.params.lazy;
+      if (typeof index === 'undefined') { return; }
+      if (swiper.slides.length === 0) { return; }
+      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+
+      var $slideEl = isVirtual
+        ? swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]"))
+        : swiper.slides.eq(index);
+
+      var $images = $slideEl.find(("." + (params.elementClass) + ":not(." + (params.loadedClass) + "):not(." + (params.loadingClass) + ")"));
+      if ($slideEl.hasClass(params.elementClass) && !$slideEl.hasClass(params.loadedClass) && !$slideEl.hasClass(params.loadingClass)) {
+        $images = $images.add($slideEl[0]);
+      }
+      if ($images.length === 0) { return; }
+
+      $images.each(function (imageIndex, imageEl) {
+        var $imageEl = $(imageEl);
+        $imageEl.addClass(params.loadingClass);
+
+        var background = $imageEl.attr('data-background');
+        var src = $imageEl.attr('data-src');
+        var srcset = $imageEl.attr('data-srcset');
+        var sizes = $imageEl.attr('data-sizes');
+
+        swiper.loadImage($imageEl[0], (src || background), srcset, sizes, false, function () {
+          if (typeof swiper === 'undefined' || swiper === null || !swiper || (swiper && !swiper.params) || swiper.destroyed) { return; }
+          if (background) {
+            $imageEl.css('background-image', ("url(\"" + background + "\")"));
+            $imageEl.removeAttr('data-background');
+          } else {
+            if (srcset) {
+              $imageEl.attr('srcset', srcset);
+              $imageEl.removeAttr('data-srcset');
+            }
+            if (sizes) {
+              $imageEl.attr('sizes', sizes);
+              $imageEl.removeAttr('data-sizes');
+            }
+            if (src) {
+              $imageEl.attr('src', src);
+              $imageEl.removeAttr('data-src');
+            }
+          }
+
+          $imageEl.addClass(params.loadedClass).removeClass(params.loadingClass);
+          $slideEl.find(("." + (params.preloaderClass))).remove();
+          if (swiper.params.loop && loadInDuplicate) {
+            var slideOriginalIndex = $slideEl.attr('data-swiper-slide-index');
+            if ($slideEl.hasClass(swiper.params.slideDuplicateClass)) {
+              var originalSlide = swiper.$wrapperEl.children(("[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]:not(." + (swiper.params.slideDuplicateClass) + ")"));
+              swiper.lazy.loadInSlide(originalSlide.index(), false);
+            } else {
+              var duplicatedSlide = swiper.$wrapperEl.children(("." + (swiper.params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]"));
+              swiper.lazy.loadInSlide(duplicatedSlide.index(), false);
+            }
+          }
+          swiper.emit('lazyImageReady', $slideEl[0], $imageEl[0]);
+        });
+
+        swiper.emit('lazyImageLoad', $slideEl[0], $imageEl[0]);
+      });
+    },
+    load: function load() {
+      var swiper = this;
+      var $wrapperEl = swiper.$wrapperEl;
+      var swiperParams = swiper.params;
+      var slides = swiper.slides;
+      var activeIndex = swiper.activeIndex;
+      var isVirtual = swiper.virtual && swiperParams.virtual.enabled;
+      var params = swiperParams.lazy;
+
+      var slidesPerView = swiperParams.slidesPerView;
+      if (slidesPerView === 'auto') {
+        slidesPerView = 0;
+      }
+
+      function slideExist(index) {
+        if (isVirtual) {
+          if ($wrapperEl.children(("." + (swiperParams.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]")).length) {
+            return true;
+          }
+        } else if (slides[index]) { return true; }
+        return false;
+      }
+      function slideIndex(slideEl) {
+        if (isVirtual) {
+          return $(slideEl).attr('data-swiper-slide-index');
+        }
+        return $(slideEl).index();
+      }
+
+      if (!swiper.lazy.initialImageLoaded) { swiper.lazy.initialImageLoaded = true; }
+      if (swiper.params.watchSlidesVisibility) {
+        $wrapperEl.children(("." + (swiperParams.slideVisibleClass))).each(function (elIndex, slideEl) {
+          var index = isVirtual ? $(slideEl).attr('data-swiper-slide-index') : $(slideEl).index();
+          swiper.lazy.loadInSlide(index);
+        });
+      } else if (slidesPerView > 1) {
+        for (var i = activeIndex; i < activeIndex + slidesPerView; i += 1) {
+          if (slideExist(i)) { swiper.lazy.loadInSlide(i); }
+        }
+      } else {
+        swiper.lazy.loadInSlide(activeIndex);
+      }
+      if (params.loadPrevNext) {
+        if (slidesPerView > 1 || (params.loadPrevNextAmount && params.loadPrevNextAmount > 1)) {
+          var amount = params.loadPrevNextAmount;
+          var spv = slidesPerView;
+          var maxIndex = Math.min(activeIndex + spv + Math.max(amount, spv), slides.length);
+          var minIndex = Math.max(activeIndex - Math.max(spv, amount), 0);
+          // Next Slides
+          for (var i$1 = activeIndex + slidesPerView; i$1 < maxIndex; i$1 += 1) {
+            if (slideExist(i$1)) { swiper.lazy.loadInSlide(i$1); }
+          }
+          // Prev Slides
+          for (var i$2 = minIndex; i$2 < activeIndex; i$2 += 1) {
+            if (slideExist(i$2)) { swiper.lazy.loadInSlide(i$2); }
+          }
+        } else {
+          var nextSlide = $wrapperEl.children(("." + (swiperParams.slideNextClass)));
+          if (nextSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(nextSlide)); }
+
+          var prevSlide = $wrapperEl.children(("." + (swiperParams.slidePrevClass)));
+          if (prevSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(prevSlide)); }
+        }
+      }
+    },
+  };
+
+  var Lazy$1 = {
+    name: 'lazy',
+    params: {
+      lazy: {
+        enabled: false,
+        loadPrevNext: false,
+        loadPrevNextAmount: 1,
+        loadOnTransitionStart: false,
+
+        elementClass: 'swiper-lazy',
+        loadingClass: 'swiper-lazy-loading',
+        loadedClass: 'swiper-lazy-loaded',
+        preloaderClass: 'swiper-lazy-preloader',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        lazy: {
+          initialImageLoaded: false,
+          load: Lazy.load.bind(swiper),
+          loadInSlide: Lazy.loadInSlide.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled && swiper.params.preloadImages) {
+          swiper.params.preloadImages = false;
+        }
+      },
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled && !swiper.params.loop && swiper.params.initialSlide === 0) {
+          swiper.lazy.load();
+        }
+      },
+      scroll: function scroll() {
+        var swiper = this;
+        if (swiper.params.freeMode && !swiper.params.freeModeSticky) {
+          swiper.lazy.load();
+        }
+      },
+      resize: function resize() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled) {
+          swiper.lazy.load();
+        }
+      },
+      scrollbarDragMove: function scrollbarDragMove() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled) {
+          swiper.lazy.load();
+        }
+      },
+      transitionStart: function transitionStart() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled) {
+          if (swiper.params.lazy.loadOnTransitionStart || (!swiper.params.lazy.loadOnTransitionStart && !swiper.lazy.initialImageLoaded)) {
+            swiper.lazy.load();
+          }
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled && !swiper.params.lazy.loadOnTransitionStart) {
+          swiper.lazy.load();
+        }
+      },
+    },
+  };
+
+  /* eslint no-bitwise: ["error", { "allow": [">>"] }] */
+
+  var Controller = {
+    LinearSpline: function LinearSpline(x, y) {
+      var binarySearch = (function search() {
+        var maxIndex;
+        var minIndex;
+        var guess;
+        return function (array, val) {
+          minIndex = -1;
+          maxIndex = array.length;
+          while (maxIndex - minIndex > 1) {
+            guess = maxIndex + minIndex >> 1;
+            if (array[guess] <= val) {
+              minIndex = guess;
+            } else {
+              maxIndex = guess;
+            }
+          }
+          return maxIndex;
+        };
+      }());
+      this.x = x;
+      this.y = y;
+      this.lastIndex = x.length - 1;
+      // Given an x value (x2), return the expected y2 value:
+      // (x1,y1) is the known point before given value,
+      // (x3,y3) is the known point after given value.
+      var i1;
+      var i3;
+
+      this.interpolate = function interpolate(x2) {
+        if (!x2) { return 0; }
+
+        // Get the indexes of x1 and x3 (the array indexes before and after given x2):
+        i3 = binarySearch(this.x, x2);
+        i1 = i3 - 1;
+
+        // We have our indexes i1 & i3, so we can calculate already:
+        // y2 := ((x2−x1) × (y3−y1)) ÷ (x3−x1) + y1
+        return (((x2 - this.x[i1]) * (this.y[i3] - this.y[i1])) / (this.x[i3] - this.x[i1])) + this.y[i1];
+      };
+      return this;
+    },
+    // xxx: for now i will just save one spline function to to
+    getInterpolateFunction: function getInterpolateFunction(c) {
+      var swiper = this;
+      if (!swiper.controller.spline) {
+        swiper.controller.spline = swiper.params.loop ?
+          new Controller.LinearSpline(swiper.slidesGrid, c.slidesGrid) :
+          new Controller.LinearSpline(swiper.snapGrid, c.snapGrid);
+      }
+    },
+    setTranslate: function setTranslate(setTranslate$1, byController) {
+      var swiper = this;
+      var controlled = swiper.controller.control;
+      var multiplier;
+      var controlledTranslate;
+      function setControlledTranslate(c) {
+        // this will create an Interpolate function based on the snapGrids
+        // x is the Grid of the scrolled scroller and y will be the controlled scroller
+        // it makes sense to create this only once and recall it for the interpolation
+        // the function does a lot of value caching for performance
+        var translate = swiper.rtlTranslate ? -swiper.translate : swiper.translate;
+        if (swiper.params.controller.by === 'slide') {
+          swiper.controller.getInterpolateFunction(c);
+          // i am not sure why the values have to be multiplicated this way, tried to invert the snapGrid
+          // but it did not work out
+          controlledTranslate = -swiper.controller.spline.interpolate(-translate);
+        }
+
+        if (!controlledTranslate || swiper.params.controller.by === 'container') {
+          multiplier = (c.maxTranslate() - c.minTranslate()) / (swiper.maxTranslate() - swiper.minTranslate());
+          controlledTranslate = ((translate - swiper.minTranslate()) * multiplier) + c.minTranslate();
+        }
+
+        if (swiper.params.controller.inverse) {
+          controlledTranslate = c.maxTranslate() - controlledTranslate;
+        }
+        c.updateProgress(controlledTranslate);
+        c.setTranslate(controlledTranslate, swiper);
+        c.updateActiveIndex();
+        c.updateSlidesClasses();
+      }
+      if (Array.isArray(controlled)) {
+        for (var i = 0; i < controlled.length; i += 1) {
+          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
+            setControlledTranslate(controlled[i]);
+          }
+        }
+      } else if (controlled instanceof Swiper && byController !== controlled) {
+        setControlledTranslate(controlled);
+      }
+    },
+    setTransition: function setTransition(duration, byController) {
+      var swiper = this;
+      var controlled = swiper.controller.control;
+      var i;
+      function setControlledTransition(c) {
+        c.setTransition(duration, swiper);
+        if (duration !== 0) {
+          c.transitionStart();
+          c.$wrapperEl.transitionEnd(function () {
+            if (!controlled) { return; }
+            if (c.params.loop && swiper.params.controller.by === 'slide') {
+              c.loopFix();
+            }
+            c.transitionEnd();
+          });
+        }
+      }
+      if (Array.isArray(controlled)) {
+        for (i = 0; i < controlled.length; i += 1) {
+          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
+            setControlledTransition(controlled[i]);
+          }
+        }
+      } else if (controlled instanceof Swiper && byController !== controlled) {
+        setControlledTransition(controlled);
+      }
+    },
+  };
+  var Controller$1 = {
+    name: 'controller',
+    params: {
+      controller: {
+        control: undefined,
+        inverse: false,
+        by: 'slide', // or 'container'
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        controller: {
+          control: swiper.params.controller.control,
+          getInterpolateFunction: Controller.getInterpolateFunction.bind(swiper),
+          setTranslate: Controller.setTranslate.bind(swiper),
+          setTransition: Controller.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      update: function update() {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        if (swiper.controller.spline) {
+          swiper.controller.spline = undefined;
+          delete swiper.controller.spline;
+        }
+      },
+      resize: function resize() {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        if (swiper.controller.spline) {
+          swiper.controller.spline = undefined;
+          delete swiper.controller.spline;
+        }
+      },
+      observerUpdate: function observerUpdate() {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        if (swiper.controller.spline) {
+          swiper.controller.spline = undefined;
+          delete swiper.controller.spline;
+        }
+      },
+      setTranslate: function setTranslate(translate, byController) {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        swiper.controller.setTranslate(translate, byController);
+      },
+      setTransition: function setTransition(duration, byController) {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        swiper.controller.setTransition(duration, byController);
+      },
+    },
+  };
+
+  var a11y = {
+    makeElFocusable: function makeElFocusable($el) {
+      $el.attr('tabIndex', '0');
+      return $el;
+    },
+    addElRole: function addElRole($el, role) {
+      $el.attr('role', role);
+      return $el;
+    },
+    addElLabel: function addElLabel($el, label) {
+      $el.attr('aria-label', label);
+      return $el;
+    },
+    disableEl: function disableEl($el) {
+      $el.attr('aria-disabled', true);
+      return $el;
+    },
+    enableEl: function enableEl($el) {
+      $el.attr('aria-disabled', false);
+      return $el;
+    },
+    onEnterKey: function onEnterKey(e) {
+      var swiper = this;
+      var params = swiper.params.a11y;
+      if (e.keyCode !== 13) { return; }
+      var $targetEl = $(e.target);
+      if (swiper.navigation && swiper.navigation.$nextEl && $targetEl.is(swiper.navigation.$nextEl)) {
+        if (!(swiper.isEnd && !swiper.params.loop)) {
+          swiper.slideNext();
+        }
+        if (swiper.isEnd) {
+          swiper.a11y.notify(params.lastSlideMessage);
+        } else {
+          swiper.a11y.notify(params.nextSlideMessage);
+        }
+      }
+      if (swiper.navigation && swiper.navigation.$prevEl && $targetEl.is(swiper.navigation.$prevEl)) {
+        if (!(swiper.isBeginning && !swiper.params.loop)) {
+          swiper.slidePrev();
+        }
+        if (swiper.isBeginning) {
+          swiper.a11y.notify(params.firstSlideMessage);
+        } else {
+          swiper.a11y.notify(params.prevSlideMessage);
+        }
+      }
+      if (swiper.pagination && $targetEl.is(("." + (swiper.params.pagination.bulletClass)))) {
+        $targetEl[0].click();
+      }
+    },
+    notify: function notify(message) {
+      var swiper = this;
+      var notification = swiper.a11y.liveRegion;
+      if (notification.length === 0) { return; }
+      notification.html('');
+      notification.html(message);
+    },
+    updateNavigation: function updateNavigation() {
+      var swiper = this;
+
+      if (swiper.params.loop) { return; }
+      var ref = swiper.navigation;
+      var $nextEl = ref.$nextEl;
+      var $prevEl = ref.$prevEl;
+
+      if ($prevEl && $prevEl.length > 0) {
+        if (swiper.isBeginning) {
+          swiper.a11y.disableEl($prevEl);
+        } else {
+          swiper.a11y.enableEl($prevEl);
+        }
+      }
+      if ($nextEl && $nextEl.length > 0) {
+        if (swiper.isEnd) {
+          swiper.a11y.disableEl($nextEl);
+        } else {
+          swiper.a11y.enableEl($nextEl);
+        }
+      }
+    },
+    updatePagination: function updatePagination() {
+      var swiper = this;
+      var params = swiper.params.a11y;
+      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
+        swiper.pagination.bullets.each(function (bulletIndex, bulletEl) {
+          var $bulletEl = $(bulletEl);
+          swiper.a11y.makeElFocusable($bulletEl);
+          swiper.a11y.addElRole($bulletEl, 'button');
+          swiper.a11y.addElLabel($bulletEl, params.paginationBulletMessage.replace(/{{index}}/, $bulletEl.index() + 1));
+        });
+      }
+    },
+    init: function init() {
+      var swiper = this;
+
+      swiper.$el.append(swiper.a11y.liveRegion);
+
+      // Navigation
+      var params = swiper.params.a11y;
+      var $nextEl;
+      var $prevEl;
+      if (swiper.navigation && swiper.navigation.$nextEl) {
+        $nextEl = swiper.navigation.$nextEl;
+      }
+      if (swiper.navigation && swiper.navigation.$prevEl) {
+        $prevEl = swiper.navigation.$prevEl;
+      }
+      if ($nextEl) {
+        swiper.a11y.makeElFocusable($nextEl);
+        swiper.a11y.addElRole($nextEl, 'button');
+        swiper.a11y.addElLabel($nextEl, params.nextSlideMessage);
+        $nextEl.on('keydown', swiper.a11y.onEnterKey);
+      }
+      if ($prevEl) {
+        swiper.a11y.makeElFocusable($prevEl);
+        swiper.a11y.addElRole($prevEl, 'button');
+        swiper.a11y.addElLabel($prevEl, params.prevSlideMessage);
+        $prevEl.on('keydown', swiper.a11y.onEnterKey);
+      }
+
+      // Pagination
+      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
+        swiper.pagination.$el.on('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      if (swiper.a11y.liveRegion && swiper.a11y.liveRegion.length > 0) { swiper.a11y.liveRegion.remove(); }
+
+      var $nextEl;
+      var $prevEl;
+      if (swiper.navigation && swiper.navigation.$nextEl) {
+        $nextEl = swiper.navigation.$nextEl;
+      }
+      if (swiper.navigation && swiper.navigation.$prevEl) {
+        $prevEl = swiper.navigation.$prevEl;
+      }
+      if ($nextEl) {
+        $nextEl.off('keydown', swiper.a11y.onEnterKey);
+      }
+      if ($prevEl) {
+        $prevEl.off('keydown', swiper.a11y.onEnterKey);
+      }
+
+      // Pagination
+      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
+        swiper.pagination.$el.off('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
+      }
+    },
+  };
+  var A11y = {
+    name: 'a11y',
+    params: {
+      a11y: {
+        enabled: true,
+        notificationClass: 'swiper-notification',
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+        firstSlideMessage: 'This is the first slide',
+        lastSlideMessage: 'This is the last slide',
+        paginationBulletMessage: 'Go to slide {{index}}',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        a11y: {
+          liveRegion: $(("<span class=\"" + (swiper.params.a11y.notificationClass) + "\" aria-live=\"assertive\" aria-atomic=\"true\"></span>")),
+        },
+      });
+      Object.keys(a11y).forEach(function (methodName) {
+        swiper.a11y[methodName] = a11y[methodName].bind(swiper);
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.init();
+        swiper.a11y.updateNavigation();
+      },
+      toEdge: function toEdge() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.updateNavigation();
+      },
+      fromEdge: function fromEdge() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.updateNavigation();
+      },
+      paginationUpdate: function paginationUpdate() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.updatePagination();
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.destroy();
+      },
+    },
+  };
+
+  var History = {
+    init: function init() {
+      var swiper = this;
+      if (!swiper.params.history) { return; }
+      if (!win.history || !win.history.pushState) {
+        swiper.params.history.enabled = false;
+        swiper.params.hashNavigation.enabled = true;
+        return;
+      }
+      var history = swiper.history;
+      history.initialized = true;
+      history.paths = History.getPathValues();
+      if (!history.paths.key && !history.paths.value) { return; }
+      history.scrollToSlide(0, history.paths.value, swiper.params.runCallbacksOnInit);
+      if (!swiper.params.history.replaceState) {
+        win.addEventListener('popstate', swiper.history.setHistoryPopState);
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      if (!swiper.params.history.replaceState) {
+        win.removeEventListener('popstate', swiper.history.setHistoryPopState);
+      }
+    },
+    setHistoryPopState: function setHistoryPopState() {
+      var swiper = this;
+      swiper.history.paths = History.getPathValues();
+      swiper.history.scrollToSlide(swiper.params.speed, swiper.history.paths.value, false);
+    },
+    getPathValues: function getPathValues() {
+      var pathArray = win.location.pathname.slice(1).split('/').filter(function (part) { return part !== ''; });
+      var total = pathArray.length;
+      var key = pathArray[total - 2];
+      var value = pathArray[total - 1];
+      return { key: key, value: value };
+    },
+    setHistory: function setHistory(key, index) {
+      var swiper = this;
+      if (!swiper.history.initialized || !swiper.params.history.enabled) { return; }
+      var slide = swiper.slides.eq(index);
+      var value = History.slugify(slide.attr('data-history'));
+      if (!win.location.pathname.includes(key)) {
+        value = key + "/" + value;
+      }
+      var currentState = win.history.state;
+      if (currentState && currentState.value === value) {
+        return;
+      }
+      if (swiper.params.history.replaceState) {
+        win.history.replaceState({ value: value }, null, value);
+      } else {
+        win.history.pushState({ value: value }, null, value);
+      }
+    },
+    slugify: function slugify(text) {
+      return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+    },
+    scrollToSlide: function scrollToSlide(speed, value, runCallbacks) {
+      var swiper = this;
+      if (value) {
+        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
+          var slide = swiper.slides.eq(i);
+          var slideHistory = History.slugify(slide.attr('data-history'));
+          if (slideHistory === value && !slide.hasClass(swiper.params.slideDuplicateClass)) {
+            var index = slide.index();
+            swiper.slideTo(index, speed, runCallbacks);
+          }
+        }
+      } else {
+        swiper.slideTo(0, speed, runCallbacks);
+      }
+    },
+  };
+
+  var History$1 = {
+    name: 'history',
+    params: {
+      history: {
+        enabled: false,
+        replaceState: false,
+        key: 'slides',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        history: {
+          init: History.init.bind(swiper),
+          setHistory: History.setHistory.bind(swiper),
+          setHistoryPopState: History.setHistoryPopState.bind(swiper),
+          scrollToSlide: History.scrollToSlide.bind(swiper),
+          destroy: History.destroy.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.history.enabled) {
+          swiper.history.init();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.params.history.enabled) {
+          swiper.history.destroy();
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.history.initialized) {
+          swiper.history.setHistory(swiper.params.history.key, swiper.activeIndex);
+        }
+      },
+    },
+  };
+
+  var HashNavigation = {
+    onHashCange: function onHashCange() {
+      var swiper = this;
+      var newHash = doc.location.hash.replace('#', '');
+      var activeSlideHash = swiper.slides.eq(swiper.activeIndex).attr('data-hash');
+      if (newHash !== activeSlideHash) {
+        swiper.slideTo(swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-hash=\"" + newHash + "\"]")).index());
+      }
+    },
+    setHash: function setHash() {
+      var swiper = this;
+      if (!swiper.hashNavigation.initialized || !swiper.params.hashNavigation.enabled) { return; }
+      if (swiper.params.hashNavigation.replaceState && win.history && win.history.replaceState) {
+        win.history.replaceState(null, null, (("#" + (swiper.slides.eq(swiper.activeIndex).attr('data-hash'))) || ''));
+      } else {
+        var slide = swiper.slides.eq(swiper.activeIndex);
+        var hash = slide.attr('data-hash') || slide.attr('data-history');
+        doc.location.hash = hash || '';
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      if (!swiper.params.hashNavigation.enabled || (swiper.params.history && swiper.params.history.enabled)) { return; }
+      swiper.hashNavigation.initialized = true;
+      var hash = doc.location.hash.replace('#', '');
+      if (hash) {
+        var speed = 0;
+        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
+          var slide = swiper.slides.eq(i);
+          var slideHash = slide.attr('data-hash') || slide.attr('data-history');
+          if (slideHash === hash && !slide.hasClass(swiper.params.slideDuplicateClass)) {
+            var index = slide.index();
+            swiper.slideTo(index, speed, swiper.params.runCallbacksOnInit, true);
+          }
+        }
+      }
+      if (swiper.params.hashNavigation.watchState) {
+        $(win).on('hashchange', swiper.hashNavigation.onHashCange);
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      if (swiper.params.hashNavigation.watchState) {
+        $(win).off('hashchange', swiper.hashNavigation.onHashCange);
+      }
+    },
+  };
+  var HashNavigation$1 = {
+    name: 'hash-navigation',
+    params: {
+      hashNavigation: {
+        enabled: false,
+        replaceState: false,
+        watchState: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        hashNavigation: {
+          initialized: false,
+          init: HashNavigation.init.bind(swiper),
+          destroy: HashNavigation.destroy.bind(swiper),
+          setHash: HashNavigation.setHash.bind(swiper),
+          onHashCange: HashNavigation.onHashCange.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.hashNavigation.enabled) {
+          swiper.hashNavigation.init();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.params.hashNavigation.enabled) {
+          swiper.hashNavigation.destroy();
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.hashNavigation.initialized) {
+          swiper.hashNavigation.setHash();
+        }
+      },
+    },
+  };
+
+  /* eslint no-underscore-dangle: "off" */
+
+  var Autoplay = {
+    run: function run() {
+      var swiper = this;
+      var $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
+      var delay = swiper.params.autoplay.delay;
+      if ($activeSlideEl.attr('data-swiper-autoplay')) {
+        delay = $activeSlideEl.attr('data-swiper-autoplay') || swiper.params.autoplay.delay;
+      }
+      swiper.autoplay.timeout = Utils.nextTick(function () {
+        if (swiper.params.autoplay.reverseDirection) {
+          if (swiper.params.loop) {
+            swiper.loopFix();
+            swiper.slidePrev(swiper.params.speed, true, true);
+            swiper.emit('autoplay');
+          } else if (!swiper.isBeginning) {
+            swiper.slidePrev(swiper.params.speed, true, true);
+            swiper.emit('autoplay');
+          } else if (!swiper.params.autoplay.stopOnLastSlide) {
+            swiper.slideTo(swiper.slides.length - 1, swiper.params.speed, true, true);
+            swiper.emit('autoplay');
+          } else {
+            swiper.autoplay.stop();
+          }
+        } else if (swiper.params.loop) {
+          swiper.loopFix();
+          swiper.slideNext(swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else if (!swiper.isEnd) {
+          swiper.slideNext(swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else if (!swiper.params.autoplay.stopOnLastSlide) {
+          swiper.slideTo(0, swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else {
+          swiper.autoplay.stop();
+        }
+      }, delay);
+    },
+    start: function start() {
+      var swiper = this;
+      if (typeof swiper.autoplay.timeout !== 'undefined') { return false; }
+      if (swiper.autoplay.running) { return false; }
+      swiper.autoplay.running = true;
+      swiper.emit('autoplayStart');
+      swiper.autoplay.run();
+      return true;
+    },
+    stop: function stop() {
+      var swiper = this;
+      if (!swiper.autoplay.running) { return false; }
+      if (typeof swiper.autoplay.timeout === 'undefined') { return false; }
+
+      if (swiper.autoplay.timeout) {
+        clearTimeout(swiper.autoplay.timeout);
+        swiper.autoplay.timeout = undefined;
+      }
+      swiper.autoplay.running = false;
+      swiper.emit('autoplayStop');
+      return true;
+    },
+    pause: function pause(speed) {
+      var swiper = this;
+      if (!swiper.autoplay.running) { return; }
+      if (swiper.autoplay.paused) { return; }
+      if (swiper.autoplay.timeout) { clearTimeout(swiper.autoplay.timeout); }
+      swiper.autoplay.paused = true;
+      if (speed === 0 || !swiper.params.autoplay.waitForTransition) {
+        swiper.autoplay.paused = false;
+        swiper.autoplay.run();
+      } else {
+        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.autoplay.onTransitionEnd);
+        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
+      }
+    },
+  };
+
+  var Autoplay$1 = {
+    name: 'autoplay',
+    params: {
+      autoplay: {
+        enabled: false,
+        delay: 3000,
+        waitForTransition: true,
+        disableOnInteraction: true,
+        stopOnLastSlide: false,
+        reverseDirection: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        autoplay: {
+          running: false,
+          paused: false,
+          run: Autoplay.run.bind(swiper),
+          start: Autoplay.start.bind(swiper),
+          stop: Autoplay.stop.bind(swiper),
+          pause: Autoplay.pause.bind(swiper),
+          onTransitionEnd: function onTransitionEnd(e) {
+            if (!swiper || swiper.destroyed || !swiper.$wrapperEl) { return; }
+            if (e.target !== this) { return; }
+            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.autoplay.onTransitionEnd);
+            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
+            swiper.autoplay.paused = false;
+            if (!swiper.autoplay.running) {
+              swiper.autoplay.stop();
+            } else {
+              swiper.autoplay.run();
+            }
+          },
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.autoplay.enabled) {
+          swiper.autoplay.start();
+        }
+      },
+      beforeTransitionStart: function beforeTransitionStart(speed, internal) {
+        var swiper = this;
+        if (swiper.autoplay.running) {
+          if (internal || !swiper.params.autoplay.disableOnInteraction) {
+            swiper.autoplay.pause(speed);
+          } else {
+            swiper.autoplay.stop();
+          }
+        }
+      },
+      sliderFirstMove: function sliderFirstMove() {
+        var swiper = this;
+        if (swiper.autoplay.running) {
+          if (swiper.params.autoplay.disableOnInteraction) {
+            swiper.autoplay.stop();
+          } else {
+            swiper.autoplay.pause();
+          }
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.autoplay.running) {
+          swiper.autoplay.stop();
+        }
+      },
+    },
+  };
+
+  var Fade = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var slides = swiper.slides;
+      for (var i = 0; i < slides.length; i += 1) {
+        var $slideEl = swiper.slides.eq(i);
+        var offset = $slideEl[0].swiperSlideOffset;
+        var tx = -offset;
+        if (!swiper.params.virtualTranslate) { tx -= swiper.translate; }
+        var ty = 0;
+        if (!swiper.isHorizontal()) {
+          ty = tx;
+          tx = 0;
+        }
+        var slideOpacity = swiper.params.fadeEffect.crossFade ?
+          Math.max(1 - Math.abs($slideEl[0].progress), 0) :
+          1 + Math.min(Math.max($slideEl[0].progress, -1), 0);
+        $slideEl
+          .css({
+            opacity: slideOpacity,
+          })
+          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px)"));
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      var slides = swiper.slides;
+      var $wrapperEl = swiper.$wrapperEl;
+      slides.transition(duration);
+      if (swiper.params.virtualTranslate && duration !== 0) {
+        var eventTriggered = false;
+        slides.transitionEnd(function () {
+          if (eventTriggered) { return; }
+          if (!swiper || swiper.destroyed) { return; }
+          eventTriggered = true;
+          swiper.animating = false;
+          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
+          for (var i = 0; i < triggerEvents.length; i += 1) {
+            $wrapperEl.trigger(triggerEvents[i]);
+          }
+        });
+      }
+    },
+  };
+
+  var EffectFade = {
+    name: 'effect-fade',
+    params: {
+      fadeEffect: {
+        crossFade: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        fadeEffect: {
+          setTranslate: Fade.setTranslate.bind(swiper),
+          setTransition: Fade.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'fade') { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "fade"));
+        var overwriteParams = {
+          slidesPerView: 1,
+          slidesPerColumn: 1,
+          slidesPerGroup: 1,
+          watchSlidesProgress: true,
+          spaceBetween: 0,
+          virtualTranslate: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'fade') { return; }
+        swiper.fadeEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'fade') { return; }
+        swiper.fadeEffect.setTransition(duration);
+      },
+    },
+  };
+
+  var Cube = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var $el = swiper.$el;
+      var $wrapperEl = swiper.$wrapperEl;
+      var slides = swiper.slides;
+      var swiperWidth = swiper.width;
+      var swiperHeight = swiper.height;
+      var rtl = swiper.rtlTranslate;
+      var swiperSize = swiper.size;
+      var params = swiper.params.cubeEffect;
+      var isHorizontal = swiper.isHorizontal();
+      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+      var wrapperRotate = 0;
+      var $cubeShadowEl;
+      if (params.shadow) {
+        if (isHorizontal) {
+          $cubeShadowEl = $wrapperEl.find('.swiper-cube-shadow');
+          if ($cubeShadowEl.length === 0) {
+            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
+            $wrapperEl.append($cubeShadowEl);
+          }
+          $cubeShadowEl.css({ height: (swiperWidth + "px") });
+        } else {
+          $cubeShadowEl = $el.find('.swiper-cube-shadow');
+          if ($cubeShadowEl.length === 0) {
+            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
+            $el.append($cubeShadowEl);
+          }
+        }
+      }
+      for (var i = 0; i < slides.length; i += 1) {
+        var $slideEl = slides.eq(i);
+        var slideIndex = i;
+        if (isVirtual) {
+          slideIndex = parseInt($slideEl.attr('data-swiper-slide-index'), 10);
+        }
+        var slideAngle = slideIndex * 90;
+        var round = Math.floor(slideAngle / 360);
+        if (rtl) {
+          slideAngle = -slideAngle;
+          round = Math.floor(-slideAngle / 360);
+        }
+        var progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
+        var tx = 0;
+        var ty = 0;
+        var tz = 0;
+        if (slideIndex % 4 === 0) {
+          tx = -round * 4 * swiperSize;
+          tz = 0;
+        } else if ((slideIndex - 1) % 4 === 0) {
+          tx = 0;
+          tz = -round * 4 * swiperSize;
+        } else if ((slideIndex - 2) % 4 === 0) {
+          tx = swiperSize + (round * 4 * swiperSize);
+          tz = swiperSize;
+        } else if ((slideIndex - 3) % 4 === 0) {
+          tx = -swiperSize;
+          tz = (3 * swiperSize) + (swiperSize * 4 * round);
+        }
+        if (rtl) {
+          tx = -tx;
+        }
+
+        if (!isHorizontal) {
+          ty = tx;
+          tx = 0;
+        }
+
+        var transform = "rotateX(" + (isHorizontal ? 0 : -slideAngle) + "deg) rotateY(" + (isHorizontal ? slideAngle : 0) + "deg) translate3d(" + tx + "px, " + ty + "px, " + tz + "px)";
+        if (progress <= 1 && progress > -1) {
+          wrapperRotate = (slideIndex * 90) + (progress * 90);
+          if (rtl) { wrapperRotate = (-slideIndex * 90) - (progress * 90); }
+        }
+        $slideEl.transform(transform);
+        if (params.slideShadows) {
+          // Set shadows
+          var shadowBefore = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
+          var shadowAfter = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+          if (shadowBefore.length === 0) {
+            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
+            $slideEl.append(shadowBefore);
+          }
+          if (shadowAfter.length === 0) {
+            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
+            $slideEl.append(shadowAfter);
+          }
+          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
+          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
+        }
+      }
+      $wrapperEl.css({
+        '-webkit-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+        '-moz-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+        '-ms-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+        'transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+      });
+
+      if (params.shadow) {
+        if (isHorizontal) {
+          $cubeShadowEl.transform(("translate3d(0px, " + ((swiperWidth / 2) + params.shadowOffset) + "px, " + (-swiperWidth / 2) + "px) rotateX(90deg) rotateZ(0deg) scale(" + (params.shadowScale) + ")"));
+        } else {
+          var shadowAngle = Math.abs(wrapperRotate) - (Math.floor(Math.abs(wrapperRotate) / 90) * 90);
+          var multiplier = 1.5 - (
+            (Math.sin((shadowAngle * 2 * Math.PI) / 360) / 2) +
+            (Math.cos((shadowAngle * 2 * Math.PI) / 360) / 2)
+          );
+          var scale1 = params.shadowScale;
+          var scale2 = params.shadowScale / multiplier;
+          var offset = params.shadowOffset;
+          $cubeShadowEl.transform(("scale3d(" + scale1 + ", 1, " + scale2 + ") translate3d(0px, " + ((swiperHeight / 2) + offset) + "px, " + (-swiperHeight / 2 / scale2) + "px) rotateX(-90deg)"));
+        }
+      }
+      var zFactor = (Browser.isSafari || Browser.isUiWebView) ? (-swiperSize / 2) : 0;
+      $wrapperEl
+        .transform(("translate3d(0px,0," + zFactor + "px) rotateX(" + (swiper.isHorizontal() ? 0 : wrapperRotate) + "deg) rotateY(" + (swiper.isHorizontal() ? -wrapperRotate : 0) + "deg)"));
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      var $el = swiper.$el;
+      var slides = swiper.slides;
+      slides
+        .transition(duration)
+        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+        .transition(duration);
+      if (swiper.params.cubeEffect.shadow && !swiper.isHorizontal()) {
+        $el.find('.swiper-cube-shadow').transition(duration);
+      }
+    },
+  };
+
+  var EffectCube = {
+    name: 'effect-cube',
+    params: {
+      cubeEffect: {
+        slideShadows: true,
+        shadow: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        cubeEffect: {
+          setTranslate: Cube.setTranslate.bind(swiper),
+          setTransition: Cube.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'cube') { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "cube"));
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
+        var overwriteParams = {
+          slidesPerView: 1,
+          slidesPerColumn: 1,
+          slidesPerGroup: 1,
+          watchSlidesProgress: true,
+          resistanceRatio: 0,
+          spaceBetween: 0,
+          centeredSlides: false,
+          virtualTranslate: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'cube') { return; }
+        swiper.cubeEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'cube') { return; }
+        swiper.cubeEffect.setTransition(duration);
+      },
+    },
+  };
+
+  var Flip = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var slides = swiper.slides;
+      var rtl = swiper.rtlTranslate;
+      for (var i = 0; i < slides.length; i += 1) {
+        var $slideEl = slides.eq(i);
+        var progress = $slideEl[0].progress;
+        if (swiper.params.flipEffect.limitRotation) {
+          progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
+        }
+        var offset = $slideEl[0].swiperSlideOffset;
+        var rotate = -180 * progress;
+        var rotateY = rotate;
+        var rotateX = 0;
+        var tx = -offset;
+        var ty = 0;
+        if (!swiper.isHorizontal()) {
+          ty = tx;
+          tx = 0;
+          rotateX = -rotateY;
+          rotateY = 0;
+        } else if (rtl) {
+          rotateY = -rotateY;
+        }
+
+        $slideEl[0].style.zIndex = -Math.abs(Math.round(progress)) + slides.length;
+
+        if (swiper.params.flipEffect.slideShadows) {
+          // Set shadows
+          var shadowBefore = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
+          var shadowAfter = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+          if (shadowBefore.length === 0) {
+            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'left' : 'top') + "\"></div>"));
+            $slideEl.append(shadowBefore);
+          }
+          if (shadowAfter.length === 0) {
+            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'right' : 'bottom') + "\"></div>"));
+            $slideEl.append(shadowAfter);
+          }
+          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
+          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
+        }
+        $slideEl
+          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)"));
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      var slides = swiper.slides;
+      var activeIndex = swiper.activeIndex;
+      var $wrapperEl = swiper.$wrapperEl;
+      slides
+        .transition(duration)
+        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+        .transition(duration);
+      if (swiper.params.virtualTranslate && duration !== 0) {
+        var eventTriggered = false;
+        // eslint-disable-next-line
+        slides.eq(activeIndex).transitionEnd(function onTransitionEnd() {
+          if (eventTriggered) { return; }
+          if (!swiper || swiper.destroyed) { return; }
+          // if (!$(this).hasClass(swiper.params.slideActiveClass)) return;
+          eventTriggered = true;
+          swiper.animating = false;
+          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
+          for (var i = 0; i < triggerEvents.length; i += 1) {
+            $wrapperEl.trigger(triggerEvents[i]);
+          }
+        });
+      }
+    },
+  };
+
+  var EffectFlip = {
+    name: 'effect-flip',
+    params: {
+      flipEffect: {
+        slideShadows: true,
+        limitRotation: true,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        flipEffect: {
+          setTranslate: Flip.setTranslate.bind(swiper),
+          setTransition: Flip.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'flip') { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "flip"));
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
+        var overwriteParams = {
+          slidesPerView: 1,
+          slidesPerColumn: 1,
+          slidesPerGroup: 1,
+          watchSlidesProgress: true,
+          spaceBetween: 0,
+          virtualTranslate: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'flip') { return; }
+        swiper.flipEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'flip') { return; }
+        swiper.flipEffect.setTransition(duration);
+      },
+    },
+  };
+
+  var Coverflow = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var swiperWidth = swiper.width;
+      var swiperHeight = swiper.height;
+      var slides = swiper.slides;
+      var $wrapperEl = swiper.$wrapperEl;
+      var slidesSizesGrid = swiper.slidesSizesGrid;
+      var params = swiper.params.coverflowEffect;
+      var isHorizontal = swiper.isHorizontal();
+      var transform = swiper.translate;
+      var center = isHorizontal ? -transform + (swiperWidth / 2) : -transform + (swiperHeight / 2);
+      var rotate = isHorizontal ? params.rotate : -params.rotate;
+      var translate = params.depth;
+      // Each slide offset from center
+      for (var i = 0, length = slides.length; i < length; i += 1) {
+        var $slideEl = slides.eq(i);
+        var slideSize = slidesSizesGrid[i];
+        var slideOffset = $slideEl[0].swiperSlideOffset;
+        var offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
+
+        var rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
+        var rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
+        // var rotateZ = 0
+        var translateZ = -translate * Math.abs(offsetMultiplier);
+
+        var translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
+        var translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
+
+        // Fix for ultra small values
+        if (Math.abs(translateX) < 0.001) { translateX = 0; }
+        if (Math.abs(translateY) < 0.001) { translateY = 0; }
+        if (Math.abs(translateZ) < 0.001) { translateZ = 0; }
+        if (Math.abs(rotateY) < 0.001) { rotateY = 0; }
+        if (Math.abs(rotateX) < 0.001) { rotateX = 0; }
+
+        var slideTransform = "translate3d(" + translateX + "px," + translateY + "px," + translateZ + "px)  rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
+
+        $slideEl.transform(slideTransform);
+        $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
+        if (params.slideShadows) {
+          // Set shadows
+          var $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
+          var $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+          if ($shadowBeforeEl.length === 0) {
+            $shadowBeforeEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
+            $slideEl.append($shadowBeforeEl);
+          }
+          if ($shadowAfterEl.length === 0) {
+            $shadowAfterEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
+            $slideEl.append($shadowAfterEl);
+          }
+          if ($shadowBeforeEl.length) { $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0; }
+          if ($shadowAfterEl.length) { $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0; }
+        }
+      }
+
+      // Set correct perspective for IE10
+      if (Support.pointerEvents || Support.prefixedPointerEvents) {
+        var ws = $wrapperEl[0].style;
+        ws.perspectiveOrigin = center + "px 50%";
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      swiper.slides
+        .transition(duration)
+        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+        .transition(duration);
+    },
+  };
+
+  var EffectCoverflow = {
+    name: 'effect-coverflow',
+    params: {
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        coverflowEffect: {
+          setTranslate: Coverflow.setTranslate.bind(swiper),
+          setTransition: Coverflow.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'coverflow') { return; }
+
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "coverflow"));
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
+
+        swiper.params.watchSlidesProgress = true;
+        swiper.originalParams.watchSlidesProgress = true;
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'coverflow') { return; }
+        swiper.coverflowEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'coverflow') { return; }
+        swiper.coverflowEffect.setTransition(duration);
+      },
+    },
+  };
+
+  // Swiper Class
+
+  var components = [
+    Device$1,
+    Support$1,
+    Browser$1,
+    Resize,
+    Observer$1,
+    Virtual$1,
+    Keyboard$1,
+    Mousewheel$1,
+    Navigation$1,
+    Pagination$1,
+    Scrollbar$1,
+    Parallax$1,
+    Zoom$1,
+    Lazy$1,
+    Controller$1,
+    A11y,
+    History$1,
+    HashNavigation$1,
+    Autoplay$1,
+    EffectFade,
+    EffectCube,
+    EffectFlip,
+    EffectCoverflow
+  ];
+
+  if (typeof Swiper.use === 'undefined') {
+    Swiper.use = Swiper.Class.use;
+    Swiper.installModule = Swiper.Class.installModule;
+  }
+
+  Swiper.use(components);
+
+  return Swiper;
+
+})));
+
+
+/***/ }),
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
 __webpack_require__(2);
 __webpack_require__(32);
-module.exports = __webpack_require__(37);
+__webpack_require__(39);
+__webpack_require__(35);
+module.exports = __webpack_require__(36);
 
 
 /***/ })
-
-},[88]);
+],[95]);

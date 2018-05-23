@@ -28,6 +28,7 @@
     "font-awesome-webpack": "0.0.5-beta.2",
     "jquery-validation": "^1.17.0",
     "less": "^3.0.2",
+    "mint-ui": "^2.2.13",
     "npm": "^6.0.0",
     "sweetalert": "^2.1.0",
     "swiper": "^3.4.2",

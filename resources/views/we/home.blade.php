@@ -178,7 +178,7 @@
                     <div class="book-contentBox">
                         <div class="img-box">
                             <div><img id="lookForHouse" src="/we_img/index_lookForHouse.png" alt=""></div>
-                            <div><img id="pletHouse" src="/we_img/index_pletHouse.png" class="right" alt=""></div>
+                            <div><img id="peltHouse" src="/we_img/index_pletHouse.png" class="right" alt=""></div>
                         </div>
                     </div>
                 </div>
