@@ -171,13 +171,15 @@
             </div>
         </div>
         <!-- 委托投放弹窗 -->
-        <div id="popover" class="mui-popover bookHouse">
-            <div class="book-box">
-                <div class="title">请选择你所需要的服务</div>
-                <div class="book-contentBox">
-                    <div class="img-box">
-                        <div><img id="lookForHouse" src="/we_img/index_lookForHouse.png" alt=""></div>
-                        <div><img id="pletHouse" src="/we_img/index_pletHouse.png" class="right" alt=""></div>
+        <div class="mui-backdrop" id="backdrop" style="display: none">
+            <div id="popover" class="mui-popover bookHouse mui-active">
+                <div class="book-box">
+                    <div class="title">请选择你所需要的服务</div>
+                    <div class="book-contentBox">
+                        <div class="img-box">
+                            <div><img id="lookForHouse" src="/we_img/index_lookForHouse.png" alt=""></div>
+                            <div><img id="pletHouse" src="/we_img/index_pletHouse.png" class="right" alt=""></div>
+                        </div>
                     </div>
                 </div>
             </div>

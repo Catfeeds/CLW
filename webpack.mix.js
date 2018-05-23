@@ -67,19 +67,35 @@ var fileSJSNameArr = [
   // 'we_user_revise_phone2',
   // 'we_user_setting'
 ];// 要打包的 js 文件
+mix = mix.setPublicPath('./');
 function inOutCss(fileName) {
   mix.sass(commonSCSSPath+fileName+'.scss', commonOutCSSPath+fileName+'.css', {
     outputStyle:'compressed'
   });
 }
-function inOutJs(fileName) {
-  mix.js(commonJSPath+fileName+'.js', commonJSOutPath+fileName+'.js', {
-    outputStyle:'compressed'
-  });
+function inOutJs(fileName, obj) {
+  var app;
+  if (obj === null) {
+    app = mix.js(commonJSPath+fileName+'.js', commonJSOutPath+fileName+'.js', {
+      outputStyle:'compressed'
+    });
+  } else {
+    app = obj.js(commonJSPath+fileName+'.js', commonJSOutPath+fileName+'.js', {
+      outputStyle:'compressed'
+    })
+  }
+  return app
 }
 fileSCSSNameArr.map(function (item) {
   inOutCss(item)
 });
+var JSObj = null;
 fileSJSNameArr.map(function (item) {
-  inOutJs(item)
+  JSObj = inOutJs(item, JSObj)
 });
+JSObj.extract([ // 提出全局多次引入文件
+  'vue',
+  'jquery',
+  './resources/assets/js/components/buildingList',
+  'vue-awesome-swiper'
+]);

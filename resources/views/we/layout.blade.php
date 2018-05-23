@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/css/mui/mui.css">
     <title>@section('title')楚楼网--找写字楼上楚楼网十分钟轻松搞定@show</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <script src="/js/manifest.js"></script>
+    <script src="/js/vendor.js"></script>
     @yield('header')
 </head>
 <body>

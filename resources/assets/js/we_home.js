@@ -25,3 +25,12 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
   autoplayDisableOnInteraction:false,
   paginationClickable:true
 });
+$(document).on('tap || touchend', '#addBook', function () {
+  $('#backdrop').fadeIn(300)
+});
+$(document).on('touchend || tap', '#backdrop', function () {
+  $('#backdrop').fadeOut(300)
+});
+$(document).on('touchend || tap', '#popover', function () {
+  return false
+});
