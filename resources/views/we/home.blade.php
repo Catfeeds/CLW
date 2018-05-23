@@ -184,23 +184,27 @@
             </div>
         </div>
         <!-- 底部导航 -->
-        <div id="alltab" style="display:flex;position:fixed;justify-content:space-around;background:white;height:60px;z-index:300;bottom:0;
-        width:100%;padding:8px 0;border-top:1px solid #f4f4f4;">
-            <div class="tabs">
-                <img src="/we_img/tab1.png" style="display:none;height:24px;"><img src="/we_img/tab1_active.png" style="height:24px;">
-                <div style="font-size:12px;text-align:center;">首页</div>
+        <div id="alltab" style="display:flex;position:fixed;justify-content:space-around;background:white;height:49px;z-index:300;bottom:0;
+        width:100%;padding:6px 0;border-top:1px solid #f4f4f4;">
+            <div class="tabs" style="text-align:center">
+                <img src="/we_img/tab1.png" style="display:none;height:18px;margin-bottom:-3px;">
+                <img src="/we_img/tab1_active.png" style="height:18px;margin-bottom:-3px;">
+                <div style="font-size:12px;">首页</div>
             </div>
-            <div class="tabs">
-                <img src="/we_img/tab2.png" style="height:24px;"><img src="/we_img/tab2_active.png" style="display:none;height:24px;">
-                <div style="font-size:12px;text-align:center;">找房</div>
+            <div class="tabs" style="text-align:center">
+                <img src="/we_img/tab2.png" style="height:18px;margin-bottom:-3px;">
+                <img src="/we_img/tab2_active.png" style="display:none;height:18px;margin-bottom:-3px;">
+                <div style="font-size:12px;">找房</div>
             </div>
-            <div class="tabs">
-                <img src="/we_img/tab3.png" style="height:24px;"><img src="/we_img/tab3_active.png" style="display:none;height:24px;">
-                <div style="font-size:12px;text-align:center;">服务</div>
+            <div class="tabs" style="text-align:center">
+                <img src="/we_img/tab3.png" style="height:18px;margin-bottom:-3px;">
+                <img src="/we_img/tab3_active.png" style="display:none;height:18px;margin-bottom:-3px;">
+                <div style="font-size:12px;">服务</div>
             </div>
-            <div class="tabs">
-                <img src="/we_img/tab4.png" style="height:24px;"><img src="/we_img/tab4_active.png" style="display:none;height:24px;">
-                <div style="font-size:12px;text-align:center;">我的</div>
+            <div class="tabs" style="text-align:center">
+                <img src="/we_img/tab4.png" style="height:18px;margin-bottom:-3px;">
+                <img src="/we_img/tab4_active.png" style="display:none;height:18px;margin-bottom:-3px;">
+                <div style="font-size:12px;">我的</div>
             </div>
         </div>
     </div>
