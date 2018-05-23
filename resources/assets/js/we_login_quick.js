@@ -22,7 +22,10 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
             smsCode: smsCode_num
         },
         success: function(data){
-            alert(data.message)
+            alert(data.message);
+            if (data.success) {
+                window.location.href = '/user'
+            }
         },
         error: function (data) {
             alert(data.responseJSON.message);

@@ -10477,6 +10477,9 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
             },
             success: function success(data) {
                 alert(data.message);
+                if (data.success) {
+                    window.location.href = '/user';
+                }
             },
             error: function error(data) {
                 alert(data.responseJSON.message);

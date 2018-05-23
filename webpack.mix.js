@@ -48,7 +48,7 @@ var fileSJSNameArr = [
   // 'we_login_new',
   // 'we_house_detail',
   'we_login_new',
-  // 'we_login_password',
+  'we_login_password',
   'we_login_quick',
   // 'we_map',
   // 'we_map_controls',

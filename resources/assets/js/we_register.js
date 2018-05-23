@@ -74,7 +74,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
             if (res.data) {
                 getSms.html(120 + 's');
                 var time = setInterval(function () {
-                    getSms.html((parseInt(getSms.html()) - 1) + 's')
+                    getSms.html((parseInt(getSms.html()) - 1) + 's');
                     if (!parseInt(getSms.html())) {
                         getSms.html('获取验证码');
                         window.clearInterval(time);

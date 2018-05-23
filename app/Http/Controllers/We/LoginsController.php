@@ -66,6 +66,16 @@ class LoginsController extends Controller
 
         return $res;
     }
+    /**
+     * 说明: 忘记密码页面
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author 王浩
+     */
+    public function forget_login()
+    {
+        return view('we.login_password');
+    }
 
     /**
      * 说明: 退出登录
