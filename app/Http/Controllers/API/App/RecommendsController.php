@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API\App;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Recommend;
 use App\Repositories\RecommendsRepository;
+use App\Services\BuildingsService;
+use App\Services\OfficeBuildingHousesService;
 
 class RecommendsController extends APIBaseController
 {
@@ -34,10 +36,11 @@ class RecommendsController extends APIBaseController
     public function show
     (
         RecommendsRepository $repository,
-        Recommend $recommend
+        Recommend $recommend,
+        BuildingsService $service
     )
     {
-        $res = $repository->getBuildingList($recommend->building_id);
+        $res = $repository->getBuildingList($recommend->building_id, $service);
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 }

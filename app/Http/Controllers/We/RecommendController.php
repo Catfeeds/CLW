@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\API\APIBaseController;
+use App\Http\Controllers\Controller;
 use App\Models\Recommend;
 use App\Repositories\RecommendsRepository;
 
-class RecommendController extends APIBaseController
+class RecommendController extends Controller
 {
 
     /**

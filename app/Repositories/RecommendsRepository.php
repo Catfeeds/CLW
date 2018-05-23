@@ -63,13 +63,16 @@ class RecommendsRepository extends Model
      * @return mixed
      * @author jacklin
      */
-    public function getBuildingList($building_id)
+    public function getBuildingList($building_id, $service)
     {
         $buildings = Building::with(['buildingBlock', 'area', 'block', 'label', 'features', 'house'])->whereIn('id', $building_id)->get();
 
         foreach ($buildings as $v) {
             $count = $v->house->count();
             $price = $v->house->pluck('unit_price')->avg();
+            $service->features($v);
+            $service->label($v);
+            $service->getAddress($v);
 
             // 单价
             if (empty($price)) {
