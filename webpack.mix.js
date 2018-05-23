@@ -59,7 +59,7 @@ var fileSJSNameArr = [
   // 'we_user_browsing_history',
   // 'we_user_collect',
   'we_user_find_house',
-  // 'we_user_house_resources',
+  'we_user_house_resources',
   'we_user_index',
   // 'we_user_revise_password',
   'we_user_revise_phone1',

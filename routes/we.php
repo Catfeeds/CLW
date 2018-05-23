@@ -16,6 +16,18 @@ Route::post('quick_login', 'LoginsController@quickLogin');
 
 // 楼盘列表页
 Route::resource('buildings', 'BuildingController');
+
+//精选楼盘
+Route::resource('recommends', 'RecommendController');
+
+//预约
+Route::resource('bespeaks', 'BespeakController');
+
+//房源投放
+Route::resource('throw_ins', 'ThrowInController');
+
+
+
 // 房源详情页
 Route::resource('houses', 'HouseController');
 // 用户相关
@@ -35,6 +47,10 @@ Route::get('revise_password', 'UserController@revisePwd');
 Route::get('revise_phone1', 'UserController@revisePhone1');
 // 修改号码
 Route::get('revise_phone2', 'UserController@revisePhone2');
+
+
+
+
 // 服务
 Route::resource('servers', 'ServerController');
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\We;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\AreasRepository;
 
 class UserController extends Controller
 {
@@ -15,9 +16,16 @@ class UserController extends Controller
     {
        return view('we.user_find_house');
     }
-    public function resources()
+    public function resources(AreasRepository $repository)
     {
-       return view('we.user_house_resources');
+        $res = $repository->areaList();
+        $data = $res->map(function($v) {
+            return [
+                'value' => $v->id,
+                'text' => $v->name
+            ];
+        });
+       return view('we.user_house_resources', ['res' => $data]);
     }
     public function aboutUs()
     {

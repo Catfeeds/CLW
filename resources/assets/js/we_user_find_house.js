@@ -1,4 +1,6 @@
 window.$ = window.jQuery = require('jquery');
+import 'mint-ui/lib/style.css'
+import { Toast } from 'mint-ui';
 // 提交
 $(document).on('touchend || tap', '.loginOut', function(){
     var appellation = $('#appellation').val()
@@ -21,11 +23,22 @@ $(document).on('touchend || tap', '.loginOut', function(){
                 demand: demand
             },
             success: function(data){
-                alert(data.message)
-                window.location.href = '/user'
+                var toast = Toast({
+                    message: data.message,
+                    position: 'top',
+                    duration: 5000
+                })
+                setTimeout(() => {
+                    toast.close()
+                    window.location.href = '/user'
+                },2000)
             },
             error: function (data) {
-                alert(data.responseJSON.message);
+                Toast({
+                    message: data.responseJSON.message,
+                    position: 'bottom',
+                    duration: 5000
+                })
             }
         });
     }    

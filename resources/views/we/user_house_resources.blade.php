@@ -20,8 +20,10 @@
             <div class="mui-row">
                 <div class="mui-col-xs-6 area">
                     <div class="mui-row" id="down">
-                        <div class="mui-col-xs-6 region">区域</div>
-                        <div class="title mui-col-xs-4">武昌区</div>
+                        <div class="mui-col-xs-4 region">区域</div>
+                        <div class="mui-col-xs-6">
+                            <wv-picker  :slots="ticketSlots" v-model="ticketPickerShow" @change="onChange"></wv-picker>
+                        </div>
                         <div class="mui-col-xs-2"><img style="width: 9px;height:5px;margin-bottom:3px;"src="/we_img/house_detail_down.png"></div>
                     </div>
                 </div>
@@ -43,4 +45,5 @@
             <button type="button">提交</button>
         </div>
     </div>
+    <script src="/js/we_user_house_resources.js"></script> 
 @endsection
