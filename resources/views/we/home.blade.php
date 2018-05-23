@@ -112,23 +112,23 @@
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>
                 <div class="index_title">热门商圈</div>
                 <div class="hot-block-box">
-                    <a href="/buildings?block_id={{$hotBlocks[0]->block_id}}" class="hot-1">
+                    <a href='/buildings?condition={"block_id":{{$hotBlocks[0]->block_id}}}' class="hot-1">
                         <img src="{{$hotBlocks[0]->img_cn}}">
                     </a>
                     <ul>
                         <li class="display-flex">
-                            <a href="/buildings?block_id={{$hotBlocks[1]->block_id}}" >
+                            <a href='/buildings?condition={"block_id":{{$hotBlocks[1]->block_id}}}' >
                             <img src="{{$hotBlocks[1]->img_cn}}">
                             </a>
-                            <a href="/buildings?block_id={{$hotBlocks[2]->block_id}}" >
+                            <a href='/buildings?condition={"block_id":{{$hotBlocks[2]->block_id}}}' >
                             <img src="{{$hotBlocks[2]->img_cn}}">
                             </a>
                         </li>
                         <li class="display-flex">
-                            <a href="/buildings?block_id={{$hotBlocks[3]->block_id}}" >
+                            <a href='/buildings?condition={"block_id":{{$hotBlocks[3]->block_id}}}'>
                             <img src="{{$hotBlocks[3]->img_cn}}">
                             </a>
-                            <a href="/buildings?block_id={{$hotBlocks[4]->block_id}}" >
+                            <a href='/buildings?condition={"block_id":{{$hotBlocks[4]->block_id}}}' >
                             <img src="{{$hotBlocks[4]->img_cn}}">
                             </a>
                         </li>
@@ -158,7 +158,7 @@
             <div class="area-list">
                 <a href="/buildings">全部</a>
                 @foreach($areas as $item)
-                <a href="/buildings?area_id={{$item->id}}">{{strchr($item->name, "区", true)}}</a>
+                <a href='/buildings?condition={"area_id":{{$item->id}}}'>{{strchr($item->name, "区", true)}}</a>
                 @endforeach
             </div>
             <div class="better">猜你喜欢</div>

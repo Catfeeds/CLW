@@ -27,7 +27,11 @@ class BuildingController extends Controller
         BuildingsService $service
     )
     {
-        if ($request->condition) $request = json_decode($request->condition);
+        if (!empty($request->condition)) {
+            foreach (json_decode($request->condition) as $key => $item) {
+                $request->$key = $item;
+            }
+        }
         $res = $buildingsRepository->buildingList($request, $service);
         return view('we.building_index')->with(['data' =>  $res, 'req' => $request]);
     }

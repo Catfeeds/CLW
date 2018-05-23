@@ -143,6 +143,7 @@ export default {
     swiperSlide
   },
   data() {
+    var req = JSON.parse($('#request').val());
     return {
       status: true, // 是否允许通知父级刷新页面 true: 是 false: 否
       selectShow: 0, // 显示筛选大块 1. 区域 2. 面积 3. 价格 4. 更多 默认：0
@@ -154,13 +155,13 @@ export default {
       moreIndexArr:['renovation', 'features'],
       areaOption: [], // 区域选项
       oblong: {
-        area_id: 'all',
-        block_id: 'all',
-        acreage: null, // 面积
-        total_price: null, // 总价
-        unit_price: null, // 单价
-        renovation: 'all', // 装修
-        features: 'all' // 决策偏好
+        area_id: undefined === req.area_id?'all':req.area_id,
+        block_id: undefined === req.block_id?'all':req.block_id,
+        acreage: undefined === req.acreage?null:req.acreage, // 面积
+        total_price: undefined === req.total_price?null:req.total_price, // 面积, // 总价
+        unit_price: undefined === req.unit_price?null:req.unit_price, // 面积, // 单价
+        renovation: undefined === req.features?'all':req.renovation, // 装修
+        features: undefined === req.features?'all':req.features // 决策偏好
       },
       priceOption: [
         {
@@ -352,7 +353,7 @@ export default {
       this.status = true
       this.flushData()
     },
-    // 区域搜索方法
+    // 区域样式更改方法
     searchArea: function(area_id, block_id) {
       for (var num in this.areaOption) {
           if (this.areaOption[num].area_id === area_id) {
@@ -361,11 +362,7 @@ export default {
       }
       if (this.oblong.block_id === block_id) {
         this.oblong.area_id = area_id
-        this.flushData()
-        return
       }
-      this.oblong.area_id = area_id
-      this.oblong.block_id = block_id
     },
     getFindHouse: function () {
       return request ({
@@ -389,6 +386,15 @@ export default {
     axios.all([self.getFindHouse(), self.getOtherCondition()]).then(res => {
       self.areaOption = res[0].data; // 区域信息
       self.moreOption = res[1].data; // 更多信息
+      var req = JSON.parse($('#request').val());
+      for (var num in self.areaOption) {
+        if (this.areaOption[num].area_id === parseInt(req.area_id)) {
+          this.areaOptionActive = parseInt(num)
+        }
+      }
+      if (this.oblong.block_id === req.block_id) {
+        this.oblong.area_id = undefined === req.area_id?'all':req.area_id
+      }
     })
   }
 }

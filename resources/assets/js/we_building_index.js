@@ -32,6 +32,15 @@ var app = new Vue({
       if (data.features !== 'all') {
         params.features = data.features
       }
+      if (data.total_price !== null) {
+        params.total_price = data.total_price;
+      }
+      if (data.unit_price !== null) {
+        params.unit_price = data.unit_price;
+      }
+      if (data.acreage !== null) {
+        params.acreage = data.acreage;
+      }
 
       var searchStr = JSON.stringify(params);
       window.location.search = '?condition='+searchStr
