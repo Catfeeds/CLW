@@ -5,7 +5,7 @@ $(document).on('touchend || tap', '#revisePwd', function(){
 })
 // 跳转至修改手机页面
 $(document).on('touchend || tap', '#reviseTel', function(){
-    window.location.href = '/revise_phone1'
+    window.location.href = '/old_tel_validate_view'
 })
 // 退出登录
 $(document).on('touchend || tap', '.loginOut', function(){

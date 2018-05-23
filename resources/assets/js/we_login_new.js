@@ -26,7 +26,10 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
               password: password
           },
           success: function(data){
-              alert(data.message)
+              if(data.status) {
+                  alert(data.message);
+                  window.location.href = '/user'
+              }
           },
           error: function (data) {
               alert(data.responseJSON.message);

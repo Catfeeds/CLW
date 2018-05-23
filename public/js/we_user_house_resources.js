@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 95);
+/******/ 	return __webpack_require__(__webpack_require__.s = 99);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10477,6 +10477,135 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 // exports
 
+
+/***/ }),
+
+/***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
+window.$ = window.jQuery = __webpack_require__(0);
+window.Vue = __webpack_require__(3);
+
+
+Vue.component(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Picker"].name, __WEBPACK_IMPORTED_MODULE_0_mint_ui__["Picker"]);
+var option = '';
+var app = new Vue({
+    el: '#picker',
+    data: {
+        value: '武昌区',
+        slots: [{ values: [] }],
+        area_id: 1
+    },
+    methods: {
+        onValuesChange: function onValuesChange(picker, values) {
+            this.value = values[0];
+            if (option !== '') {
+                // console.log('aaaaaa', option[values[0]])
+                this.area_id = option[values[0]];
+            }
+        }
+    }
+});
+$.ajax({
+    url: '/get_area',
+    type: 'get',
+    success: function success(res) {
+        app.slots[0].values = res.res;
+        option = res.option;
+    },
+    error: function error(res) {}
+});
+// 点击显示picker
+$(document).on('touchend || tap', '#down', function () {
+    $('#picker').show();
+});
+// 点击取消隐藏picker
+$(document).on('touchend || tap', '#cancel', function () {
+    $('#picker').hide();
+});
+// 点击确认
+$(document).on('touchend || tap', '#confirm', function () {
+    $('#picker').hide();
+    $('#title').html(app.value);
+});
+// 确认
+$(document).on('touchend || tap', '.loginOut', function () {
+    console.log(app.area_id);
+    var appellation = $('#appellation').val();
+    var tel = $('#tel').val();
+    var acreage = $('#acreage').val();
+    var building_name = $('#buildingName').val();
+    if (!appellation || appellation.trim() == '') {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+            message: '请输入称谓',
+            position: 'top',
+            duration: 2000
+        });
+    } else if (!tel || tel.trim() == '') {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+            message: '请输入电话',
+            position: 'top',
+            duration: 2000
+        });
+    } else if (!app.area_id) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+            message: '请选择区域',
+            position: 'top',
+            duration: 2000
+        });
+    } else if (!acreage || acreage.trim() == '') {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+            message: '请输入面积',
+            position: 'top',
+            duration: 2000
+        });
+    } else if (!building_name || building_name.trim() == '') {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+            message: '请输入楼盘名称',
+            position: 'top',
+            duration: 2000
+        });
+    } else {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/throw_ins",
+            type: 'post',
+            data: {
+                tel: tel,
+                appellation: appellation,
+                building_name: building_name,
+                area_id: app.area_id,
+                acreage: acreage
+            },
+            success: function success(data) {
+                var toast = Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+                    message: data.message,
+                    position: 'top',
+                    duration: 5000
+                });
+                setTimeout(function () {
+                    toast.close();
+                    window.location.href = '/user';
+                }, 2000);
+            },
+            error: function error(data) {
+                Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+                    message: data.responseJSON.message,
+                    position: 'top',
+                    duration: 5000
+                });
+            }
+        });
+    }
+});
 
 /***/ }),
 
@@ -32283,140 +32412,11 @@ if(false) {
 
 /***/ }),
 
-/***/ 95:
+/***/ 99:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(96);
+module.exports = __webpack_require__(100);
 
-
-/***/ }),
-
-/***/ 96:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
-window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(3);
-
-
-Vue.component(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Picker"].name, __WEBPACK_IMPORTED_MODULE_0_mint_ui__["Picker"]);
-var option = '';
-var app = new Vue({
-    el: '#picker',
-    data: {
-        value: '武昌区',
-        slots: [{ values: [] }],
-        area_id: 1
-    },
-    methods: {
-        onValuesChange: function onValuesChange(picker, values) {
-            this.value = values[0];
-            if (option !== '') {
-                // console.log('aaaaaa', option[values[0]])
-                this.area_id = option[values[0]];
-            }
-        }
-    }
-});
-$.ajax({
-    url: '/get_area',
-    type: 'get',
-    success: function success(res) {
-        app.slots[0].values = res.res;
-        option = res.option;
-    },
-    error: function error(res) {}
-});
-// 点击显示picker
-$(document).on('touchend || tap', '#down', function () {
-    $('#picker').show();
-});
-// 点击取消隐藏picker
-$(document).on('touchend || tap', '#cancel', function () {
-    $('#picker').hide();
-});
-// 点击确认
-$(document).on('touchend || tap', '#confirm', function () {
-    $('#picker').hide();
-    $('#title').html(app.value);
-});
-// 确认
-$(document).on('touchend || tap', '.loginOut', function () {
-    console.log(app.area_id);
-    var appellation = $('#appellation').val();
-    var tel = $('#tel').val();
-    var acreage = $('#acreage').val();
-    var building_name = $('#buildingName').val();
-    if (!appellation || appellation.trim() == '') {
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-            message: '请输入称谓',
-            position: 'top',
-            duration: 2000
-        });
-    } else if (!tel || tel.trim() == '') {
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-            message: '请输入电话',
-            position: 'top',
-            duration: 2000
-        });
-    } else if (!app.area_id) {
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-            message: '请选择区域',
-            position: 'top',
-            duration: 2000
-        });
-    } else if (!acreage || acreage.trim() == '') {
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-            message: '请输入面积',
-            position: 'top',
-            duration: 2000
-        });
-    } else if (!building_name || building_name.trim() == '') {
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-            message: '请输入楼盘名称',
-            position: 'top',
-            duration: 2000
-        });
-    } else {
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "/throw_ins",
-            type: 'post',
-            data: {
-                tel: tel,
-                appellation: appellation,
-                building_name: building_name,
-                area_id: app.area_id,
-                acreage: acreage
-            },
-            success: function success(data) {
-                var toast = Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-                    message: data.message,
-                    position: 'top',
-                    duration: 5000
-                });
-                setTimeout(function () {
-                    toast.close();
-                    window.location.href = '/user';
-                }, 2000);
-            },
-            error: function error(data) {
-                Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-                    message: data.responseJSON.message,
-                    position: 'top',
-                    duration: 5000
-                });
-            }
-        });
-    }
-});
 
 /***/ })
 

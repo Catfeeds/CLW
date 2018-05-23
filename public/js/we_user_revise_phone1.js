@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 101);
+/******/ 	return __webpack_require__(__webpack_require__.s = 105);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10437,21 +10437,21 @@ return jQuery;
 
 /***/ }),
 
-/***/ 101:
+/***/ 105:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(102);
+module.exports = __webpack_require__(106);
 
 
 /***/ }),
 
-/***/ 102:
+/***/ 106:
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
 // 跳转至下一步
 $(document).on('touchend || tap', '.loginOut', function () {
-    window.location.href = '/revise_phone2';
+    window.location.href = '/reset_tel_view';
 });
 
 /***/ })

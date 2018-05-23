@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 91);
+/******/ 	return __webpack_require__(__webpack_require__.s = 95);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10437,15 +10437,15 @@ return jQuery;
 
 /***/ }),
 
-/***/ 91:
+/***/ 95:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(92);
+module.exports = __webpack_require__(96);
 
 
 /***/ }),
 
-/***/ 92:
+/***/ 96:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10525,9 +10525,8 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         url: '/sms/captcha/' + pathStr,
         type: 'get',
         success: function success(res) {
-            if (res.data) {
+            if (res.success) {
                 getSms.html(120 + 's');
-                alert('短信发送成功');
                 var time = setInterval(function () {
                     getSms.html(parseInt(getSms.html()) - 1 + 's');
                     if (!parseInt(getSms.html())) {
@@ -10535,6 +10534,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
                         window.clearInterval(time);
                     }
                 }, 1000);
+                alert('短信发送成功');
             }
         },
         error: function error(res) {

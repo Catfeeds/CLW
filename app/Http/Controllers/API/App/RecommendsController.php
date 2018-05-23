@@ -25,10 +25,11 @@ class RecommendsController extends APIBaseController
     }
 
     /**
-     * 说明：首页点击精品推荐跳转到楼盘列表
+     * 说明: 首页点击精品推荐跳转到楼盘列表
      *
      * @param RecommendsRepository $repository
      * @param Recommend $recommend
+     * @param BuildingsService $service
      * @return \Illuminate\Http\JsonResponse
      * @author jacklin
      */
