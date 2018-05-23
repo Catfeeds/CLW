@@ -52,7 +52,7 @@ var fileSJSNameArr = [
   // 'we_login_quick',
   // 'we_map',
   // 'we_map_controls',
-  // 'we_register',
+  'we_register',
   // 'we_serve_detail',
   // 'we_serve_index',
   // 'we_user_about_us',

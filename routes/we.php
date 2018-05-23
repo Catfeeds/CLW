@@ -19,8 +19,10 @@ Route::resource('buildings', 'BuildingController');
 // 房源详情页
 Route::resource('houses', 'HouseController');
 // 用户相关
-
-
+// 用户首页
+Route::resource('user', 'UserController');
+// 委托找房
+Route::resource('user_find_house', 'FindHouseController');
 // 服务
 Route::resource('servers', 'ServerController');
 
@@ -28,5 +30,4 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
 
 
 });
-
 Route::get('map', 'ServerController@map');
