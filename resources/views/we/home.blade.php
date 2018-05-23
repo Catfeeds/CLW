@@ -157,9 +157,9 @@
                 区域
             </div>
             <div class="area-list">
-                <a href="javascript:void(0)">全部</a>
+                <a href="/buildings">全部</a>
                 @foreach($areas as $item)
-                <a href="javascript:void(0)">{{strchr($item->name, "区", true)}}</a>
+                <a href="/buildings?area_id={{$item->id}}">{{strchr($item->name, "区", true)}}</a>
                 @endforeach
             </div>
             <div class="better">猜你喜欢</div>
