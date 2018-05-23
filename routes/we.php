@@ -23,7 +23,19 @@ Route::resource('houses', 'HouseController');
 // 用户首页
 Route::resource('user', 'UserController');
 // 委托找房
-Route::resource('user_find_house', 'FindHouseController');
+Route::get('user_find_house', 'UserController@findHouse');
+// 投放房源
+Route::get('user_house_resources', 'UserController@resources');
+// 关于我们
+Route::get('user_about_us', 'UserController@aboutUs');
+// 个人设置
+Route::get('user_setting', 'UserController@setting');
+// 修改密码
+Route::get('revise_password', 'UserController@revisePwd');
+// 验证原号码
+Route::get('revise_phone1', 'UserController@revisePhone1');
+// 验证原号码
+Route::get('revise_phone2', 'UserController@revisePhone2');
 // 服务
 Route::resource('servers', 'ServerController');
 
