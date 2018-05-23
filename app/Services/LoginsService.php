@@ -153,7 +153,7 @@ class LoginsService
      */
     public function webPwdLogin($request)
     {
-        $user = User::where(['name' => $request->name])->first();
+        $user = User::where(['tel' => $request->tel])->first();
         if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
 
         // 验证新密码与原密码
