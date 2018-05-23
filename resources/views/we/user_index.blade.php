@@ -53,5 +53,7 @@
         <span>个人设置</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
       </div>
     </div>
+    <!-- 底部导航 -->
+        @include('we.tab')
   </div>
 @endsection

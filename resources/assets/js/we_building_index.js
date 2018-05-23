@@ -28,4 +28,4 @@ var app = new Vue({
       // this.search = params
     }
   }
-});
+})

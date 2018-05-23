@@ -26,6 +26,12 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
   paginationClickable:true
 });
 // 点击事件
-$('#alltab').on('touchend || tap', '.tabs', function(){
-  console.log(4564)
-})
+    var hrefs = window.location.href.split('/')[3]
+    console.log(window.location.href.split('/')[3])
+    switch (hrefs) {
+        case 'buildings':
+            $('.tabs>.tab').css('display', 'none')
+            $('.tabactive').css('display', 'none')
+            break;
+        default: 
+    }

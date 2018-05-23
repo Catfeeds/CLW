@@ -28,5 +28,7 @@
                 @endif
             @endforeach
         </div>
+        <!-- 底部导航 -->
+        @include('we.tab')
     </div>
 @endsection
