@@ -31,6 +31,7 @@ class LoginsController extends Controller
         LoginsService $loginsService
     )
     {
+        dd(1);
         $res = $loginsService->webPwdLogin($request);
 
         return $res;
