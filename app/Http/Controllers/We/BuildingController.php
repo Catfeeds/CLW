@@ -27,6 +27,7 @@ class BuildingController extends Controller
         BuildingsService $service
     )
     {
+        if ($request->condition) $request = json_decode($request->condition);
         $res = $buildingsRepository->buildingList($request, $service);
         return view('we.building_index')->with(['data' =>  $res, 'req' => $request]);
     }
