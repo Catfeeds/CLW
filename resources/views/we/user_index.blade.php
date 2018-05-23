@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/css/we_user_index.css">
 @endsection
 @section('body')
-<div class="mui-content">
+<div class="mui-content" style="background-color: #ffffff;">
     <div class="header">
       <img src="/we_img/user_index_personal.jpg">
       <div class="picture" id="picture">
