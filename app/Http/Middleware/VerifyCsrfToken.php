@@ -13,6 +13,10 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'logins'
+        'registers',
+        'logins',
+        'reset_pwd',
+        'old_tel_validate',
+        'reset_tel'
     ];
 }
