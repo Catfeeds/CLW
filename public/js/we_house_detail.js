@@ -65,11 +65,7 @@
 /************************************************************************/
 /******/ ({
 
-<<<<<<< HEAD
-/***/ 1:
-=======
 /***/ 2:
->>>>>>> origin/zxz
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10452,11 +10448,7 @@ module.exports = __webpack_require__(81);
 /***/ 81:
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-window.$ = window.jQuery = __webpack_require__(1);
-=======
 window.$ = window.jQuery = __webpack_require__(2);
->>>>>>> origin/zxz
 // 显示或者隐藏栋座信息
 $('.top').click(function () {
     $('#collapse').toggleClass("mui-active");
