@@ -24,7 +24,7 @@ class ThrowInController extends Controller
     )
     {
         $res = $repository->addThrowIn($request);
-       if ($res) return '房源投放成功';
-       return '房源投放失败';
+       if (!$res) return false;
+       return true;
     }
 }

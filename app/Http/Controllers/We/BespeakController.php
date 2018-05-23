@@ -22,8 +22,8 @@ class BespeakController extends Controller
     )
     {
         if (empty($result = $bespeaksService->addBespeaks($request))) {
-            return '预约失败';
+            return false;
         }
-        return '预约成功';
+        return true;
     }
 }
