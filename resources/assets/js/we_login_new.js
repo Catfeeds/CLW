@@ -27,6 +27,9 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
           },
           success: function(data){
               alert(data.message)
+              if(data.success) {
+                  window.location.href = '/user'
+              }
           },
           error: function (data) {
               alert(data.responseJSON.message);

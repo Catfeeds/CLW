@@ -21,8 +21,8 @@
       </div>
     </form>
     <div class="shortcut">
-      <a href="#">账号密码登录</a>
-      <a id="register">注册</a>
+      <a href="/logins/create">账号密码登录</a>
+      <a href="/registers/create" id="register">注册</a>
     </div>
     <!-- <div class="other">
       <div class="dotted"></div>

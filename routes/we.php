@@ -13,6 +13,8 @@ Route::resource('logins', 'LoginsController');
 // 快速登录页面
 Route::get('quick_login_view', 'LoginsController@quickLoginView');
 Route::post('quick_login', 'LoginsController@quickLogin');
+// 忘记密码
+Route::get('forget_login', 'LoginsController@forget_login');
 
 // 楼盘列表页
 Route::resource('buildings', 'BuildingController');
