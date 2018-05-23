@@ -2,8 +2,10 @@
 namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WeChat\RetrievePwdRequest;
 use App\Http\Requests\WeChat\LoginsRequest;
 use App\Services\LoginsService;
+use App\Services\RetrievePwdService;
 use Illuminate\Support\Facades\Session;
 
 class LoginsController extends Controller
@@ -63,15 +65,33 @@ class LoginsController extends Controller
         $res = $loginsService->quickLogin($request);
         return $res;
     }
+
     /**
      * 说明: 忘记密码页面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @author 王浩
      */
-    public function forget_login()
+    public function forgetPwd()
     {
         return view('we.login_password');
+    }
+
+    /**
+     * 说明: 找回密码
+     *
+     * @param RetrievePwdRequest $request
+     * @param RetrievePwdService $retrievePwdService
+     * @return array
+     * @author 罗振
+     */
+    public function retrievePwd(
+        RetrievePwdRequest $request,
+        RetrievePwdService $retrievePwdService
+    )
+    {
+        $result = $retrievePwdService->retrievePwd($request);
+        return $result;
     }
 
     /**

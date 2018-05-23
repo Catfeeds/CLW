@@ -14,7 +14,9 @@ Route::resource('logins', 'LoginsController');
 Route::get('quick_login_view', 'LoginsController@quickLoginView');
 Route::post('quick_login', 'LoginsController@quickLogin');
 // 忘记密码
-Route::get('forget_login', 'LoginsController@forget_login');
+Route::get('forget_pwd', 'LoginsController@forgetPwd');
+// 找回密码
+Route::post('retrieve_pwd', 'LoginsController@retrievePwd');
 
 // 楼盘列表页
 Route::resource('buildings', 'BuildingController');
