@@ -19,10 +19,21 @@ Route::post('quick_login', 'LoginsController@quickLogin');
 Route::resource('buildings', 'BuildingController');
 
 //精选楼盘
-Route::resource('building_recommends', 'BuildingRecommendController');
+Route::resource('recommends', 'RecommendController');
+
+//预约
+Route::resource('bespeaks', 'BespeakController');
+
+//房源投放
+Route::resource('throw_ins', 'ThrowInController');
+
+
+
 // 房源详情页
 Route::resource('houses', 'HouseController');
 // 用户相关
+
+
 
 
 // 服务
