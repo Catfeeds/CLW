@@ -60,7 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 48);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+>>>>>>> origin/cyq
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10437,15 +10441,26 @@ return jQuery;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(49);
+=======
+/***/ 49:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(50);
+>>>>>>> origin/cyq
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 49:
+=======
+/***/ 50:
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);

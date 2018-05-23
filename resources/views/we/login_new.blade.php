@@ -14,7 +14,7 @@
             </div>
             <div class="mui-input-row marTop pwd">
                 <input name="password" id="password" value="" type="password" placeholder="请输入密码">
-                <a href="#" class="mui-pull-right">忘记密码?</a>
+                <a href="/forget_pwd" class="mui-pull-right">忘记密码?</a>
             </div>
             <div class="loginBtn">
                 <button type="button">登录</button>
