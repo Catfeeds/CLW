@@ -73,7 +73,6 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         success: function (res) {
             if (res.data) {
                 getSms.html(120 + 's');
-                alert('短信发送成功')
                 var time = setInterval(function () {
                     getSms.html((parseInt(getSms.html()) - 1) + 's')
                     if (!parseInt(getSms.html())) {
@@ -81,6 +80,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                         window.clearInterval(time);
                     }
                 }, 1000);
+                alert('短信发送成功');
             }
         },
         error: function (res) {

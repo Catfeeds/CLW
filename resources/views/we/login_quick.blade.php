@@ -12,7 +12,6 @@
       <div class="mui-input-row marTop phone">
         <input type="number" id="tel" class="mui-numbox-input" placeholder="请输入手机号">
         <a href="#" class="mui-pull-right" id="getSms">获取验证码</a>
-        <a href="#" class="mui-pull-right mui-hidden" id="time"></a>
       </div>
       <div class="mui-input-row marTop">
         <input type="tel" id="sms" placeholder="请输入验证码">
@@ -34,4 +33,5 @@
       <span>注册/登录即代表同意《</span><a href="#">楚楼网用户使用协议</a><span>》</span>
     </div>
   </div>
+<script src="/js/we_login_quick.js"></script>
 @endsection

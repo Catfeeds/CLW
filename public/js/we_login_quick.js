@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 80);
+/******/ 	return __webpack_require__(__webpack_require__.s = 84);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10437,41 +10437,82 @@ return jQuery;
 
 /***/ }),
 
-/***/ 80:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(81);
+module.exports = __webpack_require__(85);
 
 
 /***/ }),
 
-/***/ 81:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
-// 显示或者隐藏栋座信息
-$('.top').click(function () {
-    $('#collapse').toggleClass("mui-active");
-});
-// 显示或者隐藏预约弹框
-$('#order').click(function () {
-    $('#popover').toggleClass('mui-popover');
-});
-// 关闭预约弹框
-$('.closes').click(function () {
-    $('#popover').addClass('mui-popover');
-});
-// 点击提交
-$('#upload').click(function () {
-    var name = $('#names').val();
-    var tel = $('#tel').val();
-    if (!name || name.trim() == '') {
-        alert('请输入称谓');
-    } else if (!tel || tel.trim() == '') {
-        alert('请输入电话');
-    } else {
-        console.log('ceshi');
+var tel = $('#tel'),
+    smsCode = $('#sms'),
+    getSms = $('#getSms');
+$(document).on('touchend || tap', '.loginBtn button', function (e) {
+    var tel_num = tel.val(),
+        smsCode_num = smsCode.val();
+
+    if (!tel_num || tel_num.trim() === '') {
+        alert('请输入手机号码');
+        return false;
     }
+    if (!smsCode_num || smsCode_num.trim() === '') {
+        alert('请输入验证码');
+        return false;
+    }
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: "/quick_login",
+        type: 'post',
+        data: {
+            tel: tel_num,
+            smsCode: smsCode_num
+        },
+        success: function success(data) {
+            alert(data.message);
+        },
+        error: function error(data) {
+            alert(data.responseJSON.message);
+        }
+    });
+});
+
+$(document).on('touchend || tap', '#getSms', function (e) {
+    var tel_num = tel.val();
+    if (!tel_num || tel_num.trim() === '') {
+        alert('请输入手机号码');
+        return false;
+    }
+    var pathStr = tel_num + '/' + 'login';
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/sms/captcha/' + pathStr,
+        type: 'get',
+        success: function success(res) {
+            if (res.data) {
+                getSms.html(120 + 's');
+                var time = setInterval(function () {
+                    getSms.html(parseInt(getSms.html()) - 1 + 's');
+                    if (!parseInt(getSms.html())) {
+                        getSms.html('获取验证码');
+                        window.clearInterval(time);
+                    }
+                }, 1000);
+                alert('短信发送成功');
+            }
+        },
+        error: function error(res) {
+            alert(responseJSON.message);
+        }
+    });
 });
 
 /***/ })
