@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/css/we_user_index.css">
 @endsection
 @section('body')
-<div class="mui-content">
+<div class="mui-content" style="background-color: #ffffff;">
     <div class="header">
       <img src="/we_img/user_index_personal.jpg">
       <div class="picture" id="picture">
@@ -12,7 +12,7 @@
         <h5 id="tel">182****2493</h5>
       </div>
     </div>
-    <div class="main-content">
+    <div class="main-content" style="background-color: #ffffff;">
       <div class="top mui-row">
         <!-- 委托找房 -->
         <div id="entrust" class="mui-col-xs-3 entrust">
@@ -41,9 +41,11 @@
         <span>我的收藏</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
       </div>
       <!-- 电话咨询 -->
-      <div class="userList" id="consult">
-        <span>电话咨询</span><a href="#" class="mui-pull-right"><span>4000-580-888</span><img src="/we_img/house_detail_drop_down.png"></a>
-      </div>
+      <a href="tel:4000-580-888">
+        <div class="userList" id="consult">
+          <span>电话咨询</span><a href="#" class="mui-pull-right"><span>4000-580-888</span><img src="/we_img/house_detail_drop_down.png"></a>
+        </div>
+      </a>
       <!-- 关于我们 -->
       <div class="userList" id="aboutUs">
         <span>关于我们</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
@@ -54,4 +56,5 @@
       </div>
     </div>
   </div>
+  <script src="/js/we_user_index.js"></script>
 @endsection
