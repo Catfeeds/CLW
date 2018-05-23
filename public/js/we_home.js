@@ -22522,11 +22522,7 @@ var render = function() {
         {
           key: "buildingListVue" + index,
           staticClass: "building_item mui-table-view-cell",
-          on: {
-            tap: function($event) {
-              _vm.tobuildingDetail(itme)
-            }
-          }
+          attrs: { href: "/buildings/" + itme.id }
         },
         [
           _c("div", { staticClass: "img-box" }, [
@@ -22565,16 +22561,8 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "position-box" }, [
                 _c("img", {
-                  directives: [
-                    {
-                      name: "lazy",
-                      rawName: "v-lazy",
-                      value: _vm.positionImg,
-                      expression: "positionImg"
-                    }
-                  ],
                   staticClass: "position-img",
-                  attrs: { alt: "" }
+                  attrs: { src: _vm.positionImg, alt: "" }
                 }),
                 _vm._v(" "),
                 _c("span", [_vm._v(_vm._s(_vm.list[index].address_type))])

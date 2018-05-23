@@ -5,10 +5,11 @@ window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
 import buildingSelect from './components/buildingSelect.vue'
 import buildingList from './components/buildingList.vue'
+var pageOne = JSON.parse($('#pageOne').val());
 var app = new Vue({
   el: '#buildingList',
   data: {
-    list: [],
+    list: pageOne.data,
     search: {}
   },
   components: {

@@ -113,23 +113,23 @@
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>
                 <div class="index_title">热门商圈</div>
                 <div class="hot-block-box">
-                    <a href="javascript:void(0)" class="hot-1">
+                    <a href="/buildings?block_id={{$hotBlocks[0]->block_id}}" class="hot-1">
                         <img src="{{$hotBlocks[0]->img_cn}}">
                     </a>
                     <ul>
                         <li class="display-flex">
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[1]->block_id}}" >
                             <img src="{{$hotBlocks[1]->img_cn}}">
                             </a>
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[2]->block_id}}" >
                             <img src="{{$hotBlocks[2]->img_cn}}">
                             </a>
                         </li>
                         <li class="display-flex">
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[3]->block_id}}" >
                             <img src="{{$hotBlocks[3]->img_cn}}">
                             </a>
-                            <a href="javascript:void(0)" >
+                            <a href="/buildings?block_id={{$hotBlocks[4]->block_id}}" >
                             <img src="{{$hotBlocks[4]->img_cn}}">
                             </a>
                         </li>
@@ -142,11 +142,11 @@
             <div class="indexSideslip">
                 <div class="buildingList">
                     @foreach($buildingRecommends as $item)
-                    <a class='buildingItem' href="javascript:void(0)" >
+                    <a class='buildingItem' href="/buildings/{{$item->building_id}}" >
                     <img src="{{$item->img_cn}}" alt="">
                     <div class="building-text">
                         <div class="building-title">{{$item->building_name}}</div>
-                        <div class="building-describe"><img src="/we_img/index_positon.png" alt="">{{$item->area_block_name}}</div>
+                        <div class="building-describe"><img src="/we_img/index_positon.png" alt="">{{$item->address_cn}}</div>
                     </div>
                     </a>
                     @endforeach
