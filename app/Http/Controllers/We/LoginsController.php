@@ -32,9 +32,7 @@ class LoginsController extends Controller
         LoginsService $loginsService
     )
     {
-        dd(1);
         $res = $loginsService->webPwdLogin($request);
-
         return $res;
     }
     
@@ -63,7 +61,6 @@ class LoginsController extends Controller
     )
     {
         $res = $loginsService->quickLogin($request);
-
         return $res;
     }
 
