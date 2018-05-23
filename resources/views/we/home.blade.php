@@ -183,10 +183,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
         <!-- 底部导航 -->
         @include('we.tab')
     </div>
     <script src="/js/we_home.js"></script>
-
 @endsection

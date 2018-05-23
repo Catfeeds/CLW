@@ -46,4 +46,4 @@ var app = new Vue({
       window.location.search = '?condition='+searchStr
     }
   }
-});
+})

@@ -17,5 +17,7 @@
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
         </div>
     </div>
+    <!-- 底部导航 -->
+        @include('we.tab')
     <script src="/js/we_building_index.js"></script>
 @endsection
