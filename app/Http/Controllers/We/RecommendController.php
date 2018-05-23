@@ -3,28 +3,31 @@ namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\Controller;
 use App\Models\Recommend;
-use App\Repositories\RecommendsRepository;
+use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
+use Illuminate\Http\Request;
 
 class RecommendController extends Controller
 {
     /**
-     * 说明: 首页点击精品推荐跳转到楼盘列表
+     * 说明: 首页点击精品推荐跳转楼盘列表
      *
-     * @param RecommendsRepository $repository
+     * @param BuildingsRepository $repository
      * @param Recommend $recommend
      * @param BuildingsService $service
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @author jacklin
+     * @param Request $request
+     * @return mixed
+     * @author 刘坤涛
      */
     public function show
     (
-        RecommendsRepository $repository,
+        BuildingsRepository $repository,
         Recommend $recommend,
-        BuildingsService $service
+        BuildingsService $service,
+        Request $request
     )
     {
-        $res = $repository->getBuildingList($recommend->building_id, $service);
-        return view('we.recommed')->with('data', $res);
+        $res = $repository->buildingList($request, $service, $recommend->building_id);
+        return view('we.recommend')->with('data', $res);
     }
 }

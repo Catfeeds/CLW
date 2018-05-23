@@ -21,10 +21,10 @@ class BuildingsRepository extends  Model
      * @return mixed
      * @author jacklin
      */
-    public function buildingList($request, $service)
+    public function buildingList($request = null, $service, $building_id = null)
     {
         // 取得符合条件房子
-        $houses = $this->houseList($request);
+        $houses = $this->houseList($request, $building_id);
 
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
@@ -37,24 +37,6 @@ class BuildingsRepository extends  Model
         }
         return $this->buildingDataComplete($buildings, $buildingData);
     }
-
-
-    public function getBuildingList($building_id, $service, $request)
-    {
-        // 取得符合条件房子
-        $houses = $this->houseList($request);
-        // 根据楼盘分组
-        $buildings = $this->groupByBuilding($houses);
-
-        $buildingData = Building::whereIn('id', $building_id)->with(['block', 'features', 'area', 'label', 'house'])->paginate($request->per_page);
-        foreach($buildingData as $v) {
-            $service->features($v);
-            $service->getAddress($v);
-            $service->label($v);
-        }
-        return $this->buildingDataComplete($buildings, $buildingData);
-    }
-
 
     /**
      * 说明：图片、楼盘名、优标签、商圈、单价、符合条件的房源数量、特色
@@ -69,46 +51,21 @@ class BuildingsRepository extends  Model
         foreach ($buildingData as $index => $v) {
             // 房源数量
             $buildingData[$index]->house_count = $buildings[$v->id]->count();
+
             // 价格
             $buildingData[$index]->avg_price = round($buildings[$v->id]->avg('unit_price'), 2);
-            // 工位
-//            $buildingData[$index]->station_num = $this->buildingStationNum($buildings[$v->id]);
+
             // 商圈推荐
             $buildingData[$index]->block_recommend = $v->block->recommend??0;
+
             // 标签
             $buildingData[$index]->building_label = !empty($v->label)?1:2;
         }
-
         // 排序
         $buildingData->setCollection(collect($buildingData->items())->sortByDesc('block_recommend')->sortByDesc('house_count')->sortBy('building_label')->values());
-
         return $buildingData;
     }
 
-    /**
-     * 说明：楼盘下的工位数统计
-     *
-     * @param $houses
-     * @return int|string
-     * @author jacklin
-     */
-    public function buildingStationNum($houses)
-    {
-        foreach ($houses as $house) {
-            if (empty($house->station_number)) continue;
-            $station_number[] = trim(strstr($house->station_number, '-'),'-');
-            $station_number[] = strstr($house->station_number, '-',true);
-        }
-        if (empty($station_number)) return '0';
-        sort($station_number);
-        if (empty($station_number[0])) $station_number[0] = 0;
-        if (empty(end($station_number))) {
-            $data['station_number'] = 0;
-        } else {
-            $data['station_number'] = $station_number[0] . '-' . end($station_number);
-        }
-        return $data['station_number'];
-    }
 
     /**
      * 说明：根据条件 查询符合条件的房子 根据 楼盘分组
@@ -117,10 +74,9 @@ class BuildingsRepository extends  Model
      * @return array
      * @author jacklin
      */
-    public function houseList($request)
+    public function houseList($request, $building_id)
     {
         $buildings = Building::make();
-
         // 如果有商圈id 查商圈
         if (!empty($request->block_id)) {
             $buildings = $buildings->where('block_id', $request->block_id);
@@ -129,7 +85,11 @@ class BuildingsRepository extends  Model
             $buildings = $buildings->whereIn('block_id', $blocks);
         }
 
-        $buildings = $buildings->get()->pluck('id')->toArray();
+        if (!empty($building_id)) {
+            $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
+        } else {
+            $buildings = $buildings->get()->pluck('id')->toArray();
+        }
 
         // 特色
         if (!empty($request->features)) {
@@ -147,7 +107,6 @@ class BuildingsRepository extends  Model
         }
         // 筛选出符合条件的楼座
         $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
-
         $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks);
 
         // 面积
@@ -178,7 +137,6 @@ class BuildingsRepository extends  Model
     {
         // 对楼座进行分组
         $buildingsBlocks = $houses->get()->groupBy('building_block_id');
-
         // 将房源根据
         $buildingsBlockIds = $buildingsBlocks->keys();
         $buildingsBlocksData = BuildingBlock::find($buildingsBlockIds);
