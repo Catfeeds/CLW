@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 84);
+/******/ 	return __webpack_require__(__webpack_require__.s = 89);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10437,22 +10437,21 @@ return jQuery;
 
 /***/ }),
 
-/***/ 84:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(85);
+module.exports = __webpack_require__(90);
 
 
 /***/ }),
 
-/***/ 85:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 90:
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-window.$ = window.jQuery = __webpack_require__(1);
+window.$ = window.jQuery = __webpack_require__(0);
 var tel = $('#tel'),
     sms = $('#sms'),
     password = $('#password'),
