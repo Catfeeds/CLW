@@ -56,7 +56,7 @@
             <div class="indexSideslip">
                 <div class="qualityList" id="VueQualityList">
                     @foreach($recommends as $item)
-                    <a href="javascript:void(0)" class="qualityItem">
+                    <a href="/recommends/{{$item->id}}" class="qualityItem">
                     <img src="{{$item->pic_cn}}">
                     <div class="quality-text">
                         <div class="quality-title">{{$item->title}}打算</div>
@@ -66,7 +66,6 @@
                     @endforeach
                 </div>
             </div>
-
             <!-- 投放房源 -->
             <div class="launchHouse-box">
                 <div class="launchHouse-content">
