@@ -8,13 +8,12 @@ use App\Repositories\ThrowInsRepository;
 
 class ThrowInController extends Controller
 {
-
     /**
      * 说明: 房源投放
      *
      * @param ThrowInsRepository $repository
      * @param ThrowInsRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return array
      * @author 刘坤涛
      */
     public function store
@@ -23,8 +22,10 @@ class ThrowInController extends Controller
         ThrowInsRequest $request
     )
     {
-        $res = $repository->addThrowIn($request);
-       if (!$res) return false;
-       return true;
+        if (!empty($res = $repository->addThrowIn($request))) {
+            return ['status' => true, 'message' => '投放成功'];
+        } else {
+            return ['status' => false, 'message' => '投放失败'];
+        }
     }
 }
