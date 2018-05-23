@@ -18,10 +18,6 @@ class LoginsController extends Controller
      */
     public function create()
     {
-//        $collection = collect([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-//        $chunks = $collection->chunk(4)->toArray();
-//        dd($chunks);
-
         return view('we.login_new');
     }
 
