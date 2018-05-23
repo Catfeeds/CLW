@@ -6,7 +6,8 @@ use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+
 
 class BuildingController extends Controller
 {
@@ -18,7 +19,7 @@ class BuildingController extends Controller
     )
     {
         $res = $buildingsRepository->buildingList($request, $service);
-        return view('we.building_index')->with('data', $res); 
+        return view('we.building_index')->with('data', $res);
     }
 
     // 楼盘详情
