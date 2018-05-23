@@ -8,11 +8,11 @@
       <!-- 称谓 -->
       <div class="first">
           <div class="input">
-              <input id="appellation" value="" type="text" placeholder="称谓">  
+              <input id="appellation" type="text" placeholder="称谓">  
           </div>
           <!-- 电话 -->
           <div class="input">
-              <input id="tel" value="" type="tel" placeholder="电话">
+              <input id="tel" type="tel" placeholder="电话">
           </div>
       </div>
       <div class="second">
@@ -22,4 +22,5 @@
           <button type="button">提交</button>
       </div>
     </div>
+    <script src="/js/we_user_find_house.js"></script>
 @endsection

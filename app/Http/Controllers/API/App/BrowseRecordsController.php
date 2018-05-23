@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API\App;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Repositories\BrowseRecordsRepository;
-use App\Services\HousesService;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 
@@ -14,7 +13,7 @@ class BrowseRecordsController extends APIBaseController
      * 说明: 获取浏览记录表
      *
      * @param Request $request
-     * @param HousesService $service
+     * @param OfficeBuildingHousesService $service
      * @param BrowseRecordsRepository $repository
      * @return \Illuminate\Http\JsonResponse
      * @author 刘坤涛

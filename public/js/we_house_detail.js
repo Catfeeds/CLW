@@ -60,12 +60,16 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 80);
+/******/ 	return __webpack_require__(__webpack_require__.s = 81);
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ 2:
+=======
+/***/ 0:
+>>>>>>> origin/lz
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10437,18 +10441,22 @@ return jQuery;
 
 /***/ }),
 
-/***/ 80:
+/***/ 81:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(81);
+module.exports = __webpack_require__(82);
 
 
 /***/ }),
 
-/***/ 81:
+/***/ 82:
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 window.$ = window.jQuery = __webpack_require__(2);
+=======
+window.$ = window.jQuery = __webpack_require__(0);
+>>>>>>> origin/lz
 // 显示或者隐藏栋座信息
 $('.top').click(function () {
     $('#collapse').toggleClass("mui-active");

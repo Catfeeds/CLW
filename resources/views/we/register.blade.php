@@ -7,18 +7,17 @@
     <div class="mui-content" id="app">
         <form class="mui-input-group">
             <div class="mui-input-row marTop phone">
-                <input type="tel" v-model="tel" id="tel" class="mui-numbox-input" placeholder="请输入手机号">
-                <a href="#" v-if='time<=0' class="mui-pull-right" @click="getSms">获取验证码</a>
-                <a href="#" v-else class="mui-pull-right" id="time">10s</a>
+                <input type="tel" id="tel" class="mui-numbox-input" placeholder="请输入手机号">
+                <a href="#"  class="mui-pull-right" id="getSms">获取验证码</a>
             </div>
             <div class="mui-input-row marTop">
                 <input type="tel" v-model="sms" id="sms" placeholder="请输入验证码">
             </div>
             <div class="mui-input-row marTop">
-                <input type="password" v-model="password" id="password" placeholder="请设置登录密码">
+                <input type="password" id="password" placeholder="请设置登录密码">
             </div>
             <div class="loginBtn">
-                <button type="button" @click="submit">立即登录</button>
+                <button type="button" id="submit">立即登录</button>
             </div>
         </form>
     </div>

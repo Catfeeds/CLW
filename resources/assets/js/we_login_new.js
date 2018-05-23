@@ -1,15 +1,9 @@
-/**
- * Created by zxz1992 on 2018/5/22.
- */
-import ajax from './we_request'
-import { setCookie } from './we_auth'
-var request = ajax();
 window.$ = window.jQuery = require('jquery');
-$('.loginBtn').on('click','button',(e)=> {
-  var tel = $('#tel')[0].value,
-    password = $('#password')[0].value;
+$(document).on('touchend || tap','.loginBtn button',(e)=> {
+  var tel = $('#tel').val(),
+    password = $('#password').val();
   // 隐藏键盘
-  $('#tel')[0].blur();
+  $('#tel').blur();
   $('#password')[0].blur();
   // 判断数据是否存在
   if (!tel || tel.trim() === '') {
@@ -21,19 +15,25 @@ $('.loginBtn').on('click','button',(e)=> {
   } else if (password.length > 18) {
     alert('密码最大长度为18')
   } else {
-    request({
-      url: 'logins',
-      method: 'post',
-      data: {
-        tel,
-        password
-      }
-    }).then(res => {
-      if(res.data.status) {
-        alert('登录成功');
-        document.cookie = "";
-        setCookie("access_token", res.data.token)
-      }
-    })
+      $.ajax({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: "/logins",
+          type: 'post',
+          data:{
+              tel: tel,
+              password: password
+          },
+          success: function(data){
+              if(data.status) {
+                  alert(data.message);
+                  window.location.href = '/user'
+              }
+          },
+          error: function (data) {
+              alert(data.responseJSON.message);
+          }
+      });
   }
 });

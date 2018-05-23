@@ -48,8 +48,8 @@ var fileSJSNameArr = [
   // 'we_login_new',
   // 'we_house_detail',
   'we_login_new',
-  // 'we_login_password',
-  // 'we_login_quick',
+  'we_login_password',
+  'we_login_quick',
   // 'we_map',
   // 'we_map_controls',
   'we_register',
@@ -58,13 +58,13 @@ var fileSJSNameArr = [
   // 'we_user_about_us',
   // 'we_user_browsing_history',
   // 'we_user_collect',
-  // 'we_user_find_house',
-  // 'we_user_house_resources',
-  // 'we_user_index',
+  'we_user_find_house',
+  'we_user_house_resources',
+  'we_user_index',
   // 'we_user_revise_password',
-  // 'we_user_revise_phone1',
+  'we_user_revise_phone1',
   // 'we_user_revise_phone2',
-  // 'we_user_setting'
+  'we_user_setting'
 ];// 要打包的 js 文件
 function inOutCss(fileName) {
   mix.sass(commonSCSSPath+fileName+'.scss', commonOutCSSPath+fileName+'.css', {
