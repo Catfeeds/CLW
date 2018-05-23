@@ -4,6 +4,7 @@ namespace App\Http\Controllers\We;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WeChat\LoginsRequest;
 use App\Services\LoginsService;
+use Illuminate\Support\Facades\Session;
 
 class LoginsController extends Controller
 {
@@ -64,4 +65,17 @@ class LoginsController extends Controller
 
         return $res;
     }
+
+    /**
+     * 说明: 退出登录
+     *
+     * @return array
+     * @author 罗振
+     */
+    public function logout()
+    {
+        Session::forget('user');
+        return ['status' => true, 'message' => '退出成功'];
+    }
+
 }

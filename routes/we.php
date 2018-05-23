@@ -16,29 +16,26 @@ Route::post('quick_login', 'LoginsController@quickLogin');
 
 // 楼盘列表页
 Route::resource('buildings', 'BuildingController');
-
 //精选楼盘
 Route::resource('recommends', 'RecommendController');
-
 //预约
 Route::resource('bespeaks', 'BespeakController');
-
 //房源投放
 Route::resource('throw_ins', 'ThrowInController');
-
-
-
 // 房源详情页
 Route::resource('houses', 'HouseController');
-// 用户相关
-
-
-
-
 // 服务
 Route::resource('servers', 'ServerController');
+// 地图
+Route::get('map', 'ServerController@map');
+
+
+
 
 Route::group(['middleware' => ['web','weChat.login']], function () {
+    // 退出
+    Route::get('logout', 'LoginsController@logout');
+
     /*
     |--------------------------------------------------------------------------
     | 重置基本信息
@@ -71,9 +68,4 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('collections', 'CollectionsController');
-
-
-
 });
-
-Route::get('map', 'ServerController@map');
