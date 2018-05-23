@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\App;
+namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\CollectionsRequest;
@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Auth;
 class CollectionsController extends APIBaseController
 {
     /**
-     * 说明: 收藏列表
+     * 说明: 收藏记录
      *
      * @param Request $request
      * @param CollectionsRepository $repository
      * @param OfficeBuildingHousesService $service
      * @return \Illuminate\Http\JsonResponse
-     * @author 刘坤涛
+     * @author 罗振
      */
     public function index
     (
@@ -29,7 +29,8 @@ class CollectionsController extends APIBaseController
     )
     {
         $res = $repository->collectionList($request, $service);
-        return $this->sendResponse($res, '收藏列表获取成功');
+        dd($res);
+        return view('we.user_collect', ['res' => $res]);
     }
 
     /**

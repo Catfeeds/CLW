@@ -25,6 +25,19 @@ Route::resource('houses', 'HouseController');
 Route::resource('servers', 'ServerController');
 
 Route::group(['middleware' => ['web','weChat.login']], function () {
+    /*
+    |--------------------------------------------------------------------------
+    | 浏览记录
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('browse_records', 'BrowseRecordsController');
+    /*
+    |--------------------------------------------------------------------------
+    | 收藏
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('collections', 'CollectionsController');
+
 
 
 });
