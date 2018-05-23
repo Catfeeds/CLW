@@ -23,7 +23,7 @@ class LoginsController extends Controller
      *
      * @param LoginsRequest $request
      * @param LoginsService $loginsService
-     * @return \Illuminate\Http\RedirectResponse
+     * @return array
      * @author 罗振
      */
     public function store(
@@ -31,11 +31,10 @@ class LoginsController extends Controller
         LoginsService $loginsService
     )
     {
+        dd(1);
         $res = $loginsService->webPwdLogin($request);
 
-        if ($res['status'] == false) return redirect('/logins/create')->with('登录失败:'.$res['message']);
-
-        return redirect('/')->with('登录成功:'.$res['message']);
+        return $res;
     }
     
     /**
@@ -49,14 +48,21 @@ class LoginsController extends Controller
         return view('we.login_quick');
     }
 
+    /**
+     * 说明: 短信登录
+     *
+     * @param LoginsRequest $request
+     * @param LoginsService $loginsService
+     * @return array
+     * @author 罗振
+     */
     public function quickLogin(
         LoginsRequest $request,
         LoginsService $loginsService
     )
     {
+        $res = $loginsService->quickLogin($request);
 
-
-
+        return $res;
     }
-    
 }

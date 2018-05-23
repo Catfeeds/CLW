@@ -65,7 +65,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10448,7 +10448,7 @@ module.exports = __webpack_require__(89);
 /***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
-window.$ = window.jQuery = __webpack_require__(1);
+window.$ = window.jQuery = __webpack_require__(0);
 // 跳转至委托找房页面
 $(document).on('touchend || tap', '#entrust', function () {
     window.location.href = '/user_find_house';

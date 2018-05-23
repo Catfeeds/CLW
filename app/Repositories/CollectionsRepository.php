@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CollectionsRepository extends Model
 {
@@ -16,14 +17,19 @@ class CollectionsRepository extends Model
      */
     public function user()
     {
-        return Auth::guard('api')->user();
+        if (!empty(Auth::guard('api')->user())) {
+            return Auth::guard('api')->user();
+        } else {
+            return Session::get('user');
+        }
     }
 
     /**
      * 说明: 获取该用户的收藏列表
      *
      * @param $request
-     * @return mixed
+     * @param $service
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      * @author 刘坤涛
      */
     public function collectionList($request, $service)

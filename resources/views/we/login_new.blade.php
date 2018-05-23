@@ -21,8 +21,8 @@
             </div>
         </form>
         <div class="shortcut">
-            <a href="#">手机快捷登录</a>
-            <a id="register">注册</a>
+            <a href="{{url('/quick_login_view')}}">手机快捷登录</a>
+            <a href="{{url('/registers/create')}}" id="register">注册</a>
         </div>
         <!-- 第三方登录 -->
         <!-- <div class="other">

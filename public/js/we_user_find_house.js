@@ -65,7 +65,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10448,17 +10448,36 @@ module.exports = __webpack_require__(87);
 /***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
-window.$ = window.jQuery = __webpack_require__(1);
+window.$ = window.jQuery = __webpack_require__(0);
 // 提交
 $(document).on('touchend || tap', '.loginOut', function () {
     var appellation = $('#appellation').val();
     var tel = $('#tel').val();
+    var demand = $('#requirement').val();
     if (!appellation || appellation.trim() == '') {
         alert('请输入称谓');
     } else if (!tel || tel.trim() == '') {
         alert('请输入手机号码');
     } else {
-        console.log('who are you');
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/bespeaks",
+            type: 'post',
+            data: {
+                tel: tel,
+                appellation: appellation,
+                demand: demand
+            },
+            success: function success(data) {
+                alert(data.message);
+                window.location.href = '/user';
+            },
+            error: function error(data) {
+                alert(data.responseJSON.message);
+            }
+        });
     }
 });
 

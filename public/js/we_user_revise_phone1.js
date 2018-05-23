@@ -65,7 +65,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 1:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10448,7 +10448,7 @@ module.exports = __webpack_require__(91);
 /***/ 91:
 /***/ (function(module, exports, __webpack_require__) {
 
-window.$ = window.jQuery = __webpack_require__(1);
+window.$ = window.jQuery = __webpack_require__(0);
 // 跳转至下一步
 $(document).on('touchend || tap', '.loginOut', function () {
     window.location.href = '/revise_phone2';
