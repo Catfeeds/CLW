@@ -4,6 +4,7 @@ namespace App\Http\Controllers\We;
 use App\Http\Controllers\Controller;
 use App\Models\Recommend;
 use App\Repositories\RecommendsRepository;
+use App\Services\BuildingsService;
 
 class RecommendController extends Controller
 {
@@ -19,10 +20,11 @@ class RecommendController extends Controller
     public function show
     (
         RecommendsRepository $repository,
-        Recommend $recommend
+        Recommend $recommend,
+        BuildingsService $service
     )
     {
-        $res = $repository->getBuildingList($recommend->building_id);
+        $res = $repository->getBuildingList($recommend->building_id, $service);
         return view('we.recommed')->with('data', $res);
     }
 }
