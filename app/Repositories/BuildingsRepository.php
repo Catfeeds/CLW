@@ -21,7 +21,7 @@ class BuildingsRepository extends  Model
      * @return mixed
      * @author jacklin
      */
-    public function buildingList($request = null, $service, $building_id = null)
+    public function buildingList($request, $service, $building_id = null)
     {
         // 取得符合条件房子
         $houses = $this->houseList($request, $building_id);
@@ -85,6 +85,7 @@ class BuildingsRepository extends  Model
             $buildings = $buildings->whereIn('block_id', $blocks);
         }
 
+        //如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
         if (!empty($building_id)) {
             $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
         } else {
