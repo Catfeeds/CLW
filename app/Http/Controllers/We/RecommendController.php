@@ -8,13 +8,13 @@ use App\Services\BuildingsService;
 
 class RecommendController extends Controller
 {
-
     /**
-     * 说明：首页点击精品推荐跳转到楼盘列表
+     * 说明: 首页点击精品推荐跳转到楼盘列表
      *
      * @param RecommendsRepository $repository
      * @param Recommend $recommend
-     * @return \Illuminate\Http\JsonResponse
+     * @param BuildingsService $service
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @author jacklin
      */
     public function show
