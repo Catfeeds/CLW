@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers\We;
 
-use App\Http\Requests\Admin\BuildingsRequest;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 
 class BuildingController extends Controller
 {
-    public function index()
+    public function index
+    (
+        BuildingsRepository $buildingsRepository,
+        Request $request,
+        BuildingsService $service
+    )
     {
-        return view('we.building_index');
+        $res = $buildingsRepository->buildingList($request, $service);
+        return view('we.building_index')->with('data', $res);
     }
 
     // 楼盘详情
