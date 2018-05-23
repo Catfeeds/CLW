@@ -31,9 +31,9 @@ class OfficeBuildingHousesRepository extends Model
             ->where('unit_price', '>', $house->unit_price - config('setting.float_price'))
             ->where('unit_price', '<', $house->unit_price + config('setting.float_price'))
             ->paginate(6);
-        foreach ($houses as $house) {
-        $service->getShow($house);
-        $service->labelShow($house);
+        foreach ($houses as $v) {
+        $service->getShow($v);
+        $service->labelShow($v);
     }
         return $houses;
     }
