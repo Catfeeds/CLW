@@ -25,13 +25,3 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
   autoplayDisableOnInteraction:false,
   paginationClickable:true
 });
-// 点击事件
-    var hrefs = window.location.href.split('/')[3]
-    console.log(window.location.href.split('/')[3])
-    switch (hrefs) {
-        case 'buildings':
-            $('.tabs>.tab').css('display', 'none')
-            $('.tabactive').css('display', 'none')
-            break;
-        default: 
-    }
