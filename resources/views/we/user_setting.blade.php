@@ -11,4 +11,5 @@
             <button type="button">退出登录</button>
         </div>
     </div>
+    <script src="/js/we_user_setting.js"></script>
 @endsection

@@ -27,4 +27,5 @@
         <button type="button">下一步</button>
     </div>
   </div>
+  <script src="/js/we_user_revise_phone1.js"></script>
 @endsection
