@@ -2,7 +2,27 @@ body {
   background: #f4f4f4 !important;
 }
 
+<<<<<<< HEAD
 body .mui-content {
+=======
+body header {
+  height: 65px !important;
+  background-color: rgba(255,255,255,0.9) !important;
+}
+
+body header .mui-title {
+  margin-top: 20px !important;
+}
+
+body header a {
+  display: inline-block;
+  width: 100px;
+  height: 64px;
+}
+
+body .mui-content {
+  margin-top: 75px;
+>>>>>>> origin/wujie
   margin-left: 15px;
   margin-right: 15px;
   background: #f4f4f4 !important;
