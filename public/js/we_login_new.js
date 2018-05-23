@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 83);
+/******/ 	return __webpack_require__(__webpack_require__.s = 82);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 0:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10437,18 +10437,18 @@ return jQuery;
 
 /***/ }),
 
-/***/ 83:
+/***/ 82:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(84);
+module.exports = __webpack_require__(83);
 
 
 /***/ }),
 
-/***/ 84:
+/***/ 83:
 /***/ (function(module, exports, __webpack_require__) {
 
-window.$ = window.jQuery = __webpack_require__(0);
+window.$ = window.jQuery = __webpack_require__(1);
 $(document).on('touchend || tap', '.loginBtn button', function (e) {
     var tel = $('#tel').val(),
         password = $('#password').val();
@@ -10476,8 +10476,8 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
                 password: password
             },
             success: function success(data) {
-                alert(data.message);
-                if (data.success) {
+                if (data.status) {
+                    alert(data.message);
                     window.location.href = '/user';
                 }
             },

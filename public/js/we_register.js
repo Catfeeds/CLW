@@ -60,16 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-<<<<<<< HEAD
-/******/ 	return __webpack_require__(__webpack_require__.s = 88);
-=======
-/******/ 	return __webpack_require__(__webpack_require__.s = 85);
->>>>>>> origin/cyq
+/******/ 	return __webpack_require__(__webpack_require__.s = 84);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 0:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10441,32 +10437,22 @@ return jQuery;
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 88:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(89);
-=======
-/***/ 85:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(86);
->>>>>>> origin/cyq
+module.exports = __webpack_require__(85);
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 89:
-=======
-/***/ 86:
->>>>>>> origin/cyq
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 85:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-window.$ = window.jQuery = __webpack_require__(0);
+window.$ = window.jQuery = __webpack_require__(1);
 var tel = $('#tel'),
     sms = $('#sms'),
     password = $('#password'),
@@ -10540,7 +10526,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         url: '/sms/captcha/' + pathStr,
         type: 'get',
         success: function success(res) {
-            if (res.data) {
+            if (res.success) {
                 getSms.html(120 + 's');
                 var time = setInterval(function () {
                     getSms.html(parseInt(getSms.html()) - 1 + 's');

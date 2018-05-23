@@ -26,8 +26,8 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
               password: password
           },
           success: function(data){
-              alert(data.message)
-              if(data.success) {
+              if(data.status) {
+                  alert(data.message);
                   window.location.href = '/user'
               }
           },
