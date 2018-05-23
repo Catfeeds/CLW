@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Building;
 use App\Models\Recommend;
 use Illuminate\Database\Eloquent\Model;
 
@@ -56,39 +55,38 @@ class RecommendsRepository extends Model
         return true;
     }
 
-    /**
-     * 说明：首页点击精品推荐跳转到楼盘列表
-     *
-     * @param $building_id
-     * @return mixed
-     * @author jacklin
-     */
-    public function getBuildingList($building_id, $service)
-    {
-        $buildings = Building::with(['buildingBlock', 'area', 'block', 'label', 'features', 'house'])->whereIn('id', $building_id)->get();
-
-        foreach ($buildings as $v) {
-            $count = $v->house->count();
-            $price = $v->house->pluck('unit_price')->avg();
-            $service->features($v);
-            $service->label($v);
-            $service->getAddress($v);
-
-            // 单价
-            if (empty($price)) {
-                $v->price = '';
-            } else {
-                $v->price = round($price,2).'元/㎡.月';
-            }
-
-            // 数量
-            if (empty($count)) {
-                $v->count = '';
-            } else {
-                $v->count = $count.'套';
-            }
-        }
-
-        return $buildings;
-    }
+//    /**
+//     * 说明：首页点击精品推荐跳转到楼盘列表
+//     *
+//     * @param $building_id
+//     * @return mixed
+//     * @author jacklin
+//     */
+//    public function getBuildingList($building_id, $service)
+//    {
+//        $buildings = Building::with(['buildingBlock', 'area', 'block', 'label', 'features', 'house'])->whereIn('id', $building_id)->get();
+//
+//        foreach ($buildings as $v) {
+//            $count = $v->house->count();
+//            $price = $v->house->pluck('unit_price')->avg();
+//            $service->features($v);
+//            $service->label($v);
+//            $service->getAddress($v);
+//
+//            // 单价
+//            if (empty($price)) {
+//                $v->price = '';
+//            } else {
+//                $v->price = round($price,2).'元/㎡.月';
+//            }
+//
+//            // 数量
+//            if (empty($count)) {
+//                $v->count = '';
+//            } else {
+//                $v->count = $count.'套';
+//            }
+//        }
+//        return $buildings;
+//    }
 }

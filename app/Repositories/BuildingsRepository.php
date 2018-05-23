@@ -4,11 +4,11 @@ namespace App\Repositories;
 use App\Models\Area;
 use App\Models\Block;
 use App\Models\Building;
-use App\Models\BuildingFeature;
-use App\Models\OfficeBuildingHouse;
-use App\Models\BuildingLabel;
 use App\Models\BuildingBlock;
+use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
+use App\Models\BuildingLabel;
+use App\Models\OfficeBuildingHouse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -37,6 +37,24 @@ class BuildingsRepository extends  Model
         }
         return $this->buildingDataComplete($buildings, $buildingData);
     }
+
+
+    public function getBuildingList($building_id, $service, $request)
+    {
+        // 取得符合条件房子
+        $houses = $this->houseList($request);
+        // 根据楼盘分组
+        $buildings = $this->groupByBuilding($houses);
+
+        $buildingData = Building::whereIn('id', $building_id)->with(['block', 'features', 'area', 'label', 'house'])->paginate($request->per_page);
+        foreach($buildingData as $v) {
+            $service->features($v);
+            $service->getAddress($v);
+            $service->label($v);
+        }
+        return $this->buildingDataComplete($buildings, $buildingData);
+    }
+
 
     /**
      * 说明：图片、楼盘名、优标签、商圈、单价、符合条件的房源数量、特色
