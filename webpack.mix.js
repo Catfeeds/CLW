@@ -67,7 +67,6 @@ var fileSJSNameArr = [
   // 'we_user_revise_phone2',
   // 'we_user_setting'
 ];// 要打包的 js 文件
-mix = mix.setPublicPath('./');
 function inOutCss(fileName) {
   mix.sass(commonSCSSPath+fileName+'.scss', commonOutCSSPath+fileName+'.css', {
     outputStyle:'compressed'
@@ -82,7 +81,7 @@ function inOutJs(fileName, obj) {
   } else {
     app = obj.js(commonJSPath+fileName+'.js', commonJSOutPath+fileName+'.js', {
       outputStyle:'compressed'
-    })
+    });
   }
   return app
 }

@@ -19,13 +19,22 @@ var app = new Vue({
   methods: {
     changeData: function (data) {
       this.list = [];
-      var params = JSON.parse(JSON.stringify(data));
-      console.log(params)
-      // params.area_id = data.area_id === 'all'? null : data.area_id
-      // params.block_id = data.block_id === 'all'? null : data.block_id
-      // params.renovation = data.renovation === 'all'? null : data.renovation // 装修
-      // params.features = data.features === 'all'? null : data.features // 决策偏好
-      // this.search = params
+      var params = {};
+      if (data.area_id !== 'all') {
+        params.area_id = data.area_id
+      }
+      if (data.block_id !== 'all') {
+        params.block_id = data.block_id
+      }
+      if (data.renovation !== 'all') {
+        params.renovation = data.renovation
+      }
+      if (data.features !== 'all') {
+        params.features = data.features
+      }
+
+      var searchStr = JSON.stringify(params);
+      window.location.search = '?condition='+searchStr
     }
   }
 });
