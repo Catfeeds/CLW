@@ -5,10 +5,12 @@
 @endsection
 @section('body')
 <div id="pullrefresh" class="mui-content">
+	<input id="features" value="{{$data->feature_name_pic}}" type="hidden" />
+	<input id="imgList" value="{{$data->pic_url}}" type="hidden"/>
 			<div id="Vuebuilding">
 				<div class="mui-content">
 					<div class="swiper-container">
-						<detail-banner :list='$data->pic_url'></detail-banner>
+						<detail-banner :list='imgList'></detail-banner>
 				  </div>
 					<!--1标题栏-->
 					<div>
@@ -30,7 +32,7 @@
 									</div>
 									<div class="mui-col-xs-4 las">
 										<h3 style="font-size:17px;color:#333333">{{$data->constru_acreage}}</h3>
-										<h5>面积(㎡)</h4>
+										<h5>面积(㎡)</h5>
 									</div>
 								</div>
 							</div>
@@ -44,13 +46,15 @@
 									<h5><img src="/we_img/house_detail_bus.png"> 距离2号线 光谷广场 约183米</h5>
 								</div>
 							</div>-->
-							<img class="choice" v-if="($data->label_cn === true)" src="/we_img/house_detail_better.png">
+							@if ($data->label_cn === true)
+								<img class="choice" src="/we_img/house_detail_better.png">
+							@endif
 						</div>
 						<!--2基础信息-->
 						<div class="firstcard">
 							<div class="special">楼盘特色</div>
 							<div class="swiper-container contain" id="swiperFeature">
-								{{--<feature-banner :list='banner'></feature-banner>--}}
+								<feature-banner :list='features'></feature-banner>
 						  </div>
 						</div>
 						<!-- 楼盘信息 -->
@@ -103,7 +107,7 @@
 							</div>
 						</div>
 						<!--4最下推荐-->
-						<house-detail-list @todetail='moreChange' :title="$data->name" :api='1' ref='houseDetailList' ></house-detail-list>
+						{{--<house-detail-list @@todetail='moreChange' :title="$data->name" :api='1' ref='houseDetailList' ></house-detail-list>--}}
 						<!--5交通及周边配套-->
 						<div class="periphery" style="margin-top:-10px !important;">
 							<div class="top">

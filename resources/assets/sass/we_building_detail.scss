@@ -1,4 +1,20 @@
-
+//TODO: scss注释补全
+@import "~swiper/dist/css/swiper.min.css";
+.swiper-slide{
+    img{
+        width: 100%;
+    }
+}
+.swiper-pagination{
+    bottom: 20px !important;
+    .swiper-pagination-bullet{
+        background: #ffffff !important;
+        opacity: 0.5;
+        &.swiper-pagination-bullet-active{
+            opacity: 1;
+        }
+    }
+}
     #header{
         z-index:50 !important;
         background:rgba(0,0,0,0.4);
