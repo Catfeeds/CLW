@@ -24,4 +24,34 @@ class HouseController extends Controller
         $relHouse = $repository->getShowOffice($service, $id);
         return view('we.house_detail')->with(['house' => $house, 'relHouse' => $relHouse]);
     }
+
+    /**
+     * 说明: 找房列表区域搜索条件
+     *
+     * @param OfficeBuildingHousesService $officeBuildingHousesService
+     * @return array
+     * @author 罗振
+     */
+    public function blockCondition(
+        OfficeBuildingHousesService $officeBuildingHousesService
+    )
+    {
+        $res = $officeBuildingHousesService->blockCondition();
+        return $res;
+    }
+
+    /**
+     * 说明: 找房列表其他搜索条件
+     *
+     * @param OfficeBuildingHousesService $officeBuildingHousesService
+     * @return array
+     * @author 罗振
+     */
+    public function otherCondition(
+        OfficeBuildingHousesService $officeBuildingHousesService
+    )
+    {
+        $res = $officeBuildingHousesService->otherCondition();
+        return $res;
+    }
 }
