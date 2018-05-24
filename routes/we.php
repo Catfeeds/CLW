@@ -37,7 +37,7 @@ Route::get('map', 'ServerController@map');
 // 服务
 Route::resource('servers', 'ServerController');
 
-// Route::group(['middleware' => ['web','weChat.login']], function () {
+ Route::group(['middleware' => ['web','weChat.login']], function () {
     // 退出
     Route::get('logout', 'LoginsController@logout');
 
@@ -66,7 +66,7 @@ Route::resource('servers', 'ServerController');
     // 用户首页
     Route::get('user', 'ResetInfoController@index');
     // 委托找房
-    Route::get('user_find_house', 'ResetInfoController@findHouse');\
+    Route::get('user_find_house', 'ResetInfoController@findHouse');
     // 委托找房获取区域
     Route::get('get_area', 'ResetInfoController@getArea');
     // 关于我们
@@ -82,6 +82,7 @@ Route::resource('servers', 'ServerController');
     |--------------------------------------------------------------------------
     */
     Route::resource('browse_records', 'BrowseRecordsController');
+    Route::get('ajax_browse_records', 'BrowseRecordsController@ajaxBrowseRecord');
 
     /*
     |--------------------------------------------------------------------------
@@ -89,7 +90,9 @@ Route::resource('servers', 'ServerController');
     |--------------------------------------------------------------------------
     */
     Route::resource('collections', 'CollectionsController');
+    Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
 
-// });
+
+ });
 Route::get('map', 'ServerController@map');
 

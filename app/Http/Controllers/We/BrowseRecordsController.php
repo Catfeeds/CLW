@@ -29,5 +29,22 @@ class BrowseRecordsController extends Controller
         return view('we.user_browsing_history',['res' => $res]);
     }
 
-
+    /**
+     * 说明: ajax获取浏览记录数据
+     *
+     * @param Request $request
+     * @param OfficeBuildingHousesService $service
+     * @param BrowseRecordsRepository $repository
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @author 罗振
+     */
+    public function ajaxBrowseRecord(
+        Request $request,
+        OfficeBuildingHousesService $service,
+        BrowseRecordsRepository $repository
+    )
+    {
+        $res = $repository->browseRecordList($request, $service,true);
+        return $res;
+    }
 }

@@ -11,6 +11,10 @@ body .mui-content .banner {
   width: 100%;
 }
 
+body .mui-content .essential {
+  margin-bottom: 49px;
+}
+
 body .mui-content .essential .title {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -318,7 +318,8 @@ module.exports = {
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -415,10 +416,9 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 11 */,
 /* 12 */,
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -758,7 +758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__);
 /**
  * Created by zxz1992 on 2018/5/22.
@@ -860,7 +860,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(68)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(70)
 /* template */
@@ -913,7 +913,7 @@ var content = __webpack_require__(69);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(12)("84aebc14", content, false, {});
+var update = __webpack_require__(10)("84aebc14", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -932,7 +932,7 @@ if(false) {
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(6)(false);
 // imports
 
 
@@ -948,7 +948,7 @@ exports.push([module.i, "\n.VueSelectBox[data-v-088a7ea7] {\n  height: 100%;\n  
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -1354,7 +1354,7 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(14);
 var Axios = __webpack_require__(73);
-var defaults = __webpack_require__(10);
+var defaults = __webpack_require__(11);
 
 /**
  * Create an instance of Axios
@@ -1437,7 +1437,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(10);
+var defaults = __webpack_require__(11);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(82);
 var dispatchRequest = __webpack_require__(83);
@@ -1978,7 +1978,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(84);
 var isCancel = __webpack_require__(17);
-var defaults = __webpack_require__(10);
+var defaults = __webpack_require__(11);
 var isAbsoluteURL = __webpack_require__(85);
 var combineURLs = __webpack_require__(86);
 

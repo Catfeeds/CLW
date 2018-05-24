@@ -1,20 +1,5 @@
-body header {
-  height: 65px !important;
-}
-
-body header .mui-title {
-  margin-top: 20px !important;
-}
-
-body header a {
-  display: inline-block;
-  width: 100px;
-  height: 64px;
-}
-
 body .mui-content {
   border-top: 1px solid #f4f4f4;
-  margin-top: 65px;
 }
 
 body .mui-content ul {
@@ -108,5 +93,25 @@ body .mui-content ul li .decoration {
 body .mui-content ul li .decoration img {
   width: 34px;
   height: 20px;
+}
+
+body .more {
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 0;
+}
+
+body .more>button {
+  width: 78%;
+  border: solid 1px #007eff;
+  border-radius: 22px;
+  height: 44px;
+  color: #007eff;
+  font-size: 17px;
 }
 
