@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\WeChat\RegistersRequest;
 use App\Services\RegistersService;
 
-class RegistersController extends Controller
+class RegistersController extends APIBaseController
 {
     /**
      * 说明: 注册页面
@@ -32,6 +32,7 @@ class RegistersController extends Controller
     )
     {
         $res = $registersService->weAddUser($request);
-        return $res;
+        if (empty($res['status'])) return $this->sendError('注册失败');
+        return $this->sendResponse($res,'注册成功');
     }
 }

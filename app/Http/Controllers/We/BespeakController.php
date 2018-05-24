@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\BespeaksRequest;
 use App\Services\BespeaksService;
 
-class BespeakController extends Controller
+class BespeakController extends APIBaseController
 {
     /**
      * 说明: 预约
@@ -21,10 +21,7 @@ class BespeakController extends Controller
         BespeaksService $bespeaksService
     )
     {
-        if (!empty($res = $bespeaksService->addBespeaks($request))) {
-            return ['status' => true, 'message' => '预约成功'];
-        } else {
-            return ['status' => false, 'message' => '预约失败'];
-        }
+        if (!empty($res = $bespeaksService->addBespeaks($request))) return $this->sendResponse($res,'预约成功');
+        return $this->sendError('预约失败');
     }
 }
