@@ -36,6 +36,7 @@ class OfficeBuildingHousesController extends APIBaseController
      *
      * @param $id
      * @param OfficeBuildingHousesRepository $buildingHousesRepository
+     * @param OfficeBuildingHousesService $service
      * @return \Illuminate\Http\JsonResponse
      * @author 罗振
      */
