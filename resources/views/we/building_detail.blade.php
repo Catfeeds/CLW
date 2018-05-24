@@ -4,17 +4,17 @@
     <link rel="stylesheet" href="/css/we_building_detail.css">
 @endsection
 @section('body')
-<div id="pullrefresh" class="mui-content">
+	<div id="pullrefresh" class="mui-content">
 	<input id="features" value="{{$data->feature_name_pic}}" type="hidden" />
-	<input id="imgList" value="{{$data->pic_url}}" type="hidden"/>
-			<div id="Vuebuilding">
+		<input id="imgList" value="{{$data->pic_url}}" type="hidden"/>
+		<div id="Vuebuilding">
 				<div class="mui-content">
 					<div class="swiper-container">
 						<detail-banner :list='imgList'></detail-banner>
 				  </div>
 					<!--1标题栏-->
 					<div>
-						<div class="titles" style="border-shadow:0;">	
+						<div class="titles" style="border-shadow:0;">
 							<div class="mui-row">
 								<div class="mui-col-xs-9">
 									<h5>{{$data->name}}</h5>

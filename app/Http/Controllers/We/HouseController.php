@@ -24,4 +24,6 @@ class HouseController extends Controller
         $relHouse = $repository->getShowOffice($service, $id);
         return view('we.house_detail')->with(['house' => $house, 'relHouse' => $relHouse]);
     }
+
+
 }
