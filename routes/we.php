@@ -82,6 +82,7 @@ Route::resource('servers', 'ServerController');
     |--------------------------------------------------------------------------
     */
     Route::resource('browse_records', 'BrowseRecordsController');
+    Route::get('ajax_browse_records', 'BrowseRecordsController@ajaxBrowseRecord');
 
     /*
     |--------------------------------------------------------------------------
@@ -89,6 +90,8 @@ Route::resource('servers', 'ServerController');
     |--------------------------------------------------------------------------
     */
     Route::resource('collections', 'CollectionsController');
+    Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
+
 
 // });
 Route::get('map', 'ServerController@map');
