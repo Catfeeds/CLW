@@ -165,12 +165,10 @@ class Building extends Model
                 ];
             });
         } else {
-            return [
-                [
-                    'name' => '',
-                    'url' => config('setting.house_default_img')
-                ]
-            ];
+            return collect([
+                'name' => '11',
+                'url' => config('setting.house_default_img')
+            ]);
         }
     }
 
