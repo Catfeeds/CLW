@@ -3,6 +3,8 @@
  */
 window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
+import { Toast } from 'mint-ui';
+import 'mint-ui/lib/style.css';
 import buildingSelect from './components/buildingSelect.vue'
 import buildingList from './components/buildingList.vue'
 var pageOne = JSON.parse($('#pageOne').val());
@@ -10,7 +12,10 @@ var app = new Vue({
   el: '#buildingList',
   data: {
     list: pageOne.data,
-    search: {}
+    search: {},
+    getData: pageOne.data.length === 15,
+    status: pageOne.data.length === 15,
+    page: 2
   },
   components: {
     buildingSelect,
@@ -44,6 +49,43 @@ var app = new Vue({
 
       var searchStr = JSON.stringify(params);
       window.location.search = '?condition='+searchStr
+    },
+    getMore: function () {
+      var condition = JSON.parse(GetQueryString('condition'))
+      var self = this
+      condition.page = self.page
+      self.getData = false
+      $.ajax({
+        url: '/buildings/create',
+        type: 'GET',
+        data: condition,
+        success: function (data) {
+          if (data.data.length === 0) {
+            Toast({
+              message: '已无更多数据',
+              position: 'top',
+              duration: 3000
+            });
+            self.status = false
+            return
+          }
+          self.page++
+          data.data.map(function (item) {
+            self.list.push(item)
+          });
+          if (data.data.length >= data.per_page) {
+            self.getData = true
+          } else {
+            self.status = false
+          }
+        }
+      })
     }
   }
 })
+function GetQueryString(name)
+{
+  var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+  var r = window.location.search.substr(1).match(reg);
+  if(r!=null)return  unescape(r[2]); return null;
+}
