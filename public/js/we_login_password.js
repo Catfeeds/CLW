@@ -121,7 +121,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
                 position: 'center',
                 duration: 2000
             });
-            if (data.status) {
+            if (data.success) {
                 window.location.href = '/user';
             }
         },

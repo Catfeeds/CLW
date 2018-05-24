@@ -48,7 +48,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
         url: 'registers',
         type: 'post',
         success: function (res) {
-            if (res.status) {
+            if (res.success) {
                 Toast({
                     message: '登录成功',
                     position: 'center',

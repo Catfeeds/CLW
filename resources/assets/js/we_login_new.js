@@ -35,7 +35,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
               password: password
           },
           success: function(data){
-              if(data.status) {
+              if(data.success) {
                 var toast = Toast({
                     message: data.message,
                     position: 'center',

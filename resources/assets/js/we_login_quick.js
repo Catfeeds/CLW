@@ -37,7 +37,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
                 position: 'center',
                 duration: 2000
             })
-            if (data.status) {
+            if (data.success) {
                 window.location.href = '/user'
             }
         },

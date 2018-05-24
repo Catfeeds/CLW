@@ -54,7 +54,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
                 password: password
             },
             success: function success(data) {
-                if (data.status) {
+                if (data.success) {
                     var toast = Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                         message: data.message,
                         position: 'center',
