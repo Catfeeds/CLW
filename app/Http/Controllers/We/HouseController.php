@@ -25,6 +25,7 @@ class HouseController extends Controller
         return view('we.house_detail')->with(['house' => $house, 'relHouse' => $relHouse]);
     }
 
+
     /**
      * 说明: 找房列表区域搜索条件
      *
