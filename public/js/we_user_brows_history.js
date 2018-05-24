@@ -1,4 +1,4 @@
-webpackJsonp([5],{
+webpackJsonp([6],{
 
 /***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
@@ -72,15 +72,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 116:
+/***/ 118:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(117);
+module.exports = __webpack_require__(119);
 
 
 /***/ }),
 
-/***/ 117:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -88,7 +88,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__);
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(4);
+window.Vue = __webpack_require__(5);
 
 var pageOne = JSON.parse($('#pageOne').val());
 var app = new Vue({
@@ -237,7 +237,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(9)
 }
-var normalizeComponent = __webpack_require__(5)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(11)
 /* template */
@@ -309,7 +309,11 @@ if(false) {
 /***/ })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 },[110]);
 =======
 },[116]);
 >>>>>>> origin/zxz
+=======
+},[118]);
+>>>>>>> origin/wanghao

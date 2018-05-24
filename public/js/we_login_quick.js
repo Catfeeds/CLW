@@ -1,4 +1,4 @@
-webpackJsonp([15],{
+webpackJsonp([16],{
 
 /***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
@@ -120,7 +120,11 @@ $(document).on('touchend || tap', '#getSms', function (e) {
 /***/ })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 },[106]);
 =======
 },[112]);
 >>>>>>> origin/zxz
+=======
+},[112]);
+>>>>>>> origin/wanghao

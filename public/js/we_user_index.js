@@ -1,14 +1,14 @@
-webpackJsonp([10],{
+webpackJsonp([11],{
 
-/***/ 124:
+/***/ 126:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(125);
+module.exports = __webpack_require__(127);
 
 
 /***/ }),
 
-/***/ 125:
+/***/ 127:
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
@@ -44,7 +44,11 @@ $(document).on('touchend || tap', '#browse', function () {
 /***/ })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 },[118]);
 =======
 },[124]);
 >>>>>>> origin/zxz
+=======
+},[126]);
+>>>>>>> origin/wanghao

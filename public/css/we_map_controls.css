@@ -1,19 +1,26 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .map-btn-list {
   background-color: #FFFFFF;
   width: 10%;
   height: 80%;
 =======
+=======
+>>>>>>> origin/wanghao
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
-html .map-btn-list,
-body .map-btn-list {
+.map-btn-list {
+  background-color: #ffffff;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
 >>>>>>> origin/zxz
+=======
+>>>>>>> origin/wanghao
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25,11 +32,15 @@ body .map-btn-list {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .map-btn-list .map-btn-item {
 =======
 html .map-btn-list .map-btn-item,
 body .map-btn-list .map-btn-item {
 >>>>>>> origin/zxz
+=======
+.map-btn-list .map-btn-item {
+>>>>>>> origin/wanghao
   height: 12.5%;
   text-align: center;
   display: -webkit-box;
@@ -42,17 +53,22 @@ body .map-btn-list .map-btn-item {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .map-btn-list .map-btn-item .img-box {
 =======
 html .map-btn-list .map-btn-item .img-box,
 body .map-btn-list .map-btn-item .img-box {
 >>>>>>> origin/zxz
+=======
+.map-btn-list .map-btn-item .img-box {
+>>>>>>> origin/wanghao
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding-top: 5px;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .map-btn-list .map-btn-item .img-box img {
   width: 100%;
@@ -68,6 +84,13 @@ body .map-btn-list .map-btn-item .img-box img {
 html .map-btn-list .map-btn-item .text-box,
 body .map-btn-list .map-btn-item .text-box {
 >>>>>>> origin/zxz
+=======
+.map-btn-list .map-btn-item .img-box img {
+  width: 55%;
+}
+
+.map-btn-list .map-btn-item .text-box {
+>>>>>>> origin/wanghao
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,11 +105,21 @@ body .map-btn-list .map-btn-item .text-box {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .map-btn-list .map-btn-item.active .text-box {
 =======
 html .map-btn-list .map-btn-item.active .text-box,
 body .map-btn-list .map-btn-item.active .text-box {
 >>>>>>> origin/zxz
+=======
+.map-btn-list .map-btn-item.active .text-box {
+>>>>>>> origin/wanghao
   color: orange;
+}
+
+.BMap_noprint.anchorTL {
+  right: 25px !important;
+  left: auto !important;
+  top: 40px !important;
 }
 

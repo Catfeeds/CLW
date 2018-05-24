@@ -1,4 +1,4 @@
-webpackJsonp([16],{
+webpackJsonp([17],{
 
 /***/ 110:
 /***/ (function(module, exports, __webpack_require__) {
@@ -138,7 +138,11 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
 /***/ })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 },[104]);
 =======
 },[110]);
 >>>>>>> origin/zxz
+=======
+},[110]);
+>>>>>>> origin/wanghao
