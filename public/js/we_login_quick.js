@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([14],{100:function(t,e,n){window.$=window.jQuery=n(0);var a=$("#tel"),r=$("#sms"),s=$("#getSms");$(document).on("touchend || tap",".loginBtn button",function(t){var e=a.val(),n=r.val();return e&&""!==e.trim()?n&&""!==n.trim()?void $.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/quick_login",type:"post",data:{tel:e,smsCode:n},success:function(t){alert(t.message),t.status&&(window.location.href="/user")},error:function(t){alert(t.responseJSON.message)}}):(alert("请输入验证码"),!1):(alert("请输入手机号码"),!1)}),$(document).on("touchend || tap","#getSms",function(t){var e=a.val();if(!e||""===e.trim())return alert("请输入手机号码"),!1;var n=e+"/login";$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/sms/captcha/"+n,type:"get",success:function(t){if(t.success){s.html("120s");var e=setInterval(function(){s.html(parseInt(s.html())-1+"s"),parseInt(s.html())||(s.html("获取验证码"),window.clearInterval(e))},1e3);alert("短信发送成功")}},error:function(t){alert(responseJSON.message)}})})},99:function(t,e,n){t.exports=n(100)}},[99]);
-=======
 webpackJsonp([15],{
 
 /***/ 106:
@@ -123,4 +120,3 @@ $(document).on('touchend || tap', '#getSms', function (e) {
 /***/ })
 
 },[106]);
->>>>>>> origin/cyq

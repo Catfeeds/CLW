@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([9],{114:function(n,o,t){n.exports=t(115)},115:function(n,o,t){window.$=window.jQuery=t(0),$(document).on("touchend || tap","#entrust",function(){window.location.href="/user_find_house"}),$(document).on("touchend || tap","#launch",function(){window.location.href="/user_house_resources"}),$(document).on("touchend || tap","#aboutUs",function(){window.location.href="/user_about_us"}),$(document).on("touchend || tap","#setting",function(){window.location.href="/user_setting"})}},[114]);
-=======
 webpackJsonp([10],{
 
 /***/ 118:
@@ -47,4 +44,3 @@ $(document).on('touchend || tap', '#browse', function () {
 /***/ })
 
 },[118]);
->>>>>>> origin/cyq

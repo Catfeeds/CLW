@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([6],{120:function(n,o,t){n.exports=t(121)},121:function(n,o,t){window.$=window.jQuery=t(0),$(document).on("touchend || tap",".loginOut",function(){console.log("修改成功")})}},[120]);
-=======
 webpackJsonp([7],{
 
 /***/ 124:
@@ -96,4 +93,3 @@ $(document).on('touchend || tap', '.loginOut', function () {
 /***/ })
 
 },[124]);
->>>>>>> origin/cyq

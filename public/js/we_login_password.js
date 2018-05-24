@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([15],{97:function(e,t,n){e.exports=n(98)},98:function(e,t,n){window.$=window.jQuery=n(0);var s=$("#tel"),a=$("#sms"),r=$("#getSms"),o=$("#password");$(document).on("touchend || tap","#getSms",function(e){if(!s.val()||""===s.val().trim())return alert("请输入手机号码"),!1;var t=s.val()+"/login";$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/sms/captcha/"+t,type:"get",success:function(e){if(e.success){r.html("120s");var t=setInterval(function(){r.html(parseInt(r.html())-1+"s"),parseInt(r.html())||(r.html("获取验证码"),window.clearInterval(t))},1e3);alert("短信发送成功")}},error:function(e){alert(responseJSON.message)}})}),$(document).on("touchend || tap",".loginBtn button",function(e){var t=s.val(),n=a.val(),r=o.val();return t&&""!==t.trim()?n&&""!==n.trim()?r&&""!==r.trim()?r.length<6?(TopTips({message:"密码最小长度为6",duration:3e3}),!1):r.length>18?(TopTips({message:"密码最大长度为18",duration:3e3}),!1):void $.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/retrieve_pwd",type:"post",data:{tel:t,smsCode:n,password:r},success:function(e){alert(e.message),e.status&&(window.location.href="/user")},error:function(e){alert(e.responseJSON.message)}}):(TopTips({message:"请输入密码",duration:3e3}),!1):(alert("请输入验证码"),!1):(alert("请输入手机号码"),!1)})}},[97]);
-=======
 webpackJsonp([16],{
 
 /***/ 104:
@@ -141,4 +138,3 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
 /***/ })
 
 },[104]);
->>>>>>> origin/cyq

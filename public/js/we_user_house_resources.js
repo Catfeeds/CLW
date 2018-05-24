@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([10],{112:function(e,t,o){e.exports=o(113)},113:function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a=o(3),n=(o.n(a),o(4));o.n(n);window.$=window.jQuery=o(0),window.Vue=o(2),Vue.component(a.Picker.name,a.Picker);var i="",s=new Vue({el:"#picker",data:{value:"武昌区",slots:[{values:[]}],area_id:1},methods:{onValuesChange:function(e,t){this.value=t[0],""!==i&&(this.area_id=i[t[0]])}}});$.ajax({url:"/get_area",type:"get",success:function(e){s.slots[0].values=e.res,i=e.option},error:function(e){}}),$(document).on("touchend || tap","#down",function(){$("#picker").show()}),$(document).on("touchend || tap","#cancel",function(){$("#picker").hide()}),$(document).on("touchend || tap","#confirm",function(){$("#picker").hide(),$("#title").html(s.value)}),$(document).on("touchend || tap",".loginOut",function(){console.log(s.area_id);var e=$("#appellation").val(),t=$("#tel").val(),o=$("#acreage").val(),n=$("#buildingName").val();e&&""!=e.trim()?t&&""!=t.trim()?s.area_id?o&&""!=o.trim()?n&&""!=n.trim()?$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/throw_ins",type:"post",data:{tel:t,appellation:e,building_name:n,area_id:s.area_id,acreage:o},success:function(e){var t=Object(a.Toast)({message:e.message,position:"top",duration:5e3});setTimeout(function(){t.close(),window.location.href="/user"},2e3)},error:function(e){Object(a.Toast)({message:e.responseJSON.message,position:"top",duration:5e3})}}):Object(a.Toast)({message:"请输入楼盘名称",position:"top",duration:2e3}):Object(a.Toast)({message:"请输入面积",position:"top",duration:2e3}):Object(a.Toast)({message:"请选择区域",position:"top",duration:2e3}):Object(a.Toast)({message:"请输入电话",position:"top",duration:2e3}):Object(a.Toast)({message:"请输入称谓",position:"top",duration:2e3})})}},[112]);
-=======
 webpackJsonp([11],{
 
 /***/ 116:
@@ -141,4 +138,3 @@ $(document).on('touchend || tap', '.loginOut', function () {
 /***/ })
 
 },[116]);
->>>>>>> origin/cyq

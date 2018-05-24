@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([5],{122:function(o,n,e){o.exports=e(123)},123:function(o,n,e){window.$=window.jQuery=e(0),$(document).on("touchend || tap","#revisePwd",function(){window.location.href="/revise_password"}),$(document).on("touchend || tap","#reviseTel",function(){window.location.href="/old_tel_validate_view"}),$(document).on("touchend || tap",".loginOut",function(){console.log("退出成功")})}},[122]);
-=======
 webpackJsonp([6],{
 
 /***/ 126:
@@ -69,4 +66,3 @@ $(document).on('touchend || tap', '.loginOut', function () {
 /***/ })
 
 },[126]);
->>>>>>> origin/cyq

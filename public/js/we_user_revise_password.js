@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([8],{116:function(t,e,o){t.exports=o(117)},117:function(t,e,o){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s=o(3),n=(o.n(s),o(4));o.n(n);window.$=window.jQuery=o(0),$(document).on("touchend || tap",".loginOut",function(){var t=$("#oldPwd").val(),e=$("#newPwd").val(),o=$("#confirmPwd").val();t&&""!=t.trim()?e&&""!=e.trim()?o&&""!=o.trim()?t.length<6||t.length>18?Object(s.Toast)({message:"密码长度必须在6-18位之间",position:"top",duration:2e3}):e.length<6||e.length>18?Object(s.Toast)({message:"密码长度必须在6-18位之间",position:"top",duration:2e3}):e!==o?Object(s.Toast)({message:"确认密码与新密码必须一致",position:"top",duration:2e3}):$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/reset_pwd",type:"post",data:{old_pwd:t,new_pwd:e},success:function(t){var e=Object(s.Toast)({message:t.message,position:"top",duration:5e3});setTimeout(function(){e.close()},2e3)},error:function(t){Object(s.Toast)({message:t.responseJSON.message,position:"top",duration:5e3})}}):Object(s.Toast)({message:"确认密码不能为空",position:"top",duration:2e3}):Object(s.Toast)({message:"请输入新密码",position:"top",duration:2e3}):Object(s.Toast)({message:"请输入旧密码",position:"top",duration:2e3})})}},[116]);
-=======
 webpackJsonp([9],{
 
 /***/ 120:
@@ -99,4 +96,3 @@ $(document).on('touchend || tap', '.loginOut', function () {
 /***/ })
 
 },[120]);
->>>>>>> origin/cyq
