@@ -107,7 +107,7 @@
 							</div>
 						</div>
 						<!--4最下推荐-->
-						{{--<house-detail-list @@todetail='moreChange' :title="$data->name" :api='1' ref='houseDetailList' ></house-detail-list>--}}
+						<house-detail-list title="{{$data->name}}" :api='1' building ='{{$data->id}}'></house-detail-list>
 						<!--5交通及周边配套-->
 						<div class="periphery" style="margin-top:-10px !important;">
 							<div class="top">

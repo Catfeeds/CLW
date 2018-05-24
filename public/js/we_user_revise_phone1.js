@@ -1,1 +1,22 @@
-webpackJsonp([7],{118:function(n,o,t){n.exports=t(119)},119:function(n,o,t){window.$=window.jQuery=t(0),$(document).on("touchend || tap",".loginOut",function(){window.location.href="/reset_tel_view"})}},[118]);
+webpackJsonp([7],{
+
+/***/ 125:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(126);
+
+
+/***/ }),
+
+/***/ 126:
+/***/ (function(module, exports, __webpack_require__) {
+
+window.$ = window.jQuery = __webpack_require__(0);
+// 跳转至下一步
+$(document).on('touchend || tap', '.loginOut', function () {
+    window.location.href = '/reset_tel_view';
+});
+
+/***/ })
+
+},[125]);

@@ -5,70 +5,44 @@
         </div>
         <house-list :list="list" goodImg='../images/house_detail_decoration.png'></house-list>
         <div class="more">
-            <button type="button" v-if="status" @click='getMore'>查看更多</button>
+            <button type="button" @click='getData'>查看更多</button>
         </div>
     </div>
 </template>
 <script>
 
 import houseList from './houseList'
-import { buildingOther, houseOther } from '../vendor/api'
 export default {
   components:{ houseList },
-  props: ['api', 'title'],
+  props: ['api', 'title', 'building'],
   data() {
       return {
-          id: null,
           list: [],
           add: true,
           page: 1, // 当前请求页 
           status: true // 数据是否请求完毕
       }
   },
-  updated() {
-      this.$nextTick(function() {
-          this.$emit('todetail')
-      })
-  },
   methods: {
-      getMore: function() {
-          if (!this.status) {
-              return
-          }
-          this.status = false
-          this.getData()
-      },
-      init: function(id) {
-          this.list = [],
-          this.page = 1, // 当前请求页 
-          this.status = true // 数据是否请求完毕
-          this.id = id 
-          this.getData()
-      },
       // 数据请求逻辑判断
       getData: function() {
+        var self = this
+        if (!self.status) { // 防止多次点击
+           return
+        }
+        self.status = false
           // 请求楼盘下的数据
-          if (this.api === 1) {
-              buildingOther(this.id, {page: this.page}).then(res => {
-                  this.status = true
-                if(res.data.data.length < res.data.per_page){
-                    this.status = false
-                }
-                for(var item of res.data.data) {
-                    this.list.push(item)
-                }
-                this.page = res.data.current_page + 1
-              })
+          if (this.api === 1) { // 请求楼盘下下的数据
+            $.ajax({
+              url: '/buildings_office/' + self.building,
+              type: 'GET',
+              data: { page: self.page },
+              success: function (data) {
+                console.log(data)
+              }
+            })
           } else if(this.api === 2) { // 请求房源下的数据
-              houseOther(this.id, {page: this.page}).then(res => {
-                if(res.data.data.length < res.data.per_page){
-                    this.status = false
-                } 
-                for(var item of res.data.data) {
-                    this.list.push(item)
-                }
-                this.page = res.data.current_page + 1
-              })
+
           }
       }
   }

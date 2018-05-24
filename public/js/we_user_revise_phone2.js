@@ -1,1 +1,22 @@
-webpackJsonp([6],{120:function(n,o,t){n.exports=t(121)},121:function(n,o,t){window.$=window.jQuery=t(0),$(document).on("touchend || tap",".loginOut",function(){console.log("修改成功")})}},[120]);
+webpackJsonp([6],{
+
+/***/ 127:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(128);
+
+
+/***/ }),
+
+/***/ 128:
+/***/ (function(module, exports, __webpack_require__) {
+
+window.$ = window.jQuery = __webpack_require__(0);
+// 修改电话号码
+$(document).on('touchend || tap', '.loginOut', function () {
+    console.log('修改成功');
+});
+
+/***/ })
+
+},[127]);
