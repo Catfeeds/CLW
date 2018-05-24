@@ -8,37 +8,37 @@ $(document).on('touchend || tap', '.loginOut', function(){
     if(!old_pwd || old_pwd.trim() == ''){
         Toast({
             message: '请输入旧密码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if(!new_pwd || new_pwd.trim() == ''){
         Toast({
             message: '请输入新密码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if(!confirmPwd || confirmPwd.trim() == ''){
         Toast({
             message: '确认密码不能为空',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if(old_pwd.length < 6 || old_pwd.length > 18){
         Toast({
             message: '密码长度必须在6-18位之间',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if(new_pwd.length < 6 || new_pwd.length > 18){
         Toast({
             message: '密码长度必须在6-18位之间',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if(new_pwd !== confirmPwd){
         Toast({
             message: '确认密码与新密码必须一致',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else {
@@ -55,7 +55,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             success: function(data){
                 var toast = Toast({
                     message: data.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 })
                 setTimeout(() => {
@@ -66,7 +66,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             error: function (data) {
                 Toast({
                     message: data.responseJSON.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 })
             }

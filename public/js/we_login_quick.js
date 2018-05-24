@@ -30,7 +30,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
     if (!tel_num || tel_num.trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
         return false;
@@ -38,7 +38,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
     if (!smsCode_num || smsCode_num.trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '请输入验证码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
         return false;
@@ -56,7 +56,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
         success: function success(data) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: data.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             });
             if (data.status) {
@@ -66,7 +66,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
         error: function error(data) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: data.responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             });
         }
@@ -78,7 +78,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
     if (!tel_num || tel_num.trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
         return false;
@@ -102,7 +102,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
                 }, 1000);
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                     message: '短信发送成功',
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 });
             }
@@ -110,7 +110,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             });
         }

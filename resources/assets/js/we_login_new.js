@@ -8,19 +8,19 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
   if (!tel || tel.trim() === '') {
     Toast({
         message: '请输入手机号码',
-        position: 'top',
+        position: 'center',
         duration: 2000
     })
   } else if (!password || password.trim() === '') {
     Toast({
         message: '请输入密码',
-        position: 'top',
+        position: 'center',
         duration: 2000
     })
   } else if (password.length < 6 || password.length > 18) {
     Toast({
         message: '密码长度必须在6-18位之间',
-        position: 'top',
+        position: 'center',
         duration: 2000
     })
   } else {
@@ -36,18 +36,21 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
           },
           success: function(data){
               if(data.status) {
-                Toast({
+                var toast = Toast({
                     message: data.message,
-                    position: 'top',
-                    duration: 2000
+                    position: 'center',
+                    duration: 5000
                 })
-                  window.location.href = '/user'
+                setTimeout(() => {
+                    toast.close()
+                    window.location.href = '/user'
+                },2000)
               }
           },
           error: function (data) {
             Toast({
                 message: data.responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             })
           }

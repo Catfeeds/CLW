@@ -27,37 +27,37 @@ $(document).on('touchend || tap', '.loginOut', function () {
     if (!old_pwd || old_pwd.trim() == '') {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请输入旧密码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (!new_pwd || new_pwd.trim() == '') {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请输入新密码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (!confirmPwd || confirmPwd.trim() == '') {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '确认密码不能为空',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (old_pwd.length < 6 || old_pwd.length > 18) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '密码长度必须在6-18位之间',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (new_pwd.length < 6 || new_pwd.length > 18) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '密码长度必须在6-18位之间',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (new_pwd !== confirmPwd) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '确认密码与新密码必须一致',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else {
@@ -74,7 +74,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
             success: function success(data) {
                 var toast = Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                     message: data.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 });
                 setTimeout(function () {
@@ -85,7 +85,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
             error: function error(data) {
                 Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                     message: data.responseJSON.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 });
             }

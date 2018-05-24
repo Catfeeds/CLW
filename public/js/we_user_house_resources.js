@@ -72,31 +72,31 @@ $(document).on('touchend || tap', '.loginOut', function () {
     if (!appellation || appellation.trim() == '') {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请输入称谓',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (!tel || tel.trim() == '') {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请输入电话',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (!app.area_id) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请选择区域',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (!acreage || acreage.trim() == '') {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请输入面积',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (!building_name || building_name.trim() == '') {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请输入楼盘名称',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else {
@@ -116,7 +116,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
             success: function success(data) {
                 var toast = Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                     message: data.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 });
                 setTimeout(function () {
@@ -127,7 +127,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
             error: function error(data) {
                 Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                     message: data.responseJSON.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 });
             }

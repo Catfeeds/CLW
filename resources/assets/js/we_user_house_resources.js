@@ -55,31 +55,31 @@ $(document).on('touchend || tap', '.loginOut', function(){
     if (!appellation || appellation.trim() == '') {
         Toast({
             message: '请输入称谓',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if (!tel || tel.trim() == '') {
         Toast({
             message: '请输入电话',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if (!app.area_id) {
         Toast({
             message: '请选择区域',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if (!acreage || acreage.trim() == '') {
         Toast({
             message: '请输入面积',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if (!building_name || building_name.trim() == '') {
         Toast({
             message: '请输入楼盘名称',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else {
@@ -99,7 +99,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             success: function(data){
                 var toast = Toast({
                     message: data.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 })
                 setTimeout(() => {
@@ -110,7 +110,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             error: function (data) {
                 Toast({
                     message: data.responseJSON.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 })
             }

@@ -41,7 +41,7 @@ $(document).on('touchend || tap', '#getSms', function () {
                 }, 1000);
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                     message: '短信发送成功',
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 });
             }
@@ -49,7 +49,7 @@ $(document).on('touchend || tap', '#getSms', function () {
         error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             });
         }
@@ -72,7 +72,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
         success: function success(data) {
             var toast = Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: data.message,
-                position: 'top',
+                position: 'center',
                 duration: 5000
             });
             setTimeout(function () {
@@ -83,7 +83,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
         error: function error(data) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: data.responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 5000
             });
         }

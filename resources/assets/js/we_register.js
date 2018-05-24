@@ -11,7 +11,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
     if (!tel_num || tel_num.trim() === '') {
         Toast({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -19,7 +19,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
     if (!sms_num || sms_num.trim() === '') {
         Toast({
             message: '请输入短信验证码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -27,7 +27,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
     if (!password_num || password_num.trim() === '') {
         Toast({
             message: '请输入密码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -35,7 +35,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
     if (password_num.length < 6 || password_num.length > 18) {
         Toast({
             message: '密码长度必须在6-18位之间',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -51,14 +51,14 @@ $(document).on('touchend || tap', '#submit', (e) => {
             if (res.status) {
                 Toast({
                     message: '登录成功',
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 })
                 window.location.href = '/user'
             } else {
                 Toast({
                     message: res.data.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 })
             }
@@ -66,7 +66,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
         error: function (res) {
             Toast({
                 message: responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             })
         }
@@ -76,7 +76,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
     if (!tel.val() || tel.val().trim() === '') {
         Toast({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -100,7 +100,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                 }, 1000);
                 Toast({
                     message: '短信发送成功',
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 })
             }
@@ -108,7 +108,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         error: function (res) {
             Toast({
                 message: responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             })
         }

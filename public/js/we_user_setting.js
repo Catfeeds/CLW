@@ -45,7 +45,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
             console.log(11111111);
             var toast = Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                 message: data.message,
-                position: 'top',
+                position: 'center',
                 duration: 5000
             });
             setTimeout(function () {
@@ -56,7 +56,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
         error: function error(data) {
             Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                 message: data.responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 5000
             });
         }

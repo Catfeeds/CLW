@@ -22,7 +22,7 @@ $(document).on('touchend || tap', '#getSms', function(){
                 }, 1000);
                 Toast({
                     message: '短信发送成功',
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 })
             }
@@ -30,7 +30,7 @@ $(document).on('touchend || tap', '#getSms', function(){
         error: function (res) {
             Toast({
                 message: responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             })
         }
@@ -53,7 +53,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
         success: function(data){
             var toast = Toast({
                 message: data.message,
-                position: 'top',
+                position: 'center',
                 duration: 5000
             })
             setTimeout(() => {
@@ -64,7 +64,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
         error: function (data) {
             Toast({
                 message: data.responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 5000
             })
         }

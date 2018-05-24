@@ -7,7 +7,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
     if (!tel.val() || tel.val().trim() === '') {
         Toast({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -31,7 +31,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                 }, 1000);
                 Toast({
                     message: '短信发送成功',
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 })
             }
@@ -39,7 +39,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         error: function (res) {
             Toast({
                 message: responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             })
         }
@@ -51,7 +51,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
     if (!tel_num || tel_num.trim() === '') {
         Toast({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -59,7 +59,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
     if (!smsCode_num || smsCode_num.trim() === '') {
         Toast({
             message: '请输入验证码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -67,7 +67,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
     if (!password_num || password_num.trim() === '') {
         Toast({
             message: '请输入密码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -75,7 +75,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
     if (password_num.length < 6 || password_num.length > 18) {
         Toast({
             message: '密码长度必须在6-18位之间',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
         return false
@@ -94,7 +94,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
         success: function(data){
             Toast({
                 message: data.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             })
             if (data.status) {
@@ -104,7 +104,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
         error: function (data) {
             Toast({
                 message: data.responseJSON.message,
-                position: 'top',
+                position: 'center',
                 duration: 2000
             })
         }

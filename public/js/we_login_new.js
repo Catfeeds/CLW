@@ -27,19 +27,19 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
     if (!tel || tel.trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (!password || password.trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '请输入密码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else if (password.length < 6 || password.length > 18) {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '密码长度必须在6-18位之间',
-            position: 'top',
+            position: 'center',
             duration: 2000
         });
     } else {
@@ -55,18 +55,21 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
             },
             success: function success(data) {
                 if (data.status) {
-                    Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                    var toast = Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                         message: data.message,
-                        position: 'top',
-                        duration: 2000
+                        position: 'center',
+                        duration: 5000
                     });
-                    window.location.href = '/user';
+                    setTimeout(function () {
+                        toast.close();
+                        window.location.href = '/user';
+                    }, 2000);
                 }
             },
             error: function error(data) {
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                     message: data.responseJSON.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 2000
                 });
             }
