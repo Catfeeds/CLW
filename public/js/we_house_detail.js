@@ -1,27 +1,14 @@
-<<<<<<< HEAD
 webpackJsonp([17],{
 
 /***/ 103:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(104);
-=======
-webpackJsonp([16],{
-
-/***/ 93:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(94);
->>>>>>> origin/cyq
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 104:
-=======
-/***/ 94:
->>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
@@ -52,8 +39,4 @@ $('#upload').click(function () {
 
 /***/ })
 
-<<<<<<< HEAD
 },[103]);
-=======
-},[93]);
->>>>>>> origin/cyq

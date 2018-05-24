@@ -8,7 +8,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(12)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(14)
 /* template */
@@ -68,7 +68,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__);
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(2);
+window.Vue = __webpack_require__(4);
 
 var pageOne = JSON.parse($('#pageOne').val());
 var app = new Vue({

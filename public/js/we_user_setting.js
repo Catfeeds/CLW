@@ -1,29 +1,14 @@
-<<<<<<< HEAD
 webpackJsonp([5],{
 
 /***/ 129:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(130);
-=======
-webpackJsonp([4],{
-
-/***/ 117:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(118);
->>>>>>> origin/cyq
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 130:
-/***/ (function(module, exports, __webpack_require__) {
-
-window.$ = window.jQuery = __webpack_require__(0);
-=======
-/***/ 118:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40,7 +25,6 @@ var tel = $('#tel').html();
 console.log('ceshi', tel);
 var newTel = tel.slice(0, 3) + '****' + tel.slice(7);
 $('#tel').html(newTel);
->>>>>>> origin/cyq
 // 跳转至修改密码页面
 $(document).on('touchend || tap', '#revisePwd', function () {
     window.location.href = '/revise_password';
@@ -51,9 +35,6 @@ $(document).on('touchend || tap', '#reviseTel', function () {
 });
 // 退出登录
 $(document).on('touchend || tap', '.loginOut', function () {
-<<<<<<< HEAD
-    console.log('退出成功');
-=======
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -80,13 +61,8 @@ $(document).on('touchend || tap', '.loginOut', function () {
             });
         }
     });
->>>>>>> origin/cyq
 });
 
 /***/ })
 
-<<<<<<< HEAD
 },[129]);
-=======
-},[117]);
->>>>>>> origin/cyq

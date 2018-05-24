@@ -1,6 +1,5 @@
 webpackJsonp([3],{
 
-<<<<<<< HEAD
 /***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9,7 +8,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(12)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(14)
 /* template */
@@ -255,28 +254,10 @@ module.exports = __webpack_require__(62);
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(2);
+window.Vue = __webpack_require__(4);
 Vue.component('house-detail-list', __webpack_require__(63));
 Vue.component('detail-banner', __webpack_require__(68));
 Vue.component('feature-banner', __webpack_require__(72));
-=======
-/***/ 56:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(57);
-
-
-/***/ }),
-
-/***/ 57:
-/***/ (function(module, exports, __webpack_require__) {
-
-window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(4);
-// Vue.component('house-detail-list', require('./components/houseDetailList.vue.vue'));
-Vue.component('detail-banner', __webpack_require__(58));
-Vue.component('feature-banner', __webpack_require__(62));
->>>>>>> origin/cyq
 new Vue({
   el: '#Vuebuilding',
   data: {
@@ -287,7 +268,6 @@ new Vue({
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 63:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -296,7 +276,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(64)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(66)
 /* template */
@@ -501,22 +481,11 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(69)
 /* template */
 var __vue_template__ = __webpack_require__(71)
-=======
-/***/ 58:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(59)
-/* template */
-var __vue_template__ = __webpack_require__(61)
->>>>>>> origin/cyq
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -533,11 +502,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-<<<<<<< HEAD
 Component.options.__file = "resources/assets/js/components/detailBanner.vue"
-=======
-Component.options.__file = "resources\\assets\\js\\components\\detailBanner.vue"
->>>>>>> origin/cyq
 
 /* hot reload */
 if (false) {(function () {
@@ -546,15 +511,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-<<<<<<< HEAD
     hotAPI.createRecord("data-v-9aeb4c18", Component.options)
   } else {
     hotAPI.reload("data-v-9aeb4c18", Component.options)
-=======
-    hotAPI.createRecord("data-v-04d53198", Component.options)
-  } else {
-    hotAPI.reload("data-v-04d53198", Component.options)
->>>>>>> origin/cyq
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -566,20 +525,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 69:
-=======
-/***/ 59:
->>>>>>> origin/cyq
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(9);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(7);
->>>>>>> origin/cyq
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 //
 //
@@ -613,11 +564,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 71:
-=======
-/***/ 61:
->>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -679,37 +626,21 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-<<<<<<< HEAD
     require("vue-hot-reload-api")      .rerender("data-v-9aeb4c18", module.exports)
-=======
-    require("vue-hot-reload-api")      .rerender("data-v-04d53198", module.exports)
->>>>>>> origin/cyq
   }
 }
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(73)
 /* template */
 var __vue_template__ = __webpack_require__(74)
-=======
-/***/ 62:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(63)
-/* template */
-var __vue_template__ = __webpack_require__(64)
->>>>>>> origin/cyq
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -726,11 +657,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-<<<<<<< HEAD
 Component.options.__file = "resources/assets/js/components/featureBanner.vue"
-=======
-Component.options.__file = "resources\\assets\\js\\components\\featureBanner.vue"
->>>>>>> origin/cyq
 
 /* hot reload */
 if (false) {(function () {
@@ -739,15 +666,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-<<<<<<< HEAD
     hotAPI.createRecord("data-v-8606c78a", Component.options)
   } else {
     hotAPI.reload("data-v-8606c78a", Component.options)
-=======
-    hotAPI.createRecord("data-v-5959920a", Component.options)
-  } else {
-    hotAPI.reload("data-v-5959920a", Component.options)
->>>>>>> origin/cyq
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -759,20 +680,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 73:
-=======
-/***/ 63:
->>>>>>> origin/cyq
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(9);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(7);
->>>>>>> origin/cyq
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 //
 //
@@ -802,11 +715,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 74:
-=======
-/***/ 64:
->>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -835,18 +744,10 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-<<<<<<< HEAD
     require("vue-hot-reload-api")      .rerender("data-v-8606c78a", module.exports)
-=======
-    require("vue-hot-reload-api")      .rerender("data-v-5959920a", module.exports)
->>>>>>> origin/cyq
   }
 }
 
 /***/ })
 
-<<<<<<< HEAD
 },[61]);
-=======
-},[56]);
->>>>>>> origin/cyq

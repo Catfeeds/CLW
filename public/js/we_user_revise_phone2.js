@@ -1,32 +1,14 @@
-<<<<<<< HEAD
 webpackJsonp([6],{
 
 /***/ 127:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(128);
-=======
-webpackJsonp([5],{
-
-/***/ 115:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(116);
->>>>>>> origin/cyq
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 128:
-/***/ (function(module, exports, __webpack_require__) {
-
-window.$ = window.jQuery = __webpack_require__(0);
-// 修改电话号码
-$(document).on('touchend || tap', '.loginOut', function () {
-    console.log('修改成功');
-=======
-/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106,13 +88,8 @@ $(document).on('touchend || tap', '.loginOut', function () {
             });
         }
     });
->>>>>>> origin/cyq
 });
 
 /***/ })
 
-<<<<<<< HEAD
 },[127]);
-=======
-},[115]);
->>>>>>> origin/cyq

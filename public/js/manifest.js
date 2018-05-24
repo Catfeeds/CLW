@@ -34,11 +34,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-<<<<<<< HEAD
 /******/ 		18: 0
-=======
-/******/ 		17: 0
->>>>>>> origin/cyq
 /******/ 	};
 /******/
 /******/ 	// The require function

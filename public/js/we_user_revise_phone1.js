@@ -1,32 +1,14 @@
-<<<<<<< HEAD
 webpackJsonp([7],{
 
 /***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(126);
-=======
-webpackJsonp([6],{
-
-/***/ 113:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(114);
->>>>>>> origin/cyq
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 126:
-/***/ (function(module, exports, __webpack_require__) {
-
-window.$ = window.jQuery = __webpack_require__(0);
-// 跳转至下一步
-$(document).on('touchend || tap', '.loginOut', function () {
-    window.location.href = '/reset_tel_view';
-=======
-/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -109,13 +91,8 @@ $(document).on('touchend || tap', '.loginOut', function () {
             });
         }
     });
->>>>>>> origin/cyq
 });
 
 /***/ })
 
-<<<<<<< HEAD
 },[125]);
-=======
-},[113]);
->>>>>>> origin/cyq
