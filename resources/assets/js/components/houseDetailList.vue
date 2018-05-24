@@ -38,7 +38,13 @@ export default {
               type: 'GET',
               data: { page: self.page },
               success: function (data) {
-                console.log(data)
+                if (data.status) {
+                  self.status = true
+                  self.page++
+                  data.data.data.map(item => {
+                    self.list.push(item)
+                  })
+                }
               }
             })
           } else if(this.api === 2) { // 请求房源下的数据

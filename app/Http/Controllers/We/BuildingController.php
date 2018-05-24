@@ -93,7 +93,7 @@ class BuildingController extends Controller
     {
         $res = $buildingsRepository->OfficeHouseList($service, $id);
         if (!empty($res)) {
-            return ['status' => true, 'message' => '获取成功'];
+            return ['status' => true, 'message' => '获取成功', "data" => $res];
         } else {
             return ['status' => false, 'message' => '无数据'];
         }

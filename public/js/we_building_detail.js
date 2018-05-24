@@ -412,7 +412,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           type: 'GET',
           data: { page: self.page },
           success: function success(data) {
-            console.log(data);
+            if (data.status) {
+              self.status = true;
+              self.page++;
+              data.data.data.map(function (item) {
+                self.list.push(item);
+              });
+            }
           }
         });
       } else if (this.api === 2) {// 请求房源下的数据
