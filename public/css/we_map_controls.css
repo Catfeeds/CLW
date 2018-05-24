@@ -1,7 +1,13 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 .map-btn-list {
-  background-color: #FFFFFF;
-  width: 10%;
-  height: 80%;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,7 +38,7 @@
 }
 
 .map-btn-list .map-btn-item .img-box img {
-  width: 100%;
+  width: 55%;
 }
 
 .map-btn-list .map-btn-item .text-box {
@@ -51,5 +57,11 @@
 
 .map-btn-list .map-btn-item.active .text-box {
   color: orange;
+}
+
+.BMap_noprint.anchorTL {
+  right: 25px !important;
+  left: auto !important;
+  top: 40px !important;
 }
 

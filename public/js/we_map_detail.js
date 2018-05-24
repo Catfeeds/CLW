@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([3],{
 
 /***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
@@ -68,6 +68,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             window.location.href = '/house/' + key;
         }
     }
+});
+
+/***/ }),
+
+/***/ 116:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(117);
+
+
+/***/ }),
+
+/***/ 117:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
+window.$ = window.jQuery = __webpack_require__(0);
+window.Vue = __webpack_require__(5);
+
+Vue.component('house-detail-list', __webpack_require__(17));
+Vue.component('detail-banner', __webpack_require__(22));
+Vue.component('feature-banner', __webpack_require__(25));
+Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
+    ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
+});
+var app = new Vue({
+    el: '#Vuemap',
+    data: {
+        center: { lng: 114.32267, lat: 30.559556 },
+        keyword: '地铁'
+    }
+});
+
+$(document).on('touchend || tap', '.map-btn-item', function (e) {
+    $('.map-btn-item').removeClass('active');
+    var That = $(e.currentTarget);
+    That.addClass('active');
+    app.keyword = That.data('name');
 });
 
 /***/ }),
@@ -677,41 +718,6 @@ if (false) {
 
 /***/ }),
 
-/***/ 73:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(74);
-
-
-/***/ }),
-
-/***/ 74:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
-window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(5);
-
-Vue.component('house-detail-list', __webpack_require__(17));
-Vue.component('detail-banner', __webpack_require__(22));
-Vue.component('feature-banner', __webpack_require__(25));
-Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
-  ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
-});
-new Vue({
-  el: '#Vuebuilding',
-  data: {
-    imgList: JSON.parse($('#imgList').val()),
-    features: JSON.parse($('#features').val()),
-    center: JSON.parse($('#gps').val())
-  }
-});
-
-/***/ }),
-
 /***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -791,4 +797,4 @@ if(false) {
 
 /***/ })
 
-},[73]);
+},[116]);
