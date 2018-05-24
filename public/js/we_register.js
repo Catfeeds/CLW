@@ -23,8 +23,8 @@ var tel = $('#tel'),
 
 $(document).on('touchend || tap', '#submit', function (e) {
     var tel_num = tel.val(),
-        sms_num = tel.val(),
-        password_num = tel.val();
+        sms_num = sms.val(),
+        password_num = password.val();
     if (!tel_num || tel_num.trim() === '') {
         alert('请输入手机号码');
         return false;
@@ -61,17 +61,6 @@ $(document).on('touchend || tap', '#submit', function (e) {
         },
         error: function error(res) {
             alert(responseJSON.message);
-        }
-    });
-    request({
-        url: 'registers',
-        type: 'post',
-        data: data
-    }).then(function (res) {
-        if (res.status) {
-            alert('登录成功');
-        } else {
-            alert('res.data.message');
         }
     });
 });

@@ -5,7 +5,7 @@ window.$ = window.jQuery = require('jquery');
 var tel = $('#tel'), sms = $('#sms'), password = $('#password'), time = $('#time'), getSms = $('#getSms');
 
 $(document).on('touchend || tap', '#submit', (e) => {
-    var tel_num = tel.val(), sms_num = tel.val(), password_num = tel.val();
+    var tel_num = tel.val(), sms_num = sms.val(), password_num = password.val();
     if (!tel_num || tel_num.trim() === '') {
         alert('请输入手机号码');
         return false
@@ -45,18 +45,6 @@ $(document).on('touchend || tap', '#submit', (e) => {
             alert(responseJSON.message);
         }
     });
-    request({
-        url: 'registers',
-        type: 'post',
-        data
-    }).then(res => {
-        if (res.status) {
-            alert('登录成功');
-
-        } else {
-            alert('res.data.message');
-        }
-    })
 });
 $(document).on('touchend || tap', '#getSms', (e) => {
     if (!tel.val() || tel.val().trim() === '') {
