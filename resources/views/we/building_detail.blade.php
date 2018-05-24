@@ -6,7 +6,8 @@
 @section('body')
 	<div id="pullrefresh" class="mui-content">
 	<input id="features" value="{{$data->feature_name_pic}}" type="hidden" />
-		<input id="imgList" value="{{$data->pic_url}}" type="hidden"/>
+	<input id="imgList" value="{{$data->pic_url}}" type="hidden"/>
+		<input id="gps" value='{"lng": {{$data->gps[0]}}, "lat": {{$data->gps[1]}} }' type="hidden"/>
 		<div id="Vuebuilding">
 				<div class="mui-content">
 					<div class="swiper-container">
@@ -114,7 +115,14 @@
 								<h3 style="margin-left:-25px;">交通及周边配套</h3>
 							</div>
 							<div>
-								<div id="secondmap"></div>
+								<div id="secondmap">
+									<baidu-map :zoom="14" class="map" style="display: flex;height:100%; flex-direction: column" :center="center">
+										<bm-view style="width: 100%; height:100%; flex: 1"></bm-view>
+										<bm-marker :position="center">
+											<bm-label content="{{$data->name}}" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>
+										</bm-marker>
+									</baidu-map>
+								</div>
 							</div>
 							<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
 						</div>

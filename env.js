@@ -3,6 +3,7 @@
  */
 module.exports = {
   hostURl: "'http://sys_api.chulouwang.com/api/app'",
+  baiduAK: "'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'", // 百度地图key
   config: {
     cropStylist: { // app图片剪裁样式 命名应与七牛剪裁样式名一致
       newApp_list: "'?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'",
