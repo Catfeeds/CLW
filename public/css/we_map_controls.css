@@ -1,12 +1,7 @@
-html,
-body {
-  height: 100%;
-}
-
-html .map-btn-list,
-body .map-btn-list {
-  width: 100%;
-  height: 100%;
+.map-btn-list {
+  background-color: #FFFFFF;
+  width: 10%;
+  height: 80%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,8 +12,7 @@ body .map-btn-list {
           flex-direction: column;
 }
 
-html .map-btn-list .map-btn-item,
-body .map-btn-list .map-btn-item {
+.map-btn-list .map-btn-item {
   height: 12.5%;
   text-align: center;
   display: -webkit-box;
@@ -30,21 +24,18 @@ body .map-btn-list .map-btn-item {
           flex-direction: column;
 }
 
-html .map-btn-list .map-btn-item .img-box,
-body .map-btn-list .map-btn-item .img-box {
+.map-btn-list .map-btn-item .img-box {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding-top: 5px;
 }
 
-html .map-btn-list .map-btn-item .img-box img,
-body .map-btn-list .map-btn-item .img-box img {
-  width: 55%;
+.map-btn-list .map-btn-item .img-box img {
+  width: 100%;
 }
 
-html .map-btn-list .map-btn-item .text-box,
-body .map-btn-list .map-btn-item .text-box {
+.map-btn-list .map-btn-item .text-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,8 +49,7 @@ body .map-btn-list .map-btn-item .text-box {
   color: #333333;
 }
 
-html .map-btn-list .map-btn-item.active .text-box,
-body .map-btn-list .map-btn-item.active .text-box {
+.map-btn-list .map-btn-item.active .text-box {
   color: orange;
 }
 

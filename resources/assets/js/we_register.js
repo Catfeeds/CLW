@@ -7,7 +7,7 @@ import { Toast } from 'mint-ui';
 var tel = $('#tel'), sms = $('#sms'), password = $('#password'), time = $('#time'), getSms = $('#getSms');
 
 $(document).on('touchend || tap', '#submit', (e) => {
-    var tel_num = tel.val(), sms_num = tel.val(), password_num = tel.val();
+    var tel_num = tel.val(), sms_num = sms.val(), password_num = password.val();
     if (!tel_num || tel_num.trim() === '') {
         Toast({
             message: '请输入手机号码',

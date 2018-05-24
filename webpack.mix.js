@@ -17,7 +17,7 @@ mix.webpackConfig({
   ]
 });
 var fileSCSSNameArr = [
-  'we_home', 
+  'we_home',
   'we_building_detail', 
   'we_building_index', 
   'we_house_detail', 

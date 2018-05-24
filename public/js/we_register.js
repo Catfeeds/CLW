@@ -31,8 +31,8 @@ var tel = $('#tel'),
 
 $(document).on('touchend || tap', '#submit', function (e) {
     var tel_num = tel.val(),
-        sms_num = tel.val(),
-        password_num = tel.val();
+        sms_num = sms.val(),
+        password_num = password.val();
     if (!tel_num || tel_num.trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '请输入手机号码',
