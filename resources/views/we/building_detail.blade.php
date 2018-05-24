@@ -6,7 +6,6 @@
 @section('body')
 <div id="pullrefresh" class="mui-content">
 	<input id="features" value="{{$data->feature_name_pic}}" type="hidden" />
-	{{dd($data->pic_url)}}
 	<input id="imgList" value="{{$data->pic_url}}" type="hidden"/>
 			<div id="Vuebuilding">
 				<div class="mui-content">
