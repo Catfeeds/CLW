@@ -34,6 +34,18 @@ Route::resource('servers', 'ServerController');
 // 地图
 Route::get('map', 'ServerController@map');
 
+
+/*
+|--------------------------------------------------------------------------
+| 找房区域搜索添加
+|--------------------------------------------------------------------------
+*/
+// 区域搜索条件
+Route::get('block_condition', 'HouseController@blockCondition');
+// 其他搜索添加(装修,标签)
+Route::get('other_condition', 'HouseController@otherCondition');
+
+
 // 服务
 Route::resource('servers', 'ServerController');
 
@@ -66,7 +78,7 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     // 用户首页
     Route::get('user', 'ResetInfoController@index');
     // 委托找房
-    Route::get('user_find_house', 'ResetInfoController@findHouse');\
+    Route::get('user_find_house', 'ResetInfoController@findHouse');
     // 委托找房获取区域
     Route::get('get_area', 'ResetInfoController@getArea');
     // 关于我们
@@ -82,6 +94,7 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('browse_records', 'BrowseRecordsController');
+    Route::get('ajax_browse_records', 'BrowseRecordsController@ajaxBrowseRecord');
 
     /*
     |--------------------------------------------------------------------------
@@ -89,6 +102,8 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('collections', 'CollectionsController');
+    Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
+
 
 });
 Route::get('map', 'ServerController@map');

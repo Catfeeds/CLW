@@ -34,11 +34,10 @@ class CollectionsRepository extends Model
      */
     public function collectionList($request, $service)
     {
-        $collection=  Collection::with('officeBuildingHouse', 'officeBuildingHouse.houseLabel')->where('user_id', $this->user()->id)->paginate($request->per_page??10);
+        $collection =  Collection::with('officeBuildingHouse', 'officeBuildingHouse.houseLabel')->where('user_id', $this->user()->id)->paginate($request->per_page??10);
         foreach($collection as $v) {
             $service->HouseInfo($v);
         }
-
         return $collection;
     }
 
