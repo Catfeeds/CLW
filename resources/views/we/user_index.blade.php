@@ -9,7 +9,7 @@
       <img src="/we_img/user_index_personal.jpg">
       <div class="picture" id="picture">
         <img src="/we_img/user_index_head.png">
-        <h5 id="tel">182****2493</h5>
+        <h5 id="tel">{{session('user')->tel}}</h5>
       </div>
     </div>
     <div class="main-content" style="background-color: #ffffff;">

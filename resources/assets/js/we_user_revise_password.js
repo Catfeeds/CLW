@@ -60,7 +60,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
                 })
                 setTimeout(() => {
                     toast.close()
-                    // window.location.href = '/user'
+                    window.location.href = '/user'
                 },2000)
             },
             error: function (data) {

@@ -37,7 +37,7 @@ Route::get('map', 'ServerController@map');
 // 服务
 Route::resource('servers', 'ServerController');
 
-// Route::group(['middleware' => ['web','weChat.login']], function () {
+Route::group(['middleware' => ['web','weChat.login']], function () {
     // 退出
     Route::get('logout', 'LoginsController@logout');
 
@@ -90,6 +90,6 @@ Route::resource('servers', 'ServerController');
     */
     Route::resource('collections', 'CollectionsController');
 
-// });
+});
 Route::get('map', 'ServerController@map');
 
