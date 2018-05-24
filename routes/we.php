@@ -78,7 +78,7 @@ Route::resource('servers', 'ServerController');
     // 用户首页
     Route::get('user', 'ResetInfoController@index');
     // 委托找房
-    Route::get('user_find_house', 'ResetInfoController@findHouse');\
+    Route::get('user_find_house', 'ResetInfoController@findHouse');
     // 委托找房获取区域
     Route::get('get_area', 'ResetInfoController@getArea');
     // 关于我们
