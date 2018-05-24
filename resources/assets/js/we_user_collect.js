@@ -1,3 +1,6 @@
+/**
+ * Created by wh on 2018/5/24.
+ */
 window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
 import houseList from './components/houseList.vue'
@@ -22,7 +25,7 @@ if(pageOne.data.length) {
     $('.more').hide()
 }
 $(document).on('touchstart','.more button',(e)=> {
-    var url = '/ajax_browse_records?page=' + app.page;
+    var url = '/ajax_collections?page=' + app.page;
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

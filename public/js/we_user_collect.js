@@ -1,4 +1,4 @@
-webpackJsonp([5],{
+webpackJsonp([4],{
 
 /***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
@@ -72,21 +72,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 115:
+/***/ 117:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(116);
+module.exports = __webpack_require__(118);
 
 
 /***/ }),
 
-/***/ 116:
+/***/ 118:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__);
+/**
+ * Created by wh on 2018/5/24.
+ */
 window.$ = window.jQuery = __webpack_require__(0);
 window.Vue = __webpack_require__(4);
 
@@ -111,7 +114,7 @@ if (pageOne.data.length) {
     $('.more').hide();
 }
 $(document).on('touchstart', '.more button', function (e) {
-    var url = '/ajax_browse_records?page=' + app.page;
+    var url = '/ajax_collections?page=' + app.page;
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -308,4 +311,4 @@ if(false) {
 
 /***/ })
 
-},[115]);
+},[117]);

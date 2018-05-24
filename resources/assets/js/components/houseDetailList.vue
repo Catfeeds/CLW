@@ -3,15 +3,17 @@
         <div class="top">
             <h3 style="color:#333333">{{title}}写字楼出租</h3>
         </div>
-        <house-list :list="list" goodImg='../images/house_detail_decoration.png'></house-list>
+        <house-list :list="list" goodImg='/we_img/house_detail_decoration.png'></house-list>
         <div class="more">
-            <button type="button" @click='getData'>查看更多</button>
+            <button type="button" v-if="add" @click='getData'>查看更多</button>
         </div>
     </div>
 </template>
 <script>
 
 import houseList from './houseList'
+import { Toast } from 'mint-ui';
+import 'mint-ui/lib/style.css';
 export default {
   components:{ houseList },
   props: ['api', 'title', 'building'],
@@ -39,11 +41,25 @@ export default {
               data: { page: self.page },
               success: function (data) {
                 if (data.status) {
+                  if (data.data.data.length === 0) {
+                    self.add = false
+                    Toast({
+                      message: '已无更多数据',
+                      position: 'top',
+                      duration: 3000
+                    });
+                    return
+                  }
                   self.status = true
                   self.page++
                   data.data.data.map(item => {
                     self.list.push(item)
                   })
+                  if (data.data.per_page > data.data.data.length) {
+                    self.add = false
+                  }
+                } else {
+                  self.add = false
                 }
               }
             })
@@ -51,6 +67,9 @@ export default {
 
           }
       }
+  },
+  created() {
+    this.getData()
   }
 }
 </script>
@@ -72,7 +91,7 @@ export default {
         >.more{
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            padding: 20px 0;
             >button{
                 width: 78%;
                 border: solid 1px #007eff;
