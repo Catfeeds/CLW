@@ -14,7 +14,7 @@
       <div>客服邮箱：service@iyxh.com</div>
     </div>
     <div class="agreement">
-      <a href="#">《楚楼网用户协议》</a>
+      <a href="/user_agreement">《楚楼网用户协议》</a>
       <div>CopyRight @ 楚楼网2015-2017</div>
     </div>
   </div>

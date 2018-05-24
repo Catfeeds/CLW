@@ -7,8 +7,8 @@
                   <div class="title">{{item.title}}</div>
                   <div class="areage">{{item.constru_acreage_cn}}</div>
                   <div class="price mui-row">
-                      <div class="mui-col-xs-3">{{item.unit_price_cn}}</div>
-                      <div class="totalPrice mui-col-xs-7">{{item.total_price}}<span v-if="(item.total_price !== '')">元/月</span></div>
+                      <div class="mui-col-xs-6">{{item.unit_price_cn}}</div>
+                      <div class="totalPrice mui-col-xs-6">{{item.total_price}}<span v-if="(item.total_price !== '')">元/月</span></div>
                   </div>
                   <div class="mui-row better">
                       <div class="mui-col-3" v-if="(item.house_feature[0] !== '')"><span>{{item.house_feature[0]}}</span></div>
@@ -89,6 +89,81 @@ export default {
             }
         }
     }
-
+    .mui-content{
+        border-top: 1px solid #f4f4f4;
+        ul{
+            &::before{
+                height: 0;
+            }
+            &::after{
+                height: 0;
+            }
+            margin-top: 0 !important;
+            li{
+                &::after{
+                    height: 0;
+                }
+                padding: 16px 15px 17px 15px;
+                border-bottom: 1px solid #f4f4f4;
+                display: flex;
+                justify-content: flex-start;
+                img{
+                    width: 120px;
+                    height: 90px;
+                    margin-right: 15px;
+                }
+                .list{
+                    .title{
+                        width: 90%;
+                        font-size: 14px;
+                        color: #333;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                    }
+                    .areage{
+                        font-size: 15px;
+                        color: #444;
+                        span{
+                            font-size: 16px;
+                        }
+                    }
+                    .price{
+                        font-size: 13px;
+                        color: #999;
+                        .totalPrice{
+                            font-size: 14px;
+                            color: #666;
+                            display: flex;
+                            justify-content: flex-end;
+                            span{
+                                font-size: 15px;
+                                color: #ff7200;
+                            }
+                        }
+                    }
+                    .better{
+                        div{
+                            color: #007eff;
+                            font-size: 11px;
+                            border: 1px solid #007eff;
+                            border-radius: 3px;
+                            padding: 0 3px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                .decoration{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    img{
+                        width: 34px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
 </style>
 

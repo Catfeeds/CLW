@@ -34,10 +34,22 @@ Route::resource('servers', 'ServerController');
 // 地图
 Route::get('map', 'ServerController@map');
 
+
+/*
+|--------------------------------------------------------------------------
+| 找房区域搜索添加
+|--------------------------------------------------------------------------
+*/
+// 区域搜索条件
+Route::get('block_condition', 'HouseController@blockCondition');
+// 其他搜索添加(装修,标签)
+Route::get('other_condition', 'HouseController@otherCondition');
+
+
 // 服务
 Route::resource('servers', 'ServerController');
 
- Route::group(['middleware' => ['web','weChat.login']], function () {
+Route::group(['middleware' => ['web','weChat.login']], function () {
     // 退出
     Route::get('logout', 'LoginsController@logout');
 
@@ -93,6 +105,6 @@ Route::resource('servers', 'ServerController');
     Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
 
 
- });
+});
 Route::get('map', 'ServerController@map');
 

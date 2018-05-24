@@ -1,19 +1,28 @@
 window.$ = window.jQuery = require('jquery');
+import 'mint-ui/lib/style.css'
+import { Toast } from 'mint-ui';
 $(document).on('touchend || tap','.loginBtn button',(e)=> {
   var tel = $('#tel').val(),
     password = $('#password').val();
-  // 隐藏键盘
-  $('#tel').blur();
-  $('#password')[0].blur();
   // 判断数据是否存在
   if (!tel || tel.trim() === '') {
-    alert('请输入手机号码');
+    Toast({
+        message: '请输入手机号码',
+        position: 'top',
+        duration: 2000
+    })
   } else if (!password || password.trim() === '') {
-    alert('请输入密码');
-  } else if (password.length < 6) {
-    alert('密码最小长度为6')
-  } else if (password.length > 18) {
-    alert('密码最大长度为18')
+    Toast({
+        message: '请输入密码',
+        position: 'top',
+        duration: 2000
+    })
+  } else if (password.length < 6 || password.length > 18) {
+    Toast({
+        message: '密码长度必须在6-18位之间',
+        position: 'top',
+        duration: 2000
+    })
   } else {
       $.ajax({
           headers: {
@@ -27,12 +36,20 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
           },
           success: function(data){
               if(data.status) {
-                  alert(data.message);
+                Toast({
+                    message: data.message,
+                    position: 'top',
+                    duration: 2000
+                })
                   window.location.href = '/user'
               }
           },
           error: function (data) {
-              alert(data.responseJSON.message);
+            Toast({
+                message: data.responseJSON.message,
+                position: 'top',
+                duration: 2000
+            })
           }
       });
   }
