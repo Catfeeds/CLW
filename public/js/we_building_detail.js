@@ -12,7 +12,7 @@ module.exports = __webpack_require__(57);
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(2);
+window.Vue = __webpack_require__(4);
 // Vue.component('house-detail-list', require('./components/houseDetailList.vue.vue'));
 Vue.component('detail-banner', __webpack_require__(58));
 Vue.component('feature-banner', __webpack_require__(62));

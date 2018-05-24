@@ -30,7 +30,7 @@
       <div class="weChat"><img src="../images/login_wechat.png"></div>
     </div> -->
     <div class="agree">
-      <span>注册/登录即代表同意《</span><a href="#">楚楼网用户使用协议</a><span>》</span>
+      <span>注册/登录即代表同意《</span><a href="user_agreement">楚楼网用户使用协议</a><span>》</span>
     </div>
   </div>
 <script src="/js/we_login_quick.js"></script>

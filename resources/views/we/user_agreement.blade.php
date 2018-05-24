@@ -7,7 +7,7 @@
     <title>楚楼网协议</title>
 </head>
 <body>
-<div style="width: 100%;padding: 15px;">
+<div style="padding: 15px;">
     <div style="text-align:center">
         <h4 style="font-size:18px;">楚楼网一用户协议</h4>
     </div>

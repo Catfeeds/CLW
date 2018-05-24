@@ -19,3 +19,11 @@ $(document).on('touchend || tap', '#aboutUs', function(){
 $(document).on('touchend || tap', '#setting', function(){
     window.location.href = '/user_setting'
 })
+// 跳转至我的收藏
+$(document).on('touchend || tap', '#collection', function(){
+    window.location.href = '/collections'
+})
+// 跳转至浏览器记录
+$(document).on('touchend || tap', '#browse', function(){
+    window.location.href = '/browse_records'
+})

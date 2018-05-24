@@ -21,7 +21,7 @@ $(document).on('touchend || tap', '#getSms', function(){
                     getSms.html((parseInt(getSms.html()) - 1) + 's');
                     if (!parseInt(getSms.html())) {
                         getSms.html('获取验证码');
-                        window.clearInterval(time);
+                        window.clearInterval(time); 
                     }
                 }, 1000);
                 Toast({
