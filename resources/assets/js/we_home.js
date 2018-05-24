@@ -1,14 +1,48 @@
 window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
 import { Toast } from 'mint-ui';
-import 'mint-ui/lib/style.css'
+import 'mint-ui/lib/style.css';
 const Swiper = require('swiper');
 Vue.component('building-list', require('./components/buildingList.vue'));
 var listAppData = JSON.parse($('#listAppData').val());
 const app = new Vue({
   el: '#listApp',
   data: {
-    list: listAppData.data
+    list: listAppData.data,
+    page: 2,
+    getData: true,
+    status: true
+  },
+  methods: {
+    getMore: function () {
+      var self = this
+      self.getData = false
+      $.ajax({
+        url: '/buildings/create',
+        type: 'GET',
+        data: { page: self.page },
+        success: function (data) {
+          if (data.data.length === 0) {
+            Toast({
+              message: '已无更多数据',
+              position: 'top',
+              duration: 3000
+            });
+            self.status = false
+            return
+          }
+          self.page++
+          data.data.map(function (item) {
+            self.list.push(item)
+          });
+          if (data.data.length >= data.per_page) {
+            self.getData = true
+          } else {
+            self.status = false
+          }
+        }
+      })
+    }
   }
 });
 // var swiperBanner =  new Swiper('#swiperBanner', {  // 实例化banner轮播

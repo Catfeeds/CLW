@@ -167,6 +167,12 @@
             <div class="guessList">
                 <div id="listApp">
                     <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
+                    <div class="more" v-if="getData" @touchend='getMore'>
+                        <button type="button">查看更多</button>
+                    </div>
+                    <div class="more" v-if="!getData && status">
+                        <button type="button"><i class="mui-icon mui-icon-spinner-cycle mui-spin"></i>正在加载。。。</button>
+                    </div>
                 </div>
             </div>
         </div>

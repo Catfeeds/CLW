@@ -26,6 +26,20 @@ body {
   }
   .main-content{
     margin-top: 125px;
+    padding-bottom: 50px;
   }
 }
-
+.more{
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px 0;
+  >button{
+    width: 78%;
+    border: solid 1px #007eff;
+    border-radius: 22px;
+    height: 44px;
+    color: #007eff;
+    font-size: 17px;
+  }
+}
