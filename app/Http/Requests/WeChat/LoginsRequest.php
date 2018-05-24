@@ -33,7 +33,9 @@ class LoginsRequest extends FormRequest
                 ];
             case 'quickLogin':
                 return [
-                    'tel.in' => '手机号必须存在'
+                    'tel.in' => '手机号必须存在',
+                    'smsCode.numeric' => '验证码必须为数字',
+                    'smsCode.max' => '验证码长度过长'
                 ];
             default;
                 return [

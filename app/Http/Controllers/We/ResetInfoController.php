@@ -1,12 +1,12 @@
 <?php
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\WeChat\ResetInfoRequest;
 use App\Services\ResetInfoService;
 use App\Repositories\AreasRepository;
 
-class ResetInfoController extends Controller
+class ResetInfoController extends APIBaseController
 {
     /**
      * 说明: 个人中心首页
@@ -123,7 +123,8 @@ class ResetInfoController extends Controller
     )
     {
         $res = $resetInfoService->resetPwd($request);
-        return $res;
+        if (empty($res['status'])) return $this->sendError('修改密码失败');
+        return $this->sendResponse($res,'修改密码成功');
     }
 
     /**
@@ -151,7 +152,8 @@ class ResetInfoController extends Controller
     )
     {
         $res = $resetInfoService->oldTelValidate($request);
-        return $res;
+        if (empty($res['status'])) return $this->sendError('旧手机号验证失败');
+        return $this->sendResponse($res,'旧手机号验证成功');
     }
 
     /**
@@ -179,6 +181,7 @@ class ResetInfoController extends Controller
     )
     {
         $res = $resetInfoService->resetTel($request);
-        return $res;
+        if (empty($res['status'])) return $this->sendError('换绑手机号失败');
+        return $this->sendResponse($res,'换绑手机号成功');
     }
 }

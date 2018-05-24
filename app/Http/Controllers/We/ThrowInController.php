@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\ThrowInsRequest;
 use App\Repositories\ThrowInsRepository;
 
-class ThrowInController extends Controller
+class ThrowInController extends APIBaseController
 {
     /**
      * 说明: 房源投放
@@ -22,10 +22,7 @@ class ThrowInController extends Controller
         ThrowInsRequest $request
     )
     {
-        if (!empty($res = $repository->addThrowIn($request))) {
-            return ['status' => true, 'message' => '投放成功'];
-        } else {
-            return ['status' => false, 'message' => '投放失败'];
-        }
+        if (empty($res = $repository->addThrowIn($request))) return $this->sendError('房源投放失败');
+        return $this->sendResponse($res,'房源投放成功');
     }
 }

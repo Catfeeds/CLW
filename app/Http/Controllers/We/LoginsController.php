@@ -1,14 +1,14 @@
 <?php
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\WeChat\RetrievePwdRequest;
 use App\Http\Requests\WeChat\LoginsRequest;
 use App\Services\LoginsService;
 use App\Services\RetrievePwdService;
 use Illuminate\Support\Facades\Session;
 
-class LoginsController extends Controller
+class LoginsController extends APIBaseController
 {
     /**
      * 说明: 登录页面
@@ -35,7 +35,8 @@ class LoginsController extends Controller
     )
     {
         $res = $loginsService->webPwdLogin($request);
-        return $res;
+        if (empty($res['status'])) return $this->sendError($res['message']);
+        return $this->sendResponse($res, '登录成功');
     }
     
     /**
@@ -63,7 +64,8 @@ class LoginsController extends Controller
     )
     {
         $res = $loginsService->quickLogin($request);
-        return $res;
+        if (empty($res['status'])) return $this->sendError($res['message']);
+        return $this->sendResponse($res, '登录成功');
     }
 
     /**
@@ -90,8 +92,9 @@ class LoginsController extends Controller
         RetrievePwdService $retrievePwdService
     )
     {
-        $result = $retrievePwdService->retrievePwd($request);
-        return $result;
+        $res = $retrievePwdService->retrievePwd($request);
+        if (empty($res['status'])) return $this->sendError($res['message']);
+        return $this->sendResponse($res,'密码找回成功');
     }
 
     /**
@@ -103,7 +106,7 @@ class LoginsController extends Controller
     public function logout()
     {
         Session::forget('user');
-        return ['status' => true, 'message' => '退出成功'];
+        return $this->sendResponse(true,'退出成功');
     }
 
 }
