@@ -65,7 +65,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         jumpTo: function jumpTo(key) {
-            window.location.href = '/house/' + key;
+            window.location.href = '/houses/' + key;
         }
     }
 });
@@ -159,7 +159,7 @@ var render = function() {
             key: "houses" + key,
             staticClass: "mui-table-view-cell mui-row",
             on: {
-              click: function($event) {
+              touchend: function($event) {
                 _vm.jumpTo(item.id)
               }
             }
