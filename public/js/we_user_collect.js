@@ -1,20 +1,23 @@
-webpackJsonp([5],{
+webpackJsonp([4],{
 
-/***/ 110:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(111);
+module.exports = __webpack_require__(113);
 
 
 /***/ }),
 
-/***/ 111:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__);
+/**
+ * Created by wh on 2018/5/24.
+ */
 window.$ = window.jQuery = __webpack_require__(0);
 window.Vue = __webpack_require__(2);
 
@@ -39,7 +42,7 @@ if (pageOne.data.length) {
     $('.more').hide();
 }
 $(document).on('touchstart', '.more button', function (e) {
-    var url = '/ajax_browse_records?page=' + app.page;
+    var url = '/ajax_collections?page=' + app.page;
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -308,4 +311,4 @@ if (false) {
 
 /***/ })
 
-},[110]);
+},[112]);
