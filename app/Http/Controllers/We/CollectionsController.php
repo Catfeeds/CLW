@@ -44,8 +44,8 @@ class CollectionsController extends APIBaseController
         OfficeBuildingHousesService $service
     )
     {
-        $res = $repository->collectionList($request, $service);
-        return $res;
+        if (empty($res = $repository->collectionList($request, $service))) return $this->sendError('ajax获取收藏记录失败');
+        return $this->sendResponse($res, 'ajax获取收藏记录成功');
     }
 
 }

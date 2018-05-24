@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Http\Controllers\API\APIBaseController;
 use App\Models\OfficeBuildingHouse;
 use App\Repositories\OfficeBuildingHousesRepository;
 use App\Services\OfficeBuildingHousesService;
-use App\Http\Controllers\Controller;
 
-class HouseController extends Controller
+class HouseController extends APIBaseController
 {
     // 房源详情以及相关房源
     public function show
@@ -37,8 +37,8 @@ class HouseController extends Controller
         OfficeBuildingHousesService $officeBuildingHousesService
     )
     {
-        $res = $officeBuildingHousesService->blockCondition();
-        return $res;
+        if (empty($res = $officeBuildingHousesService->blockCondition())) return $this->sendError('找房列表区域搜索条件获取失败');
+        return $this->sendResponse($res,'找房列表区域搜索条件获取成功');
     }
 
     /**
@@ -52,7 +52,7 @@ class HouseController extends Controller
         OfficeBuildingHousesService $officeBuildingHousesService
     )
     {
-        $res = $officeBuildingHousesService->otherCondition();
-        return $res;
+        if (empty($res = $officeBuildingHousesService->otherCondition())) return $this->sendError('找房列表其他搜索条件获取失败');
+        return $this->sendResponse($res,'找房列表其他搜索条件获取成功');
     }
 }
