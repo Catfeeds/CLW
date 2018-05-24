@@ -1,21 +1,7 @@
 
 body{
-    header{
-        height: 65px !important;
-        .mui-title{
-            margin-top: 20px !important;
-        }
-        a{
-            display: inline-block;
-            width: 100px;
-            height: 64px;
-        }
-    }
     .mui-content{
         border-top: 1px solid #f4f4f4;
-        margin: {
-            top: 65px;
-        }
         ul{
             &::before{
                 height: 0;
@@ -89,6 +75,20 @@ body{
                     }
                 }
             }
+        }
+    }
+    .more{
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        >button{
+            width: 78%;
+            border: solid 1px #007eff;
+            border-radius: 22px;
+            height: 44px;
+            color: #007eff;
+            font-size: 17px;
         }
     }
 }
