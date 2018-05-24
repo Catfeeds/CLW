@@ -1,13 +1,24 @@
 webpackJsonp([0],[
 /* 0 */,
+<<<<<<< HEAD
 /* 1 */
+=======
+/* 1 */,
+/* 2 */,
+/* 3 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var bind = __webpack_require__(19);
 var isBuffer = __webpack_require__(82);
+=======
+var bind = __webpack_require__(14);
+var isBuffer = __webpack_require__(72);
+>>>>>>> origin/cyq
 
 /*global toString:true*/
 
@@ -310,14 +321,18 @@ module.exports = {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 2 */,
 /* 3 */,
+=======
+>>>>>>> origin/cyq
 /* 4 */,
 /* 5 */,
 /* 6 */,
 /* 7 */,
 /* 8 */,
 /* 9 */,
+<<<<<<< HEAD
 /* 10 */,
 /* 11 */,
 /* 12 */,
@@ -325,13 +340,21 @@ module.exports = {
 /* 14 */,
 /* 15 */,
 /* 16 */
+=======
+/* 10 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
 var normalizeHeaderName = __webpack_require__(84);
+=======
+var utils = __webpack_require__(3);
+var normalizeHeaderName = __webpack_require__(74);
+>>>>>>> origin/cyq
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -347,10 +370,17 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
+<<<<<<< HEAD
     adapter = __webpack_require__(20);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
     adapter = __webpack_require__(20);
+=======
+    adapter = __webpack_require__(15);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(15);
+>>>>>>> origin/cyq
   }
   return adapter;
 }
@@ -421,6 +451,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
 
 /***/ }),
@@ -432,6 +463,20 @@ module.exports = __webpack_require__(81);
 
 /***/ }),
 /* 19 */
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+
+/***/ }),
+/* 11 */,
+/* 12 */,
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(71);
+
+/***/ }),
+/* 14 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -449,12 +494,17 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 20 */
+=======
+/* 15 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
 var settle = __webpack_require__(85);
 var buildURL = __webpack_require__(87);
@@ -462,6 +512,15 @@ var parseHeaders = __webpack_require__(88);
 var isURLSameOrigin = __webpack_require__(89);
 var createError = __webpack_require__(21);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(90);
+=======
+var utils = __webpack_require__(3);
+var settle = __webpack_require__(75);
+var buildURL = __webpack_require__(77);
+var parseHeaders = __webpack_require__(78);
+var isURLSameOrigin = __webpack_require__(79);
+var createError = __webpack_require__(16);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(80);
+>>>>>>> origin/cyq
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -558,7 +617,11 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
+<<<<<<< HEAD
       var cookies = __webpack_require__(91);
+=======
+      var cookies = __webpack_require__(81);
+>>>>>>> origin/cyq
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -636,13 +699,21 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 21 */
+=======
+/* 16 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var enhanceError = __webpack_require__(86);
+=======
+var enhanceError = __webpack_require__(76);
+>>>>>>> origin/cyq
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -661,7 +732,11 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 22 */
+=======
+/* 17 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -673,7 +748,11 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 23 */
+=======
+/* 18 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -699,6 +778,14 @@ module.exports = Cancel;
 
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+>>>>>>> origin/cyq
 /* 24 */,
 /* 25 */,
 /* 26 */,
@@ -740,6 +827,7 @@ module.exports = Cancel;
 /* 62 */,
 /* 63 */,
 /* 64 */,
+<<<<<<< HEAD
 /* 65 */,
 /* 66 */,
 /* 67 */,
@@ -758,10 +846,21 @@ module.exports = __webpack_require__(76);
 
 /***/ }),
 /* 76 */
+=======
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(66);
+
+
+/***/ }),
+/* 66 */
+>>>>>>> origin/cyq
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(5);
@@ -770,13 +869,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue__);
+>>>>>>> origin/cyq
 /**
  * Created by zxz1992 on 2018/5/22.
  */
 window.$ = window.jQuery = __webpack_require__(0);
+<<<<<<< HEAD
 window.Vue = __webpack_require__(2);
 
 
+=======
+window.Vue = __webpack_require__(4);
+>>>>>>> origin/cyq
 
 
 var pageOne = JSON.parse($('#pageOne').val());
@@ -784,6 +893,7 @@ var app = new Vue({
   el: '#buildingList',
   data: {
     list: pageOne.data,
+<<<<<<< HEAD
     search: {},
     getData: pageOne.data.length === 15,
     status: pageOne.data.length === 15,
@@ -792,6 +902,13 @@ var app = new Vue({
   components: {
     buildingSelect: __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default.a,
     buildingList: __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default.a
+=======
+    search: {}
+  },
+  components: {
+    buildingSelect: __WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue___default.a,
+    buildingList: __WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue___default.a
+>>>>>>> origin/cyq
   },
   methods: {
     changeData: function changeData(data) {
@@ -821,6 +938,7 @@ var app = new Vue({
 
       var searchStr = JSON.stringify(params);
       window.location.search = '?condition=' + searchStr;
+<<<<<<< HEAD
     },
     getMore: function getMore() {
       var condition = JSON.parse(GetQueryString('condition'));
@@ -863,11 +981,20 @@ function GetQueryString(name) {
 
 /***/ }),
 /* 77 */
+=======
+    }
+  }
+});
+
+/***/ }),
+/* 67 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
+<<<<<<< HEAD
   __webpack_require__(78)
 }
 var normalizeComponent = __webpack_require__(3)
@@ -875,12 +1002,25 @@ var normalizeComponent = __webpack_require__(3)
 var __vue_script__ = __webpack_require__(80)
 /* template */
 var __vue_template__ = __webpack_require__(102)
+=======
+  __webpack_require__(68)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(70)
+/* template */
+var __vue_template__ = __webpack_require__(92)
+>>>>>>> origin/cyq
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
+<<<<<<< HEAD
 var __vue_scopeId__ = "data-v-088a7ea7"
+=======
+var __vue_scopeId__ = "data-v-85f18832"
+>>>>>>> origin/cyq
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -891,7 +1031,11 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+<<<<<<< HEAD
 Component.options.__file = "resources/assets/js/components/buildingSelect.vue"
+=======
+Component.options.__file = "resources\\assets\\js\\components\\buildingSelect.vue"
+>>>>>>> origin/cyq
 
 /* hot reload */
 if (false) {(function () {
@@ -900,9 +1044,15 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
+<<<<<<< HEAD
     hotAPI.createRecord("data-v-088a7ea7", Component.options)
   } else {
     hotAPI.reload("data-v-088a7ea7", Component.options)
+=======
+    hotAPI.createRecord("data-v-85f18832", Component.options)
+  } else {
+    hotAPI.reload("data-v-85f18832", Component.options)
+>>>>>>> origin/cyq
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -913,23 +1063,40 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 78 */
+=======
+/* 68 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
+<<<<<<< HEAD
 var content = __webpack_require__(79);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var update = __webpack_require__(7)("84aebc14", content, false, {});
+=======
+var content = __webpack_require__(69);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("b274be70", content, false, {});
+>>>>>>> origin/cyq
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
+<<<<<<< HEAD
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-088a7ea7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-088a7ea7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue");
+=======
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85f18832\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85f18832\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue");
+>>>>>>> origin/cyq
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -939,30 +1106,53 @@ if(false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(6)(false);
+=======
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(9)(false);
+>>>>>>> origin/cyq
 // imports
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.VueSelectBox[data-v-088a7ea7] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-088a7ea7] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-088a7ea7] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-088a7ea7] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-088a7ea7] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-088a7ea7] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-088a7ea7] {\n    border-top: 1px solid #f4f4f4;\n    background: #ffffff;\n    position: absolute;\n    width: 100%;\n    top: 100%;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-088a7ea7] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-088a7ea7] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-088a7ea7] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-088a7ea7] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-088a7ea7] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-088a7ea7] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-088a7ea7] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-088a7ea7] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-088a7ea7] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-088a7ea7] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-088a7ea7] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-088a7ea7] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-088a7ea7] {\n          color: #007eff;\n}\n", ""]);
+=======
+exports.push([module.i, "\n.VueSelectBox[data-v-85f18832] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-85f18832] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-85f18832] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-85f18832] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-85f18832] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-85f18832] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-85f18832] {\n    border-top: 1px solid #f4f4f4;\n    background: #ffffff;\n    position: absolute;\n    width: 100%;\n    top: 100%;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-85f18832] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-85f18832] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-85f18832] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-85f18832] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-85f18832] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-85f18832] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-85f18832]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-85f18832] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-85f18832] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-85f18832] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-85f18832] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-85f18832] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-85f18832] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-85f18832] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-85f18832] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-85f18832]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-85f18832] {\n          color: #007eff;\n}\n", ""]);
+>>>>>>> origin/cyq
 
 // exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 80 */
+=======
+/* 70 */
+>>>>>>> origin/cyq
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(99);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(89);
+>>>>>>> origin/cyq
 //
 //
 //
@@ -1355,16 +1545,27 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 81 */
+=======
+/* 71 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(19);
 var Axios = __webpack_require__(83);
 var defaults = __webpack_require__(16);
+=======
+var utils = __webpack_require__(3);
+var bind = __webpack_require__(14);
+var Axios = __webpack_require__(73);
+var defaults = __webpack_require__(10);
+>>>>>>> origin/cyq
 
 /**
  * Create an instance of Axios
@@ -1397,15 +1598,25 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
+<<<<<<< HEAD
 axios.Cancel = __webpack_require__(23);
 axios.CancelToken = __webpack_require__(97);
 axios.isCancel = __webpack_require__(22);
+=======
+axios.Cancel = __webpack_require__(18);
+axios.CancelToken = __webpack_require__(87);
+axios.isCancel = __webpack_require__(17);
+>>>>>>> origin/cyq
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
+<<<<<<< HEAD
 axios.spread = __webpack_require__(98);
+=======
+axios.spread = __webpack_require__(88);
+>>>>>>> origin/cyq
 
 module.exports = axios;
 
@@ -1414,7 +1625,11 @@ module.exports.default = axios;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 82 */
+=======
+/* 72 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports) {
 
 /*!
@@ -1441,16 +1656,27 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 83 */
+=======
+/* 73 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var defaults = __webpack_require__(16);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(92);
 var dispatchRequest = __webpack_require__(93);
+=======
+var defaults = __webpack_require__(10);
+var utils = __webpack_require__(3);
+var InterceptorManager = __webpack_require__(82);
+var dispatchRequest = __webpack_require__(83);
+>>>>>>> origin/cyq
 
 /**
  * Create a new instance of Axios
@@ -1527,13 +1753,21 @@ module.exports = Axios;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 84 */
+=======
+/* 74 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(3);
+>>>>>>> origin/cyq
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -1546,13 +1780,21 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 85 */
+=======
+/* 75 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var createError = __webpack_require__(21);
+=======
+var createError = __webpack_require__(16);
+>>>>>>> origin/cyq
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1579,7 +1821,11 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 86 */
+=======
+/* 76 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1607,13 +1853,21 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 87 */
+=======
+/* 77 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(3);
+>>>>>>> origin/cyq
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -1682,13 +1936,21 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 88 */
+=======
+/* 78 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(3);
+>>>>>>> origin/cyq
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -1742,13 +2004,21 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 89 */
+=======
+/* 79 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(3);
+>>>>>>> origin/cyq
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1817,7 +2087,11 @@ module.exports = (
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 90 */
+=======
+/* 80 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1860,13 +2134,21 @@ module.exports = btoa;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 91 */
+=======
+/* 81 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(3);
+>>>>>>> origin/cyq
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1920,13 +2202,21 @@ module.exports = (
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 92 */
+=======
+/* 82 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(3);
+>>>>>>> origin/cyq
 
 function InterceptorManager() {
   this.handlers = [];
@@ -1979,18 +2269,31 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 93 */
+=======
+/* 83 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(94);
 var isCancel = __webpack_require__(22);
 var defaults = __webpack_require__(16);
 var isAbsoluteURL = __webpack_require__(95);
 var combineURLs = __webpack_require__(96);
+=======
+var utils = __webpack_require__(3);
+var transformData = __webpack_require__(84);
+var isCancel = __webpack_require__(17);
+var defaults = __webpack_require__(10);
+var isAbsoluteURL = __webpack_require__(85);
+var combineURLs = __webpack_require__(86);
+>>>>>>> origin/cyq
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -2072,13 +2375,21 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 94 */
+=======
+/* 84 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(3);
+>>>>>>> origin/cyq
 
 /**
  * Transform the data for a request or a response
@@ -2099,7 +2410,11 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 95 */
+=======
+/* 85 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2120,7 +2435,11 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 96 */
+=======
+/* 86 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2141,13 +2460,21 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 97 */
+=======
+/* 87 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var Cancel = __webpack_require__(23);
+=======
+var Cancel = __webpack_require__(18);
+>>>>>>> origin/cyq
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -2205,7 +2532,11 @@ module.exports = CancelToken;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 98 */
+=======
+/* 88 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2239,6 +2570,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 99 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2246,6 +2578,15 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__we_auth__ = __webpack_require__(100);
+=======
+/* 89 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__we_auth__ = __webpack_require__(90);
+>>>>>>> origin/cyq
 /**
  * Created by zxz1992 on 2018/5/22.
  */
@@ -2322,14 +2663,22 @@ function Ajax() {
 /* harmony default export */ __webpack_exports__["a"] = (Ajax);
 
 /***/ }),
+<<<<<<< HEAD
 /* 100 */
+=======
+/* 90 */
+>>>>>>> origin/cyq
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export setCookie */
 /* harmony export (immutable) */ __webpack_exports__["a"] = getCookie;
 /* unused harmony export removeCookie */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_js_cookie__ = __webpack_require__(101);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_js_cookie__ = __webpack_require__(91);
+>>>>>>> origin/cyq
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_js_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_js_cookie__);
 /**
  * Created by zxz1992 on 2018/5/22.
@@ -2349,7 +2698,11 @@ function removeCookie(key) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 101 */
+=======
+/* 91 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2524,7 +2877,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 102 */
+=======
+/* 92 */
+>>>>>>> origin/cyq
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -3136,9 +3493,17 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
+<<<<<<< HEAD
     require("vue-hot-reload-api")      .rerender("data-v-088a7ea7", module.exports)
+=======
+    require("vue-hot-reload-api")      .rerender("data-v-85f18832", module.exports)
+>>>>>>> origin/cyq
   }
 }
 
 /***/ })
+<<<<<<< HEAD
 ],[75]);
+=======
+],[65]);
+>>>>>>> origin/cyq

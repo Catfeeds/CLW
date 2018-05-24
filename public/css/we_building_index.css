@@ -45,6 +45,7 @@ body .mui-bar-nav .select-box {
 html .main-content,
 body .main-content {
   margin-top: 125px;
+<<<<<<< HEAD
   padding-bottom: 50px;
 }
 
@@ -66,5 +67,7 @@ body .main-content {
   height: 44px;
   color: #007eff;
   font-size: 17px;
+=======
+>>>>>>> origin/cyq
 }
 

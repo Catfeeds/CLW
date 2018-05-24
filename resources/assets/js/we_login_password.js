@@ -1,9 +1,15 @@
 window.$ = window.jQuery = require('jquery');
+import 'mint-ui/lib/style.css'
+import { Toast } from 'mint-ui';
 var tel = $('#tel'),smsCode = $('#sms'),getSms = $('#getSms'), password = $('#password');
 
 $(document).on('touchend || tap', '#getSms', (e) => {
     if (!tel.val() || tel.val().trim() === '') {
-        alert('请输入手机号码');
+        Toast({
+            message: '请输入手机号码',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
     var pathStr = tel.val() + '/' + 'login';
@@ -23,44 +29,54 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                         window.clearInterval(time);
                     }
                 }, 1000);
-                alert('短信发送成功');
+                Toast({
+                    message: '短信发送成功',
+                    position: 'top',
+                    duration: 2000
+                })
             }
         },
         error: function (res) {
-            alert(responseJSON.message);
+            Toast({
+                message: responseJSON.message,
+                position: 'top',
+                duration: 2000
+            })
         }
     });
 });
-
 $(document).on('touchend || tap','.loginBtn button',(e)=> {
     var tel_num = tel.val(), smsCode_num = smsCode.val(), password_num = password.val();
 
     if (!tel_num || tel_num.trim() === '') {
-        alert('请输入手机号码');
+        Toast({
+            message: '请输入手机号码',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
     if (!smsCode_num || smsCode_num.trim() === '') {
-        alert('请输入验证码');
+        Toast({
+            message: '请输入验证码',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
     if (!password_num || password_num.trim() === '') {
-        TopTips({
+        Toast({
             message: '请输入密码',
-            duration: 3000
+            position: 'top',
+            duration: 2000
         })
         return false
     }
-    if (password_num.length < 6) {
-        TopTips({
-            message: '密码最小长度为6',
-            duration: 3000
-        })
-        return false
-    }
-    if (password_num.length > 18) {
-        TopTips({
-            message: '密码最大长度为18',
-            duration: 3000
+    if (password_num.length < 6 || password_num.length > 18) {
+        Toast({
+            message: '密码长度必须在6-18位之间',
+            position: 'top',
+            duration: 2000
         })
         return false
     }
@@ -76,13 +92,21 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
             password: password_num
         },
         success: function(data){
-            alert(data.message);
+            Toast({
+                message: data.message,
+                position: 'top',
+                duration: 2000
+            })
             if (data.status) {
                 window.location.href = '/user'
             }
         },
         error: function (data) {
-            alert(data.responseJSON.message);
+            Toast({
+                message: data.responseJSON.message,
+                position: 'top',
+                duration: 2000
+            })
         }
     });
 });

@@ -11,10 +11,13 @@ body .mui-content .banner {
   width: 100%;
 }
 
+<<<<<<< HEAD
 body .mui-content .essential {
   margin-bottom: 49px;
 }
 
+=======
+>>>>>>> origin/cyq
 body .mui-content .essential .title {
   display: -webkit-box;
   display: -ms-flexbox;

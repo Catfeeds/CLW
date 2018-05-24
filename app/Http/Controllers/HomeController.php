@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function agreement()
+    {
+        return view('we.user_agreement');
+    }
 }
