@@ -52,6 +52,11 @@ class BuildingController extends Controller
         BuildingsService $service
     )
     {
+        if (!empty($request->condition)) {
+            foreach (json_decode($request->condition) as $key => $item) {
+                $request->$key = $item;
+            }
+        }
         $res = $buildingsRepository->buildingList($request, $service);
         return $res;
     }

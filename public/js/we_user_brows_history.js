@@ -16,7 +16,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__);
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(2);
+window.Vue = __webpack_require__(4);
 
 var pageOne = JSON.parse($('#pageOne').val());
 var app = new Vue({
@@ -74,7 +74,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(13)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(15)
 /* template */
@@ -153,7 +153,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\nul {\n  border-top: 0;\n}\nul.mui-table-view:before {\n    height: 0;\n}\nul.mui-table-view:after {\n    background-color: #f4f4f4;\n}\nul > li.mui-table-view-cell {\n    padding: 20px 5px 10px 10px;\n}\nul > li.mui-table-view-cell:after {\n      background-color: #f4f4f4;\n      left: 0;\n}\nul > li.mui-table-view-cell .decoration img {\n      position: absolute;\n      right: 15px;\n      top: 0;\n      width: 39px;\n      height: 25px;\n}\nul > li.mui-table-view-cell .house_title {\n      width: 88%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      color: #333333;\n}\nul > li.mui-table-view-cell .borders > div > span {\n      color: #007eff;\n      border: 0.5px solid #007eff;\n      border-radius: 1px;\n      font-size: 11px;\n      text-align: center;\n      float: left;\n      margin-right: 5px;\n      line-height: 100%;\n      padding: 1px;\n}\n.mui-content {\n  border-top: 1px solid #f4f4f4;\n}\n.mui-content ul {\n    margin-top: 0 !important;\n}\n.mui-content ul::before {\n      height: 0;\n}\n.mui-content ul::after {\n      height: 0;\n}\n.mui-content ul li {\n      padding: 16px 15px 17px 15px;\n      border-bottom: 1px solid #f4f4f4;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: start;\n          -ms-flex-pack: start;\n              justify-content: flex-start;\n}\n.mui-content ul li::after {\n        height: 0;\n}\n.mui-content ul li img {\n        width: 120px;\n        height: 90px;\n        margin-right: 15px;\n}\n.mui-content ul li .list .title {\n        width: 90%;\n        font-size: 14px;\n        color: #333;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n}\n.mui-content ul li .list .areage {\n        font-size: 15px;\n        color: #444;\n}\n.mui-content ul li .list .areage span {\n          font-size: 16px;\n}\n.mui-content ul li .list .price {\n        font-size: 13px;\n        color: #999;\n}\n.mui-content ul li .list .price .totalPrice {\n          font-size: 14px;\n          color: #666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: end;\n              -ms-flex-pack: end;\n                  justify-content: flex-end;\n          margin-left: 33px;\n}\n.mui-content ul li .list .price .totalPrice span {\n            font-size: 15px;\n            color: #ff7200;\n}\n.mui-content ul li .list .better div {\n        color: #007eff;\n        font-size: 11px;\n        border: 1px solid #007eff;\n        border-radius: 3px;\n        padding: 0 3px;\n        margin-right: 5px;\n}\n.mui-content ul li .decoration {\n        position: absolute;\n        top: 0;\n        right: 0;\n}\n.mui-content ul li .decoration img {\n          width: 34px;\n          height: 20px;\n}\n", ""]);
+exports.push([module.i, "\nul {\n  border-top: 0;\n}\nul.mui-table-view:before {\n    height: 0;\n}\nul.mui-table-view:after {\n    background-color: #f4f4f4;\n}\nul > li.mui-table-view-cell {\n    padding: 20px 5px 10px 10px;\n}\nul > li.mui-table-view-cell:after {\n      background-color: #f4f4f4;\n      left: 0;\n}\nul > li.mui-table-view-cell .decoration img {\n      position: absolute;\n      right: 15px;\n      top: 0;\n      width: 39px;\n      height: 25px;\n}\nul > li.mui-table-view-cell .house_title {\n      width: 88%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      color: #333333;\n}\nul > li.mui-table-view-cell .borders > div > span {\n      color: #007eff;\n      border: 0.5px solid #007eff;\n      border-radius: 1px;\n      font-size: 11px;\n      text-align: center;\n      float: left;\n      margin-right: 5px;\n      line-height: 100%;\n      padding: 1px;\n}\n.mui-content {\n  border-top: 1px solid #f4f4f4;\n}\n.mui-content ul {\n    margin-top: 0 !important;\n}\n.mui-content ul::before {\n      height: 0;\n}\n.mui-content ul::after {\n      height: 0;\n}\n.mui-content ul li {\n      padding: 16px 15px 17px 15px;\n      border-bottom: 1px solid #f4f4f4;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: start;\n          -ms-flex-pack: start;\n              justify-content: flex-start;\n}\n.mui-content ul li::after {\n        height: 0;\n}\n.mui-content ul li img {\n        width: 120px;\n        height: 90px;\n        margin-right: 15px;\n}\n.mui-content ul li .list .title {\n        width: 90%;\n        font-size: 14px;\n        color: #333;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n}\n.mui-content ul li .list .areage {\n        font-size: 15px;\n        color: #444;\n}\n.mui-content ul li .list .areage span {\n          font-size: 16px;\n}\n.mui-content ul li .list .price {\n        font-size: 13px;\n        color: #999;\n}\n.mui-content ul li .list .price .totalPrice {\n          font-size: 14px;\n          color: #666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: end;\n              -ms-flex-pack: end;\n                  justify-content: flex-end;\n}\n.mui-content ul li .list .price .totalPrice span {\n            font-size: 15px;\n            color: #ff7200;\n}\n.mui-content ul li .list .better div {\n        color: #007eff;\n        font-size: 11px;\n        border: 1px solid #007eff;\n        border-radius: 3px;\n        padding: 0 3px;\n        margin-right: 5px;\n}\n.mui-content ul li .decoration {\n        position: absolute;\n        top: 0;\n        right: 0;\n}\n.mui-content ul li .decoration img {\n          width: 34px;\n          height: 20px;\n}\n", ""]);
 
 // exports
 
@@ -254,11 +254,11 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "price mui-row" }, [
-                _c("div", { staticClass: "mui-col-xs-3" }, [
+                _c("div", { staticClass: "mui-col-xs-6" }, [
                   _vm._v(_vm._s(item.unit_price_cn))
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "totalPrice mui-col-xs-7" }, [
+                _c("div", { staticClass: "totalPrice mui-col-xs-6" }, [
                   _vm._v(_vm._s(item.total_price)),
                   item.total_price !== ""
                     ? _c("span", [_vm._v("元/月")])

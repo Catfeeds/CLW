@@ -7,8 +7,8 @@
                   <div class="title">{{item.title}}</div>
                   <div class="areage">{{item.constru_acreage_cn}}</div>
                   <div class="price mui-row">
-                      <div class="mui-col-xs-3">{{item.unit_price_cn}}</div>
-                      <div class="totalPrice mui-col-xs-7">{{item.total_price}}<span v-if="(item.total_price !== '')">元/月</span></div>
+                      <div class="mui-col-xs-6">{{item.unit_price_cn}}</div>
+                      <div class="totalPrice mui-col-xs-6">{{item.total_price}}<span v-if="(item.total_price !== '')">元/月</span></div>
                   </div>
                   <div class="mui-row better">
                       <div class="mui-col-3" v-if="(item.house_feature[0] !== '')"><span>{{item.house_feature[0]}}</span></div>
@@ -136,7 +136,6 @@ export default {
                             color: #666;
                             display: flex;
                             justify-content: flex-end;
-                            margin-left: 33px;
                             span{
                                 font-size: 15px;
                                 color: #ff7200;

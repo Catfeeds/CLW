@@ -33,12 +33,12 @@ module.exports = __webpack_require__(60);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(2);
+window.Vue = __webpack_require__(4);
 
 
 var Swiper = __webpack_require__(33);
@@ -47,7 +47,41 @@ var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
   el: '#listApp',
   data: {
-    list: listAppData.data
+    list: listAppData.data,
+    page: 2,
+    getData: true,
+    status: true
+  },
+  methods: {
+    getMore: function getMore() {
+      var self = this;
+      self.getData = false;
+      $.ajax({
+        url: '/buildings/create',
+        type: 'GET',
+        data: { page: self.page },
+        success: function success(data) {
+          if (data.data.length === 0) {
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+              message: '已无更多数据',
+              position: 'top',
+              duration: 3000
+            });
+            self.status = false;
+            return;
+          }
+          self.page++;
+          data.data.map(function (item) {
+            self.list.push(item);
+          });
+          if (data.data.length >= data.per_page) {
+            self.getData = true;
+          } else {
+            self.status = false;
+          }
+        }
+      });
+    }
   }
 });
 // var swiperBanner =  new Swiper('#swiperBanner', {  // 实例化banner轮播

@@ -1,6 +1,8 @@
 webpackJsonp([0],[
 /* 0 */,
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -310,8 +312,6 @@ module.exports = {
 
 
 /***/ }),
-/* 2 */,
-/* 3 */,
 /* 4 */,
 /* 5 */,
 /* 6 */,
@@ -325,7 +325,7 @@ module.exports = {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 var normalizeHeaderName = __webpack_require__(79);
 
 var DEFAULT_CONTENT_TYPE = {
@@ -455,7 +455,7 @@ module.exports = function bind(fn, thisArg) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 var settle = __webpack_require__(80);
 var buildURL = __webpack_require__(82);
 var parseHeaders = __webpack_require__(83);
@@ -757,15 +757,21 @@ module.exports = __webpack_require__(71);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__);
 /**
  * Created by zxz1992 on 2018/5/22.
  */
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(2);
+window.Vue = __webpack_require__(4);
+
+
 
 
 var pageOne = JSON.parse($('#pageOne').val());
@@ -773,11 +779,14 @@ var app = new Vue({
   el: '#buildingList',
   data: {
     list: pageOne.data,
-    search: {}
+    search: {},
+    getData: pageOne.data.length === 15,
+    status: pageOne.data.length === 15,
+    page: 2
   },
   components: {
-    buildingSelect: __WEBPACK_IMPORTED_MODULE_0__components_buildingSelect_vue___default.a,
-    buildingList: __WEBPACK_IMPORTED_MODULE_1__components_buildingList_vue___default.a
+    buildingSelect: __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default.a,
+    buildingList: __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default.a
   },
   methods: {
     changeData: function changeData(data) {
@@ -807,9 +816,45 @@ var app = new Vue({
 
       var searchStr = JSON.stringify(params);
       window.location.search = '?condition=' + searchStr;
+    },
+    getMore: function getMore() {
+      var condition = JSON.parse(GetQueryString('condition'));
+      var self = this;
+      condition.page = self.page;
+      self.getData = false;
+      $.ajax({
+        url: '/buildings/create',
+        type: 'GET',
+        data: condition,
+        success: function success(data) {
+          if (data.data.length === 0) {
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+              message: '已无更多数据',
+              position: 'top',
+              duration: 3000
+            });
+            self.status = false;
+            return;
+          }
+          self.page++;
+          data.data.map(function (item) {
+            self.list.push(item);
+          });
+          if (data.data.length >= data.per_page) {
+            self.getData = true;
+          } else {
+            self.status = false;
+          }
+        }
+      });
     }
   }
 });
+function GetQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+  var r = window.location.search.substr(1).match(reg);
+  if (r != null) return unescape(r[2]);return null;
+}
 
 /***/ }),
 /* 72 */
@@ -820,7 +865,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(73)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(75)
 /* template */
@@ -1311,7 +1356,7 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 var bind = __webpack_require__(19);
 var Axios = __webpack_require__(78);
 var defaults = __webpack_require__(11);
@@ -1398,7 +1443,7 @@ function isSlowBuffer (obj) {
 
 
 var defaults = __webpack_require__(11);
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 var InterceptorManager = __webpack_require__(87);
 var dispatchRequest = __webpack_require__(88);
 
@@ -1483,7 +1528,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -1563,7 +1608,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -1638,7 +1683,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -1698,7 +1743,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1816,7 +1861,7 @@ module.exports = btoa;
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1876,7 +1921,7 @@ module.exports = (
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -1935,7 +1980,7 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 var transformData = __webpack_require__(89);
 var isCancel = __webpack_require__(22);
 var defaults = __webpack_require__(11);
@@ -2028,7 +2073,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(3);
 
 /**
  * Transform the data for a request or a response

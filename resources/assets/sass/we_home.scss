@@ -1,6 +1,4 @@
-body{
-  padding-bottom: 60px;
-}
+
 @import "~swiper/dist/css/swiper.min.css";
 .swiper-slide{
   img{
@@ -18,7 +16,7 @@ body{
   }
 }
 .main-content{
-  padding: 0 15px;
+  padding: 0 15px 30px;
   background: #FFFFFF;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
@@ -405,5 +403,18 @@ body{
         }
       }
     }
+  }
+}
+.more{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  >button{
+    width: 78%;
+    border: solid 1px #007eff;
+    border-radius: 22px;
+    height: 44px;
+    color: #007eff;
+    font-size: 17px;
   }
 }

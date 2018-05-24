@@ -3,14 +3,16 @@ body{
     background-color: #ffffff !important;
 }
 .header{
+    width: 100%;
     img{
         width: 100%;
     }
     .picture{
         position: absolute;
-        top: 50px;
-        left: 38%;
+        top: 7%;
+        left: 50%;
         text-align: center;
+        margin-left: -55px;
         h5{
             font-size: 20px;
             color: #fff;

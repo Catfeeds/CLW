@@ -9,24 +9,39 @@ module.exports = __webpack_require__(103);
 /***/ }),
 
 /***/ 103:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui__);
 window.$ = window.jQuery = __webpack_require__(0);
+
+
 $(document).on('touchend || tap', '.loginBtn button', function (e) {
     var tel = $('#tel').val(),
         password = $('#password').val();
-    // 隐藏键盘
-    $('#tel').blur();
-    $('#password')[0].blur();
     // 判断数据是否存在
     if (!tel || tel.trim() === '') {
-        alert('请输入手机号码');
+        Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+            message: '请输入手机号码',
+            position: 'top',
+            duration: 2000
+        });
     } else if (!password || password.trim() === '') {
-        alert('请输入密码');
-    } else if (password.length < 6) {
-        alert('密码最小长度为6');
-    } else if (password.length > 18) {
-        alert('密码最大长度为18');
+        Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+            message: '请输入密码',
+            position: 'top',
+            duration: 2000
+        });
+    } else if (password.length < 6 || password.length > 18) {
+        Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+            message: '密码长度必须在6-18位之间',
+            position: 'top',
+            duration: 2000
+        });
     } else {
         $.ajax({
             headers: {
@@ -40,12 +55,20 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
             },
             success: function success(data) {
                 if (data.status) {
-                    alert(data.message);
+                    Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                        message: data.message,
+                        position: 'top',
+                        duration: 2000
+                    });
                     window.location.href = '/user';
                 }
             },
             error: function error(data) {
-                alert(data.responseJSON.message);
+                Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                    message: data.responseJSON.message,
+                    position: 'top',
+                    duration: 2000
+                });
             }
         });
     }

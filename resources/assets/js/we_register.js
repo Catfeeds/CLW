@@ -2,28 +2,42 @@
  * Created by zxz1992 on 2018/5/22.
  */
 window.$ = window.jQuery = require('jquery');
+import 'mint-ui/lib/style.css'
+import { Toast } from 'mint-ui';
 var tel = $('#tel'), sms = $('#sms'), password = $('#password'), time = $('#time'), getSms = $('#getSms');
 
 $(document).on('touchend || tap', '#submit', (e) => {
     var tel_num = tel.val(), sms_num = sms.val(), password_num = password.val();
     if (!tel_num || tel_num.trim() === '') {
-        alert('请输入手机号码');
+        Toast({
+            message: '请输入手机号码',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
     if (!sms_num || sms_num.trim() === '') {
-        alert('请输入短信验证码')
+        Toast({
+            message: '请输入短信验证码',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
     if (!password_num || password_num.trim() === '') {
-        alert('请输入密码');
+        Toast({
+            message: '请输入密码',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
-    if (password_num.length < 6) {
-        alert('密码最小长度为6');
-        return false
-    }
-    if (password_num.length > 18) {
-        alert('密码最大长度为18');
+    if (password_num.length < 6 || password_num.length > 18) {
+        Toast({
+            message: '密码长度必须在6-18位之间',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
     var data = {tel: tel_num, smsCode: sms_num, password: password_num};
@@ -35,20 +49,36 @@ $(document).on('touchend || tap', '#submit', (e) => {
         type: 'post',
         success: function (res) {
             if (res.status) {
-                alert('登录成功');
-
+                Toast({
+                    message: '登录成功',
+                    position: 'top',
+                    duration: 2000
+                })
+                window.location.href = '/user'
             } else {
-                alert(res.data.message);
+                Toast({
+                    message: res.data.message,
+                    position: 'top',
+                    duration: 2000
+                })
             }
         },
         error: function (res) {
-            alert(responseJSON.message);
+            Toast({
+                message: responseJSON.message,
+                position: 'top',
+                duration: 2000
+            })
         }
     });
 });
 $(document).on('touchend || tap', '#getSms', (e) => {
     if (!tel.val() || tel.val().trim() === '') {
-        alert('请输入手机号码');
+        Toast({
+            message: '请输入手机号码',
+            position: 'top',
+            duration: 2000
+        })
         return false
     }
     var pathStr = tel.val() + '/' + 'register';
@@ -68,11 +98,19 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                         window.clearInterval(time);
                     }
                 }, 1000);
-                alert('短信发送成功');
+                Toast({
+                    message: '短信发送成功',
+                    position: 'top',
+                    duration: 2000
+                })
             }
         },
         error: function (res) {
-            alert(responseJSON.message);
+            Toast({
+                message: responseJSON.message,
+                position: 'top',
+                duration: 2000
+            })
         }
     });
 });
