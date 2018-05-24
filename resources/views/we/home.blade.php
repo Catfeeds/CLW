@@ -112,23 +112,23 @@
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>
                 <div class="index_title">热门商圈</div>
                 <div class="hot-block-box">
-                    <a href='/buildings?condition={"block_id":{{$hotBlocks[0]->block_id}}}' class="hot-1">
+                    <a href='/buildings?condition={"area_id":{{$hotBlocks[0]->block->area_id}},"block_id":{{$hotBlocks[0]->block_id}}}' class="hot-1">
                         <img src="{{$hotBlocks[0]->img_cn}}">
                     </a>
                     <ul>
                         <li class="display-flex">
-                            <a href='/buildings?condition={"block_id":{{$hotBlocks[1]->block_id}}}' >
+                            <a href='/buildings?condition={"area_id":{{$hotBlocks[1]->block->area_id}},"block_id":{{$hotBlocks[1]->block_id}}}' >
                             <img src="{{$hotBlocks[1]->img_cn}}">
                             </a>
-                            <a href='/buildings?condition={"block_id":{{$hotBlocks[2]->block_id}}}' >
+                            <a href='/buildings?condition={"area_id":{{$hotBlocks[2]->block->area_id}},"block_id":{{$hotBlocks[2]->block_id}}}' >
                             <img src="{{$hotBlocks[2]->img_cn}}">
                             </a>
                         </li>
                         <li class="display-flex">
-                            <a href='/buildings?condition={"block_id":{{$hotBlocks[3]->block_id}}}'>
+                            <a href='/buildings?condition={"area_id":{{$hotBlocks[3]->block->area_id}},"block_id":{{$hotBlocks[3]->block_id}}}'>
                             <img src="{{$hotBlocks[3]->img_cn}}">
                             </a>
-                            <a href='/buildings?condition={"block_id":{{$hotBlocks[4]->block_id}}}' >
+                            <a href='/buildings?condition={"area_id":{{$hotBlocks[4]->block->area_id}},"block_id":{{$hotBlocks[4]->block_id}}}' >
                             <img src="{{$hotBlocks[4]->img_cn}}">
                             </a>
                         </li>

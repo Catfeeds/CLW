@@ -5,7 +5,7 @@
 @endsection
 @section('body')
     <input id="pageOne" value="{{json_encode($data)}}" type="hidden"/>
-    <input id="request" value="{{json_encode($req)}}">
+    <input id="request" value="{{json_encode($req)}}" type="hidden">
     <div id="buildingList">
         <header id="header" class="mui-bar mui-bar-nav">
             <h1 class="mui-title">写字楼</h1>
