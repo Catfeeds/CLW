@@ -28,6 +28,7 @@
     "/js/we_building_detail.js": "/js/we_building_detail.js",
     "/js/we_user_collect.js": "/js/we_user_collect.js",
     "/js/we_user_brows_history.js": "/js/we_user_brows_history.js",
+    "/js/we_house_detail.js": "/js/we_house_detail.js",
     "/js/we_user_setting.js": "/js/we_user_setting.js",
     "/js/we_user_revise_phone2.js": "/js/we_user_revise_phone2.js",
     "/js/we_user_revise_phone1.js": "/js/we_user_revise_phone1.js",
@@ -40,6 +41,5 @@
     "/js/we_login_quick.js": "/js/we_login_quick.js",
     "/js/we_login_password.js": "/js/we_login_password.js",
     "/js/we_login_new.js": "/js/we_login_new.js",
-    "/js/we_house_detail.js": "/js/we_house_detail.js",
     "/js/manifest.js": "/js/manifest.js"
 }
