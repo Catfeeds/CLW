@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 100:
+/***/ 106:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(101);
+module.exports = __webpack_require__(107);
 
 
 /***/ }),
 
-/***/ 101:
+/***/ 107:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -17,7 +17,7 @@ module.exports = __webpack_require__(101);
 window.$ = window.jQuery = __webpack_require__(0);
 window.Vue = __webpack_require__(4);
 var listAppData = JSON.parse($('#listAppData').val());
-Vue.component('building-list', __webpack_require__(7));
+Vue.component('building-list', __webpack_require__(13));
 var app = new Vue({
   el: '#app',
   data: {
@@ -27,4 +27,8 @@ var app = new Vue({
 
 /***/ })
 
+<<<<<<< HEAD
 },[100]);
+=======
+},[106]);
+>>>>>>> origin/zxz

@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 .map-btn-list {
   background-color: #FFFFFF;
   width: 10%;
   height: 80%;
+=======
+html,
+body {
+  height: 100%;
+}
+
+html .map-btn-list,
+body .map-btn-list {
+  width: 100%;
+  height: 100%;
+>>>>>>> origin/zxz
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,7 +24,12 @@
           flex-direction: column;
 }
 
+<<<<<<< HEAD
 .map-btn-list .map-btn-item {
+=======
+html .map-btn-list .map-btn-item,
+body .map-btn-list .map-btn-item {
+>>>>>>> origin/zxz
   height: 12.5%;
   text-align: center;
   display: -webkit-box;
@@ -24,18 +41,33 @@
           flex-direction: column;
 }
 
+<<<<<<< HEAD
 .map-btn-list .map-btn-item .img-box {
+=======
+html .map-btn-list .map-btn-item .img-box,
+body .map-btn-list .map-btn-item .img-box {
+>>>>>>> origin/zxz
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding-top: 5px;
 }
 
+<<<<<<< HEAD
 .map-btn-list .map-btn-item .img-box img {
   width: 100%;
 }
 
 .map-btn-list .map-btn-item .text-box {
+=======
+html .map-btn-list .map-btn-item .img-box img,
+body .map-btn-list .map-btn-item .img-box img {
+  width: 55%;
+}
+
+html .map-btn-list .map-btn-item .text-box,
+body .map-btn-list .map-btn-item .text-box {
+>>>>>>> origin/zxz
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,7 +81,12 @@
   color: #333333;
 }
 
+<<<<<<< HEAD
 .map-btn-list .map-btn-item.active .text-box {
+=======
+html .map-btn-list .map-btn-item.active .text-box,
+body .map-btn-list .map-btn-item.active .text-box {
+>>>>>>> origin/zxz
   color: orange;
 }
 

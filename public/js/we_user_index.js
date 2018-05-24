@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 118:
+/***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(119);
+module.exports = __webpack_require__(125);
 
 
 /***/ }),
 
-/***/ 119:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(0);
@@ -43,4 +43,8 @@ $(document).on('touchend || tap', '#browse', function () {
 
 /***/ })
 
+<<<<<<< HEAD
 },[118]);
+=======
+},[124]);
+>>>>>>> origin/zxz

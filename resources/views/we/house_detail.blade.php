@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/css/we_house_detail.css">
 @endsection
 @section('body')
-{{dd(123)}}
 <div id="pullrefresh" class="mui-content">
 	<div class="pullrefresh" id="Vuehouse">
 		<div id="popover" class="mui-popover" style="z-index:10;">
@@ -36,14 +35,10 @@
 					<img src="/we_img/detail_order.png" class="freebtn">
 				</div>
 			</footer>
-			<div class="mui-content">
+		{{dd($house)}}
+			<div class="mui-content" id="vueContent">
 				<div class="swiper-container" id="swiperBanner">
-				    <!-- 轮播图 -->
-				    <div class="swiper-wrapper" id="VueBanner">
-				        <div class="swiper-slide" v-for='item in banner'>
-				        <a href="#"><img :src="item.url" /></a>
-				        </div>
-				    </div>
+					<detail-banner :list='imgList'></detail-banner>
 				    <!-- 如果需要分页器 -->
 				    <!--<div class="swiper-pagination"></div>-->
 				</div>
@@ -69,7 +64,7 @@
 							</div>
 							<div class="mui-col-xs-4 las">
 								<h3 style="height:20px;color:#333333">{{$house->station_number}}</h3>
-								<h5>工位</h4>
+								<h5>工位</h5>
 							</div>
 						</div>
 					</div>
@@ -218,7 +213,14 @@
 					<h3>交通及周边配套</h3>
 				</div>
 				<div>
-				    <div id="secondmap"></div>
+				    <div id="secondmap">
+						{{--<baidu-map :zoom="14" class="map" style="display: flex;height:100%; flex-direction: column" :center="center">--}}
+							{{--<bm-view style="width: 100%; height:100%; flex: 1"></bm-view>--}}
+							{{--<bm-marker :position="center">--}}
+								{{--<bm-label content="" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>--}}
+							{{--</bm-marker>--}}
+						{{--</baidu-map>--}}
+					</div>
 				</div> 
 					<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
 				</div>

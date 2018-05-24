@@ -1,14 +1,14 @@
 webpackJsonp([15],{
 
-/***/ 106:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(107);
+module.exports = __webpack_require__(113);
 
 
 /***/ }),
 
-/***/ 107:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -119,4 +119,8 @@ $(document).on('touchend || tap', '#getSms', function (e) {
 
 /***/ })
 
+<<<<<<< HEAD
 },[106]);
+=======
+},[112]);
+>>>>>>> origin/zxz

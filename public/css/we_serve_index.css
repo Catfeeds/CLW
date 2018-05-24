@@ -1,9 +1,19 @@
+<<<<<<< HEAD
 body {
   background: #ffffff;
 }
 
 body .mui-content {
   background: #ffffff;
+=======
+body header {
+  background-color: rgba(255,255,255,0.99) !important;
+  height: 64px !important;
+}
+
+body header .mui-title {
+  margin-top: 20px !important;
+>>>>>>> origin/zxz
 }
 
 body .mui-content .banner {

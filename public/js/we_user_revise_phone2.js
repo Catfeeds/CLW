@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 124:
+/***/ 130:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(125);
+module.exports = __webpack_require__(131);
 
 
 /***/ }),
 
-/***/ 125:
+/***/ 131:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -92,4 +92,8 @@ $(document).on('touchend || tap', '.loginOut', function () {
 
 /***/ })
 
+<<<<<<< HEAD
 },[124]);
+=======
+},[130]);
+>>>>>>> origin/zxz
