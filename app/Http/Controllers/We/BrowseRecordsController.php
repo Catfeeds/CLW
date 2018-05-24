@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\We;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\APIBaseController;
 use App\Repositories\BrowseRecordsRepository;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 
-class BrowseRecordsController extends Controller
+class BrowseRecordsController extends APIBaseController
 {
     /**
      * 说明: 用户浏览记录
@@ -44,7 +44,7 @@ class BrowseRecordsController extends Controller
         BrowseRecordsRepository $repository
     )
     {
-        $res = $repository->browseRecordList($request, $service,true);
-        return $res;
+        if (empty($res = $repository->browseRecordList($request, $service,true))) return $this->sendError('ajax获取浏览记录数据失败');
+        return $this->sendResponse($res,'ajax获取浏览记录数据成功');
     }
 }
