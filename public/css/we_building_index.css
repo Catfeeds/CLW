@@ -43,13 +43,13 @@ body .main-content {
 }
 
 .nothing {
-  margin-top: 50%;
+  margin-top: 35%;
   text-align: center;
 }
 
 .nothing img {
   width: 141px;
-  height: 95px;
+  height: 100px;
 }
 
 .nothing form {
@@ -62,7 +62,7 @@ body .main-content {
 }
 
 .nothing form .input-box {
-  border: 1px solid #ccc;
+  border: 1px solid #DDD;
   border-right: none;
   border-radius: 2px 0 0 2px;
   -webkit-box-flex: 1;
