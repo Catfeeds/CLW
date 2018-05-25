@@ -29,7 +29,11 @@ class RetrievePwdRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'tel.in' => '该账号不存在'
+                    'tel.in' => '该账号不存在',
+                    'smsCode.numeric' => '验证码必须为数字',
+                    'smsCode.max' => '验证码长度过长',
+                    'password.min' => '密码最小长度为6位',
+                    'password.max' => '密码最大长度为18位'
                 ];
             default;
                 return [
