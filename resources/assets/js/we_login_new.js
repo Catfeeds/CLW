@@ -47,9 +47,9 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
                 },2000)
               }
           },
-          error: function (data) {
+          error: function (res) {
             Toast({
-                message: data.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             })

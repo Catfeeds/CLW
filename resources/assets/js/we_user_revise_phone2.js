@@ -29,7 +29,7 @@ $(document).on('touchend || tap', '#getSms', function(){
         },
         error: function (res) {
             Toast({
-                message: res.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             })
@@ -61,9 +61,9 @@ $(document).on('touchend || tap', '.loginOut', function(){
                 window.location.href = '/user'
             },2000)
         },
-        error: function (data) {
+        error: function (res) {
             Toast({
-                message: data.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 5000
             })
