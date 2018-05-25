@@ -11,7 +11,7 @@
                 <span>4000-580-888</span>
             </div>
             <a href="tel:4000-580-888" class="mui-col-xs-6">
-                <div id="free" style="text-align: center; margin-left: 10px">
+                <div id="free" style="height:100%;text-align: center; margin-left: 10px">
                     <button id="btn_reservation" type="button" class="mui-btn mui-btn-primary" style="width: 100%; height: 100%; font-size:18px ">立即预约</button>
                 </div>
             </a>
