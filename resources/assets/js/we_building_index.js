@@ -61,7 +61,7 @@ var app = new Vue({
         type: 'GET',
         data: condition,
         success: function (data) { 
-          if (data.data.length === 0) {
+          if (data.data.data.length === 0) {
             Toast({
               message: '已无更多数据',
               position: 'center',
@@ -71,13 +71,20 @@ var app = new Vue({
             return
           }
           self.page++
-          data.data.map(function (item) {
+          data.data.data.map(function (item) {
             self.list.push(item)
           });
-          if (data.data.length >= data.per_page) {
+          if (data.data.data.length >= data.data.per_page) {
             self.getData = true
           } else {
             self.status = false
+          }
+        },
+        error: function (error) {
+          if (error.status < 500) {
+            Toast(error.responseJSON.message)
+          } else {
+            Toast('服务器出错')
           }
         }
       })
@@ -112,19 +119,19 @@ var app = new Vue({
               });
             } else  {
               Toast({
-                message: '预约失败',
+                message: data.message,
                 position: 'center',
                 duration: 3000
               });
             }
           },
-          error: function () {
+          error: function (error) {
             $('#backdrop').fadeOut(300);
-            Toast({
-              message: '服务器繁忙,请联系客服处理',
-              position: 'center',
-              duration: 3000
-            });
+            if (error.status < 500) {
+              Toast(error.responseJSON.message)
+            } else {
+              Toast('服务器出错')
+            }
           }
         })
       }

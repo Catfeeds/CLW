@@ -1,4 +1,4 @@
-webpackJsonp([16],{
+webpackJsonp([15],{
 
 /***/ 106:
 /***/ (function(module, exports, __webpack_require__) {
@@ -15,9 +15,9 @@ module.exports = __webpack_require__(107);
  * Created by zxz1992 on 2018/5/23.
  */
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(5);
+window.Vue = __webpack_require__(4);
 var listAppData = JSON.parse($('#listAppData').val());
-Vue.component('building-list', __webpack_require__(23));
+Vue.component('building-list', __webpack_require__(8));
 var app = new Vue({
   el: '#app',
   data: {
