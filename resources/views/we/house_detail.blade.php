@@ -50,7 +50,9 @@
 									<h5><img src="/we_img/images/house_detail_bus.png">距离2号线 光谷广场 约183米</h5>
 								</div>
 							</div>-->
-					<img class="choice" v-if="($house->label_cn === true)" src="/we_img/house_detail_better.png">
+						@if($house->label_cn)
+					<img class="choice" src="/we_img/house_detail_better.png">
+							@endif
 				</div>
 				<!--2基础信息-->
 				<div class="firstcard">
@@ -97,10 +99,6 @@
 				<div class="mui-row">
 				    <div class="mui-col-xs-4"><h4>注册公司</h4></div>
 					<div class="mui-col-xs-8"><h4>{{$house->register_company_cn}}</h4></div>
-				</div>
-				<div class="mui-row">
-					<div class="mui-col-xs-4"><h4>可开发票</h4></div>
-					<div class="mui-col-xs-8"><h4>{{$house->open_bill_cn}}</h4></div>
 				</div>
 				<div class="mui-row">
 					<div class="mui-col-xs-4"><h4>可否拆分</h4></div>
@@ -228,7 +226,7 @@
 							</a>
 						</div>
 					@else
-						<div class="collect mui-col-xs-2 js_collect">
+						<div class="collect mui-col-xs-2 js_collect pointer">
 							{{--已收藏--}}
 							<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
 							{{--未收藏--}}
