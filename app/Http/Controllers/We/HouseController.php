@@ -42,7 +42,8 @@ class HouseController extends APIBaseController
     )
     {
         $res = $buildingHousesRepository->getShowOffice($service, $id);
-        return $res;
+        if (!$res) return $this->sendError('该房源下无相关房源');
+        return $this->sendResponse($res, '房源列表获取成功');
     }
 
 
