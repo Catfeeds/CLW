@@ -33,7 +33,7 @@ class BuildingsRepository extends  Model
         $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
 
         $data = $this->buildingDataComplete($buildings, $buildingData, $service);
-        $data = $data->forpage($request->page??1, 6);
+        $data = $data->forpage($request->page??1, 10);
 
         return Common::pageData($request->page, $data);
     }

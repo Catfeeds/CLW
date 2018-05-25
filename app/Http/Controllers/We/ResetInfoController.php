@@ -123,7 +123,7 @@ class ResetInfoController extends APIBaseController
     )
     {
         $res = $resetInfoService->resetPwd($request);
-        if (empty($res['status'])) return $this->sendError('修改密码失败');
+        if (empty($res['status'])) return $this->sendError($res['message']);
         return $this->sendResponse($res,'修改密码成功');
     }
 
@@ -152,7 +152,7 @@ class ResetInfoController extends APIBaseController
     )
     {
         $res = $resetInfoService->oldTelValidate($request);
-        if (empty($res['status'])) return $this->sendError('旧手机号验证失败');
+        if (empty($res['status'])) return $this->sendError($res['message']);
         return $this->sendResponse($res,'旧手机号验证成功');
     }
 
@@ -181,7 +181,7 @@ class ResetInfoController extends APIBaseController
     )
     {
         $res = $resetInfoService->resetTel($request);
-        if (empty($res['status'])) return $this->sendError('换绑手机号失败');
+        if (empty($res['status'])) return $this->sendError($res['message']);
         return $this->sendResponse($res,'换绑手机号成功');
     }
 }
