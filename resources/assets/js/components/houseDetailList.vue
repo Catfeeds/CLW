@@ -61,10 +61,51 @@ export default {
                 } else {
                   self.add = false
                 }
+              },
+              error: function (error) {
+                Toast({
+                  message: '服务器忙',
+                  position: 'top',
+                  duration: 3000
+                });
               }
             })
           } else if(this.api === 2) { // 请求房源下的数据
-
+            $.ajax({
+              url: '/rim_houses/' + self.building,
+              type: 'GET',
+              data: { page: self.page },
+              success: function (data) {
+                if (data.success) {
+                  if (data.data.data.length === 0) {
+                    self.add = false
+                    Toast({
+                      message: '已无更多数据',
+                      position: 'top',
+                      duration: 3000
+                    });
+                    return
+                  }
+                  self.status = true
+                  self.page++
+                  data.data.data.map(item => {
+                    self.list.push(item)
+                  })
+                  if (data.data.per_page > data.data.data.length) {
+                    self.add = false
+                  }
+                } else {
+                  self.add = false
+                }
+              },
+              error: function (error) {
+                Toast({
+                  message: '服务器忙',
+                  position: 'top',
+                  duration: 3000
+                });
+              }
+            })
           }
       }
   },

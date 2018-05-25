@@ -17,7 +17,7 @@ module.exports = __webpack_require__(107);
 window.$ = window.jQuery = __webpack_require__(0);
 window.Vue = __webpack_require__(5);
 var listAppData = JSON.parse($('#listAppData').val());
-Vue.component('building-list', __webpack_require__(17));
+Vue.component('building-list', __webpack_require__(22));
 var app = new Vue({
   el: '#app',
   data: {

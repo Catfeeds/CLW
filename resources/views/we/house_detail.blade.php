@@ -24,8 +24,8 @@
 		</div>
 			<footer id="footer" class="mui-row">
 				<div class="collect mui-col-xs-2">
-					<img src="/we_img/detail_colletc1.png"  id="collect2">
-					<img src="/we_img/detail_collect.png" class="mui-hidden" id="collect1"><span>收藏</span>
+					<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
+					<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
                 </div>
                 <div class="mui-col-xs-4" id="free">
                     <a href="tel:4000-580-888">
@@ -38,7 +38,7 @@
 			</footer>
 			<div class="mui-content" id="vueContent">
 				<div class="swiper-container" id="swiperBanner">
-					<detail-banner :list='imgList'></detail-banner>
+					<detail-banner :list='imgList' :building="{{$house->id}}"></detail-banner>
 				    <!-- 如果需要分页器 -->
 				    <!--<div class="swiper-pagination"></div>-->
 				</div>
