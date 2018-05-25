@@ -227,8 +227,10 @@
 						</div>
 					@else
 						<div class="collect mui-col-xs-2 js_collect">
-							<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
-							<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
+							{{--已收藏--}}
+							<img src="/we_img/detail_colletc1.png" @if($house->collection) class="mui-hidden" @endif  id="collect2">
+							{{--未收藏--}}
+							<img src="/we_img/detail_collect.png" @if(!$house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
 						</div>
 					@endif
 					<div class="mui-col-xs-4" id="free">
