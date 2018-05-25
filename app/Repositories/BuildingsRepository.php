@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories;
 
+use App\Handler\Common;
 use App\Models\Area;
 use App\Models\Block;
 use App\Models\Building;
@@ -29,13 +30,12 @@ class BuildingsRepository extends  Model
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
-        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->paginate($request->per_page);
-        foreach($buildingData as $v) {
-            $service->features($v);
-            $service->getAddress($v);
-            $service->label($v);
-        }
-        return $this->buildingDataComplete($buildings, $buildingData);
+        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
+
+        $data = $this->buildingDataComplete($buildings, $buildingData, $service);
+        $data = $data->forpage($request->page??1, 6);
+
+        return Common::pageData($request->page, $data);
     }
 
     /**
@@ -46,9 +46,14 @@ class BuildingsRepository extends  Model
      * @return mixed
      * @author jacklin
      */
-    public function buildingDataComplete($buildings, $buildingData)
+    public function buildingDataComplete($buildings, $buildingData, $service)
     {
         foreach ($buildingData as $index => $v) {
+            // 特色,标签,地址
+            $service->features($v);
+            $service->getAddress($v);
+            $service->label($v);
+
             // 房源数量
             $buildingData[$index]->house_count = $buildings[$v->id]->count();
 
@@ -61,9 +66,15 @@ class BuildingsRepository extends  Model
             // 标签
             $buildingData[$index]->building_label = !empty($v->label)?1:2;
         }
+
         // 排序
-        $buildingData->setCollection(collect($buildingData->items())->sortByDesc('block_recommend')->sortByDesc('house_count')->sortBy('building_label')->values());
-        return $buildingData;
+        $res = $buildingData->toArray();
+        $block_recommend = array_column($res, 'block_recommend');
+        $house_count = array_column($res, 'house_count');
+        $building_label = array_column($res, 'building_label');
+        array_multisort($building_label, SORT_ASC, $house_count, SORT_DESC, $block_recommend, SORT_DESC, $res);
+
+        return collect($res);
     }
 
 

@@ -72,6 +72,7 @@ $(document).on('touchend || tap', '#submit', function (e) {
         },
         url: 'registers',
         type: 'post',
+        data: data,
         success: function success(res) {
             if (res.success) {
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
