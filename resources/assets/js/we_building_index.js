@@ -13,8 +13,8 @@ var app = new Vue({
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 15,
-    status: pageOne.data.length === 15,
+    getData: pageOne.data.length === 6,
+    status: pageOne.data.length === 6,
     page: 2,
     more: null
   },
@@ -54,6 +54,9 @@ var app = new Vue({
     getMore: function () {
       var condition = JSON.parse(GetQueryString('condition'))
       var self = this
+      if (!condition) {
+        condition = {}
+      }
       condition.page = self.page
       self.getData = false
       $.ajax({
