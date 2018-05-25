@@ -89,7 +89,13 @@ $('#upload').on('touchend', function () {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
       }
     },
-    error: function error(_error) {}
+    error: function error(_error) {
+      if (_error.status < 500) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error.responseJSON.message);
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+      }
+    }
   });
 });
 $(document).on('touchend', '.js_collect', function (e) {
@@ -109,7 +115,13 @@ $(document).on('touchend', '.js_collect', function (e) {
           Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
         }
       },
-      error: function error(_error2) {}
+      error: function error(_error2) {
+        if (_error2.status < 500) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error2.responseJSON.message);
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+        }
+      }
     });
   } else {
     // 添加收藏
@@ -128,7 +140,13 @@ $(document).on('touchend', '.js_collect', function (e) {
           Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
         }
       },
-      error: function error(_error3) {}
+      error: function error(_error3) {
+        if (_error3.status < 500) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error3.responseJSON.message);
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+        }
+      }
     });
   }
 });

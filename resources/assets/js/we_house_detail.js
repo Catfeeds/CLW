@@ -69,7 +69,11 @@ $('#upload').on('touchend', () => {
         }
       },
       error: function (error) {
-        
+        if (error.status < 500) {
+          Toast(error.responseJSON.message)
+        } else {
+          Toast('服务器出错')
+        }
       }
     })
 });
@@ -91,7 +95,11 @@ $(document).on('touchend', '.js_collect', function (e) {
         }
       },
       error: function (error) {
-
+        if (error.status < 500) {
+          Toast(error.responseJSON.message)
+        } else {
+          Toast('服务器出错')
+        }
       }
     })
   } else {
@@ -112,7 +120,11 @@ $(document).on('touchend', '.js_collect', function (e) {
         }
       },
       error: function (error) {
-
+        if (error.status < 500) {
+          Toast(error.responseJSON.message)
+        } else {
+          Toast('服务器出错')
+        }
       }
     })
   }
