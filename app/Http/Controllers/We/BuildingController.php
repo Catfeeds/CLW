@@ -110,7 +110,6 @@ class BuildingController extends APIBaseController
         $building = Building::find($id);
         $res = $buildingsRepository->getShow($building, $service);
         if (!empty($building->company)) $building->company_cn = implode(',', $building->company);
-        dd($res);
         return view('we.map')->with('data', $res);
     }
 

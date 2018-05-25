@@ -4,9 +4,9 @@
     <link rel="stylesheet" href="/css/we_map_controls.css">
 @endsection
 @section('body')
+    <input id="build_id" value="{{json_encode($data->gps)}}" hidden>
     <div id="Vuemap" style="height:100%;">
-        <baidu-map :zoom="14" class="map" style="display: flex;height:100%; flex-direction: column"
-                   :center="center">
+        <baidu-map :zoom="14" class="map" style="height:100%;" :center="center">
             <bm-control style="right: 0px;">
                 <div class="map-btn-list" id="js_btnTap">
                     <div class="map-btn-item active" data-name="地铁">
@@ -59,7 +59,10 @@
                     </div>
                 </div>
             </bm-control>
-            <bm-local-search :keyword="keyword" :auto-viewport="true" :location="center" :panel="false"></bm-local-search>
+            <bm-local-search :nearby="nearby" :keyword="keyword" :auto-viewport="false" selectFirstResult="true" :panel="false"></bm-local-search>
+            <bm-marker :position="center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE">
+                <bm-label content="{{$data->name}}" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>
+            </bm-marker>
         </baidu-map>
     </div>
     <script src="/js/we_map_detail.js"></script>
