@@ -141,6 +141,10 @@ export default {
                 color: #007eff;
                 font-size: 17px;
             }
+            >button:active{
+                color: #007eff;
+                background-color: #FFFFFF;
+            }
         }
     }
 </style>
