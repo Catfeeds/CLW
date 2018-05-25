@@ -115,11 +115,11 @@
 					<div class="mui-collapse-content">
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>等级</h4></div>
-							<div class="mui-col-xs-6"><h4>{{$house->class_cn}}</h4></div>
+							<div class="mui-col-xs-6"><h4>{{$house->class}}</h4></div>
 						</div>
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>房屋结构</h4></div>
-							<div class="mui-col-xs-7"><h4>{{$house->structure_cn}}</h4></div>
+							<div class="mui-col-xs-7"><h4>{{$house->structure}}</h4></div>
 						</div>
 						<div class="mui-row">
 						    <div class="mui-col-xs-4"><h4>总楼层</h4></div>
@@ -131,15 +131,15 @@
 						</div>
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>物业费</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->property_fee_cn}}</h4></div>
+							<div class="mui-col-xs-8"><h4>{{$house->property_fee}}</h4></div>
 						</div>
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>采暖方式</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->heating_cn}}</h4></div>
+							<div class="mui-col-xs-8"><h4>{{$house->heating}}</h4></div>
 						</div>
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>空调类型</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->air_conditioner_cn}}</h4></div>
+							<div class="mui-col-xs-8"><h4>{{$house->air_conditioner}}</h4></div>
 						</div>
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>客梯数量</h4></div>
