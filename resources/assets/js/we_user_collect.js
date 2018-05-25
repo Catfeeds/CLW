@@ -4,6 +4,8 @@
 window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
 import houseList from './components/houseList.vue'
+import 'mint-ui/lib/style.css'
+import { Toast } from 'mint-ui';
 var pageOne = JSON.parse($('#pageOne').val());
 var app = new Vue({
     el: '#houseList',
@@ -45,7 +47,11 @@ $(document).on('touchstart','.more button',(e)=> {
             app.page =  app.page + 1;
         },
         error: function (data) {
-            alert(data.responseJSON.message);
+            Toast({
+                message: data.message,
+                position: 'center',
+                duration: 5000
+            })
         }
     });
 });

@@ -65,7 +65,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             },
             error: function (data) {
                 Toast({
-                    message: data.responseJSON.message,
+                    message: data.message,
                     position: 'center',
                     duration: 5000
                 })
