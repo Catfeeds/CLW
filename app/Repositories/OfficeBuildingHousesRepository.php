@@ -9,12 +9,12 @@ use App\Models\OfficeBuildingHouse;
 
 class OfficeBuildingHousesRepository extends Model
 {
-
     /**
      * 说明: 房源详情相关房源
      *
+     * @param $service
      * @param $id
-     * @return array
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      * @author 罗振
      */
     public function getShowOffice($service, $id)
@@ -32,9 +32,9 @@ class OfficeBuildingHousesRepository extends Model
             ->where('unit_price', '<', $house->unit_price + config('setting.float_price'))
             ->paginate(6);
         foreach ($houses as $v) {
-        $service->getShow($v);
-        $service->labelShow($v);
-    }
+            $service->getShow($v);
+            $service->labelShow($v);
+        }
         return $houses;
     }
 

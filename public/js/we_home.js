@@ -64,7 +64,7 @@ var app = new Vue({
           if (data.data.length === 0) {
             Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
               message: '已无更多数据',
-              position: 'top',
+              position: 'center',
               duration: 3000
             });
             self.status = false;
@@ -106,7 +106,7 @@ $(document).on('tap || touchend', '#addBook', function () {
   if (!telReg.test(tel)) {
     Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
       message: '请输入11位手机号',
-      position: 'top',
+      position: 'center',
       duration: 3000
     });
     return false;
@@ -136,13 +136,13 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       if (data.success) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
           message: data.message,
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       } else {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
           message: '预约失败',
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       }
@@ -151,7 +151,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       $('#backdrop').fadeOut(300);
       Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
         message: '服务器繁忙,请联系客服处理',
-        position: 'top',
+        position: 'center',
         duration: 3000
       });
     }
@@ -174,13 +174,13 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       if (data.success) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
           message: data.message,
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       } else {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
           message: '投放失败',
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       }
@@ -189,7 +189,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       $('#backdrop').fadeOut(300);
       Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
         message: '服务器繁忙,请联系客服处理',
-        position: 'top',
+        position: 'center',
         duration: 3000
       });
     }

@@ -49,31 +49,19 @@ class Controller extends BaseController
                 $smsTemplate = sprintf($template, config('setting.set.prefix'), $captcha, config('sms.clw.postfix'));
                 break;
             default:
-                return [
-                    'success' => false,
-                    'data' => false,
-                    'message' => '模板错误'
-                ];
+                return $this->sendError('模板错误');
         }
 
         // 判断用户是否注册
         if ($temp == 'register') {
             if (!empty(User::where('tel', $tel)->first()))
-                return [
-                    'success' => false,
-                    'data' => false,
-                    'message' => '该手机号已注册!'
-                ];
+                return $this->sendError('该手机号已注册');
         }
 
         $smsService = new SmsService();
         if (config('sms.open')) {
             $smsRes = $smsService->sendSMS($tel, $smsTemplate);
-            if ($smsRes['status'] != true) return [
-                'success' => false,
-                'data' => false,
-                'message' => $smsRes['message']
-            ];
+            if ($smsRes['status'] != true) return $this->sendError($smsRes['message']);
         } else {
             Log::debug('短信发送配置关闭，发送给：' . $tel . ' 内容：' . $smsTemplate);
         }
@@ -83,10 +71,28 @@ class Controller extends BaseController
         $key = config('redisKey.STRING_SMSCODE_') . $temp . ':' . $tel;
         $masterRedis->addString($key, $captcha, config('setting.sms_life_time'));
 
-        return [
-            'success' => true,
-            'data' => true,
-            'message' => '验证码发送成功!'
-        ];
+        return $this->sendResponse(true, '验证码发送成功');
     }
+
+    // 发送成功请求
+    public function sendResponse($result, $message)
+    {
+        $response = [
+            'success' => true,
+            'data' => $result,
+            'message' => $message
+        ];
+        return response()->json($response, 200);
+    }
+
+    // 发送失败请求
+    public function sendError($errorMessages = '', $code = 415)
+    {
+        $response = [
+            'success' => false,
+            'message' => $errorMessages,
+        ];
+        return response()->json($response, $code);
+    }
+
 }

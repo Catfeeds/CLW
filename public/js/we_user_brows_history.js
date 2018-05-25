@@ -15,8 +15,14 @@ module.exports = __webpack_require__(119);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui__);
 window.$ = window.jQuery = __webpack_require__(0);
 window.Vue = __webpack_require__(4);
+
+
 
 var pageOne = JSON.parse($('#pageOne').val());
 var app = new Vue({
@@ -58,8 +64,12 @@ $(document).on('touchstart', '.more button', function (e) {
             }
             app.page = app.page + 1;
         },
-        error: function error(data) {
-            alert(data.responseJSON.message);
+        error: function error(res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2_mint_ui__["Toast"])({
+                message: res.responseJSON.message,
+                position: 'center',
+                duration: 5000
+            });
         }
     });
 });

@@ -124,9 +124,9 @@ $(document).on('touchend || tap', '.loginOut', function () {
                     window.location.href = '/user';
                 }, 2000);
             },
-            error: function error(data) {
+            error: function error(res) {
                 Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-                    message: data.responseJSON.message,
+                    message: res.responseJSON.message,
                     position: 'center',
                     duration: 5000
                 });

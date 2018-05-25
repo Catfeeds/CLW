@@ -24,11 +24,6 @@ body .mui-bar-nav {
           box-shadow: 0 0 0 transparent;
 }
 
-html .mui-bar-nav .mui-title,
-body .mui-bar-nav .mui-title {
-  margin-top: 20px;
-}
-
 html .mui-bar-nav .select-box,
 body .mui-bar-nav .select-box {
   margin-left: -10px;
@@ -45,6 +40,78 @@ html .main-content,
 body .main-content {
   margin-top: 55px;
   padding-bottom: 50px;
+}
+
+.nothing {
+  margin-top: 50%;
+  text-align: center;
+}
+
+.nothing img {
+  width: 141px;
+  height: 95px;
+}
+
+.nothing form {
+  margin: 0 auto;
+  margin-top: 24px;
+  width: 73%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nothing form .input-box {
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: #FFFFFF;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nothing form .input-box input {
+  width: 100%;
+  border: 0;
+  margin-bottom: 0 !important;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.nothing form .input-box input::-webkit-input-placeholder {
+  color: #999999;
+  font-size: 14px;
+}
+
+.nothing form .input-box input:-ms-input-placeholder {
+  color: #999999;
+  font-size: 14px;
+}
+
+.nothing form .input-box input::-ms-input-placeholder {
+  color: #999999;
+  font-size: 14px;
+}
+
+.nothing form .input-box input::placeholder {
+  color: #999999;
+  font-size: 14px;
+}
+
+.nothing form .btn-box button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .more {
@@ -65,5 +132,15 @@ body .main-content {
   height: 44px;
   color: #007eff;
   font-size: 17px;
+}
+
+.more .loading {
+  font-size: 16px;
+}
+
+.more .loading i {
+  font-size: 16px;
+  margin-right: 3px;
+  color: #666;
 }
 
