@@ -6,15 +6,15 @@
 @section('body')
     <div>
         <footer id="footer" class="mui-row">
-            <div class="collect mui-col-xs-6" style="text-align: center;">
+            <div class="collect mui-col-xs-6">
                 <img src="https://upload.chulouwang.com/Fskst8Zv9Hp78Z0loIoFj8-RF0QA">
-                <span style="font-size: 20px;">4000-580-888</span>
+                <span>4000-580-888</span>
             </div>
-            <div class="mui-col-xs-6" id="free" style="text-align: center; margin-left: 10px">
-                <a href="tel:4000-580-888">
-                    <button id="btn_reservation" type="button" class="mui-btn mui-btn-primary" style="width: 180px; height: 48px; font-size:18px ">立即预约</button>
-                </a>
-            </div>
+            <a href="tel:4000-580-888" class="mui-col-xs-6">
+                <div id="free" style="text-align: center; margin-left: 10px">
+                    <button id="btn_reservation" type="button" class="mui-btn mui-btn-primary" style="width: 100%; height: 100%; font-size:18px ">立即预约</button>
+                </div>
+            </a>
         </footer>
         <div style="margin-bottom: 64px;">
             @foreach($res->detail_url as $img)

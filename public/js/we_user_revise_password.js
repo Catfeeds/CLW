@@ -80,7 +80,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
                 setTimeout(function () {
                     toast.close();
                     window.location.href = '/user';
-                }, 2000);
+                }, 1000);
             },
             error: function error(res) {
                 Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({

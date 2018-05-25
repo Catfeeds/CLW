@@ -62,7 +62,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             setTimeout(() => {
                 toast.close()
                 window.location.href = '/reset_tel_view'
-            },2000)
+            },1000)
         },
         error: function (res) {
             Toast({

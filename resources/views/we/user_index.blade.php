@@ -15,45 +15,59 @@
     <div class="main-content" style="background-color: #ffffff;">
       <div class="top mui-row">
         <!-- 委托找房 -->
-        <div id="entrust" class="mui-col-xs-3 entrust">
-          <img src="/we_img/user_index_entrust.png">
-          <h5>委托找房</h5>
-        </div>
-        <!-- 投放房源 -->
-        <div id="launch" class="mui-col-xs-5 entrust">
-          <div class="mui-row">
-            <div class="border mui-col-xs-1"></div>
-            <div class="mui-col-xs-10">
-              <img src="/we_img/user_index_launch.png">
-              <h5>投放房源</h5>
-            </div>
-            <div class="border mui-col-xs-1"></div>
+        <a href="/user_find_house" id="entrust" class="mui-col-xs-3 entrust">
+          <div>
+            <img src="/we_img/user_index_entrust.png">
+            <h5>委托找房</h5>
           </div>
-        </div>
+        </a>
+        <!-- 投放房源 -->
+        <a href="/user_house_resources"  id="launch" class="mui-col-xs-5 entrust">
+          <div>
+            <div class="mui-row">
+              <div class="border mui-col-xs-1"></div>
+              <div class="mui-col-xs-10">
+                <img src="/we_img/user_index_launch.png">
+                <h5>投放房源</h5>
+              </div>
+              <div class="border mui-col-xs-1"></div>
+            </div>
+          </div>
+        </a>
         <!-- 浏览记录 -->
-        <div id="browse" class="mui-col-xs-3 entrust">
-          <img src="/we_img/user_index_browse.png">
-          <h5>浏览器记录</h5>
-        </div>
+        <a href="/browse_records" id="browse" class="mui-col-xs-3 entrust">
+          <div>
+            <img src="/we_img/user_index_browse.png">
+            <h5>浏览器记录</h5>
+          </div>
+        </a>
       </div>
       <!-- 我的收藏 -->
+      <a href="/collections">
       <div class="collection" id="collection">
-        <span>我的收藏</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
+        <span>我的收藏</span><span href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></span>
       </div>
+      </a>
       <!-- 电话咨询 -->
+      <a href="tel:4000-580-888">
         <div class="userList" id="consult">
           <span>电话咨询</span>
-          <a class="mui-pull-right"><span>4000-580-888</span><img src="/we_img/house_detail_drop_down.png">
-         </a>
+          <span class="mui-pull-right"><span>4000-580-888</span><img src="/we_img/house_detail_drop_down.png">
+         </span>
         </div>
+      </a>
       <!-- 关于我们 -->
-      <div class="userList" id="aboutUs">
-        <span>关于我们</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
-      </div>
+      <a href="/user_about_us">
+        <div class="userList" id="aboutUs">
+          <span>关于我们</span><span class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></span>
+        </div>
+      </a>
       <!-- 个人设置 -->
-      <div class="userList" id="setting">
-        <span>个人设置</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
-      </div>
+      <a href="/user_setting">
+        <div class="userList" id="setting">
+          <span>个人设置</span><span class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></span>
+        </div>
+      </a>
     </div>
     <!-- 底部导航 -->
         @include('we.tab')

@@ -75,12 +75,15 @@ $(document).on('touchend || tap', '#submit', function (e) {
         data: data,
         success: function success(res) {
             if (res.success) {
-                Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                    message: '登录成功',
+                var toast = Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                    message: data.message,
                     position: 'center',
                     duration: 2000
                 });
-                window.location.href = '/user';
+                setTimeout(function () {
+                    toast.close();
+                    window.location.href = '/user';
+                }, 1000);
             } else {
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                     message: res.message,

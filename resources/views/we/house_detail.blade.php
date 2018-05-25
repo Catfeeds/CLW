@@ -49,7 +49,7 @@
 									<h5><img src="/we_img/images/house_detail_bus.png">距离2号线 光谷广场 约183米</h5>
 								</div>
 							</div>-->
-					<img class="choice" v-if="($house->label_cn === true)" src="/we_img/house_detail_better.png">
+					<img class="choice" v-if="($house->label_cn === true)" src="/we_img/house_detail_choice.png">
 				</div>
 				<!--2基础信息-->
 				<div class="firstcard">

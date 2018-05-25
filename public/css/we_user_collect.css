@@ -1,17 +1,3 @@
-body header {
-  height: 65px !important;
-}
-
-body header .mui-title {
-  margin-top: 20px !important;
-}
-
-body header a {
-  display: inline-block;
-  width: 100px;
-  height: 64px;
-}
-
 body .mui-content {
   border-top: 1px solid #f4f4f4;
   margin-top: 65px;

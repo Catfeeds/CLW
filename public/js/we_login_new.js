@@ -63,7 +63,7 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
                     setTimeout(function () {
                         toast.close();
                         window.location.href = '/user';
-                    }, 2000);
+                    }, 1000);
                 }
             },
             error: function error(res) {

@@ -4,7 +4,7 @@
     width: 100%;
     background: #fff;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 8px 15px;
     position:fixed;
     bottom: 0px;
@@ -25,6 +25,9 @@
             display: inline-block;
             margin: {
                 left: 5px;
+            }
+            @media screen and (max-width: 400px) {
+                font-size: 17px;
             }
         }
     }

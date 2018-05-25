@@ -61,7 +61,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
                 setTimeout(() => {
                     toast.close()
                     window.location.href = '/user'
-                },2000)
+                },1000)
             },
             error: function (res) {
                 Toast({

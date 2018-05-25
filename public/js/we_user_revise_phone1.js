@@ -81,7 +81,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
             setTimeout(function () {
                 toast.close();
                 window.location.href = '/reset_tel_view';
-            }, 2000);
+            }, 1000);
         },
         error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({

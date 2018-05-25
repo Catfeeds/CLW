@@ -54,13 +54,16 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
             smsCode: smsCode_num
         },
         success: function success(data) {
-            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                message: data.message,
-                position: 'center',
-                duration: 2000
-            });
             if (data.success) {
-                window.location.href = '/user';
+                var toast = Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                    message: data.message,
+                    position: 'center',
+                    duration: 2000
+                });
+                setTimeout(function () {
+                    toast.close();
+                    window.location.href = '/user';
+                }, 1000);
             }
         },
         error: function error(res) {

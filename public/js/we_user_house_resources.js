@@ -115,14 +115,14 @@ $(document).on('touchend || tap', '.loginOut', function () {
             },
             success: function success(data) {
                 var toast = Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-                    message: data.message,
+                    message: '信息提交成功，楚楼网30分钟内联系您',
                     position: 'center',
                     duration: 5000
                 });
                 setTimeout(function () {
                     toast.close();
                     window.location.href = '/user';
-                }, 2000);
+                }, 1000);
             },
             error: function error(res) {
                 Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({

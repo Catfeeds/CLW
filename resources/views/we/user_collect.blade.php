@@ -11,6 +11,7 @@
             <div class="more">
                 <button type="button">查看更多</button>
             </div>
+            <div id="nothing"  style="color: #999;text-align:center;font-size:16px;margin-bottom: 60%;">暂无收藏</div>
         </div>
     </div>
     <script src="/js/we_user_collect.js"></script>
