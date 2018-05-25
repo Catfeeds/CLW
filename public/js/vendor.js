@@ -38512,11 +38512,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
           },
           error: function error(_error) {
-            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-              message: '服务器忙',
-              position: 'top',
-              duration: 3000
-            });
+            if (_error.status < 500) {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])(_error.responseJSON.message);
+            } else {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])('服务器出错');
+            }
           }
         });
       } else if (this.api === 2) {
@@ -38549,11 +38549,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
           },
           error: function error(_error2) {
-            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-              message: '服务器忙',
-              position: 'top',
-              duration: 3000
-            });
+            if (_error2.status < 500) {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])(_error2.responseJSON.message);
+            } else {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])('服务器出错');
+            }
           }
         });
       }

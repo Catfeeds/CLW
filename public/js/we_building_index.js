@@ -852,55 +852,15 @@ var app = new Vue({
           } else {
             self.status = false;
           }
+        },
+        error: function error(_error) {
+          if (_error.status < 500) {
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error.responseJSON.message);
+          } else {
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+          }
         }
       });
-    },
-    // 委托找房
-    findHouse: function findHouse() {
-      var tel = $('#telInput').val();
-      if (!tel || tel.trim() == '') {
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-          message: '请输入手机号',
-          position: 'center',
-          duration: 2000
-        });
-      } else {
-        $.ajax({
-          url: '/bespeaks',
-          type: 'POST',
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          data: {
-            tel: tel
-          },
-          success: function success(data) {
-            $('#backdrop').fadeOut(300);
-            $('#telInput').val('');
-            if (data.success) {
-              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-                message: data.message,
-                position: 'center',
-                duration: 3000
-              });
-            } else {
-              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-                message: '预约失败',
-                position: 'center',
-                duration: 3000
-              });
-            }
-          },
-          error: function error() {
-            $('#backdrop').fadeOut(300);
-            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-              message: '服务器繁忙,请联系客服处理',
-              position: 'center',
-              duration: 3000
-            });
-          }
-        });
-      }
     }
   }
 });
