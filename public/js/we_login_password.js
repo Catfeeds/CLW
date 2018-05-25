@@ -34,7 +34,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         });
         return false;
     }
-    var pathStr = tel.val() + '/' + 'login';
+    var pathStr = tel.val() + '/' + 'retrieve_password';
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

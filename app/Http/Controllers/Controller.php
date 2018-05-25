@@ -56,6 +56,9 @@ class Controller extends BaseController
         if ($temp == 'register') {
             if (!empty(User::where('tel', $tel)->first()))
                 return $this->sendError('该手机号已注册');
+        } elseif($temp == 'retrieve_password') {
+            if (empty(User::where('tel', $tel)->first()))
+                return $this->sendError('该手机号未注册');
         }
 
         $smsService = new SmsService();
