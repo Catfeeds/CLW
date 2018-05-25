@@ -781,6 +781,7 @@ window.Vue = __webpack_require__(4);
 
 
 var pageOne = JSON.parse($('#pageOne').val());
+console.log(pageOne);
 var app = new Vue({
   el: '#buildingList',
   data: {
