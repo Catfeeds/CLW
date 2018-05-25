@@ -5,7 +5,7 @@
         </div>
         <house-list :list="list" goodImg='/we_img/house_detail_decoration.png'></house-list>
         <div class="more">
-            <button type="button" v-if="add" @click='getData'>查看更多</button>
+            <button type="button" v-if="add" @touchend='getData'>查看更多</button>
         </div>
     </div>
 </template>

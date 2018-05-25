@@ -7,38 +7,9 @@
 <div id="pullrefresh" class="mui-content">
 	<input id="imgList" value="{{$house->pic_url}}" type="hidden"/>
 	<div class="pullrefresh" id="Vuehouse">
-		<div id="popover" class="mui-popover" style="z-index:10;">
-			<div>
-			    <h4>预约信息</h4>
-			    <span class="closes">×</span>
-			</div>
-			<div>
-			    <form>
-					<input type="text" id="names" placeholder="称谓" />
-					<input type="tel" id="tel" placeholder="电话" />
-				</form>
-			</div>
-			<div>
-			    <button type="button" id="upload" class="mui-btn mui-btn-primary">提交</button>
-			</div>
-		</div>
-			<footer id="footer" class="mui-row">
-				<div class="collect mui-col-xs-2">
-					<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
-					<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
-                </div>
-                <div class="mui-col-xs-4" id="free">
-                    <a href="tel:4000-580-888">
-                        <img src="/we_img/detail_free.png" class="freebtn">
-                    </a>
-                </div>
-				<div class="mui-col-xs-4" id="order">
-					<img src="/we_img/detail_order.png" class="freebtn">
-				</div>
-			</footer>
 			<div class="mui-content" id="vueContent">
 				<div class="swiper-container" id="swiperBanner">
-					<detail-banner :list='imgList' :building="{{$house->id}}"></detail-banner>
+					<detail-banner :list='imgList'></detail-banner>
 				    <!-- 如果需要分页器 -->
 				    <!--<div class="swiper-pagination"></div>-->
 				</div>
@@ -139,7 +110,7 @@
 		<!-- 楼座信息 -->
 		<ul class="mui-table-view secondCard" style="border-top:10px solid #f4f4f4;">
 			<li class="mui-table-view-cell mui-collapse" id="collapse">
-				<a style="line-height:40px;color:#333333;" class="mui-navigate-right top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;栋座信息</a> 
+				<a style="line-height:40px;color:#333333;" class="mui-navigate-right top">&nbsp;&nbsp;&nbsp;栋座信息</a>
 					<div class="mui-collapse-content">
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>等级</h4></div>
@@ -185,7 +156,7 @@
 				</li>
 			</ul>
 			<!--3房源优势-->
-			<div class="advantage">
+				<div class="advantage">
 				<div class="top">
 					<h3>房源优势</h3>
 				</div>
@@ -215,20 +186,51 @@
 				</div>
 					<div>
 						<div id="secondmap">
-							{{--<baidu-map :zoom="14" class="map" style="display: flex;height:100%; flex-direction: column" :center="center">--}}
-								{{--<bm-view style="width: 100%; height:100%; flex: 1"></bm-view>--}}
-								{{--<bm-marker :position="center">--}}
-									{{--<bm-label content="" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>--}}
-								{{--</bm-marker>--}}
-							{{--</baidu-map>--}}
+							<baidu-map :zoom="14" class="map" style="display: flex;height:100%; flex-direction: column" :center='{"lng": {{$house->gps[0]}}, "lat": {{$house->gps[1]}} }'>
+								<bm-view style="width: 100%; height:100%; flex: 1"></bm-view>
+								<bm-marker :position='{"lng": {{$house->gps[0]}}, "lat": {{$house->gps[1]}} }'>
+									<bm-label content="{{$house->building_name}}" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>
+								</bm-marker>
+							</baidu-map>
 						</div>
 					</div>
 					<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
 				</div>
 				<!--5最下推荐-->
-				<house-detail-list :api='2' ref='houseDetailList' style="margin-bottom:100px;"></house-detail-list>
+				<house-detail-list :api='2' building ='{{$house->id}}' style="margin-bottom:65px;"></house-detail-list>
 				<!-- 预约看房弹框 -->
 			</div>
+				<div class="mui-backdrop js_closes" id="backdrop" style="display: none">
+					<div id="popover" class="mui-popover mui-active" style="z-index:10;">
+						<div>
+							<h4>预约信息</h4>
+							<span class="js_closes">×</span>
+						</div>
+						<div>
+							<form>
+								<input type="text" id="names" placeholder="称谓" />
+								<input type="tel" id="tel" placeholder="电话" />
+							</form>
+						</div>
+						<div>
+							<button type="button" id="upload" class="mui-btn mui-btn-primary">提交</button>
+						</div>
+					</div>
+				</div>
+				<footer id="footer" class="mui-row">
+					<div class="collect mui-col-xs-2">
+						<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
+						<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
+					</div>
+					<div class="mui-col-xs-4" id="free">
+						<a href="tel:4000-580-888">
+							<img src="/we_img/detail_free.png" class="freebtn">
+						</a>
+					</div>
+					<div class="mui-col-xs-4" id="order">
+						<img src="/we_img/detail_order.png" class="freebtn">
+					</div>
+				</footer>
 			</div>
 		</div>
     </div>

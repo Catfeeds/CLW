@@ -42,7 +42,7 @@ window.Vue = __webpack_require__(5);
 
 
 var Swiper = __webpack_require__(45);
-Vue.component('building-list', __webpack_require__(22));
+Vue.component('building-list', __webpack_require__(23));
 var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
   el: '#listApp',
