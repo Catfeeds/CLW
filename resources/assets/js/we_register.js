@@ -11,7 +11,7 @@ var tel = $('#tel'),
     getSms = $('#getSms'),
     getSmsType = true;
 
-$(document).on('touchend || tap', '#submit', (e) => {
+$(document).on('click', '#submit', (e) => {
     var tel_num = tel.val(), sms_num = sms.val(), password_num = password.val();
     if (!tel_num || tel_num.trim() === '') {
         Toast({
@@ -81,7 +81,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
         }
     });
 });
-$(document).on('touchend || tap', '#getSms', (e) => {
+$(document).on('click', '#getSms', (e) => {
     if (!tel.val() || tel.val().trim() === '') {
         Toast({
             message: '请输入手机号码',

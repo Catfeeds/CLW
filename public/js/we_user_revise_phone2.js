@@ -1,14 +1,14 @@
-webpackJsonp([9],{
+webpackJsonp([6],{
 
-/***/ 132:
+/***/ 130:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(133);
+module.exports = __webpack_require__(131);
 
 
 /***/ }),
 
-/***/ 133:
+/***/ 131:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22,7 +22,7 @@ window.$ = window.jQuery = __webpack_require__(0);
 
 var getSmsType = true;
 // 获取验证码
-$(document).on('touchend || tap', '#getSms', function () {
+$(document).on('click', '#getSms', function () {
     if (!getSmsType) {
         return false;
     } else {
@@ -64,7 +64,7 @@ $(document).on('touchend || tap', '#getSms', function () {
     });
 });
 // 修改电话号码
-$(document).on('touchend || tap', '.loginOut', function () {
+$(document).on('click', '.loginOut button', function () {
     var tel = $('#tel').val();
     var smsCode = $('#sms').val();
     $.ajax({
@@ -100,4 +100,4 @@ $(document).on('touchend || tap', '.loginOut', function () {
 
 /***/ })
 
-},[132]);
+},[130]);

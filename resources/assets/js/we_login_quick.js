@@ -3,9 +3,9 @@ import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 var tel = $('#tel'),
     smsCode = $('#sms'),
-    getSms = $('#getSms')
+    getSms = $('#getSms'),
     getSmsType = true;
-$(document).on('touchend || tap','.loginBtn button',(e)=> {
+$(document).on('click','.loginBtn button',(e)=> {
     var tel_num = tel.val(), smsCode_num= smsCode.val();
 
     if (!tel_num || tel_num.trim() === '') {
@@ -57,7 +57,8 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
     });
 });
 
-$(document).on('touchend || tap', '#getSms', (e) => {
+$(document).on('click', '#getSms', (e) => {
+    console.log('censhiceshi ')
     var tel_num = tel.val();
     if (!tel_num || tel_num.trim() === '') {
         Toast({

@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('jquery');
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
-$(document).on('touchend || tap','.loginBtn button',(e)=> {
+$(document).on('click','.loginBtn button',(e)=> {
   var tel = $('#tel').val(),
     password = $('#password').val();
   // 判断数据是否存在

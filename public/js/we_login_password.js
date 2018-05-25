@@ -1,14 +1,14 @@
-webpackJsonp([18],{
+webpackJsonp([17],{
 
-/***/ 110:
+/***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(111);
+module.exports = __webpack_require__(109);
 
 
 /***/ }),
 
-/***/ 111:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26,7 +26,7 @@ var tel = $('#tel'),
     password = $('#password'),
     getSmsType = true;
 
-$(document).on('touchend || tap', '#getSms', function (e) {
+$(document).on('click', '#getSms', function (e) {
     if (!tel.val() || tel.val().trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
             message: '请输入手机号码',
@@ -75,7 +75,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         }
     });
 });
-$(document).on('touchend || tap', '.loginBtn button', function (e) {
+$(document).on('click', '.loginBtn button', function (e) {
     var tel_num = tel.val(),
         smsCode_num = smsCode.val(),
         password_num = password.val();
@@ -148,4 +148,4 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
 
 /***/ })
 
-},[110]);
+},[108]);
