@@ -20,6 +20,8 @@ Route::post('retrieve_pwd', 'LoginsController@retrievePwd');
 
 // 楼盘列表页
 Route::resource('buildings', 'BuildingController');
+//楼盘详情 地图接口
+Route::get('get_map/{id}', 'BuildingController@getMap');
 //楼盘下的房源列表
 Route::get('buildings_office/{id}','BuildingController@showOffice');
 //精选楼盘
@@ -30,6 +32,7 @@ Route::resource('bespeaks', 'BespeakController');
 Route::resource('throw_ins', 'ThrowInController');
 // 房源详情页
 Route::resource('houses', 'HouseController');
+Route::get('rim_houses/{id}','HouseController@showOffice');
 
 // 服务
 Route::resource('servers', 'ServerController');
@@ -106,6 +109,7 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     */
     Route::resource('collections', 'CollectionsController');
     Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
+    Route::get('del/{id}', 'CollectionsController@del');
 
 
  });
