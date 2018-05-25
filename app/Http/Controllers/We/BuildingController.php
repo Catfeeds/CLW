@@ -4,6 +4,7 @@ namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
+use App\Models\OfficeBuildingHouse;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use App\Services\OfficeBuildingHousesService;
@@ -97,6 +98,21 @@ class BuildingController extends APIBaseController
         return $this->sendResponse($res, '房源列表获取成功');
     }
 
+
+    // 楼盘详情 地图
+    public function getMap
+    (
+        BuildingsRepository $buildingsRepository,
+        BuildingsService $service,
+        $id
+    )
+    {
+        $building = Building::find($id);
+        $res = $buildingsRepository->getShow($building, $service);
+        if (!empty($building->company)) $building->company_cn = implode(',', $building->company);
+        dd($res);
+        return view('we.map')->with('data', $res);
+    }
 
 
 

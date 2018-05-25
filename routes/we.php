@@ -20,6 +20,8 @@ Route::post('retrieve_pwd', 'LoginsController@retrievePwd');
 
 // 楼盘列表页
 Route::resource('buildings', 'BuildingController');
+//楼盘详情 地图接口
+Route::get('get_map/{id}', 'BuildingController@getMap');
 //楼盘下的房源列表
 Route::get('buildings_office/{id}','BuildingController@showOffice');
 //精选楼盘
