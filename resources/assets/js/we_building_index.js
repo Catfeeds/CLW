@@ -13,10 +13,10 @@ var app = new Vue({
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 15,
-    status: pageOne.data.length === 15,
+    getData: pageOne.data.length === 10,
+    status: pageOne.data.length === 10,
     page: 2,
-    more: null
+    more: null,
   },
   components: {
     buildingSelect,

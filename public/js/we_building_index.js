@@ -786,8 +786,8 @@ var app = new Vue({
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 15,
-    status: pageOne.data.length === 15,
+    getData: pageOne.data.length === 10,
+    status: pageOne.data.length === 10,
     page: 2,
     more: null
   },
@@ -929,7 +929,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-85f18832"
+var __vue_scopeId__ = "data-v-088a7ea7"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -940,7 +940,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\buildingSelect.vue"
+Component.options.__file = "resources/assets/js/components/buildingSelect.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -949,9 +949,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85f18832", Component.options)
+    hotAPI.createRecord("data-v-088a7ea7", Component.options)
   } else {
-    hotAPI.reload("data-v-85f18832", Component.options)
+    hotAPI.reload("data-v-088a7ea7", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -972,13 +972,13 @@ var content = __webpack_require__(80);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("b274be70", content, false, {});
+var update = __webpack_require__(7)("84aebc14", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85f18832\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85f18832\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-088a7ea7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-088a7ea7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -996,7 +996,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.VueSelectBox[data-v-85f18832] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-85f18832] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-85f18832] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-85f18832] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-85f18832] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-85f18832] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-85f18832] {\n    border-top: 1px solid #f4f4f4;\n    background: #ffffff;\n    position: absolute;\n    width: 100%;\n    top: 100%;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-85f18832] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-85f18832] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-85f18832] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-85f18832] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-85f18832] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-85f18832] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-85f18832]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-85f18832] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-85f18832] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-85f18832] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-85f18832] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-85f18832] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-85f18832] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-85f18832] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-85f18832] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-85f18832]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-85f18832] {\n          color: #007eff;\n}\n", ""]);
+exports.push([module.i, "\n.VueSelectBox[data-v-088a7ea7] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-088a7ea7] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-088a7ea7] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-088a7ea7] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-088a7ea7] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-088a7ea7] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-088a7ea7] {\n    border-top: 1px solid #f4f4f4;\n    background: #ffffff;\n    position: absolute;\n    width: 100%;\n    top: 100%;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-088a7ea7] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-088a7ea7] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-088a7ea7] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-088a7ea7] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-088a7ea7] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-088a7ea7] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-088a7ea7] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-088a7ea7] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-088a7ea7] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-088a7ea7] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-088a7ea7] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-088a7ea7] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-088a7ea7] {\n          color: #007eff;\n}\n", ""]);
 
 // exports
 
@@ -3185,7 +3185,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-85f18832", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-088a7ea7", module.exports)
   }
 }
 
