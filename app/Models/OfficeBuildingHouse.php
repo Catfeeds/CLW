@@ -47,12 +47,12 @@ class OfficeBuildingHouse extends Model
                 ];
             });
         } else {
-            return [
+            return collect([
                 [
                     'name' => '',
                     'url' => config('setting.house_default_img')
                 ]
-            ];
+            ]);
         }
     }
 
