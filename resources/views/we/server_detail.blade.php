@@ -8,20 +8,13 @@
         <footer id="footer" class="mui-row">
             <div class="collect mui-col-xs-6">
                 <img src="https://upload.chulouwang.com/Fskst8Zv9Hp78Z0loIoFj8-RF0QA">
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <span style="font-size: 18px;">4000-580-888</span>
             </div>
             <div class="mui-col-xs-6" id="free" style="text-align: center; margin-left: 10px">
                 <a href="tel:4000-580-888">
                     <button id="btn_reservation" type="button" class="mui-btn mui-btn-primary" style="width: 180px; height: 48px; font-size:18px ">立即预约</button>
                 </a>
-=======
                 <span>4000-580-888</span>
->>>>>>> origin/jacklin
-=======
-                <span>4000-580-888</span>
->>>>>>> origin/jacklin
             </div>
             <a href="tel:4000-580-888" class="mui-col-xs-6">
                 <div id="free" style="text-align: center; margin-left: 10px">
