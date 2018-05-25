@@ -89,7 +89,7 @@ class OfficeBuildingHousesService
                 'id' => 3,
             ],
             [
-                'name' => '间装修',
+                'name' => '简装修',
                 'id' => 4,
             ],
             [
