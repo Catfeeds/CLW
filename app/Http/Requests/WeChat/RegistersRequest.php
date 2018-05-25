@@ -29,7 +29,11 @@ class RegistersRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'tel.not_in' => '手机号不能重复'
+                    'tel.not_in' => '手机号不能重复',
+                    'smsCode.numeric' => '验证码必须为数字',
+                    'smsCode.max' => '验证码长度过长',
+                    'password.min' => '密码最小长度为6位',
+                    'password.max' => '密码最大长度为18位'
                 ];
             default;
                 return [

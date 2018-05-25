@@ -24,11 +24,6 @@ body .mui-bar-nav {
           box-shadow: 0 0 0 transparent;
 }
 
-html .mui-bar-nav .mui-title,
-body .mui-bar-nav .mui-title {
-  margin-top: 20px;
-}
-
 html .mui-bar-nav .select-box,
 body .mui-bar-nav .select-box {
   margin-left: -10px;
@@ -43,6 +38,7 @@ body .mui-bar-nav .select-box {
 
 html .main-content,
 body .main-content {
+  margin-top: 55px;
   padding-bottom: 50px;
 }
 
