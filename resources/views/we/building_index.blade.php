@@ -19,9 +19,9 @@
                 <button type="button">查看更多</button>
             </div>
             <div class="more" v-if="!getData && status">
-                <button type="button">
-                    <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i>正在加载。。。
-                </button>
+                <div type="button" class="loading">
+                    <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
+                </div>
             </div>
         </div>
     </div>

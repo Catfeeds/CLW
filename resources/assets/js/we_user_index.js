@@ -27,3 +27,7 @@ $(document).on('touchend || tap', '#collection', function(){
 $(document).on('touchend || tap', '#browse', function(){
     window.location.href = '/browse_records'
 })
+// 电话咨询
+$(document).on('touchend || tap', '#consult', function(){
+    window.location.href = 'tel://4000-580-888'
+})
