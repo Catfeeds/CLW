@@ -83,7 +83,7 @@ class IndexController extends Controller
             'serviceRecommends' => $serviceRecommends,
             'hotBlocks' => $hotBlocks,
             'buildingRecommends' => $buildingRecommends,
-            'buildings' => $buildings['data'],
+            'buildings' => $buildings,
             'areas' => $areas
         ]);
     }

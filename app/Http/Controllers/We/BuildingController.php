@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
-use App\Http\Controllers\Controller;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 
 
-class BuildingController extends Controller
+class BuildingController extends APIBaseController
 {
     /**
      * 说明: 楼盘列表 试图
@@ -58,8 +58,9 @@ class BuildingController extends Controller
                 $request->$key = $item;
             }
         }
+
         $res = $buildingsRepository->buildingList($request, $service);
-        return $res;
+        return $this->sendResponse($res, '楼盘列表数据获取成功');
     }
 
 
