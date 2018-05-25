@@ -10,12 +10,11 @@ use App\Services\OfficeBuildingHousesService;
 
 class HouseController extends APIBaseController
 {
-    // 房源详情以及相关房源
+    // 房源详情
     public function show
     (
         $id,
-        HousesService $service,
-        OfficeBuildingHousesRepository $repository
+        HousesService $service
     )
     {
 
@@ -23,7 +22,6 @@ class HouseController extends APIBaseController
         // 房源数据
         $house = $service->getShow($officeBuildingHouse);
         // 相关房源
-        dd($house);
         return view('we.house_detail')->with(['house' => $house]);
     }
 
@@ -41,7 +39,7 @@ class HouseController extends APIBaseController
     (
         $id,
         OfficeBuildingHousesRepository $buildingHousesRepository,
-        OfficeBuildingHousesService $service
+        HousesService $service
     )
     {
         $res = $buildingHousesRepository->getShowOffice($service, $id);
@@ -58,10 +56,10 @@ class HouseController extends APIBaseController
      * @author 罗振
      */
     public function blockCondition(
-        OfficeBuildingHousesService $officeBuildingHousesService
+        HousesService $service
     )
     {
-        if (empty($res = $officeBuildingHousesService->blockCondition())) return $this->sendError('找房列表区域搜索条件获取失败');
+        if (empty($res = $service->blockCondition())) return $this->sendError('找房列表区域搜索条件获取失败');
         return $this->sendResponse($res,'找房列表区域搜索条件获取成功');
     }
 
@@ -73,10 +71,10 @@ class HouseController extends APIBaseController
      * @author 罗振
      */
     public function otherCondition(
-        OfficeBuildingHousesService $officeBuildingHousesService
+        HousesService $service
     )
     {
-        if (empty($res = $officeBuildingHousesService->otherCondition())) return $this->sendError('找房列表其他搜索条件获取失败');
+        if (empty($res = $service->otherCondition())) return $this->sendError('找房列表其他搜索条件获取失败');
         return $this->sendResponse($res,'找房列表其他搜索条件获取成功');
     }
 }

@@ -20,7 +20,6 @@ class OfficeBuildingHousesService
     {
         // 获取所有推荐商圈
         $recommendBlocks = Block::where('recommend', '!=', null)->withCount('building')->get();
-
         // 推荐商圈数据
         $recommendBlocksData = array();
         $recommendBlocksData['name'] = '推荐';
@@ -216,9 +215,9 @@ class OfficeBuildingHousesService
      */
     public function labelShow($res)
     {
-        $res->label_cn = '无标签';
+        $res->label_cn = false;
         if ($res->houseLabel) {
-            $res->label_cn = '有标签';
+            $res->label_cn = true;
         }
         return $res;
     }
@@ -254,8 +253,8 @@ class OfficeBuildingHousesService
             //图片
         $res->img = $res->officeBuildingHouse->getIndoorImgCnAttribute();
             //标签
-        $res->label = '无标签';
-        if ($res->officeBuildingHouse->houseLabel) $res->label = '有标签';
+        $res->label = false;
+        if ($res->officeBuildingHouse->houseLabel) $res->label = true;
             //房源标签
         $res->feature = $res->officeBuildingHouse->getHouseFeatureAttribute();
         return $res;
