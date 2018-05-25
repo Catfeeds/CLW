@@ -23,7 +23,6 @@ $(document).on('touchend || tap', '.loginOut', function(){
         url: "/logout",
         type: 'get',
         success: function(data){
-            console.log(11111111)
             var toast = Toast({
                 message: data.message,
                 position: 'center',
@@ -34,9 +33,9 @@ $(document).on('touchend || tap', '.loginOut', function(){
                 window.location.href = '/user'
             },2000)
         },
-        error: function (data) {
+        error: function (res) {
             Toast({
-                message: data.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 5000
             })

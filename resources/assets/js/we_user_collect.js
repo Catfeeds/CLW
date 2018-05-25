@@ -46,9 +46,9 @@ $(document).on('touchstart','.more button',(e)=> {
             }
             app.page =  app.page + 1;
         },
-        error: function (data) {
+        error: function (res) {
             Toast({
-                message: data.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 5000
             })
