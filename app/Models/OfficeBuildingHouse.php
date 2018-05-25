@@ -12,6 +12,10 @@ class OfficeBuildingHouse extends Model
 
     protected $casts = [
         'indoor_img' => 'array',
+        'constru_acreage' => 'integer',
+        'min_acreage' => 'integer',
+        'unit_price' => 'integer',
+        'total_price' => 'integer',
     ];
 
     protected $appends = [
@@ -96,7 +100,7 @@ class OfficeBuildingHouse extends Model
         if (empty($this->unit_price)) {
             return '';
         } else {
-            return $this->unit_price.'元/㎡·月';
+            return (int)$this->unit_price.'元/㎡·月';
         }
 
     }
@@ -251,7 +255,7 @@ class OfficeBuildingHouse extends Model
         } elseif ($this->renovation == 3) {
             return '中装修';
         } elseif ($this->renovation == 4) {
-            return '间装修';
+            return '简装修';
         } elseif ($this->renovation == 5) {
             return '毛坯';
         } else {
