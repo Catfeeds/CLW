@@ -383,8 +383,20 @@ class OfficeBuildingHouse extends Model
         } else {
             $data[] = '';
         }
-        $data[] = $this->getPaymentTypeCnAttribute();
-        $data[] = $this->getRenovationCnAttribute();
+        //付款方式
+        if ($this->payment_type == 1) {
+            $data[] = '押一付一';
+        } elseif ($this->payment_type == 2) {
+            $data[] = '押一付二';
+        } else {
+            $data[] = '';
+        }
+        //装修
+        if ($this->renovation == 1) {
+            $data[] = '豪华装修';
+        } else {
+            $data[] = '';
+        }
         return $data;
     }
 
