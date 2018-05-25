@@ -63,11 +63,11 @@ export default {
                 }
               },
               error: function (error) {
-                Toast({
-                  message: '服务器忙',
-                  position: 'top',
-                  duration: 3000
-                });
+                if (error.status < 500) {
+                  Toast(error.responseJSON.message)
+                } else {
+                  Toast('服务器出错')
+                }
               }
             })
           } else if(this.api === 2) { // 请求房源下的数据
@@ -99,11 +99,11 @@ export default {
                 }
               },
               error: function (error) {
-                Toast({
-                  message: '服务器忙',
-                  position: 'top',
-                  duration: 3000
-                });
+                if (error.status < 500) {
+                  Toast(error.responseJSON.message)
+                } else {
+                  Toast('服务器出错')
+                }
               }
             })
           }

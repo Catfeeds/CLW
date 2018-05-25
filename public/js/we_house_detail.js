@@ -76,6 +76,9 @@ $('#upload').on('touchend', function () {
   $.ajax({
     url: '/bespeaks',
     type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
     data: {
       appellation: name,
       tel: tel
@@ -128,6 +131,9 @@ $(document).on('touchend', '.js_collect', function (e) {
     $.ajax({
       url: '/collections',
       type: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
       data: {
         house_id: house_id
       },
