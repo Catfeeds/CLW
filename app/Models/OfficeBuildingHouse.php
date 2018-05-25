@@ -100,7 +100,7 @@ class OfficeBuildingHouse extends Model
         if (empty($this->unit_price)) {
             return '';
         } else {
-            return $this->unit_price.'元/㎡·月';
+            return (int)$this->unit_price.'元/㎡·月';
         }
 
     }
