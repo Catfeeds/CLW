@@ -90,7 +90,7 @@ export default {
         }
     }
     .mui-content{
-        border-top: 1px solid #f4f4f4;
+        border-top: 0.5px solid #f4f4f4;
         ul.self-style{
             &::before{
                 height: 0;
@@ -104,7 +104,7 @@ export default {
                     height: 0;
                 }
                 padding: 16px 15px 17px 15px;
-                border-bottom: 1px solid #f4f4f4;
+                border-bottom: 0.5px solid #f4f4f4;
                 display: flex;
                 justify-content: flex-start;
                 img{
