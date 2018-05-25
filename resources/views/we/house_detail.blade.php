@@ -24,8 +24,8 @@
 		</div>
 			<footer id="footer" class="mui-row">
 				<div class="collect mui-col-xs-2">
-					<img src="/we_img/detail_colletc1.png" class="mui-hidden" id="collect2">
-					<img src="/we_img/detail_collect.png" id="collect1"><span>收藏</span>
+					<img src="/we_img/detail_colletc1.png"  id="collect2">
+					<img src="/we_img/detail_collect.png" class="mui-hidden" id="collect1"><span>收藏</span>
                 </div>
                 <div class="mui-col-xs-4" id="free">
                     <a href="tel:4000-580-888">
@@ -207,26 +207,28 @@
                     @endif
 				</div>
 			</div>
+				<div id="VueBottomBox">
 			<!--4交通及周边配套-->
-			<div class="periphery">
-				<div class="top">
+				<div class="periphery">
+					<div class="top">
 					<h3>交通及周边配套</h3>
 				</div>
-				<div>
-				    <div id="secondmap">
-						{{--<baidu-map :zoom="14" class="map" style="display: flex;height:100%; flex-direction: column" :center="center">--}}
-							{{--<bm-view style="width: 100%; height:100%; flex: 1"></bm-view>--}}
-							{{--<bm-marker :position="center">--}}
-								{{--<bm-label content="" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>--}}
-							{{--</bm-marker>--}}
-						{{--</baidu-map>--}}
+					<div>
+						<div id="secondmap">
+							{{--<baidu-map :zoom="14" class="map" style="display: flex;height:100%; flex-direction: column" :center="center">--}}
+								{{--<bm-view style="width: 100%; height:100%; flex: 1"></bm-view>--}}
+								{{--<bm-marker :position="center">--}}
+									{{--<bm-label content="" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>--}}
+								{{--</bm-marker>--}}
+							{{--</baidu-map>--}}
+						</div>
 					</div>
-				</div> 
 					<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
 				</div>
 				<!--5最下推荐-->
 				<house-detail-list :api='2' ref='houseDetailList' style="margin-bottom:100px;"></house-detail-list>
 				<!-- 预约看房弹框 -->
+			</div>
 			</div>
 		</div>
     </div>

@@ -1,12 +1,17 @@
 window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
-Vue.component('detail-banner', require('./components/detailBanner.vue'));
-
+var detailBanner = require('./components/detailBanner.vue');
+var houseDetailList = require('./components/houseDetailList.vue');
 new Vue({
-  el: '#vueContent',
+  el: '#swiperBanner',
+  components: {detailBanner},
   data: {
     imgList: JSON.parse($('#imgList').val())
   }
+});
+new Vue({
+  el: '#VueBottomBox',
+  components: { houseDetailList }
 });
 // 显示或者隐藏栋座信息
 $('.top').click(function(){

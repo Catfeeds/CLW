@@ -40,7 +40,7 @@ export default {
               type: 'GET',
               data: { page: self.page },
               success: function (data) {
-                if (data.status) {
+                if (data.success) {
                   if (data.data.data.length === 0) {
                     self.add = false
                     Toast({
