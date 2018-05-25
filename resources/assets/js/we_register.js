@@ -50,12 +50,15 @@ $(document).on('touchend || tap', '#submit', (e) => {
         data: data,
         success: function (res) {
             if (res.success) {
-                Toast({
-                    message: '登录成功',
+                var toast = Toast({
+                    message: data.message,
                     position: 'center',
                     duration: 2000
                 })
-                window.location.href = '/user'
+                setTimeout(() => {
+                    toast.close()
+                    window.location.href = '/user'
+                },1000)
             } else {
                 Toast({
                     message: res.message,
