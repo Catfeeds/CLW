@@ -45,7 +45,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: 'registers',
+        url: '/registers',
         type: 'post',
         data: data,
         success: function (res) {
