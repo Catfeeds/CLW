@@ -59,6 +59,7 @@ class BuildingController extends APIBaseController
                 $request->$key = $item;
             }
         }
+
         $res = $buildingsRepository->buildingList($request, $service);
         if (!res) return $this->sendError('楼盘列表数据异常');
         return $this->sendResponse($res, '楼盘列表获取成功');

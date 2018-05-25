@@ -67,13 +67,9 @@ class Common
     public static function pageData($page, $data)
     {
         return [
-            'success' => true,
-            'data' => [
-                'current_page' => $page??1,
-                'data' => $data,
-                'per_page' => 6,
-            ],
-            'message' => '获取分页数据成功'
+            'current_page' => $page??1,
+            'data' => $data,
+            'per_page' => 6,
         ];
     }
 }

@@ -47,6 +47,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
         },
         url: 'registers',
         type: 'post',
+        data: data,
         success: function (res) {
             if (res.success) {
                 Toast({
