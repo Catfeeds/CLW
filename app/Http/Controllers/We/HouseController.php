@@ -5,6 +5,7 @@ namespace App\Http\Controllers\We;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\OfficeBuildingHouse;
 use App\Repositories\OfficeBuildingHousesRepository;
+use App\Services\HousesService;
 use App\Services\OfficeBuildingHousesService;
 
 class HouseController extends APIBaseController
@@ -13,14 +14,16 @@ class HouseController extends APIBaseController
     public function show
     (
         $id,
-        OfficeBuildingHousesService $service,
+        HousesService $service,
         OfficeBuildingHousesRepository $repository
     )
     {
+
         $officeBuildingHouse = OfficeBuildingHouse::findOrFail($id);
         // 房源数据
         $house = $service->getShow($officeBuildingHouse);
         // 相关房源
+        dd($house);
         return view('we.house_detail')->with(['house' => $house]);
     }
 
