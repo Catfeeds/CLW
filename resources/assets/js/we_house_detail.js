@@ -91,8 +91,8 @@ $(document).on('touchend', '.js_collect', function (e) {
       success: function (data) {
         if (data.success) {
           Toast('已取消收藏')
-          $('img#collect1').show()
-          $('img#collect2').hide()
+          $('img#collect1').removeClass('mui-hidden')
+          $('img#collect2').addClass('mui-hidden')
         } else {
           Toast(data.message)
         }
@@ -119,8 +119,8 @@ $(document).on('touchend', '.js_collect', function (e) {
       success: function (data) {
         if (data.success) {
           Toast('收藏成功')
-          $('img#collect1').hide()
-          $('img#collect2').show()
+          $('img#collect1').addClass('mui-hidden')
+          $('img#collect2').removeClass('mui-hidden')
         } else {
           Toast(data.message)
         }
