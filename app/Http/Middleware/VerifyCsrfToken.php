@@ -22,7 +22,8 @@ class VerifyCsrfToken extends Middleware
         'reset_tel',
         'throw_ins',
         'bespeaks',
-        'quick_login'
+        'quick_login',
+        'collections'
 
     ];
 }
