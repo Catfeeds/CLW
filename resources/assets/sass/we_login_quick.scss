@@ -81,7 +81,10 @@ body{
     >.agree{
         text-align: center;
         font-size: 14px;
-        margin-top: 50%;
+        position: absolute;
+        left: 50%;
+        margin-left: -142px;
+        bottom: 40px;
         >span{
             color: #999;
         }

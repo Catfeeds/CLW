@@ -29,7 +29,9 @@ class LoginsRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'tel.in' => '手机号必须存在'
+                    'tel.in' => '手机号必须存在',
+                    'password.min' => '密码最小长度为6位',
+                    'password.max' => '密码最大长度为18位'
                 ];
             case 'quickLogin':
                 return [

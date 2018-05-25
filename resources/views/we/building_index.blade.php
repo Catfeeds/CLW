@@ -8,21 +8,33 @@
     <input id="request" value="{{json_encode($req)}}" type="hidden">
     <div id="buildingList">
         <header id="header" class="mui-bar mui-bar-nav">
-            <h1 class="mui-title">写字楼</h1>
             <div class="select-box">
                 <building-select ref='buildingSelect' @@flush-data='changeData'></building-select>
             </div>
         </header>
         <div class="main-content">
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
+            <div class="nothing" v-if="list == ''">
+                <img src="/we_img/nothing.png">
+                <div>很抱歉，暂无匹配的房源</div>
+                <form>
+                    <div class="input-box">
+                        <input id="telInput" type="text" placeholder="请输入手机号"/>
+                    </div>
+                    <div class="btn-box">
+                        <button type="button" class="mui-btn mui-btn-primary" id="addBook" @touchend='findHouse'>委托找房</button>
+                    </div>
+                </form>
+            </div>
             <div class="more" v-if="getData" @touchend='getMore'>
                 <button type="button">查看更多</button>
             </div>
             <div class="more" v-if="!getData && status">
-                <button type="button">
-                    <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i>正在加载。。。
-                </button>
+                <div class="loading">
+                    <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
+                </div>
             </div>
+            <div class="more" v-if="!getData">没有更多数据了</div>
         </div>
     </div>
     <!-- 底部导航 -->

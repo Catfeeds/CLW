@@ -25,7 +25,7 @@ const app = new Vue({
           if (data.data.length === 0) {
             Toast({
               message: '已无更多数据',
-              position: 'top',
+              position: 'center',
               duration: 3000
             });
             self.status = false
@@ -67,7 +67,7 @@ $(document).on('tap || touchend', '#addBook', function () {
   if (!telReg.test(tel)) {
     Toast({
       message: '请输入11位手机号',
-      position: 'top',
+      position: 'center',
       duration: 3000
     });
     return false;
@@ -95,16 +95,16 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     success: function (data) {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
-      if(data.status) {
+      if(data.success) {
         Toast({
           message: data.message,
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       } else  {
         Toast({
           message: '预约失败',
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       }
@@ -113,7 +113,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       $('#backdrop').fadeOut(300);
       Toast({
         message: '服务器繁忙,请联系客服处理',
-        position: 'top',
+        position: 'center',
         duration: 3000
       });
     }
@@ -133,16 +133,16 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     success: function (data) {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
-      if(data.status) {
+      if(data.success) {
         Toast({
           message: data.message,
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       } else  {
         Toast({
           message: '投放失败',
-          position: 'top',
+          position: 'center',
           duration: 3000
         });
       }
@@ -151,7 +151,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       $('#backdrop').fadeOut(300);
       Toast({
         message: '服务器繁忙,请联系客服处理',
-        position: 'top',
+        position: 'center',
         duration: 3000
       });
     }

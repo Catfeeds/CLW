@@ -33,7 +33,7 @@ $(document).on('touchend || tap', '#getSms', function(){
         },
         error: function (res) {
             Toast({
-                message: responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             })
@@ -64,9 +64,9 @@ $(document).on('touchend || tap', '.loginOut', function(){
                 window.location.href = '/reset_tel_view'
             },2000)
         },
-        error: function (data) {
+        error: function (res) {
             Toast({
-                message: data.responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 5000
             })

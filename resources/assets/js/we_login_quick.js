@@ -41,9 +41,9 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
                 window.location.href = '/user'
             }
         },
-        error: function (data) {
+        error: function (res) {
             Toast({
-                message: data.responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             })
@@ -87,7 +87,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         },
         error: function (res) {
             Toast({
-                message: responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             })

@@ -1,1 +1,38 @@
-body,body .mui-content{background-color:#fff!important}body .mui-content .logo{text-align:center;margin-top:20%}body .mui-content .logo img{width:164px;height:129px}body .mui-content .title{font-size:15px;color:#333;text-align:center;margin-top:20%}body .mui-content .title div:not(:last-child){margin-bottom:10px}body .mui-content .agreement{margin-top:45%;text-align:center;font-size:13px}
+body {
+  background-color: #ffffff !important;
+}
+
+body .mui-content {
+  background-color: #ffffff !important;
+}
+
+body .mui-content .logo {
+  text-align: center;
+  margin-top: 20%;
+}
+
+body .mui-content .logo img {
+  width: 164px;
+  height: 129px;
+}
+
+body .mui-content .title {
+  font-size: 15px;
+  color: #333;
+  text-align: center;
+  margin-top: 20%;
+}
+
+body .mui-content .title div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+body .mui-content .agreement {
+  text-align: center;
+  font-size: 13px;
+  position: absolute;
+  left: 50%;
+  margin-left: -91px;
+  bottom: 40px;
+}
+

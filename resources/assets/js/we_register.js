@@ -45,8 +45,9 @@ $(document).on('touchend || tap', '#submit', (e) => {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: 'registers',
+        url: '/registers',
         type: 'post',
+        data: data,
         success: function (res) {
             if (res.success) {
                 Toast({
@@ -57,7 +58,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
                 window.location.href = '/user'
             } else {
                 Toast({
-                    message: res.data.message,
+                    message: res.message,
                     position: 'center',
                     duration: 2000
                 })
@@ -65,7 +66,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
         },
         error: function (res) {
             Toast({
-                message: responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             })
@@ -107,7 +108,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         },
         error: function (res) {
             Toast({
-                message: responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             })

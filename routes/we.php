@@ -114,5 +114,3 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
 
  });
 
-Route::get('map', 'ServerController@map');
-

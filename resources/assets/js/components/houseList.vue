@@ -1,7 +1,7 @@
 <template>
   <div>
-      <ul class="mui-table-view">
-          <li class="mui-table-view-cell mui-row" @touchend="jumpTo(item.id)" v-for="(item, key) in list" :key="'houses'+key">
+      <ul class="mui-table-view self-style">
+          <li class="mui-table-view-cell mui-row self-style" @touchend="jumpTo(item.id)" v-for="(item, key) in list" :key="'houses'+key">
               <img class="mui-col-xs-3" :src="item.indoor_img_cn + cropStyle">
               <div class="list mui-col-xs-7">
                   <div class="title">{{item.title}}</div>
@@ -50,9 +50,9 @@ export default {
 <style lang="scss">
     ul{
         border-top:0;
-        &.mui-table-view:before{ height:0}
-        &.mui-table-view:after{background-color: #f4f4f4;}
-        >li.mui-table-view-cell{
+        &.mui-table-view.self-style:before{ height:0}
+        &.mui-table-view.self-style:after{background-color: #f4f4f4;}
+        >li.mui-table-view-cell.self-style{
             &:after{
                 background-color: #f4f4f4;
                 left:0;
@@ -91,7 +91,7 @@ export default {
     }
     .mui-content{
         border-top: 1px solid #f4f4f4;
-        ul{
+        ul.self-style{
             &::before{
                 height: 0;
             }

@@ -4,11 +4,7 @@ body {
   background-color: #f4f4f4;
   .mui-bar-nav {
     background: #ffffff;
-    height: 115px;
     box-shadow: 0 0 0 transparent;
-    .mui-title{
-      margin-top: 20px;
-    }
     .select-box{
       margin: {
         left: -10px;
@@ -25,8 +21,54 @@ body {
     }
   }
   .main-content{
-    margin-top: 125px;
+    margin-top: 55px;
     padding-bottom: 50px;
+  }
+}
+.nothing{
+  margin-top: 50%;
+  text-align: center;
+  img{
+    width: 141px;
+    height: 95px;
+  }
+  form{
+    margin: 0 auto;
+    margin-top: 24px;
+    width: 73%;
+    display: flex;
+    .input-box{
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 2px 0 0 2px;
+      flex: 1;
+      background: #FFFFFF;
+      overflow: hidden;
+      display: flex;
+      input{
+        width: 100%;
+        border: 0;
+        margin-bottom: 0 !important;
+        padding: {
+          left: 10px;
+          right: 10px;
+          top: 0;
+          bottom: 0;
+        }
+        height: auto;
+        &::placeholder{
+          color: #999999;
+          font-size: 14px;
+        }
+        flex: 1;
+      }
+    }
+    .btn-box{
+      button{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
   }
 }
 .more{
@@ -41,5 +83,13 @@ body {
     height: 44px;
     color: #007eff;
     font-size: 17px;
+  }
+  .loading{
+    font-size: 16px;
+    i{
+      font-size: 16px;
+      margin-right: 3px;
+      color: #666;
+    }
   }
 }

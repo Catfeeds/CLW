@@ -58,6 +58,7 @@ class BuildingController extends APIBaseController
                 $request->$key = $item;
             }
         }
+
         $res = $buildingsRepository->buildingList($request, $service);
         if (!res) return $this->sendError('楼盘列表数据异常');
         return $this->sendResponse($res, '楼盘列表获取成功');
@@ -93,7 +94,7 @@ class BuildingController extends APIBaseController
     )
     {
         $res = $buildingsRepository->OfficeHouseList($service, $id);
-        if (!res) return $this->sendError('楼盘下房源列表数据异常');
+        if (!$res) return $this->sendError('楼盘下房源列表数据异常');
         return $this->sendResponse($res, '房源列表获取成功');
     }
 
@@ -109,7 +110,6 @@ class BuildingController extends APIBaseController
         $building = Building::find($id);
         $res = $buildingsRepository->getShow($building, $service);
         if (!empty($building->company)) $building->company_cn = implode(',', $building->company);
-        dd($res);
         return view('we.map')->with('data', $res);
     }
 

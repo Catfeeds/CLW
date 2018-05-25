@@ -1,1 +1,156 @@
-webpackJsonp([7],{102:function(t,e,i){t.exports=i(103)},103:function(t,e,i){window.$=window.jQuery=i(0),window.Vue=i(5),Vue.component("detail-banner",i(14)),new Vue({el:"#vueContent",data:{imgList:[]}}),$(".top").click(function(){$("#collapse").toggleClass("mui-active")}),$("#order").click(function(){$("#popover").toggleClass("mui-popover")}),$(".closes").click(function(){$("#popover").addClass("mui-popover")}),$("#upload").click(function(){var t=$("#names").val(),e=$("#tel").val();t&&""!=t.trim()?e&&""!=e.trim()?console.log("ceshi"):alert("请输入电话"):alert("请输入称谓")})},14:function(t,e,i){var o=i(3)(i(15),i(16),!1,null,null,null);t.exports=o.exports},15:function(t,e,i){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=i(13);i.n(o);e.default={props:["list"],components:{swiper:o.swiper,swiperSlide:o.swiperSlide},data:function(){return{cropStyle:"?imageMogr2/thumbnail/!400x300r/gravity/Center/crop/400x300/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jbi9sb2dvX21pbl9taW4ucG5n/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim",srcImg:"/we_img/none.png",options:{autoplay:3e3,autoplayDisableOnInteraction:!1}}}}},16:function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("swiper",{attrs:{options:t.options}},t._l(t.list,function(e,o){return i("swiper-slide",{key:"banner"+o,staticStyle:{position:"relative"}},[i("a",{attrs:{href:"#"}},[i("img",{attrs:{src:e.url+t.cropStyle}})]),t._v(" "),i("div",{staticStyle:{width:"60px",height:"26px",background:"rgba(2,2,2,0.6)","padding-left":"10px","border-radius":"20px",position:"absolute",right:"15px",bottom:"40px"}},[i("img",{staticStyle:{width:"12px"},attrs:{src:t.srcImg}}),i("span",{staticStyle:{"margin-left":"5px",color:"white","font-size":"14px"}},[t._v(t._s(o+1)+"/"+t._s(t.list.length))])])])}))},staticRenderFns:[]}}},[102]);
+webpackJsonp([19],{
+
+/***/ 104:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(105);
+
+
+/***/ }),
+
+/***/ 105:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_baidu_map__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_baidu_map__);
+window.$ = window.jQuery = __webpack_require__(0);
+window.Vue = __webpack_require__(4);
+
+
+var detailBanner = __webpack_require__(13);
+var houseDetailList = __webpack_require__(11);
+
+new Vue({
+  el: '#swiperBanner',
+  components: { detailBanner: detailBanner },
+  data: {
+    imgList: JSON.parse($('#imgList').val())
+  }
+});
+Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_baidu_map___default.a, {
+  ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
+});
+new Vue({
+  el: '#VueBottomBox',
+  components: { houseDetailList: houseDetailList }
+});
+// // 显示或者隐藏栋座信息
+$('.top').on('touchend', function () {
+  $('#collapse').toggleClass("mui-active");
+});
+// 显示预约弹框
+$(document).on('touchend', '#order', function () {
+  $('#backdrop').fadeIn(300);
+});
+// 阻止冒泡
+$(document).on('touchend', '#popover', function () {
+  return false;
+});
+$('#popover').on('touchend', '.js_closes', function () {
+  $('#backdrop').fadeOut(300);
+});
+// 关闭预约弹框
+$(document).on('touchend', '.js_closes', function () {
+  $('#backdrop').fadeOut(300);
+});
+
+// // 点击提交
+$('#upload').on('touchend', function () {
+  var name = $('#names').val(),
+      tel = $('#tel').val();
+  if (!name || name.trim() === '') {
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入称谓');
+    return false;
+  }
+  if (!tel || tel.trim() === '') {
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入电话');
+    return false;
+  }
+  $('#backdrop').fadeOut(300);
+  $.ajax({
+    url: '/bespeaks',
+    type: 'POST',
+    data: {
+      appellation: name,
+      tel: tel
+    },
+    success: function success(data) {
+      if (data.success) {
+        $('#names').val('');
+        $('#tel').val('');
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('提交成功');
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
+      }
+    },
+    error: function error(_error) {
+      if (_error.status < 500) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error.responseJSON.message);
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+      }
+    }
+  });
+});
+$(document).on('touchend', '.js_collect', function (e) {
+  var isCollect = $(e.currentTarget).find('img#collect1').is(":hidden"); // 当前是否收藏 true： 收藏 false ：未收藏
+  var house_id = $('input#house_id').val();
+  if (isCollect) {
+    // 取消收藏
+    $.ajax({
+      url: '/del/' + house_id,
+      type: 'GET',
+      success: function success(data) {
+        if (data.success) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('已取消收藏');
+          $('img#collect1').hide();
+          $('img#collect2').show();
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
+        }
+      },
+      error: function error(_error2) {
+        if (_error2.status < 500) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error2.responseJSON.message);
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+        }
+      }
+    });
+  } else {
+    // 添加收藏
+    $.ajax({
+      url: '/collections',
+      type: 'POST',
+      data: {
+        house_id: house_id
+      },
+      success: function success(data) {
+        if (data.success) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('收藏成功');
+          $('img#collect1').show();
+          $('img#collect2').hide();
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
+        }
+      },
+      error: function error(_error3) {
+        if (_error3.status < 500) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error3.responseJSON.message);
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+        }
+      }
+    });
+  }
+});
+
+/***/ })
+
+},[104]);
