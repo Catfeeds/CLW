@@ -13,8 +13,8 @@ var app = new Vue({
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 15,
-    status: pageOne.data.length === 15,
+    getData: pageOne.data.length === 6,
+    status: pageOne.data.length === 6,
     page: 2,
     more: null
   },
@@ -54,6 +54,9 @@ var app = new Vue({
     getMore: function () {
       var condition = JSON.parse(GetQueryString('condition'))
       var self = this
+      if (!condition) {
+        condition = {}
+      }
       condition.page = self.page
       self.getData = false
       $.ajax({
@@ -61,7 +64,7 @@ var app = new Vue({
         type: 'GET',
         data: condition,
         success: function (data) { 
-          if (data.data.length === 0) {
+          if (data.data.data.length === 0) {
             Toast({
               message: '已无更多数据',
               position: 'center',
@@ -71,10 +74,10 @@ var app = new Vue({
             return
           }
           self.page++
-          data.data.map(function (item) {
+          data.data.data.map(function (item) {
             self.list.push(item)
           });
-          if (data.data.length >= data.per_page) {
+          if (data.data.data.length >= data.data.per_page) {
             self.getData = true
           } else {
             self.status = false
@@ -88,6 +91,53 @@ var app = new Vue({
           }
         }
       })
+    },
+    // 委托找房
+    findHouse() {
+      var tel = $('#telInput').val()
+      if (!tel || tel.trim() == '') {
+        Toast({
+          message: '请输入手机号',
+          position: 'center',
+          duration: 2000
+        })
+      } else {
+        $.ajax({
+          url: '/bespeaks',
+          type: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            tel: tel
+          },
+          success: function (data) {
+            $('#backdrop').fadeOut(300);
+            $('#telInput').val('');
+            if(data.success) {
+              Toast({
+                message: data.message,
+                position: 'center',
+                duration: 3000
+              });
+            } else  {
+              Toast({
+                message: data.message,
+                position: 'center',
+                duration: 3000
+              });
+            }
+          },
+          error: function (error) {
+            $('#backdrop').fadeOut(300);
+            if (error.status < 500) {
+              Toast(error.responseJSON.message)
+            } else {
+              Toast('服务器出错')
+            }
+          }
+        })
+      }
     }
   }
 })
