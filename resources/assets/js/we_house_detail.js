@@ -1,10 +1,11 @@
 window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
 Vue.component('detail-banner', require('./components/detailBanner.vue'));
+
 new Vue({
   el: '#vueContent',
   data: {
-    imgList: []
+    imgList: JSON.parse($('#imgList').val())
   }
 });
 // 显示或者隐藏栋座信息

@@ -5,6 +5,7 @@
 @endsection
 @section('body')
 <div id="pullrefresh" class="mui-content">
+	<input id="imgList" value="{{$house->pic_url}}" type="hidden"/>
 	<div class="pullrefresh" id="Vuehouse">
 		<div id="popover" class="mui-popover" style="z-index:10;">
 			<div>
@@ -35,7 +36,6 @@
 					<img src="/we_img/detail_order.png" class="freebtn">
 				</div>
 			</footer>
-		{{dd($house)}}
 			<div class="mui-content" id="vueContent">
 				<div class="swiper-container" id="swiperBanner">
 					<detail-banner :list='imgList'></detail-banner>
