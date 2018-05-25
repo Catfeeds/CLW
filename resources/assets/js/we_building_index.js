@@ -74,9 +74,9 @@ var app = new Vue({
             return
           }
           self.page++
-          data.data.data.map(function (item) {
-            self.list.push(item)
-          });
+          for (var key in data.data.data) {
+            self.list.push(data.data.data[key])
+          }
           if (data.data.data.length >= data.data.per_page) {
             self.getData = true
           } else {

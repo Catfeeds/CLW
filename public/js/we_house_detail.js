@@ -112,8 +112,8 @@ $(document).on('touchend', '.js_collect', function (e) {
       success: function success(data) {
         if (data.success) {
           Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('已取消收藏');
-          $('img#collect1').hide();
-          $('img#collect2').show();
+          $('img#collect1').removeClass('mui-hidden');
+          $('img#collect2').addClass('mui-hidden');
         } else {
           Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
         }
@@ -140,8 +140,8 @@ $(document).on('touchend', '.js_collect', function (e) {
       success: function success(data) {
         if (data.success) {
           Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('收藏成功');
-          $('img#collect1').show();
-          $('img#collect2').hide();
+          $('img#collect1').addClass('mui-hidden');
+          $('img#collect2').removeClass('mui-hidden');
         } else {
           Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
         }

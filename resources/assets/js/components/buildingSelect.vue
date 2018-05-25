@@ -366,13 +366,13 @@ export default {
     },
     getFindHouse: function () {
       return request ({
-        url: 'block_condition',
+        url: '/block_condition',
         method: 'get'
       })
     },
     getOtherCondition: function () {
       return request ({
-        url: 'other_condition',
+        url: '/other_condition',
         method: 'get'
       })
     }

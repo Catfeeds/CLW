@@ -103,13 +103,16 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
             password: password_num
         },
         success: function(data){
-            Toast({
-                message: data.message,
-                position: 'center',
-                duration: 2000
-            })
             if (data.success) {
-                window.location.href = '/user'
+                var toast = Toast({
+                    message: data.message,
+                    position: 'center',
+                    duration: 2000
+                })
+                setTimeout(() => {
+                    toast.close()
+                    window.location.href = '/user'
+                },1000)
             }
         },
         error: function (res) {

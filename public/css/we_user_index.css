@@ -92,7 +92,7 @@ body {
   color: #141414;
 }
 
-.main-content .collection a img {
+.main-content .collection span img {
   width: 7px;
   height: 12px;
 }
@@ -107,13 +107,13 @@ body {
   color: #141414;
 }
 
-.main-content .userList a span {
+.main-content .userList span span {
   font-size: 15px;
   display: inline-block;
   margin-right: 10px;
 }
 
-.main-content .userList a img {
+.main-content .userList span img {
   width: 7px;
   height: 12px;
 }

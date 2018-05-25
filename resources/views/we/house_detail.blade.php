@@ -50,7 +50,7 @@
 									<h5><img src="/we_img/images/house_detail_bus.png">距离2号线 光谷广场 约183米</h5>
 								</div>
 							</div>-->
-					<img class="choice" v-if="($house->label_cn === true)" src="/we_img/house_detail_better.png">
+					<img class="choice" v-if="($house->label_cn === true)" src="/we_img/house_detail_choice.png">
 				</div>
 				<!--2基础信息-->
 				<div class="firstcard">
@@ -195,7 +195,9 @@
 							</baidu-map>
 						</div>
 					</div>
-					<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+					<a href="/get_map/{{$house->building_id}}" style="display: block;width: 100%;">
+						<img style="display: block;width: 100%;" src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+					</a>
 				</div>
 				<!--5最下推荐-->
 				<house-detail-list :api='2' building ='{{$house->id}}' style="margin-bottom:65px;"></house-detail-list>
@@ -227,10 +229,13 @@
 						</div>
 					@else
 						<div class="collect mui-col-xs-2 js_collect">
+							{{--已收藏--}}
 							<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
+							{{--未收藏--}}
 							<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
 						</div>
 					@endif
+
 					<div class="mui-col-xs-4" id="free">
 						<a href="tel:4000-580-888">
 							<img src="/we_img/detail_free.png" class="freebtn">

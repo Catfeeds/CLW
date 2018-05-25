@@ -26,13 +26,13 @@ console.log('ceshi', tel);
 var newTel = tel.slice(0, 3) + '****' + tel.slice(7);
 $('#tel').html(newTel);
 // 跳转至修改密码页面
-$(document).on('touchend || tap', '#revisePwd', function () {
-    window.location.href = '/revise_password';
-});
+// $(document).on('touchend || tap', '#revisePwd', function(){
+//     window.location.href = '/revise_password'
+// })
 // 跳转至修改手机页面
-$(document).on('touchend || tap', '#reviseTel', function () {
-    window.location.href = '/old_tel_validate_view';
-});
+// $(document).on('touchend || tap', '#reviseTel', function(){
+//     window.location.href = '/old_tel_validate_view'
+// })
 // 退出登录
 $(document).on('touchend || tap', '.loginOut', function () {
     $.ajax({
@@ -50,7 +50,7 @@ $(document).on('touchend || tap', '.loginOut', function () {
             setTimeout(function () {
                 toast.close();
                 window.location.href = '/user';
-            }, 2000);
+            }, 1000);
         },
         error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({

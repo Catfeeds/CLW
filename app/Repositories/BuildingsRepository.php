@@ -34,8 +34,7 @@ class BuildingsRepository extends  Model
 
         $data = $this->buildingDataComplete($buildings, $buildingData, $service);
         $data = $data->forpage($request->page??1, 10);
-
-        return Common::pageData($request->page, $data);
+        return Common::pageData($request->page, $data->values());
     }
 
     /**

@@ -124,7 +124,9 @@
 									</baidu-map>
 								</div>
 							</div>
-							<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+							<a href="/get_map/{{$data->id}}" style="display: block;width: 100%">
+							<img style="display: block;width: 100%" src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+							</a>
 						</div>
 					</div>
 				</div>

@@ -73,6 +73,12 @@ $(document).on('touchstart', '.more button', function (e) {
         }
     });
 });
+// 无数据显示
+if (app.list.length !== 0) {
+    $('#nothing').hide();
+} else if (app.list.length == 0) {
+    $('#nothing').show();
+}
 
 /***/ })
 

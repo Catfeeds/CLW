@@ -4,8 +4,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 8px 15px;
   position: fixed;
   bottom: 0px;
@@ -26,6 +27,12 @@
   color: #333;
   display: inline-block;
   margin-left: 5px;
+}
+
+@media screen and (max-width: 400px) {
+  #footer .collect span {
+    font-size: 17px;
+  }
 }
 
 #footer #free {

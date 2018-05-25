@@ -135,7 +135,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       $('#telInput').val('');
       if (data.success) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-          message: data.message,
+          message: '信息提交成功，楚楼网30分钟内联系您',
           position: 'center',
           duration: 3000
         });
@@ -157,7 +157,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     }
   });
 });
-// 委托找房
+// 投放房源
 $(document).on('touchend || tap', '#peltHouse', function () {
   $.ajax({
     url: '/throw_ins',
@@ -173,7 +173,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       $('#telInput').val('');
       if (data.success) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-          message: data.message,
+          message: '信息提交成功，楚楼网30分钟内联系您',
           position: 'center',
           duration: 3000
         });
