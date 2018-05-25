@@ -167,11 +167,11 @@ class BuildingsRepository extends  Model
     public function getShow($building, $service)
     {
         //楼盘单价区间
-        $building->unit_price = $building->house->min('unit_price') . '-' . $building->house->max('unit_price');
+        $building->unit_price = intval($building->house->min('unit_price')) . '-' . intval($building->house->max('unit_price'));
         //楼盘总价区间
-        $building->total_price= $building->house->min('total_price') . '-' . $building->house->max('total_price');
+        $building->total_price= round($building->house->min('total_price') / 10000, 1) . '-' . round($building->house->max('total_price') / 10000,1);
         //楼盘面积区间
-        $building->constru_acreage = $building->house->min('constru_acreage') . '-' . $building->house->max('constru_acreage');
+        $building->constru_acreage = intval($building->house->min('constru_acreage')) . '-' . intval($building->house->max('constru_acreage'));
         $service->features($building);
         $service->label($building);
         return $building;

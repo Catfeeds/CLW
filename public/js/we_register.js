@@ -82,7 +82,7 @@ $(document).on('touchend || tap', '#submit', function (e) {
                 window.location.href = '/user';
             } else {
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                    message: res.data.message,
+                    message: res.message,
                     position: 'center',
                     duration: 2000
                 });
@@ -90,7 +90,7 @@ $(document).on('touchend || tap', '#submit', function (e) {
         },
         error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                message: responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             });
@@ -132,7 +132,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         },
         error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                message: responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             });

@@ -25,7 +25,7 @@ $.ajax({
     url: '/get_area',
     type: 'get',
     success: function (res) {
-       app.slots[0].values = res.res
+       app.slots[0].values = res.res;
        option = res.option
     },
     error: function (res) {
@@ -107,9 +107,9 @@ $(document).on('touchend || tap', '.loginOut', function(){
                     window.location.href = '/user'
                 },2000)
             },
-            error: function (data) {
+            error: function (res) {
                 Toast({
-                    message: data.responseJSON.message,
+                    message: res.responseJSON.message,
                     position: 'center',
                     duration: 5000
                 })

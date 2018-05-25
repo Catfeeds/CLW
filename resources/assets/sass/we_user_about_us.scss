@@ -23,9 +23,12 @@ body{
             }
         }
         .agreement{
-            margin-top: 45%;
             text-align: center;
             font-size: 13px;
+            position: absolute;
+            left: 50%;
+            margin-left: -91px;
+            bottom: 40px;
         }
     }
 }

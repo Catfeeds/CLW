@@ -788,7 +788,8 @@ var app = new Vue({
     search: {},
     getData: pageOne.data.length === 15,
     status: pageOne.data.length === 15,
-    page: 2
+    page: 2,
+    more: null
   },
   components: {
     buildingSelect: __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default.a,
@@ -836,7 +837,7 @@ var app = new Vue({
           if (data.data.length === 0) {
             Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
               message: '已无更多数据',
-              position: 'top',
+              position: 'center',
               duration: 3000
             });
             self.status = false;
@@ -853,6 +854,53 @@ var app = new Vue({
           }
         }
       });
+    },
+    // 委托找房
+    findHouse: function findHouse() {
+      var tel = $('#telInput').val();
+      if (!tel || tel.trim() == '') {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: '请输入手机号',
+          position: 'center',
+          duration: 2000
+        });
+      } else {
+        $.ajax({
+          url: '/bespeaks',
+          type: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            tel: tel
+          },
+          success: function success(data) {
+            $('#backdrop').fadeOut(300);
+            $('#telInput').val('');
+            if (data.success) {
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+                message: data.message,
+                position: 'center',
+                duration: 3000
+              });
+            } else {
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+                message: '预约失败',
+                position: 'center',
+                duration: 3000
+              });
+            }
+          },
+          error: function error() {
+            $('#backdrop').fadeOut(300);
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+              message: '服务器繁忙,请联系客服处理',
+              position: 'center',
+              duration: 3000
+            });
+          }
+        });
+      }
     }
   }
 });

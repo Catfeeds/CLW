@@ -538,3 +538,13 @@
   font-size: 17px;
 }
 
+.more .loading {
+  font-size: 16px;
+}
+
+.more .loading i {
+  font-size: 16px;
+  margin-right: 3px;
+  color: #666;
+}
+

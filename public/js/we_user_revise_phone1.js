@@ -52,7 +52,7 @@ $(document).on('touchend || tap', '#getSms', function () {
         },
         error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                message: responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 2000
             });
@@ -83,9 +83,9 @@ $(document).on('touchend || tap', '.loginOut', function () {
                 window.location.href = '/reset_tel_view';
             }, 2000);
         },
-        error: function error(data) {
+        error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                message: data.responseJSON.message,
+                message: res.responseJSON.message,
                 position: 'center',
                 duration: 5000
             });

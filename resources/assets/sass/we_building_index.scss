@@ -29,6 +29,52 @@ body {
     padding-bottom: 50px;
   }
 }
+.nothing{
+  margin-top: 50%;
+  text-align: center;
+  img{
+    width: 141px;
+    height: 95px;
+  }
+  form{
+    margin: 0 auto;
+    margin-top: 24px;
+    width: 73%;
+    display: flex;
+    .input-box{
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 2px 0 0 2px;
+      flex: 1;
+      background: #FFFFFF;
+      overflow: hidden;
+      display: flex;
+      input{
+        width: 100%;
+        border: 0;
+        margin-bottom: 0 !important;
+        padding: {
+          left: 10px;
+          right: 10px;
+          top: 0;
+          bottom: 0;
+        }
+        height: auto;
+        &::placeholder{
+          color: #999999;
+          font-size: 14px;
+        }
+        flex: 1;
+      }
+    }
+    .btn-box{
+      button{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
 .more{
   display: flex;
   justify-content: center;

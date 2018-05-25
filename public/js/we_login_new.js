@@ -66,9 +66,9 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
                     }, 2000);
                 }
             },
-            error: function error(data) {
+            error: function error(res) {
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                    message: data.responseJSON.message,
+                    message: res.responseJSON.message,
                     position: 'center',
                     duration: 2000
                 });
