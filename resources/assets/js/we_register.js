@@ -54,7 +54,7 @@ $(document).on('touchend || tap', '#submit', (e) => {
                     message: '登录成功',
                     position: 'center',
                     duration: 2000
-                })
+                });
                 window.location.href = '/user'
             } else {
                 Toast({
