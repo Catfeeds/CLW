@@ -1,4 +1,12 @@
 window.$ = window.jQuery = require('jquery');
+window.Vue = require('vue');
+Vue.component('detail-banner', require('./components/detailBanner.vue'));
+new Vue({
+  el: '#vueContent',
+  data: {
+    imgList: []
+  }
+});
 // 显示或者隐藏栋座信息
 $('.top').click(function(){
     $('#collapse').toggleClass("mui-active")     

@@ -1,7 +1,7 @@
 <template>
   <div>
       <ul class="mui-table-view">
-          <li class="mui-table-view-cell mui-row" @click="jumpTo(item.id)" v-for="(item, key) in list" :key="'houses'+key">
+          <li class="mui-table-view-cell mui-row" @touchend="jumpTo(item.id)" v-for="(item, key) in list" :key="'houses'+key">
               <img class="mui-col-xs-3" :src="item.indoor_img_cn + cropStyle">
               <div class="list mui-col-xs-7">
                   <div class="title">{{item.title}}</div>
@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         jumpTo(key) {
-            window.location.href = '/house/' + key
+            window.location.href = '/houses/' + key
         }
     }
 }

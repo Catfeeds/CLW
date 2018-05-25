@@ -57,6 +57,7 @@ var fileSJSNameArr = [
   // 'we_serve_detail',
   // 'we_serve_index',
   // 'we_user_about_us',
+  'we_map_detail',
   'we_user_brows_history',
   'we_user_collect',
   'we_user_find_house',
