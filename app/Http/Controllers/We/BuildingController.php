@@ -94,7 +94,7 @@ class BuildingController extends APIBaseController
     )
     {
         $res = $buildingsRepository->OfficeHouseList($service, $id);
-        if (!res) return $this->sendError('楼盘下房源列表数据异常');
+        if (!$res) return $this->sendError('楼盘下房源列表数据异常');
         return $this->sendResponse($res, '房源列表获取成功');
     }
 

@@ -8,7 +8,6 @@
     <input id="request" value="{{json_encode($req)}}" type="hidden">
     <div id="buildingList">
         <header id="header" class="mui-bar mui-bar-nav">
-            <h1 class="mui-title">写字楼</h1>
             <div class="select-box">
                 <building-select ref='buildingSelect' @@flush-data='changeData'></building-select>
             </div>

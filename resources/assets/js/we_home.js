@@ -95,7 +95,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     success: function (data) {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
-      if(data.status) {
+      if(data.success) {
         Toast({
           message: data.message,
           position: 'top',
@@ -133,7 +133,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     success: function (data) {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
-      if(data.status) {
+      if(data.success) {
         Toast({
           message: data.message,
           position: 'top',
