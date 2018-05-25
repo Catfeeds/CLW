@@ -20,10 +20,30 @@ class HouseController extends APIBaseController
         $officeBuildingHouse = OfficeBuildingHouse::findOrFail($id);
         // 房源数据
         $house = $service->getShow($officeBuildingHouse);
-        dd($house);
         // 相关房源
-        $relHouse = $repository->getShowOffice($service, $id);
-        return view('we.house_detail')->with(['house' => $house, 'relHouse' => $relHouse]);
+        return view('we.house_detail')->with(['house' => $house]);
+    }
+
+
+    /**
+     * 说明: 房源详情相关房源
+     *
+     * @param $id
+     * @param OfficeBuildingHousesRepository $buildingHousesRepository
+     * @param OfficeBuildingHousesService $service
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function showOffice
+    (
+        $id,
+        OfficeBuildingHousesRepository $buildingHousesRepository,
+        OfficeBuildingHousesService $service
+    )
+    {
+        $res = $buildingHousesRepository->getShowOffice($service, $id);
+        if (!$res) return $this->sendError('该房源下无相关房源');
+        return $this->sendResponse($res, '房源列表获取成功');
     }
 
 
