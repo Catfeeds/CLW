@@ -133,7 +133,13 @@ class OfficeBuildingHouse extends Model
      */
     public function getFloorCnAttribute()
     {
-         if($this->floor) return $this->floor . '层';
+        if($this->floor < 5) {
+            return '低层';
+        } elseif ($this->floor < 5 && $this->floor <= 10) {
+            return '中层';
+        } elseif ($this->floor > 10) {
+            return '高层';
+        }
     }
 
 
