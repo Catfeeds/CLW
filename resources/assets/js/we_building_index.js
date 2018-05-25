@@ -15,7 +15,8 @@ var app = new Vue({
     search: {},
     getData: pageOne.data.length === 15,
     status: pageOne.data.length === 15,
-    page: 2
+    page: 2,
+    more: null
   },
   components: {
     buildingSelect,
@@ -59,11 +60,11 @@ var app = new Vue({
         url: '/buildings/create',
         type: 'GET',
         data: condition,
-        success: function (data) {
+        success: function (data) { 
           if (data.data.length === 0) {
             Toast({
               message: '已无更多数据',
-              position: 'top',
+              position: 'center',
               duration: 3000
             });
             self.status = false
@@ -80,6 +81,53 @@ var app = new Vue({
           }
         }
       })
+    },
+    // 委托找房
+    findHouse() {
+      var tel = $('#telInput').val()
+      if (!tel || tel.trim() == '') {
+        Toast({
+          message: '请输入手机号',
+          position: 'center',
+          duration: 2000
+        })
+      } else {
+        $.ajax({
+          url: '/bespeaks',
+          type: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            tel: tel
+          },
+          success: function (data) {
+            $('#backdrop').fadeOut(300);
+            $('#telInput').val('');
+            if(data.success) {
+              Toast({
+                message: data.message,
+                position: 'center',
+                duration: 3000
+              });
+            } else  {
+              Toast({
+                message: '预约失败',
+                position: 'center',
+                duration: 3000
+              });
+            }
+          },
+          error: function () {
+            $('#backdrop').fadeOut(300);
+            Toast({
+              message: '服务器繁忙,请联系客服处理',
+              position: 'center',
+              duration: 3000
+            });
+          }
+        })
+      }
     }
   }
 })

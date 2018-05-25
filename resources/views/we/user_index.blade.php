@@ -41,13 +41,11 @@
         <span>我的收藏</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
       </div>
       <!-- 电话咨询 -->
-      <a href="tel:4000-580-888" style="display:block;height:100%">
         <div class="userList" id="consult">
           <span>电话咨询</span>
-          <a class="mui-pull-right" style="margin-top:-20px;"><span>4000-580-888</span><img src="/we_img/house_detail_drop_down.png">
+          <a class="mui-pull-right"><span>4000-580-888</span><img src="/we_img/house_detail_drop_down.png">
          </a>
         </div>
-      </a>
       <!-- 关于我们 -->
       <div class="userList" id="aboutUs">
         <span>关于我们</span><a href="#" class="mui-pull-right"><img src="/we_img/house_detail_drop_down.png"></a>
