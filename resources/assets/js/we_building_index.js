@@ -16,7 +16,7 @@ var app = new Vue({
     getData: pageOne.data.length === 10,
     status: pageOne.data.length === 10,
     page: 2,
-    more: null
+    more: null,
   },
   components: {
     buildingSelect,
@@ -63,7 +63,7 @@ var app = new Vue({
         url: '/buildings/create',
         type: 'GET',
         data: condition,
-        success: function (data) { 
+        success: function (data) {
           if (data.data.data.length === 0) {
             Toast({
               message: '已无更多数据',
