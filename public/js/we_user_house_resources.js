@@ -63,7 +63,7 @@ $(document).on('touchend || tap', '#confirm', function () {
     $('#title').html(app.value);
 });
 // 确认
-$(document).on('touchend || tap', '.loginOut', function () {
+$(document).on('click', '.loginOut button', function () {
     console.log(app.area_id);
     var appellation = $('#appellation').val();
     var tel = $('#tel').val();

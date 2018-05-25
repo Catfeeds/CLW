@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('jquery')
 import { Toast } from 'mint-ui'
 import 'mint-ui/lib/style.css'
-$(document).on('touchend || tap', '.loginOut', function(){
+$(document).on('click', '.loginOut button', function(){
     var old_pwd = $('#oldPwd').val()
     var new_pwd = $('#newPwd').val()
     var confirmPwd = $('#confirmPwd').val()

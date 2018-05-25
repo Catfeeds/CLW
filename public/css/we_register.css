@@ -71,6 +71,10 @@ body {
   height: 60px;
 }
 
+.mui-content>form>.marTop #getSms {
+  cursor: pointer;
+}
+
 .mui-content>form>.phone>input {
   width: 60%;
 }

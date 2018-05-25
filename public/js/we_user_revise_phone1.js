@@ -26,7 +26,7 @@ var newTel = tel.slice(0, 3) + '****' + tel.slice(7);
 var getSmsType = true;
 $('.tel').html(newTel);
 // 获取验证码
-$(document).on('touchend || tap', '#getSms', function () {
+$(document).on('click', '#getSms', function () {
     var pathStr = tel + '/reset_tel';
     if (!getSmsType) {
         return false;
@@ -68,7 +68,7 @@ $(document).on('touchend || tap', '#getSms', function () {
     });
 });
 // 跳转至下一步
-$(document).on('touchend || tap', '.loginOut', function () {
+$(document).on('click', '.loginOut button', function () {
     var smsCode = $('#setSms').val();
     $.ajax({
         headers: {

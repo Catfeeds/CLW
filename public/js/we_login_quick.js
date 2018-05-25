@@ -22,9 +22,9 @@ window.$ = window.jQuery = __webpack_require__(0);
 
 var tel = $('#tel'),
     smsCode = $('#sms'),
-    getSms = $('#getSms');
-getSmsType = true;
-$(document).on('touchend || tap', '.loginBtn button', function (e) {
+    getSms = $('#getSms'),
+    getSmsType = true;
+$(document).on('click', '.loginBtn button', function (e) {
     var tel_num = tel.val(),
         smsCode_num = smsCode.val();
 
@@ -77,7 +77,8 @@ $(document).on('touchend || tap', '.loginBtn button', function (e) {
     });
 });
 
-$(document).on('touchend || tap', '#getSms', function (e) {
+$(document).on('click', '#getSms', function (e) {
+    console.log('censhiceshi ');
     var tel_num = tel.val();
     if (!tel_num || tel_num.trim() === '') {
         Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({

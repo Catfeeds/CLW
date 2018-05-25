@@ -27,7 +27,7 @@
 					<div class="uls">
 						<div class="mui-row">
 							<div class="mui-col-xs-4 blu bor"style="padding-right:10px;">
-								<h3 style="height:20px;color:#333333">{{$house->rent_price}}</h3>
+								<h3 style="height:20px;color:#333333">{{$house->unit_price}}</h3>
 								<h5>元/㎡•月</h5>
 							</div>
 							<div class="mui-col-xs-4 bor">
@@ -140,16 +140,8 @@
 							<div class="mui-col-xs-8"><h4>{{$house->air_conditioner}}</h4></div>
 						</div>
 						<div class="mui-row">
-							<div class="mui-col-xs-4"><h4>客梯数量</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->passenger_lift}}</h4></div>
-						</div>
-						<div class="mui-row">
-							<div class="mui-col-xs-4"><h4>货梯数量</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->cargo_lift}}</h4></div>
-						</div>
-						<div class="mui-row">
-							<div class="mui-col-xs-4"><h4>总裁电梯</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->president_lift}}</h4></div>
+							<div class="mui-col-xs-4"><h4>电梯数量</h4></div>
+							<div class="mui-col-xs-8"><h4>{{$house->floor_num}}</h4></div>
 						</div>
 					</div>
 				</li>

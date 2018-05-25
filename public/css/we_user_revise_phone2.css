@@ -51,6 +51,7 @@ body .mui-content .first {
 }
 
 body .mui-content .first .getSms {
+  cursor: pointer;
   height: 50px;
   line-height: 30px;
   border-bottom: 1px solid #f4f4f4;
