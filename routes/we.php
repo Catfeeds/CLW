@@ -107,6 +107,7 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     */
     Route::resource('collections', 'CollectionsController');
     Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
+    Route::get('del/{id}', 'CollectionsController@del');
 
 
  });
