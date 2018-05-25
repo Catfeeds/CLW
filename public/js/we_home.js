@@ -103,6 +103,7 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
 $(document).on('tap || touchend', '#addBook', function () {
   var tel = $('#telInput').val(),
       telReg = /^[1][0-9]{10}$/;
+  $('#telInput').blur();
   if (!telReg.test(tel)) {
     Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
       message: '请输入11位手机号',
