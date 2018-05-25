@@ -29,7 +29,7 @@ $(document).on('touchend || tap', '#getSms', function(){
         },
         error: function (res) {
             Toast({
-                message: responseJSON.message,
+                message: res.message,
                 position: 'center',
                 duration: 2000
             })
@@ -63,7 +63,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
         },
         error: function (data) {
             Toast({
-                message: data.responseJSON.message,
+                message: data.message,
                 position: 'center',
                 duration: 5000
             })

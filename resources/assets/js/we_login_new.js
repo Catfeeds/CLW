@@ -49,7 +49,7 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
           },
           error: function (data) {
             Toast({
-                message: data.responseJSON.message,
+                message: data.message,
                 position: 'center',
                 duration: 2000
             })

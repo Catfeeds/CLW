@@ -38,7 +38,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         },
         error: function (res) {
             Toast({
-                message: responseJSON.message,
+                message: res.message,
                 position: 'center',
                 duration: 2000
             })
