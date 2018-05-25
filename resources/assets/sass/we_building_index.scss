@@ -5,9 +5,6 @@ body {
   .mui-bar-nav {
     background: #ffffff;
     box-shadow: 0 0 0 transparent;
-    .mui-title{
-      margin-top: 20px;
-    }
     .select-box{
       margin: {
         left: -10px;
@@ -24,6 +21,7 @@ body {
     }
   }
   .main-content{
+    margin-top: 55px;
     padding-bottom: 50px;
   }
 }

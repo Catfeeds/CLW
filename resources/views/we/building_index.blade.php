@@ -7,6 +7,11 @@
     <input id="pageOne" value="{{json_encode($data)}}" type="hidden"/>
     <input id="request" value="{{json_encode($req)}}" type="hidden">
     <div id="buildingList">
+        <header id="header" class="mui-bar mui-bar-nav">
+            <div class="select-box">
+                <building-select ref='buildingSelect' @@flush-data='changeData'></building-select>
+            </div>
+        </header>
         <div class="main-content">
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
             <div class="nothing" v-if="list == ''">
