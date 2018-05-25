@@ -4,7 +4,6 @@ namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
-use App\Models\OfficeBuildingHouse;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use App\Services\OfficeBuildingHousesService;
@@ -61,7 +60,7 @@ class BuildingController extends APIBaseController
         }
 
         $res = $buildingsRepository->buildingList($request, $service);
-        if (!res) return $this->sendError('楼盘列表数据异常');
+        if (!$res) return $this->sendError('楼盘列表数据异常');
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 

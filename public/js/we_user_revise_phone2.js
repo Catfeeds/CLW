@@ -20,8 +20,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.$ = window.jQuery = __webpack_require__(0);
 
 
+var getSmsType = true;
 // 获取验证码
 $(document).on('touchend || tap', '#getSms', function () {
+    if (!getSmsType) {
+        return false;
+    } else {
+        getSmsType = false;
+    }
     var pathStr = tel + '/reset_tel';
     $.ajax({
         headers: {
@@ -35,6 +41,7 @@ $(document).on('touchend || tap', '#getSms', function () {
                 var time = setInterval(function () {
                     getSms.html(parseInt(getSms.html()) - 1 + 's');
                     if (!parseInt(getSms.html())) {
+                        getSmsType = true;
                         getSms.html('获取验证码');
                         window.clearInterval(time);
                     }
@@ -47,6 +54,7 @@ $(document).on('touchend || tap', '#getSms', function () {
             }
         },
         error: function error(res) {
+            getSmsType = true;
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: res.responseJSON.message,
                 position: 'center',

@@ -23,10 +23,16 @@ window.$ = window.jQuery = __webpack_require__(0);
 // 获取电话号码并处理
 var tel = $('.tel').html();
 var newTel = tel.slice(0, 3) + '****' + tel.slice(7);
+var getSmsType = true;
 $('.tel').html(newTel);
 // 获取验证码
 $(document).on('touchend || tap', '#getSms', function () {
     var pathStr = tel + '/reset_tel';
+    if (!getSmsType) {
+        return false;
+    } else {
+        getSmsType = false;
+    }
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -39,6 +45,7 @@ $(document).on('touchend || tap', '#getSms', function () {
                 var time = setInterval(function () {
                     getSms.html(parseInt(getSms.html()) - 1 + 's');
                     if (!parseInt(getSms.html())) {
+                        getSmsType = true;
                         getSms.html('获取验证码');
                         window.clearInterval(time);
                     }
@@ -51,6 +58,7 @@ $(document).on('touchend || tap', '#getSms', function () {
             }
         },
         error: function error(res) {
+            getSmsType = true;
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: res.responseJSON.message,
                 position: 'center',
