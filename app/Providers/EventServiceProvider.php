@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use App\Models\Bespeak;
+use App\Models\ThrowIn;
+use App\Observers\BespeakObservers;
+use App\Observers\ThrowInObservers;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -27,6 +30,7 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        ThrowIn::observe(ThrowInObservers::class);
+        Bespeak::observe(BespeakObservers::class);
     }
 }

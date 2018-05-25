@@ -14,18 +14,20 @@
         </header>
         <div class="main-content">
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
-            <div class="nothing" v-if="list == ''">
-                <img src="/we_img/nothing.png">
-                <div style="color: #666">很抱歉，暂无匹配的房源</div>
-                <form>
-                    <div class="input-box">
-                        <input id="telInput" type="text" placeholder="请输入手机号"/>
-                    </div>
-                    <div class="btn-box">
-                        <button type="button" class="mui-btn mui-btn-primary" id="addBook" @touchend='findHouse'>委托找房</button>
-                    </div>
-                </form>
-            </div>
+            @if(!$data['data']->count())
+                <div class="nothing" v-if="noDataShow">
+                    <img src="/we_img/nothing.png">
+                    <div style="color: #666">很抱歉，暂无匹配的房源</div>
+                    <form>
+                        <div class="input-box">
+                            <input id="telInput" type="text" placeholder="请输入手机号"/>
+                        </div>
+                        <div class="btn-box">
+                            <button type="button" class="mui-btn mui-btn-primary" id="addBook" @touchend='findHouse'>委托找房</button>
+                        </div>
+                    </form>
+                </div>
+            @endif
             <div class="more" v-if="getData" @touchend='getMore'>
                 <button type="button">查看更多</button>
             </div>

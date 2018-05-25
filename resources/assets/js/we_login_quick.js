@@ -1,7 +1,10 @@
 window.$ = window.jQuery = require('jquery');
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
-var tel = $('#tel'),smsCode = $('#sms'),getSms = $('#getSms');
+var tel = $('#tel'),
+    smsCode = $('#sms'),
+    getSms = $('#getSms')
+    getSmsType = true;
 $(document).on('touchend || tap','.loginBtn button',(e)=> {
     var tel_num = tel.val(), smsCode_num= smsCode.val();
 
@@ -65,6 +68,11 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         return false
     }
     var pathStr = tel_num + '/' + 'login';
+    if(!getSmsType) {
+        return false
+    } else {
+        getSmsType = false
+    }
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -77,6 +85,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                 var time = setInterval(function () {
                     getSms.html((parseInt(getSms.html()) - 1) + 's');
                     if (!parseInt(getSms.html())) {
+                        getSmsType = true;
                         getSms.html('获取验证码');
                         window.clearInterval(time);
                     }
@@ -89,6 +98,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
             }
         },
         error: function (res) {
+            getSmsType = true
             Toast({
                 message: res.responseJSON.message,
                 position: 'center',

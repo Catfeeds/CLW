@@ -66,10 +66,10 @@ class Common
      */
     public static function pageData($page, $data)
     {
-        return [
+        return array(
             'current_page' => $page??1,
             'data' => $data,
-            'per_page' => 6,
-        ];
+            'per_page' => 10
+        );
     }
 }

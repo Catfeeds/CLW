@@ -13,10 +13,10 @@ var app = new Vue({
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 15,
-    status: pageOne.data.length === 15,
+    getData: pageOne.data.length === 10,
+    status: pageOne.data.length === 10,
     page: 2,
-    more: null
+    more: null,
   },
   components: {
     buildingSelect,
@@ -54,14 +54,17 @@ var app = new Vue({
     getMore: function () {
       var condition = JSON.parse(GetQueryString('condition'))
       var self = this
+      if (!condition) {
+        condition = {}
+      }
       condition.page = self.page
       self.getData = false
       $.ajax({
         url: '/buildings/create',
         type: 'GET',
         data: condition,
-        success: function (data) { 
-          if (data.data.length === 0) {
+        success: function (data) {
+          if (data.data.data.length === 0) {
             Toast({
               message: '已无更多数据',
               position: 'center',
@@ -71,13 +74,20 @@ var app = new Vue({
             return
           }
           self.page++
-          data.data.map(function (item) {
-            self.list.push(item)
-          });
-          if (data.data.length >= data.per_page) {
+          for (var key in data.data.data) {
+            self.list.push(data.data.data[key])
+          }
+          if (data.data.data.length >= data.data.per_page) {
             self.getData = true
           } else {
             self.status = false
+          }
+        },
+        error: function (error) {
+          if (error.status < 500) {
+            Toast(error.responseJSON.message)
+          } else {
+            Toast('服务器出错')
           }
         }
       })
@@ -112,19 +122,19 @@ var app = new Vue({
               });
             } else  {
               Toast({
-                message: '预约失败',
+                message: data.message,
                 position: 'center',
                 duration: 3000
               });
             }
           },
-          error: function () {
+          error: function (error) {
             $('#backdrop').fadeOut(300);
-            Toast({
-              message: '服务器繁忙,请联系客服处理',
-              position: 'center',
-              duration: 3000
-            });
+            if (error.status < 500) {
+              Toast(error.responseJSON.message)
+            } else {
+              Toast('服务器出错')
+            }
           }
         })
       }

@@ -8,7 +8,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\nul {\n  border-top: 0;\n}\nul.mui-table-view.self-style:before {\n    height: 0;\n}\nul.mui-table-view.self-style:after {\n    background-color: #f4f4f4;\n}\nul > li.mui-table-view-cell.self-style {\n    padding: 20px 5px 10px 10px;\n}\nul > li.mui-table-view-cell.self-style:after {\n      background-color: #f4f4f4;\n      left: 0;\n}\nul > li.mui-table-view-cell.self-style .decoration img {\n      position: absolute;\n      right: 15px;\n      top: 0;\n      width: 39px;\n      height: 25px;\n}\nul > li.mui-table-view-cell.self-style .house_title {\n      width: 88%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      color: #333333;\n}\nul > li.mui-table-view-cell.self-style .borders > div > span {\n      color: #007eff;\n      border: 0.5px solid #007eff;\n      border-radius: 1px;\n      font-size: 11px;\n      text-align: center;\n      float: left;\n      margin-right: 5px;\n      line-height: 100%;\n      padding: 1px;\n}\n.mui-content {\n  border-top: 0.5px solid #f4f4f4;\n}\n.mui-content ul.self-style {\n    margin-top: 0 !important;\n}\n.mui-content ul.self-style::before {\n      height: 0;\n}\n.mui-content ul.self-style::after {\n      height: 0;\n}\n.mui-content ul.self-style li {\n      padding: 16px 15px 17px 15px;\n      border-bottom: 0.5px solid #f4f4f4;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: start;\n          -ms-flex-pack: start;\n              justify-content: flex-start;\n}\n.mui-content ul.self-style li::after {\n        height: 0;\n}\n.mui-content ul.self-style li img {\n        width: 120px;\n        height: 90px;\n        margin-right: 15px;\n}\n.mui-content ul.self-style li .list .title {\n        width: 90%;\n        font-size: 14px;\n        color: #333;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n}\n.mui-content ul.self-style li .list .areage {\n        font-size: 15px;\n        color: #444;\n}\n.mui-content ul.self-style li .list .areage span {\n          font-size: 16px;\n}\n.mui-content ul.self-style li .list .price {\n        font-size: 13px;\n        color: #999;\n}\n.mui-content ul.self-style li .list .price .totalPrice {\n          font-size: 14px;\n          color: #666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: end;\n              -ms-flex-pack: end;\n                  justify-content: flex-end;\n}\n.mui-content ul.self-style li .list .price .totalPrice span {\n            font-size: 15px;\n            color: #ff7200;\n}\n.mui-content ul.self-style li .list .better div {\n        color: #007eff;\n        font-size: 11px;\n        border: 1px solid #007eff;\n        border-radius: 3px;\n        padding: 0 3px;\n        margin-right: 5px;\n}\n.mui-content ul.self-style li .decoration {\n        position: absolute;\n        top: 0;\n        right: 0;\n}\n.mui-content ul.self-style li .decoration img {\n          width: 34px;\n          height: 20px;\n}\n", ""]);
+exports.push([module.i, "\nul {\n  border-top: 0;\n}\nul.mui-table-view.self-style:before {\n    height: 0;\n}\nul.mui-table-view.self-style:after {\n    background-color: #f4f4f4;\n}\nul > li.mui-table-view-cell.self-style {\n    padding: 20px 5px 10px 10px;\n}\nul > li.mui-table-view-cell.self-style:after {\n      background-color: #f4f4f4;\n      left: 0;\n}\nul > li.mui-table-view-cell.self-style .decoration img {\n      position: absolute;\n      right: 15px;\n      top: 0;\n      width: 39px;\n      height: 25px;\n}\nul > li.mui-table-view-cell.self-style .house_title {\n      width: 88%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      color: #333333;\n}\nul > li.mui-table-view-cell.self-style .borders > div > span {\n      color: #007eff;\n      border: 0.5px solid #007eff;\n      border-radius: 1px;\n      font-size: 11px;\n      text-align: center;\n      float: left;\n      margin-right: 5px;\n      line-height: 100%;\n      padding: 1px;\n}\n.mui-content {\n  border-top: 0.5px solid #f4f4f4;\n}\n.mui-content ul.self-style {\n    margin-top: 0 !important;\n}\n.mui-content ul.self-style::before {\n      height: 0;\n}\n.mui-content ul.self-style::after {\n      height: 0;\n}\n.mui-content ul.self-style li {\n      padding: 16px 15px 17px 15px;\n      border-bottom: 0.5px solid #f4f4f4;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: start;\n          -ms-flex-pack: start;\n              justify-content: flex-start;\n}\n.mui-content ul.self-style li > a {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n}\n.mui-content ul.self-style li::after {\n        height: 0;\n}\n.mui-content ul.self-style li img {\n        width: 120px;\n        height: 90px;\n        margin-right: 15px;\n}\n.mui-content ul.self-style li .list .title {\n        width: 90%;\n        font-size: 14px;\n        color: #333;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n}\n.mui-content ul.self-style li .list .areage {\n        font-size: 15px;\n        color: #444;\n}\n.mui-content ul.self-style li .list .areage span {\n          font-size: 16px;\n}\n.mui-content ul.self-style li .list .price {\n        font-size: 13px;\n        color: #999;\n}\n.mui-content ul.self-style li .list .price .totalPrice {\n          font-size: 14px;\n          color: #666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: end;\n              -ms-flex-pack: end;\n                  justify-content: flex-end;\n}\n.mui-content ul.self-style li .list .price .totalPrice span {\n            font-size: 15px;\n            color: #ff7200;\n}\n.mui-content ul.self-style li .list .better div {\n        color: #007eff;\n        font-size: 11px;\n        border: 1px solid #007eff;\n        border-radius: 3px;\n        padding: 0 3px;\n        margin-right: 5px;\n}\n.mui-content ul.self-style li .decoration {\n        position: absolute;\n        top: 0;\n        right: 0;\n}\n.mui-content ul.self-style li .decoration img {\n          width: 34px;\n          height: 20px;\n}\n", ""]);
 
 // exports
 
@@ -28,10 +28,16 @@ module.exports = __webpack_require__(105);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_baidu_map__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_baidu_map__);
 window.$ = window.jQuery = __webpack_require__(0);
 window.Vue = __webpack_require__(5);
+
+
 var detailBanner = __webpack_require__(20);
 var houseDetailList = __webpack_require__(15);
 
@@ -42,7 +48,7 @@ new Vue({
     imgList: JSON.parse($('#imgList').val())
   }
 });
-Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
+Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_baidu_map___default.a, {
   ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
 });
 new Vue({
@@ -50,39 +56,121 @@ new Vue({
   components: { houseDetailList: houseDetailList }
 });
 // // 显示或者隐藏栋座信息
-// $('.top').touchend(function(){
-//     $('#collapse').toggleClass("mui-active")
-// })
+$('.top').on('click', function () {
+  $('#collapse').toggleClass("mui-active");
+});
 // 显示预约弹框
-$(document).on('touchend', '#order', function () {
+$(document).on('click', '#order', function () {
   $('#backdrop').fadeIn(300);
 });
 // 阻止冒泡
-$(document).on('touchend', '#popover', function () {
+$(document).on('click', '#popover', function () {
   return false;
 });
-$('#popover').on('touchend', '.js_closes', function () {
+$('#popover').on('click', '.js_closes', function () {
   $('#backdrop').fadeOut(300);
 });
 // 关闭预约弹框
-$(document).on('touchend', '.js_closes', function () {
+$(document).on('click', '.js_closes', function () {
   $('#backdrop').fadeOut(300);
 });
 
 // // 点击提交
-// $('#upload').touchend(() => {
-//     var name = $('#names').val(),
-//         tel = $('#tel').val();
-//     if (!name || name.trim() === '') {
-//         alert('请输入称谓')
-//       return false
-//     }
-//     if (!tel || tel.trim() === '') {
-//         alert('请输入电话')
-//       return false
-//     }
-//
-// })
+$('#upload').on('click', function () {
+  var name = $('#names').val(),
+      tel = $('#tel').val();
+  if (!name || name.trim() === '') {
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入称谓');
+    return false;
+  }
+  if (!tel || tel.trim() === '') {
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入电话');
+    return false;
+  }
+  $('#backdrop').fadeOut(300);
+  $.ajax({
+    url: '/bespeaks',
+    type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: {
+      appellation: name,
+      tel: tel
+    },
+    success: function success(data) {
+      if (data.success) {
+        $('#names').val('');
+        $('#tel').val('');
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('提交成功');
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
+      }
+    },
+    error: function error(_error) {
+      if (_error.status < 500) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error.responseJSON.message);
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+      }
+    }
+  });
+});
+$(document).on('click', '.js_collect', function (e) {
+  var isCollect = $(e.currentTarget).find('img#collect1').is(":hidden"); // 当前是否收藏 true： 收藏 false ：未收藏
+  var house_id = $('input#house_id').val();
+  if (isCollect) {
+    // 取消收藏
+    $.ajax({
+      url: '/del/' + house_id,
+      type: 'GET',
+      success: function success(data) {
+        if (data.success) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('已取消收藏');
+          $('img#collect1').removeClass('mui-hidden');
+          $('img#collect2').addClass('mui-hidden');
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
+        }
+      },
+      error: function error(_error2) {
+        if (_error2.status < 500) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error2.responseJSON.message);
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+        }
+      }
+    });
+  } else {
+    // 添加收藏
+    $.ajax({
+      url: '/collections',
+      type: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        house_id: house_id
+      },
+      success: function success(data) {
+        if (data.success) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('收藏成功');
+          $('img#collect1').addClass('mui-hidden');
+          $('img#collect2').removeClass('mui-hidden');
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
+        }
+      },
+      error: function error(_error3) {
+        if (_error3.status < 500) {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error3.responseJSON.message);
+        } else {
+          Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+        }
+      }
+    });
+  }
+});
 
 /***/ }),
 
@@ -91,6 +179,8 @@ $(document).on('touchend', '.js_closes', function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -132,12 +222,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             cropStyle: '?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'
         };
-    },
-
-    methods: {
-        jumpTo: function jumpTo(key) {
-            window.location.href = '/houses/' + key;
-        }
     }
 });
 
@@ -159,62 +243,61 @@ var render = function() {
           "li",
           {
             key: "houses" + key,
-            staticClass: "mui-table-view-cell mui-row self-style",
-            on: {
-              touchend: function($event) {
-                _vm.jumpTo(item.id)
-              }
-            }
+            staticClass: "mui-table-view-cell mui-row self-style"
           },
           [
-            _c("img", {
-              staticClass: "mui-col-xs-3",
-              attrs: { src: item.indoor_img_cn + _vm.cropStyle }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "list mui-col-xs-7" }, [
-              _c("div", { staticClass: "title" }, [_vm._v(_vm._s(item.title))]),
+            _c("a", { attrs: { href: "/houses/" + item.id } }, [
+              _c("img", {
+                staticClass: "mui-col-xs-3",
+                attrs: { src: item.indoor_img_cn + _vm.cropStyle }
+              }),
               _vm._v(" "),
-              _c("div", { staticClass: "areage" }, [
-                _vm._v(_vm._s(item.constru_acreage_cn))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "price mui-row" }, [
-                _c("div", { staticClass: "mui-col-xs-6" }, [
-                  _vm._v(_vm._s(item.unit_price_cn))
+              _c("div", { staticClass: "list mui-col-xs-7" }, [
+                _c("div", { staticClass: "title" }, [
+                  _vm._v(_vm._s(item.title))
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "totalPrice mui-col-xs-6" }, [
-                  _vm._v(_vm._s(item.total_price)),
-                  item.total_price !== ""
-                    ? _c("span", [_vm._v("元/月")])
+                _c("div", { staticClass: "areage" }, [
+                  _vm._v(_vm._s(item.constru_acreage_cn))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "price mui-row" }, [
+                  _c("div", { staticClass: "mui-col-xs-6" }, [
+                    _vm._v(_vm._s(item.unit_price_cn))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "totalPrice mui-col-xs-6" }, [
+                    _vm._v(_vm._s(item.total_price)),
+                    item.total_price !== ""
+                      ? _c("span", [_vm._v("元/月")])
+                      : _vm._e()
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mui-row better" }, [
+                  item.house_feature[0] !== ""
+                    ? _c("div", { staticClass: "mui-col-3" }, [
+                        _c("span", [_vm._v(_vm._s(item.house_feature[0]))])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  item.house_feature[1] !== ""
+                    ? _c("div", { staticClass: "mui-col-3" }, [
+                        _c("span", [_vm._v(_vm._s(item.house_feature[1]))])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  item.house_feature[2] !== ""
+                    ? _c("div", { staticClass: "mui-col-3" }, [
+                        _c("span", [_vm._v(_vm._s(item.house_feature[2]))])
+                      ])
                     : _vm._e()
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "mui-row better" }, [
-                item.house_feature[0] !== ""
-                  ? _c("div", { staticClass: "mui-col-3" }, [
-                      _c("span", [_vm._v(_vm._s(item.house_feature[0]))])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                item.house_feature[1] !== ""
-                  ? _c("div", { staticClass: "mui-col-3" }, [
-                      _c("span", [_vm._v(_vm._s(item.house_feature[1]))])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                item.house_feature[2] !== ""
-                  ? _c("div", { staticClass: "mui-col-3" }, [
-                      _c("span", [_vm._v(_vm._s(item.house_feature[2]))])
-                    ])
-                  : _vm._e()
+              _c("div", { staticClass: "decoration" }, [
+                _c("img", { attrs: { src: _vm.goodImg } })
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "decoration" }, [
-              _c("img", { attrs: { src: _vm.goodImg } })
             ])
           ]
         )
@@ -414,11 +497,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
           },
           error: function error(_error) {
-            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-              message: '服务器忙',
-              position: 'top',
-              duration: 3000
-            });
+            if (_error.status < 500) {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])(_error.responseJSON.message);
+            } else {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])('服务器出错');
+            }
           }
         });
       } else if (this.api === 2) {
@@ -451,11 +534,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
           },
           error: function error(_error2) {
-            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-              message: '服务器忙',
-              position: 'top',
-              duration: 3000
-            });
+            if (_error2.status < 500) {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])(_error2.responseJSON.message);
+            } else {
+              Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])('服务器出错');
+            }
           }
         });
       }

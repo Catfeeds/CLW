@@ -97,7 +97,12 @@ JSObj.extract([ // 提出全局多次引入文件
   'vue',
   'jquery',
   './resources/assets/js/components/buildingList',
+  './resources/assets/js/components/houseList',
+  './resources/assets/js/components/detailBanner',
+  './resources/assets/js/components/houseDetailList',
   'vue-awesome-swiper',
   'mint-ui',
-  'mint-ui/lib/style.css'
+  'mint-ui/lib/style.css',
+  'vue-baidu-map',
+  'swiper'
 ]);

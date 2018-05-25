@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\App\CollectionsRequest;
+use App\Http\Requests\WeChat\CollectionsRequest;
 use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CollectionsController extends APIBaseController
 {
@@ -78,9 +79,9 @@ class CollectionsController extends APIBaseController
      */
     public function del($id)
     {
-        $user = Auth::guard('api')->user();
+        $user = Session::get('user');
         $res = Collection::where(['user_id' => $user->id, 'house_id' => $id])->delete();
-        return $this->sendResponse($res, '取消收藏成功');
+        return $this->sendResponse($res, '收藏取消成功');
     }
 
 

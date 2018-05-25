@@ -27,7 +27,8 @@ var tel = $('#tel'),
     sms = $('#sms'),
     password = $('#password'),
     time = $('#time'),
-    getSms = $('#getSms');
+    getSms = $('#getSms'),
+    getSmsType = true;
 
 $(document).on('touchend || tap', '#submit', function (e) {
     var tel_num = tel.val(),
@@ -110,6 +111,11 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         });
         return false;
     }
+    if (!getSmsType) {
+        return false;
+    } else {
+        getSmsType = false;
+    }
     var pathStr = tel.val() + '/' + 'register';
     $.ajax({
         headers: {
@@ -119,12 +125,14 @@ $(document).on('touchend || tap', '#getSms', function (e) {
         type: 'get',
         success: function success(res) {
             if (res.success) {
+                getSmsType = false;
                 getSms.html(120 + 's');
                 var time = setInterval(function () {
                     getSms.html(parseInt(getSms.html()) - 1 + 's');
                     if (!parseInt(getSms.html())) {
                         getSms.html('获取验证码');
                         window.clearInterval(time);
+                        getSmsType = true;
                     }
                 }, 1000);
                 Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
@@ -135,6 +143,7 @@ $(document).on('touchend || tap', '#getSms', function (e) {
             }
         },
         error: function error(res) {
+            getSmsType = true;
             Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: res.responseJSON.message,
                 position: 'center',

@@ -4,7 +4,12 @@
 window.$ = window.jQuery = require('jquery');
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
-var tel = $('#tel'), sms = $('#sms'), password = $('#password'), time = $('#time'), getSms = $('#getSms');
+var tel = $('#tel'),
+    sms = $('#sms'),
+    password = $('#password'),
+    time = $('#time'),
+    getSms = $('#getSms'),
+    getSmsType = true;
 
 $(document).on('touchend || tap', '#submit', (e) => {
     var tel_num = tel.val(), sms_num = sms.val(), password_num = password.val();
@@ -85,6 +90,11 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         })
         return false
     }
+    if(!getSmsType) {
+        return false
+    } else {
+        getSmsType = false
+    }
     var pathStr = tel.val() + '/' + 'register';
     $.ajax({
         headers: {
@@ -94,12 +104,14 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         type: 'get',
         success: function (res) {
             if (res.success) {
+                getSmsType = false
                 getSms.html(120 + 's');
                 var time = setInterval(function () {
                     getSms.html((parseInt(getSms.html()) - 1) + 's');
                     if (!parseInt(getSms.html())) {
                         getSms.html('获取验证码');
                         window.clearInterval(time);
+                        getSmsType = true
                     }
                 }, 1000);
                 Toast({
@@ -110,6 +122,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
             }
         },
         error: function (res) {
+            getSmsType = true;
             Toast({
                 message: res.responseJSON.message,
                 position: 'center',

@@ -6,6 +6,7 @@
 @section('body')
 <div id="pullrefresh" class="mui-content">
 	<input id="imgList" value="{{$house->pic_url}}" type="hidden"/>
+	<input id="house_id" value="{{$house->id}}" type="hidden"/>
 	<div class="pullrefresh" id="Vuehouse">
 			<div class="mui-content" id="vueContent">
 				<div class="swiper-container" id="swiperBanner">
@@ -49,7 +50,9 @@
 									<h5><img src="/we_img/images/house_detail_bus.png">距离2号线 光谷广场 约183米</h5>
 								</div>
 							</div>-->
-					<img class="choice" v-if="($house->label_cn === true)" src="/we_img/house_detail_choice.png">
+						@if($house->label_cn)
+					<img class="choice" src="/we_img/house_detail_better.png">
+							@endif
 				</div>
 				<!--2基础信息-->
 				<div class="firstcard">
@@ -96,10 +99,6 @@
 				<div class="mui-row">
 				    <div class="mui-col-xs-4"><h4>注册公司</h4></div>
 					<div class="mui-col-xs-8"><h4>{{$house->register_company_cn}}</h4></div>
-				</div>
-				<div class="mui-row">
-					<div class="mui-col-xs-4"><h4>可开发票</h4></div>
-					<div class="mui-col-xs-8"><h4>{{$house->open_bill_cn}}</h4></div>
 				</div>
 				<div class="mui-row">
 					<div class="mui-col-xs-4"><h4>可否拆分</h4></div>
@@ -194,7 +193,9 @@
 							</baidu-map>
 						</div>
 					</div>
-					<img src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+					<a href="/get_map/{{$house->building_id}}" style="display: block;width: 100%;">
+						<img style="display: block;width: 100%;" src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+					</a>
 				</div>
 				<!--5最下推荐-->
 				<house-detail-list :api='2' building ='{{$house->id}}' style="margin-bottom:65px;"></house-detail-list>
@@ -218,10 +219,21 @@
 					</div>
 				</div>
 				<footer id="footer" class="mui-row">
-					<div class="collect mui-col-xs-2">
-						<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
-						<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
-					</div>
+					@if(empty(session('user')))
+						<div class="collect mui-col-xs-2">
+							<a href="/logins/create">
+								<img src="/we_img/detail_collect.png" id="collect1"><span>收藏</span>
+							</a>
+						</div>
+					@else
+						<div class="collect mui-col-xs-2 js_collect pointer">
+							{{--已收藏--}}
+							<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
+							{{--未收藏--}}
+							<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
+						</div>
+					@endif
+
 					<div class="mui-col-xs-4" id="free">
 						<a href="tel:4000-580-888">
 							<img src="/we_img/detail_free.png" class="freebtn">
