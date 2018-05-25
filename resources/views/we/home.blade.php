@@ -164,7 +164,6 @@
             <div class="better">猜你喜欢</div>
             {{--楼盘列表数据--}}
             <input id="listAppData" type="hidden" value="{{json_encode($buildings)}}">
-            <button>查看更多</button>
             <div class="guessList">
                 <div id="listApp">
                     <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>

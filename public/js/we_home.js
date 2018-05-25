@@ -74,7 +74,7 @@ var app = new Vue({
           data.data.data.map(function (item) {
             self.list.push(item);
           });
-          if (data.data.length >= data.per_page) {
+          if (data.data.data.length >= data.data.per_page) {
             self.getData = true;
           } else {
             self.status = false;
