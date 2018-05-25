@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\App\CollectionsRequest;
+use App\Http\Requests\WeChat\CollectionsRequest;
 use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
 use App\Services\OfficeBuildingHousesService;
