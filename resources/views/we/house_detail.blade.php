@@ -62,7 +62,7 @@
 				<div>
 				<div class="mui-row">
 					<div class="mui-col-xs-4"><h4>月租金</h4></div>
-					<div class="mui-col-xs-6"><h4>{{$house->rent_price}}</h4></div>
+					<div class="mui-col-xs-6"><h4>{{$house->total_price_cn}}</h4></div>
 				</div>
 				<div class="mui-row">
 					<div class="mui-col-xs-4"><h4>支付方式</h4></div>
@@ -109,7 +109,7 @@
 		<!-- 楼座信息 -->
 		<ul class="mui-table-view secondCard" style="border-top:10px solid #f4f4f4;">
 			<li class="mui-table-view-cell mui-collapse" id="collapse">
-				<a style="line-height:40px;color:#333333;" class="mui-navigate-right top">&nbsp;&nbsp;&nbsp;栋座信息</a>
+				<a style="line-height:40px;color:#333333;" class="mui-navigate-right top" onclick="showInfo()">&nbsp;&nbsp;&nbsp;栋座信息</a>
 					<div class="mui-collapse-content">
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>等级</h4></div>
@@ -201,7 +201,7 @@
 				<house-detail-list :api='2' building ='{{$house->id}}' style="margin-bottom:65px;"></house-detail-list>
 				<!-- 预约看房弹框 -->
 			</div>
-				<div class="mui-backdrop js_closes" id="backdrop" style="display: none">
+				<div class="mui-backdrop js_closes" id="backdrop" style="display: none" onclick="backdropHide()">
 					<div id="popover" class="mui-popover mui-active" style="z-index:10;">
 						<div>
 							<h4>预约信息</h4>
@@ -239,7 +239,7 @@
 							<img src="/we_img/detail_free.png" class="freebtn">
 						</a>
 					</div>
-					<div class="mui-col-xs-4" id="order">
+					<div class="mui-col-xs-4" onclick="backdropShow()">
 						<img src="/we_img/detail_order.png" class="freebtn">
 					</div>
 				</footer>
