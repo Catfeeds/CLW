@@ -16,7 +16,7 @@
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
             <div class="nothing" v-if="list == ''">
                 <img src="/we_img/nothing.png">
-                <div>很抱歉，暂无匹配的房源</div>
+                <div style="color: #666">很抱歉，暂无匹配的房源</div>
                 <form>
                     <div class="input-box">
                         <input id="telInput" type="text" placeholder="请输入手机号"/>
@@ -34,7 +34,7 @@
                     <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
                 </div>
             </div>
-            <div class="more">没有更多数据了</div>
+            <!-- <div class="more">没有更多数据了</div> -->
         </div>
     </div>
     <!-- 底部导航 -->
