@@ -59,16 +59,12 @@ $(document).on('touchend || tap', '#submit', (e) => {
                     message: data.message,
                     position: 'center',
                     duration: 2000
-<<<<<<< HEAD
                 });
                 window.location.href = '/user'
-=======
-                })
                 setTimeout(() => {
                     toast.close()
                     window.location.href = '/user'
                 },1000)
->>>>>>> origin/jacklin
             } else {
                 Toast({
                     message: res.message,

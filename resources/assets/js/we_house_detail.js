@@ -20,27 +20,27 @@ new Vue({
   components: { houseDetailList }
 });
 // // 显示或者隐藏栋座信息
-$('.top').on('touchend', function(){
+$('.top').on('click', function(){
     $('#collapse').toggleClass("mui-active")
 })
 // 显示预约弹框
-$(document).on('touchend', '#order', function(){
+$(document).on('click', '#order', function(){
     $('#backdrop').fadeIn(300)
 });
 // 阻止冒泡
-$(document).on('touchend', '#popover', function(){
+$(document).on('click', '#popover', function(){
   return false
 });
-$('#popover').on('touchend', '.js_closes', function(){
+$('#popover').on('click', '.js_closes', function(){
   $('#backdrop').fadeOut(300)
 });
 // 关闭预约弹框
-$(document).on('touchend', '.js_closes', function(){
+$(document).on('click', '.js_closes', function(){
   $('#backdrop').fadeOut(300)
 });
 
 // // 点击提交
-$('#upload').on('touchend', () => {
+$('#upload').on('click', () => {
     var name = $('#names').val(),
         tel = $('#tel').val();
     if (!name || name.trim() === '') {
@@ -80,7 +80,7 @@ $('#upload').on('touchend', () => {
       }
     })
 });
-$(document).on('touchend', '.js_collect', function (e) {
+$(document).on('click', '.js_collect', function (e) {
   var isCollect = $(e.currentTarget).find('img#collect1').is(":hidden"); // 当前是否收藏 true： 收藏 false ：未收藏
   var house_id = $('input#house_id').val();
   if (isCollect) {
