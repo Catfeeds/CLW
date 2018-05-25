@@ -59,11 +59,17 @@ class Controller extends BaseController
         // 判断用户是否注册
         if ($temp == 'register') {
             if (!empty(User::where('tel', $tel)->first()))
-                return [
+                return response([
                     'success' => false,
                     'data' => false,
                     'message' => '该手机号已注册!'
-                ];
+                ],415);
+
+//                return [
+//                    'success' => false,
+//                    'data' => false,
+//                    'message' => '该手机号已注册!'
+//                ];
         }
 
         $smsService = new SmsService();

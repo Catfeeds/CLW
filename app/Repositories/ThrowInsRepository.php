@@ -32,8 +32,8 @@ class ThrowInsRepository extends Model
                 'model_type' => 'App\Models\ThrowIn',
                 'rel_id' => $throwIn->id
             ]);
-
             if (!$message) throw new \Exception('投放房源添加失败');
+
             \DB::commit();
             return true;
         }catch (\Exception $e) {
