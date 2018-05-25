@@ -82,7 +82,7 @@
 				</div>
 				<div class="mui-row">
 					<div class="mui-col-xs-4"><h4>所在楼层</h4></div>
-					<div class="mui-col-xs-8"><h4>{{$house->floor}}</h4></div>
+					<div class="mui-col-xs-8"><h4>{{$house->floor_cn}}</h4></div>
 				</div>
 				<div class="mui-row">
 				    <div class="mui-col-xs-4"><h4>朝向</h4></div>
