@@ -17,6 +17,36 @@ class ResetInfoRequest extends FormRequest
     }
 
     /**
+     * 说明: 提示
+     *
+     * @return array
+     * @author 罗振
+     */
+    public function messages()
+    {
+        switch ($this->route()->getActionMethod()) {
+            case 'resetPwd':
+                return [
+
+                ];
+            case 'oldTelValidate':
+                return [
+                    'smsCode.numeric' => '验证码必须为数字',
+                    'smsCode.max' => '验证码长度过长'
+                ];
+            case 'resetTel':
+                return [
+                    'smsCode.numeric' => '验证码必须为数字',
+                    'smsCode.max' => '验证码长度过长'
+                ];
+            default;
+                return [
+
+                ];
+        }
+    }
+
+    /**
      * 说明: 验证规则
      *
      * @return array
@@ -36,7 +66,7 @@ class ResetInfoRequest extends FormRequest
                         'required',
                         'max:16',
                     ],
-                    'smsCode' => 'required|max:4'
+                    'smsCode' => 'required|numeric|max:9999',
                 ];
             case 'resetTel':
                 return [
@@ -44,7 +74,7 @@ class ResetInfoRequest extends FormRequest
                         'required',
                         'max:16',
                     ],
-                    'smsCode' => 'required|max:4'
+                    'smsCode' => 'required|numeric|max:9999',
                 ];
             default;
                 return [
