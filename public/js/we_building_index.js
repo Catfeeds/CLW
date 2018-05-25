@@ -834,7 +834,7 @@ var app = new Vue({
         type: 'GET',
         data: condition,
         success: function success(data) {
-          if (data.data.length === 0) {
+          if (data.data.data.length === 0) {
             Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
               message: '已无更多数据',
               position: 'center',
@@ -844,10 +844,10 @@ var app = new Vue({
             return;
           }
           self.page++;
-          data.data.map(function (item) {
+          data.data.data.map(function (item) {
             self.list.push(item);
           });
-          if (data.data.length >= data.per_page) {
+          if (data.data.data.length >= data.data.per_page) {
             self.getData = true;
           } else {
             self.status = false;
@@ -861,6 +861,53 @@ var app = new Vue({
           }
         }
       });
+    },
+    // 委托找房
+    findHouse: function findHouse() {
+      var tel = $('#telInput').val();
+      if (!tel || tel.trim() == '') {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: '请输入手机号',
+          position: 'center',
+          duration: 2000
+        });
+      } else {
+        $.ajax({
+          url: '/bespeaks',
+          type: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            tel: tel
+          },
+          success: function success(data) {
+            $('#backdrop').fadeOut(300);
+            $('#telInput').val('');
+            if (data.success) {
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+                message: data.message,
+                position: 'center',
+                duration: 3000
+              });
+            } else {
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+                message: data.message,
+                position: 'center',
+                duration: 3000
+              });
+            }
+          },
+          error: function error(_error2) {
+            $('#backdrop').fadeOut(300);
+            if (_error2.status < 500) {
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error2.responseJSON.message);
+            } else {
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+            }
+          }
+        });
+      }
     }
   }
 });

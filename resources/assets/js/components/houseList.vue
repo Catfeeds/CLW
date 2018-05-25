@@ -1,23 +1,25 @@
 <template>
   <div>
       <ul class="mui-table-view self-style">
-          <li class="mui-table-view-cell mui-row self-style" @touchend="jumpTo(item.id)" v-for="(item, key) in list" :key="'houses'+key">
-              <img class="mui-col-xs-3" :src="item.indoor_img_cn + cropStyle">
-              <div class="list mui-col-xs-7">
-                  <div class="title">{{item.title}}</div>
-                  <div class="areage">{{item.constru_acreage_cn}}</div>
-                  <div class="price mui-row">
-                      <div class="mui-col-xs-6">{{item.unit_price_cn}}</div>
-                      <div class="totalPrice mui-col-xs-6">{{item.total_price}}<span v-if="(item.total_price !== '')">元/月</span></div>
-                  </div>
-                  <div class="mui-row better">
-                      <div class="mui-col-3" v-if="(item.house_feature[0] !== '')"><span>{{item.house_feature[0]}}</span></div>
-                      <div class="mui-col-3" v-if="(item.house_feature[1] !== '')"><span>{{item.house_feature[1]}}</span></div>
-                      <div class="mui-col-3" v-if="(item.house_feature[2] !== '')"><span>{{item.house_feature[2]}}</span></div>
+          <li class="mui-table-view-cell mui-row self-style" v-for="(item, key) in list" :key="'houses'+key">
+              <a :href="'/houses/' + item.id">
+                  <img class="mui-col-xs-3" :src="item.indoor_img_cn + cropStyle">
+                  <div class="list mui-col-xs-7">
+                      <div class="title">{{item.title}}</div>
+                      <div class="areage">{{item.constru_acreage_cn}}</div>
+                      <div class="price mui-row">
+                          <div class="mui-col-xs-6">{{item.unit_price_cn}}</div>
+                          <div class="totalPrice mui-col-xs-6">{{item.total_price}}<span v-if="(item.total_price !== '')">元/月</span></div>
+                      </div>
+                      <div class="mui-row better">
+                          <div class="mui-col-3" v-if="(item.house_feature[0] !== '')"><span>{{item.house_feature[0]}}</span></div>
+                          <div class="mui-col-3" v-if="(item.house_feature[1] !== '')"><span>{{item.house_feature[1]}}</span></div>
+                          <div class="mui-col-3" v-if="(item.house_feature[2] !== '')"><span>{{item.house_feature[2]}}</span></div>
 
+                      </div>
                   </div>
-              </div>
-              <div class="decoration"><img :src="goodImg"></div>
+                  <div class="decoration"><img :src="goodImg"></div>
+              </a>
           </li>
       </ul>
   </div>
@@ -38,11 +40,6 @@ export default {
 
         return {
             cropStyle: process.env.config.cropStylist.newApp_list
-        }
-    },
-    methods: {
-        jumpTo(key) {
-            window.location.href = '/houses/' + key
         }
     }
 }
@@ -100,6 +97,10 @@ export default {
             }
             margin-top: 0 !important;
             li{
+                >a{
+                    display: flex;
+                    flex: 1;
+                }
                 &::after{
                     height: 0;
                 }
