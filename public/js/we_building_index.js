@@ -1186,7 +1186,7 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
         acreage: undefined === req.acreage ? null : req.acreage, // 面积
         total_price: undefined === req.total_price ? null : req.total_price, // 面积, // 总价
         unit_price: undefined === req.unit_price ? null : req.unit_price, // 面积, // 单价
-        renovation: undefined === req.features ? 'all' : req.renovation, // 装修
+        renovation: undefined === req.renovation ? 'all' : req.renovation, // 装修
         features: undefined === req.features ? 'all' : req.features // 决策偏好
       },
       priceOption: [{
