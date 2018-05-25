@@ -30,6 +30,7 @@ Route::resource('bespeaks', 'BespeakController');
 Route::resource('throw_ins', 'ThrowInController');
 // 房源详情页
 Route::resource('houses', 'HouseController');
+Route::get('rim_houses/{id}','HouseController@showOffice');
 
 // 服务
 Route::resource('servers', 'ServerController');
