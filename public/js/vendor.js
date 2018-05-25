@@ -38427,7 +38427,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.rents {\n  background: white;\n}\n.rents > .top {\n    height: 60px;\n    line-height: 60px;\n}\n.rents > .top > h3 {\n      font-size: 19px;\n      color: black;\n      font-weight: 500;\n      padding: 20px 0 20px 0;\n      text-align: center;\n      border-bottom: 1px solid #f4f4f4;\n}\n.rents > .more {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    padding: 20px 0;\n}\n.rents > .more > button {\n      width: 78%;\n      border: solid 1px #007eff;\n      border-radius: 22px;\n      height: 44px;\n      color: #007eff;\n      font-size: 17px;\n}\n", ""]);
+exports.push([module.i, "\n.rents {\n  background: white;\n}\n.rents > .top {\n    height: 60px;\n    line-height: 60px;\n}\n.rents > .top > h3 {\n      font-size: 19px;\n      color: black;\n      font-weight: 500;\n      padding: 20px 0 20px 0;\n      text-align: center;\n      border-bottom: 1px solid #f4f4f4;\n}\n.rents > .more {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    padding: 20px 0;\n}\n.rents > .more > button {\n      width: 78%;\n      border: solid 1px #007eff;\n      border-radius: 22px;\n      height: 44px;\n      color: #007eff;\n      font-size: 17px;\n}\n.rents > .more > button:active {\n      color: #007eff;\n      background-color: #FFFFFF;\n}\n", ""]);
 
 // exports
 

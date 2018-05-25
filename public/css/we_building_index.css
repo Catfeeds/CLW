@@ -134,6 +134,11 @@ body .main-content {
   font-size: 17px;
 }
 
+.more>button:active {
+  color: #007eff;
+  background-color: #FFFFFF;
+}
+
 .more .loading {
   font-size: 16px;
 }
