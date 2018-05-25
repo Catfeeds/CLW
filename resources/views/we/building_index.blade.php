@@ -36,7 +36,7 @@
                     <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
                 </div>
             </div>
-            <!-- <div class="more">没有更多数据了</div> -->
+            <div class="more" v-if="status">没有更多数据了</div>
         </div>
     </div>
     <!-- 底部导航 -->
