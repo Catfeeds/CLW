@@ -59,7 +59,8 @@ $(document).on('touchend || tap', '#submit', (e) => {
                     message: data.message,
                     position: 'center',
                     duration: 2000
-                })
+                });
+                window.location.href = '/user'
                 setTimeout(() => {
                     toast.close()
                     window.location.href = '/user'
