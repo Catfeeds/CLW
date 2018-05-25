@@ -55,4 +55,25 @@ class Common
         $token = $auth->uploadToken($bucket);
         return $token;
     }
+
+    /**
+     * 说明: 分页返回
+     *
+     * @param $page
+     * @param $data
+     * @return array
+     * @author 罗振
+     */
+    public static function pageData($page, $data)
+    {
+        return [
+            'success' => true,
+            'data' => [
+                'current_page' => $page??1,
+                'data' => $data,
+                'per_page' => 6,
+            ],
+            'message' => '获取分页数据成功'
+        ];
+    }
 }
