@@ -1,17 +1,13 @@
 
 body {
-    header{
-      background-color: rgba(255,255,255,0.99) !important;
-      height: 64px !important;
-        .mui-title{
-            margin-top: 20px !important;
-        }
-    }
+  background: #ffffff;
   .mui-content{
+    background: #ffffff;
     .banner{
       width: 100%;
     }
     .essential{
+      margin-bottom: 49px;
       .title{
         display: flex;
         justify-content: flex-start;

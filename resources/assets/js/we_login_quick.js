@@ -1,14 +1,24 @@
 window.$ = window.jQuery = require('jquery');
+import 'mint-ui/lib/style.css'
+import { Toast } from 'mint-ui';
 var tel = $('#tel'),smsCode = $('#sms'),getSms = $('#getSms');
 $(document).on('touchend || tap','.loginBtn button',(e)=> {
     var tel_num = tel.val(), smsCode_num= smsCode.val();
 
     if (!tel_num || tel_num.trim() === '') {
-        alert('请输入手机号码');
+        Toast({
+            message: '请输入手机号码',
+            position: 'center',
+            duration: 2000
+        })
         return false
     }
     if (!smsCode_num || smsCode_num.trim() === '') {
-        alert('请输入验证码');
+        Toast({
+            message: '请输入验证码',
+            position: 'center',
+            duration: 2000
+        })
         return false
     }
     $.ajax({
@@ -22,13 +32,21 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
             smsCode: smsCode_num
         },
         success: function(data){
-            alert(data.message);
-            if (data.status) {
+            Toast({
+                message: data.message,
+                position: 'center',
+                duration: 2000
+            })
+            if (data.success) {
                 window.location.href = '/user'
             }
         },
         error: function (data) {
-            alert(data.responseJSON.message);
+            Toast({
+                message: data.responseJSON.message,
+                position: 'center',
+                duration: 2000
+            })
         }
     });
 });
@@ -36,7 +54,11 @@ $(document).on('touchend || tap','.loginBtn button',(e)=> {
 $(document).on('touchend || tap', '#getSms', (e) => {
     var tel_num = tel.val();
     if (!tel_num || tel_num.trim() === '') {
-        alert('请输入手机号码');
+        Toast({
+            message: '请输入手机号码',
+            position: 'center',
+            duration: 2000
+        })
         return false
     }
     var pathStr = tel_num + '/' + 'login';
@@ -56,11 +78,19 @@ $(document).on('touchend || tap', '#getSms', (e) => {
                         window.clearInterval(time);
                     }
                 }, 1000);
-                alert('短信发送成功');
+                Toast({
+                    message: '短信发送成功',
+                    position: 'center',
+                    duration: 2000
+                })
             }
         },
         error: function (res) {
-            alert(responseJSON.message);
+            Toast({
+                message: responseJSON.message,
+                position: 'center',
+                duration: 2000
+            })
         }
     });
 });

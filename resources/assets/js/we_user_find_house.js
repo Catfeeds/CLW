@@ -9,13 +9,13 @@ $(document).on('touchend || tap', '.loginOut', function(){
     if(!appellation || appellation.trim() == ''){
         Toast({
             message: '请输入称谓',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else if(!tel || tel.trim() == ''){
         Toast({
             message: '请输入手机号码',
-            position: 'top',
+            position: 'center',
             duration: 2000
         })
     } else {
@@ -33,7 +33,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             success: function(data){
                 var toast = Toast({
                     message: data.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 })
                 setTimeout(() => {
@@ -44,7 +44,7 @@ $(document).on('touchend || tap', '.loginOut', function(){
             error: function (data) {
                 Toast({
                     message: data.responseJSON.message,
-                    position: 'top',
+                    position: 'center',
                     duration: 5000
                 })
             }

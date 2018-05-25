@@ -13,14 +13,14 @@
     </div>
     <div class="first">
       <div class="getSms" id="sms">
-        <div class="tel"></div>
+        <div class="tel">{{session('user')->tel}}</div>
         <div class="sms">
           <a href="#" class="mui-pull-right" id="getSms">发送验证码</a>
           <a href="#" class="mui-pull-right mui-hidden" id="time"></a>
         </div>
       </div>
       <div class="setSms">
-        <input type="tel" id="setSms" value="" placeholder="请输入验证码">
+        <input type="tel" id="setSms" placeholder="请输入验证码">
       </div>
     </div>
     <div class="loginOut">

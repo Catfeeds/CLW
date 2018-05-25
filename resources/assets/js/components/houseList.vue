@@ -1,38 +1,25 @@
 <template>
   <div>
-      <ul class="mui-table-view">		    
-            <li class="mui-table-view-cell mui-media" @tap="jumpTo(item)" v-for="(item, key) in list" :key="'houses'+key">
-                <div class="mui-row">
-                    <div style="padding-bottom:10px;padding-left:5px;">
-                        <div style="margin-right:15px;float:left;">
-                            <img :src="item.indoor_img_cn + cropStyle" style="width:120px;height:90px;border:1px solid rgba(0,0,0,0);border-radius:3px;"/>
-                        </div>
-                        <div style="float:left;width:60%;">
-                            <div style="margin-bottom:5px;">
-                                <h4 class="house_title" style="font-weight:500;font-size:14px;height:15px;color:rgb(51,51,51)">{{item.title}}</h4>
-                            </div>
-                            <div style="margin-bottom:5px;">
-                                <h4 class='mui-ellipsis' style="font-weight:500;font-size:16px;color:rgb(68,68,68)">{{item.constru_acreage_cn}}</h4>
-                            </div>
-                            <div style="margin-bottom:5px;width:100%;" class="mui-row mui-ellipsis">
-                                <div class="mui-col-xs-7" style="font-weight:400;height:15px;font-size:13px;color:#999999">
-                                    {{item.unit_price_cn}}
-                                </div>
-                                <div class="mui-col-xs-5" style="float:right;text-align:right;font-size:15px;height:20px;">
-                                    <span id="oranges" style="color:#FF7200;">{{item.total_price}}</span><span v-if="(item.total_price !== '')" style="color:#999999">元/月</span>
-                                </div>
-                            </div>
-                            <div class="mui-row mui-ellipsis borders">
-                                <div v-if="(item.house_feature[0] !== '')"><span>{{item.house_feature[0]}}</span></div>
-                                <div v-if="(item.house_feature[1] !== '')"><span>{{item.house_feature[1]}}</span></div>
-                                <div v-if="(item.house_feature[2] !== '')"><span>{{item.house_feature[2]}}</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="decoration"><img :src="goodImg"></div>
-                </div>
-            </li>
-        </ul>
+      <ul class="mui-table-view">
+          <li class="mui-table-view-cell mui-row" @touchend="jumpTo(item.id)" v-for="(item, key) in list" :key="'houses'+key">
+              <img class="mui-col-xs-3" :src="item.indoor_img_cn + cropStyle">
+              <div class="list mui-col-xs-7">
+                  <div class="title">{{item.title}}</div>
+                  <div class="areage">{{item.constru_acreage_cn}}</div>
+                  <div class="price mui-row">
+                      <div class="mui-col-xs-6">{{item.unit_price_cn}}</div>
+                      <div class="totalPrice mui-col-xs-6">{{item.total_price}}<span v-if="(item.total_price !== '')">元/月</span></div>
+                  </div>
+                  <div class="mui-row better">
+                      <div class="mui-col-3" v-if="(item.house_feature[0] !== '')"><span>{{item.house_feature[0]}}</span></div>
+                      <div class="mui-col-3" v-if="(item.house_feature[1] !== '')"><span>{{item.house_feature[1]}}</span></div>
+                      <div class="mui-col-3" v-if="(item.house_feature[2] !== '')"><span>{{item.house_feature[2]}}</span></div>
+
+                  </div>
+              </div>
+              <div class="decoration"><img :src="goodImg"></div>
+          </li>
+      </ul>
   </div>
 </template>
 <script>
@@ -48,24 +35,14 @@ export default {
         }
     },
     data() {
+
         return {
             cropStyle: process.env.config.cropStylist.newApp_list
         }
     },
     methods: {
         jumpTo(key) {
-            console.log('倒计时')
-            setTimeout(function () {
-                webview_house.show("slide-in-right", 300);
-            }, 150);
-            var selfWebView = plus.webview.currentWebview() // 当前页面
-            if (selfWebView.id === 'house_detail.html') {
-                mui.fire(selfWebView, 'loadData', {item: key})
-            } else {
-                var webview_house = plus.webview.getWebviewById('house_detail.html')
-                mui.fire(webview_house, 'loadData', {item: key})
-            }
-            
+            window.location.href = '/houses/' + key
         }
     }
 }
@@ -112,6 +89,81 @@ export default {
             }
         }
     }
-    
+    .mui-content{
+        border-top: 1px solid #f4f4f4;
+        ul{
+            &::before{
+                height: 0;
+            }
+            &::after{
+                height: 0;
+            }
+            margin-top: 0 !important;
+            li{
+                &::after{
+                    height: 0;
+                }
+                padding: 16px 15px 17px 15px;
+                border-bottom: 1px solid #f4f4f4;
+                display: flex;
+                justify-content: flex-start;
+                img{
+                    width: 120px;
+                    height: 90px;
+                    margin-right: 15px;
+                }
+                .list{
+                    .title{
+                        width: 90%;
+                        font-size: 14px;
+                        color: #333;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                    }
+                    .areage{
+                        font-size: 15px;
+                        color: #444;
+                        span{
+                            font-size: 16px;
+                        }
+                    }
+                    .price{
+                        font-size: 13px;
+                        color: #999;
+                        .totalPrice{
+                            font-size: 14px;
+                            color: #666;
+                            display: flex;
+                            justify-content: flex-end;
+                            span{
+                                font-size: 15px;
+                                color: #ff7200;
+                            }
+                        }
+                    }
+                    .better{
+                        div{
+                            color: #007eff;
+                            font-size: 11px;
+                            border: 1px solid #007eff;
+                            border-radius: 3px;
+                            padding: 0 3px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                .decoration{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    img{
+                        width: 34px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
 </style>
 
