@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
-use App\Http\Controllers\Controller;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
 
 
-class BuildingController extends Controller
+class BuildingController extends APIBaseController
 {
     /**
      * 说明: 楼盘列表 试图
@@ -59,7 +59,8 @@ class BuildingController extends Controller
             }
         }
         $res = $buildingsRepository->buildingList($request, $service);
-        return $res;
+        if (!res) return $this->sendError('楼盘列表数据异常');
+        return $this->sendResponse($res, '楼盘列表获取成功');
     }
 
 
@@ -92,11 +93,8 @@ class BuildingController extends Controller
     )
     {
         $res = $buildingsRepository->OfficeHouseList($service, $id);
-        if (!empty($res)) {
-            return ['status' => true, 'message' => '获取成功', "data" => $res];
-        } else {
-            return ['status' => false, 'message' => '无数据'];
-        }
+        if (!res) return $this->sendError('楼盘下房源列表数据异常');
+        return $this->sendResponse($res, '房源列表获取成功');
     }
 
 
