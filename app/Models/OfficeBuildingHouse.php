@@ -122,7 +122,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getTotalPriceCnAttribute()
     {
-        return empty($this->total_price)?'':round($this->total_price, 1).'元/月';
+        return empty($this->total_price)?'': (int)$this->total_price.'元/月';
     }
 
     /**
