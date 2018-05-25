@@ -32,7 +32,7 @@ class RegistersController extends APIBaseController
     )
     {
         $res = $registersService->weAddUser($request);
-        if (empty($res['status'])) return $this->sendError('注册失败');
+        if (empty($res['status'])) return $this->sendError($res['message']);
         return $this->sendResponse($res,'注册成功');
     }
 }
