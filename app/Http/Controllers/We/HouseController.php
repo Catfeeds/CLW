@@ -23,7 +23,6 @@ class HouseController extends APIBaseController
         // 房源数据
         $house = $service->getShow($officeBuildingHouse);
         // 相关房源
-        dd($house);
         return view('we.house_detail')->with(['house' => $house]);
     }
 
