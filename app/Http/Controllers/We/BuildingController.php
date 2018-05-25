@@ -4,7 +4,6 @@ namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
-use App\Models\OfficeBuildingHouse;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use App\Services\OfficeBuildingHousesService;
