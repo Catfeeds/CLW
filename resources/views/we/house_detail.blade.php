@@ -6,6 +6,7 @@
 @section('body')
 <div id="pullrefresh" class="mui-content">
 	<input id="imgList" value="{{$house->pic_url}}" type="hidden"/>
+	<input id="house_id" value="{{$house->id}}" type="hidden"/>
 	<div class="pullrefresh" id="Vuehouse">
 			<div class="mui-content" id="vueContent">
 				<div class="swiper-container" id="swiperBanner">
@@ -218,10 +219,18 @@
 					</div>
 				</div>
 				<footer id="footer" class="mui-row">
-					<div class="collect mui-col-xs-2">
-						<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
-						<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
-					</div>
+					@if(empty(session('user')))
+						<div class="collect mui-col-xs-2">
+							<a href="/logins/create">
+								<img src="/we_img/detail_collect.png" id="collect1"><span>收藏</span>
+							</a>
+						</div>
+					@else
+						<div class="collect mui-col-xs-2 js_collect">
+							<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
+							<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
+						</div>
+					@endif
 					<div class="mui-col-xs-4" id="free">
 						<a href="tel:4000-580-888">
 							<img src="/we_img/detail_free.png" class="freebtn">

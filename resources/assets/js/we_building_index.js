@@ -79,55 +79,15 @@ var app = new Vue({
           } else {
             self.status = false
           }
+        },
+        error: function (error) {
+          if (error.status < 500) {
+            Toast(error.responseJSON.message)
+          } else {
+            Toast('服务器出错')
+          }
         }
       })
-    },
-    // 委托找房
-    findHouse() {
-      var tel = $('#telInput').val()
-      if (!tel || tel.trim() == '') {
-        Toast({
-          message: '请输入手机号',
-          position: 'center',
-          duration: 2000
-        })
-      } else {
-        $.ajax({
-          url: '/bespeaks',
-          type: 'POST',
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          data: {
-            tel: tel
-          },
-          success: function (data) {
-            $('#backdrop').fadeOut(300);
-            $('#telInput').val('');
-            if(data.success) {
-              Toast({
-                message: data.message,
-                position: 'center',
-                duration: 3000
-              });
-            } else  {
-              Toast({
-                message: '预约失败',
-                position: 'center',
-                duration: 3000
-              });
-            }
-          },
-          error: function () {
-            $('#backdrop').fadeOut(300);
-            Toast({
-              message: '服务器繁忙,请联系客服处理',
-              position: 'center',
-              duration: 3000
-            });
-          }
-        })
-      }
     }
   }
 })
