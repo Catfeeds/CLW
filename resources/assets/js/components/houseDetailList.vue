@@ -125,8 +125,7 @@ export default {
                 color:black;
                 font-weight:500;
                 padding:20px 0 20px 0;    
-                text-align: center;  
-                border-bottom:1px solid #f4f4f4;    
+                text-align: center;   
             }
         }
         >.more{

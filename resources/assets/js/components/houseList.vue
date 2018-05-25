@@ -45,50 +45,12 @@ export default {
 }
 </script>
 <style lang="scss">
-    ul{
-        border-top:0;
-        &.mui-table-view.self-style:before{ height:0}
-        &.mui-table-view.self-style:after{background-color: #f4f4f4;}
-        >li.mui-table-view-cell.self-style{
-            &:after{
-                background-color: #f4f4f4;
-                left:0;
-            }
-            .decoration img{
-            position: absolute;
-            right: 15px;
-            top: 0;
-            width: 39px;
-            height: 25px;
-            }
-            padding:20px 5px 10px 10px;
-            .house_title {
-                width:88%;
-                overflow: hidden;
-                text-overflow:ellipsis;
-                white-space: nowrap;
-                color:#333333;
-            }
-            .borders{
-                >div{
-                    >span{
-                    color:rgb(0,126,255);
-                    border:0.5px solid rgb(0,126,255);
-                    border-radius:1px;
-                    font-size:11px;
-                    text-align: center;
-                    float:left;
-                    margin-right:5px;
-                    line-height: 100%;
-                    padding:1px;
-                    }
-                }
-            }
-        }
+    body{
+        line-height: normal !important;
     }
     .mui-content{
-        border-top: 0.5px solid #f4f4f4;
         ul.self-style{
+            border-top: 1px solid #f4f4f4;
             &::before{
                 height: 0;
             }
@@ -98,6 +60,7 @@ export default {
             margin-top: 0 !important;
             li{
                 >a{
+                    margin: -17px -15px;
                     display: flex;
                     flex: 1;
                 }
@@ -109,9 +72,10 @@ export default {
                 display: flex;
                 justify-content: flex-start;
                 img{
-                    width: 120px;
-                    height: 90px;
+                    width: 130px;
+                    height: 100px;
                     margin-right: 15px;
+                    border-radius: 2px;
                 }
                 .list{
                     .title{
@@ -123,31 +87,36 @@ export default {
                         white-space: nowrap;
                     }
                     .areage{
+                        padding-top: 5px;
                         font-size: 15px;
                         color: #444;
+                        font-weight: 700;
                         span{
                             font-size: 16px;
                         }
                     }
                     .price{
+                        padding-top: 5px;
                         font-size: 13px;
                         color: #999;
                         .totalPrice{
                             font-size: 14px;
-                            color: #666;
+                            color: #ff7200;
                             display: flex;
                             justify-content: flex-end;
                             span{
                                 font-size: 15px;
-                                color: #ff7200;
+                                color: #666;
                             }
                         }
                     }
                     .better{
+                        padding-top: 5px;
                         div{
+                            font-size: 0;
                             color: #007eff;
                             font-size: 11px;
-                            border: 1px solid #007eff;
+                            border: 0.5px solid #007eff;
                             border-radius: 3px;
                             padding: 0 3px;
                             margin-right: 5px;
