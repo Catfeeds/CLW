@@ -106,6 +106,7 @@ class BuildingsRepository extends  Model
         if (!empty($request->features)) {
 
             // 取出包含其中一个的数据
+            if (!is_array($request->features)) $request->features = array($request->features);
             $buildingHasFeatures = BuildingHasFeature::whereIn('building_feature_id', $request->features)
                 ->get()->groupBy('building_id');
 
