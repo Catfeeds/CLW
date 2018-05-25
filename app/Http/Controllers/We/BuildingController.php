@@ -53,6 +53,7 @@ class BuildingController extends APIBaseController
         BuildingsService $service
     )
     {
+        dd(123);
         if (!empty($request->condition)) {
             foreach (json_decode($request->condition) as $key => $item) {
                 $request->$key = $item;
