@@ -1,28 +1,28 @@
 <template>
-  <div class="VueSelectBox" @touchend.stop>
+  <div class="VueSelectBox" @click.stop>
     <div class="select-title-box">
-      <div :class="{active:(selectShow === 1 || !(oblong.block_id === 'all' && oblong.area_id === 'all'))}" @touchend='selectShow = selectShow === 1?0:1'>
+      <div :class="{active:(selectShow === 1 || !(oblong.block_id === 'all' && oblong.area_id === 'all'))}" @click='selectShow = selectShow === 1?0:1'>
         <span>区域</span>
       </div>
-      <div :class="{active:(selectShow === 2|| oblong.acreage !== null)}" @touchend='selectShow = selectShow === 2?0:2'>
+      <div :class="{active:(selectShow === 2|| oblong.acreage !== null)}" @click='selectShow = selectShow === 2?0:2'>
         <span>面积</span>
       </div>
       <div 
       :class="{active:(selectShow === 3 || oblong.total_price !== null || oblong.unit_price !== null)}" 
-      @touchend='selectShow = selectShow === 3?0:3'>
+      @click='selectShow = selectShow === 3?0:3'>
         <span>价格</span>
       </div>
       <div 
       :class="{active:(selectShow === 4 || oblong.renovation !== 'all' || oblong.features !== 'all')}" 
-      @touchend='selectShow = selectShow === 4?0:4'>
+      @click='selectShow = selectShow === 4?0:4'>
         <span>更多</span>
       </div>
     </div>
     <div v-show='selectShow>0' class="selctList-box">
       <div v-if='false' class="areaTypeSwitch">
         <div class="areaTypeSwitch-box">
-          <div :class="{active: areaActive === 0}" @touchend='areaActive = 0'>商圈</div>
-          <div :class="{active: areaActive === 1}" @touchend='areaActive = 1'>地铁</div>
+          <div :class="{active: areaActive === 0}" @click='areaActive = 0'>商圈</div>
+          <div :class="{active: areaActive === 1}" @click='areaActive = 1'>地铁</div>
         </div>
       </div>
       <div class="selectContent">
@@ -32,7 +32,7 @@
             <div class="swiper-item swiper-margin">
               <div class="block-index">
                 <div class="block-index-item" 
-                @touchend='areaOptionActive = index' 
+                @click='areaOptionActive = index' 
                 :class="{active: areaOptionActive === index }" 
                 v-for="(item, index) in areaOption" :key="'area'+index">
                   {{item.name}}
@@ -47,7 +47,7 @@
                       :class="{active: (oblong.block_id === item.block_id&&oblong.area_id === items.area_id) }" 
                       v-for="(item, index) in items.block_list" 
                       :key="'blocks'+index" 
-                      @touchend='oblong.block_id = item.block_id, oblong.area_id = items.area_id;flushData()'>
+                      @click='oblong.block_id = item.block_id, oblong.area_id = items.area_id;flushData()'>
                         <span>{{item.name === ''?'全'+items.name:item.name}}</span>
                         <span>{{item.building_count}}</span>
                       </div>
@@ -66,18 +66,18 @@
         </swiper>
         <!-- 面积 -->
         <div v-show="selectShow === 2" class="unit_list">
-          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, null)}" @touchend='oblong.acreage = null'>不限</div>
-          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [0, 100])}" @touchend='oblong.acreage = [0, 100]'>0-100㎡</div>
-          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [100, 300])}" @touchend='oblong.acreage = [100, 300]'>100-300㎡</div>
-          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [300, 500])}" @touchend='oblong.acreage = [300, 500]'>300-500㎡</div>
-          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [500, 1000])}" @touchend='oblong.acreage = [500, 1000]'>500-1000㎡</div>
-          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [1000, 99999])}" @touchend='oblong.acreage = [1000, 99999]'>1000㎡以上</div>
+          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, null)}" @click='oblong.acreage = null'>不限</div>
+          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [0, 100])}" @click='oblong.acreage = [0, 100]'>0-100㎡</div>
+          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [100, 300])}" @click='oblong.acreage = [100, 300]'>100-300㎡</div>
+          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [300, 500])}" @click='oblong.acreage = [300, 500]'>300-500㎡</div>
+          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [500, 1000])}" @click='oblong.acreage = [500, 1000]'>500-1000㎡</div>
+          <div class="unit_item" :class="{active: arrEqual(oblong.acreage, [1000, 99999])}" @click='oblong.acreage = [1000, 99999]'>1000㎡以上</div>
         </div>
         <!-- 价格 -->
         <div v-show="selectShow === 3" class="swiper-item swiper-margin">
           <div class="block-index">
             <div class="block-index-item" 
-            @touchend='priceOptionActive = priceIndex' 
+            @click='priceOptionActive = priceIndex' 
             :class="{active: priceIndex === priceOptionActive}" 
             v-for="(priceItem, priceIndex) in priceOption" 
             :key="'price'+priceIndex">
@@ -93,7 +93,7 @@
                   :class="{active: arrEqual(oblong[priceIndexArr[priceOptionActive]], item)}" 
                   v-for="(item, index) in items.list" 
                   :key="'prices'+index" 
-                  @touchend='priceTap(item)'>
+                  @click='priceTap(item)'>
                     <span>{{priceShow(item, items)}}</span>
                   </div>
                 </div>
@@ -104,10 +104,10 @@
         <!-- 更多 -->
         <div v-show="selectShow === 4" class="swiper-item swiper-margin">
           <div class="block-index">
-            <div class="block-index-item" @touchend='moreOptionActive = 0' :class="{active: 0 === moreOptionActive}">
+            <div class="block-index-item" @click='moreOptionActive = 0' :class="{active: 0 === moreOptionActive}">
               装修
             </div>
-            <div class="block-index-item" @touchend='moreOptionActive = 1' :class="{active: 1 === moreOptionActive}">
+            <div class="block-index-item" @click='moreOptionActive = 1' :class="{active: 1 === moreOptionActive}">
               决策偏好
             </div>
           </div>
@@ -120,7 +120,7 @@
                   :class="{active: oblong[moreIndexArr[moreOptionActive]] === moreItem.id}"  
                   v-for="(moreItem, moreIndex) in moreItems" 
                   :key="'mroes'+moreIndex"
-                  @touchend='oblong[moreIndexArr[moreOptionActive]] = moreItem.id'>
+                  @click='oblong[moreIndexArr[moreOptionActive]] = moreItem.id'>
                     <span>{{moreItem.name}}</span>
                   </div>
                 </div>

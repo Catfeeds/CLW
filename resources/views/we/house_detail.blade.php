@@ -18,11 +18,15 @@
 				<div id="VueMain">
 					<div class="titles">
 						<div class="mui-row">
+							@if($house->label_cn)
 							<div class="mui-col-xs-9">
 								<h5 style="color:#333333">{{$house->title}}</h5> 
-								</div>
-							<div class="mui-col-xs-3">	
-						</div>
+							</div>
+							@else
+							<div class="mui-col-xs-12">
+								<h5 style="color:#333333">{{$house->title}}</h5>
+							</div>
+							@endif
 					</div>
 					<div class="uls">
 						<div class="mui-row">

@@ -868,12 +868,13 @@ var app = new Vue({
     },
     // 委托找房
     findHouse: function findHouse() {
-      var tel = $('#telInput').val();
-      if (!tel || tel.trim() == '') {
+      var tel = $('#telInput').val(),
+          telReg = /^[1][0-9]{10}$/;
+      if (!telReg.test(tel)) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-          message: '请输入手机号',
+          message: '请输入11位手机号',
           position: 'center',
-          duration: 2000
+          duration: 3000
         });
       } else {
         $.ajax({
@@ -890,7 +891,7 @@ var app = new Vue({
             $('#telInput').val('');
             if (data.success) {
               Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-                message: data.message,
+                message: '信息提交成功，楚楼网30分钟内联系您',
                 position: 'center',
                 duration: 3000
               });
@@ -2388,7 +2389,7 @@ var render = function() {
     {
       staticClass: "VueSelectBox",
       on: {
-        touchend: function($event) {
+        click: function($event) {
           $event.stopPropagation()
         }
       }
@@ -2404,7 +2405,7 @@ var render = function() {
                 !(_vm.oblong.block_id === "all" && _vm.oblong.area_id === "all")
             },
             on: {
-              touchend: function($event) {
+              click: function($event) {
                 _vm.selectShow = _vm.selectShow === 1 ? 0 : 1
               }
             }
@@ -2419,7 +2420,7 @@ var render = function() {
               active: _vm.selectShow === 2 || _vm.oblong.acreage !== null
             },
             on: {
-              touchend: function($event) {
+              click: function($event) {
                 _vm.selectShow = _vm.selectShow === 2 ? 0 : 2
               }
             }
@@ -2437,7 +2438,7 @@ var render = function() {
                 _vm.oblong.unit_price !== null
             },
             on: {
-              touchend: function($event) {
+              click: function($event) {
                 _vm.selectShow = _vm.selectShow === 3 ? 0 : 3
               }
             }
@@ -2455,7 +2456,7 @@ var render = function() {
                 _vm.oblong.features !== "all"
             },
             on: {
-              touchend: function($event) {
+              click: function($event) {
                 _vm.selectShow = _vm.selectShow === 4 ? 0 : 4
               }
             }
@@ -2486,7 +2487,7 @@ var render = function() {
                     {
                       class: { active: _vm.areaActive === 0 },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.areaActive = 0
                         }
                       }
@@ -2499,7 +2500,7 @@ var render = function() {
                     {
                       class: { active: _vm.areaActive === 1 },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.areaActive = 1
                         }
                       }
@@ -2542,7 +2543,7 @@ var render = function() {
                               staticClass: "block-index-item",
                               class: { active: _vm.areaOptionActive === index },
                               on: {
-                                touchend: function($event) {
+                                click: function($event) {
                                   _vm.areaOptionActive = index
                                 }
                               }
@@ -2608,7 +2609,7 @@ var render = function() {
                                                 items.area_id
                                           },
                                           on: {
-                                            touchend: function($event) {
+                                            click: function($event) {
                                               ;(_vm.oblong.block_id =
                                                 item.block_id),
                                                 (_vm.oblong.area_id =
@@ -2678,7 +2679,7 @@ var render = function() {
                       staticClass: "unit_item",
                       class: { active: _vm.arrEqual(_vm.oblong.acreage, null) },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.oblong.acreage = null
                         }
                       }
@@ -2694,7 +2695,7 @@ var render = function() {
                         active: _vm.arrEqual(_vm.oblong.acreage, [0, 100])
                       },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.oblong.acreage = [0, 100]
                         }
                       }
@@ -2710,7 +2711,7 @@ var render = function() {
                         active: _vm.arrEqual(_vm.oblong.acreage, [100, 300])
                       },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.oblong.acreage = [100, 300]
                         }
                       }
@@ -2726,7 +2727,7 @@ var render = function() {
                         active: _vm.arrEqual(_vm.oblong.acreage, [300, 500])
                       },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.oblong.acreage = [300, 500]
                         }
                       }
@@ -2742,7 +2743,7 @@ var render = function() {
                         active: _vm.arrEqual(_vm.oblong.acreage, [500, 1000])
                       },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.oblong.acreage = [500, 1000]
                         }
                       }
@@ -2758,7 +2759,7 @@ var render = function() {
                         active: _vm.arrEqual(_vm.oblong.acreage, [1000, 99999])
                       },
                       on: {
-                        touchend: function($event) {
+                        click: function($event) {
                           _vm.oblong.acreage = [1000, 99999]
                         }
                       }
@@ -2795,7 +2796,7 @@ var render = function() {
                             active: priceIndex === _vm.priceOptionActive
                           },
                           on: {
-                            touchend: function($event) {
+                            click: function($event) {
                               _vm.priceOptionActive = priceIndex
                             }
                           }
@@ -2844,7 +2845,7 @@ var render = function() {
                                       )
                                     },
                                     on: {
-                                      touchend: function($event) {
+                                      click: function($event) {
                                         _vm.priceTap(item)
                                       }
                                     }
@@ -2887,7 +2888,7 @@ var render = function() {
                         staticClass: "block-index-item",
                         class: { active: 0 === _vm.moreOptionActive },
                         on: {
-                          touchend: function($event) {
+                          click: function($event) {
                             _vm.moreOptionActive = 0
                           }
                         }
@@ -2901,7 +2902,7 @@ var render = function() {
                         staticClass: "block-index-item",
                         class: { active: 1 === _vm.moreOptionActive },
                         on: {
-                          touchend: function($event) {
+                          click: function($event) {
                             _vm.moreOptionActive = 1
                           }
                         }
@@ -2947,7 +2948,7 @@ var render = function() {
                                           ] === moreItem.id
                                       },
                                       on: {
-                                        touchend: function($event) {
+                                        click: function($event) {
                                           _vm.oblong[
                                             _vm.moreIndexArr[
                                               _vm.moreOptionActive

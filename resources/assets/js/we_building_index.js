@@ -95,12 +95,13 @@ var app = new Vue({
     },
     // 委托找房
     findHouse() {
-      var tel = $('#telInput').val()
-      if (!tel || tel.trim() == '') {
+      var tel = $('#telInput').val(),
+        telReg=/^[1][0-9]{10}$/;
+      if (!telReg.test(tel)) {
         Toast({
-          message: '请输入手机号',
+          message: '请输入11位手机号',
           position: 'center',
-          duration: 2000
+          duration: 3000
         })
       } else {
         $.ajax({
@@ -117,7 +118,7 @@ var app = new Vue({
             $('#telInput').val('');
             if(data.success) {
               Toast({
-                message: data.message,
+                message: '信息提交成功，楚楼网30分钟内联系您',
                 position: 'center',
                 duration: 3000
               });
