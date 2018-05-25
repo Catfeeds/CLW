@@ -77,7 +77,7 @@ class Building extends Model
      */
     public function getAcreageCnAttribute()
     {
-        if ($this->acreage) return $this->acreage . '㎡';
+        if ($this->acreage) return (int)$this->acreage . '㎡';
     }
 
     /**
@@ -113,9 +113,10 @@ class Building extends Model
         if ($this->parking_num) return $this->parking_num .'个';
     }
 
+
     public function getParkingFeeCnAttribute()
     {
-        if ($this->parking_fee) return $this->parking_fee . '元';
+        if ($this->parking_fee) return (int)$this->parking_fee . '元';
     }
 
     /**
