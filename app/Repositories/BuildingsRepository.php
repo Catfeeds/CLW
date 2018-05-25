@@ -58,7 +58,7 @@ class BuildingsRepository extends  Model
             $buildingData[$index]->house_count = $buildings[$v->id]->count();
 
             // 价格
-            $buildingData[$index]->avg_price = round($buildings[$v->id]->avg('unit_price'), 2);
+            $buildingData[$index]->avg_price = (int)($buildings[$v->id]->avg('unit_price'));
 
             // 商圈推荐
             $buildingData[$index]->block_recommend = $v->block->recommend??0;
@@ -180,7 +180,7 @@ class BuildingsRepository extends  Model
         //楼盘单价区间
         $building->unit_price = intval($building->house->min('unit_price')) . '-' . intval($building->house->max('unit_price'));
         //楼盘总价区间
-        $building->total_price= round($building->house->min('total_price') / 10000, 1) . '-' . round($building->house->max('total_price') / 10000,1);
+        $building->total_price= (int)($building->house->min('total_price') / 10000) . '-' . (int)($building->house->max('total_price') / 10000);
         //楼盘面积区间
         $building->constru_acreage = intval($building->house->min('constru_acreage')) . '-' . intval($building->house->max('constru_acreage'));
         $service->features($building);
