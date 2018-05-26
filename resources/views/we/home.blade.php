@@ -59,7 +59,7 @@
                     <a href="/recommends/{{$item->id}}" class="qualityItem">
                     <img src="{{$item->pic_cn}}">
                     <div class="quality-text">
-                        <div class="quality-title">{{$item->title}}打算</div>
+                        <div class="quality-title">{{$item->title}}</div>
                         <div class="quality-describe">{{$item->introduce}}</div>
                     </div>
                     </a>
@@ -99,7 +99,7 @@
                     <div class="serverList">
                         @if(!empty($serviceRecommends['second']))
                             @foreach($serviceRecommends['second'] as $item)
-                                <a class="serverItem" href="{{url('/servers').'/'.$serviceRecommends['first']['id']}}">
+                                <a class="serverItem" href="{{url('/servers').'/'.$item['id']}}">
                                     <img src="{{$item['pic_cn']}}" alt="">
                                 </a>
                             @endforeach
