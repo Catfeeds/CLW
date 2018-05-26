@@ -64,6 +64,7 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
 $(document).on('click', '#addBook', function () {
   var tel = $('#telInput').val(),
       telReg=/^[1][0-9]{10}$/;
+      $('#telInput').blur()
   if (!telReg.test(tel)) {
     Toast({
       message: '请输入11位手机号',
