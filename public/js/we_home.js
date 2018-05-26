@@ -100,7 +100,7 @@ var swiperBroadcast = new Swiper('#swiperBroadcast', { // 实例化系统公告�
   autoplayDisableOnInteraction: false,
   paginationClickable: true
 });
-$(document).on('tap || touchend', '#addBook', function () {
+$(document).on('click', '#addBook', function () {
   var tel = $('#telInput').val(),
       telReg = /^[1][0-9]{10}$/;
   $('#telInput').blur();

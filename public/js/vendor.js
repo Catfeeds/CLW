@@ -38726,7 +38726,9 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "decoration" }, [
-                _c("img", { attrs: { src: _vm.goodImg } })
+                item.label_cn
+                  ? _c("img", { attrs: { src: _vm.goodImg } })
+                  : _vm._e()
               ])
             ])
           ]

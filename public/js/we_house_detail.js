@@ -41,25 +41,41 @@ new Vue({
   components: { houseDetailList: houseDetailList }
 });
 // // 显示或者隐藏栋座信息
-$('.top').on('click', function () {
+$('.js_showInfo').on('click', function () {
   $('#collapse').toggleClass("mui-active");
 });
 // 显示预约弹框
-$(document).on('click', '#order', function () {
-  $('#backdrop').fadeIn(300);
-});
+// $(document).on('click', '#order', function(){
+//     $('#backdrop').fadeIn(300)
+// });
 // 阻止冒泡
-$(document).on('click', '#popover', function () {
-  return false;
-});
-$('#popover').on('click', '.js_closes', function () {
+// $(document).on('click', '#popover', function(){
+//   return false
+// });
+$('#popover').on('touchend', '.js_closes', function () {
   $('#backdrop').fadeOut(300);
 });
 // 关闭预约弹框
-$(document).on('click', '.js_closes', function () {
+// $(document).on('click', '.js_closes', function(){
+//   $('#backdrop').fadeOut(300)
+// });
+// 弹窗隐藏
+window.backdropHide = function () {
   $('#backdrop').fadeOut(300);
+};
+// 弹窗显示
+window.backdropShow = function () {
+  $('#backdrop').fadeIn(300);
+};
+window.breakClick = function () {
+  return false;
+};
+$('#popover').on('click || touchend', function () {
+  return false;
 });
-
+window.showInfo = function () {
+  $('#collapse').toggleClass("mui-active");
+};
 // // 点击提交
 $('#upload').on('click', function () {
   var name = $('#names').val(),

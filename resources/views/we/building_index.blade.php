@@ -15,7 +15,11 @@
         <div class="main-content">
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
             @if(!$data['data']->count())
+<<<<<<< HEAD
                 <div v-if="!list.length" class="nothing">
+=======
+                <div class="nothing">
+>>>>>>> origin/jacklin
                     <img src="/we_img/nothing.png">
                     <div style="color: #666">很抱歉，暂无匹配的房源</div>
                     <form>
@@ -23,7 +27,7 @@
                             <input id="telInput" type="text" placeholder="请输入手机号"/>
                         </div>
                         <div class="btn-box">
-                            <button type="button" class="mui-btn mui-btn-primary" id="addBook" @touchend='findHouse'>委托找房</button>
+                            <button type="button" class="mui-btn mui-btn-primary" id="addBook" @click='findHouse'>委托找房</button>
                         </div>
                     </form>
                 </div>
@@ -36,7 +40,7 @@
                     <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
                 </div>
             </div>
-            <div class="more" v-if="status">没有更多数据了</div>
+            {{--<div class="more" v-if="status">没有更多数据了</div>--}}
         </div>
     </div>
     <!-- 底部导航 -->
