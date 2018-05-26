@@ -46,7 +46,10 @@
 					</div>
 					<div style="padding-right: 15px;">
 						<div>
-							<h5><img src="/we_img/house_detail_address.png">{{$house->address}}</h5>
+							<h5 style="display: flex;">
+								<div><img style="position: relative;top: 3px;" src="/we_img/house_detail_address.png"></div>
+								<div style="line-height: 20px;">{{$house->address}}</div>
+							</h5>
 						</div>
 					</div>
 							<!--<div>
@@ -194,7 +197,7 @@
 					</a>
 				</div>
 				<!--5最下推荐-->
-				<house-detail-list :api='2' building ='{{$house->id}}' style="margin-bottom:65px;"></house-detail-list>
+				<house-detail-list :api='2' building ='{{$house->id}}' title="写字楼出租" style="margin-bottom:65px;"></house-detail-list>
 				<!-- 预约看房弹框 -->
 			</div>
 				<div class="mui-backdrop js_closes" id="backdrop" style="display: none" onclick="backdropHide()">

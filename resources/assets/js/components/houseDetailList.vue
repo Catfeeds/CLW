@@ -1,7 +1,7 @@
 <template>
     <div class="rents">
         <div class="top">
-            <h3 style="color:#333333">{{title}}写字楼出租</h3>
+            <h3 style="color:#333333">{{title}}</h3>
         </div>
         <house-list :list="list" goodImg='/we_img/house_detail_decoration.png'></house-list>
         <div class="more">
@@ -43,11 +43,6 @@ export default {
                 if (data.success) {
                   if (data.data.data.length === 0) {
                     self.add = false
-                    Toast({
-                      message: '已无更多数据',
-                      position: 'top',
-                      duration: 3000
-                    });
                     return
                   }
                   self.status = true

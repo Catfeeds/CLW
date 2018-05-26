@@ -38495,11 +38495,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (data.success) {
               if (data.data.data.length === 0) {
                 self.add = false;
-                Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                  message: '已无更多数据',
-                  position: 'top',
-                  duration: 3000
-                });
                 return;
               }
               self.status = true;
@@ -38764,7 +38759,7 @@ var render = function() {
     [
       _c("div", { staticClass: "top" }, [
         _c("h3", { staticStyle: { color: "#333333" } }, [
-          _vm._v(_vm._s(_vm.title) + "写字楼出租")
+          _vm._v(_vm._s(_vm.title))
         ])
       ]),
       _vm._v(" "),

@@ -45,7 +45,10 @@
 							</div>
 							<div style="margin-left:-15px;">
 								<div>
-									<h5><img src="/we_img/house_detail_address.png">{{$data->address}}</h5>
+									<h5 style="display: flex;">
+										<div><img style="position: relative;top: 3px;" src="/we_img/house_detail_address.png"></div>
+										<div style="line-height: 20px;">{{$data->address}}</div>
+									</h5>
 								</div>
 							</div>
 							<!--<div>
@@ -114,7 +117,7 @@
 							</div>
 						</div>
 						<!--4最下推荐-->
-						<house-detail-list title="{{$data->name}}" :api='1' building ='{{$data->id}}'></house-detail-list>
+						<house-detail-list title="为你推荐" :api='1' building ='{{$data->id}}'></house-detail-list>
 						<!--5交通及周边配套-->
 						<div class="periphery" style="margin-top:-10px !important;">
 							<div class="top">
