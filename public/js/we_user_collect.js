@@ -33,6 +33,7 @@ var app = new Vue({
     data: {
         list: [],
 <<<<<<< HEAD
+<<<<<<< HEAD
         page: 2
 =======
         page: 2,
@@ -40,6 +41,9 @@ var app = new Vue({
         status: false,
         prompt: false
 >>>>>>> origin/wanghao
+=======
+        page: 2
+>>>>>>> origin/cyq
     },
     components: {
         houseList: __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default.a
@@ -51,11 +55,15 @@ if (pageOne.data.length) {
         app.list.push(pageOne.data[key].office_building_house);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/cyq
 } else {
     console.log(2);
     $('.more').hide();
 }
 $(document).on('touchstart', '.more button', function (e) {
+<<<<<<< HEAD
 =======
     app.getData = true;
     app.status = true;
@@ -66,6 +74,8 @@ $(document).on('touchstart', '.more button', function (e) {
 $(document).on('click', '.more button', function (e) {
     app.getData = false;
 >>>>>>> origin/wanghao
+=======
+>>>>>>> origin/cyq
     var url = '/ajax_collections?page=' + app.page;
     $.ajax({
         headers: {
@@ -75,6 +85,9 @@ $(document).on('click', '.more button', function (e) {
         type: 'get',
         success: function success(data) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/cyq
             for (var key in data.data) {
                 app.list.push(data.data[key].office_building_house);
             }
@@ -83,6 +96,7 @@ $(document).on('click', '.more button', function (e) {
             console.log(Math.ceil(data.total / data.per_page) === app.page);
             if (Math.ceil(data.total / data.per_page) === app.page) {
                 $('.more').hide();
+<<<<<<< HEAD
 =======
             app.status = false;
             if (data.success) {
@@ -103,6 +117,8 @@ $(document).on('click', '.more button', function (e) {
                     duration: 1000
                 });
 >>>>>>> origin/wanghao
+=======
+>>>>>>> origin/cyq
             }
             app.page = app.page + 1;
         },

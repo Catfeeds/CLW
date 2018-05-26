@@ -1,14 +1,14 @@
 @extends('we.layout')
 @section('title', '服务列表')
 @section('header')
-    <link rel="stylesheet" href="/css/we_user_revise_phone1.css">
+    <link rel="stylesheet" href="{{res('/css/we_user_revise_phone1.css')}}">
 @endsection
 @section('body')
   <div class="mui-content">
     <!-- 进度条 -->
     <div class="mui-row progress">
       <div class="mui-col-xs-5 original">1.验证原号码</div>
-      <div class="mui-col-xs-2"><img src="/we_img/house_detail_drop_down.png"></div>
+      <div class="mui-col-xs-2"><img src="{{res('/we_img/house_detail_drop_down.png')}}"></div>
       <div class="mui-col-xs-5">2.绑定新手机</div>
     </div>
     <div class="first">
@@ -27,5 +27,5 @@
         <button type="button">下一步</button>
     </div>
   </div>
-  <script src="/js/we_user_revise_phone1.js"></script>
+  <script src="{{res('/js/we_user_revise_phone1.js')}}"></script>
 @endsection

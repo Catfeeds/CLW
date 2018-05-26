@@ -68,18 +68,24 @@ window.backdropShow = function () {
   $('#backdrop').fadeIn(300);
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // $('#popover').on('click || touchend', function () {
 //   return false
 // });
 =======
+=======
+>>>>>>> origin/cyq
 window.breakClick = function () {
   return false;
 };
 $('#popover').on('click || touchend', function () {
   return false;
 });
+<<<<<<< HEAD
 >>>>>>> origin/wanghao
+=======
+>>>>>>> origin/cyq
 window.showInfo = function () {
   $('#collapse').toggleClass("mui-active");
 };
@@ -87,15 +93,20 @@ window.showInfo = function () {
 $('#upload').on('click', function () {
   var name = $('#names').val(),
 <<<<<<< HEAD
+<<<<<<< HEAD
       tel = $('#tel').val(),
       telReg = /^[1][0-9]{10}$/;
 =======
       tel = $('#tel').val();
 >>>>>>> origin/wanghao
+=======
+      tel = $('#tel').val();
+>>>>>>> origin/cyq
   if (!name || name.trim() === '') {
     Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入称谓');
     return false;
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (!telReg.test(tel)) {
     Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入11位手机号');
@@ -103,6 +114,10 @@ $('#upload').on('click', function () {
   if (!tel || tel.trim() === '') {
     Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入电话');
 >>>>>>> origin/wanghao
+=======
+  if (!tel || tel.trim() === '') {
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入电话');
+>>>>>>> origin/cyq
     return false;
   }
   $('#backdrop').fadeOut(300);
@@ -121,10 +136,14 @@ $('#upload').on('click', function () {
         $('#names').val('');
         $('#tel').val('');
 <<<<<<< HEAD
+<<<<<<< HEAD
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('信息提交成功，楚楼网30分钟内联系您');
 =======
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('提交成功');
 >>>>>>> origin/wanghao
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('提交成功');
+>>>>>>> origin/cyq
       } else {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
       }

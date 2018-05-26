@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_user_house_resources.css">
+    <link rel="stylesheet" href="{{res('/css/we_user_house_resources.css')}}">
 @endsection
 @section('body')
 <div class="mui-content">
@@ -22,7 +22,7 @@
                     <div class="mui-row" id="down">
                         <div class="mui-col-xs-6 region">区域</div>
                         <div class="mui-col-xs-4" id="title" >武昌区</div>
-                        <div class="mui-col-xs-2"><img style="width: 9px;height:5px;margin-bottom:3px;"src="/we_img/house_detail_down.png"></div>
+                        <div class="mui-col-xs-2"><img style="width: 9px;height:5px;margin-bottom:3px;"src="{{res('/we_img/house_detail_down.png')}}"></div>
                     </div>
                 </div>
                 <div class="mui-col-xs-6 acreage">
@@ -48,5 +48,5 @@
             <mt-picker  :slots="slots" :visible-item-count="5" @change="onValuesChange"></mt-picker>
         </div>
     </div>
-    <script src="/js/we_user_house_resources.js"></script> 
+    <script src="{{res('/js/we_user_house_resources.js')}}"></script> 
 @endsection

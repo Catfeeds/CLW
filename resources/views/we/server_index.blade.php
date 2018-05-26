@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '服务列表')
 @section('header')
-    <link rel="stylesheet" href="/css/we_serve_index.css">
+    <link rel="stylesheet" href="{{res('/css/we_serve_index.css')}}">
 @endsection
 @section('body')
     <div class="mui-content">
