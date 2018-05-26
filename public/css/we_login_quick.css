@@ -118,3 +118,16 @@ body {
   color: #999;
 }
 
+<<<<<<< HEAD
+=======
+.mui-content .active {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 40%;
+}
+
+.mui-content .active>span {
+  color: #999;
+}
+
+>>>>>>> origin/cyq

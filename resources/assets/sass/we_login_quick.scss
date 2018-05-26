@@ -92,4 +92,12 @@ body{
             color: #999;
         }
     }
+    .active{
+        text-align: center;
+        font-size: 14px;
+        margin-top: 40%;
+        >span{
+            color: #999;
+        }
+    }
 }

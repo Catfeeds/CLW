@@ -76,6 +76,21 @@ $(document).on('click', '.loginBtn button', function (e) {
         });
     }
 });
+<<<<<<< HEAD
+=======
+//处理安卓兼容性问题
+var height = window.innerHeight; //获取当前浏览器窗口高度
+console.log(height);
+$(window).resize(function () {
+    if (window.innerHeight < height) {
+        $('#agree').removeClass('agree'); //也可以在scss文件中写个类名
+        $('#agree').addClass('active');
+    } else {
+        $('#agree').removeClass('active');
+        $('#agree').addClass('agree');
+    }
+});
+>>>>>>> origin/cyq
 
 /***/ })
 
