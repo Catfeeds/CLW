@@ -42,7 +42,8 @@
                 <!-- 商圈筛选swiper -->
                 <swiper :options="blockSwiperOption" ref="blockSwiper" style="height:100%;">
                   <swiper-slide v-for="(items, indexs) in areaOption" class="swiper-no-swiping" :key="'block'+indexs">
-                    <div class="block-list-box" @scroll.stop='blockScroll($event, indexs)'>
+                    <!--<div class="block-list-box" @scroll.stop='blockScroll($event, indexs)'>-->
+                    <div class="block-list-box">
                       <div class="block-item" 
                       :class="{active: (oblong.block_id === item.block_id&&oblong.area_id === items.area_id) }" 
                       v-for="(item, index) in items.block_list" 
