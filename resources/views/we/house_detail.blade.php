@@ -217,7 +217,7 @@
 							</form>
 						</div>
 						<div>
-							<button type="button" id="upload" onclick="alert(123)" class="mui-btn mui-btn-primary">提交</button>
+							<button type="button" id="upload" class="mui-btn mui-btn-primary">提交</button>
 						</div>
 					</div>
 				</div>

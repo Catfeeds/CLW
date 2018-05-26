@@ -56,13 +56,14 @@ window.showInfo = function(){
 // // 点击提交
 $('#upload').on('click', () => {
     var name = $('#names').val(),
-        tel = $('#tel').val();
+        tel = $('#tel').val(),
+      telReg=/^[1][0-9]{10}$/;
     if (!name || name.trim() === '') {
       Toast('请输入称谓')
       return false
     }
-    if (!tel || tel.trim() === '') {
-      Toast('请输入电话')
+    if (!telReg.test(tel)) {
+      Toast('请输入11位手机号')
       return false
     }
     $('#backdrop').fadeOut(300)
