@@ -8,7 +8,7 @@ import 'mint-ui/lib/style.css';
 import buildingSelect from './components/buildingSelect.vue'
 import buildingList from './components/buildingList.vue'
 var pageOne = JSON.parse($('#pageOne').val());
-console.log(pageOne)
+
 var app = new Vue({
   el: '#buildingList',
   data: {
@@ -25,7 +25,6 @@ var app = new Vue({
   },
   methods: {
     changeData: function (data) {
-      this.list = [];
       var params = {};
       if (data.area_id !== 'all') {
         params.area_id = data.area_id

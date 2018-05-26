@@ -14,8 +14,7 @@
         </header>
         <div class="main-content">
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
-            @if(!$data['data']->count())
-                <div class="nothing" v-if="noDataShow">
+                <div v-if="!list.length" class="nothing">
                     <img src="/we_img/nothing.png">
                     <div style="color: #666">很抱歉，暂无匹配的房源</div>
                     <form>
@@ -27,7 +26,6 @@
                         </div>
                     </form>
                 </div>
-            @endif
             <div class="more" v-if="getData" @touchend='getMore'>
                 <button type="button">查看更多</button>
             </div>

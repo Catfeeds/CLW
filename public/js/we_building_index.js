@@ -781,7 +781,7 @@ window.Vue = __webpack_require__(4);
 
 
 var pageOne = JSON.parse($('#pageOne').val());
-console.log(pageOne);
+
 var app = new Vue({
   el: '#buildingList',
   data: {
@@ -798,7 +798,6 @@ var app = new Vue({
   },
   methods: {
     changeData: function changeData(data) {
-      this.list = [];
       var params = {};
       if (data.area_id !== 'all') {
         params.area_id = data.area_id;

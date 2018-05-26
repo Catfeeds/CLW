@@ -39,7 +39,7 @@ var app = new Vue({
         }
     }
 });
-$(document).on('touchend || tap', '.map-btn-item', function (e) {
+$(document).on('click', '.map-btn-item', function (e) {
     $('.map-btn-item').removeClass('active');
     var That = $(e.currentTarget);
     That.addClass('active');
