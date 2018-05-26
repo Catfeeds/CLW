@@ -1,1 +1,147 @@
-body,body .mui-content{background:#f4f4f4!important}body .mui-content .progress{background:#fff;height:50px}body .mui-content .progress .mui-col-xs-2{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}body .mui-content .progress .mui-col-xs-2 img{width:11px;height:18px;margin-top:16px}body .mui-content .progress .mui-col-xs-5{line-height:50px;color:#333;font-size:16px}body .mui-content .progress .original{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}body .mui-content .progress .binding{color:#007bff}body .mui-content .first{background:#fff;margin-top:10px}body .mui-content .first .getSms{cursor:pointer;height:50px;line-height:30px;border-bottom:1px solid #f4f4f4;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;font-size:15px}body .mui-content .first .getSms .tel{height:50px;color:#333}body .mui-content .first .getSms .tel input{margin-bottom:0;border:none;height:49px}body .mui-content .first .getSms .tel input::-webkit-input-placeholder{font-size:15px}body .mui-content .first .getSms .tel input:-ms-input-placeholder,body .mui-content .first .getSms .tel input::-ms-input-placeholder{font-size:15px}body .mui-content .first .getSms .tel input::placeholder{font-size:15px}body .mui-content .first .getSms .sms{height:50px;line-height:50px;color:#007bff;padding-right:15px}body .mui-content .first .setSms{height:50px}body .mui-content .first .setSms input{height:50px;border:none;margin:0}body .mui-content .first .setSms input::-webkit-input-placeholder{font-size:15px}body .mui-content .first .setSms input:-ms-input-placeholder,body .mui-content .first .setSms input::-ms-input-placeholder{font-size:15px}body .mui-content .first .setSms input::placeholder{font-size:15px}body .mui-content .loginOut{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}body .mui-content .loginOut button{width:80%;height:45px;border-radius:25px;padding:0;font-size:18px;margin:40px 0;color:#fff;background:#06f;border:none}
+body {
+  background: #f4f4f4 !important;
+}
+
+body .mui-content {
+  background: #f4f4f4 !important;
+}
+
+body .mui-content .progress {
+  background: #fff;
+  height: 50px;
+}
+
+body .mui-content .progress .mui-col-xs-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .mui-content .progress .mui-col-xs-2 img {
+  width: 11px;
+  height: 18px;
+  margin-top: 16px;
+}
+
+body .mui-content .progress .mui-col-xs-5 {
+  line-height: 50px;
+  color: #333;
+  font-size: 16px;
+}
+
+body .mui-content .progress .original {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+body .mui-content .progress .binding {
+  color: #007bff;
+}
+
+body .mui-content .first {
+  background: #fff;
+  margin-top: 10px;
+}
+
+body .mui-content .first .getSms {
+  cursor: pointer;
+  height: 50px;
+  line-height: 30px;
+  border-bottom: 1px solid #f4f4f4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 15px;
+}
+
+body .mui-content .first .getSms .tel {
+  height: 50px;
+  color: #333;
+}
+
+body .mui-content .first .getSms .tel input {
+  margin-bottom: 0;
+  border: none;
+  height: 49px;
+}
+
+body .mui-content .first .getSms .tel input::-webkit-input-placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .first .getSms .tel input:-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .first .getSms .tel input::-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .first .getSms .tel input::placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .first .getSms .sms {
+  height: 50px;
+  line-height: 50px;
+  color: #007bff;
+  padding-right: 15px;
+}
+
+body .mui-content .first .setSms {
+  height: 50px;
+}
+
+body .mui-content .first .setSms input {
+  height: 50px;
+  border: none;
+  margin: 0;
+}
+
+body .mui-content .first .setSms input::-webkit-input-placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .first .setSms input:-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .first .setSms input::-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .first .setSms input::placeholder {
+  font-size: 15px;
+}
+
+body .mui-content .loginOut {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .mui-content .loginOut button {
+  width: 80%;
+  height: 45px;
+  border-radius: 25px;
+  padding: 0;
+  font-size: 18px;
+  margin: 40px 0;
+  color: #FFF;
+  background: #0066ff;
+  border: none;
+}
+
