@@ -65,7 +65,7 @@ $(window).resize(function(){
         $('#agree').removeClass('agree') //也可以在scss文件中写个类名
         $('#agree').addClass('active')
     } else {
-        $('#agree').removeClass('active')
+        $('#agree').removeClass('active')     
         $('#agree').addClass('agree')
     }
 })
