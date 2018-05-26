@@ -46,16 +46,19 @@ class BuildingRecommendsController extends APIBaseController
     }
 
     /**
-     * 说明: 获取修改推荐楼盘原生数据
+     * 说明：获取修改推荐楼盘原生数据
      *
      * @param BuildingRecommend $buildingRecommend
+     * @param BuildingsService $service
      * @return \Illuminate\Http\JsonResponse
-     * @author 王成
+     * @author jacklin
      */
     public function edit(
-        BuildingRecommend $buildingRecommend
+        BuildingRecommend $buildingRecommend,
+        BuildingsService $service
     )
     {
+        $service->getArrId($buildingRecommend);
         return $this->sendResponse($buildingRecommend,'获取修改推荐楼盘原生数据成功');
     }
 

@@ -78,7 +78,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     | 楼盘推荐管理
     |--------------------------------------------------------------------------
     */
-    Route::resource('building_recommends', 'RecommendsController');
+    Route::resource('building_recommends', 'BuildingRecommendsController');
 
     /*
     |--------------------------------------------------------------------------

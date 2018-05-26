@@ -15,7 +15,12 @@ class RecommendsRepository extends Model
      */
     public function recommendsList()
     {
-        return Recommend::all();
+        $recommends = Recommend::all();
+        foreach ($recommends as $recommend) {
+            $recommend->name = $recommend->building->name;
+        }
+
+        return $recommends;
     }
 
     /**
