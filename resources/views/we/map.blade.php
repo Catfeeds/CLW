@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </bm-control>
-            <bm-local-search :nearby="nearby" :keyword="keyword" :auto-viewport="false" selectFirstResult="true" :panel="false"></bm-local-search>
+            <bm-local-search :nearby="nearby" :keyword="keyword" :auto-viewport="true" selectFirstResult="true" :panel="false"></bm-local-search>
             <bm-marker :position="center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE">
                 <bm-label content="{{$data->name}}" :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"/>
             </bm-marker>
