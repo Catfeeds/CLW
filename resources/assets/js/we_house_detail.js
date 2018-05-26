@@ -81,7 +81,7 @@ $('#upload').on('click', () => {
         if (data.success) {
           $('#names').val('')
           $('#tel').val('')
-          Toast('提交成功')
+          Toast('信息提交成功，楚楼网30分钟内联系您')
         } else {
           Toast(data.message)
         }

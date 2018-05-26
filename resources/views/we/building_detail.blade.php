@@ -112,7 +112,7 @@
 							<div class="top">
 								<h3 style="color:#333333">楼盘介绍</h3>
 							</div>
-							<div style="text-indent:23px;font-size:13px;color:rgb(153,153,153);text-align: justify;text-justify: inter-ideograph;">
+							<div style="text-indent:23px;font-size:13px;color:rgb(153,153,153);text-align: justify;text-justify: inter-ideograph;line-height:26px;">
 								{{$data->describe}}
 							</div>
 						</div>
