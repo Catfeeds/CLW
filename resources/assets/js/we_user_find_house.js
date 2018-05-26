@@ -2,7 +2,7 @@ window.$ = window.jQuery = require('jquery');
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 // 提交
-$(document).on('touchend || tap', '.loginOut', function(){
+$(document).on('click', '.loginOut button', function(){
     var appellation = $('#appellation').val()
     var tel = $('#tel').val()
     var demand = $('#requirement').val()

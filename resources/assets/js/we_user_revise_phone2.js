@@ -3,7 +3,7 @@ import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 var getSmsType = true;
 // 获取验证码
-$(document).on('touchend || tap', '#getSms', function(){
+$(document).on('click', '#getSms', function(){
     if(!getSmsType) {
         return false
     } else {
@@ -45,7 +45,7 @@ $(document).on('touchend || tap', '#getSms', function(){
     });
 })
 // 修改电话号码
-$(document).on('touchend || tap', '.loginOut', function(){
+$(document).on('click', '.loginOut button', function(){
     var tel = $('#tel').val()
     var smsCode = $('#sms').val()
     $.ajax({

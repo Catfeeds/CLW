@@ -20,7 +20,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.$ = window.jQuery = __webpack_require__(0);
 
 
-$(document).on('touchend || tap', '.loginBtn button', function (e) {
+$(document).on('click', '.loginBtn button', function (e) {
     var tel = $('#tel').val(),
         password = $('#password').val();
     // 判断数据是否存在

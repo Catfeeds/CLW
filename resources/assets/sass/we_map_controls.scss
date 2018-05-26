@@ -12,22 +12,24 @@ html, body {
   flex-direction: column;
   .map-btn-item {
     cursor: pointer;
-    height: 12.5%;
     text-align: center;
     display: flex;
     flex-direction: column;
+    flex: 1;
     .img-box {
-      flex: 1;
+      flex: 2;
+      align-items: center;
       padding-top: 5px;
       img {
-        width: 55%;
+        width: 50%;
       }
     }
     .text-box {
+      align-items: center;
       display: flex;
       justify-content: center;
       align-content: center;
-      height: 35%;
+      flex: 1;
       font-size: 12px;
       color: #333333;
     }
@@ -38,9 +40,23 @@ html, body {
     }
   }
 }
+
 .BMap_noprint.anchorTL{
   right: 25px !important;
   left: auto !important;
   top: 40px !important;
   height: 62.5% !important;
+}
+@media screen and (max-width: 320px) {
+  .img-box {
+    img {
+      width: 45% !important;
+    }
+  }
+  .text-box {
+    font-size: 10px !important;
+  }
+  .BMap_noprint.anchorTL{
+    height: 70% !important;
+  }
 }

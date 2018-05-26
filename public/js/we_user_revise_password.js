@@ -20,7 +20,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.$ = window.jQuery = __webpack_require__(0);
 
 
-$(document).on('touchend || tap', '.loginOut', function () {
+$(document).on('click', '.loginOut button', function () {
     var old_pwd = $('#oldPwd').val();
     var new_pwd = $('#newPwd').val();
     var confirmPwd = $('#confirmPwd').val();

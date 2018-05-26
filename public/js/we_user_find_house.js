@@ -21,7 +21,7 @@ window.$ = window.jQuery = __webpack_require__(0);
 
 
 // 提交
-$(document).on('touchend || tap', '.loginOut', function () {
+$(document).on('click', '.loginOut button', function () {
     var appellation = $('#appellation').val();
     var tel = $('#tel').val();
     var demand = $('#requirement').val();

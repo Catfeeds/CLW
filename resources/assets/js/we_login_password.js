@@ -7,7 +7,7 @@ var tel = $('#tel'),
     password = $('#password'),
     getSmsType = true;
 
-$(document).on('touchend || tap', '#getSms', (e) => {
+$(document).on('click', '#getSms', (e) => {
     if (!tel.val() || tel.val().trim() === '') {
         Toast({
             message: '请输入手机号码',
@@ -56,7 +56,7 @@ $(document).on('touchend || tap', '#getSms', (e) => {
         }
     });
 });
-$(document).on('touchend || tap','.loginBtn button',(e)=> {
+$(document).on('click','.loginBtn button',(e)=> {
     var tel_num = tel.val(), smsCode_num = smsCode.val(), password_num = password.val();
 
     if (!tel_num || tel_num.trim() === '') {

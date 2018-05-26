@@ -55,6 +55,9 @@ body{
         }
         >.marTop{
             height: 60px;
+            #getSms{
+                cursor: pointer;
+            }
         }
         >.phone{
             >input{
