@@ -139,7 +139,7 @@ class OfficeBuildingHouse extends Model
     {
         if($this->floor < 5) {
             return '低层';
-        } elseif ($this->floor < 5 && $this->floor <= 10) {
+        } elseif ($this->floor > 5 && $this->floor <= 10) {
             return '中层';
         } elseif ($this->floor > 10) {
             return '高层';

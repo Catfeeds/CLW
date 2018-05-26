@@ -137,6 +137,9 @@ class HousesService
         $office->cargo_lift = $office->buildingBlock->cargo_lift?$office->buildingBlock->cargo_lift. '部' : '';
         //总裁电梯数量
         $office->president_lift = $office->buildingBlock->president_lift?$office->buildingBlock->president_lift . '部' : '';
+        //总电梯数
+        $elevator_num = $office->buildingBlock->passenger_lift + $office->buildingBlock->cargo_lift + $office->buildingBlock->president_lift;
+        $office->elevator_num =  $elevator_num ? $elevator_num . '部' : '';
         //gps
         $office->gps = $office->buildingBlock->building->gps;
         //空调类型
