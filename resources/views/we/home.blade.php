@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_home.css">
+    <link rel="stylesheet" href={{res("/css/we_home.css")}}>
 @endsection
 @section('body')
     <div class="mui-content">
@@ -193,5 +193,5 @@
         <!-- 底部导航 -->
         @include('we.tab')
     </div>
-    <script src="/js/we_home.js"></script>
+    <script src={{res("/js/we_home.js")}}"></script>
 @endsection
