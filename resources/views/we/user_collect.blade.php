@@ -11,7 +11,13 @@
             <div class="more">
                 <button type="button">查看更多</button>
             </div>
-            <div id="nothing"  style="color: #999;margin-top:60%;text-align:center">暂无收藏</div>
+            <div class="more" v-if="!getData && status">
+                <div class="loading">
+                    <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
+                </div>
+            </div>
+            <div id="nothing" style="color: #999;margin-top:60%;text-align:center">暂无收藏</div>
+            <div class="more" v-if="prompt">没有更多数据了</div>
         </div>
     </div>
     <script src="/js/we_user_collect.js"></script>

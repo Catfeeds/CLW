@@ -38,7 +38,7 @@
         <a href="/browse_records" id="browse" class="mui-col-xs-3 entrust">
           <div>
             <img src="/we_img/user_index_browse.png">
-            <h5>浏览器记录</h5>
+            <h5>浏览记录</h5>
           </div>
         </a>
       </div>
