@@ -21,9 +21,9 @@ return [
     */
     'sms_life_time' => 60 * 2,// 2分钟
     //浮动价格
-    'float_price' => 100,
+    'float_price' => 20,
     //浮动面积
-    'float_acreage' => 100,
+    'float_acreage' => 10,
 
     // 楼盘默认图片
     'building_default_img' => 'https://cdn.chulouwang.com/app/imgs/building_none.jpg',
