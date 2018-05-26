@@ -145,7 +145,7 @@
 						</div>
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>电梯数量</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->floor_num}}</h4></div>
+							<div class="mui-col-xs-8"><h4>{{$house->elevator_num}}</h4></div>
 						</div>
 					</div>
 				</li>
@@ -217,7 +217,7 @@
 				<footer id="footer" class="mui-row">
 					@if(empty(session('user')))
 						<div class="collect mui-col-xs-2">
-							<a href="/logins/create">
+							<a href="/logins/create?house_id={{$house->id}}">
 								<img src="/we_img/detail_collect.png" id="collect1"><span>收藏</span>
 							</a>
 						</div>
