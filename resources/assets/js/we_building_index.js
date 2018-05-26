@@ -8,14 +8,14 @@ import 'mint-ui/lib/style.css';
 import buildingSelect from './components/buildingSelect.vue'
 import buildingList from './components/buildingList.vue'
 var pageOne = JSON.parse($('#pageOne').val());
-console.log(pageOne)
+
 var app = new Vue({
   el: '#buildingList',
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 10,
-    status: pageOne.data.length === 10,
+    getData: false,
+    status: false,
     page: 2,
     more: null,
   },
@@ -23,9 +23,12 @@ var app = new Vue({
     buildingSelect,
     buildingList
   },
+  created() {
+      this.getData = pageOne.data.length === 10;
+      this.status = pageOne.data.length === 10;
+  },
   methods: {
     changeData: function (data) {
-      this.list = [];
       var params = {};
       if (data.area_id !== 'all') {
         params.area_id = data.area_id
