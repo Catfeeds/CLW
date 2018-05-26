@@ -18,7 +18,7 @@
 
                       </div>
                   </div>
-                  <div class="decoration"><img :src="goodImg"></div>
+                  <div class="decoration"><img v-if="item.label_cn" :src="goodImg"></div>
               </a>
           </li>
       </ul>
