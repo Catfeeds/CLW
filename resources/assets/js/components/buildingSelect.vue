@@ -41,7 +41,7 @@
               <div class="block-content">
                 <!-- 商圈筛选swiper -->
                 <swiper :options="blockSwiperOption" ref="blockSwiper" style="height:100%;">
-                  <swiper-slide v-for="(items, indexs) in areaOption" :class="{'swiper-no-swiping': items.block_list.length>8}" :key="'block'+indexs">
+                  <swiper-slide v-for="(items, indexs) in areaOption" class="swiper-no-swiping" :key="'block'+indexs">
                     <div class="block-list-box" @scroll.stop='blockScroll($event, indexs)'>
                       <div class="block-item" 
                       :class="{active: (oblong.block_id === item.block_id&&oblong.area_id === items.area_id) }" 
@@ -49,7 +49,7 @@
                       :key="'blocks'+index" 
                       @click='oblong.block_id = item.block_id, oblong.area_id = items.area_id;flushData()'>
                         <span>{{item.name === ''?'全'+items.name:item.name}}</span>
-                        <span>{{item.building_count}}</span>
+                        <!--<span>{{item.building_count}}</span>-->
                       </div>
                     </div>
                   </swiper-slide>
