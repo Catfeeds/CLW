@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', $res->name)
 @section('header')
-    <link rel="stylesheet" href="/css/we_serve_detail.css">
+    <link rel="stylesheet" href="{{res('/css/we_serve_detail.css')}}">
 @endsection
 @section('body')
     <div>

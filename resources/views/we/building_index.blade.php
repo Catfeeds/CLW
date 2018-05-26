@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_building_index.css">
+    <link rel="stylesheet" href="{{res('/css/we_building_index.css')}}">
 @endsection
 @section('body')
     <input id="pageOne" value="{{json_encode($data)}}" type="hidden"/>
@@ -16,7 +16,7 @@
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
             @if(!$data['data']->count())
                 <div v-if="!list.length" class="nothing">
-                    <img src="/we_img/nothing.png">
+                    <img src="{{res('/we_img/nothing.png')}}">
                     <div style="color: #666">很抱歉，暂无匹配的房源</div>
                     <form>
                         <div class="input-box">
@@ -41,5 +41,5 @@
     </div>
     <!-- 底部导航 -->
         @include('we.tab')
-    <script src="/js/we_building_index.js"></script>
+    <script src="{{res('/js/we_building_index.js')}}"></script>
 @endsection

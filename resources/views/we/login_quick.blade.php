@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_login_quick.css">
+    <link rel="stylesheet" href="{{res('/css/we_login_quick.css')}}">
 @endsection
 @section('body')
 <div class="mui-content">
@@ -33,5 +33,5 @@
       <span>注册/登录即代表同意《</span><a href="user_agreement">楚楼网用户使用协议</a><span>》</span>
     </div>
   </div>
-<script src="/js/we_login_quick.js"></script>
+<script src="{{res('/js/we_login_quick.js')}}"></script>
 @endsection

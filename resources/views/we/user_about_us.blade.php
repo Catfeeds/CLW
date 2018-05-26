@@ -1,12 +1,12 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_user_about_us.css">
+    <link rel="stylesheet" href="{{res('/css/we_user_about_us.css')}}">
 @endsection
 @section('body')
   <div class="mui-content">
     <div class="logo">
-      <img src="/we_img/user_logo.png">
+      <img src="{{res('/we_img/user_logo.png')}}">
     </div>
     <div class="title">
       <div style="font-size:25px;">找写字楼，就找楚楼网</div>

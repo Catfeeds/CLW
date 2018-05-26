@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '我的收藏')
 @section('header')
-    <link rel="stylesheet" href="/css/we_user_browsing_history.css">
+    <link rel="stylesheet" href="{{res('/css/we_user_browsing_history.css')}}">
 @endsection
 @section('body')
     <input id="pageOne" value="{{json_encode($res)}}" type="hidden"/>
@@ -14,5 +14,5 @@
             <div id="nothing"  style="color: #999;margin-top:60%;text-align:center">暂无收藏</div>
         </div>
     </div>
-    <script src="/js/we_user_collect.js"></script>
+    <script src="{{res('/js/we_user_collect.js')}}"></script>
 @endsection
