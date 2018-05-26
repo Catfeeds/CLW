@@ -14,7 +14,7 @@ return [
     'qiniu_bucket' => env('QINIU_BUCKET', 'louwang-test'),
     'qiniu_url' => env('QINIU_URL', 'http://osibaji20.bkt.clouddn.com/'),// 七牛访问url
 
-    'cdn_path' => env('CDN_PATH', 'http://localhost'),// cdn_path
+    'cdn_path' => env('CDN_PATH', ''),// cdn_path
 
     'version' => '?version=20180410',
 

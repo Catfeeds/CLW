@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 body .more{background-color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:20px 0}body .more>button{width:78%;border:1px solid #007eff;border-radius:22px;height:44px;color:#007eff;font-size:17px}
+=======
+body .more{background-color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:20px 0}body .more>button{width:78%;border:1px solid #007eff;border-radius:22px;height:44px;color:#007eff;font-size:17px}body .more>button:active{color:#007eff;background-color:#fff}
+>>>>>>> origin/jacklin

@@ -9,7 +9,7 @@
             <!-- 轮播图 -->
             <div class="swiper-wrapper" id="VueBanner">
                 <div class="swiper-slide">
-                    <a href="#"><img src="/we_img/temp_index_1.png" /></a>
+                    <a href="#"><img src="{{res('/we_img/temp_index_1.png')}}" /></a>
                 </div>
             </div>
             <!-- 如果需要分页器 -->
@@ -36,7 +36,7 @@
             </div>
             <!-- 滚动广播 -->
             <div class="broadcast-box">
-                <div class="img-box"><img src="/we_img/index_broadcast.svg" alt="小喇叭"></div>
+                <div class="img-box"><img src="{{res('/we_img/index_broadcast.svg')}}" alt="小喇叭"></div>
                 <div class="swiper-box">
                     <div class="swiper-container" id="swiperBroadcast">
                         <div class="swiper-wrapper" id="VueBroadcast">
@@ -69,7 +69,7 @@
             <!-- 投放房源 -->
             <div class="launchHouse-box">
                 <div class="launchHouse-content">
-                    <img src="/we_img/index_launchHouse.jpg">
+                    <img src="{{res('/we_img/index_launchHouse.jpg')}}">
                     <div class="launchHouse-form">
                         <form>
                             <div class="input-box">
@@ -145,7 +145,7 @@
                     <img src="{{$item->img_cn}}" alt="">
                     <div class="building-text">
                         <div class="building-title">{{$item->building_name}}</div>
-                        <div class="building-describe"><img src="/we_img/index_positon.png" alt="">{{$item->address_cn}}</div>
+                        <div class="building-describe"><img src="{{res('/we_img/index_positon.png')}}" alt="">{{$item->address_cn}}</div>
                     </div>
                     </a>
                     @endforeach
@@ -183,8 +183,8 @@
                     <div class="title">请选择你所需要的服务</div>
                     <div class="book-contentBox">
                         <div class="img-box">
-                            <div><img id="lookForHouse" src="/we_img/index_lookForHouse.png" alt=""></div>
-                            <div><img id="peltHouse" src="/we_img/index_pletHouse.png" class="right" alt=""></div>
+                            <div><img id="lookForHouse" src="{{res('/we_img/index_lookForHouse.png')}}" alt=""></div>
+                            <div><img id="peltHouse" src="{{res('/we_img/index_pletHouse.png')}}" class="right" alt=""></div>
                         </div>
                     </div>
                 </div>

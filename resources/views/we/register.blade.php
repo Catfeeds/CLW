@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网-注册账号')
 @section('header')
-    <link rel="stylesheet" href="/css/we_register.css">
+    <link rel="stylesheet" href="{{res('/css/we_register.css')}}">
 @endsection
 @section('body')
     <div class="mui-content" id="app">
@@ -21,5 +21,5 @@
             </div>
         </form>
     </div>
-    <script src="/js/we_register.js"></script>
+    <script src="{{res('/js/we_register.js')}}"></script>
 @endsection

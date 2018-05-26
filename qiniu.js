@@ -203,5 +203,5 @@ function uploadFile() {
     });
   }
 }
-
-getQiniuFileList();
+// 上传请打开他
+// getQiniuFileList();
