@@ -17,9 +17,15 @@
 					<div>
 						<div class="titles" style="border-shadow:0;">
 							<div class="mui-row">
+								@if ($data->label_cn)
 								<div class="mui-col-xs-9">
 									<h5>{{$data->name}}</h5>
 								</div>
+									@else
+									<div class="mui-col-xs-12">
+										<h5>{{$data->name}}</h5>
+									</div>
+									@endif
 							</div>
 							<div class="uls" style="padding-left:0;padding-right:0;">
 								<div class="mui-row">
@@ -47,7 +53,7 @@
 									<h5><img src="/we_img/house_detail_bus.png"> 距离2号线 光谷广场 约183米</h5>
 								</div>
 							</div>-->
-							@if ($data->label_cn === true)
+							@if ($data->label_cn)
 								<img class="choice" src="/we_img/house_detail_better.png">
 							@endif
 						</div>
@@ -66,7 +72,7 @@
 							<div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>开发商</h4></div>
-									<div class="mui-col-xs-6" style="color:#333333"><h4>{{$data->developer}}</h4></div>
+									<div class="mui-col-xs-8" style="color:#333333"><h4>{{$data->developer}}</h4></div>
 								</div>
 								<div class="mui-row">
 									<div class="mui-col-xs-4"><h4>建筑年代</h4></div>
@@ -103,7 +109,7 @@
 							<div class="top">
 								<h3 style="color:#333333">楼盘介绍</h3>
 							</div>
-							<div style="text-indent:23px;font-size:13px;color:rgb(153,153,153);text-align: justify;text-justify: inter-ideograph;">
+							<div style="text-indent:23px;font-size:13px;color:rgb(153,153,153);text-align: justify;text-justify: inter-ideograph;line-height:26px;">
 								{{$data->describe}}
 							</div>
 						</div>

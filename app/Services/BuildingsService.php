@@ -50,9 +50,11 @@ class BuildingsService
     public function getAddress($res)
     {
         //商圈名称 - 链接
-        $res->address_cn = $res->area->name . '-' . $res->block->name;
+        $res->address_cn = $res->area->name;
+        $res->address_type = $res->area->name;
+        if (!empty($res->block)) $res->address_cn .= $res->block->name;
         //商圈名称 / 链接
-        $res->address_type = $res->area->name . '/' . $res->block->name;
+        if (!empty($res->block)) $res->address_type .= $res->block->name;
     }
 
     /**

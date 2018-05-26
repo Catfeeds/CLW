@@ -18,7 +18,7 @@
 
                       </div>
                   </div>
-                  <div class="decoration"><img :src="goodImg"></div>
+                  <div class="decoration"><img v-if="item.label_cn" :src="goodImg"></div>
               </a>
           </li>
       </ul>
@@ -72,7 +72,7 @@ export default {
                 display: flex;
                 justify-content: flex-start;
                 img{
-                    width: 130px;
+                    width: 35%;
                     height: 100px;
                     margin-right: 15px;
                     border-radius: 2px;
@@ -100,6 +100,7 @@ export default {
                         font-size: 13px;
                         color: #999;
                         .totalPrice{
+                            line-height: 21px;
                             font-size: 14px;
                             color: #ff7200;
                             display: flex;
