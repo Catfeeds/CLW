@@ -1,6 +1,7 @@
 window.$ = window.jQuery = require('jquery');
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
+console.log(getValue('house_id'));
 $(document).on('click','.loginBtn button',(e)=> {
   var tel = $('#tel').val(),
     password = $('#password').val();
@@ -40,10 +41,15 @@ $(document).on('click','.loginBtn button',(e)=> {
                     message: data.message,
                     position: 'center',
                     duration: 5000
-                })
+                });
+                console.log(window.location.search);
                 setTimeout(() => {
                     toast.close()
-                    window.location.href = '/user'
+                    if(getValue('house_id')!==null) {
+                        window.location.href = '/houses/' + getValue('house_id')
+                    } else {
+                        window.location.href = '/user'
+                    }
                 },1000)
               }
           },
@@ -57,3 +63,9 @@ $(document).on('click','.loginBtn button',(e)=> {
       });
   }
 });
+// 获取url指定参数值
+function getValue(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}

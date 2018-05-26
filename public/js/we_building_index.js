@@ -787,8 +787,8 @@ var app = new Vue({
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 10,
-    status: pageOne.data.length === 10,
+    getData: false,
+    status: false,
     page: 2,
     more: null
   },
@@ -796,6 +796,11 @@ var app = new Vue({
     buildingSelect: __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default.a,
     buildingList: __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default.a
   },
+  created: function created() {
+    this.getData = pageOne.data.length === 10;
+    this.status = pageOne.data.length === 10;
+  },
+
   methods: {
     changeData: function changeData(data) {
       var params = {};

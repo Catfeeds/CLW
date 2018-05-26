@@ -14,14 +14,18 @@ var app = new Vue({
   data: {
     list: pageOne.data,
     search: {},
-    getData: pageOne.data.length === 10,
-    status: pageOne.data.length === 10,
+    getData: false,
+    status: false,
     page: 2,
     more: null,
   },
   components: {
     buildingSelect,
     buildingList
+  },
+  created() {
+      this.getData = pageOne.data.length === 10;
+      this.status = pageOne.data.length === 10;
   },
   methods: {
     changeData: function (data) {

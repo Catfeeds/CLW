@@ -20,6 +20,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.$ = window.jQuery = __webpack_require__(0);
 
 
+console.log(getValue('house_id'));
 $(document).on('click', '.loginBtn button', function (e) {
     var tel = $('#tel').val(),
         password = $('#password').val();
@@ -60,9 +61,14 @@ $(document).on('click', '.loginBtn button', function (e) {
                         position: 'center',
                         duration: 5000
                     });
+                    console.log(window.location.search);
                     setTimeout(function () {
                         toast.close();
-                        window.location.href = '/user';
+                        if (getValue('house_id') !== null) {
+                            window.location.href = '/houses/' + getValue('house_id');
+                        } else {
+                            window.location.href = '/user';
+                        }
                     }, 1000);
                 }
             },
@@ -76,6 +82,12 @@ $(document).on('click', '.loginBtn button', function (e) {
         });
     }
 });
+// 获取url指定参数值
+function getValue(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);return null;
+}
 
 /***/ })
 

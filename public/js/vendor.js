@@ -38823,7 +38823,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      cropStyle: '?imageMogr2/thumbnail/!400x300r/gravity/Center/crop/400x300/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jbi9sb2dvX21pbl9taW4ucG5n/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim',
+      cropStyle: '?imageMogr2/thumbnail/!400x300r/gravity/Center/crop/400x300/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jb20vbG9nb19taW5pLnBuZw==/dissolve/100/gravity/NorthWest/dx/10/dy/10|imageslim',
       srcImg: '/we_img/none.png',
       options: {
         autoplay: 3000,
