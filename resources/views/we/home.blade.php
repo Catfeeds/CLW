@@ -166,7 +166,7 @@
             <input id="listAppData" type="hidden" value="{{json_encode($buildings)}}">
             <div class="guessList">
                 <div id="listApp">
-                    <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
+                    <building-list position-img='{{res('/we_img/index_positon.png')}}' good-img='{{res('/we_img/index_good.png')}}' :list='list'></building-list>
                     <div class="more" v-if="getData" @click='getMore'>
                         <button>查看更多</button>
                     </div>
