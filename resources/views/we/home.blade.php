@@ -99,7 +99,7 @@
                     <div class="serverList">
                         @if(!empty($serviceRecommends['second']))
                             @foreach($serviceRecommends['second'] as $item)
-                                <a class="serverItem" href="{{url('/servers').'/'.$item['id']}}">
+                                <a class="serverItem" href="{{url('/servers').'/'.$item['service_id']}}">
                                     <img src="{{$item['pic_cn']}}" alt="">
                                 </a>
                             @endforeach
