@@ -789,6 +789,10 @@ var app = new Vue({
     search: {},
     getData: false,
     status: false,
+<<<<<<< HEAD
+=======
+    prompt: false,
+>>>>>>> origin/wanghao
     page: 2,
     more: null
   },
@@ -799,6 +803,10 @@ var app = new Vue({
   created: function created() {
     this.getData = pageOne.data.length === 10;
     this.status = pageOne.data.length === 10;
+<<<<<<< HEAD
+=======
+    $('.main-content').show();
+>>>>>>> origin/wanghao
   },
 
   methods: {
@@ -859,6 +867,10 @@ var app = new Vue({
             self.getData = true;
           } else {
             self.status = false;
+<<<<<<< HEAD
+=======
+            self.prompt = true;
+>>>>>>> origin/wanghao
           }
         },
         error: function error(_error) {
@@ -1028,8 +1040,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(100);
+<<<<<<< HEAD
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+=======
+>>>>>>> origin/wanghao
 //
 //
 //
@@ -1178,9 +1193,12 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
     var _this = this;
 
     var req = JSON.parse($('#request').val());
+<<<<<<< HEAD
     if (_typeof(req.features) === 'object') {
       req.features = req.features[0];
     }
+=======
+>>>>>>> origin/wanghao
     return {
       status: true, // 是否允许通知父级刷新页面 true: 是 false: 否
       selectShow: 0, // 显示筛选大块 1. 区域 2. 面积 3. 价格 4. 更多 默认：0

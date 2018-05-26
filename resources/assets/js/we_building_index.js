@@ -16,6 +16,7 @@ var app = new Vue({
     search: {},
     getData: false,
     status: false,
+    prompt: false,
     page: 2,
     more: null,
   },
@@ -26,6 +27,7 @@ var app = new Vue({
   created() {
       this.getData = pageOne.data.length === 10;
       this.status = pageOne.data.length === 10;
+      $('.main-content').show()
   },
   methods: {
     changeData: function (data) {
@@ -85,6 +87,7 @@ var app = new Vue({
             self.getData = true
           } else {
             self.status = false
+            self.prompt = true
           }
         },
         error: function (error) {

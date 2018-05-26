@@ -67,24 +67,42 @@ window.backdropHide = function () {
 window.backdropShow = function () {
   $('#backdrop').fadeIn(300);
 };
+<<<<<<< HEAD
 
 // $('#popover').on('click || touchend', function () {
 //   return false
 // });
+=======
+window.breakClick = function () {
+  return false;
+};
+$('#popover').on('click || touchend', function () {
+  return false;
+});
+>>>>>>> origin/wanghao
 window.showInfo = function () {
   $('#collapse').toggleClass("mui-active");
 };
 // // 点击提交
 $('#upload').on('click', function () {
   var name = $('#names').val(),
+<<<<<<< HEAD
       tel = $('#tel').val(),
       telReg = /^[1][0-9]{10}$/;
+=======
+      tel = $('#tel').val();
+>>>>>>> origin/wanghao
   if (!name || name.trim() === '') {
     Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入称谓');
     return false;
   }
+<<<<<<< HEAD
   if (!telReg.test(tel)) {
     Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入11位手机号');
+=======
+  if (!tel || tel.trim() === '') {
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('请输入电话');
+>>>>>>> origin/wanghao
     return false;
   }
   $('#backdrop').fadeOut(300);
@@ -102,7 +120,11 @@ $('#upload').on('click', function () {
       if (data.success) {
         $('#names').val('');
         $('#tel').val('');
+<<<<<<< HEAD
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('信息提交成功，楚楼网30分钟内联系您');
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('提交成功');
+>>>>>>> origin/wanghao
       } else {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(data.message);
       }

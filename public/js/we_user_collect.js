@@ -32,7 +32,14 @@ var app = new Vue({
     el: '#houseList',
     data: {
         list: [],
+<<<<<<< HEAD
         page: 2
+=======
+        page: 2,
+        getData: false,
+        status: false,
+        prompt: false
+>>>>>>> origin/wanghao
     },
     components: {
         houseList: __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default.a
@@ -43,11 +50,22 @@ if (pageOne.data.length) {
     for (var key in pageOne.data) {
         app.list.push(pageOne.data[key].office_building_house);
     }
+<<<<<<< HEAD
 } else {
     console.log(2);
     $('.more').hide();
 }
 $(document).on('touchstart', '.more button', function (e) {
+=======
+    app.getData = true;
+    app.status = true;
+} else {
+    app.getData = false;
+    app.status = false;
+}
+$(document).on('click', '.more button', function (e) {
+    app.getData = false;
+>>>>>>> origin/wanghao
     var url = '/ajax_collections?page=' + app.page;
     $.ajax({
         headers: {
@@ -56,6 +74,7 @@ $(document).on('touchstart', '.more button', function (e) {
         url: url,
         type: 'get',
         success: function success(data) {
+<<<<<<< HEAD
             for (var key in data.data) {
                 app.list.push(data.data[key].office_building_house);
             }
@@ -64,6 +83,26 @@ $(document).on('touchstart', '.more button', function (e) {
             console.log(Math.ceil(data.total / data.per_page) === app.page);
             if (Math.ceil(data.total / data.per_page) === app.page) {
                 $('.more').hide();
+=======
+            app.status = false;
+            if (data.success) {
+                for (var key in data.data.data) {
+                    app.list.push(data.data.data[key].office_building_house);
+                }
+                if (Math.ceil(data.data.total / data.data.per_page) === app.page) {
+                    app.getData = false;
+                    app.status = false;
+                    app.prompt = true;
+                } else {
+                    app.getData = true;
+                }
+            } else {
+                Object(__WEBPACK_IMPORTED_MODULE_2_mint_ui__["Toast"])({
+                    message: data.message,
+                    position: 'center',
+                    duration: 1000
+                });
+>>>>>>> origin/wanghao
             }
             app.page = app.page + 1;
         },

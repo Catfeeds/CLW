@@ -18,3 +18,11 @@ body .more>button {
   font-size: 17px;
 }
 
+<<<<<<< HEAD
+=======
+body .more>button:active {
+  color: #007eff;
+  background-color: #FFFFFF;
+}
+
+>>>>>>> origin/wanghao

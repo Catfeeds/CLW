@@ -12,7 +12,7 @@
                 <building-select ref='buildingSelect' @@flush-data='changeData'></building-select>
             </div>
         </header>
-        <div class="main-content">
+        <div class="main-content" hidden>
             <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
             @if(!$data['data']->count())
                 <div v-if="!list.length" class="nothing">
@@ -36,7 +36,7 @@
                     <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
                 </div>
             </div>
-            {{--<div class="more" v-if="status">没有更多数据了</div>--}}
+            <div class="more" v-if="prompt">没有更多数据了</div>
         </div>
     </div>
     <!-- 底部导航 -->
