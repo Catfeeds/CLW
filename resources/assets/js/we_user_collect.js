@@ -41,15 +41,24 @@ $(document).on('click','.more button',(e)=> {
         url: url,
         type: 'get',
         success: function (data) {
-            for(var key in data.data){
-                app.list.push(data.data[key].office_building_house)
-            }
-            if(Math.ceil(data.total/data.per_page) === app.page) {
-                app.getData = false;
-                app.status = false;
-                app.prompt = true
-            }else{
-                app.getData = true;
+            app.status = false;
+            if(data.success) {
+                for(var key in data.data.data){
+                    app.list.push(data.data.data[key].office_building_house)
+                }
+                if(Math.ceil(data.data.total/data.data.per_page) === app.page) {
+                    app.getData = false;
+                    app.status = false;
+                    app.prompt = true
+                }else {
+                    app.getData = true;
+                }
+            } else{
+                Toast({
+                    message: data.message,
+                    position: 'center',
+                    duration: 1000
+                })
             }
             app.page =  app.page + 1;
         },

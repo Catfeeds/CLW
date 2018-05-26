@@ -62,15 +62,24 @@ $(document).on('click', '.more button', function (e) {
         url: url,
         type: 'get',
         success: function success(data) {
-            for (var key in data.data) {
-                app.list.push(data.data[key].office_building_house);
-            }
-            if (Math.ceil(data.total / data.per_page) === app.page) {
-                app.getData = false;
-                app.status = false;
-                app.prompt = true;
+            app.status = false;
+            if (data.success) {
+                for (var key in data.data.data) {
+                    app.list.push(data.data.data[key].office_building_house);
+                }
+                if (Math.ceil(data.data.total / data.data.per_page) === app.page) {
+                    app.getData = false;
+                    app.status = false;
+                    app.prompt = true;
+                } else {
+                    app.getData = true;
+                }
             } else {
-                app.getData = true;
+                Object(__WEBPACK_IMPORTED_MODULE_2_mint_ui__["Toast"])({
+                    message: data.message,
+                    position: 'center',
+                    duration: 1000
+                });
             }
             app.page = app.page + 1;
         },

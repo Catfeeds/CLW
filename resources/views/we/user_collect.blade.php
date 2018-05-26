@@ -8,7 +8,7 @@
     <div id="pullrefresh">
         <div class="mui-content" id="houseList">
             <house-list good-img='https://upload.chulouwang.com/FkcZNG1e4fXBBG-OmybpERvfyTjC' :list='list'></house-list>
-            <div class="more">
+            <div class="more" v-if="getData">
                 <button type="button">查看更多</button>
             </div>
             <div class="more" v-if="!getData && status">
