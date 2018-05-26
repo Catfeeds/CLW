@@ -13,7 +13,7 @@
             </div>
         </header>
         <div class="main-content" hidden>
-            <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
+            <building-list position-img='{{res('/we_img/index_positon.png')}}' good-img='{{res('/we_img/index_good.png')}}' :list='list'></building-list>
             @if(!$data['data']->count())
                 <div v-if="!list.length" class="nothing">
                     <img src="{{res('/we_img/nothing.png')}}">

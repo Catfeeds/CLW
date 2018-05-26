@@ -59,7 +59,7 @@
                     <a href="/recommends/{{$item->id}}" class="qualityItem">
                     <img src="{{$item->pic_cn}}">
                     <div class="quality-text">
-                        <div class="quality-title">{{$item->title}}打算</div>
+                        <div class="quality-title">{{$item->title}}</div>
                         <div class="quality-describe">{{$item->introduce}}</div>
                     </div>
                     </a>
@@ -99,7 +99,7 @@
                     <div class="serverList">
                         @if(!empty($serviceRecommends['second']))
                             @foreach($serviceRecommends['second'] as $item)
-                                <a class="serverItem" href="{{url('/servers').'/'.$serviceRecommends['first']['id']}}">
+                                <a class="serverItem" href="{{url('/servers').'/'.$item['service_id']}}">
                                     <img src="{{$item['pic_cn']}}" alt="">
                                 </a>
                             @endforeach
@@ -166,7 +166,7 @@
             <input id="listAppData" type="hidden" value="{{json_encode($buildings)}}">
             <div class="guessList">
                 <div id="listApp">
-                    <building-list position-img='/we_img/index_positon.png' good-img='/we_img/index_good.png' :list='list'></building-list>
+                    <building-list position-img='{{res('/we_img/index_positon.png')}}' good-img='{{res('/we_img/index_good.png')}}' :list='list'></building-list>
                     <div class="more" v-if="getData" @click='getMore'>
                         <button>查看更多</button>
                     </div>

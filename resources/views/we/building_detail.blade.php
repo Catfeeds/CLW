@@ -117,7 +117,7 @@
 							</div>
 						</div>
 						<!--4最下推荐-->
-						<house-detail-list title="为你推荐" :api='1' building ='{{$data->id}}'></house-detail-list>
+						<house-detail-list title="写字楼出租" :api='1' building ='{{$data->id}}'></house-detail-list>
 						<!--5交通及周边配套-->
 						<div class="periphery" style="margin-top:-10px !important;">
 							<div class="top">
