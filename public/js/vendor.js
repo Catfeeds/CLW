@@ -38495,12 +38495,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return;
               }
               self.status = true;
-              self.page++;
               data.data.data.map(function (item) {
                 self.list.push(item);
               });
-              if (data.data.per_page > data.data.data.length) {
+              self.page++;
+              if (Math.ceil(data.data.total / data.data.per_page) < self.page) {
                 self.add = false;
+                return;
               }
             } else {
               self.add = false;
@@ -38524,20 +38525,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (data.success) {
               if (data.data.data.length === 0) {
                 self.add = false;
-                Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
-                  message: '已无更多数据',
-                  position: 'top',
-                  duration: 3000
-                });
                 return;
               }
               self.status = true;
-              self.page++;
               data.data.data.map(function (item) {
                 self.list.push(item);
               });
-              if (data.data.per_page > data.data.data.length) {
+              self.page++;
+              if (Math.ceil(data.data.total / data.data.per_page) < self.page) {
                 self.add = false;
+                return;
               }
             } else {
               self.add = false;
