@@ -144,6 +144,9 @@ export default {
   },
   data() {
     var req = JSON.parse($('#request').val());
+    if (typeof req.features === 'object') {
+      req.features = req.features[0]
+    }
     return {
       status: true, // 是否允许通知父级刷新页面 true: 是 false: 否
       selectShow: 0, // 显示筛选大块 1. 区域 2. 面积 3. 价格 4. 更多 默认：0

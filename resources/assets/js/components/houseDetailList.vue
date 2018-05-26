@@ -46,12 +46,13 @@ export default {
                     return
                   }
                   self.status = true
-                  self.page++
                   data.data.data.map(item => {
                     self.list.push(item)
                   })
-                  if (data.data.per_page > data.data.data.length) {
+                  self.page++
+                  if (Math.ceil(data.data.total/data.data.per_page) < self.page) {
                     self.add = false
+                    return
                   }
                 } else {
                   self.add = false
@@ -74,20 +75,16 @@ export default {
                 if (data.success) {
                   if (data.data.data.length === 0) {
                     self.add = false
-                    Toast({
-                      message: '已无更多数据',
-                      position: 'top',
-                      duration: 3000
-                    });
                     return
                   }
                   self.status = true
-                  self.page++
                   data.data.data.map(item => {
                     self.list.push(item)
                   })
-                  if (data.data.per_page > data.data.data.length) {
+                  self.page++
+                  if (Math.ceil(data.data.total/data.data.per_page) < self.page) {
                     self.add = false
+                    return
                   }
                 } else {
                   self.add = false
