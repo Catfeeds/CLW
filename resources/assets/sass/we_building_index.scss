@@ -38,6 +38,7 @@ body {
     width: 73%;
     display: flex;
     .input-box{
+      height: 50px;
       border: 1px solid #DDD;
       border-right: none;
       border-radius: 2px 0 0 2px;
@@ -46,6 +47,7 @@ body {
       overflow: hidden;
       display: flex;
       input{
+        height: 100%;
         width: 100%;
         border: 0;
         margin-bottom: 0 !important;
@@ -65,6 +67,7 @@ body {
     }
     .btn-box{
       button{
+        height: 50px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
