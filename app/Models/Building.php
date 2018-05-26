@@ -88,7 +88,7 @@ class Building extends Model
      */
     public function getYearsCnAttribute()
     {
-        if ($this->yearsget) return $this->yearsget . '年';
+        if ($this->years) return $this->years . '年';
     }
 
     /**

@@ -20,6 +20,7 @@ class HouseController extends APIBaseController
 
         $officeBuildingHouse = OfficeBuildingHouse::findOrFail($id);
         // 房源数据
+        $service->labelShow($officeBuildingHouse);
         $house = $service->getShow($officeBuildingHouse);
         // 相关房源
         return view('we.house_detail')->with(['house' => $house]);
