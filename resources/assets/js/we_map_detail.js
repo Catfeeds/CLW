@@ -18,7 +18,7 @@ var app =new Vue({
                 lng: JSON.parse($('#build_id').val())[0],
                 lat: JSON.parse($('#build_id').val())[1]
             },
-            radius: 1000
+            radius: 10000
         }
     }
 });
