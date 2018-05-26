@@ -44,13 +44,15 @@
                   <swiper-slide v-for="(items, indexs) in areaOption" class="swiper-no-swiping" :key="'block'+indexs">
                     <!--<div class="block-list-box" @scroll.stop='blockScroll($event, indexs)'>-->
                     <div class="block-list-box">
-                      <div class="block-item" 
-                      :class="{active: (oblong.block_id === item.block_id&&oblong.area_id === items.area_id) }" 
-                      v-for="(item, index) in items.block_list" 
-                      :key="'blocks'+index" 
-                      @click='oblong.block_id = item.block_id, oblong.area_id = items.area_id;flushData()'>
-                        <span>{{item.name === ''?'全'+items.name:item.name}}</span>
-                        <!--<span>{{item.building_count}}</span>-->
+                      <div class="temp-style">
+                        <div class="block-item"
+                             :class="{active: (oblong.block_id === item.block_id&&oblong.area_id === items.area_id) }"
+                             v-for="(item, index) in items.block_list"
+                             :key="'blocks'+index"
+                             @click='oblong.block_id = item.block_id, oblong.area_id = items.area_id;flushData()'>
+                          <span>{{item.name === ''?'全'+items.name:item.name}}</span>
+                          <!--<span>{{item.building_count}}</span>-->
+                        </div>
                       </div>
                     </div>
                   </swiper-slide>
@@ -504,6 +506,9 @@ export default {
           .block-list-box{
             height: 100%;
             overflow-y: scroll;
+            .temp-style{
+              min-height: 401px;
+            }
             .block-item{
               height: 50px;
               display: flex;
