@@ -200,11 +200,15 @@
 				<house-detail-list :api='2' building ='{{$house->id}}' title="写字楼出租" style="margin-bottom:65px;"></house-detail-list>
 				<!-- 预约看房弹框 -->
 			</div>
-				<div class="mui-backdrop js_closes" id="backdrop" style="display: none" onclick="backdropHide()">
+				<div class="mui-backdrop js_closes" id="backdrop" style="display: none">
 					<div id="popover" class="mui-popover mui-active" style="z-index:10;">
 						<div>
 							<h4>预约信息</h4>
-							<span class="js_closes">×</span>
+							<div>
+								<span style="font-size:20px;" class="js_closes">
+									×
+								</span>
+							</div>
 						</div>
 						<div>
 							<form>
@@ -213,7 +217,7 @@
 							</form>
 						</div>
 						<div>
-							<button type="button" id="upload" class="mui-btn mui-btn-primary">提交</button>
+							<button type="button" id="upload" onclick="alert(123)" class="mui-btn mui-btn-primary">提交</button>
 						</div>
 					</div>
 				</div>

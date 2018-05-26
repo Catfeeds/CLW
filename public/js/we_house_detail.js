@@ -67,12 +67,10 @@ window.backdropHide = function () {
 window.backdropShow = function () {
   $('#backdrop').fadeIn(300);
 };
-window.breakClick = function () {
-  return false;
-};
-$('#popover').on('click || touchend', function () {
-  return false;
-});
+
+// $('#popover').on('click || touchend', function () {
+//   return false
+// });
 window.showInfo = function () {
   $('#collapse').toggleClass("mui-active");
 };
