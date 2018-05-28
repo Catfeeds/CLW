@@ -14,7 +14,7 @@
     @yield('header')
 </head>
 <body>
-<div style="max-width: 768px;margin: 0 auto">
+<div id="layout" style="max-width: 768px;margin: 0 auto">
     @yield('body')
 </div>
 </body>
