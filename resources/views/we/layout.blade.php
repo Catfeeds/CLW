@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="{{res('/css/mui/mui.css')}}">
     <title>@section('title')楚楼网--找写字楼上楚楼网十分钟轻松搞定@show</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a8bb44e51deceeae65bac46930eab06e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
     <script src="{{res('/js/manifest.js')}}"></script> 
     <script src="{{res('/js/vendor.js')}}"></script>
     @yield('header')
