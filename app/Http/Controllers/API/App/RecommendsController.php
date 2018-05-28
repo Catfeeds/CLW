@@ -26,12 +26,13 @@ class RecommendsController extends APIBaseController
         return $this->sendResponse($res,'精品推荐列表获取成功');
     }
 
-
     /**
-     * 说明：首页点击精品推荐跳转到楼盘列表
+     * 说明: 首页点击精品推荐跳转到楼盘列表
      *
-     * @param RecommendsRepository $repository
+     * @param BuildingsRepository $repository
      * @param Recommend $recommend
+     * @param BuildingsService $service
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @author jacklin
      */
@@ -43,7 +44,7 @@ class RecommendsController extends APIBaseController
         Request $request
     )
     {
-        $res = $repository->buildingList($request, $service, $recommend->building_id);
+        $res = $repository->buildingList($request, $service, $recommend->building_id,true);
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 
