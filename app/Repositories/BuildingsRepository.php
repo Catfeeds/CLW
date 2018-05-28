@@ -61,6 +61,9 @@ class BuildingsRepository extends  Model
     public function buildingDataComplete($buildings, $buildingData, $service)
     {
         foreach ($buildingData as $index => $v) {
+            // 价格及面积区间
+            $service->priceAndAcreageSection($v);
+
             // 特色,标签,地址
             $service->features($v);
             $service->getAddress($v);
@@ -184,19 +187,13 @@ class BuildingsRepository extends  Model
      * 说明: 获取详情
      *
      * @param $building
+     * @param $service
      * @return mixed
-     * @author 王成
+     * @author 罗振
      */
     public function getShow($building, $service)
     {
-        //楼盘单价区间
-        $building->unit_price = intval($building->house->min('unit_price')) . '-' . intval($building->house->max('unit_price'));
-        //楼盘总价区间
-        $low_price = $building->house->min('total_price') / 10000;
-        $high_price = $building->house->max('total_price') / 10000;
-        $building->total_price= (is_int($low_price) ? $low_price : round($low_price, 1)) . '-' . (is_int($high_price) ? $high_price : round($high_price, 1));
-        //楼盘面积区间
-        $building->constru_acreage = intval($building->house->min('constru_acreage')) . '-' . intval($building->house->max('constru_acreage'));
+        $service->priceAndAcreageSection($building);
         $service->features($building);
         $service->label($building);
         return $building;
