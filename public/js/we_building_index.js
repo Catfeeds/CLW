@@ -1015,7 +1015,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.VueSelectBox[data-v-088a7ea7] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-088a7ea7] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-088a7ea7] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-088a7ea7] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-088a7ea7] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-088a7ea7] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-088a7ea7] {\n    border-top: 1px solid #f4f4f4;\n    background: #ffffff;\n    position: absolute;\n    width: 100%;\n    top: 100%;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-088a7ea7] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-088a7ea7] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-088a7ea7] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-088a7ea7] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-088a7ea7] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-088a7ea7] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-088a7ea7] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-088a7ea7] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-088a7ea7] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-088a7ea7] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-088a7ea7] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-088a7ea7] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-088a7ea7] {\n          color: #007eff;\n}\n", ""]);
+exports.push([module.i, "\n.VueSelectBox[data-v-088a7ea7] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-088a7ea7] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-088a7ea7] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-088a7ea7] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-088a7ea7] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-088a7ea7] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-088a7ea7] {\n    border-top: 1px solid #f4f4f4;\n    background: #ffffff;\n    position: absolute;\n    width: 100%;\n    top: 100%;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-088a7ea7] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-088a7ea7] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-088a7ea7] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-088a7ea7] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-088a7ea7] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-088a7ea7] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-088a7ea7] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-088a7ea7] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-088a7ea7] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .temp-style[data-v-088a7ea7] {\n            min-height: 401px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-088a7ea7] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-088a7ea7] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-088a7ea7] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-088a7ea7] {\n          color: #007eff;\n}\n", ""]);
 
 // exports
 
@@ -1033,6 +1033,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(100);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+//
+//
+//
 //
 //
 //
@@ -2590,57 +2593,51 @@ var render = function() {
                                   staticClass: "swiper-no-swiping"
                                 },
                                 [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass: "block-list-box",
-                                      on: {
-                                        scroll: function($event) {
-                                          $event.stopPropagation()
-                                          _vm.blockScroll($event, indexs)
-                                        }
-                                      }
-                                    },
-                                    _vm._l(items.block_list, function(
-                                      item,
-                                      index
-                                    ) {
-                                      return _c(
-                                        "div",
-                                        {
-                                          key: "blocks" + index,
-                                          staticClass: "block-item",
-                                          class: {
-                                            active:
-                                              _vm.oblong.block_id ===
-                                                item.block_id &&
-                                              _vm.oblong.area_id ===
-                                                items.area_id
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              ;(_vm.oblong.block_id =
-                                                item.block_id),
-                                                (_vm.oblong.area_id =
-                                                  items.area_id)
-                                              _vm.flushData()
+                                  _c("div", { staticClass: "block-list-box" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "temp-style" },
+                                      _vm._l(items.block_list, function(
+                                        item,
+                                        index
+                                      ) {
+                                        return _c(
+                                          "div",
+                                          {
+                                            key: "blocks" + index,
+                                            staticClass: "block-item",
+                                            class: {
+                                              active:
+                                                _vm.oblong.block_id ===
+                                                  item.block_id &&
+                                                _vm.oblong.area_id ===
+                                                  items.area_id
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                ;(_vm.oblong.block_id =
+                                                  item.block_id),
+                                                  (_vm.oblong.area_id =
+                                                    items.area_id)
+                                                _vm.flushData()
+                                              }
                                             }
-                                          }
-                                        },
-                                        [
-                                          _c("span", [
-                                            _vm._v(
-                                              _vm._s(
-                                                item.name === ""
-                                                  ? "全" + items.name
-                                                  : item.name
+                                          },
+                                          [
+                                            _c("span", [
+                                              _vm._v(
+                                                _vm._s(
+                                                  item.name === ""
+                                                    ? "全" + items.name
+                                                    : item.name
+                                                )
                                               )
-                                            )
-                                          ])
-                                        ]
-                                      )
-                                    })
-                                  )
+                                            ])
+                                          ]
+                                        )
+                                      })
+                                    )
+                                  ])
                                 ]
                               )
                             })
