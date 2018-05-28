@@ -20,13 +20,14 @@ var app = new Vue({
         houseList
     }
 });
-if(Math.ceil(pageOne.total/pageOne.per_page)===1)$('.more').hide();
 if(pageOne.data.length) {
     for(var key in pageOne.data){
         app.list.push(pageOne.data[key].office_building_house)
     }
-    app.getData = true;
-    app.status = true;
+    if(Math.ceil(pageOne.total/pageOne.per_page)!==1){
+        app.getData = true;
+        app.status = true;
+    }
 }else {
     app.getData = false;
     app.status = false;
