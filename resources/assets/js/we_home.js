@@ -11,7 +11,8 @@ const app = new Vue({
     list: listAppData.data,
     page: 2,
     getData: true,
-    status: true
+    status: true,
+    prompt: false,
   },
   methods: {
     getMore: function () {
@@ -23,12 +24,8 @@ const app = new Vue({
         data: { page: self.page },
         success: function (data) {
           if (data.data.length === 0) {
-            Toast({
-              message: '已无更多数据',
-              position: 'center',
-              duration: 3000
-            });
             self.status = false
+            self.prompt = true
             return
           }
           self.page++
@@ -38,6 +35,7 @@ const app = new Vue({
           if (data.data.data.length >= data.data.per_page) {
             self.getData = true
           } else {
+            self.prompt = true
             self.status = false
           }
         }

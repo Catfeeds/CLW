@@ -27,6 +27,7 @@ class OfficeBuildingHousesController extends APIBaseController
         OfficeBuildingHousesService $service
     )
     {
+        $service->labelShow($officeBuildingHouse);
         $res = $service->getShow($officeBuildingHouse);
         return $this->sendResponse($res,'获取房源列表成功');
     }

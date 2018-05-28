@@ -231,9 +231,10 @@
 					@else
 						<div class="collect mui-col-xs-2 js_collect pointer">
 							{{--已收藏--}}
+							<img src="{{res('/we_img/detail_collect.png')}}" @if($house->collection) class="mui-hidden" @endif id="collect1">
 							<img src="{{res('/we_img/detail_colletc1.png')}}" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
 							{{--未收藏--}}
-							<img src="{{res('/we_img/detail_collect.png')}}" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
+							<span>收藏</span>
 						</div>
 					@endif
 

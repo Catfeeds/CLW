@@ -243,7 +243,7 @@ class OfficeBuildingHousesService
      * @return mixed
      * @author 刘坤涛
      */
-    public function HouseInfo($res)
+    public function houseInfo($res)
     {
             //房源标题
         $res->house_title = $res->officeBuildingHouse->title;

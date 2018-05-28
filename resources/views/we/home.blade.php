@@ -173,6 +173,7 @@
                     <div class="more" v-if="!getData && status">
                         <div type="button" class="loading"><i class="mui-icon mui-icon-spinner-cycle mui-spin"></i>正在加载 ...</div>
                     </div>
+                    <div class="more" v-if="prompt">没有更多数据了</div>
                 </div>
             </div>
         </div>
