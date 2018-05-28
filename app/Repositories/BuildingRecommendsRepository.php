@@ -21,7 +21,6 @@ class BuildingRecommendsRepository extends Model
             $service->getName($v);
             $service->getArrId($v);
             $service->getBuildingAddress($v);
-            $service->priceAndAcreageSection($v);
         }
         return $buildingRecommend;
     }
