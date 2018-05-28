@@ -16,13 +16,21 @@ use Illuminate\Support\Facades\DB;
 class BuildingsRepository extends  Model
 {
     /**
-     * 说明：分页列表数量
+     * 说明: 分页列表数量
      *
      * @param $request
-     * @return mixed
-     * @author jacklin
+     * @param $service
+     * @param null $building_id
+     * @param null $whetherPage
+     * @return array
+     * @author 罗振
      */
-    public function buildingList($request, $service, $building_id = null)
+    public function buildingList(
+        $request,
+        $service,
+        $building_id = null,
+        $whetherPage = null
+    )
     {
         // 取得符合条件房子
         $houses = $this->houseList($request, $building_id);
@@ -33,8 +41,13 @@ class BuildingsRepository extends  Model
         $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
 
         $data = $this->buildingDataComplete($buildings, $buildingData, $service);
-        $data = $data->forpage($request->page??1, 10);
-        return Common::pageData($request->page, $data->values());
+
+        if (empty($whetherPage)) {
+            $data = $data->forpage($request->page??1, 10);
+            return Common::pageData($request->page, $data->values());
+        } else {
+            return $data->get();
+        }
     }
 
     /**
