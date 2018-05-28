@@ -10,7 +10,8 @@ class BuildingRecommendsRepository extends Model
     /**
      * 说明: 推荐楼盘列表
      *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @param $service
+     * @return BuildingRecommend[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      * @author 刘坤涛
      */
     public function recommendList($service)
@@ -20,6 +21,7 @@ class BuildingRecommendsRepository extends Model
             $service->getName($v);
             $service->getArrId($v);
             $service->getBuildingAddress($v);
+            $service->priceAndAcreageSection($v);
         }
         return $buildingRecommend;
     }
