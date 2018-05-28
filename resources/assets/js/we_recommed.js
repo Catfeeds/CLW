@@ -8,6 +8,6 @@ Vue.component('building-list', require('./components/buildingList.vue'));
 const app = new Vue({
   el: '#app',
   data: {
-    list: listAppData.data
+    list: listAppData
   }
 });
