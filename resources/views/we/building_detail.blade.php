@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_building_detail.css">
+    <link rel="stylesheet" href="{{res('/css/we_building_detail.css')}}">
 @endsection
 @section('body')
 	<div id="pullrefresh" class="mui-content">
@@ -45,7 +45,10 @@
 							</div>
 							<div style="margin-left:-15px;">
 								<div>
-									<h5><img src="/we_img/house_detail_address.png">{{$data->address}}</h5>
+									<h5 style="display: flex;">
+										<div><img style="position: relative;top: 3px;" src="{{res('/we_img/house_detail_address.png')}}"></div>
+										<div style="line-height: 20px;">{{$data->address}}</div>
+									</h5>
 								</div>
 							</div>
 							<!--<div>
@@ -54,7 +57,7 @@
 								</div>
 							</div>-->
 							@if ($data->label_cn)
-								<img class="choice" src="/we_img/house_detail_better.png">
+								<img class="choice" src="{{res('/we_img/house_detail_better.png')}}">
 							@endif
 						</div>
 						<!--2基础信息-->
@@ -109,12 +112,12 @@
 							<div class="top">
 								<h3 style="color:#333333">楼盘介绍</h3>
 							</div>
-							<div style="text-indent:23px;font-size:13px;color:rgb(153,153,153);text-align: justify;text-justify: inter-ideograph;">
+							<div style="text-indent:23px;font-size:13px;color:rgb(153,153,153);text-align: justify;text-justify: inter-ideograph;line-height:26px;">
 								{{$data->describe}}
 							</div>
 						</div>
 						<!--4最下推荐-->
-						<house-detail-list title="{{$data->name}}" :api='1' building ='{{$data->id}}'></house-detail-list>
+						<house-detail-list title="写字楼出租" :api='1' building ='{{$data->id}}'></house-detail-list>
 						<!--5交通及周边配套-->
 						<div class="periphery" style="margin-top:-10px !important;">
 							<div class="top">
@@ -131,12 +134,12 @@
 								</div>
 							</div>
 							<a href="/get_map/{{$data->id}}" style="display: block;width: 100%">
-							<img style="display: block;width: 100%" src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+							<img style="display: block;width: 100%" src="{{res('/we_img/house_detail_suppert.png')}}" id="tomap" alt="" />
 							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-        <script src="/js/we_building_detail.js"></script>
+        <script src="{{res('/js/we_building_detail.js')}}"></script>
 @endsection

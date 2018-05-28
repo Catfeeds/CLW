@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_login_new.css">
+    <link rel="stylesheet" href="{{res('/css/we_login_new.css')}}">
 @endsection
 @section('body')
     <div id="content" class="mui-content">
@@ -30,9 +30,9 @@
           <span>第三方登录</span>
           <div class="weChat"><img src="/we_img/login_wechat.png"></div>
         </div> -->
-        <div class="agree">
+        <div class="agree" id="agree">
             <span>注册/登录即代表同意《</span><a href="/user_agreement">楚楼网用户使用协议</a><span>》</span>
         </div>
     </div>
-    <script src="/js/we_login_new.js"></script>
+    <script src="{{res('/js/we_login_new.js')}}"></script>
 @endsection

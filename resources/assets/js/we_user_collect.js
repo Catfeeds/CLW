@@ -11,7 +11,10 @@ var app = new Vue({
     el: '#houseList',
     data: {
         list: [],
-        page: 2
+        page: 2,
+        getData: false,
+        status: false,
+        prompt: false
     },
     components: {
         houseList
@@ -22,11 +25,14 @@ if(pageOne.data.length) {
     for(var key in pageOne.data){
         app.list.push(pageOne.data[key].office_building_house)
     }
+    app.getData = true;
+    app.status = true;
 }else {
-    console.log(2)
-    $('.more').hide()
+    app.getData = false;
+    app.status = false;
 }
-$(document).on('touchstart','.more button',(e)=> {
+$(document).on('click','.more button',(e)=> {
+    app.getData = false;
     var url = '/ajax_collections?page=' + app.page;
     $.ajax({
         headers: {
@@ -35,14 +41,24 @@ $(document).on('touchstart','.more button',(e)=> {
         url: url,
         type: 'get',
         success: function (data) {
-            for(var key in data.data){
-                app.list.push(data.data[key].office_building_house)
-            }
-            console.log(Math.ceil(data.total/data.per_page));
-            console.log(app.page);
-            console.log(Math.ceil(data.total/data.per_page)===app.page);
-            if(Math.ceil(data.total/data.per_page) === app.page) {
-                $('.more').hide()
+            app.status = false;
+            if(data.success) {
+                for(var key in data.data.data){
+                    app.list.push(data.data.data[key].office_building_house)
+                }
+                if(Math.ceil(data.data.total/data.data.per_page) === app.page) {
+                    app.getData = false;
+                    app.status = false;
+                    app.prompt = true
+                }else {
+                    app.getData = true;
+                }
+            } else{
+                Toast({
+                    message: data.message,
+                    position: 'center',
+                    duration: 1000
+                })
             }
             app.page =  app.page + 1;
         },

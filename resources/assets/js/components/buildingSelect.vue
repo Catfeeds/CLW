@@ -41,7 +41,7 @@
               <div class="block-content">
                 <!-- 商圈筛选swiper -->
                 <swiper :options="blockSwiperOption" ref="blockSwiper" style="height:100%;">
-                  <swiper-slide v-for="(items, indexs) in areaOption" :class="{'swiper-no-swiping': items.block_list.length>8}" :key="'block'+indexs">
+                  <swiper-slide v-for="(items, indexs) in areaOption" class="swiper-no-swiping" :key="'block'+indexs">
                     <div class="block-list-box" @scroll.stop='blockScroll($event, indexs)'>
                       <div class="block-item" 
                       :class="{active: (oblong.block_id === item.block_id&&oblong.area_id === items.area_id) }" 
@@ -49,7 +49,7 @@
                       :key="'blocks'+index" 
                       @click='oblong.block_id = item.block_id, oblong.area_id = items.area_id;flushData()'>
                         <span>{{item.name === ''?'全'+items.name:item.name}}</span>
-                        <span>{{item.building_count}}</span>
+                        <!--<span>{{item.building_count}}</span>-->
                       </div>
                     </div>
                   </swiper-slide>
@@ -144,6 +144,9 @@ export default {
   },
   data() {
     var req = JSON.parse($('#request').val());
+    if (typeof req.features === 'object') {
+      req.features = req.features[0]
+    }
     return {
       status: true, // 是否允许通知父级刷新页面 true: 是 false: 否
       selectShow: 0, // 显示筛选大块 1. 区域 2. 面积 3. 价格 4. 更多 默认：0

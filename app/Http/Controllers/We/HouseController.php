@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Handler\Common;
 use App\Http\Controllers\API\APIBaseController;
+use App\Models\BrowseRecord;
 use App\Models\OfficeBuildingHouse;
 use App\Repositories\OfficeBuildingHousesRepository;
 use App\Services\HousesService;
 use App\Services\OfficeBuildingHousesService;
+use Illuminate\Support\Facades\Session;
 
 class HouseController extends APIBaseController
 {
@@ -19,6 +22,11 @@ class HouseController extends APIBaseController
     {
 
         $officeBuildingHouse = OfficeBuildingHouse::findOrFail($id);
+        // 浏览记录
+        if (!empty(Session::get('user'))) BrowseRecord::create([
+            'user_id' => Session::get('user')->id,
+            'house_id' => $officeBuildingHouse->id
+        ]);
         // 房源数据
         $service->labelShow($officeBuildingHouse);
         $house = $service->getShow($officeBuildingHouse);

@@ -1,5 +1,16 @@
 <?php
 
+// 定义静态资源 path方法
+if (! function_exists('res'))
+{
+    function res($path)
+    {
+        $cdn_path = config('setting.cdn_path');
+        $path = $cdn_path . $path;
+        return $path.config('setting.version');
+    }
+}
+
 /**
  * 全局辅助函数 放置处
  */

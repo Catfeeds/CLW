@@ -13,6 +13,12 @@ class Recommend extends BaseModel
         'pic_cn', 'pic_url'
     ];
 
+    public function building()
+    {
+        return $this->belongsTo(Building::class);
+    }
+
+
     /**
      * 说明: 图片拼接
      * @return string

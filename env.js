@@ -2,12 +2,21 @@
  * Created by zxz1992 on 2018/5/22.
  */
 module.exports = {
-  hostURl: "'http://sys_api.chulouwang.com/api/app'",
+  hostURl: "''",
   baiduAK: "'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'", // 百度地图key
-  config: {
+  config: { // 打包配置
     cropStylist: { // app图片剪裁样式 命名应与七牛剪裁样式名一致
       newApp_list: "'?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'",
-      newApp_detail: "'?imageMogr2/thumbnail/!400x300r/gravity/Center/crop/400x300/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jbi9sb2dvX21pbl9taW4ucG5n/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim'"
+      newApp_detail: "'?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jb20vbG9nb19taW5pLnBuZw==/dissolve/100/gravity/NorthWest/dx/10/dy/10|imageslim'"
     }
+  },
+  QiNui: { // 七牛上传配置
+    ACCESS_KEY: 'VtiPrFI04u-X492-TTqgYCuLfVlkRcnQArwBheI4', // 七牛accessKey
+    SECRET_KEY: 'CzgcaR4sTTwPVfdyONnMRERidc3g7hwPC_NWGD5l', // 七牛secretKey
+    Bucket: 'chulouwang-cdn', // 上传桶名
+    targetScr: 'public/', // 本地上传目录(已执行命令的目录位置为相对路径)
+    listLimit: 100, // 每次获取七牛云存储文件列表数量
+    uploadNore: ['.DS_Store', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
+    CDNMkdir: 'CLW/we/' // CDN 目录
   }
 };

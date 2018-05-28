@@ -18,11 +18,11 @@ var app =new Vue({
                 lng: JSON.parse($('#build_id').val())[0],
                 lat: JSON.parse($('#build_id').val())[1]
             },
-            radius: 1000
+            radius: 10000
         }
     }
 });
-$(document).on('touchend || tap','.map-btn-item',(e)=> {
+$(document).on('click','.map-btn-item',(e)=> {
     $('.map-btn-item').removeClass('active');
     var That = $(e.currentTarget);
     That.addClass('active')

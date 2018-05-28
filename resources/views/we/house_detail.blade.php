@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_house_detail.css">
+    <link rel="stylesheet" href="{{res('/css/we_house_detail.css')}}">
 @endsection
 @section('body')
 <div id="pullrefresh" class="mui-content">
@@ -46,7 +46,10 @@
 					</div>
 					<div style="padding-right: 15px;">
 						<div>
-							<h5><img src="/we_img/house_detail_address.png">{{$house->address}}</h5>
+							<h5 style="display: flex;">
+								<div><img style="position: relative;top: 3px;" src="{{res('/we_img/house_detail_address.png')}}"></div>
+								<div style="line-height: 20px;">{{$house->address}}</div>
+							</h5>
 						</div>
 					</div>
 							<!--<div>
@@ -55,7 +58,7 @@
 								</div>
 							</div>-->
 						@if($house->label_cn)
-					<img class="choice" src="/we_img/house_detail_better.png">
+					<img class="choice" src="{{res('/we_img/house_detail_better.png')}}">
 							@endif
 				</div>
 				<!--2基础信息-->
@@ -145,7 +148,7 @@
 						</div>
 						<div class="mui-row">
 							<div class="mui-col-xs-4"><h4>电梯数量</h4></div>
-							<div class="mui-col-xs-8"><h4>{{$house->floor_num}}</h4></div>
+							<div class="mui-col-xs-8"><h4>{{$house->elevator_num}}</h4></div>
 						</div>
 					</div>
 				</li>
@@ -190,18 +193,22 @@
 						</div>
 					</div>
 					<a href="/get_map/{{$house->building_id}}" style="display: block;width: 100%;">
-						<img style="display: block;width: 100%;" src="/we_img/house_detail_suppert.png" id="tomap" alt="" />
+						<img style="display: block;width: 100%;" src="{{res('/we_img/house_detail_suppert.png')}}" id="tomap" alt="" />
 					</a>
 				</div>
 				<!--5最下推荐-->
-				<house-detail-list :api='2' building ='{{$house->id}}' style="margin-bottom:65px;"></house-detail-list>
+				<house-detail-list :api='2' building ='{{$house->id}}' title="为你推荐" style="margin-bottom:65px;"></house-detail-list>
 				<!-- 预约看房弹框 -->
 			</div>
-				<div class="mui-backdrop js_closes" id="backdrop" style="display: none" onclick="backdropHide()">
+				<div class="mui-backdrop js_closes" id="backdrop" style="display: none">
 					<div id="popover" class="mui-popover mui-active" style="z-index:10;">
 						<div>
 							<h4>预约信息</h4>
-							<span class="js_closes">×</span>
+							<div>
+								<span style="font-size:20px;" class="js_closes">
+									×
+								</span>
+							</div>
 						</div>
 						<div>
 							<form>
@@ -217,16 +224,16 @@
 				<footer id="footer" class="mui-row">
 					@if(empty(session('user')))
 						<div class="collect mui-col-xs-2">
-							<a href="/logins/create">
-								<img src="/we_img/detail_collect.png" id="collect1"><span>收藏</span>
+							<a href="/logins/create?house_id={{$house->id}}">
+								<img src="{{res('/we_img/detail_collect.png')}}" id="collect1"><span>收藏</span>
 							</a>
 						</div>
 					@else
 						<div class="collect mui-col-xs-2 js_collect pointer">
 							{{--已收藏--}}
-							<img src="/we_img/detail_colletc1.png" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
+							<img src="{{res('/we_img/detail_colletc1.png')}}" @if(!$house->collection) class="mui-hidden" @endif  id="collect2">
 							{{--未收藏--}}
-							<img src="/we_img/detail_collect.png" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
+							<img src="{{res('/we_img/detail_collect.png')}}" @if($house->collection) class="mui-hidden" @endif id="collect1"><span>收藏</span>
 						</div>
 					@endif
 
@@ -236,12 +243,12 @@
 						</a>
 					</div>
 					<div class="mui-col-xs-4" onclick="backdropShow()">
-						<img src="/we_img/detail_order.png" class="freebtn">
+						<img src="{{res('/we_img/detail_order.png')}}" class="freebtn">
 					</div>
 				</footer>
 			</div>
 		</div>
     </div>
 </div>
-<script src="/js/we_house_detail.js"></script>
+<script src="{{res('/js/we_house_detail.js')}}"></script>
 @endsection

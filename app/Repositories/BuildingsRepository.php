@@ -91,8 +91,7 @@ class BuildingsRepository extends  Model
         if (!empty($request->block_id)) {
             $buildings = $buildings->where('block_id', $request->block_id);
         } elseif(!empty($request->area_id)) {
-            $blocks = Block::where('area_id', $request->area_id)->pluck('id')->toArray();
-            $buildings = $buildings->whereIn('block_id', $blocks);
+            $buildings = Building::where('area_id', $request->area_id);
         }
 
         //如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表

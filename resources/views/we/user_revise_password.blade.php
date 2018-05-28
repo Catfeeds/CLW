@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_user_revise_password.css">
+    <link rel="stylesheet" href="{{res('/css/we_user_revise_password.css')}}">
 @endsection
 @section('body')
   <div class="mui-content">
@@ -25,5 +25,5 @@
         <button type="button">提交</button>
     </div>
   </div>
-  <script src="/js/we_user_revise_password.js"></script>
+  <script src="{{res('/js/we_user_revise_password.js')}}"></script>
 @endsection

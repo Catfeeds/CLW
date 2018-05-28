@@ -46,25 +46,24 @@ window.backdropHide =function () {
 window.backdropShow =function () {
   $('#backdrop').fadeIn(300)
 };
-window.breakClick = function () {
-  return false
-};
-$('#popover').on('click || touchend', function () {
-  return false
-});
+
+// $('#popover').on('click || touchend', function () {
+//   return false
+// });
 window.showInfo = function(){
   $('#collapse').toggleClass("mui-active")
 }
 // // 点击提交
 $('#upload').on('click', () => {
     var name = $('#names').val(),
-        tel = $('#tel').val();
+        tel = $('#tel').val(),
+      telReg=/^[1][0-9]{10}$/;
     if (!name || name.trim() === '') {
       Toast('请输入称谓')
       return false
     }
-    if (!tel || tel.trim() === '') {
-      Toast('请输入电话')
+    if (!telReg.test(tel)) {
+      Toast('请输入11位手机号')
       return false
     }
     $('#backdrop').fadeOut(300)
@@ -82,7 +81,7 @@ $('#upload').on('click', () => {
         if (data.success) {
           $('#names').val('')
           $('#tel').val('')
-          Toast('提交成功')
+          Toast('信息提交成功，楚楼网30分钟内联系您')
         } else {
           Toast(data.message)
         }

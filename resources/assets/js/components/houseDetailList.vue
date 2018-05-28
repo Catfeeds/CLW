@@ -1,12 +1,18 @@
 <template>
     <div class="rents">
         <div class="top">
-            <h3 style="color:#333333">{{title}}写字楼出租</h3>
+            <h3 style="color:#333333">{{title}}</h3>
         </div>
         <house-list :list="list" goodImg='/we_img/house_detail_decoration.png'></house-list>
-        <div class="more">
-            <button type="button" v-if="add" @touchend='getData'>查看更多</button>
+        <div class="more" v-if="getData">
+            <button type="button" @click='getMore'>查看更多</button>
         </div>
+        <div class="more" v-if="!getData && status">
+            <div class="loading">
+                <i class="mui-icon mui-icon-spinner-cycle mui-spin"></i> 正在加载 ...
+            </div>
+        </div>
+        <div class="more" v-if="prompt">没有更多数据了</div>
     </div>
 </template>
 <script>
@@ -20,19 +26,19 @@ export default {
   data() {
       return {
           list: [],
-          add: true,
+          getData: true,
+          status: false,
+          prompt: false,
           page: 1, // 当前请求页 
-          status: true // 数据是否请求完毕
+          typeClick: true // 数据是否请求完毕
       }
   },
   methods: {
       // 数据请求逻辑判断
-      getData: function() {
+      getMore: function() {
         var self = this
-        if (!self.status) { // 防止多次点击
-           return
-        }
-        self.status = false
+        self.getData= false // 关闭加载更多
+        self.status = true // 打开加载提示
           // 请求楼盘下的数据
           if (this.api === 1) { // 请求楼盘下下的数据
             $.ajax({
@@ -40,29 +46,29 @@ export default {
               type: 'GET',
               data: { page: self.page },
               success: function (data) {
+                self.status = false // 隐藏加载提示
                 if (data.success) {
-                  if (data.data.data.length === 0) {
-                    self.add = false
-                    Toast({
-                      message: '已无更多数据',
-                      position: 'top',
-                      duration: 3000
-                    });
+                  if (data.data.data.length === 0) { // 数据为空时
+                    self.prompt = true // 打开暂无更多数据
                     return
                   }
-                  self.status = true
-                  self.page++
+                  self.getData = true // 打开加载更多
                   data.data.data.map(item => {
                     self.list.push(item)
                   })
-                  if (data.data.per_page > data.data.data.length) {
-                    self.add = false
+                  self.page++
+                  if (Math.ceil(data.data.total/data.data.per_page) < self.page) {
+                    self.prompt = true // 打开暂无更多数据
+                    self.getData = false
+                    return
                   }
                 } else {
-                  self.add = false
+                  self.status = false // 隐藏加载提示
                 }
               },
               error: function (error) {
+                self.status = false // 隐藏加载提示
+                self.getData = true // 打开加载更多
                 if (error.status < 500) {
                   Toast(error.responseJSON.message)
                 } else {
@@ -76,29 +82,29 @@ export default {
               type: 'GET',
               data: { page: self.page },
               success: function (data) {
+                self.status = false // 隐藏加载提示
                 if (data.success) {
-                  if (data.data.data.length === 0) {
-                    self.add = false
-                    Toast({
-                      message: '已无更多数据',
-                      position: 'top',
-                      duration: 3000
-                    });
+                  if (data.data.data.length === 0) { // 数据为空时
+                    self.prompt = true // 打开暂无更多数据
                     return
                   }
-                  self.status = true
-                  self.page++
+                  self.getData = true // 打开加载更多
                   data.data.data.map(item => {
                     self.list.push(item)
                   })
-                  if (data.data.per_page > data.data.data.length) {
-                    self.add = false
+                  self.page++
+                  if (Math.ceil(data.data.total/data.data.per_page) < self.page) {
+                    self.prompt = true // 打开暂无更多数据
+                    self.getData = false
+                    return
                   }
                 } else {
-                  self.add = false
+                  self.status = false // 隐藏加载提示
                 }
               },
               error: function (error) {
+                self.status = false // 隐藏加载提示
+                self.getData = true // 打开加载更多
                 if (error.status < 500) {
                   Toast(error.responseJSON.message)
                 } else {
@@ -110,7 +116,7 @@ export default {
       }
   },
   created() {
-    this.getData()
+    this.getMore();
   }
 }
 </script>

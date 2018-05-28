@@ -1,7 +1,7 @@
 @extends('we.layout')
 @section('title', '楚楼网')
 @section('header')
-    <link rel="stylesheet" href="/css/we_login_password.css">
+    <link rel="stylesheet" href="{{res('/css/we_login_password.css')}}">
 @endsection
 @section('body')
     <div class="mui-content">
@@ -22,5 +22,5 @@
             </div>
         </form>
     </div>
-    <script src="/js/we_login_password.js"></script>
+    <script src="{{res('/js/we_login_password.js')}}"></script>
 @endsection
