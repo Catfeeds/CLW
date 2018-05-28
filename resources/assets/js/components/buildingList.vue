@@ -86,7 +86,7 @@ export default {
       position: absolute;
       top: 0;
       right: 15px;
-      width: 30px;
+      width: 25px;
     }
     .img-box{
       width: 35%;
@@ -94,7 +94,7 @@ export default {
       img{
         width: 100%;
         height: 100%;
-        border-radius: 3px;
+        border-radius: 2px;
       }
     }
     .text-box{
