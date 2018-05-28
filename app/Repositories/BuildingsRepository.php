@@ -46,7 +46,7 @@ class BuildingsRepository extends  Model
             $data = $data->forpage($request->page??1, 10);
             return Common::pageData($request->page, $data->values());
         } else {
-            return $data->get();
+            return $data->toArray();
         }
     }
 
