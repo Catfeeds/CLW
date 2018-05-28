@@ -2,7 +2,9 @@ html, body {
   height: 100%;
   width: 100%;
 }
-
+#layout{
+  height: 100%;
+}
 .map-btn-list {
   background-color: #ffffff;
   width: 100%;
@@ -47,16 +49,16 @@ html, body {
   top: 40px !important;
   height: 62.5% !important;
 }
-@media screen and (max-width: 320px) {
-  .img-box {
-    img {
-      width: 45% !important;
-    }
-  }
-  .text-box {
-    font-size: 10px !important;
-  }
-  .BMap_noprint.anchorTL{
-    height: 70% !important;
-  }
-}
+//@media screen and (max-width: 320px) {
+//  .img-box {
+//    img {
+//      width: 45% !important;
+//    }
+//  }
+//  .text-box {
+//    font-size: 10px !important;
+//  }
+//  .BMap_noprint.anchorTL{
+//    height: 70% !important;
+//  }
+//}
