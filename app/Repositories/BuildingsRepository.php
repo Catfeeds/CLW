@@ -89,12 +89,12 @@ class BuildingsRepository extends  Model
         return collect($res);
     }
 
-
     /**
-     * 说明：根据条件 查询符合条件的房子 根据 楼盘分组
+     * 说明: 根据条件 查询符合条件的房子 根据 楼盘分组
      *
      * @param $request
-     * @return array
+     * @param $building_id
+     * @return mixed
      * @author jacklin
      */
     public function houseList($request, $building_id)
@@ -107,7 +107,7 @@ class BuildingsRepository extends  Model
             $buildings = Building::where('area_id', $request->area_id);
         }
 
-        //如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
+        // 如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
         if (!empty($building_id)) {
             $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
         } else {
@@ -129,6 +129,7 @@ class BuildingsRepository extends  Model
 
             $buildings = array_intersect($buildings, $featureBuildings);
         }
+
         // 筛选出符合条件的楼座
         $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
         $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks)->where('house_busine_state', 1);
@@ -171,7 +172,6 @@ class BuildingsRepository extends  Model
         }
 
         $buildings = $buildingsBlocks->groupBy('buildingId');
-
         // 将房源根据楼盘进行分组
         foreach ($buildings as $index => $building) {
             // 去除楼座那一层
