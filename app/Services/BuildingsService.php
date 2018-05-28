@@ -71,7 +71,7 @@ class BuildingsService
     /**
      * 说明: 获取楼盘id,区域id,城市id数组
      *
-     * @return array
+     * @param $res
      * @author 刘坤涛
      */
     public function getArrId($res)
@@ -111,7 +111,5 @@ class BuildingsService
         //楼盘面积区间
         $res->constru_acreage = intval($res->house->min('constru_acreage')) . '-' . intval($res->house->max('constru_acreage'));
     }
-
-
 
 }
