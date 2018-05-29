@@ -19,7 +19,7 @@
                         @foreach($items->service as $ite)
                             <div class="mui-col-xs-3" style="margin-bottom: 18px">
                                 <a href="{{url('/servers').'/'.$ite->id}}"> <img src="{{$ite->list_icon_url}}"><h5>{{$ite->name}}</h5></a>
-                            </div>
+                            </div>      
                         @endforeach
                     </div>
                 </div>

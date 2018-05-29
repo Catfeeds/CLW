@@ -28,7 +28,8 @@ $(document).on('click', '.loginOut button', function(){
             data:{
                 tel: tel,
                 appellation: appellation,
-                demand: demand
+                demand: demand,
+                page_source: '微信个人中心页'
             },
             success: function(data){
                 var toast = Toast({
