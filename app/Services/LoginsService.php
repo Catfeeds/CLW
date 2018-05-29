@@ -92,6 +92,17 @@ class LoginsService
         ])->first();
         if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
 
+        // 最后登录时间
+        $user->last_login_time = date('Y.m.d H:i:s', time());
+        $user->last_login_ip = $request->getClientIp();
+        $user->last_login_source = 'App';
+        // 必须为线上真实ip
+        $user->last_login_city = $this->getLocation($request->getClientIp());
+        $user->login_count = (int)$user->login_count + 1;
+        if (!$user->save()) {
+            return ['status' => false, 'message' => '登录数据跟新失败'];
+        }
+
         // 返回token
         $token = $user->createToken($request->tel)->accessToken;
         if (empty($token)) return ['status' => false, 'message' => '获取令牌失败'];
@@ -161,6 +172,17 @@ class LoginsService
 
         session(['user' => $user]);
 
+        // 最后登录时间
+        $user->last_login_time = date('Y.m.d H:i:s', time());
+        $user->last_login_ip = $request->getClientIp();
+        $user->last_login_source = '微信';
+        // 必须为线上真实ip
+        $user->last_login_city = $this->getLocation($request->getClientIp());
+        $user->login_count = (int)$user->login_count + 1;
+        if (!$user->save()) {
+            return ['status' => false, 'message' => '登录数据跟新失败'];
+        }
+
         return ['status' => true, 'message' => '登录成功'];
     }
 
@@ -192,7 +214,48 @@ class LoginsService
 
         session(['user' => $user]);
 
+        // 最后登录时间
+        $user->last_login_time = date('Y.m.d H:i:s', time());
+        $user->last_login_ip = $request->getClientIp();
+        $user->last_login_source = '微信';
+        // 必须为线上真实ip
+        $user->last_login_city = $this->getLocation($request->getClientIp());
+        $user->login_count = (int)$user->login_count + 1;
+        if (!$user->save()) {
+            return ['status' => false, 'message' => '登录数据跟新失败'];
+        }
+
         return ['status' => true, 'message' => '登录成功'];
     }
 
+    /**
+     * 说明: ip获取地址
+     *
+     * @param $ip
+     * @return string
+     * @author 罗振
+     */
+    public function getLocation($ip)
+    {
+        // TODO
+        $ip = '219.140.141.98';
+        if (empty($ip)) return '参数不存在';
+        if ($ip == "127.0.0.1") return "本机地址";
+        $api = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=".$ip;
+        $json = @file_get_contents($api);//调用新浪IP地址库
+        $arr = json_decode($json, true);//解析json
+        $country = $arr['country']; //取得国家
+        $province = $arr['province'];//获取省份
+        $city = $arr['city']; //取得城市
+        if ((string)$country == "中国") {
+            if ((string)($province) != (string)$city) {
+                $_location = $province . $city;
+            } else {
+                $_location = $country . $city;
+            }
+        } else {
+            $_location = $country;
+        }
+        return $_location;
+    }
 }

@@ -12,10 +12,14 @@ class ThrowInsRepository extends Model
      * 说明: 添加投放房源
      *
      * @param $request
+     * @param $source
      * @return bool
-     * @author 刘坤涛
+     * @author 罗振
      */
-    public function addThrowIn($request)
+    public function addThrowIn(
+        $request,
+        $source
+    )
     {
         \DB::beginTransaction();
         try {
@@ -23,8 +27,11 @@ class ThrowInsRepository extends Model
                 'tel' => $request->tel,
                 'appellation' => $request->appellation,
                 'area_id' => $request->area_id,
+                'area_name' => $request->area_name,
                 'acreage' => $request->acreage,
-                'building_name' => $request->building_name
+                'building_name' => $request->building_name,
+                'source' => $source,
+                'page_source' => $request->page_source
             ]);
             if (!$throwIn) throw new \Exception('投放房源添加失败');
 

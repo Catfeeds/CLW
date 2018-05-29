@@ -11,10 +11,14 @@ class BespeaksService
      * 说明: 预约
      *
      * @param $request
+     * @param $source
      * @return bool
      * @author 罗振
      */
-    public function addBespeaks($request)
+    public function addBespeaks(
+        $request,
+        $source
+    )
     {
         \DB::beginTransaction();
         try {
@@ -22,7 +26,9 @@ class BespeaksService
             $addBespeak = Bespeak::create([
                 'tel' => $request->tel,
                 'appellation' => $request->appellation,
-                'demand' => $request->demand
+                'demand' => $request->demand,
+                'source' => $source,
+                'page_source' => $request->page_source
             ]);
             if (!$addBespeak) throw new \Exception('预约失败');
 

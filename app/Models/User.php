@@ -50,4 +50,48 @@ class User extends Authenticatable
     {
         return User::where('tel', $username)->first();
     }
+
+    /**
+     * 说明: 预约
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @author 罗振
+     */
+    public function Bespeak()
+    {
+        return $this->hasMany('App\Models\Bespeak','tel','tel');
+    }
+
+    /** 
+     * 说明: 投放
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @author 罗振
+     */
+    public function ThrowIn()
+    {
+        return $this->hasMany('App\Models\ThrowIn','tel','tel');
+    }
+
+    /**
+     * 说明: 收藏
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @author 罗振
+     */
+    public function Collection()
+    {
+        return $this->hasMany('App\Models\Collection','user_id','id');
+    }
+
+    /**
+     * 说明: 电话咨询
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @author 罗振
+     */
+    public function ConsultTel()
+    {
+        return $this->hasMany('App\Models\ConsultTel', 'user_id', 'id');
+    }
 }

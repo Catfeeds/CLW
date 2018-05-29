@@ -54,6 +54,12 @@ Route::get('other_condition', 'HouseController@otherCondition');
 // 服务
 Route::resource('servers', 'ServerController');
 
+/*
+|--------------------------------------------------------------------------
+| 咨询统计
+|--------------------------------------------------------------------------
+*/
+Route::resource('consult_tels', 'ConsultTelsController');
 
 Route::group(['middleware' => ['web','weChat.login']], function () {
     // 退出
