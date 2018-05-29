@@ -94,7 +94,9 @@ $(document).on('click', '.loginOut button', function(){
                 appellation: appellation,
                 building_name: building_name,
                 area_id: app.area_id,
-                acreage: acreage
+                acreage: acreage,
+                area_name: app.value,
+                page_source: '微信个人中心页'
             },
             success: function(data){
                 var toast = Toast({

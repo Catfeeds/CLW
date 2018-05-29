@@ -89,7 +89,8 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
-      tel: $('#telInput').val()
+      tel: $('#telInput').val(),
+      page_source: '微信首页'
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);
@@ -127,7 +128,8 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
-      tel: $('#telInput').val()
+      tel: $('#telInput').val(),
+      page_source: '微信首页'
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);
