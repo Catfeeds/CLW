@@ -245,7 +245,7 @@ class OfficeBuildingHousesService
      */
     public function houseInfo($res)
     {
-            //房源标题
+        //房源标题
         $res->house_title = $res->officeBuildingHouse->title;
             //房源面积
         $res->acreage = $res->officeBuildingHouse->getConstruAcreageCnAttribute();
@@ -260,6 +260,10 @@ class OfficeBuildingHousesService
         if ($res->officeBuildingHouse->houseLabel) $res->label = true;
             //房源标签
         $res->feature = $res->officeBuildingHouse->getHouseFeatureAttribute();
+
+
+        $res->officeBuildingHouse = $this->getShow($res->officeBuildingHouse);
+
         return $res;
     }
 
