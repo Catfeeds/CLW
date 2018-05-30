@@ -78,6 +78,20 @@ class CollectionsController extends APIBaseController
         return $this->sendResponse($res, '取消收藏成功');
     }
 
-
-
+    /**
+     * 说明：房源收藏状态
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @author 李振
+     */
+    public function houseCollection($id)
+    {
+        $user = Auth::guard('api')->user();
+        $res = Collection::where(['user_id' => $user->id, 'house_id' => $id])->first();
+        if(empty($res)){
+            return $this->sendResponse($res = false,'房源未收藏');
+        }
+        return $this->sendResponse($res = true, '房源已收藏');
+    }
 }

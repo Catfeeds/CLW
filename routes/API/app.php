@@ -40,6 +40,8 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
         */
         Route::resource('collections', 'CollectionsController');
         Route::get('del/{id}', 'CollectionsController@del');
+        //用户收藏状态
+        Route::get('house_collection/{id}','CollectionsController@houseCollection');
 
         /*
         |--------------------------------------------------------------------------
