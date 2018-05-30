@@ -117,7 +117,8 @@ var app = new Vue({
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           data: {
-            tel: tel
+            tel: tel,
+            page_source: '微信楼盘首页'
           },
           success: function (data) {
             $('#backdrop').fadeOut(300);

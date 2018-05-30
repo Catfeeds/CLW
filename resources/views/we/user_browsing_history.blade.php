@@ -1,5 +1,5 @@
 @extends('we.layout')
-@section('title', '浏览记录')
+@section('title', '浏览记录')   
 @section('header')
     <link rel="stylesheet" href="{{res('/css/we_user_browsing_history.css')}}">
 @endsection

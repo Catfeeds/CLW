@@ -89,7 +89,7 @@
             <div id="VueintroServer">
                 @if(!empty($serviceRecommends['first']))
                 <div class="index-serverFirst">
-                    <a href="{{url('/servers').'/'.$serviceRecommends['first']['id']}}">
+                    <a href="{{url('/servers').'/'.$serviceRecommends['first']['service_id']}}">
                     <img src="{{$serviceRecommends['first']['pic_cn']}}" alt="">
                     </a>
                 </div>
@@ -191,6 +191,8 @@
                 </div>
             </div>
         </div> 
+        <!-- 电话 -->
+        <a href="tel:4000-580-888"><div style="position: fixed;bottom: 70px;right: 15px;z-index: 1000;"><img src="/we_img/button.png" style="width: 46px;"></div></a>
         <!-- 底部导航 -->
         @include('we.tab')
     </div>

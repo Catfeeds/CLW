@@ -75,7 +75,8 @@ $('#upload').on('click', () => {
       },
       data: {
         appellation: name,
-        tel: tel
+        tel: tel,
+        page_source: '微信房源详情页'
       },
       success: function (data) {
         if (data.success) {
