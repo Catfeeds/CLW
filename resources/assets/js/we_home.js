@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import { Toast } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 const Swiper = require('swiper');

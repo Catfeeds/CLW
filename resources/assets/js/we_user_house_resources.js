@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery')
-window.Vue = require('vue')
+require('./we_common')
 import { Picker, Toast } from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.component(Picker.name, Picker)
