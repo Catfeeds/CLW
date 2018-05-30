@@ -202,6 +202,7 @@ class BuildingsRepository extends  Model
     /**
      * 说明: 获取该楼盘下的房源列表
      *
+     * @param $service
      * @param $id
      * @return mixed
      * @author 刘坤涛

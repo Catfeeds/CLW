@@ -41,7 +41,10 @@ class OfficeBuildingHousesRepository extends Model
     /**
      * 说明: 获取房源列表
      *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @param $per_page
+     * @param $condition
+     * @param $service
+     * @return mixed
      * @author 刘坤涛
      */
     public function HouseList($per_page, $condition, $service)

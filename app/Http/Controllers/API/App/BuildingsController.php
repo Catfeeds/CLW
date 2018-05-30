@@ -35,8 +35,9 @@ class BuildingsController extends APIBaseController
      *
      * @param Building $building
      * @param BuildingsRepository $buildingsRepository
+     * @param BuildingsService $service
      * @return \Illuminate\Http\JsonResponse
-     * @author 王成
+     * @author 罗振
      */
     public function show(
         Building $building,
@@ -53,9 +54,10 @@ class BuildingsController extends APIBaseController
      * 说明: 楼盘下房源列表
      *
      * @param BuildingsRepository $buildingsRepository
+     * @param OfficeBuildingHousesService $service
      * @param $id
      * @return \Illuminate\Http\JsonResponse
-     * @author 王成
+     * @author 罗振
      */
     public function showOffice
     (

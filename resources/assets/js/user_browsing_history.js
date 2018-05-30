@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import houseList from './components/houseList.vue'
 var app = new Vue({
     el: '#buildingList',
