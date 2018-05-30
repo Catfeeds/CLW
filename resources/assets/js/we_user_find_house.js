@@ -19,6 +19,7 @@ $(document).on('click', '.loginOut button', function(){
             duration: 2000
         })
     } else {
+        var source = whatBrowser()
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -29,7 +30,8 @@ $(document).on('click', '.loginOut button', function(){
                 tel: tel,
                 appellation: appellation,
                 demand: demand,
-                page_source: whatBrowser()+'个人中心'
+                page_source: source+'个人中心',
+                source: source.substring(0,s.length-1)
             },
             success: function(data){
                 var toast = Toast({

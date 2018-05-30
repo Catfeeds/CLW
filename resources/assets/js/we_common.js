@@ -12,7 +12,8 @@ window.whatBrowser = function() {
 }
 // 发送客服电话点击统计
 window.auditToServer = function(string) {
-  var str = whatBrowser() + string
+  var source = whatBrowser()
+  var str = source + string
   $.ajax({
     url: '/consult_tels',
     method: 'POST',
@@ -20,7 +21,8 @@ window.auditToServer = function(string) {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
-      page_source: str
+      page_source: str,
+      source: source.substring(0,s.length-1)
     },
     success: function(data) {
       console.log('记录成功')

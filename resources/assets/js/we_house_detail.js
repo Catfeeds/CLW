@@ -66,6 +66,7 @@ $('#upload').on('click', () => {
       return false
     }
     $('#backdrop').fadeOut(300)
+    var source = whatBrowser()
     $.ajax({
       url: '/bespeaks',
       type: 'POST',
@@ -75,7 +76,8 @@ $('#upload').on('click', () => {
       data: {
         appellation: name,
         tel: tel,
-        page_source: whatBrowser()+'房源详情页'
+        page_source: source+'房源详情页',
+        source: source.substring(0,s.length-1)
       },
       success: function (data) {
         if (data.success) {
