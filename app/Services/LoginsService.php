@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Admin;
+use App\Models\LoginRecord;
 use App\Models\User;
 use App\Redis\MasterRedis;
 use GuzzleHttp\Client;
@@ -92,6 +93,15 @@ class LoginsService
         ])->first();
         if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
 
+        // 登录记录表
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $this->getLocation($request->getClientIp()),
+            'login_source' => 'App'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
+
         // 返回token
         $token = $user->createToken($request->tel)->accessToken;
         if (empty($token)) return ['status' => false, 'message' => '获取令牌失败'];
@@ -159,6 +169,15 @@ class LoginsService
         // 验证新密码与原密码
         if (!Hash::check($request->password, $user->password)) return ['status' => false, 'message' => '密码不正确'];
 
+        // 登录记录表
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $this->getLocation($request->getClientIp()),
+            'login_source' => '微信'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
+
         session(['user' => $user]);
 
         return ['status' => true, 'message' => '登录成功'];
@@ -190,9 +209,48 @@ class LoginsService
         ])->first();
         if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
 
+        // 登录记录表添加
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $this->getLocation($request->getClientIp()),
+            'login_source' => '微信'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
+
         session(['user' => $user]);
 
         return ['status' => true, 'message' => '登录成功'];
     }
 
+    /**
+     * 说明: ip获取地址
+     *
+     * @param $ip
+     * @return string
+     * @author 罗振
+     */
+    public function getLocation($ip)
+    {
+        // TODO
+        $ip = '219.140.141.98';
+        if (empty($ip)) return '参数不存在';
+        if ($ip == "127.0.0.1") return "本机地址";
+        $api = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=".$ip;
+        $json = @file_get_contents($api);//调用新浪IP地址库
+        $arr = json_decode($json, true);//解析json
+        $country = $arr['country']; //取得国家
+        $province = $arr['province'];//获取省份
+        $city = $arr['city']; //取得城市
+        if ((string)$country == "中国") {
+            if ((string)($province) != (string)$city) {
+                $_location = $province . $city;
+            } else {
+                $_location = $country . $city;
+            }
+        } else {
+            $_location = $country;
+        }
+        return $_location;
+    }
 }

@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery')
-window.Vue = require('vue')
+require('./we_common')
 import { Picker, Toast } from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.component(Picker.name, Picker)
@@ -83,6 +82,7 @@ $(document).on('click', '.loginOut button', function(){
             duration: 2000
         })
     } else {
+        var source = whatBrowser()
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -96,7 +96,8 @@ $(document).on('click', '.loginOut button', function(){
                 area_id: app.area_id,
                 acreage: acreage,
                 area_name: app.value,
-                page_source: '微信个人中心页'
+                page_source: source+'个人中心',
+                source: source.substring(0,source.length-1)
             },
             success: function(data){
                 var toast = Toast({

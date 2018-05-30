@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import BaiduMap from 'vue-baidu-map'
 Vue.use(BaiduMap, {
     ak: process.env.baiduAK

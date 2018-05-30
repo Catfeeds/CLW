@@ -1,8 +1,7 @@
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import { Toast } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 import buildingSelect from './components/buildingSelect.vue'
@@ -110,6 +109,7 @@ var app = new Vue({
           duration: 3000
         })
       } else {
+        var source = whatBrowser()
         $.ajax({
           url: '/bespeaks',
           type: 'POST',
@@ -118,7 +118,8 @@ var app = new Vue({
           },
           data: {
             tel: tel,
-            page_source: '微信楼盘首页'
+            page_source: source +'楼盘首页',
+            source: source.substring(0,source.length-1)
           },
           success: function (data) {
             $('#backdrop').fadeOut(300);

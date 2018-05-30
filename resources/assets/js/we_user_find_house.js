@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery');
+require('./we_common')
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 // 提交
@@ -19,6 +19,7 @@ $(document).on('click', '.loginOut button', function(){
             duration: 2000
         })
     } else {
+        var source = whatBrowser()
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -29,7 +30,8 @@ $(document).on('click', '.loginOut button', function(){
                 tel: tel,
                 appellation: appellation,
                 demand: demand,
-                page_source: '微信个人中心页'
+                page_source: source+'个人中心',
+                source: source.substring(0,source.length-1)
             },
             success: function(data){
                 var toast = Toast({

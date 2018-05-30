@@ -2,8 +2,6 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\Admin\LoginsRequest;
-use App\Services\LoginsService;
 use Illuminate\Support\Facades\Auth;
 
 class AdminsController extends APIBaseController

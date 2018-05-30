@@ -3,6 +3,7 @@ namespace App\Http\Controllers\API\App;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\LoginsRequest;
+use App\Models\LoginRecord;
 use App\Models\User;
 use App\Services\LoginsService;
 
@@ -24,20 +25,19 @@ class LoginsController extends APIBaseController
         $user = User::where([
             'tel' => $request->tel,
         ])->first();
-        if (empty($user)) {
-            return $this->sendError('用户不存在');
-        }
+        if (empty($user)) return $this->sendError('用户不存在');
+
         $passport = $loginsService->applyPasswordToken($request->tel, $request->password);
-        if (empty($passport['success'])) {
-            return $this->sendError($passport['message']);
-        }
+        if (empty($passport['success'])) return $this->sendError($passport['message']);
 
-        // 最后登录时间
-        $user->last_login_time = date('Y.m.d H:i:s', time());
-
-        if (!$user->save()) {
-            return $this->sendError('最后登录时间更新失败');
-        }
+        // 登录记录表
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $loginsService->getLocation($request->getClientIp()),
+            'login_source' => 'App'
+        ]);
+        if (empty($loginRecord)) return $this->sendError('登录记录表添加失败');
 
         return $this->sendResponse(['status' => true, 'token' => $passport['token']], '获取token成功！');
     }
@@ -56,6 +56,7 @@ class LoginsController extends APIBaseController
     )
     {
         $token = $loginsService->smsLogin($request);
+        if (empty($token['status'])) return $this->sendError($token['message']);
         return $this->sendResponse($token, '获取token成功！');
     }
 
