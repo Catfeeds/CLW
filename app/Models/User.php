@@ -94,4 +94,15 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\ConsultTel', 'user_id', 'id');
     }
+
+    /**
+     * 说明: 登录记录
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @author 罗振
+     */
+    public function LoginRecord()
+    {
+        return $this->hasMany('App\Models\LoginRecord', 'user_id','id');
+    }
 }
