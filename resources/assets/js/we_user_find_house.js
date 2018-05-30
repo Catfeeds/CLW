@@ -29,7 +29,7 @@ $(document).on('click', '.loginOut button', function(){
                 tel: tel,
                 appellation: appellation,
                 demand: demand,
-                page_source: '微信个人中心页'
+                page_source: whatBrowser()+'个人中心'
             },
             success: function(data){
                 var toast = Toast({

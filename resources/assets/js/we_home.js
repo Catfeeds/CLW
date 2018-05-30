@@ -89,7 +89,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: '微信首页'
+      page_source: whatBrowser()+'首页'
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);
@@ -128,7 +128,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: '微信首页'
+      page_source: whatBrowser()+'首页'
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);

@@ -95,7 +95,7 @@ $(document).on('click', '.loginOut button', function(){
                 area_id: app.area_id,
                 acreage: acreage,
                 area_name: app.value,
-                page_source: '微信个人中心页'
+                page_source: whatBrowser()+'个人中心'
             },
             success: function(data){
                 var toast = Toast({

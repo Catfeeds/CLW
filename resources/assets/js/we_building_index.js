@@ -117,7 +117,7 @@ var app = new Vue({
           },
           data: {
             tel: tel,
-            page_source: '微信楼盘首页'
+            page_source: whatBrowser()+'楼盘首页'
           },
           success: function (data) {
             $('#backdrop').fadeOut(300);
