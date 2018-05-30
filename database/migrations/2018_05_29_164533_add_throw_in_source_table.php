@@ -14,6 +14,7 @@ class AddThrowInSourceTable extends Migration
     public function up()
     {
         Schema::table('throw_ins', function (Blueprint $table) {
+            $table->integer('user_id')->nullable()->comment('用户id')->after('tel');
             $table->string('area_name', 32)->nullable()->comment('区域名')->after('area_id');
             $table->string('source',32)->nullable()->comment('来源')->after('building_name');
             $table->string('page_source',32)->nullable()->comment('页面来源')->after('source');
@@ -28,6 +29,7 @@ class AddThrowInSourceTable extends Migration
     public function down()
     {
         Schema::table('throw_ins', function (Blueprint $table) {
+            $table->dropColumn('user_id');
             $table->dropColumn('area_name');
             $table->dropColumn('source');
             $table->dropColumn('page_source');

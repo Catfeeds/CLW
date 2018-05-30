@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConsultTelsTable extends Migration
+class CreateLoginRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateConsultTelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('consult_tels', function (Blueprint $table) {
+        Schema::create('login_records', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->nullable()->comment('用户id');
-            $table->string('source',32)->nullable()->comment('来源');
-            $table->string('page_source',32)->nullable()->comment('页面来源');
+            $table->string('login_ip',32)->nullable()->comment('登录ip');
+            $table->string('login_city',32)->nullable()->comment('登录城市');
+            $table->string('login_source',32)->nullable()->comment('登录终端');
             $table->timestamps();
-            $table->softDeletes();
         });
-        DB::statement("alter table `consult_tels` comment'咨询电话统计'");
+        DB::statement("alter table `login_records` comment'登录记录表'");
     }
 
     /**
@@ -31,6 +31,6 @@ class CreateConsultTelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('consult_tels');
+        Schema::dropIfExists('login_records');
     }
 }

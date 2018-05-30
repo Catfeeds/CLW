@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Bespeak;
 use App\Models\MessageRecord;
+use App\Models\User;
 
 class BespeaksService
 {
@@ -11,20 +12,28 @@ class BespeaksService
      * 说明: 预约
      *
      * @param $request
-     * @param $source
+     * @param null $source
      * @return bool
      * @author 罗振
      */
     public function addBespeaks(
         $request,
-        $source
+        $source = null
     )
     {
+        if (empty($source)) {
+            $source = $request->source;
+        }
+
         \DB::beginTransaction();
         try {
+            // 通过手机号查询用户
+            $user = User::where('tel', $request->tel)->first();
+
             // 添加预约表
             $addBespeak = Bespeak::create([
                 'tel' => $request->tel,
+                'user_id' => empty($user)?null:$user->id,
                 'appellation' => $request->appellation,
                 'demand' => $request->demand,
                 'source' => $source,

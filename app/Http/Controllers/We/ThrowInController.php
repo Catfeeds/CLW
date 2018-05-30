@@ -22,7 +22,7 @@ class ThrowInController extends APIBaseController
         ThrowInsRequest $request
     )
     {
-        if (empty($res = $repository->addThrowIn($request, '微信'))) return $this->sendError('房源投放失败');
+        if (empty($res = $repository->addThrowIn($request))) return $this->sendError('房源投放失败');
         return $this->sendResponse($res,'房源投放成功');
     }
 }

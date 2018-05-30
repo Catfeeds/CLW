@@ -14,6 +14,7 @@ class AddBespeakSourceTable extends Migration
     public function up()
     {
         Schema::table('bespeaks', function (Blueprint $table) {
+            $table->integer('user_id')->nullable()->comment('用户id')->after('tel');
             $table->string('source',32)->nullable()->comment('来源')->after('demand');
             $table->string('page_source',32)->nullable()->comment('页面来源')->after('source');
         });
@@ -27,8 +28,9 @@ class AddBespeakSourceTable extends Migration
     public function down()
     {
         Schema::table('bespeaks', function (Blueprint $table) {
-            $table->dropColumn('last_login_ip');
-
+            $table->dropColumn('user_id');
+            $table->dropColumn('source');
+            $table->dropColumn('page_source');
         });
     }
 }

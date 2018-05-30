@@ -23,7 +23,7 @@ class ConsultTelsController extends APIBaseController
     {
         $user = Auth::guard('api')->user();
 
-        $res = $repository->addConsulTels($request, $user, 'App');
+        $res = $repository->addConsulTels($request, $user);
         return $this->sendResponse($res, '咨询统计信息添加成功');
     }
 }

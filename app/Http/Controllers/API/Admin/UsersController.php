@@ -37,6 +37,14 @@ class UsersController extends APIBaseController
         User $user
     )
     {
+        // 最后一条登录记录
+        $lastLoginRecord = $user->LoginRecord->last();
+        if (!empty($lastLoginRecord)) {
+            $user->login_ip = $lastLoginRecord->login_ip;
+            $user->login_city = $lastLoginRecord->login_city;
+            $user->login_source = $lastLoginRecord->login_source;
+            $user->login_time = $lastLoginRecord->created_at->format('Y-m-d H:i:s');
+        }
         return $this->sendResponse($user, '用户基本信息获取成功');
     }
 
@@ -107,5 +115,22 @@ class UsersController extends APIBaseController
     {
         $res = $service->telInquiryInfo($id);
         return $this->sendResponse($res, '电话质询统计信息获取成功');
+    }
+
+    /**
+     * 说明: 登录日志
+     *
+     * @param $id
+     * @param UsersService $service
+     * @return \Illuminate\Http\JsonResponse
+     * @author 罗振
+     */
+    public function loginLog(
+        $id,
+        UsersService $service
+    )
+    {
+        $res = $service->loginLog($id);
+        return $this->sendResponse($res, '登录日志信息获取成功');
     }
 }

@@ -16,7 +16,7 @@ class UsersRepository extends Model
      */
     public function usersList($request)
     {
-        return User::withCount('Bespeak')->withCount('ThrowIn')->get();
+        return User::withCount('Bespeak')->withCount('ThrowIn')->withCount('ConsultTel')->paginate(5);
     }
 
     /**
@@ -28,7 +28,7 @@ class UsersRepository extends Model
      */
     public function statisticsInfo($id)
     {
-        return User::where('id', $id)->withCount('Bespeak')->withCount('ThrowIn')->withCount('Collection')->withCount('ConsultTel')->first();
+        return User::where('id', $id)->withCount('Bespeak')->withCount('ThrowIn')->withCount('Collection')->withCount('ConsultTel')->withCount('LoginRecord')->first();
 
     }
 }

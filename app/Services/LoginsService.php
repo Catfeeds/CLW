@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Admin;
+use App\Models\LoginRecord;
 use App\Models\User;
 use App\Redis\MasterRedis;
 use GuzzleHttp\Client;
@@ -92,16 +93,14 @@ class LoginsService
         ])->first();
         if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
 
-        // 最后登录时间
-        $user->last_login_time = date('Y.m.d H:i:s', time());
-        $user->last_login_ip = $request->getClientIp();
-        $user->last_login_source = 'App';
-        // 必须为线上真实ip
-        $user->last_login_city = $this->getLocation($request->getClientIp());
-        $user->login_count = (int)$user->login_count + 1;
-        if (!$user->save()) {
-            return ['status' => false, 'message' => '登录数据跟新失败'];
-        }
+        // 登录记录表
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $this->getLocation($request->getClientIp()),
+            'login_source' => 'App'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
 
         // 返回token
         $token = $user->createToken($request->tel)->accessToken;
@@ -170,18 +169,16 @@ class LoginsService
         // 验证新密码与原密码
         if (!Hash::check($request->password, $user->password)) return ['status' => false, 'message' => '密码不正确'];
 
-        session(['user' => $user]);
+        // 登录记录表
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $this->getLocation($request->getClientIp()),
+            'login_source' => '微信'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
 
-        // 最后登录时间
-        $user->last_login_time = date('Y.m.d H:i:s', time());
-        $user->last_login_ip = $request->getClientIp();
-        $user->last_login_source = '微信';
-        // 必须为线上真实ip
-        $user->last_login_city = $this->getLocation($request->getClientIp());
-        $user->login_count = (int)$user->login_count + 1;
-        if (!$user->save()) {
-            return ['status' => false, 'message' => '登录数据跟新失败'];
-        }
+        session(['user' => $user]);
 
         return ['status' => true, 'message' => '登录成功'];
     }
@@ -212,18 +209,16 @@ class LoginsService
         ])->first();
         if (empty($user)) return ['status' => false, 'message' => '用户不存在'];
 
-        session(['user' => $user]);
+        // 登录记录表添加
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $this->getLocation($request->getClientIp()),
+            'login_source' => '微信'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
 
-        // 最后登录时间
-        $user->last_login_time = date('Y.m.d H:i:s', time());
-        $user->last_login_ip = $request->getClientIp();
-        $user->last_login_source = '微信';
-        // 必须为线上真实ip
-        $user->last_login_city = $this->getLocation($request->getClientIp());
-        $user->login_count = (int)$user->login_count + 1;
-        if (!$user->save()) {
-            return ['status' => false, 'message' => '登录数据跟新失败'];
-        }
+        session(['user' => $user]);
 
         return ['status' => true, 'message' => '登录成功'];
     }

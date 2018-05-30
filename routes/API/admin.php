@@ -37,6 +37,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('user_throw_in_info/{id}', 'UsersController@userThrowInInfo');
         // 电话质询统计信息
         Route::get('tel_inquiry_info/{id}', 'UsersController@telInquiryInfo');
+        // 登录日志
+        Route::get('login_log/{id}', 'UsersController@loginLog');
+
+        Route::resource('bespeak_sta', 'BespeakStaController');
+
 
         /*
         |--------------------------------------------------------------------------
