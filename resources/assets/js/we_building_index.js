@@ -17,8 +17,7 @@ var app = new Vue({
     status: false,
     prompt: false,
     page: 2,
-    more: null,
-    isShow: false
+    more: null
   },
   components: {
     buildingSelect,

@@ -8,7 +8,7 @@ body .mui-content {
 
 body .mui-content .progress {
   background: #fff;
-  height: 50px;
+  height: 55px;
 }
 
 body .mui-content .progress .mui-col-xs-2 {
@@ -27,7 +27,7 @@ body .mui-content .progress .mui-col-xs-2 img {
 }
 
 body .mui-content .progress .mui-col-xs-5 {
-  line-height: 50px;
+  line-height: 55px;
   color: #333;
   font-size: 16px;
 }
@@ -53,7 +53,7 @@ body .mui-content .first {
 
 body .mui-content .first .getSms {
   cursor: pointer;
-  height: 50px;
+  height: 55px;
   line-height: 30px;
   border-bottom: 1px solid #f4f4f4;
   display: -webkit-box;
@@ -66,14 +66,14 @@ body .mui-content .first .getSms {
 }
 
 body .mui-content .first .getSms .tel {
-  height: 50px;
+  height: 55px;
   color: #333;
 }
 
 body .mui-content .first .getSms .tel input {
   margin-bottom: 0;
   border: none;
-  height: 49px;
+  height: 44px;
 }
 
 body .mui-content .first .getSms .tel input::-webkit-input-placeholder {
@@ -93,18 +93,18 @@ body .mui-content .first .getSms .tel input::placeholder {
 }
 
 body .mui-content .first .getSms .sms {
-  height: 50px;
-  line-height: 50px;
+  height: 55px;
+  line-height: 55px;
   color: #007bff;
   padding-right: 15px;
 }
 
 body .mui-content .first .setSms {
-  height: 50px;
+  height: 55px;
 }
 
 body .mui-content .first .setSms input {
-  height: 50px;
+  height: 55px;
   border: none;
   margin: 0;
 }
@@ -136,7 +136,7 @@ body .mui-content .loginOut {
 
 body .mui-content .loginOut button {
   width: 80%;
-  height: 45px;
+  height: 48px;
   border-radius: 25px;
   padding: 0;
   font-size: 18px;

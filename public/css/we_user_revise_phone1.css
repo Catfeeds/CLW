@@ -8,7 +8,7 @@ body .mui-content {
 
 body .mui-content .progress {
   background: #fff;
-  height: 50px;
+  height: 55px;
 }
 
 body .mui-content .progress .mui-col-xs-2 {
@@ -27,7 +27,7 @@ body .mui-content .progress .mui-col-xs-2 img {
 }
 
 body .mui-content .progress .mui-col-xs-5 {
-  line-height: 50px;
+  line-height: 55px;
   color: #333;
   font-size: 16px;
 }
@@ -51,7 +51,7 @@ body .mui-content .first {
 body .mui-content .first .getSms {
   cursor: pointer;
   padding: 10px 15px;
-  height: 50px;
+  height: 55px;
   line-height: 30px;
   border-bottom: 1px solid #f4f4f4;
   display: -webkit-box;
@@ -65,6 +65,7 @@ body .mui-content .first .getSms {
 
 body .mui-content .first .getSms .tel {
   color: #333;
+  line-height: 34px;
 }
 
 body .mui-content .first .getSms .sms {
@@ -72,11 +73,11 @@ body .mui-content .first .getSms .sms {
 }
 
 body .mui-content .first .setSms {
-  height: 50px;
+  height: 55px;
 }
 
 body .mui-content .first .setSms input {
-  height: 50px;
+  height: 55px;
   border: none;
   margin: 0;
 }
@@ -108,7 +109,7 @@ body .mui-content .loginOut {
 
 body .mui-content .loginOut button {
   width: 80%;
-  height: 45px;
+  height: 48px;
   border-radius: 25px;
   padding: 0;
   font-size: 18px;

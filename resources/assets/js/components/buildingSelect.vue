@@ -151,6 +151,7 @@ export default {
       req.features = req.features[0]
     }
     return {
+      isShow: false, // 遮罩层的显示
       status: true, // 是否允许通知父级刷新页面 true: 是 false: 否
       selectShow: 0, // 显示筛选大块 1. 区域 2. 面积 3. 价格 4. 更多 默认：0
       areaActive: 0, // 区域类型显示 0. 商圈 1. 地铁
@@ -442,10 +443,14 @@ export default {
   }
   .selctList-box{
     border-top: 1px solid rgb(244, 244, 244);
-    background: #ffffff;
+    background: rgba(0,0,0,0.4);
     position: absolute;
     width: 100%;
     top: 100%;
+    height: 1000px;
+    div{
+      background: #fff;
+    }
     // 区域类型筛选
     .areaTypeSwitch{
       border-bottom: 1px solid rgb(244, 244, 244);

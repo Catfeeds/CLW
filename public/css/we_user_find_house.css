@@ -16,7 +16,7 @@ body .mui-content .first .input {
 body .mui-content .first .input input {
   border: none;
   margin: 0;
-  height: 50px;
+  height: 55px;
   border-radius: 0;
 }
 
@@ -71,7 +71,7 @@ body .mui-content .loginOut {
 
 body .mui-content .loginOut button {
   width: 80%;
-  height: 45px;
+  height: 48px;
   border-radius: 25px;
   padding: 0;
   font-size: 18px;
