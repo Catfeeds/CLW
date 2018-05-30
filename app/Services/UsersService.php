@@ -19,8 +19,7 @@ class UsersService
      */
     public function userBespeakInfo($id)
     {
-        $user = User::find($id);
-        return Bespeak::where('tel', $user->tel)->paginate(4);
+        return Bespeak::where('user_id', $id)->paginate(4);
     }
 
     /**
@@ -32,8 +31,7 @@ class UsersService
      */
     public function userThrowInInfo($id)
     {
-        $user = User::find($id);
-        return ThrowIn::where('tel', $user->tel)->paginate(4);
+        return ThrowIn::where('user_id', $id)->paginate(4);
     }
 
     /**
@@ -61,7 +59,7 @@ class UsersService
     }
 
     /**
-     * 说明:用户启用
+     * 说明: 用户启用
      *
      * @param $id
      * @return mixed
@@ -73,7 +71,7 @@ class UsersService
     }
 
     /**
-     * 说明:用户禁用
+     * 说明: 用户禁用
      *
      * @param $id
      * @return mixed
