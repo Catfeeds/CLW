@@ -91,7 +91,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     data: {
       tel: $('#telInput').val(),
       page_source: source+'首页',
-      source: source.substring(0,s.length-1)
+      source: source.substring(0,source.length-1)
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);
@@ -132,7 +132,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     data: {
       tel: $('#telInput').val(),
       page_source: source+'首页',
-      source: source.substring(0,s.length-1)
+      source: source.substring(0,source.length-1)
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);

@@ -77,7 +77,7 @@ $('#upload').on('click', () => {
         appellation: name,
         tel: tel,
         page_source: source+'房源详情页',
-        source: source.substring(0,s.length-1)
+        source: source.substring(0,source.length-1)
       },
       success: function (data) {
         if (data.success) {
