@@ -40,6 +40,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 登录日志
         Route::get('login_log/{id}', 'UsersController@loginLog');
 
+        Route::resource('bespeak_sta', 'BespeakStaController');
+
+
         /*
         |--------------------------------------------------------------------------
         | banner管理

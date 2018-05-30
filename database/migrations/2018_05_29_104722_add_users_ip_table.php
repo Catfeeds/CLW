@@ -15,6 +15,7 @@ class AddUsersIpTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('register_source',32)->nullable()->comment('注册来源')->after('img');
+            $table->tinyInteger('status')->default(1)->comment('用户状态 1: 启用 2: 禁用')->after('register_source');
         });
     }
 
@@ -27,6 +28,7 @@ class AddUsersIpTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('register_source');
+            $table->dropColumn('status');
         });
     }
 }

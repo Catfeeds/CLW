@@ -23,7 +23,7 @@ class ConsultTelsController extends APIBaseController
     {
         $user = Session::get('user');
 
-        $res = $repository->addConsulTels($request, $user, '微信');
+        $res = $repository->addConsulTels($request, $user);
         return $this->sendResponse($res, '咨询统计信息添加成功');
     }
 }

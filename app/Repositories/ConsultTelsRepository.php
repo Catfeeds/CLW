@@ -12,19 +12,17 @@ class ConsultTelsRepository extends Model
      *
      * @param $request
      * @param $user
-     * @param $source
      * @return mixed
      * @author 罗振
      */
     public function addConsulTels(
         $request,
-        $user,
-        $source
+        $user
     )
     {
         return ConsultTel::create([
-            'user_id' => empty($user)?'':$user->id,
-            'source' => $source,
+            'user_id' => empty($user)?null:$user->id,
+            'source' => $request->source,
             'page_source' => $request->page_source
         ]);
     }
