@@ -47,7 +47,8 @@ $(document).on('click', '.loginOut button', function () {
             data: {
                 tel: tel,
                 appellation: appellation,
-                demand: demand
+                demand: demand,
+                page_source: '微信个人中心页'
             },
             success: function success(data) {
                 var toast = Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
