@@ -109,6 +109,7 @@ var app = new Vue({
           duration: 3000
         })
       } else {
+        var source = whatBrowser()
         $.ajax({
           url: '/bespeaks',
           type: 'POST',
@@ -117,7 +118,8 @@ var app = new Vue({
           },
           data: {
             tel: tel,
-            page_source: whatBrowser()+'楼盘首页'
+            page_source: source +'楼盘首页',
+            source: source.substring(0,s.length-1)
           },
           success: function (data) {
             $('#backdrop').fadeOut(300);

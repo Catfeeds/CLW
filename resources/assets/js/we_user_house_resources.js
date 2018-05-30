@@ -82,6 +82,7 @@ $(document).on('click', '.loginOut button', function(){
             duration: 2000
         })
     } else {
+        var source = whatBrowser()
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -95,7 +96,8 @@ $(document).on('click', '.loginOut button', function(){
                 area_id: app.area_id,
                 acreage: acreage,
                 area_name: app.value,
-                page_source: whatBrowser()+'个人中心'
+                page_source: source+'个人中心',
+                source: source.substring(0,s.length-1)
             },
             success: function(data){
                 var toast = Toast({
