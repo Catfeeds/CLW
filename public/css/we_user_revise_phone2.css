@@ -43,6 +43,7 @@ body .mui-content .progress .original {
 
 body .mui-content .progress .binding {
   color: #007bff;
+  font-weight: 700;
 }
 
 body .mui-content .first {

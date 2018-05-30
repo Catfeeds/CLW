@@ -791,7 +791,8 @@ var app = new Vue({
     status: false,
     prompt: false,
     page: 2,
-    more: null
+    more: null,
+    isShow: false
   },
   components: {
     buildingSelect: __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default.a,

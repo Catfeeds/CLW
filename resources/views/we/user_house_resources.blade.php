@@ -21,7 +21,7 @@
                 <div class="mui-col-xs-6 area">
                     <div class="mui-row" id="down">
                         <div class="mui-col-xs-6 region">区域</div>
-                        <div class="mui-col-xs-4" id="title" >武昌区</div>
+                        <div class="mui-col-xs-4" id="title" style="color:#333">武昌区</div>
                         <div class="mui-col-xs-2"><img style="width: 9px;height:5px;margin-bottom:3px;"src="{{res('/we_img/house_detail_down.png')}}"></div>
                     </div>
                 </div>
