@@ -53,7 +53,7 @@ class Building extends Model
     //楼盘关联房源
     public function house()
     {
-        return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class);
+        return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class)->where('shelf', 1);
     }
 
 

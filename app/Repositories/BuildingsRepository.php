@@ -135,7 +135,7 @@ class BuildingsRepository extends  Model
 
         // 筛选出符合条件的楼座
         $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
-        $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks)->where('house_busine_state', 1);
+        $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks)->where('house_busine_state', 1)->where('shelf', 1);
 
         // 面积
         if (!empty($request->acreage)) $houses = $houses->whereBetween('constru_acreage', $request->acreage);
