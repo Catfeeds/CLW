@@ -34,9 +34,13 @@ class LoginsController extends APIBaseController
 
         // 最后登录时间
         $user->last_login_time = date('Y.m.d H:i:s', time());
-
+        $user->last_login_ip = $request->getClientIp();
+        $user->last_login_source = 'App';
+        // 必须为线上真实ip
+        $user->last_login_city = $loginsService->getLocation($request->getClientIp());
+        $user->login_count = (int)$user->login_count + 1;
         if (!$user->save()) {
-            return $this->sendError('最后登录时间更新失败');
+            return $this->sendError('登录数据跟新失败');
         }
 
         return $this->sendResponse(['status' => true, 'token' => $passport['token']], '获取token成功！');
@@ -56,6 +60,7 @@ class LoginsController extends APIBaseController
     )
     {
         $token = $loginsService->smsLogin($request);
+        if (empty($token['status'])) return $this->sendError($token['message']);
         return $this->sendResponse($token, '获取token成功！');
     }
 

@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 120:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(121);
+module.exports = __webpack_require__(122);
 
 
 /***/ }),
 
-/***/ 121:
+/***/ 122:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17,7 +17,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui__);
-window.$ = window.jQuery = __webpack_require__(0);
+__webpack_require__(0);
 
 
 // 提交
@@ -38,6 +38,7 @@ $(document).on('click', '.loginOut button', function () {
             duration: 2000
         });
     } else {
+        var source = whatBrowser();
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -48,7 +49,8 @@ $(document).on('click', '.loginOut button', function () {
                 tel: tel,
                 appellation: appellation,
                 demand: demand,
-                page_source: '微信个人中心页'
+                page_source: source + '个人中心',
+                source: source.substring(0, source.length - 1)
             },
             success: function success(data) {
                 var toast = Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
@@ -74,4 +76,4 @@ $(document).on('click', '.loginOut button', function () {
 
 /***/ })
 
-},[120]);
+},[121]);

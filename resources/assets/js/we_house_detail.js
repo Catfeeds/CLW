@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import { Toast } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 var detailBanner = require('./components/detailBanner.vue');
@@ -67,6 +66,7 @@ $('#upload').on('click', () => {
       return false
     }
     $('#backdrop').fadeOut(300)
+    var source = whatBrowser()
     $.ajax({
       url: '/bespeaks',
       type: 'POST',
@@ -76,7 +76,8 @@ $('#upload').on('click', () => {
       data: {
         appellation: name,
         tel: tel,
-        page_source: '微信房源详情页'
+        page_source: source+'房源详情页',
+        source: source.substring(0,source.length-1)
       },
       success: function (data) {
         if (data.success) {

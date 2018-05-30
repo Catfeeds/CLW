@@ -1,14 +1,14 @@
 webpackJsonp([13],{
 
-/***/ 112:
+/***/ 113:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(113);
+module.exports = __webpack_require__(114);
 
 
 /***/ }),
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20,7 +20,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-window.$ = window.jQuery = __webpack_require__(0);
+__webpack_require__(0);
 
 
 var tel = $('#tel'),
@@ -156,4 +156,4 @@ $(document).on('click', '#getSms', function (e) {
 
 /***/ })
 
-},[112]);
+},[113]);

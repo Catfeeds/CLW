@@ -3,7 +3,6 @@ webpackJsonp([2],Array(24).concat([
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(25);
-__webpack_require__(38);
 __webpack_require__(39);
 __webpack_require__(40);
 __webpack_require__(41);
@@ -24,7 +23,8 @@ __webpack_require__(55);
 __webpack_require__(56);
 __webpack_require__(57);
 __webpack_require__(58);
-module.exports = __webpack_require__(59);
+__webpack_require__(59);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -37,12 +37,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
-window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(4);
+__webpack_require__(0);
 
 
 var Swiper = __webpack_require__(17);
-Vue.component('building-list', __webpack_require__(7));
+Vue.component('building-list', __webpack_require__(6));
 var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
   el: '#listApp',
@@ -120,6 +119,7 @@ $(document).on('touchend || tap', '#popover', function () {
 });
 // 预约
 $(document).on('touchend || tap', '#lookForHouse', function () {
+  var source = whatBrowser();
   $.ajax({
     url: '/bespeaks',
     type: 'POST',
@@ -128,7 +128,8 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: '微信首页'
+      page_source: source + '首页',
+      source: source.substring(0, source.length - 1)
     },
     success: function success(data) {
       $('#backdrop').fadeOut(300);
@@ -159,6 +160,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
 });
 // 投放房源
 $(document).on('touchend || tap', '#peltHouse', function () {
+  var source = whatBrowser();
   $.ajax({
     url: '/throw_ins',
     type: 'POST',
@@ -167,7 +169,8 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: '微信首页'
+      page_source: source + '首页',
+      source: source.substring(0, source.length - 1)
     },
     success: function success(data) {
       $('#backdrop').fadeOut(300);
@@ -210,12 +213,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 /* 35 */,
 /* 36 */,
 /* 37 */,
-/* 38 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 38 */,
 /* 39 */
 /***/ (function(module, exports) {
 
@@ -337,6 +335,12 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 /***/ }),
 /* 59 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 60 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

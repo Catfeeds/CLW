@@ -1,14 +1,14 @@
 webpackJsonp([19],{
 
-/***/ 102:
+/***/ 103:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(103);
+module.exports = __webpack_require__(104);
 
 
 /***/ }),
 
-/***/ 103:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17,14 +17,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_baidu_map__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_baidu_map__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_baidu_map__);
-window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(4);
+__webpack_require__(0);
 
 
-var detailBanner = __webpack_require__(14);
-var houseDetailList = __webpack_require__(13);
+var detailBanner = __webpack_require__(13);
+var houseDetailList = __webpack_require__(12);
 
 new Vue({
   el: '#swiperBanner',
@@ -88,6 +87,7 @@ $('#upload').on('click', function () {
     return false;
   }
   $('#backdrop').fadeOut(300);
+  var source = whatBrowser();
   $.ajax({
     url: '/bespeaks',
     type: 'POST',
@@ -97,7 +97,8 @@ $('#upload').on('click', function () {
     data: {
       appellation: name,
       tel: tel,
-      page_source: '微信房源详情页'
+      page_source: source + '房源详情页',
+      source: source.substring(0, source.length - 1)
     },
     success: function success(data) {
       if (data.success) {
@@ -175,4 +176,4 @@ $(document).on('click', '.js_collect', function (e) {
 
 /***/ })
 
-},[102]);
+},[103]);
