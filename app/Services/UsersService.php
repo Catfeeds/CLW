@@ -59,4 +59,28 @@ class UsersService
     {
         return LoginRecord::where('user_id', $id)->paginate(20);
     }
+
+    /**
+     * 说明:用户启用
+     *
+     * @param $id
+     * @return mixed
+     * @author 李振
+     */
+    public function enable($id)
+    {
+         return User::where(['id' => $id])->update(['status' => 1]);
+    }
+
+    /**
+     * 说明:用户禁用
+     *
+     * @param $id
+     * @return mixed
+     * @author 李振
+     */
+    public function disable($id)
+    {
+        return User::where(['id' => $id])->update(['status' => 2]);
+    }
 }

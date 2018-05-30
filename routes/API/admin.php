@@ -42,6 +42,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         Route::resource('bespeak_sta', 'BespeakStaController');
 
+        //启用
+        Route::get('enable/{id}','UsersController@enable');
+        //禁用
+        Route::get('disable/{id}','UsersController@disable');
 
         /*
         |--------------------------------------------------------------------------

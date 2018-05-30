@@ -133,4 +133,38 @@ class UsersController extends APIBaseController
         $res = $service->loginLog($id);
         return $this->sendResponse($res, '登录日志信息获取成功');
     }
+
+    /**
+     * 说明: 用户启用
+     *
+     * @param $id
+     * @param UsersService $service
+     * @return \Illuminate\Http\JsonResponse
+     * @author 李振
+     */
+    public function enable(
+        $id,
+        UsersService $service
+    )
+    {
+        $res = $service->enable($id);
+        return $this->sendResponse($res, '启用成功');
+    }
+
+    /**
+     * 说明: 用户禁用
+     *
+     * @param $id
+     * @param UsersService $service
+     * @return \Illuminate\Http\JsonResponse
+     * @author 李振
+     */
+    public function disable(
+        $id,
+        UsersService $service
+    )
+    {
+        $res = $service->disable($id);
+        return $this->sendResponse($res, '禁用成功');
+    }
 }

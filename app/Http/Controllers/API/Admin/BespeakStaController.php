@@ -11,7 +11,6 @@ class BespeakStaController extends APIBaseController
         Request $request
     )
     {
-
         $times = array();
         for ($i=1;$i<=10;$i++){
 
@@ -20,8 +19,6 @@ class BespeakStaController extends APIBaseController
             $times[] = date('Y-m-d H:i:s', strtotime(date('Y-m-d', $now-$i*60*60*24*3)));
         }
         dd($times);
-
-
     }
 
 
