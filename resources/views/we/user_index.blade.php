@@ -49,7 +49,7 @@
       </div>
       </a>
       <!-- 电话咨询 -->
-      <a href="tel:4000-580-888">
+      <a href="tel:4000-580-888" onclick="auditToServer('个人中心')">
         <div class="userList" id="consult">
           <span>电话咨询</span>
           <span class="mui-pull-right"><span>4000-580-888</span><img src="{{res('/we_img/house_detail_drop_down.png')}}">
