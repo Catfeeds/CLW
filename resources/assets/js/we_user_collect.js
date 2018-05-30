@@ -1,8 +1,7 @@
 /**
  * Created by wh on 2018/5/24.
  */
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import houseList from './components/houseList.vue'
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';

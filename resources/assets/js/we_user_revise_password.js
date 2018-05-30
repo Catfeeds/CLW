@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery')
+require('./we_common')
 import { Toast } from 'mint-ui'
 import 'mint-ui/lib/style.css'
 $(document).on('click', '.loginOut button', function(){

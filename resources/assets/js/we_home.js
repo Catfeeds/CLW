@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import { Toast } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 const Swiper = require('swiper');
@@ -90,7 +89,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: '微信首页'
+      page_source: whatBrowser()+'首页'
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);
@@ -129,7 +128,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: '微信首页'
+      page_source: whatBrowser()+'首页'
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);

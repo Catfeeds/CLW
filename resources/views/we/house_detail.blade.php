@@ -239,7 +239,7 @@
 					@endif
 
 					<div class="mui-col-xs-4" id="free">
-						<a href="tel:4000-580-888">
+						<a href="tel:4000-580-888" onclick="auditToServer('房源详情')">
 							<img src="/we_img/detail_free.png" class="freebtn">
 						</a>
 					</div>

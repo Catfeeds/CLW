@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import { Toast } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 var detailBanner = require('./components/detailBanner.vue');
@@ -76,7 +75,7 @@ $('#upload').on('click', () => {
       data: {
         appellation: name,
         tel: tel,
-        page_source: '微信房源详情页'
+        page_source: whatBrowser()+'房源详情页'
       },
       success: function (data) {
         if (data.success) {
