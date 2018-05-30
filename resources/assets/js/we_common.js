@@ -22,7 +22,7 @@ window.auditToServer = function(string) {
     },
     data: {
       page_source: str,
-      source: source.substring(0,s.length-1)
+      source: source.substring(0,source.length-1)
     },
     success: function(data) {
       console.log('记录成功')

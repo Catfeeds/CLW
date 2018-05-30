@@ -31,7 +31,7 @@ $(document).on('click', '.loginOut button', function(){
                 appellation: appellation,
                 demand: demand,
                 page_source: source+'个人中心',
-                source: source.substring(0,s.length-1)
+                source: source.substring(0,source.length-1)
             },
             success: function(data){
                 var toast = Toast({
