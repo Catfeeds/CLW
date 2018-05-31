@@ -189,16 +189,22 @@ function uploadFile() {
   var srcObj = findSync(Config.QiNui.targetScr); // 上传文件映射关系 {远程路径: 本地路径}
   console.log(('开始执行七牛文件部署').info)
   for (var index in srcObj) {
+      console.log('这是坐标', index)
     console.log(srcObj[index],'=>'.debug,index.info, '远程映射关系构建中'.info)
     formUploader.putFile(getToken(index), index, srcObj[index], extra, function(respErr, respBody, respInfo) {
+      console.log('body', respBody)
+      console.log('info', respInfo)
       if (respErr) {
-        console.log(('本地文件：'+srcObj[index]+'部署失败').warn)
+        console.log('error')
+        console.log(respErr)
+        console.log(respInfo)
         return
       }
       if (respInfo.statusCode === 200) {
-        console.log(('本地文件：'+srcObj[index]+'部署成功, 桶中映射路径为:'+index.info).info);
       } else {
-        console.log(('本地文件：'+srcObj[index]+'部署失败,错误代码:'+ respInfo.statusCode).error);
+          console.log('error')
+          console.log(respErr)
+          console.log(respInfo)
       }
     });
   }
