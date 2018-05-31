@@ -18,14 +18,14 @@
         <span>更多</span>
       </div>
     </div>
-    <div v-show='selectShow>0' class="selctList-box">
+    <div v-show='selectShow>0' class="selctList-box" @click="selectShow = 0">
       <div v-if='false' class="areaTypeSwitch">
         <div class="areaTypeSwitch-box">
           <div :class="{active: areaActive === 0}" @click='areaActive = 0'>商圈</div>
           <div :class="{active: areaActive === 1}" @click='areaActive = 1'>地铁</div>
         </div>
       </div>
-      <div class="selectContent">
+      <div class="selectContent" @click.stop>
         <!-- 区域及地铁筛选 -->
         <swiper :options="areaSwiperOption" ref="areaSwiper" v-show="selectShow === 1">
           <swiper-slide>
