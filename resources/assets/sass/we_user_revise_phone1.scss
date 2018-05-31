@@ -5,7 +5,7 @@ body{
         background: #f4f4f4 !important;
         .progress{
             background: #fff;
-            height: 50px;
+            height: 55px;
             .mui-col-xs-2{
                 display: flex;
                 justify-content: center;
@@ -16,7 +16,7 @@ body{
                 }
             }
             .mui-col-xs-5{
-                line-height: 50px;
+                line-height: 55px;
                 color: #333;
                 font-size: 16px;
             }
@@ -24,6 +24,7 @@ body{
                 display: flex;
                 justify-content: flex-end;
                 color: #007bff;
+                font-weight: 700;
             }
         }
         .first{
@@ -32,7 +33,7 @@ body{
             .getSms{
                 cursor: pointer;
                 padding: 10px 15px;
-                height: 50px;
+                height: 55px;
                 line-height: 30px;
                 border-bottom: 1px solid #f4f4f4;
                 display: flex;
@@ -40,18 +41,19 @@ body{
                 font-size: 15px;
                 .tel{
                     color: #333;
+                    line-height: 34px;
                 }
                 .sms{
                     color: #007bff;
                 }
             }
             .setSms{
-                height: 50px;
+                height: 55px;
                 input{
                     &::placeholder{
                         font-size: 15px;
                     }
-                    height: 50px;
+                    height: 55px;
                     border: none;
                     margin: 0;
                 }
@@ -62,7 +64,7 @@ body{
             justify-content: center;
             button{
                 width: 80%;
-                height: 45px;
+                height: 48px;
                 border-radius: 25px;
                 padding: 0;
                 font-size: 18px;

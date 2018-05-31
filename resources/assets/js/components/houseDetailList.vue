@@ -150,6 +150,16 @@ export default {
                 color: #007eff;
                 background-color: #FFFFFF;
             }
+            .loading{
+              height: 44px;
+              font-size: 16px;
+              line-height: 44px;
+              i{
+                font-size: 16px;
+                margin-right: 3px;
+                color: #666;
+              }
+            }
         }
     }
 </style>

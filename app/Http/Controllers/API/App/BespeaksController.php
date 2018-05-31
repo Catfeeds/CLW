@@ -21,7 +21,7 @@ class BespeaksController extends APIBaseController
         BespeaksService $bespeaksService
     )
     {
-        if (empty($result = $bespeaksService->addBespeaks($request))) {
+        if (empty($result = $bespeaksService->addBespeaks($request, 'App'))) {
             return $this->sendError('预约失败');
         }
 

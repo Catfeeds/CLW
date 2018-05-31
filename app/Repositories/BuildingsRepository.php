@@ -16,13 +16,21 @@ use Illuminate\Support\Facades\DB;
 class BuildingsRepository extends  Model
 {
     /**
-     * 说明：分页列表数量
+     * 说明: 分页列表数量
      *
      * @param $request
-     * @return mixed
-     * @author jacklin
+     * @param $service
+     * @param null $building_id
+     * @param null $whetherPage
+     * @return array
+     * @author 罗振
      */
-    public function buildingList($request, $service, $building_id = null)
+    public function buildingList(
+        $request,
+        $service,
+        $building_id = null,
+        $whetherPage = null
+    )
     {
         // 取得符合条件房子
         $houses = $this->houseList($request, $building_id);
@@ -33,8 +41,13 @@ class BuildingsRepository extends  Model
         $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
 
         $data = $this->buildingDataComplete($buildings, $buildingData, $service);
-        $data = $data->forpage($request->page??1, 10);
-        return Common::pageData($request->page, $data->values());
+
+        if (empty($whetherPage)) {
+            $data = $data->forpage($request->page??1, 10);
+            return Common::pageData($request->page, $data->values());
+        } else {
+            return $data->toArray();
+        }
     }
 
     /**
@@ -48,6 +61,9 @@ class BuildingsRepository extends  Model
     public function buildingDataComplete($buildings, $buildingData, $service)
     {
         foreach ($buildingData as $index => $v) {
+            // 价格及面积区间
+            $service->priceAndAcreageSection($v);
+
             // 特色,标签,地址
             $service->features($v);
             $service->getAddress($v);
@@ -76,12 +92,12 @@ class BuildingsRepository extends  Model
         return collect($res);
     }
 
-
     /**
-     * 说明：根据条件 查询符合条件的房子 根据 楼盘分组
+     * 说明: 根据条件 查询符合条件的房子 根据 楼盘分组
      *
      * @param $request
-     * @return array
+     * @param $building_id
+     * @return mixed
      * @author jacklin
      */
     public function houseList($request, $building_id)
@@ -94,7 +110,7 @@ class BuildingsRepository extends  Model
             $buildings = Building::where('area_id', $request->area_id);
         }
 
-        //如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
+        // 如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
         if (!empty($building_id)) {
             $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
         } else {
@@ -116,9 +132,10 @@ class BuildingsRepository extends  Model
 
             $buildings = array_intersect($buildings, $featureBuildings);
         }
+
         // 筛选出符合条件的楼座
         $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
-        $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks);
+        $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks)->where('house_busine_state', 1)->where('shelf', 1);
 
         // 面积
         if (!empty($request->acreage)) $houses = $houses->whereBetween('constru_acreage', $request->acreage);
@@ -158,7 +175,6 @@ class BuildingsRepository extends  Model
         }
 
         $buildings = $buildingsBlocks->groupBy('buildingId');
-
         // 将房源根据楼盘进行分组
         foreach ($buildings as $index => $building) {
             // 去除楼座那一层
@@ -171,19 +187,13 @@ class BuildingsRepository extends  Model
      * 说明: 获取详情
      *
      * @param $building
+     * @param $service
      * @return mixed
-     * @author 王成
+     * @author 罗振
      */
     public function getShow($building, $service)
     {
-        //楼盘单价区间
-        $building->unit_price = intval($building->house->min('unit_price')) . '-' . intval($building->house->max('unit_price'));
-        //楼盘总价区间
-        $low_price = $building->house->min('total_price') / 10000;
-        $high_price = $building->house->max('total_price') / 10000;
-        $building->total_price= (is_int($low_price) ? $low_price : round($low_price, 1)) . '-' . (is_int($high_price) ? $high_price : round($high_price, 1));
-        //楼盘面积区间
-        $building->constru_acreage = intval($building->house->min('constru_acreage')) . '-' . intval($building->house->max('constru_acreage'));
+        $service->priceAndAcreageSection($building);
         $service->features($building);
         $service->label($building);
         return $building;
@@ -192,6 +202,7 @@ class BuildingsRepository extends  Model
     /**
      * 说明: 获取该楼盘下的房源列表
      *
+     * @param $service
      * @param $id
      * @return mixed
      * @author 刘坤涛

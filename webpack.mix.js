@@ -94,8 +94,7 @@ fileSJSNameArr.map(function (item) {
   JSObj = inOutJs(item, JSObj)
 });
 JSObj.extract([ // 提出全局多次引入文件
-  'vue',
-  'jquery',
+  './resources/assets/js/we_common',
   './resources/assets/js/components/buildingList',
   './resources/assets/js/components/houseList',
   './resources/assets/js/components/detailBanner',

@@ -24,7 +24,7 @@ class ThrowInsController extends APIBaseController
         ThrowInsRequest $request
     )
     {
-        $res = $repository->addThrowIn($request);
+        if (empty($res = $repository->addThrowIn($request, 'App'))) return $this->sendError('投放失败');
         return $this->sendResponse($res, '投放房源添加成功');
     }
 }

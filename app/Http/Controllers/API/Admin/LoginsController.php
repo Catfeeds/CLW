@@ -21,6 +21,7 @@ class LoginsController extends APIBaseController
     )
     {
         $result = $loginsService->adminLogin($request);
+        if (empty($result['status'])) return $this->sendError($result['message']);
         return $this->sendResponse($result, '获取token成功！');
     }
 

@@ -89,7 +89,7 @@
             <div id="VueintroServer">
                 @if(!empty($serviceRecommends['first']))
                 <div class="index-serverFirst">
-                    <a href="{{url('/servers').'/'.$serviceRecommends['first']['id']}}">
+                    <a href="{{url('/servers').'/'.$serviceRecommends['first']['service_id']}}">
                     <img src="{{$serviceRecommends['first']['pic_cn']}}" alt="">
                     </a>
                 </div>
@@ -173,6 +173,7 @@
                     <div class="more" v-if="!getData && status">
                         <div type="button" class="loading"><i class="mui-icon mui-icon-spinner-cycle mui-spin"></i>正在加载 ...</div>
                     </div>
+                    <div class="more" v-if="prompt">没有更多数据了</div>
                 </div>
             </div>
         </div>
@@ -190,6 +191,12 @@
                 </div>
             </div>
         </div> 
+        <!-- 电话 -->
+        <a href="tel:4000-580-888" onclick="auditToServer('首页')">
+            <div style="position: fixed;bottom: 70px;right: 15px;z-index: 1000;">
+                <img src="/we_img/button.png" style="width: 46px;">
+            </div>
+        </a>
         <!-- 底部导航 -->
         @include('we.tab')
     </div>

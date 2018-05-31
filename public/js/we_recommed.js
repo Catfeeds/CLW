@@ -1,1 +1,1 @@
-webpackJsonp([15],{103:function(n,a,e){n.exports=e(104)},104:function(n,a,e){window.$=window.jQuery=e(0),window.Vue=e(4);var i=JSON.parse($("#listAppData").val());Vue.component("building-list",e(8));new Vue({el:"#app",data:{list:i.data}})}},[103]);
+webpackJsonp([14],{104:function(a,n,p){a.exports=p(105)},105:function(a,n,p){p(0);var t=JSON.parse($("#listAppData").val());Vue.component("building-list",p(6));new Vue({el:"#app",data:{list:t}})}},[104]);

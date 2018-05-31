@@ -1,5 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-window.Vue = require('vue');
+require('./we_common')
 import { Toast } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 const Swiper = require('swiper');
@@ -11,7 +10,8 @@ const app = new Vue({
     list: listAppData.data,
     page: 2,
     getData: true,
-    status: true
+    status: true,
+    prompt: false,
   },
   methods: {
     getMore: function () {
@@ -23,12 +23,8 @@ const app = new Vue({
         data: { page: self.page },
         success: function (data) {
           if (data.data.length === 0) {
-            Toast({
-              message: '已无更多数据',
-              position: 'center',
-              duration: 3000
-            });
             self.status = false
+            self.prompt = true
             return
           }
           self.page++
@@ -38,6 +34,7 @@ const app = new Vue({
           if (data.data.data.length >= data.data.per_page) {
             self.getData = true
           } else {
+            self.prompt = true
             self.status = false
           }
         }
@@ -84,6 +81,7 @@ $(document).on('touchend || tap', '#popover', function () {
 });
 // 预约
 $(document).on('touchend || tap', '#lookForHouse', function () {
+  var source = whatBrowser()
   $.ajax({
     url: '/bespeaks',
     type: 'POST',
@@ -91,7 +89,9 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
-      tel: $('#telInput').val()
+      tel: $('#telInput').val(),
+      page_source: source+'首页',
+      source: source.substring(0,source.length-1)
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);
@@ -122,6 +122,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
 });
 // 投放房源
 $(document).on('touchend || tap', '#peltHouse', function () {
+  var source = whatBrowser()
   $.ajax({
     url: '/throw_ins',
     type: 'POST',
@@ -129,7 +130,9 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
-      tel: $('#telInput').val()
+      tel: $('#telInput').val(),
+      page_source: source+'首页',
+      source: source.substring(0,source.length-1)
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);

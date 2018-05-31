@@ -71,7 +71,7 @@ class BuildingsService
     /**
      * 说明: 获取楼盘id,区域id,城市id数组
      *
-     * @return array
+     * @param $res
      * @author 刘坤涛
      */
     public function getArrId($res)
@@ -93,4 +93,23 @@ class BuildingsService
     {
         $res->address_cn = $res->building->area->name . '-' . $res->building->block->name;
     }
+
+    /**
+     * 说明: 价格及面积区间
+     *
+     * @param $res
+     * @author 罗振
+     */
+    public function priceAndAcreageSection($res)
+    {
+        //楼盘单价区间
+        $res->unit_price = intval($res->house->min('unit_price')) . '-' . intval($res->house->max('unit_price'));
+        //楼盘总价区间
+        $low_price = $res->house->min('total_price') / 10000;
+        $high_price = $res->house->max('total_price') / 10000;
+        $res->total_price= (is_int($low_price) ? $low_price : round($low_price, 1)) . '-' . (is_int($high_price) ? $high_price : round($high_price, 1));
+        //楼盘面积区间
+        $res->constru_acreage = intval($res->house->min('constru_acreage')) . '-' . intval($res->house->max('constru_acreage'));
+    }
+
 }

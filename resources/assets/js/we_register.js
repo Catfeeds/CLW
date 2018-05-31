@@ -1,7 +1,7 @@
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-window.$ = window.jQuery = require('jquery');
+require('./we_common')
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 var tel = $('#tel'),

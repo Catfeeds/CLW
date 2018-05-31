@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery');
+require('./we_common')
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 console.log(getValue('house_id'));
