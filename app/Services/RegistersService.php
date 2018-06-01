@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\LoginRecord;
 use App\Models\User;
 use App\Redis\MasterRedis;
 
@@ -44,18 +45,15 @@ class RegistersService
             return ['status' => false, 'message' => '获取令牌失败'];
         }
 
+        // 登录记录表添加
         $loginsService = new LoginsService();
-        // 最后登录时间
-        $user->last_login_time = date('Y.m.d H:i:s', time());
-        $user->last_login_ip = $request->getClientIp();
-        $user->last_login_source = 'App';
-        // 必须为线上真实ip
-        $user->last_login_city = $loginsService->getLocation($request->getClientIp());
-        $user->register_source = 'App';
-        $user->login_count = (int)$user->login_count + 1;
-        if (!$user->save()) {
-            return ['status' => false, 'message' => '登录信息更新失败'];
-        }
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $loginsService->getLocation($request->getClientIp()),
+            'login_source' => 'App'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
 
         return ['status' => true, 'token' => $token];
     }
@@ -93,18 +91,15 @@ class RegistersService
 
         session(['user' => $user]);
 
+        // 登录记录表添加
         $loginsService = new LoginsService();
-        // 最后登录时间
-        $user->last_login_time = date('Y.m.d H:i:s', time());
-        $user->last_login_ip = $request->getClientIp();
-        $user->last_login_source = '微信';
-        // 必须为线上真实ip
-        $user->last_login_city = $loginsService->getLocation($request->getClientIp());
-        $user->register_source = '微信';
-        $user->login_count = (int)$user->login_count + 1;
-        if (!$user->save()) {
-            return ['status' => false, 'message' => '登录信息更新失败'];
-        }
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $loginsService->getLocation($request->getClientIp()),
+            'login_source' => '微信'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
 
         return ['status' => true, 'message' => '注册成功'];
     }
