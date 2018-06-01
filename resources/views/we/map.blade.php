@@ -51,7 +51,7 @@
                         </div>
                         <div class="text-box">写字楼</div>
                     </div>
-                    <div class="map-btn-item" data-name="咖啡店">
+                    <div class="map-btn-item" data-name="咖啡店" style="margin-bottom: 8px">
                         <div class="img-box">
                             <img src="{{res('/we_img/house_detail_suppert08.png')}}" alt="">
                         </div>
