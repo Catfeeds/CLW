@@ -13,8 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-
-
+        'wechat',
         'registers',
         'logins',
         'reset_pwd',
