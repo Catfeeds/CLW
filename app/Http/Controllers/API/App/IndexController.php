@@ -52,9 +52,6 @@ class IndexController extends Controller
         // 写字楼推荐
         $buildingRecommends = $buildingRecommendsRepository->recommendList($service);
 
-        // 楼盘列表
-        $buildings = $buildingsRepository->buildingList($request, $service);
-
         // 区域
         $areas = $areasRepository->areaList();
 
@@ -66,7 +63,6 @@ class IndexController extends Controller
             'serviceRecommends' => $serviceRecommends,
             'hotBlocks' => $hotBlocks,
             'buildingRecommends' => $buildingRecommends,
-            'buildings' => $buildings,
             'areas' => $areas
         ], '首页列表成功');
     }
