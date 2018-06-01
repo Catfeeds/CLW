@@ -43,6 +43,8 @@
 #serveDetailVue{
     margin-bottom: 50px;
     span{
+        display: flex;
+        flex-direction: column;
         img{
             width: 100%;
         }

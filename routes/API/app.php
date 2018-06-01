@@ -159,4 +159,7 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     Route::get('block_condition', 'OfficeBuildingHousesController@blockCondition');
     // 其他搜索添加(装修,标签)
     Route::get('other_condition', 'OfficeBuildingHousesController@otherCondition');
+
+    // 版本跟新检查
+    Route::resource('check_version', 'CheckVersionController');
 });

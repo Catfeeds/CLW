@@ -32,5 +32,13 @@ return [
     // 楼盘默认图片
     'building_default_img' => 'https://cdn.chulouwang.com/app/imgs/building_none.jpg',
     // 房源默认图片
-    'house_default_img' => 'https://cdn.chulouwang.com/app/imgs/house_none.jpg'
+    'house_default_img' => 'https://cdn.chulouwang.com/app/imgs/house_none.jpg',
+
+
+
+    // 客户端类型
+    'app_update_version_ios' => 1,
+    'app_update_version_android' => 2,
+    'app_update_version_able' => 1,
+    'app_update_version_del' => 2,
 ];
