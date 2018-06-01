@@ -7,6 +7,8 @@
  */
 Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
 
+    // 首页接口
+    Route::resource('/', 'IndexController');
     // 获取手机验证码
     Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 
