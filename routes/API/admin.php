@@ -167,4 +167,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
 //    });
+
+        /*
+        |--------------------------------------------------------------------------
+        | 后台首页管理
+        |--------------------------------------------------------------------------
+         */
+        Route::resource('home_page', 'HomePagesController');
+        Route::get('wait_track_house', 'HomePagesController@waitTrackHouse');
+
+
 });
