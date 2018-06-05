@@ -55,6 +55,8 @@ module.exports = {
       'we_user_revise_phone2',
       'we_user_setting'
     ],
+    vendorName: 'we_vendor', // 自定义vendor文件名
+    manifestName: 'we_manifest',// 自定义manifest文件名
     // 重复引用js文件
     extract: [
       './resources/assets/js/we_common',
@@ -67,6 +69,20 @@ module.exports = {
       'mint-ui/lib/style.css',
       'vue-baidu-map',
       'swiper'
+    ]
+  },
+  // pc端资源
+  home: {
+    scss: [
+      'home_mapLookForHouse'
+    ],
+    js: [
+      'home_mapLookForHouse'
+    ],
+    vendorName: 'home_vendor',
+    manifestName: 'home_manifest',
+    extract: [
+      './resources/assets/js/home_common'
     ]
   }
 };

@@ -13,15 +13,20 @@ var commonSCSSPath = map.commonSCSSPath, // scss 目录
 var envConfig = new webpack.DefinePlugin({
   'process.env': envCof
 });
-mix.webpackConfig({
-  plugins: [
-    envConfig
-  ]
-});
 var sourceMap = 'we';
 if (process.env.sourceMap !== undefined) {
   sourceMap = process.env.sourceMap
 }
+var commonsChunk =  new webpack.optimize.CommonsChunkPlugin({
+  names: commonJSOutPath + map[sourceMap].manifestName,
+  minChunks: Infinity
+});
+mix.webpackConfig({
+  plugins: [
+    envConfig,
+    commonsChunk
+  ]
+});
 var fileSCSSNameArr = map[sourceMap].scss;// 要打包的 scss 文件
 var fileSJSNameArr = map[sourceMap].js;// 要打包的 js 文件
 function inOutCss(fileName) {
@@ -49,4 +54,8 @@ var JSObj = null;
 fileSJSNameArr.map(function (item) {
   JSObj = inOutJs(item, JSObj)
 });
-JSObj.extract(map[sourceMap].extract); // 提出全局多次引入文件
+JSObj.setPublicPath('./');
+if (map[sourceMap].extract && map[sourceMap].extract.length>0) {
+  JSObj.extract(map[sourceMap].extract, commonJSOutPath+map[sourceMap].vendorName); // 提出全局多次引入文件
+}
+
