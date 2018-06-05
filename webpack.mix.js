@@ -4,10 +4,12 @@
 var mix = require('laravel-mix'),
     webpack = require('webpack'),
     envCof = require('./env.js'),
-    commonSCSSPath = 'resources/assets/sass/', // scss 目录
-    commonOutCSSPath = 'public/css/', // css 输出目录
-    commonJSPath = 'resources/assets/js/', // js 脚本源文件目录
-    commonJSOutPath = 'public/js/'; // js 输出目录
+    map = require('./sourceMap');
+
+var commonSCSSPath = map.commonSCSSPath, // scss 目录
+    commonOutCSSPath = map.commonOutCSSPath, // css 输出目录
+    commonJSPath = map.commonJSPath, // js 脚本源文件目录
+    commonJSOutPath = map.commonJSOutPath; // js 输出目录
 var envConfig = new webpack.DefinePlugin({
   'process.env': envCof
 });
@@ -16,58 +18,12 @@ mix.webpackConfig({
     envConfig
   ]
 });
-var fileSCSSNameArr = [
-  'we_home',
-  'we_building_detail', 
-  'we_building_index', 
-  'we_house_detail', 
-  'we_login_new',
-  'we_login_password',
-  'we_login_quick',
-  'we_map',
-  'we_map_controls',
-  'we_register',
-  'we_serve_detail',
-  'we_serve_index',
-  'we_user_about_us',
-  'we_user_browsing_history',
-  'we_user_collect',
-  'we_user_find_house',
-  'we_user_house_resources',
-  'we_user_index',
-  'we_user_revise_password',
-  'we_user_revise_phone1',
-  'we_user_revise_phone2',
-  'we_user_setting'
-];// 要打包的 scss 文件
-var fileSJSNameArr = [
-  'we_home',
-  'we_building_detail',
-  'we_building_index',
-  'we_house_detail',
-  'we_recommed',
-  // 'we_login_new',
-  // 'we_house_detail',
-  'we_login_new',
-  'we_login_password',
-  'we_login_quick',
-  // 'we_map',
-  // 'we_map_controls',
-  'we_register',
-  // 'we_serve_detail',
-  // 'we_serve_index',
-  // 'we_user_about_us',
-  'we_map_detail',
-  'we_user_brows_history',
-  'we_user_collect',
-  'we_user_find_house',
-  'we_user_house_resources',
-  'we_user_index',
-  'we_user_revise_password',
-  'we_user_revise_phone1',
-  'we_user_revise_phone2',
-  'we_user_setting'
-];// 要打包的 js 文件
+var sourceMap = 'we';
+if (process.env.sourceMap !== undefined) {
+  sourceMap = process.env.sourceMap
+}
+var fileSCSSNameArr = map[sourceMap].scss;// 要打包的 scss 文件
+var fileSJSNameArr = map[sourceMap].js;// 要打包的 js 文件
 function inOutCss(fileName) {
   mix.sass(commonSCSSPath+fileName+'.scss', commonOutCSSPath+fileName+'.css', {
     outputStyle:'compressed'
@@ -93,15 +49,4 @@ var JSObj = null;
 fileSJSNameArr.map(function (item) {
   JSObj = inOutJs(item, JSObj)
 });
-JSObj.extract([ // 提出全局多次引入文件
-  './resources/assets/js/we_common',
-  './resources/assets/js/components/buildingList',
-  './resources/assets/js/components/houseList',
-  './resources/assets/js/components/detailBanner',
-  './resources/assets/js/components/houseDetailList',
-  'vue-awesome-swiper',
-  'mint-ui',
-  'mint-ui/lib/style.css',
-  'vue-baidu-map',
-  'swiper'
-]);
+JSObj.extract(map[sourceMap].extract); // 提出全局多次引入文件
