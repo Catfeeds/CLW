@@ -1,0 +1,13 @@
+@import "home_master";
+html{
+  min-height: 100%;
+  display: flex;
+  body{
+    flex:1;
+    display: flex;
+    div#app{
+      flex:1;
+      display: flex;
+    }
+  }
+}
