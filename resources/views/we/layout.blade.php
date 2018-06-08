@@ -19,8 +19,8 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script src="{{res('/js/manifest.js')}}"></script> 
-    <script src="{{res('/js/vendor.js')}}"></script>
+    <script src="{{res('/js/we_manifest.js')}}"></script>
+    <script src="{{res('/js/we_vendor.js')}}"></script>
     @yield('header')
 </head>
 <body>

@@ -170,4 +170,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //慢查询
         Route::post('query', 'QueryController@create');
 //    });
+
 });

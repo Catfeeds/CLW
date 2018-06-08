@@ -13,8 +13,10 @@
 
 
 Route::get('/user_agreement', 'HomeController@agreement');
-
-
+// TODO zxz地图功能开发路由
+Route:: get('map_test', function () {
+    return view('test.mapDemo');
+});
 /*
  * 微信端路由
  */
