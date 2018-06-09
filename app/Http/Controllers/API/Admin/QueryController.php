@@ -8,18 +8,19 @@ use Illuminate\Http\Request;
 
 class QueryController extends APIBaseController
 {
-
+    /**
+     * 说明: 将慢查询接口存入数据库
+     *
+     * @param Request $request
+     * @return string
+     * @author 刘坤涛
+     */
     public function create(Request $request)
     {
-        \Log::info('123123');
-
-        return '213';
-//
-//        return $request->all();
-//        return QueryTime::create([
-//            'app_name' => $request->app_name,
-//            'url' => $request->url,
-//            'time' => $request->time
-//        ]);
+        return QueryTime::create([
+            'app_name' => $request->app_name,
+            'url' => $request->url,
+            'time' => $request->time
+        ]);
     }
 }
