@@ -25,7 +25,7 @@ class SlowQuery
         $response =  $next($request);
         //计算接口响应时间
         $time = (microtime(true) - $t1) * 1000;
-        $time= 1100;
+        $time= 900;
         //如果时间大于1s,请求query接口,将该接口插入数据表中
         if ($time >= 1000) {
             $data = [

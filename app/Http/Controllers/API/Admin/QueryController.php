@@ -11,7 +11,11 @@ class QueryController extends APIBaseController
 
     public function create(Request $request)
     {
-        return $request->all();
+        \Log::info('123123');
+
+        return '213';
+//
+//        return $request->all();
 //        return QueryTime::create([
 //            'app_name' => $request->app_name,
 //            'url' => $request->url,
