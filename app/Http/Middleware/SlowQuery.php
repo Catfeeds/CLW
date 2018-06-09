@@ -18,15 +18,13 @@ class SlowQuery
      */
     public function handle($request, Closure $next)
     {
-
+        $t1 = microtime(true);
         $response =  $next($request);
         if ($request->getRequestUri() == '/api/admin/query') return $response;
-        //接口响应的时间
-        $t1 = microtime(true);
         //计算接口响应时间
         $time = (microtime(true) - $t1) * 1000;
         //如果时间大于1s,请求query接口,将该接口插入数据表中
-        if ($time >= 1000) {
+        if ($time >= 260) {
             $data = [
                 'app_name' => env('APP_NAME'),
                 'url' => $request->getRequestUri(),
@@ -37,12 +35,10 @@ class SlowQuery
                 $http->request('POST', url('api/admin/query'), [
                     'form_params' => $data
                 ]);
-
             } catch (\Exception $e) {
                 \Log::info('记录失败'.$e->getMessage());
             }
         }
-
         return $response;
     }
 }
