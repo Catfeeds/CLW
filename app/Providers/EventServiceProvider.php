@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\QueryTime;
+use App\Observers\QueryObservers;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use App\Models\Bespeak;
 use App\Models\ThrowIn;
