@@ -2,9 +2,10 @@
 
 namespace App\Observers;
 
+use App\Http\Controllers\API\Admin\WechatController;
 use App\Models\AcceptMessage;
-use App\Models\Admin;
 use App\Models\Bespeak;
+use App\Models\Employee;
 
 class BespeakObservers {
 
@@ -18,15 +19,13 @@ class BespeakObservers {
             'remark'   => '请及时联系客户!'
         );
         //查询出来该类型的消息需要发送那些人
-        $admin_id = AcceptMessage::where('type', 1)->pluck('admin_id')->toArray();
+        $admin_id = AcceptMessage::where('type', 1)->pluck('employee_id')->toArray();
         //关联admin表获取openid
-        $open_id = Admin::whereIn('id', $admin_id)->pluck('open_id')->toArray();
+        $open_id = Employee::whereIn('id', $admin_id)->pluck('open_id')->toArray();
         //微信发送消息服务
-        $notice = app('wechat')->notice;
-        //循环发送
-        foreach ($open_id as $v) {
-            $messageId = $notice->to($v)->uses('uZq6UGRezIsVhX-jqLsBWM7uxTZTnnfuPOHFp0Py_WA')->data($data)->send();
+        $wechat = new WechatController();
+            $messageId = $wechat->send($open_id,$data,'uZq6UGRezIsVhX-jqLsBWM7uxTZTnnfuPOHFp0Py_WA');
             \Log::info($messageId);
-        }
+
     }
 }

@@ -2,6 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\Http\Controllers\API\Admin\WechatController;
+use App\Models\AcceptMessage;
+use App\Models\Employee;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
@@ -57,8 +60,21 @@ class Handler extends ExceptionHandler
             } else {
                 $errorInfo = $this->errorMessage($exception);
             }
-        }
 
+            $wechat = new WechatController();
+            $employee_id= AcceptMessage::where('type', 3)->pluck('employee_id')->toArray();
+            $open_id= Employee::whereIn('id', $employee_id)->pluck('open_id')->toArray();
+            $data = array(
+                'first' => '贾哥,项目报错,请及时处理',
+                'keyword1' => '报错' ,
+                'keyword2' =>  'jacklin',
+                'keyword3' =>  date('Y-m-d H:i:s',time()),
+                'remark'   => $errorInfo
+            );
+            $wechat->send($open_id,$data, 'x0QkeqBbg78Oo4CZFYCpkcSttjdxX5XjxlZG_8kUqko');
+
+
+        }
         if ($exception instanceof ValidationException) {
             $error = array(
                 'success' => false,

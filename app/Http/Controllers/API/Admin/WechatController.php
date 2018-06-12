@@ -2,17 +2,15 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Models\Admin;
-use EasyWeChat\Foundation\Application;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Employee;
 
 class WechatController extends APIBaseController
 {
     private $wechat;
 
-    public function __construct(Application $application)
+    public function __construct()
     {
-        $this->wechat = $application;
+        $this->wechat = app('wechat');
     }
 
     /**
@@ -25,11 +23,10 @@ class WechatController extends APIBaseController
      */
     public function index()
     {
-        // $user= Auth::guard('admin')->user();
         $this->wechat->server->setMessagehandler(function($message) {
             if ($message->MsgType == 'event' && $message->Event == 'SCAN') {
-                if (Admin::where('open_id', $message->FromUserName)->first()) return '请勿重复绑定';
-                $res = Admin::where('id', 1)->update([
+                if (Employee::where('open_id', $message->FromUserName)->first()) return '请勿重复绑定';
+                $res = Employee::where('id', 1)->update([
                     'open_id' => $message->FromUserName
                 ]);
                 if (!$res) return '绑定失败,请稍后重新尝试';
@@ -102,5 +99,16 @@ class WechatController extends APIBaseController
         ];
         $menu->add($buttons);
         return 'ok';
+    }
+
+
+    public function send($openid,$data,$TemplateId)
+    {
+        $notice = $this->wechat->notice;
+        foreach($openid as $v) {
+            $message_id = $notice->to($v)->uses($TemplateId)->data($data)->send();
+        }
+        return $message_id;
+
     }
 }
