@@ -49,6 +49,18 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if (!empty($exception)) {
+            // 处理报错500的
+            if (!empty(method_exists($exception, 'getStatusCode'))) {
+                // 获取错误码
+                if ($exception->getStatusCode() != 404) {
+                    $errorInfo = $this->errorMessage($exception);
+                }
+            } else {
+                $errorInfo = $this->errorMessage($exception);
+            }
+        }
+
         if ($exception instanceof ValidationException) {
             $error = array(
                 'success' => false,
@@ -57,5 +69,14 @@ class Handler extends ExceptionHandler
             return response($error, 422);
         }
         return parent::render($request, $exception);
+    }
+
+    public function errorMessage($exception)
+    {
+        $file = $exception->getFile(); // 报错文件
+        $line = $exception->getLine(); // 报错行数
+        $message = $exception->getMessage();    // 报错信息
+
+        return $file.'文件的'.$line.'行报错,报错信息为:'.$message;
     }
 }
