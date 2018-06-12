@@ -166,6 +166,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('accept_message', 'AcceptMessagesController');
 
         Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
+
+        //慢查询
+        Route::post('query', 'QueryController@create');
 //    });
 
 });

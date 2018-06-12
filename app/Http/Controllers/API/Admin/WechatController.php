@@ -70,6 +70,15 @@ class WechatController extends APIBaseController
                 "name" => "找你所想",
                 "url"  => "https://wechat.chulouwang.com"
             ],
+
+            [
+                "type" => "miniprogram",
+                "name" => "房源一站通",
+                "url" => "https://wechat.chulouwang.com/user",
+                "appid" => "wx00dc0b3638445400",
+                "pagepath" => "pages/list/list"
+            ],
+
             [
                 "name"       => "更多",
                 "sub_button" => [
@@ -87,13 +96,6 @@ class WechatController extends APIBaseController
                         "type" => "click",
                         "name" => "联系客服",
                         "key" => "KEY_0102"
-                    ],
-                    [
-                        "type" => "miniprogram",
-                        "name" => "房源一站通",
-                        "url" => "https://wechat.chulouwang.com/user",
-                        "appid" => "wx00dc0b3638445400",
-                        "pagepath" => "pages/list/list"
                     ],
                 ],
             ],
