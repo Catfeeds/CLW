@@ -61,20 +61,23 @@ class Handler extends ExceptionHandler
                 $errorInfo = $this->errorMessage($exception);
             }
 
+            // 获取错误类型
+            $temp = explode('\\', get_class($exception));
+            $type = end($temp);
+
             $wechat = new WechatController();
             $employee_id= AcceptMessage::where('type', 3)->pluck('employee_id')->toArray();
             $open_id= Employee::whereIn('id', $employee_id)->pluck('open_id')->toArray();
             $data = array(
-                'first' => '贾哥,项目报错,请及时处理',
-                'keyword1' => '报错' ,
+                'first' => '项目报错,请及时处理',
+                'keyword1' => $type ,
                 'keyword2' =>  'jacklin',
                 'keyword3' =>  date('Y-m-d H:i:s',time()),
                 'remark'   => $errorInfo
             );
             $wechat->send($open_id,$data, 'x0QkeqBbg78Oo4CZFYCpkcSttjdxX5XjxlZG_8kUqko');
-
-
         }
+
         if ($exception instanceof ValidationException) {
             $error = array(
                 'success' => false,
@@ -85,6 +88,13 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 
+    /**
+     * 说明: 错误信息拼接
+     *
+     * @param $exception
+     * @return string
+     * @author 罗振
+     */
     public function errorMessage($exception)
     {
         $file = $exception->getFile(); // 报错文件
