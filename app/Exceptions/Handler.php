@@ -50,9 +50,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if (!empty($exception)) {
-            // 处理报错500的
             if (!empty(method_exists($exception, 'getStatusCode'))) {
-                // 获取错误码
                 if ($exception->getStatusCode() != 404) {
                     $errorInfo = $this->errorMessage($exception);
                 }
