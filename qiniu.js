@@ -6,8 +6,13 @@
  *  楚楼网前端项目组七牛云上传组件   *
  *                              *
  ********************************/
+const CMDARR = process.env.npm_lifecycle_event.split(':')
+if (CMDARR.length < 2) {
+ return
+}
+
 const QiNiu = require("qiniu");
-const Config = require('./env');
+const Config = require('./env')[CMDARR[0]][CMDARR[1]];
 const  FS = require('fs');
 const  Join = require('path').join;
 const colors = require( "colors"); // console颜色模块
@@ -210,4 +215,4 @@ function uploadFile() {
   }
 }
 // 上传请打开他
-getQiniuFileList();
+// getQiniuFileList();
