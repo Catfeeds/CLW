@@ -4,13 +4,14 @@ namespace App\Repositories;
 
 use App\Models\AcceptMessage;
 use App\Models\Admin;
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Model;
 
 class AcceptMessagesRepository extends Model
 {
     public function getSelectUsers()
     {
-        return Admin::all()->map(function($v) {
+        return Employee::all()->map(function($v) {
             return [
                 'label' => $v->id,
                 'value' => $v->name,
@@ -33,7 +34,7 @@ class AcceptMessagesRepository extends Model
             foreach ($request->admin_id as $value) {
                 $res = AcceptMessage::create([
                     'type' => $request->type,
-                    'admin_id' => $value
+                    'employee_id' => $value
                 ]);
             }
         } else {
@@ -42,7 +43,7 @@ class AcceptMessagesRepository extends Model
             //原数组减去当前数组,获得需要删除的人员
             $arr_del = array_diff($admin, $request->admin_id);
             foreach ($arr_del as $v) {
-                AcceptMessage::where('admin_id', $v)->delete();
+                AcceptMessage::where('employee_id', $v)->delete();
             }
 
             //当前数组减去原数组,获取新增人员
@@ -50,7 +51,7 @@ class AcceptMessagesRepository extends Model
             foreach ($arr_add as $v) {
                 $res = AcceptMessage::create([
                     'type' => $request->type,
-                    'admin_id' => $v
+                    'employee_id' => $v
                 ]);
             }
         }
