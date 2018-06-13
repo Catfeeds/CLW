@@ -7,6 +7,9 @@
  */
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
+    Route::resource('media_permissions','MediaPermissionsController');
+    Route::get('/media_permissions_group', 'MediaPermissionsController@mediaPermissionsGroup');
+
     // 七牛token
     Route::get('/get_qi_niu_token', 'BannerController@token');
 
