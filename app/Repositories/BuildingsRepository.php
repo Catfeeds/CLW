@@ -51,14 +51,19 @@ class BuildingsRepository extends  Model
     }
 
     /**
-     * 说明：图片、楼盘名、优标签、商圈、单价、符合条件的房源数量、特色
+     * 说明: 图片、楼盘名、优标签、商圈、单价、符合条件的房源数量、特色
      *
      * @param $buildings
      * @param $buildingData
-     * @return mixed
+     * @param $service
+     * @return \Illuminate\Support\Collection
      * @author jacklin
      */
-    public function buildingDataComplete($buildings, $buildingData, $service)
+    public function buildingDataComplete(
+        $buildings,
+        $buildingData,
+        $service
+    )
     {
         foreach ($buildingData as $index => $v) {
             // 价格及面积区间
@@ -80,14 +85,14 @@ class BuildingsRepository extends  Model
 
             // 标签
             $buildingData[$index]->building_label = !empty($v->label)?1:2;
+
+            $buildingData[$index]->orderByLabel = !empty($v->label)?2:1;
         }
 
-        // 排序
-        $res = $buildingData->toArray();
-        $block_recommend = array_column($res, 'block_recommend');
-        $house_count = array_column($res, 'house_count');
-        $building_label = array_column($res, 'building_label');
-        array_multisort($building_label, SORT_ASC, $house_count, SORT_DESC, $block_recommend, SORT_DESC, $res);
+        // 排序方式
+        $res = collect($buildingData)->sortByDesc(function ($val) {
+            return [$val->orderByLabel, $val->house_count, $val->block_recommend];
+        });
 
         return collect($res);
     }
@@ -130,6 +135,7 @@ class BuildingsRepository extends  Model
                 return $v->count() === count($request->features);
             })->flatten()->pluck('building_id')->unique()->toArray();
 
+            // 获取交集
             $buildings = array_intersect($buildings, $featureBuildings);
         }
 
@@ -166,8 +172,9 @@ class BuildingsRepository extends  Model
         // 对楼座进行分组
         $buildingsBlocks = $houses->get()->groupBy('building_block_id');
         // 将房源根据
-        $buildingsBlockIds = $buildingsBlocks->keys();
-        $buildingsBlocksData = BuildingBlock::find($buildingsBlockIds);
+        $buildingsBlockIds = $buildingsBlocks->keys();  // 返回所有的键值
+        $buildingsBlocksData = BuildingBlock::find($buildingsBlockIds); //  获取所有楼座数据
+
         foreach ($buildingsBlocks as $index => $buildingsBlock) {
             // 当前的楼座
             $buildingBlockCurr = $buildingsBlocksData->find($index);
