@@ -1,0 +1,89 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\MediaPermissionGroup;
+use App\Models\Role;
+use Illuminate\Database\Eloquent\Model;
+
+class RolesRepository extends Model
+{
+    public function roleList()
+    {
+        return Role::where(['guard_name' => 'web'])->paginate(10);
+    }
+
+    public function addRole(
+        $request
+    )
+    {
+        \DB::connection('media')->beginTransaction();
+        try {
+            // 添加角色表
+            $role = Role::create([
+                'name' => $request->name_en,
+                'name_cn' => $request->name_cn,
+                'name_en' => $request->name_en,
+                'guard_name' => 'web',
+            ]);
+
+            // 添加关联表
+            $role->givePermissionTo($request->permissions);
+            \DB::connection('media')->commit();
+            return true;
+        } catch (\Exception $e) {
+            \DB::connection('media')->rollBack();
+            \Log::error('添加角色失败：' . $e->getFile() . $e->getLine() . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function updateRole(
+        $request,
+        Role $role
+    )
+    {
+        \DB::connection('media')->beginTransaction();
+        try {
+            $role->name = $request->name_en;
+            $role->name_cn = $request->name_cn;
+            $role->name_en = $request->name_en;
+            if (!$role->save()) throw new \Exception('修改角色信息失败!');
+
+            // 修改关联表
+            $role->syncPermissions($request->permissions);
+            \DB::connection('media')->commit();
+            return true;
+        } catch (\Exception $e) {
+            \DB::connection('media')->rollBack();
+            Log::error('修改角色失败：' . $e->getFile() . $e->getLine() . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function getAllPermissions()
+    {
+        // 获取所有权限组
+        $groups = MediaPermissionGroup::where(['stage' => 1])->get();
+
+        $data = array();
+        foreach ($groups as $k => $v) {
+            $data['group'.$v->id]['title'] = $v->group_name;
+            $permissions = $v->mediaPermission;
+
+            $allPermissions = array();  // 所有权限信息
+            $allPermissionId = array(); // 所有权限id
+            foreach ($permissions as $key => $val) {
+                $allPermissions[$key]['key'] = $val->id;
+                $allPermissions[$key]['label'] = $val->label;
+                $allPermissions[$key]['disable'] = true;
+                $allPermissionId[] = $val->id;
+            }
+
+            $data['group'.$v->id]['permission'] = $allPermissions;
+            $data['group'.$v->id]['allPermissionId'] = $allPermissionId;
+        }
+
+        return $data;
+    }
+}

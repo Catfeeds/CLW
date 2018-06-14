@@ -2,13 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class MediaPermission extends Model
+class Permission extends \Spatie\Permission\Models\Permission
 {
     protected $table = 'permissions';
-
-    protected $guarded = [];
 
     protected $connection = 'media';
 

@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Models\MediaPermission;
 use App\Models\MediaPermissionGroup;
+use App\Models\Permission;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class MediaPermissionsRequest extends FormRequest
+class PermissionsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -64,7 +64,7 @@ class MediaPermissionsRequest extends FormRequest
                         'max:32',
                         'regex:/^[a-z\d\_]*$/i',
                         Rule::notIn(
-                            MediaPermission::where('guard_name', 'web')
+                            Permission::where('guard_name', 'web')
                                 ->pluck('name')
                                 ->toArray()
                         )

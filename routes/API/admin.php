@@ -6,9 +6,16 @@
  * Time: 上午11:54
  */
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    // 权限管理
+    Route::resource('permissions','PermissionsController');
+    Route::get('/permissions_group', 'PermissionsController@permissionsGroup');
 
-    Route::resource('media_permissions','MediaPermissionsController');
-    Route::get('/media_permissions_group', 'MediaPermissionsController@mediaPermissionsGroup');
+    // 角色管理
+    Route::resource('roles','RolesController');
+    Route::get('/get_all_permissions', 'RolesController@getAllPermissions');
+
+    // 中介用户
+    Route::resource('media_user','MediaUsersController');
 
     // 七牛token
     Route::get('/get_qi_niu_token', 'BannerController@token');
