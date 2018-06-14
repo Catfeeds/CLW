@@ -30,8 +30,7 @@ module.exports = {
       'we_user_index',
       'we_user_revise_password',
       'we_user_revise_phone1',
-      'we_user_revise_phone2',
-      'we_user_setting'
+      'we_user_revise_phone2'
     ],
     // js 文件
     js: [
@@ -53,7 +52,8 @@ module.exports = {
       'we_user_revise_password',
       'we_user_revise_phone1',
       'we_user_revise_phone2',
-      'we_user_setting'
+      'we_user_setting',
+      'we_work_order'
     ],
     vendorName: 'we_vendor', // 自定义vendor文件名
     manifestName: 'we_manifest',// 自定义manifest文件名
