@@ -159,6 +159,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         //二维码
         Route::get('create_qrcode', 'WechatController@create');
+
+        Route::get('demo', 'WechatController@demo')->middleware('certified');
+
+
         //自定义菜单
         Route::get('menu', 'WechatController@menu');
 

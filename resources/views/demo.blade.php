@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>123</h1>
-<img src=" {{$url}} " width="200" height="200">
+<h1>哈哈哈哈哈哈哈哈</h1>
+
 </body>
 </html>

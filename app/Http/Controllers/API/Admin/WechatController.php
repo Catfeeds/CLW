@@ -102,13 +102,21 @@ class WechatController extends APIBaseController
     }
 
 
-    public function send($openid,$data,$TemplateId)
+    public function send($openid,$data,$url,$TemplateId)
     {
         $notice = $this->wechat->notice;
         foreach($openid as $v) {
-            $message_id = $notice->to($v)->uses($TemplateId)->data($data)->send();
+            $message_id = $notice->to($v)->uses($TemplateId)->andUrl($url)->data($data)->send();
         }
         return $message_id;
+    }
+
+    public function demo()
+    {
+        $app = $this->wechat;
+        $response = $app->oauth->scopes(['snsapi_userinfo'])
+            ->redirect();
 
     }
+
 }
