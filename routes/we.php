@@ -3,7 +3,7 @@
 
 // 测试
 Route::get('/test', function(){
-  return view('we.test');
+  return view('home.index');
 });
 // 首页
 Route::get('/', 'IndexController@index');

@@ -74,10 +74,12 @@ module.exports = {
   // pc端资源
   home: {
     scss: [
-      'home_mapLookForHouse'
+      'home_mapLookForHouse',
+      'home_index'
     ],
     js: [
-      'home_mapLookForHouse'
+      'home_mapLookForHouse',
+      'home_index'
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',
