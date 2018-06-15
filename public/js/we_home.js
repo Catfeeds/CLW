@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 webpackJsonp([2],Array(28).concat([
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(29);
+=======
+webpackJsonp([2],Array(24).concat([
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(25);
+__webpack_require__(39);
+>>>>>>> origin/cyq
 __webpack_require__(40);
 __webpack_require__(41);
 __webpack_require__(42);
@@ -27,11 +36,16 @@ module.exports = __webpack_require__(60);
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 29 */
+=======
+/* 25 */
+>>>>>>> origin/cyq
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(3);
@@ -45,6 +59,17 @@ __webpack_require__(0);
 
 var Swiper = __webpack_require__(19);
 Vue.component('building-list', __webpack_require__(9));
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
+__webpack_require__(0);
+
+
+var Swiper = __webpack_require__(17);
+Vue.component('building-list', __webpack_require__(6));
+>>>>>>> origin/cyq
 var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
   el: '#listApp',
@@ -105,7 +130,11 @@ $(document).on('click', '#addBook', function () {
       telReg = /^[1][0-9]{10}$/;
   $('#telInput').blur();
   if (!telReg.test(tel)) {
+<<<<<<< HEAD
     __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+=======
+    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+>>>>>>> origin/cyq
       message: '请输入11位手机号',
       position: 'center',
       duration: 3000
@@ -138,13 +167,21 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
       if (data.success) {
+<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+>>>>>>> origin/cyq
           message: '信息提交成功，楚楼网30分钟内联系您',
           position: 'center',
           duration: 3000
         });
       } else {
+<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+>>>>>>> origin/cyq
           message: '预约失败',
           position: 'center',
           duration: 3000
@@ -153,7 +190,11 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     },
     error: function error() {
       $('#backdrop').fadeOut(300);
+<<<<<<< HEAD
       __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+>>>>>>> origin/cyq
         message: '服务器繁忙,请联系客服处理',
         position: 'center',
         duration: 3000
@@ -179,13 +220,21 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
       if (data.success) {
+<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+>>>>>>> origin/cyq
           message: '信息提交成功，楚楼网30分钟内联系您',
           position: 'center',
           duration: 3000
         });
       } else {
+<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+>>>>>>> origin/cyq
           message: '投放失败',
           position: 'center',
           duration: 3000
@@ -194,7 +243,11 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     },
     error: function error() {
       $('#backdrop').fadeOut(300);
+<<<<<<< HEAD
       __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+>>>>>>> origin/cyq
         message: '服务器繁忙,请联系客服处理',
         position: 'center',
         duration: 3000
@@ -204,6 +257,13 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 });
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+>>>>>>> origin/cyq
 /* 30 */,
 /* 31 */,
 /* 32 */,
@@ -213,7 +273,16 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 /* 36 */,
 /* 37 */,
 /* 38 */,
+<<<<<<< HEAD
 /* 39 */,
+=======
+/* 39 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+>>>>>>> origin/cyq
 /* 40 */
 /***/ (function(module, exports) {
 
@@ -340,4 +409,8 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 // removed by extract-text-webpack-plugin
 
 /***/ })
+<<<<<<< HEAD
 ]),[28]);
+=======
+]),[24]);
+>>>>>>> origin/cyq
