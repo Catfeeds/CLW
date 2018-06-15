@@ -1,4 +1,4 @@
-webpackJsonp([15],{
+webpackJsonp([14],{
 
 /***/ 105:
 /***/ (function(module, exports, __webpack_require__) {
@@ -16,7 +16,7 @@ module.exports = __webpack_require__(106);
  */
 __webpack_require__(0);
 var listAppData = JSON.parse($('#listAppData').val());
-Vue.component('building-list', __webpack_require__(9));
+Vue.component('building-list', __webpack_require__(8));
 var app = new Vue({
   el: '#app',
   data: {
