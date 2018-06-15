@@ -75,11 +75,15 @@ module.exports = {
   home: {
     scss: [
       'home_mapLookForHouse',
-      'home_index'
+      'home_footer',
+      'home_header',
+      'home_head'
     ],
     js: [
       'home_mapLookForHouse',
-      'home_index'
+      'home_footer',
+      'home_header',
+      'home_head'
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',

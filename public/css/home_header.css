@@ -180,3 +180,59 @@ template {
   display: none;
 }
 
+header {
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+}
+
+header .head {
+  height: 100px;
+  margin: 0 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 100px;
+  color: #fff;
+}
+
+header .head div {
+  padding: 0 20px;
+}
+
+header .head div a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header .head div:not(:last-child):hover {
+  border-bottom: 2px solid #03a2fb;
+}
+
+header .head .infor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .head .infor button {
+  margin-top: 30px;
+  height: 38px;
+  width: 95px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #fff;
+  background: transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header .head .infor .register {
+  border: none;
+}
+

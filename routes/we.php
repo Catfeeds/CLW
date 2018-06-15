@@ -1,9 +1,17 @@
 <?php
 // we.clw.com
 
-// 测试
+// 测试底部
 Route::get('/test', function(){
-  return view('home.index');
+  return view('home.footer');
+});
+// 测试头部
+Route::get('/header', function(){
+    return view('home.header');
+});
+//测试副页面头部
+Route::get('/head', function(){
+    return view('home.head');
 });
 // 首页
 Route::get('/', 'IndexController@index');
