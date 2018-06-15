@@ -90,11 +90,11 @@ __WEBPACK_IMPORTED_MODULE_12_vue___default.a.component(__WEBPACK_IMPORTED_MODULE
  * Vue.use(Cell)
  */
 var FormData = {
-    staff_id: '',
-    id: ''
+    staff_id: '', // 员工id
+    id: '' // 工单id
 };
 var sheetClick = function sheetClick(e) {
-    FormData.id = e.id;
+    FormData.staff_id = e.id;
     distribution(FormData);
 };
 var app = new __WEBPACK_IMPORTED_MODULE_12_vue___default.a({
@@ -111,7 +111,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_12_vue___default.a({
     },
     methods: {
         sheet: function sheet(id) {
-            FormData.staff_id = id;
+            FormData.id = id;
             this.sheetVisible = !this.sheetVisible;
         }
     },
@@ -161,7 +161,11 @@ function getShopkeeperList(status) {
         success: function success(data) {
             console.log('data', data);
             if (data.success) {
-                app.shopkowner = data.data;
+                if (status === 1) {
+                    app.shopkowner = data.data;
+                } else if (status === 2) {
+                    app.unshopkowner = data.data;
+                }
             }
         },
         error: function error(res) {
@@ -178,7 +182,8 @@ function getShopkeeperList(status) {
 function distribution(FormData) {
     $.ajax({
         url: "http://192.168.0.199/api/distribution",
-        type: FormData,
+        type: 'post',
+        data: FormData,
         success: function success(data) {
             console.log(data);
             if (data.success) {

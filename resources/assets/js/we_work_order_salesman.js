@@ -1,10 +1,9 @@
 import Vue from 'vue'
-import { Button, Cell, Navbar, TabItem, Actionsheet  } from 'mint-ui'
+import { Button, Cell, TabItem, Actionsheet  } from 'mint-ui'
 import { Toast } from 'mint-ui';
 Vue.component(Actionsheet.name, Actionsheet);
 Vue.component(Button.name, Button)
 Vue.component(Cell.name, Cell)
-Vue.component(Navbar.name, Navbar);
 Vue.component(TabItem.name, TabItem);
 /* 或写为
  * Vue.use(Button)
@@ -16,8 +15,8 @@ var FormData = {
 const app = new Vue({
     el: '#app',
     data: {
-        shopkowner: [],
-        unshopkowner: [],
+        salesman: [],
+        unsalesman: [],
         selected: '1',
         sheetVisible: false,
         sheetClick: function(e) {
@@ -28,48 +27,20 @@ const app = new Vue({
     methods: {
         sheet(id) {
             FormData.id = id
-            this.sheetVisible = !this.sheetVisible
+            distribution(FormData)
         }
     },
     created() {
-        // 获取已处理工单
+        // 获取已确定工单
         getSaiesmanList(1)
-        // 获取未处理工单
+        // 获取未确定工单
         getSaiesmanList(2)
-        var that = this
-        $.ajax({
-            url: "http://192.168.0.199/api/get_staff",
-            type: 'get',
-            data:{
-                status: 1
-            },
-            success: function(data){
-                if(data.success) {
-                    var array = []
-                    for (var key in data.data) {
-                        array.push({
-                            id: data.data[key].value,
-                            name: data.data[key].label,
-                            method: sheetClick
-                        })
-                    }
-                    that.actions = array
-                }
-            },
-            error: function (res) {
-                Toast({
-                    message: res.responseJSON.message,
-                    position: 'center',
-                    duration: 5000
-                })
-            }
-        });
     }
 })
 // 获取 工单列表
 function getSaiesmanList(status) {
     $.ajax({
-        url: "http://192.168.0.199/api/shopkeeper_list",
+        url: "http://192.168.0.199/api/staff_list",
         type: 'get',
         data:{
             status: status
@@ -77,7 +48,11 @@ function getSaiesmanList(status) {
         success: function(data){
             console.log('data', data)
             if (data.success) {
-                app.shopkowner = data.data
+                if(status===1) {
+                    app.salesman = data.data
+                }else if(status===2) {
+                    app.unsalesman = data.data
+                }
             }
         },
         error: function (res) {
@@ -90,7 +65,7 @@ function getSaiesmanList(status) {
     });
 }
 
-// 店长分配工单
+// 业务员确认工单
 function distribution(FormData) {
     $.ajax({
         url: "http://192.168.0.199/api/determine",
@@ -104,8 +79,8 @@ function distribution(FormData) {
                     position: 'center',
                     duration: 1000
                 })
-                getShopkeeperList(1)
-                getShopkeeperList(2)
+                getSaiesmanList(1)
+                getSaiesmanList(2)
             }
         },
         error: function (res) {

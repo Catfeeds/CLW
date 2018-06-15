@@ -11,11 +11,11 @@ Vue.component(TabItem.name, TabItem);
  * Vue.use(Cell)
  */
 var FormData = {
-    staff_id: '',
-    id: ''
+    staff_id: '', // 员工id
+    id: '' // 工单id
 }
 var sheetClick = function(e) {
-    FormData.id = e.id
+    FormData.staff_id = e.id
     distribution(FormData)
 }
 const app = new Vue({
@@ -32,7 +32,7 @@ const app = new Vue({
     },
     methods: {
         sheet(id) {
-            FormData.staff_id = id
+            FormData.id = id
             this.sheetVisible = !this.sheetVisible
         }
     },
@@ -82,7 +82,11 @@ function getShopkeeperList(status) {
         success: function(data){
             console.log('data', data)
             if (data.success) {
-                app.shopkowner = data.data
+                if(status===1) {
+                    app.shopkowner = data.data
+                }else if(status===2) {
+                    app.unshopkowner = data.data
+                }
             }
         },
         error: function (res) {
@@ -99,7 +103,8 @@ function getShopkeeperList(status) {
 function distribution(FormData) {
     $.ajax({
         url: "http://192.168.0.199/api/distribution",
-        type: FormData,
+        type: 'post',
+        data: FormData,
         success: function(data){
            console.log(data)
             if(data.success) {
