@@ -71,9 +71,8 @@
                     <div><span>需求:</span><span>投放房源</span></div>
                     <div><span>需求:</span><span>投放房源</span></div>
                     <div><span>需求:</span><span>投放房源</span></div>
-                    <div class="list-bottom">
-                        <span class="f-1"><i>* </i>分配给业务员A</span>
-                        <span class="f-1 jus-center">已确定</span>
+                    <div class="f-1 jus-end" >
+                        <mt-button size="small" type="danger" plain @click="sheet()">分配</mt-button>
                     </div>
                 </div>
             </div>
@@ -89,8 +88,9 @@
                     <div><span>需求:</span><span>投放房源</span></div>
                     <div><span>需求:</span><span>投放房源</span></div>
                     <div><span>需求:</span><span>投放房源</span></div>
-                    <div class="f-1 jus-end" >
-                        <mt-button size="small" type="danger" plain @click="sheet()">分配</mt-button>
+                    <div class="list-bottom">
+                        <span class="f-1"><i>* </i>分配给业务员A</span>
+                        <span class="f-1 jus-center">已确定</span>
                     </div>
                 </div>
             </div>
