@@ -90,12 +90,16 @@
                     <div><span>需求:</span><span>投放房源</span></div>
                     <div><span>需求:</span><span>投放房源</span></div>
                     <div class="f-1 jus-end" >
-                        <mt-button size="small" type="danger" plain>分配</mt-button>
+                        <mt-button size="small" type="danger" plain @click="sheet()">分配</mt-button>
                     </div>
                 </div>
             </div>
         </mt-tab-container-item>
     </mt-tab-container>
+    <mt-actionsheet
+            :actions="actions"
+            v-model="sheetVisible">
+    </mt-actionsheet>
 </div>
 <script src="/js/we_work_order.js"></script>
 </body>

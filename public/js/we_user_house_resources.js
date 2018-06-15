@@ -367,7 +367,7 @@ module.exports = function normalizeComponent (
 /***/ 1:
 /***/ function(module, exports) {
 
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(7);
 
 /***/ },
 
