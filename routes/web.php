@@ -17,9 +17,9 @@ Route::get('/user_agreement', 'HomeController@agreement');
 Route:: get('map_test', function () {
     return view('test.mapDemo');
 });
-// 测试
-Route::get('myRoute',function(){
-    return  view('test.myRoute');
+//app下载页面
+Route::get('download',function(){
+    return view('home.download');
 });
 /*
  * 微信端路由
