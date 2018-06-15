@@ -2,7 +2,11 @@
 // we.clw.com
 
 // 首页
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@index')->middleware('we.auth');
+Route::get('/weLogin', 'IndexController@index')->middleware('we.login');
+Route::get('/weInfo', 'IndexController@weInfo');
+
+Route::get('/', 'IndexController@index')->middleware('we.auth');
 // 获取手机验证码
 Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 

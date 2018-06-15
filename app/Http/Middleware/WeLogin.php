@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Certified
+class WeLogin
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Certified
     public function handle($request, Closure $next)
     {
         $app = app('wechat');
-        $response = $app->outh->scopes(['snsapi_userinfo'])->redirect();
-        return $next($request);
+        $response = $app->oauth->scopes(['snsapi_userinfo'])->redirect();
+        return $response;
     }
 }
