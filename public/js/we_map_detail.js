@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpackJsonp([16],{
 =======
 webpackJsonp([15],{
 >>>>>>> origin/cyq
+=======
+webpackJsonp([15],{
+>>>>>>> origin/wanghao
 
 /***/ 115:
 /***/ (function(module, exports, __webpack_require__) {
@@ -18,10 +22,14 @@ module.exports = __webpack_require__(116);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(11);
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(8);
 >>>>>>> origin/cyq
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(10);
+>>>>>>> origin/wanghao
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
 __webpack_require__(0);
 

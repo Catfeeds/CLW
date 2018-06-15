@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpackJsonp([17],{
 =======
 webpackJsonp([16],{
 >>>>>>> origin/cyq
+=======
+webpackJsonp([16],{
+>>>>>>> origin/wanghao
 
 /***/ 111:
 /***/ (function(module, exports, __webpack_require__) {

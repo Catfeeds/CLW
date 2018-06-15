@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpackJsonp([5],{
 =======
 webpackJsonp([3],{
 >>>>>>> origin/cyq
+=======
+webpackJsonp([4],{
+>>>>>>> origin/wanghao
 
 /***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
@@ -18,7 +22,11 @@ module.exports = __webpack_require__(62);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(11);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(10);
+>>>>>>> origin/wanghao
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
 __webpack_require__(0);
 
@@ -52,10 +60,14 @@ new Vue({
 
 var disposed = false
 <<<<<<< HEAD
+<<<<<<< HEAD
 var normalizeComponent = __webpack_require__(7)
 =======
 var normalizeComponent = __webpack_require__(4)
 >>>>>>> origin/cyq
+=======
+var normalizeComponent = __webpack_require__(6)
+>>>>>>> origin/wanghao
 /* script */
 var __vue_script__ = __webpack_require__(75)
 /* template */
@@ -115,10 +127,14 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(13);
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(10);
 >>>>>>> origin/cyq
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(12);
+>>>>>>> origin/wanghao
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 //
 //

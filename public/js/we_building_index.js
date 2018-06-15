@@ -4,11 +4,15 @@ webpackJsonp([1],[
 /* 2 */,
 <<<<<<< HEAD
 /* 3 */,
+<<<<<<< HEAD
 /* 4 */,
 /* 5 */
 =======
 /* 3 */
 >>>>>>> origin/cyq
+=======
+/* 4 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -323,10 +327,14 @@ module.exports = {
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /* 4 */,
 /* 5 */,
 >>>>>>> origin/cyq
+=======
+/* 5 */,
+>>>>>>> origin/wanghao
 /* 6 */,
 /* 7 */,
 /* 8 */,
@@ -349,10 +357,14 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 var normalizeHeaderName = __webpack_require__(86);
 
 var DEFAULT_CONTENT_TYPE = {
@@ -504,10 +516,14 @@ module.exports = function bind(fn, thisArg) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 var settle = __webpack_require__(87);
 var buildURL = __webpack_require__(89);
 var parseHeaders = __webpack_require__(90);
@@ -844,7 +860,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue__);
 
 
@@ -1061,10 +1077,14 @@ function injectStyle (ssrContext) {
   __webpack_require__(80)
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 var normalizeComponent = __webpack_require__(7)
 =======
 var normalizeComponent = __webpack_require__(4)
 >>>>>>> origin/cyq
+=======
+var normalizeComponent = __webpack_require__(6)
+>>>>>>> origin/wanghao
 /* script */
 var __vue_script__ = __webpack_require__(82)
 /* template */
@@ -1132,10 +1152,14 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 <<<<<<< HEAD
+<<<<<<< HEAD
 var update = __webpack_require__(10)("84aebc14", content, false, {});
 =======
 var update = __webpack_require__(7)("b274be70", content, false, {});
 >>>>>>> origin/cyq
+=======
+var update = __webpack_require__(9)("84aebc14", content, false, {});
+>>>>>>> origin/wanghao
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -1160,10 +1184,14 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 exports = module.exports = __webpack_require__(4)(false);
 =======
 exports = module.exports = __webpack_require__(5)(false);
 >>>>>>> origin/cyq
+=======
+exports = module.exports = __webpack_require__(5)(false);
+>>>>>>> origin/wanghao
 // imports
 
 
@@ -1184,7 +1212,11 @@ exports.push([module.i, "\n.VueSelectBox[data-v-85f18832] {\n  height: 100%;\n  
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(13);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(12);
+>>>>>>> origin/wanghao
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(20);
 =======
@@ -1602,7 +1634,11 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 var bind = __webpack_require__(21);
 var Axios = __webpack_require__(85);
 var defaults = __webpack_require__(17);
@@ -1702,11 +1738,15 @@ function isSlowBuffer (obj) {
 
 <<<<<<< HEAD
 var defaults = __webpack_require__(17);
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var defaults = __webpack_require__(14);
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 var InterceptorManager = __webpack_require__(94);
 var dispatchRequest = __webpack_require__(95);
 
@@ -1792,10 +1832,14 @@ module.exports = Axios;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -1880,10 +1924,14 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -1959,10 +2007,14 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -2023,10 +2075,14 @@ module.exports = function parseHeaders(headers) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -2145,10 +2201,14 @@ module.exports = btoa;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -2209,10 +2269,14 @@ module.exports = (
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 
 function InterceptorManager() {
   this.handlers = [];
@@ -2272,7 +2336,11 @@ module.exports = InterceptorManager;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 var transformData = __webpack_require__(96);
 var isCancel = __webpack_require__(24);
 var defaults = __webpack_require__(17);
@@ -2372,10 +2440,14 @@ module.exports = function dispatchRequest(config) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var utils = __webpack_require__(5);
 =======
 var utils = __webpack_require__(3);
 >>>>>>> origin/cyq
+=======
+var utils = __webpack_require__(4);
+>>>>>>> origin/wanghao
 
 /**
  * Transform the data for a request or a response

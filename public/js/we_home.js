@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpackJsonp([2],Array(28).concat([
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -12,6 +13,14 @@ webpackJsonp([2],Array(24).concat([
 __webpack_require__(25);
 __webpack_require__(39);
 >>>>>>> origin/cyq
+=======
+webpackJsonp([2],Array(27).concat([
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(28);
+__webpack_require__(39);
+>>>>>>> origin/wanghao
 __webpack_require__(40);
 __webpack_require__(41);
 __webpack_require__(42);
@@ -37,10 +46,14 @@ module.exports = __webpack_require__(60);
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 29 */
 =======
 /* 25 */
 >>>>>>> origin/cyq
+=======
+/* 28 */
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58,6 +71,7 @@ __webpack_require__(0);
 
 
 var Swiper = __webpack_require__(19);
+<<<<<<< HEAD
 Vue.component('building-list', __webpack_require__(9));
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
@@ -70,6 +84,9 @@ __webpack_require__(0);
 var Swiper = __webpack_require__(17);
 Vue.component('building-list', __webpack_require__(6));
 >>>>>>> origin/cyq
+=======
+Vue.component('building-list', __webpack_require__(8));
+>>>>>>> origin/wanghao
 var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
   el: '#listApp',
@@ -258,12 +275,16 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /* 26 */,
 /* 27 */,
 /* 28 */,
 /* 29 */,
 >>>>>>> origin/cyq
+=======
+/* 29 */,
+>>>>>>> origin/wanghao
 /* 30 */,
 /* 31 */,
 /* 32 */,
@@ -274,15 +295,21 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 /* 37 */,
 /* 38 */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 39 */,
 =======
+=======
+>>>>>>> origin/wanghao
 /* 39 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
+<<<<<<< HEAD
 >>>>>>> origin/cyq
+=======
+>>>>>>> origin/wanghao
 /* 40 */
 /***/ (function(module, exports) {
 
@@ -410,7 +437,11 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 /***/ })
 <<<<<<< HEAD
+<<<<<<< HEAD
 ]),[28]);
 =======
 ]),[24]);
 >>>>>>> origin/cyq
+=======
+]),[27]);
+>>>>>>> origin/wanghao

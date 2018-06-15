@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpackJsonp([4],{
 =======
 webpackJsonp([9],{
 >>>>>>> origin/cyq
+=======
+webpackJsonp([3],{
+>>>>>>> origin/wanghao
 
 /***/ 123:
 /***/ (function(module, exports, __webpack_require__) {
@@ -203,7 +207,7 @@ $(document).on('click', '.loginOut button', function () {
 var content = __webpack_require__(126);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(6)(content, {});
+var update = __webpack_require__(13)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -224,7 +228,7 @@ if(false) {
 /***/ 126:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
@@ -411,7 +415,7 @@ module.exports = function normalizeComponent (
 /***/ 1:
 /***/ function(module, exports) {
 
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(7);
 
 /***/ },
 
