@@ -124,3 +124,6 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
 
  });
 
+Route::get('work_order', function() {
+    return view('we.work_order');
+});
