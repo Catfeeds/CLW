@@ -54,14 +54,14 @@
                         <div><span>内容:</span><span> @{{item.position}}</span></div>
                     </div>
                 </div>
-                <div class="list-bottom">determine
+                <div class="list-bottom">
                     <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
                     <div v-if="item.determine">
                         <img style="left: 305px" src="/we_img/work_confirm.png">
                         <div class="text">已确定</div>
                     </div>
                     <div v-else>
-                        <img style="left: 280px" src="/we_img/work_confirm.png">
+                        <img style="left: 305px" src="/we_img/work_unconfirm.png">
                         <div class="text">未确定</div>
                     </div>
                 </div>

@@ -61,7 +61,7 @@
                         <div class="text">已录入系统</div>
                     </div>
                     <div v-else>
-                        <img src="/we_img/work_confirm.png">
+                        <img src="/we_img/work_unconfirm.png">
                         <div class="text">未录入系统</div>
                     </div>
                 </div>
