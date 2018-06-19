@@ -78,7 +78,9 @@ module.exports = {
       'home_footer',
       'home_header',
       'home_head',
-      'home_house_detail'
+      'home_house_detail',
+      'home_download',
+      'home_page'
     ],
     js: [
       'home_mapLookForHouse',

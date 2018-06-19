@@ -1,18 +1,18 @@
 webpackJsonp([2],{
 
-/***/ 21:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(22);
+module.exports = __webpack_require__(24);
 
 
 /***/ }),
 
-/***/ 22:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
-var Swiper = __webpack_require__(23);
+var Swiper = __webpack_require__(25);
 var smallImg = new Swiper('#smallImg', {
     direction: 'vertical',
     slidesPerView: 4,
@@ -30,7 +30,7 @@ for (var j = 0; j < smallImg.slides.length; j++) {
 
 /***/ }),
 
-/***/ 23:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5391,4 +5391,4 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ })
 
-},[21]);
+},[23]);
