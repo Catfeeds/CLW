@@ -13,6 +13,10 @@ Route::get('/header', function(){
 Route::get('/head', function(){
     return view('home.head');
 });
+// 房源详情页
+Route::get('/house_detail', function(){
+    return view('home.house_detail');
+});
 // 首页
 Route::get('/', 'IndexController@index');
 // 获取手机验证码
