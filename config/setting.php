@@ -33,7 +33,7 @@ return [
     'building_default_img' => 'https://cdn.chulouwang.com/app/imgs/building_none.jpg',
     // 房源默认图片
     'house_default_img' => 'https://cdn.chulouwang.com/app/imgs/house_none.jpg',
-
+    'wechat_url' => env('WECHAT_URL'),
 
 
     // 客户端类型

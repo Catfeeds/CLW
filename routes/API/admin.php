@@ -153,26 +153,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
          */
         Route::resource('sys_logs', 'SysLogController');
 
-
-        //微信服务
-        Route::any('wechat', 'WechatController@index');
-
-        //二维码
-        Route::get('create_qrcode', 'WechatController@create');
-
-        Route::get('demo', 'WechatController@demo')->middleware('certified');
-
-
-        //自定义菜单
-        Route::get('menu', 'WechatController@menu');
-
         //消息发送管理
         Route::resource('accept_message', 'AcceptMessagesController');
 
         Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
 
+        Route::resource('employees', 'EmployeesController');
+
         //慢查询
         Route::post('query', 'QueryController@create');
 //    });
+
+
 
 });

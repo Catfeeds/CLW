@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>哈哈哈哈哈哈哈哈</h1>
 
+{!! $res !!}
 </body>
 </html>

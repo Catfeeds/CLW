@@ -13,16 +13,18 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'wechat',
-        'registers',
-        'logins',
-        'reset_pwd',
-        'old_tel_validate',
-        'reset_tel',
-        'throw_ins',
-        'bespeaks',
-        'quick_login',
-        'collections'
+//        'wechat',
+//        'registers',
+//        'logins',
+//        'reset_pwd',
+//        'old_tel_validate',
+//        'reset_tel',
+//        'throw_ins',
+//        'bespeaks',
+//        'quick_login',
+//        'collections',
+//        'employees'
+
 
     ];
 }
