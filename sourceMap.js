@@ -76,7 +76,8 @@ module.exports = {
     scss: [
       'home_mapLookForHouse',
       'home_index',
-      'home_download'
+      'home_download',
+      'home_page'
     ],
     js: [
       'home_mapLookForHouse',

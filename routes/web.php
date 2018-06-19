@@ -17,6 +17,10 @@ Route::get('/user_agreement', 'HomeController@agreement');
 Route:: get('map_test', function () {
     return view('test.mapDemo');
 });
+//首页
+Route::get('homepage',function(){
+    return view('home.homepage');
+});
 //app下载页面
 Route::get('download',function(){
     return view('home.download');

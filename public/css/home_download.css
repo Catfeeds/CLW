@@ -304,7 +304,7 @@ body .container .app_download .download_area .download .app_beta {
   color: #797879;
 }
 
-body .container .app_download .download_area .download .app_beta p:first-child {
+body .container .app_download .download_area .download .app_beta div:first-child {
   margin-bottom: 7px;
 }
 
