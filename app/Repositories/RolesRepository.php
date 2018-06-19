@@ -52,11 +52,13 @@ class RolesRepository extends Model
 
             // 修改关联表
             $role->syncPermissions($request->permissions);
+
+//            curl('http://192.168.0.142/api/run_command', 'get',true);
             \DB::connection('media')->commit();
             return true;
         } catch (\Exception $e) {
             \DB::connection('media')->rollBack();
-            Log::error('修改角色失败：' . $e->getFile() . $e->getLine() . $e->getMessage());
+            \Log::error('修改角色失败：' . $e->getFile() . $e->getLine() . $e->getMessage());
             return false;
         }
     }
@@ -69,15 +71,15 @@ class RolesRepository extends Model
         $data = array();
         foreach ($groups as $k => $v) {
             $data['group'.$v->id]['title'] = $v->group_name;
-            $permissions = $v->mediaPermission;
+            $permissions = $v->permission;
 
             $allPermissions = array();  // 所有权限信息
             $allPermissionId = array(); // 所有权限id
             foreach ($permissions as $key => $val) {
-                $allPermissions[$key]['key'] = $val->id;
+                $allPermissions[$key]['key'] = $val->name;
                 $allPermissions[$key]['label'] = $val->label;
                 $allPermissions[$key]['disable'] = true;
-                $allPermissionId[] = $val->id;
+                $allPermissionId[] = $val->name;
             }
 
             $data['group'.$v->id]['permission'] = $allPermissions;

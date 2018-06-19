@@ -12,9 +12,9 @@ class MediaPermissionGroup extends Model
 
     protected $connection = 'media';
 
-    public function mediaPermission()
+    public function permission()
     {
-        return $this->hasMany('App\Models\MediaPermission', 'group_id','id');
+        return $this->hasMany('App\Models\Permission', 'group_id','id');
     }
 
 }

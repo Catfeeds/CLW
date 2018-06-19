@@ -31,7 +31,7 @@ class RolesController extends APIBaseController
     )
     {
         // 角色所有权限
-        $role->oldPermissions = $role->permissions()->pluck('id')->toArray();
+        $role->oldPermissions = $role->permissions()->pluck('name')->toArray();
         return $this->sendResponse($role,'获取角色原始数据成功');
     }
 
