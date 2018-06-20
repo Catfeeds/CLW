@@ -13,9 +13,13 @@ Route::get('/header', function(){
 Route::get('/head', function(){
     return view('home.head');
 });
-// 房源详情页
+// 测试房源详情页
 Route::get('/house_detail', function(){
     return view('home.house_detail');
+});
+// 测试楼盘详情页
+Route::get('/building_detail', function(){
+    return view('home.building_detail');
 });
 // 首页
 Route::get('/', 'IndexController@index');

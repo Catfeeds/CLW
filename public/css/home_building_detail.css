@@ -194,24 +194,49 @@ template {
   display: none;
 }
 
-.container .nav {
+body {
+  background: #f4f4f4;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body .h1 {
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+body .nav {
+  padding: 16px 18%;
+}
+
+body #banner .swiper-pagination {
+  bottom: 75px;
+}
+
+body #banner .swiper-pagination .swiper-pagination-bullet {
+  border-radius: 0;
+  background: none;
+  width: 90px;
+  height: 50px;
+}
+
+body #banner .swiper-pagination .swiper-pagination-bullet img {
+  width: 90px;
+  height: 50px;
+}
+
+body .build {
   padding: 0 18%;
+  position: relative;
+  top: -55px;
+  z-index: 10;
 }
 
-.container .banner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 25px 18%;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.container .banner .swiper {
-  width: 49%;
-  height: 435px;
+body .build .first {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,210 +245,355 @@ template {
           justify-content: space-between;
 }
 
-.container .banner .swiper #bigImg {
-  width: 80.5%;
+body .build .first .left {
+  width: 77%;
 }
 
-.container .banner .swiper #bigImg img {
-  width: 100%;
-  height: 435px;
+body .build .first .left .intro {
+  background: #fff;
+  border-radius: 5px;
 }
 
-.container .banner .swiper #smallImg {
-  width: 17%;
-  height: 435px;
-}
-
-.container .banner .swiper #smallImg img {
-  width: 100%;
-  height: 100%;
-}
-
-.container .banner .infor {
-  height: 435px;
-  width: 46%;
+body .build .first .left .intro .introBox {
+  height: 70px;
+  padding: 20px 0 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-bottom: 1px solid #f4f4f4;
 }
 
-.container .banner .infor .title {
-  font-size: 23px;
-  font-weight: 700;
-}
-
-.container .banner .infor .price span {
-  color: #01a4fa;
+body .build .first .left .intro .introBox .introTitle {
+  width: 43%;
+  line-height: 70px;
   font-size: 26px;
   font-weight: 700;
+  margin-left: 40px;
 }
 
-.container .banner .infor .address {
+body .build .first .left .intro .introBox .introBuild {
+  text-align: center;
+  width: 19%;
+  border-left: 1px solid #f4f4f4;
+}
+
+body .build .first .left .intro .introBox .introRental {
+  text-align: center;
+  width: 19%;
+  border-left: 1px solid #f4f4f4;
+}
+
+body .build .first .left .intro .introAddress {
+  padding-left: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  height: 40px;
-  line-height: 40px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #f4f4f4;
 }
 
-.container .banner .infor .address img {
+body .build .first .left .intro .introAddress img {
   width: 12px;
   height: 17px;
   vertical-align: middle;
 }
 
-.container .banner .infor .address a {
-  text-decoration: none;
-  color: #03a2f9;
-}
-
-.container .banner .infor .better {
-  height: 100px;
-  border-bottom: 1px solid #ccc;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.container .banner .infor .better div {
-  width: 120px;
-  height: 40px;
-  border-radius: 20px;
-  background: #facee2;
-  text-align: center;
-  line-height: 40px;
-  margin-right: 10px;
-}
-
-.container .banner .infor .tel {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.container .banner .infor .tel img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-right: 15px;
-}
-
-.container .banner .infor .tel .name {
-  margin-right: 25px;
-  padding: 27px 0;
-}
-
-.container .banner .infor .tel .consult {
-  margin-right: 25px;
-  padding: 27px 0;
-}
-
-.container .banner .infor .tel .consult .number {
-  color: #03a2f9;
-}
-
-.container .banner .infor .tel .button {
-  margin: 25px 0;
-  width: 140px;
-  height: 40px;
-  border-radius: 20px;
-  background: #03a2fb;
-  color: #fff;
-  text-align: center;
-  line-height: 40px;
-}
-
-.container .banner .infor .tel .button:hover {
-  cursor: pointer;
-}
-
-.container .houseInfor {
+body .build .first .left .intro .introBetter {
+  padding: 15px 32%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 25px 18%;
-  background: #f4f4f4;
 }
 
-.container .houseInfor .left {
-  width: 76%;
+body .build .first .left .filter {
+  margin: 20px 0;
+  background: #fff;
+  border-radius: 5px;
+  height: 55px;
+  line-height: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
 }
 
-.container .houseInfor .left .house {
+body .build .first .left .filter div {
+  width: 20%;
+}
+
+body .build .first .left .filter div:not(:first-child) {
+  border-left: 1px solid #f4f4f4;
+}
+
+body .build .first .left .filter div:hover {
+  background: #03a2fb;
+  color: #fff;
+}
+
+body .build .first .left .rent {
+  background: #fff;
+  border-radius: 5px;
+}
+
+body .build .first .left .rent .rentAcreage {
+  font-size: 14px;
+  padding-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 50px;
+  line-height: 50px;
+}
+
+body .build .first .left .rent .rentAcreage:not(:last-child) {
+  border-bottom: 1px solid #f4f4f4;
+}
+
+body .build .first .left .rent .rentAcreage div {
+  margin-right: 5%;
+}
+
+body .build .first .left .rent .rentAcreage span {
+  margin-right: 2%;
+}
+
+body .build .first .left .buildList {
+  background: #fff;
+  margin: 20px 0;
+}
+
+body .build .first .left .buildList .listNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .build .first .left .buildList .listNav div {
+  width: 18%;
+}
+
+body .build .first .left .buildList .listNav div:not(:first-child) {
+  text-align: center;
+}
+
+body .build .first .left .buildList .listNav div span {
+  color: #03a2fb;
+  font-size: 24px;
+}
+
+body .build .first .left .buildList .listNav .special {
+  width: 26%;
+  text-align: center;
+}
+
+body .build .first .left .buildList .listDetail {
+  padding: 20px 0 20px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+}
+
+body .build .first .left .buildList .listDetail .listPic {
+  width: 18.5%;
+}
+
+body .build .first .left .buildList .listDetail .listPic img {
+  width: 100%;
+}
+
+body .build .first .left .buildList .listDetail .listPic span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #03a2fb;
+}
+
+body .build .first .left .buildList .listDetail .listPic:not(:first-child) {
+  border-right: 1px solid #f4f4f4;
+}
+
+body .build .first .left .buildList .listDetail .listNum {
+  height: 80px;
+  margin: 16px 0;
+}
+
+body .build .first .left .buildList .listDetail .listNum:not(:last-child) {
+  line-height: 80px;
+}
+
+body .build .first .left .buildList .listDetail .listSpecial {
+  width: 23%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 15px;
+}
+
+body .build .first .left .buildList .listDetail .listSpecial span {
+  height: 30px;
+  line-height: 30px;
+  width: 100px;
+  border-radius: 15px;
+  background: #cbfcf1;
+}
+
+body .build .first .left .all {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
   background: #fff;
 }
 
-.container .houseInfor .left .house .head {
-  height: 50px;
-  line-height: 50px;
-  padding-left: 5%;
+body .build .first .left .buildInfor {
+  background: #fff;
+  margin: 20px 0;
 }
 
-.container .houseInfor .left .house .first {
-  border-top: 1px solid #ccc;
+body .build .first .left .buildInfor .buildRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 40px;
+  height: 70px;
+  line-height: 70px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+body .build .first .left .buildInfor .buildRow div {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+body .build .first .left .buildInfor .buildRow div .developer {
+  width: 25%;
+}
+
+body .build .first .left .buildInfor .buildDetail {
+  padding: 30px 85px 50px 85px;
+}
+
+body .build .first .left .quotation {
+  background: #fff;
+}
+
+body .build .first .left .quotation .average {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-align: center;
+  padding: 30px 0 20px 0;
 }
 
-.container .houseInfor .left .house .first div {
+body .build .first .left .quotation .average .buildPrice {
+  line-height: 25px;
   width: 33%;
-  padding-left: 5%;
-  height: 70px;
-  line-height: 70px;
 }
 
-.container .houseInfor .left .house .first div:not(:first-child) {
-  border-left: 1px solid #ccc;
+body .build .first .left .quotation .average .buildPrice:not(:last-child) {
+  border-right: 1px solid #f4f4f4;
 }
 
-.container .houseInfor .left .house .first .property {
-  width: 50%;
-}
-
-.container .houseInfor .findHouse {
+body .build .first .right {
   width: 20%;
+}
+
+body .build .first .right .agent {
+  background: #fff;
+  height: 310px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+body .build .first .right .agent img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+body .build .first .right .agent .name {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+body .build .first .right .agent .free {
+  padding: 15px 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+body .build .first .right .agent .free .tel {
+  font-size: 20px;
+  color: #03a2fb;
+}
+
+body .build .first .right .agent .service {
+  margin: 15px auto;
+  width: 76%;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  background: #03a2fb;
+  color: #fff;
+}
+
+body .build .first .right .findHouse {
+  margin-top: 30px;
   height: 430px;
   background: #ccc;
   position: relative;
 }
 
-.container .houseInfor .findHouse .entrust {
+body .build .first .right .findHouse .entrust {
   width: 86%;
   position: absolute;
   top: 225px;
   left: 6%;
 }
 
-.container .houseInfor .findHouse .entrust input {
+body .build .first .right .findHouse .entrust input {
   width: 100%;
 }
 
-.container .houseInfor .findHouse .entrust .order {
+body .build .first .right .findHouse .entrust .order {
   margin: 0 auto;
   margin-top: 40px;
   height: 40px;
@@ -435,38 +605,17 @@ template {
   color: #fff;
 }
 
-.container .houseInfor .findHouse .entrust .order:hover {
+body .build .first .right .findHouse .entrust .order:hover {
   cursor: pointer;
 }
 
-.container .facilities {
-  padding: 25px 18%;
-  background: #f4f4f4;
+body .build .second {
+  margin: 20px 0;
+  background: #fff;
 }
 
-.container .facilities .around {
-  background: #fff;
-  height: 50px;
-  line-height: 50px;
-  padding-left: 2%;
-  border-bottom: 1px solid #ccc;
-}
-
-.container .facilities .map {
-  background: #fff;
+body .build .second .map {
   padding: 20px;
   height: 510px;
-}
-
-.container .enjoy {
-  padding: 25px 18%;
-  background: #f4f4f4;
-}
-
-.container .enjoy .enjoyNav {
-  background: #fff;
-  height: 50px;
-  line-height: 50px;
-  padding-left: 2%;
 }
 

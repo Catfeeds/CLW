@@ -110,7 +110,7 @@
         <div class="findHouse">
             <img src="" alt="">
             <div class="entrust">
-                <input type="text" placeholder="请输入手机号">
+                <input type="text" placeholder="请输入手机号" id="entrust">
                 <div class="order">立即委托</div>
             </div>
         </div>
@@ -121,50 +121,9 @@
         <div class="map"></div>
     </div>
     <!-- 猜你喜欢 -->
-    <div class="enjoy">
+    <div class="enjoy" id="enjoy">
         <div class="enjoyNav">猜你喜欢</div>
-        <div class="list">
-            <div class="detail">
-                <div><img src="/we_img/house_detail_banner01.jpg" alt=""></div>
-                <div class="buildDetail">
-                    <!-- 楼盘名称 -->
-                    <div class="building">
-                        <div class="name">光谷新世界</div>
-                        <div><span>55-90</span>元/m²月</div>
-                    </div>
-                    <!-- 楼盘详情 -->
-                    <div class="introduce">光谷位于洪山、江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众创...</div>
-                    <!-- 地址 -->
-                    <div class="location"><img src="/we_img/house_detail_address.png" alt=""> 江夏区-东湖高新区</div>
-                    <!-- 优势 -->
-                    <div class="landmark">
-                        <div>可注册</div>
-                        <div>地铁10分钟</div>
-                        <div>地标建筑</div>
-                    </div>
-                </div>
-            </div>
-            <div class="detail">
-                <div><img src="/we_img/house_detail_banner01.jpg" alt=""></div>
-                <div class="buildDetail">
-                    <!-- 楼盘名称 -->
-                    <div class="building">
-                        <div class="name">光谷新世界</div>
-                        <div><span>55-90</span>元/m²月</div>
-                    </div>
-                    <!-- 楼盘详情 -->
-                    <div class="introduce">光谷位于洪山、江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众创...</div>
-                    <!-- 地址 -->
-                    <div class="location"><img src="/we_img/house_detail_address.png" alt=""> 江夏区-东湖高新区</div>
-                    <!-- 优势 -->
-                    <div class="landmark">
-                        <div>可注册</div>
-                        <div>地铁10分钟</div>
-                        <div>地标建筑</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <better-list></better-list>
     </div>
 </div>
 </body>

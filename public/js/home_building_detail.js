@@ -1,4 +1,4 @@
-webpackJsonp([0],[
+webpackJsonp([1],[
 /* 0 */,
 /* 1 */,
 /* 2 */
@@ -6023,43 +6023,33 @@ if (false) {
 /* 31 */,
 /* 32 */,
 /* 33 */,
-/* 34 */
+/* 34 */,
+/* 35 */,
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(35);
+module.exports = __webpack_require__(37);
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
 var Swiper = __webpack_require__(3);
 var betterList = __webpack_require__(4);
 new Vue({
-  el: '#enjoy',
+  el: '#third',
   components: { betterList: betterList }
 });
-// 轮播图
-var smallImg = new Swiper('#smallImg', {
-  direction: 'vertical',
-  slidesPerView: 4,
-  spaceBetween: 10
-});
-var bigImg = new Swiper('#bigImg', {
-  direction: 'horizontal'
-});
-for (var j = 0; j < smallImg.slides.length; j++) {
-  smallImg.slides[j].index = j;
-  smallImg.slides[j].onmouseover = function () {
-    bigImg.slideTo(this.index);
-  };
-}
-// 点击委托找房
-$('.order').on('click', function () {
-  var val = $('#entrust').val();
-  console.log('this is a test', val);
+var banner = new Swiper('#banner', {
+  direction: 'horizontal',
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  paginationBulletRender: function paginationBulletRender(banner, index, className) {
+    return '<span class="' + className + '"><img src="/we_img/banner' + (index + 1) + '.jpg"></span>';
+  }
 });
 
 /***/ })
-],[34]);
+],[36]);
