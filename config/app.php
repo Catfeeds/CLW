@@ -181,6 +181,8 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 
+        // 权限
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*

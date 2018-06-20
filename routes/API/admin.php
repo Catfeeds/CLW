@@ -6,6 +6,16 @@
  * Time: 上午11:54
  */
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    // 权限管理
+    Route::resource('permissions','PermissionsController');
+    Route::get('/permissions_group', 'PermissionsController@permissionsGroup');
+
+    // 角色管理
+    Route::resource('roles','RolesController');
+    Route::get('/get_all_permissions', 'RolesController@getAllPermissions');
+
+    // 中介用户
+    Route::resource('media_user','MediaUsersController');
 
     // 七牛token
     Route::get('/get_qi_niu_token', 'BannerController@token');
@@ -159,6 +169,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
 
         Route::resource('employees', 'EmployeesController');
+
+        Route::post('add_employee', 'EmployeesController@addEmployee');
+
+        //生成二维码
+        Route::post('code', 'EmployeesController@code');
 
         //慢查询
         Route::post('query', 'QueryController@create');
