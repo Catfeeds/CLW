@@ -84,30 +84,42 @@
         <div class="serve_title_2">让办公更舒心</div>
       </div>
       <div class="serve_details">
-        <div class="serve_detail f_l">
-          <div class="icon"></div>
-          <div>工商财税</div>
-        </div>
-        <div class="serve_detail f_l">
-          <div class="icon"></div>
-          <div>办公家具</div>
-        </div>
-        <div class="serve_detail f_l">
-          <div class="icon"></div>
-          <div>办公采买</div>
-        </div>
-        <div class="serve_detail f_l">
-          <div class="icon"></div>
-          <div>保洁服务</div>
-        </div>
-        <div class="serve_detail f_l">
-          <div class="icon"></div>
-          <div>绿植服务</div>
-        </div>
-        <div class="serve_detail f_l">
-          <div class="icon"></div>
-          <div>搬家服务</div>
-        </div>
+        <a href="javascript:void(0);">
+          <div class="serve_detail f_l">
+            <div class="icon"></div>
+            <div>工商财税</div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="serve_detail f_l">
+            <div class="icon"></div>
+            <div>工商财税</div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="serve_detail f_l">
+            <div class="icon"></div>
+            <div>工商财税</div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="serve_detail f_l">
+            <div class="icon"></div>
+            <div>工商财税</div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="serve_detail f_l">
+            <div class="icon"></div>
+            <div>工商财税</div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="serve_detail f_l">
+            <div class="icon"></div>
+            <div>工商财税</div>
+          </div>
+        </a>
       </div>
     </div>
     <!--核心商圈-->
@@ -122,7 +134,62 @@
           </span>
         </div>
         <div class="title_right f_r">
-          <a href="javascript:void(0);">查看全部＞</a>
+          <a href="javascript:void(0);"class="get_more">查看全部＞</a>
+        </div>
+      </div>
+      <div class="content_box clearfix">
+        <a href="javascript:void(0);">
+          <div class="detail">
+            <div class="img_box">
+              <img src="/we_img/house_acute.png" style="height:100%">
+            </div>
+            <div class="describe">
+              <div class="describe_title">光谷</div>
+              <div class="describe_acute"></div>
+            </div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="detail">
+            <div class="img_box">
+              <img src="/we_img/house_acute.png" style="height:100%">
+            </div>
+            <div class="describe">
+              <div class="describe_title">光谷</div>
+              <div class="describe_acute"></div>
+            </div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="detail">
+            <div class="img_box">
+              <img src="/we_img/house_acute.png" style="height:100%">
+            </div>
+            <div class="describe">
+              <div class="describe_title">光谷</div>
+              <div class="describe_acute"></div>
+            </div>
+          </div>
+        </a>
+        <a href="javascript:void(0);">
+          <div class="detail">
+            <div class="img_box">
+              <img src="/we_img/house_acute.png" style="height:100%">
+            </div>
+            <div class="describe">
+              <div class="describe_title">光谷</div>
+              <div class="describe_acute"></div>
+            </div>
+          </div>
+        </a>
+        <div class="detail">
+          <div class="img_box">
+            <img src="/we_img/house_acute.png" style="height:100%">
+          </div>
+          <div class="describe">
+            <div class="describe_title">光谷</div>
+            <div class="describe_acute"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -138,7 +205,20 @@
           </span>
         </div>
         <div class="title_right f_r">
-          <a href="javascript:void(0);">查看全部＞</a>
+          <a href="javascript:void(0);"class="get_more">查看全部＞</a>
+        </div>
+      </div>
+      <div class="content_box clearfix">
+        <div class="left_box f_l"></div>
+        <div class="right_box f_r">
+          <div class="right_head clearfix">
+            <div class="head_left f_l"></div>
+            <div class="head_right f_r"></div>
+          </div>
+          <div class="right_bottom clearfix">
+            <div class="bottom_left f_l"></div>
+            <div class="bottom_right f_r"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -154,7 +234,175 @@
           </span>
         </div>
         <div class="title_right f_r">
-          <a href="javascript:void(0);">查看全部＞</a>
+          <a href="javascript:void(0);"class="get_more">查看全部＞</a>
+        </div>
+      </div>
+      <div class="content_box">
+        <div class="top">
+          <div class="item">
+            <a href="javascript:void(0);">
+              <div class="img_box">
+                <img src="/we_img/house_acute.png" alt="房源图片">
+              </div>
+            </a>
+            <div class="house_acute">
+              <div class="house_title clearfix">
+                <span class="house_name f_l">光谷新世界</span>
+                <span class="house_price f_r"><span class="price">55-90</span>元/m²⋅月</span>
+              </div>
+              <div class="house_describe">
+                光谷位于洪山，江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众...
+              </div>
+              <div class="house_location">
+                <span class="icon_loaction"><img src="/we_img/house_detail_address.png" alt="" style="width:8px;"></span>
+                江夏区-东湖高新
+              </div>
+              <div class="house_special">
+                <ul class="clearfix">
+                  <li class="f_l">可注册</li>
+                  <li class="f_l">地铁10分钟</li>
+                  <li class="f_l">地标建筑</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <a href="javascript:void(0);">
+              <div class="img_box">
+                <img src="/we_img/house_acute.png" alt="房源图片">
+              </div>
+            </a>
+            <div class="house_acute">
+              <div class="house_title clearfix">
+                <span class="house_name f_l">光谷新世界</span>
+                <span class="house_price f_r"><span class="price">55-90</span>元/m²⋅月</span>
+              </div>
+              <div class="house_describe">
+                光谷位于洪山，江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众...
+              </div>
+              <div class="house_location">
+                <span class="icon_loaction"><img src="/we_img/house_detail_address.png" alt="" style="width:8px;"></span>
+                江夏区-东湖高新
+              </div>
+              <div class="house_special">
+                <ul class="clearfix">
+                  <li class="f_l">可注册</li>
+                  <li class="f_l">地铁10分钟</li>
+                  <li class="f_l">地标建筑</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <a href="javascript:void(0);">
+              <div class="img_box">
+                <img src="/we_img/house_acute.png" alt="房源图片">
+              </div>
+            </a>
+            <div class="house_acute">
+              <div class="house_title clearfix">
+                <span class="house_name f_l">光谷新世界</span>
+                <span class="house_price f_r"><span class="price">55-90</span>元/m²⋅月</span>
+              </div>
+              <div class="house_describe">
+                光谷位于洪山，江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众...
+              </div>
+              <div class="house_location">
+                <span class="icon_loaction"><img src="/we_img/house_detail_address.png" alt="" style="width:8px;"></span>
+                江夏区-东湖高新
+              </div>
+              <div class="house_special">
+                <ul class="clearfix">
+                  <li class="f_l">可注册</li>
+                  <li class="f_l">地铁10分钟</li>
+                  <li class="f_l">地标建筑</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="item">
+            <a href="javascript:void(0);">
+              <div class="img_box">
+                <img src="/we_img/house_acute.png" alt="房源图片">
+              </div>
+            </a>
+            <div class="house_acute">
+              <div class="house_title clearfix">
+                <span class="house_name f_l">光谷新世界</span>
+                <span class="house_price f_r"><span class="price">55-90</span>元/m²⋅月</span>
+              </div>
+              <div class="house_describe">
+                光谷位于洪山，江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众...
+              </div>
+              <div class="house_location">
+                <span class="icon_loaction"><img src="/we_img/house_detail_address.png" alt="" style="width:8px;"></span>
+                江夏区-东湖高新
+              </div>
+              <div class="house_special">
+                <ul class="clearfix">
+                  <li class="f_l">可注册</li>
+                  <li class="f_l">地铁10分钟</li>
+                  <li class="f_l">地标建筑</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <a href="javascript:void(0);">
+              <div class="img_box">
+                <img src="/we_img/house_acute.png" alt="房源图片">
+              </div>
+            </a>
+            <div class="house_acute">
+              <div class="house_title clearfix">
+                <span class="house_name f_l">光谷新世界</span>
+                <span class="house_price f_r"><span class="price">55-90</span>元/m²⋅月</span>
+              </div>
+              <div class="house_describe">
+                光谷位于洪山，江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众...
+              </div>
+              <div class="house_location">
+                <span class="icon_loaction"><img src="/we_img/house_detail_address.png" alt="" style="width:8px;"></span>
+                江夏区-东湖高新
+              </div>
+              <div class="house_special">
+                <ul class="clearfix">
+                  <li class="f_l">可注册</li>
+                  <li class="f_l">地铁10分钟</li>
+                  <li class="f_l">地标建筑</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <a href="javascript:void(0);">
+              <div class="img_box">
+                <img src="/we_img/house_acute.png" alt="房源图片">
+              </div>
+            </a>
+            <div class="house_acute">
+              <div class="house_title clearfix">
+                <span class="house_name f_l">光谷新世界</span>
+                <span class="house_price f_r"><span class="price">55-90</span>元/m²⋅月</span>
+              </div>
+              <div class="house_describe">
+                光谷位于洪山，江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众...
+              </div>
+              <div class="house_location">
+                <span class="icon_loaction"><img src="/we_img/house_detail_address.png" alt="" style="width:8px;"></span>
+                江夏区-东湖高新
+              </div>
+              <div class="house_special">
+                <ul class="clearfix">
+                  <li class="f_l">可注册</li>
+                  <li class="f_l">地铁10分钟</li>
+                  <li class="f_l">地标建筑</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -170,37 +418,147 @@
           </span>
         </div>
         <div class="title_right f_r">
-          <a href="javascript:void(0);">查看全部＞</a>
+          <a href="javascript:void(0);" class="get_more">查看全部＞</a>
         </div>
       </div>
       <div class="content_box clearfix">
-        <div class="left_show f_l"></div>
-        <div class="right_show f_r">
-          <div class="img_box"></div>
-          <div class="cooperation_list">
-            <div class="item">
-              <a href="javascript:void(0);">
+        <div class="left_show f_l">
+          <div class="left_title clearfix">
+            <span>美百年</span>服务项
+            <a href="javascript:void(0);"><div class="right_arrow f_r">＞</div></a>
+          </div>
+          <div class="left_content">
+            <ul class="clearfix">
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="/we_img/wifi_img.png" alt="">
+                </div>
+                <div class="icon_name">无线wifi</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="right_show f_r swiper-container">
+          <div class="img_box swiper-wrapper">
+            <img src="/we_img/cooperation_img.png" alt="1" class="swiper-slide">
+            <img src="/we_img/house_detail_banner01.jpg" alt="2" class="swiper-slide">
+            <img src="/we_img/house_detail_banner02.jpg" alt="3" class="swiper-slide">
+            <img src="/we_img/cooperation_img.png" alt="4" class="swiper-slide">
+          </div>
+          <div class="cooperation_list swiper-pagination">
+            <div class="item my-pagination"id="current">
+              <!--<a href="javascript:void(0);">-->
                 <div class="item_name">美百年</div>
                 <div class="item_detail">武汉越秀财富中心</div>
-              </a>
+              <!--</a>-->
             </div>
-            <div class="item">
-              <a href="javascript:void(0);">
+            <div class="item my-pagination">
+              <!--<a href="javascript:void(0);">-->
                 <div class="item_name">美百年</div>
                 <div class="item_detail">武汉越秀财富中心</div>
-              </a>
+              <!--</a>-->
             </div>
-            <div class="item">
-              <a href="javascript:void(0);">
+            <div class="item my-pagination">
+              <!--<a href="javascript:void(0);">-->
                 <div class="item_name">美百年</div>
                 <div class="item_detail">武汉越秀财富中心</div>
-              </a>
+              <!--</a>-->
             </div>
-            <div class="item">
-              <a href="javascript:void(0);">
+            <div class="item my-pagination">
+              <!--<a href="javascript:void(0);">-->
                 <div class="item_name">美百年</div>
                 <div class="item_detail">武汉越秀财富中心</div>
-              </a>
+              <!--</a>-->
             </div>
           </div>
         </div>
@@ -218,7 +576,7 @@
           </span>
         </div>
         <div class="title_right f_r">
-          <a href="javascript:void(0);">查看全部＞</a>
+          <a href="javascript:void(0);" class="get_more">查看全部＞</a>
         </div>
       </div>
       <div class="content_box clearfix">
@@ -284,7 +642,7 @@
           </span>
         </div>
         <div class="title_right f_r">
-          <a href="javascript:void(0);">查看全部＞</a>
+          <a href="javascript:void(0);" class="get_more">查看全部＞</a>
         </div>
       </div>
     </div>-->
@@ -336,5 +694,8 @@
       </div>
     </div>
   </div>
+  <script src="/js/home_manifest.js"></script>
+  <script src="/js/home_vendor.js"></script>
+  <script src="/js/home_page.js"></script>
 </body>
 </html>

@@ -1,20 +1,22 @@
 @import "home_master";
+@import "~swiper/dist/css/swiper.min.css";
 body {
   width: 100%;
   .container_box {
-    // 头部导航
+//==================头部导航================//
     width: 100%;
     .header {
       width: 100%;
       height: 100px;
-      // position: fixed;
-      // top: 0;
-      background-color: #ccc;
+      position: fixed;
+      top: 0;
+      background-color: rgba(33,33,33,0.2);
+      z-index: 99;
       .nav {
         width: 1100px; 
         margin: 0 auto;
         height: 100%;
-        line-height: 100px;
+        // line-height: 100px;
         font-size: 16px;
         font-weight: 600;
         .nav_logo {
@@ -22,36 +24,55 @@ body {
           height: 100px;
         }
         .nav_items {
+          height: 100%;
+          padding-top: 20px;
+          line-height: 60px;
           .nav_item {
             float: left;
             width: 120px;
             text-align: center;
+            height: 60px;
             a {
+              display: block;
               color:#fff;
+              height: 100%;
+              width: 100%;
+            }
+            :hover {
+              color:#03a2fb;
+              border-bottom: 2px solid #03a2fb;
             }
           }
         }
         .nav_phone {
           width: 150px;
           text-align: center;
-          color:#fff;
+          color:#03a2fb;
+          line-height: 100px;
         }
         .nav_set {
           height: 100%;
+          padding-top: 25px;
           div {
             width: 95px;
             height: 45px;
+            line-height: 45px;
             .login,.register {
               display: block;
               width: 95px;
               text-align: center;
               color:#fff;
             }
+            :hover {
+              border: 2px solid #03a2fb;
+              border-radius: 5px;
+              color:#03a2fb;
+            }
           }
         }
       }
     }
-    // 搜索区域
+//==================搜索区域================//
     .search_area {
       width: 100%;
       height: 635px;
@@ -73,9 +94,10 @@ body {
           input {
             width: 625px;
             height: 58px;
-            border-radius: 10px 0 0 10px;
             padding-left: 10px;
+            border: 1px solid #ccc;
             border-right: none;
+            outline-color:#03a2fb; 
           }
           .check_right,.check_map {
             width: 135px;
@@ -84,7 +106,12 @@ body {
             border-radius: 10px;
             color:#fff;
             font-size: 16px;
+            outline: none;
+            cursor: pointer;
           }
+          .check_right:hover,.check_map:hover {
+              background: rgba(0,0,200,0.2);
+            }
           .check_right {
             border-radius: 0 10px 10px 0;
             border-left: none;
@@ -112,13 +139,10 @@ body {
           .result_acverge {
             border-bottom: 1px solid #ccc;
           }
-          .result_price {
-            
-          }
         }
       }
     }
-    // 企业重点
+//==================企业重点================// 
     .company_point {
       width: 100%;
       height: 148px;
@@ -128,11 +152,9 @@ body {
         width: 1200px;
         height: 100px;
         margin: 0 auto;
-        // background: #ccc;
         display: flex;
         .detail {
           flex: 1;
-          // border-right: 1px solid #ccc;
           line-height: 141px;
           text-align: center;
           .detail_circle {
@@ -158,7 +180,7 @@ body {
         }
       }
     }
-    // 企业服务
+    //==================企业服务================//
     .company_serve {
       width: 100%;
       height: 241px;
@@ -189,44 +211,225 @@ body {
       }
       .serve_details {
           width: 1200px;
-          height: 104px;
+          height: 110px;
           margin: auto;
-          display: flex;
+          padding: 0 50px 0;
         }
         .serve_detail {
-          flex: 1;
-          border-right: 1px solid #fff;
-          position: relative;
+          width: 162px;
+          background: #ccc;
+          border: 1px solid #ddd;
+          margin-left: 20px;
+          .icon {
+            width: 100%;
+            height: 85px;
+          }
           div:nth-child(2) {
             color:#fff;
-            position: absolute;
-            bottom:0;
-            left:67px;
+            width: 100%;
+            text-align: center;
+            height: 20px;
           }
         }
         .serve_detail:nth-child(6) {
           border-right: none;
         }
+        .serve_detail:hover {
+          border: 2px solid #fff;
+        }
     }
-    //核心商圈
+    ////==================核心商圈================//
     .trading_area {
       width: 100%;
-      height: 548px;
+      height: 448px;
       border-top: 7px solid #f3f3f4;
+      .content_box {
+        width: 1200px;
+        height: 327px;
+        margin: 0 auto;
+        .detail {
+          box-shadow: 1px 1px 2px #ccc;
+          width: 232px;
+          height: 100%;
+          margin-right: 10px;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          float: left;
+          .img_box {
+            width: 100%;
+            height: 90%;
+          }
+          .describe {  
+            width: 100%;
+            height: 10%;
+            .describe_title {
+              height: 100%;
+              text-align: center;
+              line-height: 30px;
+            }
+            .describe_acute {
+              width: 100%;
+              height: 80px;
+              background: #f90;
+              position: absolute;
+            }
+          }
+        }
+        .detail:nth-child(5){
+          margin-right: 0;
+        }
+        .detail:hover {
+          box-shadow: 2px 2px 5px 2px #bbb;
+        }
+        .detail:hover .describe_acute {
+          animation: up 0.5s forwards;
+        }
+      }
     }
-    // 精选专题
+    //==================精选专题================// 
     .classify {
       width: 100%;
       height: 518px;
       border-top: 7px solid #f3f3f4;
+      .content_box {
+        width: 1200px;
+        height: 402px;
+        margin: 0 auto;
+        background: greenyellow;
+        .left_box {
+          width: 589px;
+          height: 100%;
+          background: #ccc;
+          margin-right: 7px;
+        }
+        .right_box {
+           width: 604px;
+           height: 100%;
+           background: #ddd;
+          .right_head {
+            width: 100%;
+            height: 198px;
+            background: #ccc;
+            margin-bottom: 7px;
+            .head_left {
+              width: 193px;
+              height: 100%;
+              background: #eee;
+              margin-right: 7px;
+            }
+            .head_right {
+              width: 404px;
+              height: 100%;
+              background: #eee;
+            }
+          }
+          .right_bottom {
+             width: 100%;
+             height: 198px;
+             background: #ccc;
+             .bottom_left {
+               width: 404px;
+               height: 100%;
+               background: #eee;
+               margin-right: 7px;
+             }
+             .bottom_right {
+               width: 193px;
+               height: 100%;
+               background: #eee;
+             }
+          }
+        }
+      }
     }
-    // 精品写字楼
+//==================精品写字楼================//
     .jingpin {
       width: 100%;
       height: 888px;
       border-top: 7px solid #f3f3f4;
+      .content_box {
+        width: 1200px;
+        height: 751px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        .top {
+          display: flex;
+          flex: 1;
+          margin-bottom: 45px;
+        }
+        .bottom {
+          display: flex;
+          flex: 1;
+        }
+        .top,.bottom {
+          .item {
+            flex: 1;
+            margin-right: 25px;
+            cursor: pointer;
+            .img_box {
+              width: 100%;
+              height: 211px;
+            }
+            .house_acute {
+              padding:19px 20px 0;
+              width: 100%;
+              height: 142px;
+              padding-top: 19px;
+              .house_title {
+                width: 100%;
+                height: 25px;
+                margin-bottom: 9px;
+                .house_name {
+                  font-size: 22px;
+                }
+                .house_price {
+                  font-size: 14px;
+                  line-height: 25px;
+                  .price {
+                    font-size: 22px;
+                    color:#03a2fb;
+                  }
+                }
+              }
+              .house_describe {
+                width: 100%;
+                height: 28px;
+                font-size: 14px;
+                color:#555;
+                margin-bottom: 14px;
+              }
+              .house_location {
+                font-size: 14px;
+                color:#555;
+                margin-bottom: 7px;
+              }
+              .house_special {
+                font-size: 14px;
+                ul {
+                  li {
+                    padding: 2px 5px;
+                    margin-right: 6px;
+                    background-color: #fcecf1;
+                    color: #d27c96;
+                    border-radius: 5px;
+                  }
+                  li:last-child {
+                    margin-right: 0;
+                  }
+                }
+              }
+            }
+          }
+          .item:nth-child(3) {
+            margin-right: 0;
+          }
+        }
+        
+      }
     }
-    // 联合办公
+//==================联合办公================//
     .cooperation {
       width: 100%;
       height: 589px;
@@ -234,21 +437,55 @@ body {
       .content_box {
         width: 1200px;
         height: 470px;
-        background-color: #ccc;
         margin: 0 auto;
         .left_show {
           width: 460px;
           height: 100%;
-          background-color: #ddd;
+          .left_title {
+            padding-left: 20px;
+            width: 100%; 
+            line-height: 50px;
+            text-align: center;
+            span {
+              color:#03a2fb;
+              font-weight: 600;
+            }
+            .right_arrow {
+              font-size: 20px;
+              padding-right: 10px;
+              cursor: pointer;
+            }
+          }
+          .left_content {
+            padding: 10px 0 0 10px;
+            ul {
+              li {
+                float: left;
+                width: 110px;
+                height: 100px;
+                .icon {
+                  width: 100%;
+                  height: 80%;
+                  padding: 25px;
+                }
+                .icon_name {
+                  padding-top: 3px;
+                  width: 100%;
+                  height: 20%;
+                  text-align: center;
+                  font-size: 14px;
+                  color:#555;
+                }
+              }
+            }
+          }
         }
         .right_show {
           width: 737px;
           height: 100%;
-          background-color: #aaa;
           .img_box {
             width: 100%;
             height: 385px;
-            background-color: #140;
           }
           .cooperation_list {
             width: 100%;
@@ -259,25 +496,26 @@ body {
               height: 100%;
               border-right: 1px solid #fff;
               padding-top: 20px;
+              background-color: #f3f3f6;
+              margin-right: 5px;
               .item_name {
                 text-align: center;
-                color: #555;
                 font-size: 18px;
                 margin-bottom: 6px;
               }
               .item_detail {
-                color:#555;
                 text-align: center;
               }
             }
             .item:nth-child(4) {
               border-right: none;
+              margin-right:0;
             }
           }
         }
       }
     }
-    // 企业服务
+//==================企业服务================//
     .company_service {
       width: 100%;
       height: 507px;
@@ -318,12 +556,15 @@ body {
             }
           }
         }
+        .item:hover {
+          box-shadow: 2px 2px 5px 2px #ddd;
+        }
         .item:nth-child(4) {
           margin: 0
         }
       }
     }
-    // 功能选择
+//==================功能选择================//
     .function {
       width: 100%;
       height: 240px;
@@ -355,16 +596,19 @@ body {
             color:#fff;
           }
         }
+        :hover a{
+          color:#ddd;
+        }
       }
     }
-    // 资讯中心
+//==================资讯中心================//
     // .news {
     //   width: 100%;
     //   height: 590px;
     //   border-bottom: 25px solid #f3f3f4;  
     //   border-top: 25px solid #f3f3f4;      
     // }
-    // 底部信息栏
+//==================底部信息栏================//
     .footer {
       width: 100%;
       height: 240px;
@@ -496,6 +740,9 @@ body {
         color:#555;
         font-size: 14px;
       }
+      .get_more:hover {
+        color:#03a2fb;
+      }
     }
   }
 }
@@ -527,4 +774,18 @@ input,button,textarea {
   padding: 0;
   margin: 0;
   border: 1px solid #dbdbdb;
+}
+@keyframes up {
+  0% {
+    bottom:-80px;
+  }
+  100% {
+    bottom:0;
+  }
+}
+#current {
+  background-color: #03a2fb;
+  a {
+    color:#fff;    
+  }
 }
