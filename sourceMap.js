@@ -87,7 +87,8 @@ module.exports = {
       'home_footer',
       'home_header',
       'home_head',
-      'home_house_detail'
+      'home_house_detail',
+      'home_page'
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',

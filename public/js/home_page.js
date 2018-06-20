@@ -1,34 +1,4 @@
-webpackJsonp([3],{
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(24);
-
-
-/***/ }),
-
-/***/ 24:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(0);
-var Swiper = __webpack_require__(25);
-var smallImg = new Swiper('#smallImg', {
-    direction: 'vertical',
-    slidesPerView: 4,
-    spaceBetween: 10
-});
-var bigImg = new Swiper('#bigImg', {
-    direction: 'horizontal'
-});
-for (var j = 0; j < smallImg.slides.length; j++) {
-    smallImg.slides[j].index = j;
-    smallImg.slides[j].onmouseover = function () {
-        bigImg.slideTo(this.index);
-    };
-}
-
-/***/ }),
+webpackJsonp([2],{
 
 /***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
@@ -5389,6 +5359,30 @@ else if (typeof define === 'function' && define.amd) {
 //# sourceMappingURL=maps/swiper.js.map
 
 
+/***/ }),
+
+/***/ 26:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(27);
+
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(0);
+var Swiper = __webpack_require__(25);
+var mySwiper = new Swiper('.swiper-container', {
+  pagination: {
+    el: ".swiper-pagination",
+    bulletClass: "my-pagination"
+  },
+  aotoplay: true,
+  loop: true
+});
+
 /***/ })
 
-},[23]);
+},[26]);
