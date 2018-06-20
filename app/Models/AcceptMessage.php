@@ -8,19 +8,9 @@ class AcceptMessage extends Model
 {
     protected $guarded = [];
 
-    protected $appends = ['type_name_cn'];
-
-    public function getTypeNameCnAttribute()
+    //关联消息类型
+    public function message()
     {
-        switch ($this->type) {
-            case 1:
-                return '预约看房';
-                break;
-            case 2 :
-                return '房源投放';
-                break;
-            default;
-                break;
-        }
+        return $this->hasOne(MessageType::class,'type','id');
     }
 }

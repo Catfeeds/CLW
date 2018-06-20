@@ -20,7 +20,7 @@ class EmployeesRequest extends FormRequest
     public function messages()
     {
         switch ($this->route()->getActionMethod()) {
-            case 'store':
+            case 'code':
                 return [
                     'tel.unique' => '电话不能重复',
                     'tel.size' => '电话号码格式不正确',
@@ -47,12 +47,19 @@ class EmployeesRequest extends FormRequest
     public function rules()
     {
         switch ($this->route()->getActionMethod()) {
-            case 'store':
-                return [
-                    'name' => 'required|min:2,max:10',
-                    'tel' => 'required|size:11|unique:employees,tel',
-                    'email' => 'nullable|email'
-                ];
+            case 'code':
+                if ($this->status == 'add') {
+                    return [
+                        'name' => 'required|min:2,max:10',
+                        'tel' => 'required|size:11|unique:employees,tel',
+                        'email' => 'nullable|email'
+                    ];
+                }
+                if ($this->status == 'update') {
+                    return [
+                        'id' => 'required|exists:employees,id'
+                    ];
+                }
             case 'update':
                 return [
                     'name' => 'required|min:2,max:10',

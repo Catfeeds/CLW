@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAcceptMessagesTable extends Migration
+class CreateMessageTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateAcceptMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('accept_messages', function (Blueprint $table) {
+        Schema::create('message_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('type')->nullable()->comment('消息名称');
-            $table->integer('employee_id')->nullable()->comment('消息接收人员id');
+            $table->string('name', '32')->nullable()->comment('消息名称');
             $table->timestamps();
         });
-        DB::statement("alter table `employees` comment'消息接受人员关联表'");
-
+        DB::statement("alter table `employees` comment'消息类型表'");
     }
 
     /**
@@ -30,6 +28,6 @@ class CreateAcceptMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accept_messages');
+        Schema::dropIfExists('message_types');
     }
 }

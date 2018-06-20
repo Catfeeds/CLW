@@ -24,13 +24,19 @@ class EmployeesRepository extends Model
     }
 
     //添加员工
-    public function addEmployee($data)
+    public function addEmployee($request)
     {
-        return Employee::insert($data);
+        return Employee::create([
+            'name' => $request->name,
+            'tel' => $request->tel,
+            'email' => $request->email,
+            'openid' => $request->openid,
+        ]);
     }
 
-    public function updateWechat($data)
+    //换绑微信
+    public function updateWechat($request)
     {
-        return Employee::where('id', $data['id'])->update(['openid',$data['openid']]);
+        return  Employee::where('id', $request->id)->update(['openid' => $request->openid]);
     }
 }
