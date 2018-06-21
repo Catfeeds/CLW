@@ -1,23 +1,158 @@
-webpackJsonp([21],{
+webpackJsonp([4],{
 
-/***/ 139:
+/***/ 157:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(188);
+module.exports = __webpack_require__(158);
 
 
 /***/ }),
 
-/***/ 170:
+/***/ 158:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_cell_style_css__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_cell_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_cell_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_button_style_css__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_button_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_button_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_actionsheet_style_css__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_actionsheet_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_actionsheet_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_vue__);
+
+
+
+
+
+
+
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet___default.a.name, __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet___default.a);
+__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button___default.a.name, __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button___default.a);
+__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell___default.a.name, __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell___default.a);
+__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item___default.a.name, __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item___default.a);
+/* 或写为
+ * Vue.use(Button)
+ * Vue.use(Cell)
+ */
+var FormData = {
+    id: ''
+};
+var url = "http://agency.jacklin.club";
+var app = new __WEBPACK_IMPORTED_MODULE_10_vue___default.a({
+    el: '#app',
+    data: {
+        salesman: [],
+        unsalesman: [],
+        selected: '1',
+        sheetVisible: false,
+        sheetClick: function sheetClick(e) {
+            console.log('e', e);
+        },
+        actions: []
+    },
+    methods: {
+        sheet: function sheet(id) {
+            FormData.id = id;
+            distribution(FormData);
+        }
+    },
+    created: function created() {
+        // 获取已确定工单
+        getSaiesmanList(1);
+        // 获取未确定工单
+        getSaiesmanList(2);
+    }
+});
+// 获取 工单列表
+function getSaiesmanList(status) {
+    $.ajax({
+        url: url + "/api/staff_list",
+        type: 'get',
+        data: {
+            status: status,
+            tel: $('meta[name="tel"]').attr('content')
+        },
+        success: function success(data) {
+            console.log('data', data);
+            if (data.success) {
+                if (status === 1) {
+                    app.salesman = data.data;
+                } else if (status === 2) {
+                    app.unsalesman = data.data;
+                }
+            }
+        },
+        error: function error(res) {
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+                message: res.responseJSON.message,
+                position: 'center',
+                duration: 5000
+            });
+        }
+    });
+}
+
+// 业务员确认工单
+function distribution(FormData) {
+    $.ajax({
+        url: url + "/api/determine",
+        type: 'post',
+        data: FormData,
+        success: function success(data) {
+            console.log(data);
+            if (data.success) {
+                __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+                    message: data.message,
+                    position: 'center',
+                    duration: 1000
+                });
+                getSaiesmanList(1);
+                getSaiesmanList(2);
+            }
+        },
+        error: function error(res) {
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+                message: res.responseJSON.message,
+                position: 'center',
+                duration: 5000
+            });
+        }
+    });
+}
+
+/***/ }),
+
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(181);
+var content = __webpack_require__(20);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -35,37 +170,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 172:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(173);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./style.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./style.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 173:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -77,7 +185,7 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 /***/ }),
 
-/***/ 174:
+/***/ 21:
 /***/ (function(module, exports) {
 
 module.exports =
@@ -366,16 +474,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 178:
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(179);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -393,10 +501,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 179:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -408,7 +516,7 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 /***/ }),
 
-/***/ 180:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -614,7 +722,7 @@ module.exports = Component.exports
 /***/ 17:
 /***/ function(module, exports) {
 
-module.exports = __webpack_require__(170);
+module.exports = __webpack_require__(9);
 
 /***/ },
 
@@ -791,10 +899,10 @@ if (true) {
 
 /***/ }),
 
-/***/ 181:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -806,16 +914,16 @@ exports.push([module.i, "\n@font-face {font-family: \"mintui\";\n  src: url(data
 
 /***/ }),
 
-/***/ 182:
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(183);
+var content = __webpack_require__(27);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -833,10 +941,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 183:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -848,7 +956,7 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 /***/ }),
 
-/***/ 184:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -1054,7 +1162,7 @@ module.exports = Component.exports
 /***/ 17:
 /***/ function(module, exports) {
 
-module.exports = __webpack_require__(170);
+module.exports = __webpack_require__(9);
 
 /***/ },
 
@@ -1199,16 +1307,16 @@ if (true) {
 
 /***/ }),
 
-/***/ 185:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(186);
+var content = __webpack_require__(30);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1226,10 +1334,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 186:
+/***/ 30:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -1241,7 +1349,7 @@ exports.push([module.i, "\n.mint-actionsheet {\n  position: fixed;\n  background
 
 /***/ }),
 
-/***/ 187:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -2379,137 +2487,31 @@ var PopupManager = {
 
 /***/ }),
 
-/***/ 188:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_cell_style_css__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_cell_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_cell_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_button_style_css__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_button_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_button_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_actionsheet_style_css__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_actionsheet_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_actionsheet_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_vue__);
+// style-loader: Adds some css to the DOM by adding a <style> tag
 
-
-
-
-
-
-
-
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet___default.a.name, __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_actionsheet___default.a);
-__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button___default.a.name, __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_button___default.a);
-__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell___default.a.name, __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_cell___default.a);
-__WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item___default.a.name, __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item___default.a);
-/* 或写为
- * Vue.use(Button)
- * Vue.use(Cell)
- */
-var FormData = {
-    id: ''
-};
-var app = new __WEBPACK_IMPORTED_MODULE_10_vue___default.a({
-    el: '#app',
-    data: {
-        salesman: [],
-        unsalesman: [],
-        selected: '1',
-        sheetVisible: false,
-        sheetClick: function sheetClick(e) {
-            console.log('e', e);
-        },
-        actions: []
-    },
-    methods: {
-        sheet: function sheet(id) {
-            FormData.id = id;
-            distribution(FormData);
-        }
-    },
-    created: function created() {
-        // 获取已确定工单
-        getSaiesmanList(1);
-        // 获取未确定工单
-        getSaiesmanList(2);
-    }
-});
-// 获取 工单列表
-function getSaiesmanList(status) {
-    $.ajax({
-        url: "http://192.168.0.199/api/staff_list",
-        type: 'get',
-        data: {
-            status: status
-        },
-        success: function success(data) {
-            console.log('data', data);
-            if (data.success) {
-                if (status === 1) {
-                    app.salesman = data.data;
-                } else if (status === 2) {
-                    app.unsalesman = data.data;
-                }
-            }
-        },
-        error: function error(res) {
-            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-                message: res.responseJSON.message,
-                position: 'center',
-                duration: 5000
-            });
-        }
-    });
-}
-
-// 业务员确认工单
-function distribution(FormData) {
-    $.ajax({
-        url: "http://192.168.0.199/api/determine",
-        type: 'post',
-        data: FormData,
-        success: function success(data) {
-            console.log(data);
-            if (data.success) {
-                __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-                    message: data.message,
-                    position: 'center',
-                    duration: 1000
-                });
-                getSaiesmanList(1);
-                getSaiesmanList(2);
-            }
-        },
-        error: function error(res) {
-            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-                message: res.responseJSON.message,
-                position: 'center',
-                duration: 5000
-            });
-        }
-    });
+// load the styles
+var content = __webpack_require__(25);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../css-loader/index.js!./style.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./style.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
 }
 
 /***/ })
 
-},[139]);
+},[157]);

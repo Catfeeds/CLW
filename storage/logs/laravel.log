@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2018-06-21 16:38:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
 [2018-06-21 16:38:14] local.INFO: select * from `admins` where `id` = ? limit 1  
 [2018-06-21 16:38:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
@@ -105,3 +106,20 @@
 [2018-06-21 16:38:30] local.INFO: select * from `admins` where `id` = ? limit 1  
 [2018-06-21 16:38:30] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
 [2018-06-21 16:38:30] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+=======
+[2018-06-21 17:28:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-21 17:28:14] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-21 17:28:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-21 17:28:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-21 17:34:49] local.INFO: select `employee_id` from `accept_messages` where `type` = ?  
+[2018-06-21 17:34:49] local.INFO: select `openid` from `employees` where `id` in (?)  
+[2018-06-21 17:34:49] local.INFO: <html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx/1.10.3 (Ubuntu)</center>
+</body>
+</html>
+  
+[2018-06-21 17:36:56] local.INFO: select `tel` from `employees` where `openid` is null limit 1  
+>>>>>>> origin/lkt

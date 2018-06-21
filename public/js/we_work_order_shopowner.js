@@ -1,68 +1,41 @@
-webpackJsonp([20],{
+webpackJsonp([3],{
 
-/***/ 138:
+/***/ 152:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(171);
+module.exports = __webpack_require__(153);
 
 
 /***/ }),
 
-/***/ 170:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(181);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./style.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./style.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 171:
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_tab_item_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_tab_item__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_navbar_style_css__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_navbar_style_css__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_navbar_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_navbar_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_navbar__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_navbar__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_navbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_navbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_cell_style_css__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_cell_style_css__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_cell_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_mint_ui_lib_cell_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_cell__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_cell__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_cell___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_cell__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_button_style_css__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_button_style_css__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_button_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_button_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_button__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_button__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_actionsheet_style_css__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_actionsheet_style_css__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_actionsheet_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_actionsheet_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_actionsheet__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_actionsheet__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_actionsheet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_actionsheet__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_vue__);
@@ -97,6 +70,7 @@ var sheetClick = function sheetClick(e) {
     FormData.staff_id = e.id;
     distribution(FormData);
 };
+var url = "http://agency.jacklin.club";
 var app = new __WEBPACK_IMPORTED_MODULE_12_vue___default.a({
     el: '#app',
     data: {
@@ -122,10 +96,11 @@ var app = new __WEBPACK_IMPORTED_MODULE_12_vue___default.a({
         getShopkeeperList(2);
         var that = this;
         $.ajax({
-            url: "http://192.168.0.199/api/get_staff",
+            url: url + "/api/get_staff",
             type: 'get',
             data: {
-                status: 1
+                status: 1,
+                tel: $('meta[name="tel"]').attr('content')
             },
             success: function success(data) {
                 if (data.success) {
@@ -153,7 +128,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_12_vue___default.a({
 // 获取 工单列表
 function getShopkeeperList(status) {
     $.ajax({
-        url: "http://192.168.0.199/api/shopkeeper_list",
+        url: url + "/api/shopkeeper_list",
         type: 'get',
         data: {
             status: status
@@ -181,7 +156,7 @@ function getShopkeeperList(status) {
 // 店长分配工单
 function distribution(FormData) {
     $.ajax({
-        url: "http://192.168.0.199/api/distribution",
+        url: url + "/api/distribution",
         type: 'post',
         data: FormData,
         success: function success(data) {
@@ -208,16 +183,16 @@ function distribution(FormData) {
 
 /***/ }),
 
-/***/ 172:
+/***/ 154:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(173);
+var content = __webpack_require__(155);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -235,10 +210,340 @@ if(false) {
 
 /***/ }),
 
-/***/ 173:
+/***/ 155:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-navbar {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    text-align: center;\n}\n.mint-navbar .mint-tab-item {\n    padding: 17px 0;\n    font-size: 15px\n}\n.mint-navbar .mint-tab-item:last-child {\n    border-right: 0;\n}\n.mint-navbar .mint-tab-item.is-selected {\n    border-bottom: 3px solid #26a2ff;\n    color: #26a2ff;\n    margin-bottom: -3px;\n}\n.mint-navbar.is-fixed {\n    top: 0;\n    right: 0;\n    left: 0;\n    position: fixed;\n    z-index: 1;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 156:
+/***/ (function(module, exports) {
+
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 226);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ },
+
+/***/ 126:
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 144:
+/***/ function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(126)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(66),
+  /* template */
+  __webpack_require__(196),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ },
+
+/***/ 196:
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-navbar",
+    class: {
+      'is-fixed': _vm.fixed
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ },
+
+/***/ 226:
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(34);
+
+
+/***/ },
+
+/***/ 34:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_navbar_vue__);
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue___default.a; });
+
+
+
+/***/ },
+
+/***/ 66:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-navbar
+ * @module components/navbar
+ * @desc 顶部 tab，依赖 tab-item
+ *
+ * @param {boolean} [fixed=false] - 固定底部
+ * @param {*} selected - 返回 item component 传入的 value
+ *
+ * @example
+ * <mt-navbar :selected.sync="selected">
+ *   <mt-tab-item value="订单">
+ *     <span slot="label">订单</span>
+ *   </mt-tab-item>
+ * </mt-navbar>
+ *
+ * <mt-navbar :selected.sync="selected" fixed>
+ *   <mt-tab-item :value="['传入数组', '也是可以的']">
+ *     <span slot="label">订单</span>
+ *   </mt-tab-item>
+ * </mt-navbar>
+ *
+ */
+/* harmony default export */ exports["default"] = {
+  name: 'mt-navbar',
+
+  props: {
+    fixed: Boolean,
+    value: {}
+  }
+};
+
+
+/***/ }
+
+/******/ });
+
+/***/ }),
+
+/***/ 19:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(20);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../css-loader/index.js!./style.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./style.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -250,7 +555,7 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 /***/ }),
 
-/***/ 174:
+/***/ 21:
 /***/ (function(module, exports) {
 
 module.exports =
@@ -539,16 +844,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 175:
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(176);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -566,340 +871,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 176:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button Component */\n/* Tab Item Component */\n/* Tabbar Component */\n/* Navbar Component */\n/* Checklist Component */\n/* Radio Component */\n/* z-index */\n.mint-navbar {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    text-align: center;\n}\n.mint-navbar .mint-tab-item {\n    padding: 17px 0;\n    font-size: 15px\n}\n.mint-navbar .mint-tab-item:last-child {\n    border-right: 0;\n}\n.mint-navbar .mint-tab-item.is-selected {\n    border-bottom: 3px solid #26a2ff;\n    color: #26a2ff;\n    margin-bottom: -3px;\n}\n.mint-navbar.is-fixed {\n    top: 0;\n    right: 0;\n    left: 0;\n    position: fixed;\n    z-index: 1;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 177:
-/***/ (function(module, exports) {
-
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 226);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 0:
-/***/ function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ },
-
-/***/ 126:
-/***/ function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 144:
-/***/ function(module, exports, __webpack_require__) {
-
-function injectStyle (ssrContext) {
-  __webpack_require__(126)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(66),
-  /* template */
-  __webpack_require__(196),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ },
-
-/***/ 196:
-/***/ function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mint-navbar",
-    class: {
-      'is-fixed': _vm.fixed
-    }
-  }, [_vm._t("default")], 2)
-},staticRenderFns: []}
-
-/***/ },
-
-/***/ 226:
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(34);
-
-
-/***/ },
-
-/***/ 34:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_navbar_vue__);
-Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(exports, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_navbar_vue___default.a; });
-
-
-
-/***/ },
-
-/***/ 66:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-
-/**
- * mt-navbar
- * @module components/navbar
- * @desc 顶部 tab，依赖 tab-item
- *
- * @param {boolean} [fixed=false] - 固定底部
- * @param {*} selected - 返回 item component 传入的 value
- *
- * @example
- * <mt-navbar :selected.sync="selected">
- *   <mt-tab-item value="订单">
- *     <span slot="label">订单</span>
- *   </mt-tab-item>
- * </mt-navbar>
- *
- * <mt-navbar :selected.sync="selected" fixed>
- *   <mt-tab-item :value="['传入数组', '也是可以的']">
- *     <span slot="label">订单</span>
- *   </mt-tab-item>
- * </mt-navbar>
- *
- */
-/* harmony default export */ exports["default"] = {
-  name: 'mt-navbar',
-
-  props: {
-    fixed: Boolean,
-    value: {}
-  }
-};
-
-
-/***/ }
-
-/******/ });
-
-/***/ }),
-
-/***/ 178:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(179);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./style.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./style.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 179:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -911,7 +886,7 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 /***/ }),
 
-/***/ 180:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -1117,7 +1092,7 @@ module.exports = Component.exports
 /***/ 17:
 /***/ function(module, exports) {
 
-module.exports = __webpack_require__(170);
+module.exports = __webpack_require__(9);
 
 /***/ },
 
@@ -1294,10 +1269,10 @@ if (true) {
 
 /***/ }),
 
-/***/ 181:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -1309,16 +1284,16 @@ exports.push([module.i, "\n@font-face {font-family: \"mintui\";\n  src: url(data
 
 /***/ }),
 
-/***/ 182:
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(183);
+var content = __webpack_require__(27);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1336,10 +1311,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 183:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -1351,7 +1326,7 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 /***/ }),
 
-/***/ 184:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -1557,7 +1532,7 @@ module.exports = Component.exports
 /***/ 17:
 /***/ function(module, exports) {
 
-module.exports = __webpack_require__(170);
+module.exports = __webpack_require__(9);
 
 /***/ },
 
@@ -1702,16 +1677,16 @@ if (true) {
 
 /***/ }),
 
-/***/ 185:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(186);
+var content = __webpack_require__(30);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, {});
+var update = __webpack_require__(5)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1729,10 +1704,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 186:
+/***/ 30:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -1744,7 +1719,7 @@ exports.push([module.i, "\n.mint-actionsheet {\n  position: fixed;\n  background
 
 /***/ }),
 
-/***/ 187:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -2880,6 +2855,33 @@ var PopupManager = {
 
 /******/ });
 
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(25);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../css-loader/index.js!./style.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./style.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
 /***/ })
 
-},[138]);
+},[152]);
