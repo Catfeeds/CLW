@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+webpackJsonp([20],{120:function(e,n,o){e.exports=o(121)},121:function(e,n,o){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var s=o(1),t=(o.n(s),o(3)),a=o.n(t),i=o(4);o.n(i);o(0),console.log(c("house_id")),$(document).on("click",".loginBtn button",function(e){var n=$("#tel").val(),o=$("#password").val();n&&""!==n.trim()?o&&""!==o.trim()?o.length<6||o.length>18?a()({message:"密码长度必须在6-18位之间",position:"center",duration:2e3}):$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/logins",type:"post",data:{tel:n,password:o},success:function(e){if(e.success){var n=a()({message:e.message,position:"center",duration:5e3});console.log(window.location.search),setTimeout(function(){n.close(),null!==c("house_id")?window.location.href="/houses/"+c("house_id"):window.location.href="/user"},1e3)}},error:function(e){a()({message:e.responseJSON.message,position:"center",duration:2e3})}}):a()({message:"请输入密码",position:"center",duration:2e3}):a()({message:"请输入手机号码",position:"center",duration:2e3})});var r=window.innerHeight;function c(e){var n=new RegExp("(^|&)"+e+"=([^&]*)(&|$)"),o=window.location.search.substr(1).match(n);return null!=o?unescape(o[2]):null}console.log(r),$(window).resize(function(){window.innerHeight<r?($("#agree").removeClass("agree"),$("#agree").addClass("active")):($("#agree").removeClass("active"),$("#agree").addClass("agree"))})}},[120]);
+=======
 webpackJsonp([20],{
 
 /***/ 121:
@@ -110,3 +113,4 @@ function getValue(name) {
 /***/ })
 
 },[121]);
+>>>>>>> origin/master

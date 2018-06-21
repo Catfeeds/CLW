@@ -12,12 +12,14 @@ Vue.component(TabItem.name, TabItem);
  */
 var FormData = {
     staff_id: '', // 员工id
-    id: '' // 工单id
+    id: '', // 工单id
+    tel: $('meta[name="tel"]').attr('content')
 }
 var sheetClick = function(e) {
     FormData.staff_id = e.id
     distribution(FormData)
 }
+const url = "http://agency_api.jacklin.club";
 const app = new Vue({
     el: '#app',
     data: {
@@ -43,10 +45,11 @@ const app = new Vue({
         getShopkeeperList(2)
         var that = this
         $.ajax({
-            url: "http://192.168.0.199/api/get_staff",
+            url: url + "/api/get_staff",
             type: 'get',
             data:{
-                status: 1
+                status: 1,
+                tel: $('meta[name="tel"]').attr('content')
             },
             success: function(data){
                 if(data.success) {
@@ -74,10 +77,11 @@ const app = new Vue({
 // 获取 工单列表
 function getShopkeeperList(status) {
     $.ajax({
-        url: "http://192.168.0.199/api/shopkeeper_list",
+        url: url + "/api/shopkeeper_list",
         type: 'get',
         data:{
-            status: status
+            status: status,
+            tel: $('meta[name="tel"]').attr('content')
         },
         success: function(data){
             console.log('data', data)
@@ -102,7 +106,7 @@ function getShopkeeperList(status) {
 // 店长分配工单
 function distribution(FormData) {
     $.ajax({
-        url: "http://192.168.0.199/api/distribution",
+        url: url + "/api/distribution",
         type: 'post',
         data: FormData,
         success: function(data){

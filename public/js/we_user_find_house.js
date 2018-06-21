@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+webpackJsonp([12],{134:function(e,t,n){e.exports=n(135)},135:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var o=n(1),s=(n.n(o),n(3)),a=n.n(s),r=n(4);n.n(r);n(0),$(document).on("click",".loginOut button",function(){var e=$("#appellation").val(),t=$("#tel").val(),n=$("#requirement").val();if(e&&""!=e.trim())if(t&&""!=t.trim()){var o=whatBrowser();$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/bespeaks",type:"post",data:{tel:t,appellation:e,demand:n,page_source:o+"个人中心",source:o.substring(0,o.length-1)},success:function(e){var t=a()({message:"信息提交成功，楚楼网30分钟内联系您",position:"center",duration:5e3});setTimeout(function(){t.close(),window.location.href="/user"},1e3)},error:function(e){a()({message:e.responseJSON.message,position:"center",duration:5e3})}})}else a()({message:"请输入手机号码",position:"center",duration:2e3});else a()({message:"请输入称谓",position:"center",duration:2e3})})}},[134]);
+=======
 webpackJsonp([12],{
 
 /***/ 135:
@@ -81,3 +84,4 @@ $(document).on('click', '.loginOut button', function () {
 /***/ })
 
 },[135]);
+>>>>>>> origin/master

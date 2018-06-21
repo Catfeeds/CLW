@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+webpackJsonp([16],{118:function(a,n,p){a.exports=p(119)},119:function(a,n,p){p(0);var t=JSON.parse($("#listAppData").val());Vue.component("building-list",p(10));new Vue({el:"#app",data:{list:t}})}},[118]);
+=======
 webpackJsonp([16],{
 
 /***/ 119:
@@ -27,3 +30,4 @@ var app = new Vue({
 /***/ })
 
 },[119]);
+>>>>>>> origin/master
