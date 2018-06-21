@@ -1,0 +1,20 @@
+[2018-06-21 16:18:04] local.INFO: select * from `admins`  
+[2018-06-21 16:18:04] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-21 16:18:14] local.INFO: select * from `admins`  
+[2018-06-21 16:18:14] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `admins`  
+[2018-06-21 16:18:20] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_personal_access_clients` order by `id` desc limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: insert into `oauth_access_tokens` (`id`, `user_id`, `client_id`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) values (?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: update `oauth_access_tokens` set `name` = ? where `id` = ?  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-21 16:18:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
