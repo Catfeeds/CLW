@@ -41,4 +41,7 @@ return [
     'app_update_version_android' => 2,
     'app_update_version_able' => 1,
     'app_update_version_del' => 2,
+
+    // 域名配置
+    'agency_host' => env('AGENCY_HOST',''),
 ];

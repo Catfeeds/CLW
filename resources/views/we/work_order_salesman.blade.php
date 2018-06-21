@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>楚楼网</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="stylesheet" href="{{res('/css/we_work.css')}}">
     <script src="{{res('/js/we_manifest.js')}}"></script>
     <script src="{{res('/js/we_vendor.js')}}"></script>
@@ -69,6 +68,6 @@
         </mt-tab-container-item>
     </mt-tab-container>
 </div>
-<script src="/js/we_work_order_salesman.js"></script>
+<script src="{{res('/js/we_work_order_salesman.js')}}"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Admin;
 use App\Models\LoginRecord;
 use App\Models\User;
 use App\Redis\MasterRedis;
@@ -15,7 +16,8 @@ class RegistersService
      * @return array
      * @author 罗振
      */
-    public function addUser(
+    public function addUser
+    (
         $request
     )
     {
@@ -65,7 +67,8 @@ class RegistersService
      * @return array
      * @author 罗振
      */
-    public function weAddUser(
+    public function weAddUser
+    (
         $request
     )
     {
@@ -102,5 +105,17 @@ class RegistersService
         if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
 
         return ['status' => true, 'message' => '注册成功'];
+    }
+
+    public function addAdminUser
+    (
+        $request
+    )
+    {
+        return Admin::create([
+            'nick_name' => $request->nick_name,
+            'name' => $request->name,
+            'password' => bcrypt($request->password),
+        ]);
     }
 }

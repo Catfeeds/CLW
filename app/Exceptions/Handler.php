@@ -2,6 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\Models\AcceptMessage;
+use App\Models\Employee;
+use App\Services\MessagesService;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
@@ -49,33 +52,29 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-//        if (empty(config('app.debug', false))) {
-//            $errorInfo = '';
-//            if (!empty(method_exists($exception, 'getStatusCode'))) {
-//                if ($exception->getStatusCode() != 404) {
-//                    $errorInfo = $this->errorMessage($exception);
-//                }
-//            } else {
-//                $errorInfo = $this->errorMessage($exception);
-//            }
-//
-//            // 获取错误类型
-//            $temp = explode('\\', get_class($exception));
-//            $type = end($temp);
-//
-//            $wechat = new WechatController();
-//            $employee_id= AcceptMessage::where('type', 3)->pluck('employee_id')->toArray();
-//            $open_id= Employee::whereIn('id', $employee_id)->pluck('open_id')->toArray();
-//            $data = array(
-//                'first' => '项目报错,请及时处理',
-//                'keyword1' => $type ,
-//                'keyword2' =>  'jacklin',
-//                'keyword3' =>  date('Y-m-d H:i:s',time()),
-//                'remark'   => $errorInfo
-//            );
-//            $wechat->send($open_id,$data, 'x0QkeqBbg78Oo4CZFYCpkcSttjdxX5XjxlZG_8kUqko');
-//        }
-//
+        if (empty(config('app.debug', false))) {
+            $errorInfo = '';
+            if (!empty(method_exists($exception, 'getStatusCode'))) {
+                if ($exception->getStatusCode() != 404) {
+                    $errorInfo = $this->errorMessage($exception);
+                }
+            } else {
+                $errorInfo = $this->errorMessage($exception);
+            }
+
+            // 获取错误类型
+            $temp = explode('\\', get_class($exception));
+            $type = end($temp);
+            $class = new MessagesService();
+            $openid = $class->getOpenid(1);
+            $data['type'] = $type;
+            $data['name'] = 'jacklin';
+            $data['errorInfo'] = $errorInfo;
+            $data['openid'] = json_encode($openid);
+            $res = curl(config('setting.wechat_url').'/waring_notice','post',$data);
+            \Log::info($res);
+        }
+
         if ($exception instanceof ValidationException) {
             $error = array(
                 'success' => false,
