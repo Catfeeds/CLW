@@ -93,10 +93,13 @@ class EmployeesController extends APIBaseController
         $res = $employee->delete();
         return $this->sendResponse($res,'删除成功');
     }
-    
+
+
+
     //通过电话获取openid
     public function getOpenidByTel(EmployeesRequest $request)
     {
+        \Log::info($request->tel);
         return  Employee::where('tel', $request->tel)->value('openid');
     }
     
