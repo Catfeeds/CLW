@@ -1,39 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-webpackJsonp([2],Array(28).concat([
-/* 28 */
+webpackJsonp([2],Array(41).concat([
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(29);
-=======
-webpackJsonp([2],Array(24).concat([
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(25);
-__webpack_require__(39);
->>>>>>> origin/cyq
-=======
-webpackJsonp([2],Array(27).concat([
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(28);
-__webpack_require__(39);
->>>>>>> origin/wanghao
-__webpack_require__(40);
-__webpack_require__(41);
 __webpack_require__(42);
-__webpack_require__(43);
-__webpack_require__(44);
-__webpack_require__(45);
-__webpack_require__(46);
-__webpack_require__(47);
-__webpack_require__(48);
-__webpack_require__(49);
-__webpack_require__(50);
-__webpack_require__(51);
-__webpack_require__(52);
 __webpack_require__(53);
 __webpack_require__(54);
 __webpack_require__(55);
@@ -41,52 +10,42 @@ __webpack_require__(56);
 __webpack_require__(57);
 __webpack_require__(58);
 __webpack_require__(59);
-module.exports = __webpack_require__(60);
+__webpack_require__(60);
+__webpack_require__(61);
+__webpack_require__(62);
+__webpack_require__(63);
+__webpack_require__(64);
+__webpack_require__(65);
+__webpack_require__(66);
+__webpack_require__(67);
+__webpack_require__(68);
+__webpack_require__(69);
+__webpack_require__(70);
+__webpack_require__(71);
+__webpack_require__(72);
+__webpack_require__(73);
+module.exports = __webpack_require__(74);
 
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 29 */
-=======
-/* 25 */
->>>>>>> origin/cyq
-=======
-/* 28 */
->>>>>>> origin/wanghao
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-<<<<<<< HEAD
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css__);
 
 
 __webpack_require__(0);
 
 
-var Swiper = __webpack_require__(19);
-<<<<<<< HEAD
-Vue.component('building-list', __webpack_require__(9));
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
-__webpack_require__(0);
-
-
-var Swiper = __webpack_require__(17);
-Vue.component('building-list', __webpack_require__(6));
->>>>>>> origin/cyq
-=======
-Vue.component('building-list', __webpack_require__(8));
->>>>>>> origin/wanghao
+var Swiper = __webpack_require__(33);
+Vue.component('building-list', __webpack_require__(10));
 var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
   el: '#listApp',
@@ -147,11 +106,7 @@ $(document).on('click', '#addBook', function () {
       telReg = /^[1][0-9]{10}$/;
   $('#telInput').blur();
   if (!telReg.test(tel)) {
-<<<<<<< HEAD
     __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-=======
-    Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
->>>>>>> origin/cyq
       message: '请输入11位手机号',
       position: 'center',
       duration: 3000
@@ -184,21 +139,13 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
       if (data.success) {
-<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-=======
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
->>>>>>> origin/cyq
           message: '信息提交成功，楚楼网30分钟内联系您',
           position: 'center',
           duration: 3000
         });
       } else {
-<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-=======
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
->>>>>>> origin/cyq
           message: '预约失败',
           position: 'center',
           duration: 3000
@@ -207,11 +154,7 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
     },
     error: function error() {
       $('#backdrop').fadeOut(300);
-<<<<<<< HEAD
       __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-=======
-      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
->>>>>>> origin/cyq
         message: '服务器繁忙,请联系客服处理',
         position: 'center',
         duration: 3000
@@ -237,21 +180,13 @@ $(document).on('touchend || tap', '#peltHouse', function () {
       $('#backdrop').fadeOut(300);
       $('#telInput').val('');
       if (data.success) {
-<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-=======
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
->>>>>>> origin/cyq
           message: '信息提交成功，楚楼网30分钟内联系您',
           position: 'center',
           duration: 3000
         });
       } else {
-<<<<<<< HEAD
         __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-=======
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
->>>>>>> origin/cyq
           message: '投放失败',
           position: 'center',
           duration: 3000
@@ -260,11 +195,7 @@ $(document).on('touchend || tap', '#peltHouse', function () {
     },
     error: function error() {
       $('#backdrop').fadeOut(300);
-<<<<<<< HEAD
       __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
-=======
-      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
->>>>>>> origin/cyq
         message: '服务器繁忙,请联系客服处理',
         position: 'center',
         duration: 3000
@@ -274,120 +205,16 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 });
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
->>>>>>> origin/cyq
-=======
-/* 29 */,
->>>>>>> origin/wanghao
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 39 */,
-=======
-=======
->>>>>>> origin/wanghao
-/* 39 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-<<<<<<< HEAD
->>>>>>> origin/cyq
-=======
->>>>>>> origin/wanghao
-/* 40 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
 /* 53 */
 /***/ (function(module, exports) {
 
@@ -435,13 +262,89 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 // removed by extract-text-webpack-plugin
 
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
-<<<<<<< HEAD
-<<<<<<< HEAD
-]),[28]);
-=======
-]),[24]);
->>>>>>> origin/cyq
-=======
-]),[27]);
->>>>>>> origin/wanghao
+]),[41]);

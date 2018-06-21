@@ -1,31 +1,14 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-webpackJsonp([10],{
-=======
-webpackJsonp([9],{
->>>>>>> origin/wanghao
+webpackJsonp([11],{
 
-/***/ 128:
+/***/ 142:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(129);
-=======
-webpackJsonp([8],{
-
-/***/ 125:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(126);
->>>>>>> origin/cyq
+module.exports = __webpack_require__(143);
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 129:
-=======
-/***/ 126:
->>>>>>> origin/cyq
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
@@ -36,8 +19,4 @@ $('#tel').html(newTel);
 
 /***/ })
 
-<<<<<<< HEAD
-},[128]);
-=======
-},[125]);
->>>>>>> origin/cyq
+},[142]);
