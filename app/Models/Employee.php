@@ -8,5 +8,5 @@ class Employee extends Model
 {
     protected $guarded = [];
     protected $connection = 'mysql';
-    
+
 }

@@ -6,11 +6,8 @@ Route::get('/test', function(){
   return view('home.index');
 });
 // 首页
-Route::get('/', 'IndexController@index')->middleware('we.auth');
-Route::get('/weLogin', 'IndexController@index')->middleware('we.login');
-Route::get('/weInfo', 'IndexController@weInfo');
+Route::get('/', 'IndexController@index');
 
-Route::get('/', 'IndexController@index')->middleware('we.auth');
 // 获取手机验证码
 Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 
@@ -127,7 +124,8 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
 
 
  });
-// 业务员
+
+//业务员
 Route::get('work_order_salesman', 'WorkOrderController@salesman');
  // 店长
 Route::get('work_order_shopowner', 'WorkOrderController@shopwner');
