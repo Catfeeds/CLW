@@ -1,46 +1,25 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-webpackJsonp([5],{
-=======
-webpackJsonp([3],{
->>>>>>> origin/cyq
-=======
-webpackJsonp([4],{
->>>>>>> origin/wanghao
+webpackJsonp([6],{
 
-/***/ 61:
+/***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(62);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
 
-/***/ 62:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(11);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(10);
->>>>>>> origin/wanghao
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
 __webpack_require__(0);
 
-Vue.component('house-detail-list', __webpack_require__(15));
-Vue.component('detail-banner', __webpack_require__(16));
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
-__webpack_require__(0);
-
-Vue.component('house-detail-list', __webpack_require__(12));
-Vue.component('detail-banner', __webpack_require__(13));
->>>>>>> origin/cyq
-Vue.component('feature-banner', __webpack_require__(74));
+Vue.component('house-detail-list', __webpack_require__(16));
+Vue.component('detail-banner', __webpack_require__(17));
+Vue.component('feature-banner', __webpack_require__(88));
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
   ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
 });
@@ -55,23 +34,15 @@ new Vue({
 
 /***/ }),
 
-/***/ 74:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-<<<<<<< HEAD
-<<<<<<< HEAD
-var normalizeComponent = __webpack_require__(7)
-=======
-var normalizeComponent = __webpack_require__(4)
->>>>>>> origin/cyq
-=======
-var normalizeComponent = __webpack_require__(6)
->>>>>>> origin/wanghao
+var normalizeComponent = __webpack_require__(8)
 /* script */
-var __vue_script__ = __webpack_require__(75)
+var __vue_script__ = __webpack_require__(89)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(90)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -88,11 +59,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-<<<<<<< HEAD
 Component.options.__file = "resources/assets/js/components/featureBanner.vue"
-=======
-Component.options.__file = "resources\\assets\\js\\components\\featureBanner.vue"
->>>>>>> origin/cyq
 
 /* hot reload */
 if (false) {(function () {
@@ -101,15 +68,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-<<<<<<< HEAD
     hotAPI.createRecord("data-v-8606c78a", Component.options)
   } else {
     hotAPI.reload("data-v-8606c78a", Component.options)
-=======
-    hotAPI.createRecord("data-v-5959920a", Component.options)
-  } else {
-    hotAPI.reload("data-v-5959920a", Component.options)
->>>>>>> origin/cyq
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -121,20 +82,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 75:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(13);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(10);
->>>>>>> origin/cyq
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(12);
->>>>>>> origin/wanghao
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 //
 //
@@ -164,7 +117,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 76:
+/***/ 90:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -193,14 +146,10 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-<<<<<<< HEAD
     require("vue-hot-reload-api")      .rerender("data-v-8606c78a", module.exports)
-=======
-    require("vue-hot-reload-api")      .rerender("data-v-5959920a", module.exports)
->>>>>>> origin/cyq
   }
 }
 
 /***/ })
 
-},[61]);
+},[75]);
