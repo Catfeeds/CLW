@@ -165,18 +165,34 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         |--------------------------------------------------------------------------
          */
         Route::resource('sys_logs', 'SysLogController');
-        
+
+        //消息类型管理
+        Route::resource('message_types', 'MessageTypesController');
+
         //消息发送管理
         Route::resource('accept_message', 'AcceptMessagesController');
-
+        //获取消息下拉数据
+        Route::get('select_type', 'AcceptMessagesController@getSelectType');
+        //获取员工下拉数据
         Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
+        //获取员工没有绑定的消息类型
+        Route::get('get_un_type/{id}', 'AcceptMessagesController@getUnType');
 
-        Route::resource('employees', 'EmployeesController');
-
-        Route::post('add_employee', 'EmployeesController@addEmployee');
 
         //生成二维码
         Route::post('code', 'EmployeesController@code');
+
+        //微信绑定管理
+        Route::resource('employees', 'EmployeesController');
+
+        //换绑微信
+        Route::post('update_wechat', 'EmployeesController@updateWechat');
+
+        //通过电话获取openid
+        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
+
+
+
 
         //慢查询
         Route::post('query', 'QueryController@create');

@@ -47,12 +47,12 @@ class EmployeesController extends APIBaseController
         EmployeesRepository $repository
     )
     {
-        $data = $request->data;
         //判断是否已经绑定
-        $employee = Employee::where('tel', $data['tel'])->orWhere('openid', $data['openid'])->first();
-        if ($employee) return $this->sendError('已绑定,请勿重复绑定');
-        $res = $repository->addEmployee($data);
-        return $res;
+        $employee = Employee::where('tel', $request->tel)->orWhere('openid', $request->openid)->first();
+        if ($employee) return '已绑定,请勿重复绑定';
+        $res = $repository->addEmployee($request);
+        if (!$res) return '绑定失败';
+        return '绑定成功';
     }
 
 
@@ -80,8 +80,11 @@ class EmployeesController extends APIBaseController
         EmployeesRepository $repository
     )
     {
+        $employee = Employee::where('openid', $request->openid)->first();
+        if ($employee) return '微信号已绑定,请勿重复绑定';
         $res = $repository->updateWechat($request);
-        return $res;
+        if (!$res) return '换绑失败';
+        return '换绑成功';
     }
 
     //解除绑定
@@ -89,6 +92,15 @@ class EmployeesController extends APIBaseController
     {
         $res = $employee->delete();
         return $this->sendResponse($res,'删除成功');
+    }
+
+
+
+    //通过电话获取openid
+    public function getOpenidByTel(EmployeesRequest $request)
+    {
+        \Log::info($request->tel);
+        return  Employee::where('tel', $request->tel)->value('openid');
     }
     
 }
