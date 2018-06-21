@@ -53,7 +53,8 @@ class RolesRepository extends Model
             // 修改关联表
             $role->syncPermissions($request->permissions);
 
-//            curl('http://192.168.0.142/api/run_command', 'get',true);
+            curl(config('setting.agency_host').'/api/run_command', 'get',true);
+
             \DB::connection('media')->commit();
             return true;
         } catch (\Exception $e) {

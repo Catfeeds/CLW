@@ -6,6 +6,9 @@
  * Time: 上午11:54
  */
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    // 权限组管理
+    Route::resource('permission_groups','PermissionGroupsController');
+
     // 权限管理
     Route::resource('permissions','PermissionsController');
     Route::get('/permissions_group', 'PermissionsController@permissionsGroup');
