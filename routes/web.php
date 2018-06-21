@@ -24,3 +24,4 @@ Route:: get('map_test', function () {
 Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/we.php');
 });
+

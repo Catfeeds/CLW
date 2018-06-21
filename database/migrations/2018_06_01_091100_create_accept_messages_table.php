@@ -15,10 +15,12 @@ class CreateAcceptMessagesTable extends Migration
     {
         Schema::create('accept_messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('type')->nullable()->comment('消息类型,1=>预约,2=>投放...');
-            $table->integer('admin_id')->nullable()->comment('消息接收人员id');
+            $table->tinyInteger('type')->nullable()->comment('消息名称');
+            $table->integer('employee_id')->nullable()->comment('消息接收人员id');
             $table->timestamps();
         });
+        DB::statement("alter table `employees` comment'消息接受人员关联表'");
+
     }
 
     /**

@@ -2,10 +2,22 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
+use App\Http\Requests\Admin\AdminsRequest;
+use App\Services\RegistersService;
 use Illuminate\Support\Facades\Auth;
 
 class AdminsController extends APIBaseController
 {
+    public function store
+    (
+        AdminsRequest $request,
+        RegistersService $service
+    )
+    {
+        $res = $service->addAdminUser($request);
+        return $this->sendResponse($res,'添加成功');
+    }
+
     /**
      * 说明: 用户信息
      *

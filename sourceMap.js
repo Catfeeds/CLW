@@ -31,7 +31,7 @@ module.exports = {
       'we_user_revise_password',
       'we_user_revise_phone1',
       'we_user_revise_phone2',
-      'we_user_setting'
+      'we_work'
     ],
     // js 文件
     js: [
@@ -53,7 +53,9 @@ module.exports = {
       'we_user_revise_password',
       'we_user_revise_phone1',
       'we_user_revise_phone2',
-      'we_user_setting'
+      'we_user_setting',
+      'we_work_order_shopowner',
+      'we_work_order_salesman'
     ],
     vendorName: 'we_vendor', // 自定义vendor文件名
     manifestName: 'we_manifest',// 自定义manifest文件名
@@ -74,10 +76,12 @@ module.exports = {
   // pc端资源
   home: {
     scss: [
-      'home_mapLookForHouse'
+      'home_mapLookForHouse',
+      'home_index'
     ],
     js: [
-      'home_mapLookForHouse'
+      'home_mapLookForHouse',
+      'home_index'
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',

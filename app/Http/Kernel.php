@@ -21,7 +21,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        \App\Http\Middleware\SlowQuery::class,
+//        \App\Http\Middleware\SlowQuery::class,
     ];
 
     /**
@@ -63,5 +63,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'weChat.login' => \App\Http\Middleware\WeChatLogin::class,
+//        'we.login' => \App\Http\Middleware\WeLogin::class,
+//        'we.auth' => \App\Http\Middleware\WeAuth::class,
     ];
 }
