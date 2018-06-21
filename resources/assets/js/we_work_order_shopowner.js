@@ -12,13 +12,14 @@ Vue.component(TabItem.name, TabItem);
  */
 var FormData = {
     staff_id: '', // 员工id
-    id: '' // 工单id
+    id: '', // 工单id
+    tel: $('meta[name="tel"]').attr('content')
 }
 var sheetClick = function(e) {
     FormData.staff_id = e.id
     distribution(FormData)
 }
-const url = "http://agency.jacklin.club";
+const url = "http://agency_api.jacklin.club";
 const app = new Vue({
     el: '#app',
     data: {
@@ -79,7 +80,8 @@ function getShopkeeperList(status) {
         url: url + "/api/shopkeeper_list",
         type: 'get',
         data:{
-            status: status
+            status: status,
+            tel: $('meta[name="tel"]').attr('content')
         },
         success: function(data){
             console.log('data', data)

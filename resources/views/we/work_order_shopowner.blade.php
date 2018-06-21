@@ -44,7 +44,7 @@
                 <div class="main">
                     <div class="list-header">
                         <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
-                        <div class="f-1 jus-end" style="font-weight:normal"><img src="/we_img/work_people.png">分配给业务员asdasd
+                        <div class="f-1 jus-end" style="font-weight:normal"><img src="/we_img/work_people.png">分配给业务员 @{{ item.staff }}
                         </div>
                     </div>
                     <div class="list-body">
