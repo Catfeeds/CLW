@@ -12,6 +12,7 @@ Vue.component(TabItem.name, TabItem);
 var FormData = {
     id: ''
 }
+const url = "agency.jacklin.club";
 const app = new Vue({
     el: '#app',
     data: {
@@ -40,10 +41,11 @@ const app = new Vue({
 // 获取 工单列表
 function getSaiesmanList(status) {
     $.ajax({
-        url: "http://192.168.0.199/api/staff_list",
+        url: url + "/api/staff_list",
         type: 'get',
         data:{
-            status: status
+            status: status,
+            tel: $('meta[name="tel"]').attr('content')
         },
         success: function(data){
             console.log('data', data)
@@ -68,7 +70,7 @@ function getSaiesmanList(status) {
 // 业务员确认工单
 function distribution(FormData) {
     $.ajax({
-        url: "http://192.168.0.199/api/determine",
+        url: url + "/api/determine",
         type: 'post',
         data: FormData,
         success: function(data){

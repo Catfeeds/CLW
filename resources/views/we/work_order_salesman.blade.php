@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="{{res('/favicon.ico')}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="tel" content="{{ $tel }}"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="{{res('/css/we_work.css')}}">
     <script src="{{res('/js/we_manifest.js')}}"></script>
