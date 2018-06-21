@@ -56,9 +56,10 @@ __WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE
  * Vue.use(Cell)
  */
 var FormData = {
-    id: ''
+    id: '',
+    tel: $('meta[name="tel"]').attr('content')
 };
-var url = "http://agency.jacklin.club";
+var url = "http://agency_api.jacklin.club";
 var app = new __WEBPACK_IMPORTED_MODULE_10_vue___default.a({
     el: '#app',
     data: {
