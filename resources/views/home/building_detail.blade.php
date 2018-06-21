@@ -56,7 +56,7 @@
                     </div>
                     <!-- 筛选条件 -->
                     <div class="filter">
-                        <div>出租房源</div>
+                        <div class="filterActive">出租房源</div>
                         <div>楼盘信息</div>
                         <div>市场行情</div>
                         <div>周边配套</div>
@@ -66,9 +66,9 @@
                     <div class="rent">
                         <div class="h1">出租房源</div>
                         <div>
-                            <div class="rentAcreage"><div>面积</div>
+                            <div class="rentAcreage" id="rentAcreage"><div>面积</div>
                             <span>全部</span><span>0-100m²</span><span>100-300m²</span><span>300-500m²</span><span>500-1000m²</span><span>1000m²</span><span>以上</span></div>
-                            <div class="rentAcreage"><div>价格</div><span>全部</span><span> 40-60/m²月</span><span>60-80/m²月</span><span>80-120/m²月</span><span>120-140/m²月</span><span>140/m²月</span><span>以上</span></div>
+                            <div class="rentAcreage" id="price"><div>价格</div><span>全部</span><span>40-60/m²月</span><span>60-80/m²月</span><span>80-120/m²月</span><span>120-140/m²月</span><span>140/m²月</span><span>以上</span></div>
                         </div>
                     </div>
                     <!-- 房源列表 -->

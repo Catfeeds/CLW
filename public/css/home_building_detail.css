@@ -338,7 +338,7 @@ body .build .first .left .filter div:not(:first-child) {
   border-left: 1px solid #f4f4f4;
 }
 
-body .build .first .left .filter div:hover {
+body .build .first .left .filter .filterActive {
   background: #03a2fb;
   color: #fff;
 }
@@ -369,8 +369,18 @@ body .build .first .left .rent .rentAcreage div {
   margin-right: 5%;
 }
 
+body .build .first .left .rent .rentAcreage div:hover {
+  color: #03a2fb;
+  cursor: pointer;
+}
+
 body .build .first .left .rent .rentAcreage span {
   margin-right: 2%;
+}
+
+body .build .first .left .rent .rentAcreage span:hover {
+  color: #03a2fb;
+  cursor: pointer;
 }
 
 body .build .first .left .buildList {
@@ -573,6 +583,10 @@ body .build .first .right .agent .service {
   border-radius: 3px;
   background: #03a2fb;
   color: #fff;
+}
+
+body .build .first .right .agent .service:hover {
+  cursor: pointer;
 }
 
 body .build .first .right .findHouse {
