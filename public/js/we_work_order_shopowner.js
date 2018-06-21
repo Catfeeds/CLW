@@ -70,7 +70,7 @@ var sheetClick = function sheetClick(e) {
     FormData.staff_id = e.id;
     distribution(FormData);
 };
-var url = "agency.jacklin.club";
+var url = "http://agency.jacklin.club";
 var app = new __WEBPACK_IMPORTED_MODULE_12_vue___default.a({
     el: '#app',
     data: {

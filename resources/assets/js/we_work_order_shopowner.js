@@ -18,7 +18,7 @@ var sheetClick = function(e) {
     FormData.staff_id = e.id
     distribution(FormData)
 }
-const url = "agency.jacklin.club";
+const url = "http://agency.jacklin.club";
 const app = new Vue({
     el: '#app',
     data: {

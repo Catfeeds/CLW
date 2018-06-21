@@ -12,7 +12,7 @@ Vue.component(TabItem.name, TabItem);
 var FormData = {
     id: ''
 }
-const url = "agency.jacklin.club";
+const url = "http://agency.jacklin.club";
 const app = new Vue({
     el: '#app',
     data: {

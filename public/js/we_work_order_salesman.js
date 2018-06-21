@@ -58,7 +58,7 @@ __WEBPACK_IMPORTED_MODULE_10_vue___default.a.component(__WEBPACK_IMPORTED_MODULE
 var FormData = {
     id: ''
 };
-var url = "agency.jacklin.club";
+var url = "http://agency.jacklin.club";
 var app = new __WEBPACK_IMPORTED_MODULE_10_vue___default.a({
     el: '#app',
     data: {
