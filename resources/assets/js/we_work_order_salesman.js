@@ -10,9 +10,10 @@ Vue.component(TabItem.name, TabItem);
  * Vue.use(Cell)
  */
 var FormData = {
-    id: ''
+    id: '',
+    tel: $('meta[name="tel"]').attr('content')
 }
-const url = "http://agency.jacklin.club";
+const url = "http://agency_api.jacklin.club";
 const app = new Vue({
     el: '#app',
     data: {

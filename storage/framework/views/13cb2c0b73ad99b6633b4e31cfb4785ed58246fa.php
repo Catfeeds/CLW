@@ -6,6 +6,8 @@
     <link rel="shortcut icon" href="<?php echo e(res('/favicon.ico')); ?>">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
+    
+    <meta name="tel" content="15807290654"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="<?php echo e(res('/css/we_work.css')); ?>">
     <script src="<?php echo e(res('/js/we_manifest.js')); ?>"></script>
@@ -43,8 +45,8 @@
                 <div class="main">
                     <div class="list-header">
                         <div class="f-1 jus-start"><span>工单号: </span><span> {{item.identifier}}</span></div>
-                        <div class="f-1 jus-end" style="font-weight:normal"><img src="/we_img/work_people.png">分配给业务员asdasd
-                        </div>
+                        
+                        
                     </div>
                     <div class="list-body">
                         <div class="one"><span>需求:</span><span> {{item.demand_cn}}</span></div>
