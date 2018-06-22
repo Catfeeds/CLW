@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 webpackJsonp([14],{
 
 /***/ 131:
@@ -13,7 +14,7 @@ module.exports = __webpack_require__(132);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__);
@@ -23,7 +24,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_style_css__);
 
 
-__webpack_require__(0);
+__webpack_require__(1);
 
 
 
@@ -103,3 +104,6 @@ if (app.list.length !== 0) {
 /***/ })
 
 },[131]);
+=======
+webpackJsonp([14],{130:function(e,t,a){e.exports=a(131)},131:function(e,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s=a(1),n=(a.n(s),a(3)),o=a.n(n),i=a(13),r=a.n(i),u=a(4);a.n(u);a(0);var g=JSON.parse($("#pageOne").val()),p=new Vue({el:"#houseList",data:{list:[],page:2,getData:!1,status:!1,prompt:!1},components:{houseList:r.a}});if(g.data.length){for(var c in g.data)p.list.push(g.data[c].office_building_house);1!==Math.ceil(g.total/g.per_page)&&(p.getData=!0,p.status=!0)}else p.getData=!1,p.status=!1;$(document).on("click",".more button",function(e){p.getData=!1;var t="/ajax_browse_records?page="+p.page;$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:t,type:"get",success:function(e){if(p.status=!1,e.success){for(var t in e.data.data)p.list.push(e.data.data[t].office_building_house);Math.ceil(e.data.total/e.data.per_page)===p.page?(p.getData=!1,p.status=!1,p.prompt=!0):p.getData=!0}else o()({message:e.message,position:"center",duration:1e3});p.page=p.page+1},error:function(e){o()({message:e.responseJSON.message,position:"center",duration:2e3})}})}),0!==p.list.length?$("#nothing").hide():0==p.list.length&&$("#nothing").show()}},[130]);
+>>>>>>> origin/zxz

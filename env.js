@@ -2,15 +2,21 @@
  * Created by zxz1992 on 2018/5/22.
  */
 module.exports = {
-  hostURl: "''",
-  baiduAK: "'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'", // 百度地图key
-  config: { // 打包配置
-    cropStylist: { // app图片剪裁样式 命名应与七牛剪裁样式名一致
-      newApp_list: "'?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'",
-      newApp_detail: "'?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jb20vbG9nb19taW5pLnBuZw==/dissolve/100/gravity/NorthWest/dx/10/dy/10|imageslim'"
-    }
+  baseConfig: { // 开发配置
+    weHostURl: "''", // 微信接口服务器地址
+    agencyHostURL: "''", // 中介服务器接口地址
+    baiduAK: "'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'", // 百度地图key
+    config: { // 打包配置
+      cropStylist: { // app图片剪裁样式 命名应与七牛剪裁样式名一致
+        newApp_list: "'?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'",
+        newApp_detail: "'?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jb20vbG9nb19taW5pLnBuZw==/dissolve/100/gravity/NorthWest/dx/10/dy/10|imageslim'"
+      }
+    },
   },
   test: { // 测试服务器配置
+    envConfig:{ // 测试服务器配置
+      agencyHostURL: '"http://agency_api.jacklin.club"'
+    },
     we: { // 微信项目上传配置
       QiNui: { // 七牛上传配置
         ACCESS_KEY: 'VtiPrFI04u-X492-TTqgYCuLfVlkRcnQArwBheI4', // 七牛accessKey
@@ -35,6 +41,9 @@ module.exports = {
     }
   },
   online: { // 正式服务器配置
+    envConfig:{ // 正式服务器配置
+      agencyHostURL: '"http://agency_api.chulouwang.com"'
+    },
     we: { // 微信项目上传配置
       QiNui: { // 七牛上传配置
         ACCESS_KEY: 'VtiPrFI04u-X492-TTqgYCuLfVlkRcnQArwBheI4', // 七牛accessKey
