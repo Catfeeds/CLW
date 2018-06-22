@@ -17,9 +17,11 @@ class WorkOrderController extends Controller
      */
     public function salesman(Request $request)
     {
-        $openid = $request->id;
+        $openid = $request->openid;
+        if (!$openid) return response('缺少参数','404');
         //通过openid查询电话
         $tel = $this->getTel($openid);
+        if (!$tel) return response('缺少参数','404');
         return view('we.work_order_salesman')->with('tel', $tel);
     }
 
@@ -31,9 +33,11 @@ class WorkOrderController extends Controller
      */
     public function shopwner(Request $request)
     {
-        $openid = $request->id;
+        $openid = $request->openid;
+        if (!$openid) return response('缺少参数','404');
         //通过openid查询电话
         $tel = $this->getTel($openid);
+        if (!$tel) return response('缺少参数','404');
         return view('we.work_order_shopowner')->with('tel', $tel);
     }
 
