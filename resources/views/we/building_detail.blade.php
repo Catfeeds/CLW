@@ -141,6 +141,7 @@
 				</div>
 			</div>
 			{{-- <a href="tel:4000-580-888" onclick="auditToServer('楼盘详情')">
+				
 				<div style="position: fixed;bottom: 70px;right: 15px;z-index: 1000;">
 					<img src="/we_img/button.png" style="width: 46px;">
 				</div>
