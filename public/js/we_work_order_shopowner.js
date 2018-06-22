@@ -91,9 +91,7 @@ var sheetClick = function sheetClick(e) {
     FormData.staff_id = e.id;
     distribution(FormData);
 };
-// const url = "http://agency_api.chulouwang.com"; // 线上真实
-var url = "http://192.168.0.199"; // 测试
-
+var url = Object({"NODE_ENV":"development"}).agencyHostURL;
 var requestType = false;
 var app = new __WEBPACK_IMPORTED_MODULE_18_vue___default.a({
     el: '#app',

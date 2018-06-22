@@ -78,10 +78,9 @@ __WEBPACK_IMPORTED_MODULE_16_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_min
 var FormData = {
     id: '',
     tel: $('meta[name="tel"]').attr('content')
-    // const url = "http://agency_api.chulouwang.com"; // 线上真实
-};var url = "http://192.168.0.199"; // 测试
-
+};
 var requestType = false;
+var url = Object({"NODE_ENV":"development"}).agencyHostURL;
 var app = new __WEBPACK_IMPORTED_MODULE_16_vue___default.a({
     el: '#app',
     data: {

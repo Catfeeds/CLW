@@ -21,9 +21,7 @@ var sheetClick = function(e) {
     FormData.staff_id = e.id
     distribution(FormData)
 }
-// const url = "http://agency_api.chulouwang.com"; // 线上真实
-const url = "http://192.168.0.199"; // 测试
-
+const url = process.env.agencyHostURL;
 var requestType = false;
 const app = new Vue({
     el: '#app',

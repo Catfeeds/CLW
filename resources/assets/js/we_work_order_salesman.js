@@ -15,10 +15,8 @@ var FormData = {
     id: '',
     tel: $('meta[name="tel"]').attr('content')
 }
-// const url = "http://agency_api.chulouwang.com"; // 线上真实
-const url = "http://192.168.0.199"; // 测试
-
 var requestType = false;
+const url = process.env.agencyHostURL
 const app = new Vue({
     el: '#app',
     data: {
