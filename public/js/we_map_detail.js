@@ -15,7 +15,7 @@ module.exports = __webpack_require__(130);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
-__webpack_require__(0);
+__webpack_require__(1);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
     ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'

@@ -126,7 +126,16 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
  });
 
 //业务员
-Route::get('work_order_salesman', 'WorkOrderController@salesman');
+//Route::get('work_order_salesman', 'WorkOrderController@salesman');
+
+//业务员
+Route::get('work_order_salesman', function (){
+    return view('we.work_order_salesman');
+});
 
  // 店长
-Route::get('work_order_shopowner', 'WorkOrderController@shopwner');
+//Route::get('work_order_shopowner', 'WorkOrderController@shopwner');
+//业务员
+Route::get('work_order_shopowner', function (){
+    return view('we.work_order_shopowner');
+});
