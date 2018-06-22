@@ -13,7 +13,7 @@ var FormData = {
     id: '',
     tel: $('meta[name="tel"]').attr('content')
 }
-const url = "http://agency_api.chulouwang.com"
+const url = process.env.agencyHostURL
 const app = new Vue({
     el: '#app',
     data: {
