@@ -21,50 +21,71 @@
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
         <mt-tab-container-item id="1">
-            <div v-for="item in shopkowner" :key="item.id">
-                <div class="main">
-                    <div class="list-header">
-                        <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
-                    </div>
-                    <div class="list-body">
-                        <div class="one"><span>需求:</span><span> @{{item.demand_cn}}</span></div>
-                        <div><span>姓名:</span><span> @{{item.name}}</span></div>
-                        <div><span>电话:</span><span> @{{item.tel}}</span></div>
-                        <div><span>内容:</span><span> @{{item.position}}</span></div>
+            <mt-loadmore :top-method="unloadTop" @top-status-change="unhandleTopChange" ref="unloadmore">
+                <div v-infinite-scroll="getUnList"
+                     infinite-scroll-disabled="pulldown1"
+                     infinite-scroll-distance="100">
+                    <div v-for="(item, index) in unshopkowner" :key="index">
+                        <div class="main">
+                            <div class="list-header">
+                                <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
+                            </div>
+                            <div class="list-body">
+                                <div class="one"><span>需求:</span><span> @{{item.demand_cn}}</span></div>
+                                <div><span>姓名:</span><span> @{{item.name}}</span></div>
+                                <div><span>电话:</span><span> @{{item.tel}}</span></div>
+                                <div><span>内容:</span><span> @{{item.position}}</span></div>
+                            </div>
+                        </div>
+                        <div class="list-bottom">
+                            <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
+                            <mt-button size="small" type="primary" plain @click="sheet(item.id)">分配</mt-button>
+                        </div>
                     </div>
                 </div>
-                <div class="list-bottom">
-                    <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                    <mt-button size="small" type="primary" plain @click="sheet(item.id)">分配</mt-button>
-                </div>
+            </mt-loadmore>
+            <div slot="top" class="mint-loadmore-top">
+                <span v-show="pulldown1">再无更多</span>
+                <span v-show="topStatus !== 'loading'&&unshopkowner.length!==0" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+                <span v-show="topStatus === 'loading'">Loading...</span>
             </div>
         </mt-tab-container-item>
         <mt-tab-container-item id="2">
-            <div v-for="item in unshopkowner" :key="item.id">
-                <div class="main">
-                    <div class="list-header">
-                        <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
-                        <div class="f-1 jus-end" style="font-weight:normal"><img src="/we_img/work_people.png">分配给业务员 @{{ item.staff }}
+            <mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore">
+            <div v-infinite-scroll="getList"
+                 infinite-scroll-disabled="pulldown2"
+                 infinite-scroll-distance="100">
+                <div v-for="(item, index) in shopkowner" :key="index">
+                    <div class="main">
+                        <div class="list-header">
+                            <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
+                            <div class="f-1 jus-end" style="font-weight:normal"><img src="/we_img/work_people.png">分配给业务员 @{{ item.staff }}
+                            </div>
+                        </div>
+                        <div class="list-body">
+                            <div class="one"><span>需求:</span><span> @{{item.demand_cn}}</span></div>
+                            <div><span>姓名:</span><span> @{{item.name}}</span></div>
+                            <div><span>电话:</span><span> @{{item.tel}}</span></div>
+                            <div><span>内容:</span><span> @{{item.position}}</span></div>
                         </div>
                     </div>
-                    <div class="list-body">
-                        <div class="one"><span>需求:</span><span> @{{item.demand_cn}}</span></div>
-                        <div><span>姓名:</span><span> @{{item.name}}</span></div>
-                        <div><span>电话:</span><span> @{{item.tel}}</span></div>
-                        <div><span>内容:</span><span> @{{item.position}}</span></div>
+                    <div class="list-bottom">
+                        <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
+                        <div v-if="item.determine">
+                            <img style="left: 305px" src="/we_img/work_confirm.png">
+                            <div class="text">已确定</div>
+                        </div>
+                        <div v-else>
+                            <img style="left: 305px" src="/we_img/work_unconfirm.png">
+                            <div class="text">未确定</div>
+                        </div>
                     </div>
                 </div>
-                <div class="list-bottom">
-                    <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                    <div v-if="item.determine">
-                        <img style="left: 305px" src="/we_img/work_confirm.png">
-                        <div class="text">已确定</div>
-                    </div>
-                    <div v-else>
-                        <img style="left: 305px" src="/we_img/work_unconfirm.png">
-                        <div class="text">未确定</div>
-                    </div>
-                </div>
+            </div>
+            </mt-loadmore>
+            <div slot="top" class="mint-loadmore-top">
+                <span v-show="untopStatus !== 'loading'&&shopkowner.length!==0" :class="{ 'rotate': untopStatus === 'drop' }">↓</span>
+                <span v-show="untopStatus === 'loading'">Loading...</span>
             </div>
         </mt-tab-container-item>
     </mt-tab-container>
