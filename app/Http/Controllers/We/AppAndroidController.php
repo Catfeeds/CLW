@@ -13,6 +13,6 @@ class AppAndroidController extends APIBaseController
     )
     {
         $res = $repository->getNewVersion();
-        return $this->sendResponse($res,'最新下载地址获取成功');
+        return view('we.appDownload', ['res' => $res]);
     }
 }

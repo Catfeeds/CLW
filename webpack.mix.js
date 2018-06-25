@@ -5,10 +5,9 @@ var mix = require('laravel-mix'),
     webpack = require('webpack'),
     envCof = require('./env.js'),
     map = require('./sourceMap'),
-    CMDARR = process.env.npm_lifecycle_event.split(':'),
-    isStatus = CMDARR.length === 2 && (CMDARR[0] === 'test' || CMDARR[0] === 'online')
+    isStatus = process.env.isStatus
 if (isStatus) {
-  envCof = deepMerge(envCof.baseConfig, envCof[CMDARR[0]].envConfig)
+  envCof = deepMerge(envCof.baseConfig, envCof[isStatus].envConfig)
 } else {
   envCof = envCof.baseConfig
 }

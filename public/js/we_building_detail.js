@@ -1,14 +1,24 @@
 webpackJsonp([6],{
 
+<<<<<<< HEAD
+/***/ 101:
+=======
 /***/ 100:
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(8)
 /* script */
+<<<<<<< HEAD
+var __vue_script__ = __webpack_require__(102)
+/* template */
+var __vue_template__ = __webpack_require__(103)
+=======
 var __vue_script__ = __webpack_require__(101)
 /* template */
 var __vue_template__ = __webpack_require__(102)
+>>>>>>> origin/wanghao
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48,7 +58,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ 102:
+=======
 /***/ 101:
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83,7 +97,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ 103:
+=======
 /***/ 102:
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -118,15 +136,26 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ 88:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(89);
+=======
 /***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(88);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ 89:
+=======
 /***/ 88:
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -137,7 +166,11 @@ __webpack_require__(2);
 
 Vue.component('house-detail-list', __webpack_require__(16));
 Vue.component('detail-banner', __webpack_require__(17));
+<<<<<<< HEAD
+Vue.component('feature-banner', __webpack_require__(101));
+=======
 Vue.component('feature-banner', __webpack_require__(100));
+>>>>>>> origin/wanghao
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
   ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
 });
@@ -152,4 +185,8 @@ new Vue({
 
 /***/ })
 
+<<<<<<< HEAD
+},[88]);
+=======
 },[87]);
+>>>>>>> origin/wanghao

@@ -34,7 +34,11 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
+<<<<<<< HEAD
+/******/ 		23: 0
+=======
 /******/ 		22: 0
+>>>>>>> origin/wanghao
 /******/ 	};
 /******/
 /******/ 	// The require function
