@@ -17216,3 +17216,13 @@ Stack trace:
 #58 {main}
 "} 
 >>>>>>> origin/wanghao
+[2018-06-25 18:06:34] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:09:59] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:12:23] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:12:50] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:13:51] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:15:17] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:15:27] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:15:49] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:16:05] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
+[2018-06-25 18:16:27] local.INFO: select `url`, `type` from `app_update_versions` where (`status` = ?) and `type` in (?, ?) order by `stage` asc  
