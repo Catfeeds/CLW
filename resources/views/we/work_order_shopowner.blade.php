@@ -39,7 +39,7 @@
                         </div>
                         <div class="list-bottom">
                             <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                            <mt-button size="small" type="primary" plain @click="sheet(item.id, index)">分配</mt-button>
+                            <button class="button" @click="sheet(item.id, index)">分配</button>
                         </div>
                     </div>
                 </div>

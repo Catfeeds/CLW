@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
     
-    <meta name="tel" content="18772664414"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="<?php echo e(res('/css/we_work.css')); ?>">
     <script src="<?php echo e(res('/js/we_manifest.js')); ?>"></script>
@@ -26,23 +25,23 @@
                 <div v-infinite-scroll="getUnList"
                      infinite-scroll-disabled="pulldown1"
                      infinite-scroll-distance="100">
-                    <div v-for="(item, index) in unshopkowner" :key="index">
+                    
                         <div class="main">
                             <div class="list-header">
-                                <div class="f-1 jus-start"><span>工单号: </span><span> {{item.identifier}}</span></div>
+                                <div class="f-1 jus-start"><span>工单号: </span><span> 1</span></div>
                             </div>
                             <div class="list-body">
-                                <div class="one"><span>需求:</span><span> {{item.demand_cn}}</span></div>
-                                <div><span>姓名:</span><span> {{item.name}}</span></div>
-                                <div><span>电话:</span><span> {{item.tel}}</span></div>
-                                <div><span>内容:</span><span> {{item.position}}</span></div>
+                                <div class="one"><span>需求:</span><span> 1</span></div>
+                                <div><span>姓名:</span><span> 1</span></div>
+                                <div><span>电话:</span><span> 1</span></div>
+                                <div><span>内容:</span><span> 1</span></div>
                             </div>
                         </div>
                         <div class="list-bottom">
-                            <div class="f-1 jus-start"><span>录入时间: </span><span>{{item.created_at}}</span></div>
-                            <mt-button size="small" type="primary" plain @click="sheet(item.id)">分配</mt-button>
+                            <div class="f-1 jus-start"><span>录入时间: </span><span>1</span></div>
+                            <button class="button" @click="sheet(item.id, index)">分配</button>
                         </div>
-                    </div>
+                    
                 </div>
             </mt-loadmore>
             <div slot="top" class="mint-loadmore-top">
