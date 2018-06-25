@@ -26,8 +26,6 @@ Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () 
 });
 
 //业务员
-Route::get('work_order_salesman', 'we\WorkOrderController@salesman');
-
+Route::get('work_order_salesman', 'We\WorkOrderController@salesman');
 // 店长
-Route::get('work_order_shopowner', 'we\WorkOrderController@shopwner');
-
+Route::get('work_order_shopowner', 'We\WorkOrderController@shopwner');

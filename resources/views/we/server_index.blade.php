@@ -28,11 +28,11 @@
                 @endif
             @endforeach
         </div>
-        <a href="tel:4000-580-888" onclick="auditToServer('服务首页')">
+        {{-- <a href="tel:4000-580-888" onclick="auditToServer('服务首页')">
             <div style="position: fixed;bottom: 70px;right: 15px;z-index: 1000;">
                 <img src="/we_img/button.png" style="width: 46px;">
             </div>
-        </a>
+        </a> --}}
         <!-- 底部导航 -->
         @include('we.tab')
     </div>
