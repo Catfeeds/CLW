@@ -32,7 +32,7 @@ module.exports = {
       'we_user_revise_phone1',
       'we_user_revise_phone2',
       'we_work',
-      // 'we_appDownload'
+      'we_appDownload'
     ],
     // js 文件
     js: [
@@ -57,7 +57,7 @@ module.exports = {
       'we_user_setting',
       'we_work_order_shopowner',
       'we_work_order_salesman',
-      // 'we_appDownload'
+      'we_appDownload'
     ],
     vendorName: 'we_vendor', // 自定义vendor文件名
     manifestName: 'we_manifest',// 自定义manifest文件名

@@ -26,6 +26,7 @@ var requestType = false;
 const app = new Vue({
     el: '#app',
     data: {
+        index: null,
         pulldown1: false,
         pulldown2: false,
         untopStatus: '',
@@ -42,7 +43,8 @@ const app = new Vue({
         actions: []
     },
     methods: {
-        sheet(id) {
+        sheet(id, index) {
+            this.index = index
             FormData.id = id
             this.sheetVisible = !this.sheetVisible
         },
@@ -194,9 +196,8 @@ function distribution(FormData) {
                     position: 'center',
                     duration: 1000
                 })
-                getShopkeeperList(1)
-                app.unsalesman.splice(index,1);
-                getShopkeeperList(2)
+                app.unshopkowner.splice(app.index, 1);
+                getShopkeeperList(1, this.page1, true);
             }
         },
         error: function (res) {

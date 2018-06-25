@@ -1,0 +1,50 @@
+@import "~normalize.css";
+html{
+  height: 100%;
+  body{
+    height: 100%;
+    overflow: hidden;
+    .content-box{
+      position: relative;
+      height: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      >img{
+        width: 100%;
+      }
+      .download-btn-box{
+        display: flex;
+        position: absolute;
+        bottom: 50px;
+        a.download-btn{
+          flex: 1;
+          &:first-child{
+            padding: 0 10px 0 35px
+          }
+          &:last-child{
+            padding: 0 35px 0 10px
+          }
+          >img{
+            width: 100%;
+          }
+        }
+      }
+    }
+    #weixinTip{
+      position:fixed;
+      left:0;
+      top:0;
+      width:100%;
+      z-index:1000;
+      background-color:rgba(0,0,0,0.8);
+      filter:alpha(opacity=80);
+      display: none;
+      p{
+        text-align:center;
+        margin-top:10%;
+        padding-left:5%;
+        padding-right:5%;
+      }
+    }
+  }
+}
