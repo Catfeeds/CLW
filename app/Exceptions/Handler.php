@@ -71,8 +71,7 @@ class Handler extends ExceptionHandler
             $data['name'] = 'jacklin';
             $data['errorInfo'] = $errorInfo;
             $data['openid'] = json_encode($openid);
-            $res = curl(config('setting.wechat_url').'/waring_notice','post',$data);
-            \Log::info($res);
+            curl(config('setting.wechat_url').'/waring_notice','post',$data);
         }
 
         if ($exception instanceof ValidationException) {
