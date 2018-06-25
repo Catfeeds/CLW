@@ -121,13 +121,4 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     Route::resource('collections', 'CollectionsController');
     Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
     Route::get('del/{id}', 'CollectionsController@del');
-
-
  });
-
-//业务员
-Route::get('work_order_salesman', 'WorkOrderController@salesman');
-
-
- // 店长
-Route::get('work_order_shopowner', 'WorkOrderController@shopwner');

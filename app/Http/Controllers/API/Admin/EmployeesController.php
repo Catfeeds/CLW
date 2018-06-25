@@ -38,8 +38,6 @@ class EmployeesController extends APIBaseController
         $res =  QrCode::encoding('UTF-8')->size(300)->generate($url);
         return $this->sendResponse($res, '获取成功');
     }
-    
-    
     //微信绑定
     public function store
     (
@@ -49,10 +47,10 @@ class EmployeesController extends APIBaseController
     {
         //判断是否已经绑定
         $employee = Employee::where('tel', $request->tel)->orWhere('openid', $request->openid)->first();
-        if ($employee) return '已绑定,请勿重复绑定';
+        if ($employee) return $this->sendError('请勿重复绑定');
         $res = $repository->addEmployee($request);
-        if (!$res) return '绑定失败';
-        return '绑定成功';
+        if (!$res) return $this->sendResponse($res,'绑定成功');
+        return $this->sendError('绑定失败');
     }
 
 
@@ -81,10 +79,10 @@ class EmployeesController extends APIBaseController
     )
     {
         $employee = Employee::where('openid', $request->openid)->first();
-        if ($employee) return '微信号已绑定,请勿重复绑定';
+        if ($employee) return $this->sendError('请勿重复绑定');
         $res = $repository->updateWechat($request);
-        if (!$res) return '换绑失败';
-        return '换绑成功';
+        if (!$res) return $this->sendError('换绑失败');
+        return $this->sendResponse($res,'换绑成功');
     }
 
     //解除绑定
@@ -99,8 +97,10 @@ class EmployeesController extends APIBaseController
     //通过电话获取openid
     public function getOpenidByTel(EmployeesRequest $request)
     {
-        \Log::info($request->tel);
-        return  Employee::where('tel', $request->tel)->value('openid');
+
+        $res = Employee::where('tel', $request->tel)->value('openid');
+        return $this->sendResponse($res,'获取成功');
+
     }
     
 }
