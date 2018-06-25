@@ -191,11 +191,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //通过电话获取openid
         Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
 
-
-
-
         //慢查询
         Route::post('query', 'QueryController@create');
+
+    /*
+    |--------------------------------------------------------------------------
+    | App,Android版本管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('app_android', 'AppAndroidController');
+
+
 //    });
 
 
