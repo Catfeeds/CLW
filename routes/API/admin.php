@@ -201,6 +201,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     */
     Route::resource('app_android', 'AppAndroidController');
 
+    /*
+    |--------------------------------------------------------------------------
+    | 资讯管理
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('information', 'InformationController');
 
 //    });
 
