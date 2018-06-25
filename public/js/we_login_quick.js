@@ -1,14 +1,25 @@
 webpackJsonp([18],{
 
+<<<<<<< HEAD
 /***/ 138:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(139);
+=======
+/***/ 137:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(138);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 139:
+=======
+/***/ 138:
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,4 +158,8 @@ $(window).resize(function () {
 
 /***/ })
 
+<<<<<<< HEAD
 },[138]);
+=======
+},[137]);
+>>>>>>> origin/wanghao

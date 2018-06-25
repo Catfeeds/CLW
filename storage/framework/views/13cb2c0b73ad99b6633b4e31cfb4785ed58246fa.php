@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
     
-    <meta name="tel" content="15807290654"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="<?php echo e(res('/css/we_work.css')); ?>">
     <script src="<?php echo e(res('/js/we_manifest.js')); ?>"></script>
@@ -40,13 +39,13 @@
                         </div>
                         <div class="list-bottom">
                             <div class="f-1 jus-start"><span>分配时间: </span><span>{{item.created_at}}</span></div>
-                            <mt-button size="small" type="primary" plain @click="sheet(item.id,index)">确定</mt-button>
+                            <button class="button" @click="sheet(item.id,index)">确定</button>
                         </div>
                     </div>
                 </div>
                 </mt-loadmore>
                 <div slot="top" class="mint-loadmore-top">
-                    <span v-show="topStatus !== 'loading'&&unsalesman.length!==0" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+                    
                     <span v-show="topStatus === 'loading'">Loading...</span>
                 </div>
             </mt-tab-container-item>
@@ -88,7 +87,7 @@
         </mt-tab-container-item>
     </mt-tab-container>
     <div slot="top" class="mint-loadmore-top">
-        <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+        
         <span v-show="topStatus === 'loading'">Loading...</span>
     </div>
 </div>

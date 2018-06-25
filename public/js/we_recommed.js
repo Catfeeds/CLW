@@ -1,14 +1,25 @@
 webpackJsonp([16],{
 
+<<<<<<< HEAD
 /***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(133);
+=======
+/***/ 131:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(132);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 133:
+=======
+/***/ 132:
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -26,4 +37,8 @@ var app = new Vue({
 
 /***/ })
 
+<<<<<<< HEAD
 },[132]);
+=======
+},[131]);
+>>>>>>> origin/wanghao
