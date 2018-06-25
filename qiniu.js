@@ -214,4 +214,4 @@ function uploadFile() {
   }
 }
 // 上传请打开他
-getQiniuFileList();
+// getQiniuFileList();
