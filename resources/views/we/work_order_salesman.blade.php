@@ -45,7 +45,7 @@
                 </div>
                 </mt-loadmore>
                 <div slot="top" class="mint-loadmore-top">
-                    <span v-show="topStatus !== 'loading'&&unsalesman.length!==0" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+                    {{--<span v-show="topStatus !== 'loading'&&unsalesman.length!==0" :class="{ 'rotate': topStatus === 'drop' }">↓</span>--}}
                     <span v-show="topStatus === 'loading'">Loading...</span>
                 </div>
             </mt-tab-container-item>
@@ -81,13 +81,13 @@
                 </div>
             </mt-loadmore>
             <div slot="top" class="mint-loadmore-top">
-                <span v-show="untopStatus !== 'loading'&&salesman.length!==0" :class="{ 'rotate': untopStatus === 'drop' }">↓</span>
+                {{--<span v-show="untopStatus !== 'loading'&&salesman.length!==0" :class="{ 'rotate': untopStatus === 'drop' }">↓</span>--}}
                 <span v-show="untopStatus === 'loading'">Loading...</span>
             </div>
         </mt-tab-container-item>
     </mt-tab-container>
     <div slot="top" class="mint-loadmore-top">
-        <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+        {{--<span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">↓</span>--}}
         <span v-show="topStatus === 'loading'">Loading...</span>
     </div>
 </div>

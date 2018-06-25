@@ -270,7 +270,6 @@ function distribution(FormData) {
                     position: 'center',
                     duration: 1000
                 });
-                getShopkeeperList(1);
                 app.unshopkowner.splice(app.index, 1);
                 getShopkeeperList(2);
             }

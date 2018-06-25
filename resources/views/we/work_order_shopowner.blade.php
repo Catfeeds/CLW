@@ -46,7 +46,7 @@
             </mt-loadmore>
             <div slot="top" class="mint-loadmore-top">
                 <span v-show="pulldown1">再无更多</span>
-                <span v-show="topStatus !== 'loading'&&unshopkowner.length!==0" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+                {{--<span v-show="topStatus !== 'loading'&&unshopkowner.length!==0" :class="{ 'rotate': topStatus === 'drop' }">↓</span>--}}
                 <span v-show="topStatus === 'loading'">Loading...</span>
             </div>
         </mt-tab-container-item>
@@ -59,8 +59,7 @@
                     <div class="main">
                         <div class="list-header">
                             <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
-                            <div class="f-1 jus-end" style="font-weight:normal"><img src="/we_img/work_people.png">分配给业务员 @{{ item.staff }}
-                            </div>
+                            <div class="f-1 jus-end" style="font-weight:normal"><img src="/we_img/work_people.png">分配给业务员 @{{ item.staff }}</div>
                         </div>
                         <div class="list-body">
                             <div class="one"><span>需求:</span><span> @{{item.demand_cn}}</span></div>
@@ -84,7 +83,7 @@
             </div>
             </mt-loadmore>
             <div slot="top" class="mint-loadmore-top">
-                <span v-show="untopStatus !== 'loading'&&shopkowner.length!==0" :class="{ 'rotate': untopStatus === 'drop' }">↓</span>
+                {{--<span v-show="untopStatus !== 'loading'&&shopkowner.length!==0" :class="{ 'rotate': untopStatus === 'drop' }">↓</span>--}}
                 <span v-show="untopStatus === 'loading'">Loading...</span>
             </div>
         </mt-tab-container-item>
