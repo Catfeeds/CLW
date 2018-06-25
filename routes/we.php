@@ -59,6 +59,9 @@ Route::get('other_condition', 'HouseController@otherCondition');
 // 服务
 Route::resource('servers', 'ServerController');
 
+// 获取最新下载地址
+Route::resource('get_new_version', 'AppAndroidController');
+
 /*
 |--------------------------------------------------------------------------
 | 咨询统计

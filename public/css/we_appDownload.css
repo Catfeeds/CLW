@@ -180,106 +180,60 @@ template {
   display: none;
 }
 
-body {
-  background-color: #f4f4f4 !important;
+html {
+  height: 100%;
 }
 
-.main {
-  background-color: #FFFFFF;
-  margin: 15px 15px 0px 15px;
-  font-size: 15px;
-  border-radius: 8px;
+html body {
+  height: 100%;
+  overflow: hidden;
 }
 
-.list-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #333;
-  padding: 15px;
-  font-weight: bold;
-  border-bottom: 1px solid #f2f2f2;
-}
-
-.list-header img {
-  width: 15px !important;
-  height: 18px !important;
-  padding-right: 5px;
-}
-
-.list-body {
-  color: #999;
-  margin: 0px 10px 0px 10px;
-}
-
-.list-body .one {
-  color: #000000;
-}
-
-.list-body div {
-  padding: 7px;
-}
-
-.list-bottom {
+html body .content-box {
   position: relative;
-  font-size: 14px;
-  color: #666;
-  background-color: #FFFFFF;
-  margin: 0px 15px 15px 15px;
-  padding: 8px;
-  border-radius: 8px;
+  height: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+html body .content-box>img {
+  width: 100%;
+}
+
+html body .content-box .download-btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.list-bottom .mint-button--primary {
-  margin-top: 5px;
-  height: 26px !important;
-  border-radius: 13px !important;
-  padding: 0px 20px 0px 20px !important;
-}
-
-.list-bottom .text {
-  padding: 7px 0px;
-}
-
-.list-bottom span {
-  padding: 9px;
-}
-
-.list-bottom img {
   position: absolute;
-  top: 10px;
-  left: 276px;
-  width: 24px !important;
-  height: 24px !important;
+  bottom: 50px;
 }
 
-.f-1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+html body .content-box .download-btn-box a.download-btn {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding: 0 10px;
 }
 
-.jus-start {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+html body .content-box .download-btn-box a.download-btn>img {
+  width: 100%;
 }
 
-.jus-center {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+html body #weixinTip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.8);
+  filter: alpha(opacity=80);
+  display: none;
 }
 
-.jus-end {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+html body #weixinTip p {
+  text-align: center;
+  margin-top: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
