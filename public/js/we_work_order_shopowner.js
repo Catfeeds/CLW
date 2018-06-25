@@ -271,7 +271,7 @@ function distribution(FormData) {
                     duration: 1000
                 });
                 app.unshopkowner.splice(app.index, 1);
-                getShopkeeperList(2);
+                getShopkeeperList(1, this.page1, true);
             }
         },
         error: function error(res) {
