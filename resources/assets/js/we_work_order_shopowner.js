@@ -197,7 +197,7 @@ function distribution(FormData) {
                     duration: 1000
                 })
                 getShopkeeperList(1)
-                app.unsalesman.splice(app.index,1);
+                app.unshopkowner.splice(app.index,1);
                 getShopkeeperList(2)
             }
         },
