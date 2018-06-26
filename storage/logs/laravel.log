@@ -351,3 +351,12 @@
 [2018-06-26 16:53:11] local.INFO: select * from `building_blocks` where `building_blocks`.`id` in (?, ?, ?, ?, ?, ?)  
 [2018-06-26 16:53:11] local.INFO: select * from `buildings` where `buildings`.`id` in (?, ?, ?, ?, ?)  
 [2018-06-26 16:53:11] local.INFO: select * from `house_labels` where `house_labels`.`house_id` in (?, ?, ?, ?, ?, ?)  
+[2018-06-26 18:15:18] local.INFO: select `tel` from `employees` where `openid` = ? limit 1  
+[2018-06-26 18:27:35] local.INFO: select * from information_schema.tables where table_schema = ? and table_name = ?  
+[2018-06-26 18:27:35] local.INFO: select `migration` from `migrations` order by `batch` asc, `migration` asc  
+[2018-06-26 18:27:35] local.INFO: select max(`batch`) as aggregate from `migrations`  
+[2018-06-26 18:27:35] local.INFO: create table `information` (`id` int unsigned not null auto_increment primary key, `banner` varchar(255) null comment '资讯缩略图', `source` varchar(100) not null comment '来源', `title` varchar(100) not null comment '标题', `brief` varchar(255) not null comment '摘要', `content` longtext not null comment '资讯内容', `created_at` timestamp null, `updated_at` timestamp null, `deleted_at` timestamp null) default character set utf8mb4 collate utf8mb4_unicode_ci  
+[2018-06-26 18:27:35] local.INFO: alter table `information` comment'资讯表'  
+[2018-06-26 18:27:35] local.INFO: insert into `migrations` (`migration`, `batch`) values (?, ?)  
+[2018-06-26 18:27:35] local.INFO: alter table `app_update_versions` add `force` tinyint null comment '状态：1：强制跟新 2：不强制更新' after `stage`  
+[2018-06-26 18:27:35] local.INFO: insert into `migrations` (`migration`, `batch`) values (?, ?)  
