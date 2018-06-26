@@ -40,11 +40,11 @@
         </div>
     </div>
     <!-- 电话咨询 -->
-    <a href="tel:4000-580-888" onclick="auditToServer('楼盘列表')">
+    {{-- <a href="tel:4000-580-888" onclick="auditToServer('楼盘列表')">
         <div style="position: fixed;bottom: 70px;right: 15px;z-index: 1000;">
             <img src="/we_img/button.png" style="width: 46px;">
         </div>
-    </a>
+    </a> --}}
     <!-- 底部导航 -->
         @include('we.tab')
     <script src="{{res('/js/we_building_index.js')}}"></script>

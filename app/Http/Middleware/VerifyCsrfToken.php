@@ -22,7 +22,7 @@ class VerifyCsrfToken extends Middleware
         'throw_ins',
         'bespeaks',
         'quick_login',
-        'collections'
-
+        'collections',
+        'add_employee',
     ];
 }

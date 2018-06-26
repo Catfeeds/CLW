@@ -2,14 +2,22 @@ webpackJsonp([1],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(19);
-var isBuffer = __webpack_require__(84);
+var bind = __webpack_require__(47);
+<<<<<<< HEAD
+var isBuffer = __webpack_require__(111);
+=======
+var isBuffer = __webpack_require__(110);
+>>>>>>> origin/wanghao
 
 /*global toString:true*/
 
@@ -312,24 +320,28 @@ module.exports = {
 
 
 /***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(3);
-var normalizeHeaderName = __webpack_require__(86);
+var utils = __webpack_require__(7);
+<<<<<<< HEAD
+var normalizeHeaderName = __webpack_require__(113);
+=======
+var normalizeHeaderName = __webpack_require__(112);
+>>>>>>> origin/wanghao
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -345,10 +357,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(20);
+    adapter = __webpack_require__(48);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(20);
+    adapter = __webpack_require__(48);
   }
   return adapter;
 }
@@ -419,19 +431,47 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44)))
 
 /***/ }),
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(83);
+<<<<<<< HEAD
+module.exports = __webpack_require__(110);
+=======
+module.exports = __webpack_require__(109);
+>>>>>>> origin/wanghao
 
 /***/ }),
-/* 19 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -449,19 +489,28 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 20 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var settle = __webpack_require__(87);
-var buildURL = __webpack_require__(89);
-var parseHeaders = __webpack_require__(90);
-var isURLSameOrigin = __webpack_require__(91);
-var createError = __webpack_require__(21);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(92);
+var utils = __webpack_require__(7);
+<<<<<<< HEAD
+var settle = __webpack_require__(114);
+var buildURL = __webpack_require__(116);
+var parseHeaders = __webpack_require__(117);
+var isURLSameOrigin = __webpack_require__(118);
+var createError = __webpack_require__(49);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(119);
+=======
+var settle = __webpack_require__(113);
+var buildURL = __webpack_require__(115);
+var parseHeaders = __webpack_require__(116);
+var isURLSameOrigin = __webpack_require__(117);
+var createError = __webpack_require__(49);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(118);
+>>>>>>> origin/wanghao
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -558,7 +607,11 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(93);
+<<<<<<< HEAD
+      var cookies = __webpack_require__(120);
+=======
+      var cookies = __webpack_require__(119);
+>>>>>>> origin/wanghao
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -636,13 +689,17 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 21 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(88);
+<<<<<<< HEAD
+var enhanceError = __webpack_require__(115);
+=======
+var enhanceError = __webpack_require__(114);
+>>>>>>> origin/wanghao
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -661,7 +718,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 22 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -673,7 +730,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 23 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -699,34 +756,6 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
 /* 52 */,
 /* 53 */,
 /* 54 */,
@@ -752,30 +781,76 @@ module.exports = Cancel;
 /* 74 */,
 /* 75 */,
 /* 76 */,
-/* 77 */
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+<<<<<<< HEAD
+/* 103 */,
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(78);
+module.exports = __webpack_require__(105);
 
 
 /***/ }),
-/* 78 */
+/* 105 */
+=======
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(104);
+
+
+/***/ }),
+/* 104 */
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_style_css__);
+<<<<<<< HEAD
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue__ = __webpack_require__(106);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue__ = __webpack_require__(105);
+>>>>>>> origin/wanghao
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue__);
+
+
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-__webpack_require__(0);
+__webpack_require__(2);
 
 
 
@@ -794,8 +869,8 @@ var app = new Vue({
     more: null
   },
   components: {
-    buildingSelect: __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default.a,
-    buildingList: __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default.a
+    buildingSelect: __WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue___default.a,
+    buildingList: __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue___default.a
   },
   created: function created() {
     this.getData = pageOne.data.length === 10;
@@ -845,7 +920,7 @@ var app = new Vue({
         data: condition,
         success: function success(data) {
           if (data.data.data.length === 0) {
-            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
               message: '已无更多数据',
               position: 'center',
               duration: 3000
@@ -866,9 +941,9 @@ var app = new Vue({
         },
         error: function error(_error) {
           if (_error.status < 500) {
-            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error.responseJSON.message);
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()(_error.responseJSON.message);
           } else {
-            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()('服务器出错');
           }
         }
       });
@@ -878,7 +953,7 @@ var app = new Vue({
       var tel = $('#telInput').val(),
           telReg = /^[1][0-9]{10}$/;
       if (!telReg.test(tel)) {
-        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+        __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
           message: '请输入11位手机号',
           position: 'center',
           duration: 3000
@@ -900,13 +975,13 @@ var app = new Vue({
             $('#backdrop').fadeOut(300);
             $('#telInput').val('');
             if (data.success) {
-              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
                 message: '信息提交成功，楚楼网30分钟内联系您',
                 position: 'center',
                 duration: 3000
               });
             } else {
-              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
                 message: data.message,
                 position: 'center',
                 duration: 3000
@@ -916,9 +991,9 @@ var app = new Vue({
           error: function error(_error2) {
             $('#backdrop').fadeOut(300);
             if (_error2.status < 500) {
-              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error2.responseJSON.message);
+              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()(_error2.responseJSON.message);
             } else {
-              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
+              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()('服务器出错');
             }
           }
         });
@@ -933,25 +1008,39 @@ function GetQueryString(name) {
 }
 
 /***/ }),
-/* 79 */
+<<<<<<< HEAD
+/* 106 */
+=======
+/* 105 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(80)
+<<<<<<< HEAD
+  __webpack_require__(107)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(8)
 /* script */
-var __vue_script__ = __webpack_require__(82)
+var __vue_script__ = __webpack_require__(109)
 /* template */
-var __vue_template__ = __webpack_require__(102)
+var __vue_template__ = __webpack_require__(129)
+=======
+  __webpack_require__(106)
+}
+var normalizeComponent = __webpack_require__(8)
+/* script */
+var __vue_script__ = __webpack_require__(108)
+/* template */
+var __vue_template__ = __webpack_require__(128)
+>>>>>>> origin/wanghao
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-85f18832"
+var __vue_scopeId__ = "data-v-088a7ea7"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -962,7 +1051,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\buildingSelect.vue"
+Component.options.__file = "resources/assets/js/components/buildingSelect.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -971,9 +1060,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85f18832", Component.options)
+    hotAPI.createRecord("data-v-088a7ea7", Component.options)
   } else {
-    hotAPI.reload("data-v-85f18832", Component.options)
+    hotAPI.reload("data-v-088a7ea7", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -984,23 +1073,31 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 80 */
+<<<<<<< HEAD
+/* 107 */
+=======
+/* 106 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(81);
+<<<<<<< HEAD
+var content = __webpack_require__(108);
+=======
+var content = __webpack_require__(107);
+>>>>>>> origin/wanghao
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("b274be70", content, false, {});
+var update = __webpack_require__(11)("84aebc14", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85f18832\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85f18832\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-088a7ea7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-088a7ea7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./buildingSelect.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -1010,30 +1107,42 @@ if(false) {
 }
 
 /***/ }),
-/* 81 */
+<<<<<<< HEAD
+/* 108 */
+=======
+/* 107 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.VueSelectBox[data-v-85f18832] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-85f18832] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-85f18832] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-85f18832] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-85f18832] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-85f18832] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-85f18832] {\n    border-top: 1px solid #f4f4f4;\n    background: rgba(0, 0, 0, 0.4);\n    position: absolute;\n    width: 100%;\n    top: 100%;\n    height: 1000px;\n}\n.VueSelectBox .selctList-box div[data-v-85f18832] {\n      background: #fff;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-85f18832] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-85f18832] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-85f18832] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-85f18832] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-85f18832] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-85f18832] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-85f18832]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-85f18832] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-85f18832] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-85f18832] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-85f18832] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .temp-style[data-v-85f18832] {\n            min-height: 401px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-85f18832] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-85f18832] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-85f18832] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-85f18832] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-85f18832]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-85f18832] {\n          color: #007eff;\n}\n", ""]);
+exports.push([module.i, "\n.VueSelectBox[data-v-088a7ea7] {\n  height: 100%;\n  position: relative;\n}\n.VueSelectBox .select-title-box[data-v-088a7ea7] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n}\n.VueSelectBox .select-title-box > div[data-v-088a7ea7] {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.VueSelectBox .select-title-box > div:last-child span[data-v-088a7ea7] {\n        border-right: none;\n}\n.VueSelectBox .select-title-box > div span[data-v-088a7ea7] {\n        color: #333333;\n        display: block;\n        width: 100%;\n        text-align: center;\n        border-right: 1px solid #f4f4f4;\n        font-size: 14px;\n}\n.VueSelectBox .select-title-box > div.active span[data-v-088a7ea7] {\n        color: #007eff;\n}\n.VueSelectBox .selctList-box[data-v-088a7ea7] {\n    border-top: 1px solid #f4f4f4;\n    background: rgba(0, 0, 0, 0.4);\n    position: absolute;\n    width: 100%;\n    top: 100%;\n    height: 1000px;\n}\n.VueSelectBox .selctList-box div[data-v-088a7ea7] {\n      background: #fff;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch[data-v-088a7ea7] {\n      border-bottom: 1px solid #f4f4f4;\n      padding-top: 10px;\n      padding-bottom: 10px;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box[data-v-088a7ea7] {\n        width: 50%;\n        margin: 0 auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        border-radius: 2px;\n        overflow: hidden;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div[data-v-088a7ea7] {\n          -webkit-box-flex: 1;\n              -ms-flex: 1;\n                  flex: 1;\n          height: 35px;\n          background-color: #f4f4f4;\n          color: #666666;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.VueSelectBox .selctList-box .areaTypeSwitch .areaTypeSwitch-box > div.active[data-v-088a7ea7] {\n            background-color: #007bff;\n            color: #ffffff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item[data-v-088a7ea7] {\n      height: 400px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7] {\n        width: 37.33%;\n        background-color: #f4f4f4;\n        height: 100%;\n        overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index[data-v-088a7ea7]::-webkit-scrollbar {\n          display: none;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item[data-v-088a7ea7] {\n          height: 50px;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          color: #333333;\n          padding-left: 25px;\n          font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-index .block-index-item.active[data-v-088a7ea7] {\n            background: #ffffff;\n            color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content[data-v-088a7ea7] {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        height: 100%;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box[data-v-088a7ea7] {\n          height: 100%;\n          overflow-y: scroll;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .temp-style[data-v-088a7ea7] {\n            min-height: 401px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item[data-v-088a7ea7] {\n            height: 50px;\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-align: center;\n                -ms-flex-align: center;\n                    align-items: center;\n            -webkit-box-pack: justify;\n                -ms-flex-pack: justify;\n                    justify-content: space-between;\n            font-size: 14px;\n            padding-left: 15px;\n            padding-right: 15px;\n}\n.VueSelectBox .selctList-box .selectContent .swiper-item .block-content .block-list-box .block-item.active[data-v-088a7ea7] {\n              color: #007eff;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list[data-v-088a7ea7] {\n      max-height: 400px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7] {\n        border-bottom: 1px solid #f4f4f4;\n        height: 50px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        padding-left: 20px;\n        font-size: 14px;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item[data-v-088a7ea7]:last-child {\n          border-bottom: none;\n}\n.VueSelectBox .selctList-box .selectContent .unit_list .unit_item.active[data-v-088a7ea7] {\n          color: #007eff;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 82 */
+<<<<<<< HEAD
+/* 109 */
+=======
+/* 108 */
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(101);
+<<<<<<< HEAD
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(128);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(127);
+>>>>>>> origin/wanghao
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 //
@@ -1435,16 +1544,24 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
 });
 
 /***/ }),
-/* 83 */
+<<<<<<< HEAD
+/* 110 */
+=======
+/* 109 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var bind = __webpack_require__(19);
-var Axios = __webpack_require__(85);
-var defaults = __webpack_require__(14);
+var utils = __webpack_require__(7);
+var bind = __webpack_require__(47);
+<<<<<<< HEAD
+var Axios = __webpack_require__(112);
+=======
+var Axios = __webpack_require__(111);
+>>>>>>> origin/wanghao
+var defaults = __webpack_require__(18);
 
 /**
  * Create an instance of Axios
@@ -1477,15 +1594,23 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(23);
-axios.CancelToken = __webpack_require__(99);
-axios.isCancel = __webpack_require__(22);
+axios.Cancel = __webpack_require__(51);
+<<<<<<< HEAD
+axios.CancelToken = __webpack_require__(126);
+=======
+axios.CancelToken = __webpack_require__(125);
+>>>>>>> origin/wanghao
+axios.isCancel = __webpack_require__(50);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(100);
+<<<<<<< HEAD
+axios.spread = __webpack_require__(127);
+=======
+axios.spread = __webpack_require__(126);
+>>>>>>> origin/wanghao
 
 module.exports = axios;
 
@@ -1494,7 +1619,11 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 84 */
+<<<<<<< HEAD
+/* 111 */
+=======
+/* 110 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports) {
 
 /*!
@@ -1521,16 +1650,25 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 85 */
+<<<<<<< HEAD
+/* 112 */
+=======
+/* 111 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(14);
-var utils = __webpack_require__(3);
-var InterceptorManager = __webpack_require__(94);
-var dispatchRequest = __webpack_require__(95);
+var defaults = __webpack_require__(18);
+var utils = __webpack_require__(7);
+<<<<<<< HEAD
+var InterceptorManager = __webpack_require__(121);
+var dispatchRequest = __webpack_require__(122);
+=======
+var InterceptorManager = __webpack_require__(120);
+var dispatchRequest = __webpack_require__(121);
+>>>>>>> origin/wanghao
 
 /**
  * Create a new instance of Axios
@@ -1607,13 +1745,17 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 86 */
+<<<<<<< HEAD
+/* 113 */
+=======
+/* 112 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(7);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -1626,13 +1768,17 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 87 */
+<<<<<<< HEAD
+/* 114 */
+=======
+/* 113 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(21);
+var createError = __webpack_require__(49);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1659,7 +1805,11 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 88 */
+<<<<<<< HEAD
+/* 115 */
+=======
+/* 114 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1687,13 +1837,17 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 89 */
+<<<<<<< HEAD
+/* 116 */
+=======
+/* 115 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(7);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -1762,13 +1916,17 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 90 */
+<<<<<<< HEAD
+/* 117 */
+=======
+/* 116 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(7);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -1822,13 +1980,17 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 91 */
+<<<<<<< HEAD
+/* 118 */
+=======
+/* 117 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(7);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1897,7 +2059,11 @@ module.exports = (
 
 
 /***/ }),
-/* 92 */
+<<<<<<< HEAD
+/* 119 */
+=======
+/* 118 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1940,13 +2106,17 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 93 */
+<<<<<<< HEAD
+/* 120 */
+=======
+/* 119 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(7);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -2000,13 +2170,17 @@ module.exports = (
 
 
 /***/ }),
-/* 94 */
+<<<<<<< HEAD
+/* 121 */
+=======
+/* 120 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(7);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -2059,18 +2233,30 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 95 */
+<<<<<<< HEAD
+/* 122 */
+=======
+/* 121 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var transformData = __webpack_require__(96);
-var isCancel = __webpack_require__(22);
-var defaults = __webpack_require__(14);
-var isAbsoluteURL = __webpack_require__(97);
-var combineURLs = __webpack_require__(98);
+var utils = __webpack_require__(7);
+<<<<<<< HEAD
+var transformData = __webpack_require__(123);
+var isCancel = __webpack_require__(50);
+var defaults = __webpack_require__(18);
+var isAbsoluteURL = __webpack_require__(124);
+var combineURLs = __webpack_require__(125);
+=======
+var transformData = __webpack_require__(122);
+var isCancel = __webpack_require__(50);
+var defaults = __webpack_require__(18);
+var isAbsoluteURL = __webpack_require__(123);
+var combineURLs = __webpack_require__(124);
+>>>>>>> origin/wanghao
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -2152,13 +2338,17 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 96 */
+<<<<<<< HEAD
+/* 123 */
+=======
+/* 122 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(7);
 
 /**
  * Transform the data for a request or a response
@@ -2179,7 +2369,11 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 97 */
+<<<<<<< HEAD
+/* 124 */
+=======
+/* 123 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2200,7 +2394,11 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 98 */
+<<<<<<< HEAD
+/* 125 */
+=======
+/* 124 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2221,13 +2419,17 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 99 */
+<<<<<<< HEAD
+/* 126 */
+=======
+/* 125 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(23);
+var Cancel = __webpack_require__(51);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -2285,7 +2487,11 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 100 */
+<<<<<<< HEAD
+/* 127 */
+=======
+/* 126 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2319,11 +2525,15 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 101 */
+<<<<<<< HEAD
+/* 128 */
+=======
+/* 127 */
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /**
  * Created by zxz1992 on 2018/5/22.
@@ -2396,7 +2606,11 @@ function Ajax() {
 /* harmony default export */ __webpack_exports__["a"] = (Ajax);
 
 /***/ }),
-/* 102 */
+<<<<<<< HEAD
+/* 129 */
+=======
+/* 128 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -3007,9 +3221,13 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-85f18832", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-088a7ea7", module.exports)
   }
 }
 
 /***/ })
-],[77]);
+<<<<<<< HEAD
+],[104]);
+=======
+],[103]);
+>>>>>>> origin/wanghao

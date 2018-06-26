@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name', '32')->nullable()->comment('员工姓名');
             $table->string('tel', '16')->nullable()->comment('电话');
             $table->string('email', '32')->nullable()->comment('邮箱');
-            $table->string('open_id', '128')->nullable()->comment('员工微信id');
+            $table->string('openid', '128')->nullable()->comment('员工微信id');
             $table->timestamps();
         });
         DB::statement("alter table `employees` comment'员工表'");
