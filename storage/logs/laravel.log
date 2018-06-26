@@ -1,190 +1,129 @@
-[2018-06-26 14:17:07] local.INFO: select * from `buildings` where `id` = ? limit 1  
-[2018-06-26 14:17:07] local.INFO: select `office_building_houses`.*, `building_blocks`.`building_id` from `office_building_houses` inner join `building_blocks` on `building_blocks`.`id` = `office_building_houses`.`building_block_id` where `building_blocks`.`building_id` = ? and `shelf` = ? and `office_building_houses`.`deleted_at` is null  
-[2018-06-26 14:17:07] local.INFO: select `building_features`.*, `CLW`.`building_has_features`.`building_id` as `pivot_building_id`, `CLW`.`building_has_features`.`building_feature_id` as `pivot_building_feature_id` from `building_features` inner join `CLW`.`building_has_features` on `building_features`.`id` = `CLW`.`building_has_features`.`building_feature_id` where `CLW`.`building_has_features`.`building_id` = ?  
-[2018-06-26 14:17:07] local.INFO: select * from `building_labels` where `building_labels`.`building_id` = ? and `building_labels`.`building_id` is not null limit 1  
-[2018-06-26 14:17:07] local.INFO: select * from `blocks` where `blocks`.`id` = ? limit 1  
-[2018-06-26 14:17:07] local.INFO: select * from `buildings` where `buildings`.`block_id` = ? and `buildings`.`block_id` is not null  
-[2018-06-26 14:17:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:22] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:17:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:17:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:22] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:17:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:17:35] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:17:35] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:35] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:57] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:17:58] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:17:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:17:58] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:19:25] local.INFO: select * from `buildings` where `id` = ? limit 1  
-[2018-06-26 14:19:25] local.INFO: select `office_building_houses`.*, `building_blocks`.`building_id` from `office_building_houses` inner join `building_blocks` on `building_blocks`.`id` = `office_building_houses`.`building_block_id` where `building_blocks`.`building_id` = ? and `shelf` = ? and `office_building_houses`.`deleted_at` is null  
-[2018-06-26 14:19:25] local.INFO: select `building_features`.*, `CLW`.`building_has_features`.`building_id` as `pivot_building_id`, `CLW`.`building_has_features`.`building_feature_id` as `pivot_building_feature_id` from `building_features` inner join `CLW`.`building_has_features` on `building_features`.`id` = `CLW`.`building_has_features`.`building_feature_id` where `CLW`.`building_has_features`.`building_id` = ?  
-[2018-06-26 14:19:25] local.INFO: select * from `building_labels` where `building_labels`.`building_id` = ? and `building_labels`.`building_id` is not null limit 1  
-[2018-06-26 14:19:25] local.INFO: select * from `blocks` where `blocks`.`id` = ? limit 1  
-[2018-06-26 14:19:25] local.INFO: select * from `buildings` where `buildings`.`block_id` = ? and `buildings`.`block_id` is not null  
-[2018-06-26 14:20:45] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:20:45] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:20:45] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:20:45] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:20:45] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:20:45] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:20:45] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:20:45] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:21:04] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:04] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:21:37] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:37] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:21:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:24:02] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:02] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:24:20] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:20] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:24:58] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:24:58] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:28:05] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:28:05] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:05] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
-[2018-06-26 14:28:23] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
-[2018-06-26 14:28:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:28:23] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `admins` where `id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `users` where `id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
-[2018-06-26 14:33:17] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-26 15:06:33] local.INFO: select * from `building_blocks` where `building_blocks`.`id` is null limit 1  
+[2018-06-26 15:06:33] local.ERROR: Trying to get property 'building' of non-object {"exception":"[object] (ErrorException(code: 0): Trying to get property 'building' of non-object at /home/vagrant/CLW/app/Services/OfficeBuildingHousesService.php:126)
+[stacktrace]
+#0 /home/vagrant/CLW/app/Services/OfficeBuildingHousesService.php(126): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/vagrant/C...', 126, Array)
+#1 /home/vagrant/CLW/app/Http/Controllers/Pc/OfficeBuildingHousesController.php(17): App\\Services\\OfficeBuildingHousesService->getShow(Object(App\\Models\\OfficeBuildingHouse))
+#2 [internal function]: App\\Http\\Controllers\\Pc\\OfficeBuildingHousesController->show(Object(App\\Models\\OfficeBuildingHouse), Object(App\\Services\\OfficeBuildingHousesService), '3')
+#3 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('show', Array)
+#5 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\Pc\\OfficeBuildingHousesController), 'show')
+#6 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(169): Illuminate\\Routing\\Route->runController()
+#7 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(658): Illuminate\\Routing\\Route->run()
+#8 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(67): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#29 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#30 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#31 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#32 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#33 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /home/vagrant/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(58): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /home/vagrant/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#41 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#47 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#50 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#53 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#54 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#55 /home/vagrant/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#56 {main}
+"} 
+[2018-06-26 15:06:33] local.INFO: select `employee_id` from `accept_messages` where `type` = ?  
+[2018-06-26 15:06:33] local.INFO: select `openid` from `employees` where 0 = 1  
+[2018-06-26 15:07:53] local.INFO: select * from `building_blocks` where `building_blocks`.`id` is null limit 1  
+[2018-06-26 15:07:53] local.ERROR: Trying to get property 'building' of non-object {"exception":"[object] (ErrorException(code: 0): Trying to get property 'building' of non-object at /home/vagrant/CLW/app/Services/OfficeBuildingHousesService.php:125)
+[stacktrace]
+#0 /home/vagrant/CLW/app/Services/OfficeBuildingHousesService.php(125): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/home/vagrant/C...', 125, Array)
+#1 /home/vagrant/CLW/app/Http/Controllers/Pc/OfficeBuildingHousesController.php(17): App\\Services\\OfficeBuildingHousesService->getShow(Object(App\\Models\\OfficeBuildingHouse))
+#2 [internal function]: App\\Http\\Controllers\\Pc\\OfficeBuildingHousesController->show(Object(App\\Models\\OfficeBuildingHouse), Object(App\\Services\\OfficeBuildingHousesService), '3')
+#3 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('show', Array)
+#5 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\Pc\\OfficeBuildingHousesController), 'show')
+#6 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(169): Illuminate\\Routing\\Route->runController()
+#7 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(658): Illuminate\\Routing\\Route->run()
+#8 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(67): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#29 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#30 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#31 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#32 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#33 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /home/vagrant/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(58): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /home/vagrant/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#41 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#47 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#50 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#53 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#54 /home/vagrant/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#55 /home/vagrant/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#56 {main}
+"} 
+[2018-06-26 15:07:53] local.INFO: select `employee_id` from `accept_messages` where `type` = ?  
+[2018-06-26 15:07:53] local.INFO: select `openid` from `employees` where 0 = 1  
+[2018-06-26 15:08:41] local.INFO: select * from `building_blocks` where `building_blocks`.`id` is null limit 1  
+[2018-06-26 15:16:32] local.INFO: select * from `office_building_houses` where `office_building_houses`.`id` = ? and `office_building_houses`.`deleted_at` is null limit 1  
+[2018-06-26 15:16:48] local.INFO: select * from `office_building_houses` where `office_building_houses`.`id` = ? and `office_building_houses`.`deleted_at` is null limit 1  
