@@ -7,4 +7,4 @@ Route::resource('/', 'IndexController');
 Route::resource('buildings', 'BuildingsController');
 
 //房源详情
-Route::resource('house', 'OfficeBuildingHousesController');
+Route::resource('office_building_houses', 'OfficeBuildingHousesController');

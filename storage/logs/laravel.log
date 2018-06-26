@@ -144,3 +144,12 @@
 [2018-06-26 15:16:32] local.INFO: select * from `office_building_houses` where `office_building_houses`.`id` = ? and `office_building_houses`.`deleted_at` is null limit 1  
 [2018-06-26 15:16:48] local.INFO: select * from `office_building_houses` where `office_building_houses`.`id` = ? and `office_building_houses`.`deleted_at` is null limit 1  
 >>>>>>> origin/lkt
+[2018-06-26 15:26:25] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-26 15:26:25] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-26 15:26:25] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-26 15:26:25] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-26 15:26:25] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-26 15:26:25] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-26 15:26:25] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-26 15:26:25] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-26 15:27:19] local.INFO: select * from `office_building_houses` where `id` = ? and `office_building_houses`.`deleted_at` is null limit 1  

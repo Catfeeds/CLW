@@ -10,12 +10,12 @@ class OfficeBuildingHousesController extends Controller
 {
     public function show
     (
-        OfficeBuildingHouse $office,
+        OfficeBuildingHouse $officeBuildingHouse,
         OfficeBuildingHousesService $service
     )
     {
-        dd($office);
-        $res = $service->getShow($office);
+        dd($officeBuildingHouse);
+        $res = $service->getShow($officeBuildingHouse);
         return $res;
     }
 }
