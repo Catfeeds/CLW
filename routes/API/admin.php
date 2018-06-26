@@ -207,6 +207,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('information', 'InformationController');
+    Route::get('set_top/{id}', 'InformationController@setTop');
+    Route::get('del_top/{id}', 'InformationController@delTop');
 
 //    });
 
