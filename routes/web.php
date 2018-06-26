@@ -36,3 +36,7 @@ Route::get('work_order_shopowner', 'We\WorkOrderController@shopwner');
 //Route::get('work_order_shopowner', function (){
 //    return view('we.work_order_shopowner');
 //});
+
+Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function () {
+    \Composer\Autoload\includeFile(__DIR__ . '/home.php');
+});
