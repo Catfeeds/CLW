@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>123</h1>
-<img src=" {{$url}} ">
+<img src=" {{$url}} " width="200" height="200">
 </body>
 </html>

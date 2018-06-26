@@ -32,3 +32,19 @@ Route::get('download',function(){
 Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/we.php');
 });
+
+//业务员
+Route::get('work_order_salesman', 'We\WorkOrderController@salesman');
+//Route::get('work_order_salesman', function (){
+//    return view('we.work_order_salesman');
+//});
+
+// 店长
+Route::get('work_order_shopowner', 'We\WorkOrderController@shopwner');
+//Route::get('work_order_shopowner', function (){
+//    return view('we.work_order_shopowner');
+//});
+
+Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function () {
+    \Composer\Autoload\includeFile(__DIR__ . '/home.php');
+});

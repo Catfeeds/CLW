@@ -13,8 +13,8 @@
     "watch:home": "cross-env sourceMap='home' NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod:home": "cross-env sourceMap='home' NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "clearDist": "rm -rf public/js & rm -rf public/css",
-    "test:we": "npm run clearDist && npm run prod:we && node qiniu.js",
-    "test:home": "npm run clearDist && npm run prod:home && node qiniu.js"
+    "test:we": "npm run clearDist && cross-env isStatus='test' npm run prod:we && node qiniu.js",
+    "test:home": "npm run clearDist && cross-env isStatus='test' npm run prod:home && node qiniu.js"
   },
   "devDependencies": {
     "axios": "^0.17",
@@ -31,13 +31,14 @@
     "vue-lazyload": "^1.2.3"
   },
   "dependencies": {
+    "ajv": "^6.5.1",
     "amazeui-swiper": "0.0.5",
     "css-loader": "^0.28.11",
     "element-ui": "^2.4.1",
     "font-awesome": "^4.7.0",
     "font-awesome-webpack": "0.0.5-beta.2",
     "jquery-validation": "^1.17.0",
-    "less": "^3.0.2",
+    "less": "^2.7.3",
     "mint-ui": "^2.2.13",
     "normalize.css": "^8.0.0",
     "npm": "^6.0.0",

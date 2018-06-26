@@ -197,8 +197,6 @@ function uploadFile() {
       console.log('这是坐标', index)
     console.log(srcObj[index],'=>'.debug,index.info, '远程映射关系构建中'.info)
     formUploader.putFile(getToken(index), index, srcObj[index], extra, function(respErr, respBody, respInfo) {
-      console.log('body', respBody)
-      console.log('info', respInfo)
       if (respErr) {
         console.log('error')
         console.log(respErr)
@@ -206,6 +204,7 @@ function uploadFile() {
         return
       }
       if (respInfo.statusCode === 200) {
+        console.log(('远程文件：'+respBody.key+'部署成功。').info);
       } else {
           console.log('error')
           console.log(respErr)
@@ -215,4 +214,4 @@ function uploadFile() {
   }
 }
 // 上传请打开他
-// getQiniuFileList();
+getQiniuFileList();

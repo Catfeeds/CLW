@@ -4,7 +4,13 @@
 var mix = require('laravel-mix'),
     webpack = require('webpack'),
     envCof = require('./env.js'),
-    map = require('./sourceMap');
+    map = require('./sourceMap'),
+    isStatus = process.env.isStatus
+if (isStatus) {
+  envCof = deepMerge(envCof.baseConfig, envCof[isStatus].envConfig)
+} else {
+  envCof = envCof.baseConfig
+}
 
 var commonSCSSPath = map.commonSCSSPath, // scss 目录
     commonOutCSSPath = map.commonOutCSSPath, // css 输出目录
@@ -14,6 +20,7 @@ var envConfig = new webpack.DefinePlugin({
   'process.env': envCof
 });
 var sourceMap = 'we';
+// sourceMap 赋值在package.json中
 if (process.env.sourceMap !== undefined) {
   sourceMap = process.env.sourceMap
 }
@@ -58,4 +65,13 @@ JSObj.setPublicPath('./');
 if (map[sourceMap].extract && map[sourceMap].extract.length>0) {
   JSObj.extract(map[sourceMap].extract, commonJSOutPath+map[sourceMap].vendorName); // 提出全局多次引入文件
 }
-
+// 对象深度合并
+function deepMerge(obj1, obj2) {
+  var key;
+  for(key in obj2) {
+      // 如果target(也就是obj1[key])存在，且是对象的话再去调用deepMerge，否则就是obj1[key]里面没这个对象，需要与obj2[key]合并
+      obj1[key] = obj1[key] && obj1[key].toString() === "[object Object]" ?
+      deepMerge(obj1[key], obj2[key]) : obj1[key] = obj2[key];
+  }
+  return obj1;
+}

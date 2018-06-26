@@ -1,22 +1,33 @@
-webpackJsonp([14],{
+webpackJsonp([16],{
 
-/***/ 105:
+<<<<<<< HEAD
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(106);
+module.exports = __webpack_require__(133);
+=======
+/***/ 131:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(132);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
-/***/ 106:
+<<<<<<< HEAD
+/***/ 133:
+=======
+/***/ 132:
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * Created by zxz1992 on 2018/5/23.
  */
-__webpack_require__(0);
+__webpack_require__(2);
 var listAppData = JSON.parse($('#listAppData').val());
-Vue.component('building-list', __webpack_require__(6));
+Vue.component('building-list', __webpack_require__(10));
 var app = new Vue({
   el: '#app',
   data: {
@@ -26,4 +37,8 @@ var app = new Vue({
 
 /***/ })
 
-},[105]);
+<<<<<<< HEAD
+},[132]);
+=======
+},[131]);
+>>>>>>> origin/wanghao
