@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Pc;
 
 use App\Http\Controllers\Controller;
+use App\Models\Area;
+use App\Models\Block;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
@@ -26,18 +28,20 @@ class BuildingsController extends Controller
         // 房源数量
         $building->house_count = $houses->count();
 
-        // 获取楼盘均价(楼盘下房源总价格/楼盘下房源总面积)
+        // 获取楼盘下房源均价(楼盘下房源总价格/楼盘下房源总面积)
         $building->buildingAverage = round($houses->sum('total_price') / $houses->sum('constru_acreage'),2);
 
-        $buildingIds = $building->block->building->pluck('id');
+        // 获取商圈下房源均价
+        $blockId = $building->block->id;    // 商圈id
+        $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
+        $blockAllHouse = $this->getAllHouse($block);
+        $building->blockAverage = round(collect($blockAllHouse)->collapse()->sum('total_price') / collect($blockAllHouse)->collapse()->sum('constru_acreage'),2);
 
-
-
-
-
-
-        dd($buildingIds);
-
+        // 获取区域下房源均价
+        $areaId = $building->block->area->id;
+        $area = Area::where('id', $areaId)->with('building.buildingBlock.house')->first();
+        $areaAllHouse = $this->getAllHouse($area);
+        $building->areaAverage = round(collect($areaAllHouse)->collapse()->sum('total_price') / collect($areaAllHouse)->collapse()->sum('constru_acreage'),2);
 
         dd($building);
 
@@ -47,5 +51,16 @@ class BuildingsController extends Controller
 
 
         return '楼盘详情页';
+    }
+
+    public function getAllHouse($res)
+    {
+        $datas = array();
+        foreach ($res->building as $v) {
+            foreach ($v->buildingBlock as $val) {
+                $datas[] = $val->house->toArray();
+            }
+        }
+        return $datas;
     }
 }
