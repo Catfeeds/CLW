@@ -426,6 +426,10 @@ body .build .first .left .buildList .listDetail {
   text-align: center;
 }
 
+body .build .first .left .buildList .listDetail:not(:first-child) {
+  border-top: 1px solid #f4f4f4;
+}
+
 body .build .first .left .buildList .listDetail .listPic {
   width: 18.5%;
 }
@@ -628,7 +632,7 @@ body .build .second {
   background: #fff;
 }
 
-body .build .second .map {
+body .build .second #map {
   padding: 20px;
   height: 510px;
 }

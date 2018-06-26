@@ -160,6 +160,9 @@ body{
               display: flex;
               justify-content: space-between;
               text-align: center;
+              &:not(:first-child){
+                border-top: 1px solid #f4f4f4;
+              }
               .listPic{
                 width: 18.5%;
                 img{
@@ -316,7 +319,7 @@ body{
       .second{
         margin: 20px 0;
         background: #fff;
-        .map{
+        #map{
           padding: 20px;
           height: 510px;
         }

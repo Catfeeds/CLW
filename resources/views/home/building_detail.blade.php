@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <!-- 筛选条件 -->
-                    <div class="filter">
+                    <div class="filter" id="filter">
                         <div class="filterActive">出租房源</div>
                         <div>楼盘信息</div>
                         <div>市场行情</div>
@@ -63,7 +63,7 @@
                         <div>猜你喜欢</div>
                     </div>
                     <!-- 出租房源 -->
-                    <div class="rent">
+                    <div class="rent" id="rent">
                         <div class="h1">出租房源</div>
                         <div>
                             <div class="rentAcreage" id="rentAcreage"><div>面积</div>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <!-- 房源列表 -->
-                    <div class="buildList">
+                    <div class="buildList" id="buildList">
                         <div class="listNav h1">
                             <div>共<span> 42 </span>套</div>
                             <div>面积</div>
@@ -91,11 +91,33 @@
                                 <span>押一付一</span>
                             </div>
                         </div>
+                        <div class="listDetail">
+                            <div class="listPic"><img src="/we_img/house_detail_banner01.jpg"></div>
+                            <div class="listPic listNum"><span>560</span>m²</div>
+                            <div class="listPic listNum"><span>80</span>元/m²月</div>
+                            <div class="listPic listNum"><span>44800</span>元/月</div>
+                            <div class="listSpecial listNum">
+                                <span>精装修</span>
+                                <span>免租期</span>
+                                <span>押一付一</span>
+                            </div>
+                        </div>
+                        <div class="listDetail">
+                            <div class="listPic"><img src="/we_img/house_detail_banner01.jpg"></div>
+                            <div class="listPic listNum"><span>560</span>m²</div>
+                            <div class="listPic listNum"><span>80</span>元/m²月</div>
+                            <div class="listPic listNum"><span>44800</span>元/月</div>
+                            <div class="listSpecial listNum">
+                                <span>精装修</span>
+                                <span>免租期</span>
+                                <span>押一付一</span>
+                            </div>
+                        </div>
                     </div>
                     <!-- 查看所有 -->
                     <div class="all">查看所有出租房源</div>
                     <!-- 楼盘信息 -->
-                    <div class="buildInfor">
+                    <div class="buildInfor" id="buildInfor">
                         <div class="h1">楼盘信息</div>
                         <div class="buildRow">
                             <div><span class="developer">开发商</span><span>湖北现代同创置业有限公司</span></div>
@@ -115,7 +137,7 @@
                         <div class="buildDetail">美文网汇集以爱情,亲情,友情,人生为主题的伤感情感美文网站,内含经典美文,哲理美文,伤感励志等美文欣赏,提供短篇故事,心情随笔日记,优美散文精选,现代诗歌大全</div>
                     </div>
                     <!-- 市场行情 -->
-                    <div class="quotation">
+                    <div class="quotation" id="quotation">
                         <div class="h1">市场行情</div>
                         <div class="average">
                             <div class="buildPrice"><div>现代光谷世贸中心均价（楼盘）</div><div>75.43元/m²月</div></div>
@@ -143,9 +165,11 @@
                     </div>
                 </div>
             </div>
-            <div class="second">
+            <div class="second" id="second">
                 <div class="h1">周边配套</div>
-                <div class="map"></div>
+                <div class="map" id="map">
+                    <look-for-house></look-for-house>
+                </div>
             </div>
             <div class="third" id="third">
                 <div class="h1">猜你喜欢</div>
