@@ -12,11 +12,11 @@ class InformationController extends Controller
         InformationRepository $repository
     )
     {
-        $top = $repository->carousel();
-        $hot = $repository->hotInformation();
+        $top = $repository->carousel(); // 轮播图
+        $hot = $repository->hotInformation(); // 热点
         $content = $repository->getList();
-        dd($content);
-        return '资讯页面';
+        dd($top);
+        return view('home.information', ['content' => $content, 'top' => $top, 'hots' => $hot]);
     }
 
     public function show()
