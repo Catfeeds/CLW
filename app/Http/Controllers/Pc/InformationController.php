@@ -10,4 +10,9 @@ class InformationController extends Controller
     {
         return '资讯';
     }
+
+    public function ()
+    {
+        
+    }
 }

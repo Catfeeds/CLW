@@ -43,14 +43,16 @@ class BuildingsController extends Controller
         $areaAllHouse = $this->getAllHouse($area);
         $building->areaAverage = round(collect($areaAllHouse)->collapse()->sum('total_price') / collect($areaAllHouse)->collapse()->sum('constru_acreage'),2);
 
-        dd($building);
+        // 猜你喜欢
+        $request->area_id = $areaId;
+        $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
 
+
+        // $likeBuilding 猜你喜欢
+        // $building 楼盘基本数据
+        // $houses 楼盘下房源数据
 
         return $building;
-
-
-
-        return '楼盘详情页';
     }
 
     public function getAllHouse($res)
