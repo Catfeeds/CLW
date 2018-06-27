@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="<?php echo e(res('/favicon.ico')); ?>">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
-    <link rel="stylesheet" href="<?php echo e(res('/css/mui/mui.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(res('/mui/mui.css')); ?>">
     <title><?php $__env->startSection('title'); ?>楚楼网--找写字楼上楚楼网十分钟轻松搞定<?php echo $__env->yieldSection(); ?></title>
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
     <script>
@@ -14,7 +14,7 @@
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?a8bb44e51deceeae65bac46930eab06e";
+            hm.src = "https://hm.baidu.com/hm.js?9c8a95f83c5e8b29448aa6440cb7dd2e";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();

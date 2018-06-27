@@ -1,14 +1,25 @@
 webpackJsonp([17],{
 
+<<<<<<< HEAD
+/***/ 142:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(143);
+=======
 /***/ 141:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(142);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ 143:
+=======
 /***/ 142:
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44,4 +55,8 @@ $(document).on('click', '.map-btn-item', function (e) {
 
 /***/ })
 
+<<<<<<< HEAD
+},[142]);
+=======
 },[141]);
+>>>>>>> origin/wanghao

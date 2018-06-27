@@ -15,7 +15,6 @@ class WeAuth
      */
     public function handle($request, Closure $next)
     {
-        $user = session('wechat_user');
-        if (empty($user)) return redirect('/weLogin');
+         redirect(config('setting.wechat_url').'/oauth_wechat?redirectUrl=work_order_shopowner');
     }
 }

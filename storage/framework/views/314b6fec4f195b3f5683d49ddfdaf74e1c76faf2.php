@@ -191,11 +191,7 @@
             </div>
         </div> 
         <!-- 电话 -->
-        <a href="tel:4000-580-888" onclick="auditToServer('首页')">
-            <div style="position: fixed;bottom: 70px;right: 15px;z-index: 1000;">
-                <img src="/we_img/button.png" style="width: 46px;">
-            </div>
-        </a>
+        
         <!-- 底部导航 -->
         <?php echo $__env->make('we.tab', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </div>
