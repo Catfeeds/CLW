@@ -159,7 +159,7 @@
                 <div class="list">
                     @foreach($likeBuilding as $like)
                     <div class="detail">
-                        <div><img src="/we_img/house_detail_banner01.jpg" alt=""></div>
+                        <div><img src="{{$like['img_cn']}}" alt=""></div>
                         <div class="buildDetail">
                             <!-- 楼盘名称 -->
                             <div class="building">

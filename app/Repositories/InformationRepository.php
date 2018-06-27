@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Information;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class InformationRepository extends Model
 {
@@ -52,5 +53,27 @@ class InformationRepository extends Model
     )
     {
         return Information::where('id', $id)->update(['top' => 2]);
+    }
+
+    // 获取点击量最高的8条资讯
+    public function hotInformation()
+    {
+        return Information::take(8)->orderBy('click_num','desc')->orderBy('created_at','desc')->get();
+    }
+
+    // 获取轮播资讯
+    public function carousel()
+    {
+        return Information::take(3)->where('top',1)->latest()->get();
+    }
+
+    // 首页资讯
+    public function getList()
+    {
+        $information = Information::where([])->orderBy('created_at','desc')->paginate(10);
+        foreach ($information as $v) {
+            $v->add_time = $v->created_at->format('Y-m-d');
+        }
+        return $information->setCollection(collect($information->items())->groupBy('add_time'));
     }
 }

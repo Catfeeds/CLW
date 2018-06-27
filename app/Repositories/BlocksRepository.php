@@ -40,21 +40,12 @@ class BlocksRepository extends Model
         return true;
     }
 
-    /**
-     * 说明: 商圈添加推荐
-     *
-     * @param Block $block
-     * @param $request
-     * @return bool
-     * @author 罗振
-     */
-    public function updateRecommend(
-        Block $block,
+    // 商圈添加推荐
+    public function addRecommend(
+        $id,
         $request
     )
     {
-        $block->recommend = $request->recommend;
-        if (!$block->save()) return false;
-        return true;
+        return Block::where('id', $id)->update(['recommend' => $request->recommend]);
     }
 }

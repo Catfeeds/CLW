@@ -72,25 +72,15 @@ class BlocksController extends APIBaseController
         return $this->sendResponse($result,'所有商圈信息获取成功');
     }
 
-    /**
-     * 说明: 商圈添加推荐
-     *
-     * @param BlocksRequest $request
-     * @param Block $block
-     * @param BlocksRepository $blocksRepository
-     * @return \Illuminate\Http\JsonResponse
-     * @author 罗振
-     */
+    // 商圈添加推荐
     public function addRecommend(
+        $id,
         BlocksRequest $request,
-        Block $block,
-        BlocksRepository $blocksRepository
+        BlocksRepository $repository
     )
     {
-        if (empty($res = $blocksRepository->updateRecommend($block, $request))) return $this->sendError('操作失败');
+        $res = $repository->addRecommend($id, $request);
 
         return $this->sendResponse($res, '操作成功');
-
-
     }
 }
