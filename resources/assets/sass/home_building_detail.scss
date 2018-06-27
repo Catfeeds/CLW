@@ -1,0 +1,316 @@
+@import "home_master";
+@import "~swiper/dist/css/swiper.min.css";
+body{
+    a{
+      text-decoration: none;
+    }
+    .h1{
+      height: 50px;
+      line-height: 50px;
+      padding-left: 20px;
+      border-bottom: 1px solid #f4f4f4;
+    }
+    background: #f4f4f4;
+    .nav{
+        padding: 16px 18%;
+    }
+    #banner{
+      .swiper-pagination{
+        bottom: 75px;
+        .swiper-pagination-bullet{
+          border-radius: 0;
+          background: none;
+          width: 90px;
+          height: 50px;
+          img{
+            width: 90px;
+            height: 50px;
+          }
+        }
+      }
+    }
+    .build{
+      padding: 0 18%;
+      position: relative;
+      top: -55px;
+      z-index: 10;
+      .first{
+        display: flex;
+        justify-content: space-between;
+        .left{
+          width: 77%;
+          .intro{
+            background: #fff;
+            border-radius: 5px;
+            .introBox{
+              height: 70px;
+              padding: 20px 0 10px 0;
+              display: flex;
+              justify-content: space-between;
+              border-bottom: 1px solid #f4f4f4;
+              .introTitle{
+                width: 43%;
+                line-height: 70px;
+                font-size: 26px;
+                font-weight: 700;
+                margin-left: 40px;
+              }
+              .introBuild{
+                text-align: center;
+                width: 19%;
+                border-left: 1px solid #f4f4f4;
+              }
+              .introRental{
+                text-align: center;
+                width: 19%;
+                border-left: 1px solid #f4f4f4;
+              }
+            }
+            .introAddress{
+              padding-left: 40px;
+              display: flex;
+              justify-content: flex-start;
+              height: 50px;
+              line-height: 50px;
+              border-bottom: 1px solid #f4f4f4;
+              img{
+                width: 12px;
+                height: 17px;
+                vertical-align: middle;
+              }
+            }
+            .introBetter{
+              padding: 15px 32%;
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+          .filter{
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 5px;
+            height: 55px;
+            line-height: 55px;
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            div{
+              width: 20%;
+              &:not(:first-child){
+                border-left: 1px solid #f4f4f4;
+              }
+            }
+            div:hover{
+              background: #03a2fb;
+              color: #fff;
+            }
+          }
+          .rent{
+            background: #fff;
+            border-radius: 5px;
+            .rentAcreage{
+              font-size: 14px;
+              padding-left: 30px;
+              display: flex;
+              justify-content: flex-start;
+              height: 50px;
+              line-height: 50px;
+              &:not(:last-child){
+                border-bottom: 1px solid #f4f4f4;
+              }
+              div{
+                margin-right: 5%;
+              }
+              span{
+                margin-right: 2%;
+              }
+            }
+          }
+          .buildList{
+            background: #fff;
+            margin: 20px 0;
+            .listNav{
+              display: flex;
+              justify-content: space-between;
+              div{
+                width: 18%;
+                &:not(:first-child){
+                  text-align: center;
+                }
+                span{
+                  color: #03a2fb;
+                  font-size: 24px;
+                }
+              }
+              .special{
+                width: 26%;
+                text-align: center;
+              }
+            }
+            .listDetail{
+              padding: 20px 0 20px 20px;
+              display: flex;
+              justify-content: space-between;
+              text-align: center;
+              .listPic{
+                width: 18.5%;
+                img{
+                  width: 100%;
+                }
+                span{
+                  font-size: 24px;
+                  font-weight: 700;
+                  color: #03a2fb;
+                }
+                &:not(:first-child){
+                  border-right: 1px solid #f4f4f4;
+                }
+              }
+              .listNum{
+                height: 80px;
+                margin: 16px 0;
+                &:not(:last-child){
+                  line-height: 80px;
+                }
+              }
+              .listSpecial{
+                width: 23%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 15px;
+                span{
+                  height: 30px;
+                  line-height: 30px;
+                  width: 100px;
+                  border-radius: 15px;
+                  background: #cbfcf1;
+                }
+              }
+            }
+          }
+          .all{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #fff;
+          }
+          .buildInfor{
+            background: #fff;
+            margin: 20px 0;
+            .buildRow{
+              display: flex;
+              justify-content: flex-start;
+              padding-left: 40px;
+              height: 70px;
+              line-height: 70px;
+              border-bottom: 1px solid #f4f4f4;
+              div{
+                width: 50%;
+                display: flex;
+                justify-content: flex-start;
+                .developer{
+                  width: 25%;
+                }
+              }
+            }
+            .buildDetail{
+              padding: 30px 85px 50px 85px;
+            }
+          }
+          .quotation{
+            background: #fff;
+            .average{
+              display: flex;
+              justify-content: space-between;
+              text-align: center;
+              padding: 30px 0 20px 0;
+              .buildPrice{
+                line-height: 25px;
+                width: 33%;
+                &:not(:last-child){
+                  border-right: 1px solid #f4f4f4;
+                }
+              }
+            }
+          }
+        }
+        .right{
+          width: 20%;
+          .agent{
+            background: #fff;
+            height: 310px;
+            border-radius: 5px;
+            text-align: center;
+            padding-top: 30px;
+            img{
+              width: 90px;
+              height: 90px;
+              border-radius: 50%;
+              margin-bottom: 10px;
+            }
+            .name{
+              padding-bottom: 20px;
+              border-bottom: 1px solid #f4f4f4;
+            }
+            .free{
+              padding: 15px 0;
+              border-bottom: 1px solid #f4f4f4;
+              .tel{
+                font-size: 20px;
+                color: #03a2fb;
+              }
+            }
+            .service{
+              margin: 15px auto;
+              width: 76%;
+              height: 40px;
+              line-height: 40px;
+              border-radius: 3px;
+              background: #03a2fb;
+              color: #fff;
+            }
+          }
+          .findHouse{
+            margin-top: 30px;
+            height: 430px;
+            background: #ccc;
+            position: relative;
+            .entrust{
+              width: 86%;
+              position: absolute;
+              top: 225px;
+              left: 6%;
+              input{
+                width: 100%;
+              }
+              .order{
+                margin: 0 auto;
+                margin-top: 40px;
+                height: 40px;
+                border-radius: 20px;
+                width: 53%;
+                background: #03a2fb;
+                text-align: center;
+                line-height: 40px;
+                color: #fff;
+              }
+              .order:hover{
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+      .second{
+        margin: 20px 0;
+        background: #fff;
+        .map{
+          padding: 20px;
+          height: 510px;
+        }
+      }
+      .third{
+      }
+    }
+}
