@@ -61,7 +61,5 @@ class GetLouWangInformation extends Command
             ]);
             if (empty($res)) \Log::info($v->guid.'的资讯添加失败');
         }
-
-
     }
 }
