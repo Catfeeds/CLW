@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="title">
-            <div class="build">找写字楼，就找楚楼网</div>
+            <div class="building">找写字楼，就找楚楼网</div>
             <div class="login">
                 <div>登录</div>
                 <div>注册</div>

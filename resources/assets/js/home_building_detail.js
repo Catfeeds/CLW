@@ -22,7 +22,7 @@ var banner = new Swiper('#banner', {
   pagination: '.swiper-pagination',
   paginationClickable: true,
   paginationBulletRender: function(banner, index, className){
-    return '<span class="'+ className +'"><img src="/we_img/banner'+ (index+1)+ '.jpg"></span>'
+    return '<span class="'+ className +'"><img src="'+ Data.pic_url[index][url] +'"></span>'
   },
 })
 // 点击导航

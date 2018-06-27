@@ -31,7 +31,7 @@
         }
       }
     }
-    .building{
+    .build{
       padding: 0 18%;
       position: relative;
       top: -55px;
@@ -140,11 +140,11 @@
             background: #fff;
             margin: 20px 0;
             .listNav{
-              display: flex;
-              justify-content: space-between;
               height: 50px;
               line-height: 50px;
               padding-left: 20px;
+              display: flex;
+              justify-content: space-between;
               div{
                 width: 18%;
                 &:not(:first-child){
@@ -156,62 +156,45 @@
                 }
               }
               .special{
-                width: 27%;
+                width: 26%;
                 text-align: center;
               }
             }
-            .listBox{
-              .listDetail{
-                padding: 20px;
+            .listDetail{
+              padding: 20px 0 20px 20px;
+              display: flex;
+              justify-content: space-between;
+              text-align: center;
+              border-top: 1px solid #f4f4f4;
+              .listPic{
+                width: 18.5%;
+                img{
+                  width: 100%;
+                  height: 100%;
+                }
+                &:not(:first-child){
+                  border-right: 1px solid #f4f4f4;
+                }
+              }
+              .listNum{
+                height: 80px;
+                margin: 16px 0;
+                &:not(:last-child){
+                  line-height: 80px;
+                }
+              }
+              .listSpecial{
+                width: 22%;
                 display: flex;
-                justify-content: flex-start;
-                border-top: 1px solid #f4f4f4;
-                .listPic{
-                  width: 27%;
-                  height: 200px;
-                  img{
-                    width: 100%;
-                    height: 200px;
-                  }
-                }
-                .listCenter{
-                  padding: 10px 0 ;
-                  width: 47%;
-                  margin-left: 20px;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: space-between;
-                  .listTitle{
-                    font-size: 18px;
-                    font-weight: 500;
-                    line-height: 27px;
-                  }
-                  .unitPrice{
-                    line-height: 24px;
-                  }
-                  .listSpecial{
-                    display: flex;
-                    justify-content: flex-start;
-                    div{
-                      text-align: center;
-                      width: 105px;
-                      height: 30px;
-                      line-height: 30px;
-                      border-radius: 3px;
-                      border: 1px solid #03a2fb;
-                      margin-right: 5px;
-                    }
-                  }
-                }
-                .totalPrice{
-                  line-height: 200px;
-                  height: 200px;
-                  margin-left: 11%;
-                  span{
-                    font-size: 27px;
-                    font-weight: 500;
-                    color: #03a2fb;
-                  }
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 15px;
+                span{
+                  height: 30px;
+                  line-height: 30px;
+                  width: 80px;
+                  border-radius: 15px;
+                  background: #cbfcf1;
                 }
               }
             }
@@ -341,6 +324,66 @@
         }
       }
       .third{
+        .list{
+          padding: 20px 15px;
+          display: flex;
+          justify-content: flex-start;
+          .detail{
+            background: #fff;
+            width: 31%;
+            img{
+              width: 100%;
+              height: 210px;
+            }
+            .buildDetail{
+              padding: 20px;
+              height: 120px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              .building{
+                display: flex;
+                justify-content: space-between;
+                .name{
+                  font-size: 20px;
+                  font-weight: 700;
+                }
+                span{
+                  font-size: 20px;
+                  color: #03a2f9;
+                }
+              }
+              .introduce{
+                font-size: 12px;
+                width: 100%;
+                height: 20px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+              .location{
+                img{
+                  width: 12px;
+                  height: 17px;
+                  vertical-align: middle;
+                }
+              }
+              .landmark{
+                display: flex;
+                justify-content: flex-start;
+                div{
+                  padding: 2px 5px;
+                  background: #facee2;
+                  margin-right: 5px;
+                  border-radius: 3px;
+                }
+              }
+            }
+            &:not(:first-child){
+                margin-left: 25px;
+            }
+          }
+        }
       }
     }
 }

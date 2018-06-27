@@ -231,14 +231,14 @@ template {
   height: 50px;
 }
 
-.content .building {
+.content .build {
   padding: 0 18%;
   position: relative;
   top: -55px;
   z-index: 10;
 }
 
-.content .building .first {
+.content .build .first {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -247,16 +247,16 @@ template {
           justify-content: space-between;
 }
 
-.content .building .first .left {
+.content .build .first .left {
   width: 77%;
 }
 
-.content .building .first .left .intro {
+.content .build .first .left .intro {
   background: #fff;
   border-radius: 5px;
 }
 
-.content .building .first .left .intro .introBox {
+.content .build .first .left .intro .introBox {
   height: 70px;
   padding: 20px 0 10px 0;
   display: -webkit-box;
@@ -268,7 +268,7 @@ template {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .intro .introBox .introTitle {
+.content .build .first .left .intro .introBox .introTitle {
   width: 43%;
   line-height: 70px;
   font-size: 26px;
@@ -276,19 +276,19 @@ template {
   margin-left: 40px;
 }
 
-.content .building .first .left .intro .introBox .introBuild {
+.content .build .first .left .intro .introBox .introBuild {
   text-align: center;
   width: 19%;
   border-left: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .intro .introBox .introRental {
+.content .build .first .left .intro .introBox .introRental {
   text-align: center;
   width: 19%;
   border-left: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .intro .introAddress {
+.content .build .first .left .intro .introAddress {
   padding-left: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -301,13 +301,13 @@ template {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .intro .introAddress img {
+.content .build .first .left .intro .introAddress img {
   width: 12px;
   height: 17px;
   vertical-align: middle;
 }
 
-.content .building .first .left .intro .introBetter {
+.content .build .first .left .intro .introBetter {
   padding: 15px 32%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -317,7 +317,7 @@ template {
           justify-content: space-between;
 }
 
-.content .building .first .left .filter {
+.content .build .first .left .filter {
   margin: 20px 0;
   background: #fff;
   border-radius: 5px;
@@ -332,25 +332,25 @@ template {
   text-align: center;
 }
 
-.content .building .first .left .filter div {
+.content .build .first .left .filter div {
   width: 20%;
 }
 
-.content .building .first .left .filter div:not(:first-child) {
+.content .build .first .left .filter div:not(:first-child) {
   border-left: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .filter .filterActive {
+.content .build .first .left .filter .filterActive {
   background: #03a2fb;
   color: #fff;
 }
 
-.content .building .first .left .rent {
+.content .build .first .left .rent {
   background: #fff;
   border-radius: 5px;
 }
 
-.content .building .first .left .rent .rentAcreage {
+.content .build .first .left .rent .rentAcreage {
   font-size: 14px;
   padding-left: 30px;
   display: -webkit-box;
@@ -363,154 +363,131 @@ template {
   line-height: 50px;
 }
 
-.content .building .first .left .rent .rentAcreage:not(:last-child) {
+.content .build .first .left .rent .rentAcreage:not(:last-child) {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .rent .rentAcreage div {
+.content .build .first .left .rent .rentAcreage div {
   margin-right: 5%;
 }
 
-.content .building .first .left .rent .rentAcreage div:hover {
+.content .build .first .left .rent .rentAcreage div:hover {
   color: #03a2fb;
   cursor: pointer;
 }
 
-.content .building .first .left .rent .rentAcreage span {
+.content .build .first .left .rent .rentAcreage span {
   margin-right: 2%;
 }
 
-.content .building .first .left .rent .rentAcreage span:hover {
+.content .build .first .left .rent .rentAcreage span:hover {
   color: #03a2fb;
   cursor: pointer;
 }
 
-.content .building .first .left .buildList {
+.content .build .first .left .buildList {
   background: #fff;
   margin: 20px 0;
 }
 
-.content .building .first .left .buildList .listNav {
+.content .build .first .left .buildList .listNav {
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 50px;
-  line-height: 50px;
-  padding-left: 20px;
 }
 
-.content .building .first .left .buildList .listNav div {
+.content .build .first .left .buildList .listNav div {
   width: 18%;
 }
 
-.content .building .first .left .buildList .listNav div:not(:first-child) {
+.content .build .first .left .buildList .listNav div:not(:first-child) {
   text-align: center;
 }
 
-.content .building .first .left .buildList .listNav div span {
+.content .build .first .left .buildList .listNav div span {
   color: #03a2fb;
   font-size: 24px;
 }
 
-.content .building .first .left .buildList .listNav .special {
-  width: 27%;
+.content .build .first .left .buildList .listNav .special {
+  width: 26%;
   text-align: center;
 }
 
-.content .building .first .left .buildList .listBox .listDetail {
-  padding: 20px;
+.content .build .first .left .buildList .listDetail {
+  padding: 20px 0 20px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  border-top: 1px solid #f4f4f4;
-}
-
-.content .building .first .left .buildList .listBox .listDetail .listPic {
-  width: 27%;
-  height: 200px;
-}
-
-.content .building .first .left .buildList .listBox .listDetail .listPic img {
-  width: 100%;
-  height: 200px;
-}
-
-.content .building .first .left .buildList .listBox .listDetail .listCenter {
-  padding: 10px 0;
-  width: 47%;
-  margin-left: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-align: center;
+  border-top: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .buildList .listBox .listDetail .listCenter .listTitle {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 27px;
+.content .build .first .left .buildList .listDetail .listPic {
+  width: 18.5%;
 }
 
-.content .building .first .left .buildList .listBox .listDetail .listCenter .unitPrice {
-  line-height: 24px;
+.content .build .first .left .buildList .listDetail .listPic img {
+  width: 100%;
+  height: 100%;
 }
 
-.content .building .first .left .buildList .listBox .listDetail .listCenter .listSpecial {
+.content .build .first .left .buildList .listDetail .listPic:not(:first-child) {
+  border-right: 1px solid #f4f4f4;
+}
+
+.content .build .first .left .buildList .listDetail .listNum {
+  height: 80px;
+  margin: 16px 0;
+}
+
+.content .build .first .left .buildList .listDetail .listNum:not(:last-child) {
+  line-height: 80px;
+}
+
+.content .build .first .left .buildList .listDetail .listSpecial {
+  width: 22%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 15px;
 }
 
-.content .building .first .left .buildList .listBox .listDetail .listCenter .listSpecial div {
-  text-align: center;
-  width: 105px;
+.content .build .first .left .buildList .listDetail .listSpecial span {
   height: 30px;
   line-height: 30px;
-  border-radius: 3px;
-  border: 1px solid #03a2fb;
-  margin-right: 5px;
+  width: 80px;
+  border-radius: 15px;
+  background: #cbfcf1;
 }
 
-.content .building .first .left .buildList .listBox .listDetail .totalPrice {
-  line-height: 200px;
-  height: 200px;
-  margin-left: 11%;
-}
-
-.content .building .first .left .buildList .listBox .listDetail .totalPrice span {
-  font-size: 27px;
-  font-weight: 500;
-  color: #03a2fb;
-}
-
-.content .building .first .left .all {
+.content .build .first .left .all {
   height: 50px;
   line-height: 50px;
   text-align: center;
   background: #fff;
 }
 
-.content .building .first .left .buildInfor {
+.content .build .first .left .buildInfor {
   background: #fff;
   margin: 20px 0;
 }
 
-.content .building .first .left .buildInfor .buildRow {
+.content .build .first .left .buildInfor .buildRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -523,7 +500,7 @@ template {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.content .building .first .left .buildInfor .buildRow div {
+.content .build .first .left .buildInfor .buildRow div {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -533,19 +510,19 @@ template {
           justify-content: flex-start;
 }
 
-.content .building .first .left .buildInfor .buildRow div .developer {
+.content .build .first .left .buildInfor .buildRow div .developer {
   width: 25%;
 }
 
-.content .building .first .left .buildInfor .buildDetail {
+.content .build .first .left .buildInfor .buildDetail {
   padding: 30px 85px 50px 85px;
 }
 
-.content .building .first .left .quotation {
+.content .build .first .left .quotation {
   background: #fff;
 }
 
-.content .building .first .left .quotation .average {
+.content .build .first .left .quotation .average {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -556,20 +533,20 @@ template {
   padding: 30px 0 20px 0;
 }
 
-.content .building .first .left .quotation .average .buildPrice {
+.content .build .first .left .quotation .average .buildPrice {
   line-height: 25px;
   width: 33%;
 }
 
-.content .building .first .left .quotation .average .buildPrice:not(:last-child) {
+.content .build .first .left .quotation .average .buildPrice:not(:last-child) {
   border-right: 1px solid #f4f4f4;
 }
 
-.content .building .first .right {
+.content .build .first .right {
   width: 20%;
 }
 
-.content .building .first .right .agent {
+.content .build .first .right .agent {
   background: #fff;
   height: 310px;
   border-radius: 5px;
@@ -577,29 +554,29 @@ template {
   padding-top: 30px;
 }
 
-.content .building .first .right .agent img {
+.content .build .first .right .agent img {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-.content .building .first .right .agent .name {
+.content .build .first .right .agent .name {
   padding-bottom: 20px;
   border-bottom: 1px solid #f4f4f4;
 }
 
-.content .building .first .right .agent .free {
+.content .build .first .right .agent .free {
   padding: 15px 0;
   border-bottom: 1px solid #f4f4f4;
 }
 
-.content .building .first .right .agent .free .tel {
+.content .build .first .right .agent .free .tel {
   font-size: 20px;
   color: #03a2fb;
 }
 
-.content .building .first .right .agent .service {
+.content .build .first .right .agent .service {
   margin: 15px auto;
   width: 76%;
   height: 40px;
@@ -609,29 +586,29 @@ template {
   color: #fff;
 }
 
-.content .building .first .right .agent .service:hover {
+.content .build .first .right .agent .service:hover {
   cursor: pointer;
 }
 
-.content .building .first .right .findHouse {
+.content .build .first .right .findHouse {
   margin-top: 30px;
   height: 430px;
   background: #ccc;
   position: relative;
 }
 
-.content .building .first .right .findHouse .entrust {
+.content .build .first .right .findHouse .entrust {
   width: 86%;
   position: absolute;
   top: 225px;
   left: 6%;
 }
 
-.content .building .first .right .findHouse .entrust input {
+.content .build .first .right .findHouse .entrust input {
   width: 100%;
 }
 
-.content .building .first .right .findHouse .entrust .order {
+.content .build .first .right .findHouse .entrust .order {
   margin: 0 auto;
   margin-top: 40px;
   height: 40px;
@@ -643,17 +620,106 @@ template {
   color: #fff;
 }
 
-.content .building .first .right .findHouse .entrust .order:hover {
+.content .build .first .right .findHouse .entrust .order:hover {
   cursor: pointer;
 }
 
-.content .building .second {
+.content .build .second {
   margin: 20px 0;
   background: #fff;
 }
 
-.content .building .second #map {
+.content .build .second #map {
   padding: 20px;
   height: 510px;
+}
+
+.content .build .third .list {
+  padding: 20px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.content .build .third .list .detail {
+  background: #fff;
+  width: 31%;
+}
+
+.content .build .third .list .detail img {
+  width: 100%;
+  height: 210px;
+}
+
+.content .build .third .list .detail .buildDetail {
+  padding: 20px;
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.content .build .third .list .detail .buildDetail .building {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.content .build .third .list .detail .buildDetail .building .name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.content .build .third .list .detail .buildDetail .building span {
+  font-size: 20px;
+  color: #03a2f9;
+}
+
+.content .build .third .list .detail .buildDetail .introduce {
+  font-size: 12px;
+  width: 100%;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content .build .third .list .detail .buildDetail .location img {
+  width: 12px;
+  height: 17px;
+  vertical-align: middle;
+}
+
+.content .build .third .list .detail .buildDetail .landmark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.content .build .third .list .detail .buildDetail .landmark div {
+  padding: 2px 5px;
+  background: #facee2;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.content .build .third .list .detail:not(:first-child) {
+  margin-left: 25px;
 }
 
