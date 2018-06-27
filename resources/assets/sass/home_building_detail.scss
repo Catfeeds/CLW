@@ -156,9 +156,9 @@ body{
               }
             }
             .listDetail{
-              padding: 20px 0 20px 20px;
+              margin: 20px 0 20px 20px;
               display: flex;
-              justify-content: space-between;
+              justify-content: flex-start;
               text-align: center;
               &:not(:first-child){
                 border-top: 1px solid #f4f4f4;
@@ -167,14 +167,6 @@ body{
                 width: 18.5%;
                 img{
                   width: 100%;
-                }
-                span{
-                  font-size: 24px;
-                  font-weight: 700;
-                  color: #03a2fb;
-                }
-                &:not(:first-child){
-                  border-right: 1px solid #f4f4f4;
                 }
               }
               .listNum{

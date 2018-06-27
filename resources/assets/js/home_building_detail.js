@@ -1,10 +1,16 @@
 require('./home_common');
 const Swiper = require('swiper');
 var betterList = require('./components/betterList.vue');
-import LookForHouse from './components/mapLookForHouse'
+var detailMap = require('./components/detailMap.vue')
+var Data = $('#props').data('data')
 new Vue({
-  el: '.map',
-  components: {LookForHouse}
+  el: '#second',
+  components: {detailMap},
+  data() {
+    return {
+      data: Data.gps
+    }
+  }
 })
 new Vue({
   el: '#third',
@@ -24,7 +30,6 @@ $('.filter div').on('click', function(){
   $(this).addClass('filterActive')
   $(this).siblings().removeClass('filterActive')
   var val = $(this).html()
-  console.log('整体导航', val)
   if(val == '出租房源') {
     document.getElementById('rent').scrollIntoView(true)
   } else if(val == '楼盘信息') {
@@ -36,6 +41,7 @@ $('.filter div').on('click', function(){
   } else if(val == '猜你喜欢') {
     document.getElementById('third').scrollIntoView(true)
   }
+  console.log('整体导航', val)
 })
 // 出租房源面积筛选
 $('#rentAcreage span').on('click', function(){

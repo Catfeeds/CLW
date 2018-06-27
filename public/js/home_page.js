@@ -1,30 +1,6 @@
 webpackJsonp([4],{
 
-/***/ 120:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(121);
-
-
-/***/ }),
-
-/***/ 121:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(7);
-var Swiper = __webpack_require__(25);
-var mySwiper = new Swiper('.swiper-container', {
-  pagination: {
-    el: ".swiper-pagination",
-    bulletClass: "my-pagination"
-  },
-  aotoplay: true,
-  loop: true
-});
-
-/***/ }),
-
-/***/ 25:
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5383,6 +5359,30 @@ else if (typeof define === 'function' && define.amd) {
 //# sourceMappingURL=maps/swiper.js.map
 
 
+/***/ }),
+
+/***/ 125:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(126);
+
+
+/***/ }),
+
+/***/ 126:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+var Swiper = __webpack_require__(12);
+var mySwiper = new Swiper('.swiper-container', {
+  pagination: {
+    el: ".swiper-pagination",
+    bulletClass: "my-pagination"
+  },
+  aotoplay: true,
+  loop: true
+});
+
 /***/ })
 
-},[120]);
+},[125]);

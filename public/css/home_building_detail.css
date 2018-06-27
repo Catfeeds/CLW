@@ -416,13 +416,13 @@ body .build .first .left .buildList .listNav .special {
 }
 
 body .build .first .left .buildList .listDetail {
-  padding: 20px 0 20px 20px;
+  margin: 20px 0 20px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   text-align: center;
 }
 
@@ -436,16 +436,6 @@ body .build .first .left .buildList .listDetail .listPic {
 
 body .build .first .left .buildList .listDetail .listPic img {
   width: 100%;
-}
-
-body .build .first .left .buildList .listDetail .listPic span {
-  font-size: 24px;
-  font-weight: 700;
-  color: #03a2fb;
-}
-
-body .build .first .left .buildList .listDetail .listPic:not(:first-child) {
-  border-right: 1px solid #f4f4f4;
 }
 
 body .build .first .left .buildList .listDetail .listNum {
