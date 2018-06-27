@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/home_building_detail.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <!--  -->
 
         <div class="nav"><span>首页</span><span>>洪山区</span><span>>光谷</span><span>>现代世贸中心</span></div>
@@ -74,30 +74,36 @@
                     </div>
                     <!-- 房源列表 -->
                     <div class="buildList" id="buildList">
-                        <div class="listNav h1">
+                        <div class="listNav">
                             <div>共<span>  </span>套</div>
                             <div>面积</div>
                             <div>单价</div>
                             <div>总价</div>
                             <div class="special">特色</div>
                         </div>
+                        <div class="listBox">
                         @foreach($houses as $house)
                         <a href="#">
                         <div class="listDetail">
                             <div class="listPic"><img src="/we_img/house_detail_banner01.jpg"></div>
-                            <div>
-                                <div class="listPic listNum"><span>560</span>m²</div>
-                                <div class="listPic listNum"><span>80</span>元/m²月</div>
-                                <div class="listPic listNum"><span>44800</span>元/月</div>
-                                <div class="listSpecial listNum">
-                                    <span>精装修</span>
-                                    <span>免租期</span>
-                                    <span>押一付一</span>
+                            <div class="listCenter">
+                                <div class="listTitle">{{$house->title}}</div>
+                                <div class="unitPrice">
+                                    <div>单价：{{$house->unit_price_cn}}</div>
+                                    <div>面积：{{$house->constru_acreage_cn}}</div>
+                                    <div>地址：</div>
+                                </div>
+                                <div class="listSpecial">
+                                    <div>精装修</div>
+                                    <div>免租期</div>
+                                    <div>押一付一</div>
                                 </div>
                             </div>
+                            <div class="totalPrice"><span>{{$house->total_price}}</span>元/月</div>
                         </div>
                         </a>
                         @endforeach
+                        </div>
                     </div>
                     <!-- 查看所有 -->
                     <div class="all">查看所有出租房源</div>

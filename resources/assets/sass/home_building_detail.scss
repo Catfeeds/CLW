@@ -1,8 +1,10 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-body{
+.container{
+  font-size: 14px;
     a{
       text-decoration: none;
+      color: #000;
     }
     .h1{
       height: 50px;
@@ -140,6 +142,9 @@ body{
             .listNav{
               display: flex;
               justify-content: space-between;
+              height: 50px;
+              line-height: 50px;
+              padding-left: 20px;
               div{
                 width: 18%;
                 &:not(:first-child){
@@ -151,43 +156,62 @@ body{
                 }
               }
               .special{
-                width: 26%;
+                width: 27%;
                 text-align: center;
               }
             }
-            .listDetail{
-              margin: 20px 0 20px 20px;
-              display: flex;
-              justify-content: flex-start;
-              text-align: center;
-              &:not(:first-child){
-                border-top: 1px solid #f4f4f4;
-              }
-              .listPic{
-                width: 18.5%;
-                img{
-                  width: 100%;
-                }
-              }
-              .listNum{
-                height: 80px;
-                margin: 16px 0;
-                &:not(:last-child){
-                  line-height: 80px;
-                }
-              }
-              .listSpecial{
-                width: 23%;
+            .listBox{
+              .listDetail{
+                padding: 20px;
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin: 15px;
-                span{
-                  height: 30px;
-                  line-height: 30px;
-                  width: 100px;
-                  border-radius: 15px;
-                  background: #cbfcf1;
+                justify-content: flex-start;
+                border-top: 1px solid #f4f4f4;
+                .listPic{
+                  width: 27%;
+                  height: 200px;
+                  img{
+                    width: 100%;
+                    height: 200px;
+                  }
+                }
+                .listCenter{
+                  padding: 10px 0 ;
+                  width: 47%;
+                  margin-left: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  .listTitle{
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 27px;
+                  }
+                  .unitPrice{
+                    line-height: 24px;
+                  }
+                  .listSpecial{
+                    display: flex;
+                    justify-content: flex-start;
+                    div{
+                      text-align: center;
+                      width: 105px;
+                      height: 30px;
+                      line-height: 30px;
+                      border-radius: 3px;
+                      border: 1px solid #03a2fb;
+                      margin-right: 5px;
+                    }
+                  }
+                }
+                .totalPrice{
+                  line-height: 200px;
+                  height: 200px;
+                  margin-left: 11%;
+                  span{
+                    font-size: 27px;
+                    font-weight: 500;
+                    color: #03a2fb;
+                  }
                 }
               }
             }
