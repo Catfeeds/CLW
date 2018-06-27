@@ -206,9 +206,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     | 资讯管理
     |--------------------------------------------------------------------------
     */
-    Route::resource('information', 'InformationController');
-    Route::get('set_top/{id}', 'InformationController@setTop');
-    Route::get('del_top/{id}', 'InformationController@delTop');
+    Route::resource('information', 'InformationsController');
+    Route::get('set_top/{id}', 'InformationsController@setTop');
+    Route::get('del_top/{id}', 'InformationsController@delTop');
 
 //    });
 

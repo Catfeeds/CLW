@@ -66,12 +66,12 @@ class Handler extends ExceptionHandler
             $temp = explode('\\', get_class($exception));
             $type = end($temp);
             $class = new MessagesService();
-            $openid = $class->getOpenid(1);
-            $data['type'] = $type;
-            $data['name'] = 'jacklin';
-            $data['errorInfo'] = $errorInfo;
-            $data['openid'] = json_encode($openid);
-            curl(config('setting.wechat_url').'/waring_notice','post',$data);
+//            $openid = $class->getOpenid(1);
+//            $data['type'] = $type;
+//            $data['name'] = 'jacklin';
+//            $data['errorInfo'] = $errorInfo;
+//            $data['openid'] = json_encode($openid);
+//            curl(config('setting.wechat_url').'/waring_notice','post',$data);
         }
 
         if ($exception instanceof ValidationException) {

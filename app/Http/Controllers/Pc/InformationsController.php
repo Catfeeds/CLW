@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\PC;
 
 use App\Http\Controllers\Controller;
+use App\Models\Information;
 use App\Repositories\InformationRepository;
 
-class InformationController extends Controller
+class InformationsController extends Controller
 {
     public function index
     (
@@ -14,12 +15,11 @@ class InformationController extends Controller
     {
         $top = $repository->carousel();
         $hot = $repository->hotInformation();
-        $content = $repository->getList();
-        dd($content);
+        $list = $repository->getList();
         return '资讯页面';
     }
 
-    public function show()
+    public function show(Information $information)
     {
         return '资讯详情';
     }
