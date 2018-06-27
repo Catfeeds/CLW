@@ -4,5 +4,8 @@
 
 @endsection
 @section('body')
-asd
+
+@endsection
+@section('script')
+
 @endsection

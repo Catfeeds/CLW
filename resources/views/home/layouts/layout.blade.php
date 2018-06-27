@@ -20,5 +20,6 @@
 @include('home.footer')
 <script src="{{res('/js/home_manifest.js')}}"></script>
 <script src="{{res('/js/home_vendor.js')}}"></script>
+@yield('script')
 </body>
 </html>
