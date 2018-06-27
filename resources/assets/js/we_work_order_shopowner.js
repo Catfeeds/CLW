@@ -50,10 +50,17 @@ const app = new Vue({
         },
         // 上拉加载更多 !待处理!
         getUnList() {
-            Indicator.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
+            if(!pulldown1) {
+                Indicator.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            }else{
+                Indicator.open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             console.log(111)
             if(this.pulldown1) return
             getShopkeeperList(1, this.page1)
@@ -70,11 +77,17 @@ const app = new Vue({
         },
         // 上拉加载更多 !已处理!
         getList() {
-            Indicator.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
-            console.log(222)
+            if(!pulldown2) {
+                Indicator.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            }else{
+                Indicator.open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             if(this.pulldown2) return
             getShopkeeperList(2, this.page2)
             console.log('上拉加载更多', this.page2)
@@ -197,7 +210,7 @@ function distribution(FormData) {
                     duration: 1000
                 })
                 app.unshopkowner.splice(app.index, 1);
-                getShopkeeperList(2)
+                getShopkeeperList(1, this.page1, true);
             }
         },
         error: function (res) {

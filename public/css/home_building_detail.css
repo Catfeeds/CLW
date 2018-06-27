@@ -194,51 +194,51 @@ template {
   display: none;
 }
 
-.container {
+.content {
   font-size: 14px;
   background: #f4f4f4;
 }
 
-.container a {
+.content a {
   text-decoration: none;
   color: #000;
 }
 
-.container .h1 {
+.content .h1 {
   height: 50px;
   line-height: 50px;
   padding-left: 20px;
   border-bottom: 1px solid #f4f4f4;
 }
 
-.container .nav {
+.content .nav {
   padding: 16px 18%;
 }
 
-.container #banner .swiper-pagination {
+.content #banner .swiper-pagination {
   bottom: 75px;
 }
 
-.container #banner .swiper-pagination .swiper-pagination-bullet {
+.content #banner .swiper-pagination .swiper-pagination-bullet {
   border-radius: 0;
   background: none;
   width: 90px;
   height: 50px;
 }
 
-.container #banner .swiper-pagination .swiper-pagination-bullet img {
+.content #banner .swiper-pagination .swiper-pagination-bullet img {
   width: 90px;
   height: 50px;
 }
 
-.container .build {
+.content .building {
   padding: 0 18%;
   position: relative;
   top: -55px;
   z-index: 10;
 }
 
-.container .build .first {
+.content .building .first {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -247,16 +247,16 @@ template {
           justify-content: space-between;
 }
 
-.container .build .first .left {
+.content .building .first .left {
   width: 77%;
 }
 
-.container .build .first .left .intro {
+.content .building .first .left .intro {
   background: #fff;
   border-radius: 5px;
 }
 
-.container .build .first .left .intro .introBox {
+.content .building .first .left .intro .introBox {
   height: 70px;
   padding: 20px 0 10px 0;
   display: -webkit-box;
@@ -268,7 +268,7 @@ template {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .intro .introBox .introTitle {
+.content .building .first .left .intro .introBox .introTitle {
   width: 43%;
   line-height: 70px;
   font-size: 26px;
@@ -276,19 +276,19 @@ template {
   margin-left: 40px;
 }
 
-.container .build .first .left .intro .introBox .introBuild {
+.content .building .first .left .intro .introBox .introBuild {
   text-align: center;
   width: 19%;
   border-left: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .intro .introBox .introRental {
+.content .building .first .left .intro .introBox .introRental {
   text-align: center;
   width: 19%;
   border-left: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .intro .introAddress {
+.content .building .first .left .intro .introAddress {
   padding-left: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -301,13 +301,13 @@ template {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .intro .introAddress img {
+.content .building .first .left .intro .introAddress img {
   width: 12px;
   height: 17px;
   vertical-align: middle;
 }
 
-.container .build .first .left .intro .introBetter {
+.content .building .first .left .intro .introBetter {
   padding: 15px 32%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -317,7 +317,7 @@ template {
           justify-content: space-between;
 }
 
-.container .build .first .left .filter {
+.content .building .first .left .filter {
   margin: 20px 0;
   background: #fff;
   border-radius: 5px;
@@ -332,25 +332,25 @@ template {
   text-align: center;
 }
 
-.container .build .first .left .filter div {
+.content .building .first .left .filter div {
   width: 20%;
 }
 
-.container .build .first .left .filter div:not(:first-child) {
+.content .building .first .left .filter div:not(:first-child) {
   border-left: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .filter .filterActive {
+.content .building .first .left .filter .filterActive {
   background: #03a2fb;
   color: #fff;
 }
 
-.container .build .first .left .rent {
+.content .building .first .left .rent {
   background: #fff;
   border-radius: 5px;
 }
 
-.container .build .first .left .rent .rentAcreage {
+.content .building .first .left .rent .rentAcreage {
   font-size: 14px;
   padding-left: 30px;
   display: -webkit-box;
@@ -363,34 +363,34 @@ template {
   line-height: 50px;
 }
 
-.container .build .first .left .rent .rentAcreage:not(:last-child) {
+.content .building .first .left .rent .rentAcreage:not(:last-child) {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .rent .rentAcreage div {
+.content .building .first .left .rent .rentAcreage div {
   margin-right: 5%;
 }
 
-.container .build .first .left .rent .rentAcreage div:hover {
+.content .building .first .left .rent .rentAcreage div:hover {
   color: #03a2fb;
   cursor: pointer;
 }
 
-.container .build .first .left .rent .rentAcreage span {
+.content .building .first .left .rent .rentAcreage span {
   margin-right: 2%;
 }
 
-.container .build .first .left .rent .rentAcreage span:hover {
+.content .building .first .left .rent .rentAcreage span:hover {
   color: #03a2fb;
   cursor: pointer;
 }
 
-.container .build .first .left .buildList {
+.content .building .first .left .buildList {
   background: #fff;
   margin: 20px 0;
 }
 
-.container .build .first .left .buildList .listNav {
+.content .building .first .left .buildList .listNav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -402,25 +402,25 @@ template {
   padding-left: 20px;
 }
 
-.container .build .first .left .buildList .listNav div {
+.content .building .first .left .buildList .listNav div {
   width: 18%;
 }
 
-.container .build .first .left .buildList .listNav div:not(:first-child) {
+.content .building .first .left .buildList .listNav div:not(:first-child) {
   text-align: center;
 }
 
-.container .build .first .left .buildList .listNav div span {
+.content .building .first .left .buildList .listNav div span {
   color: #03a2fb;
   font-size: 24px;
 }
 
-.container .build .first .left .buildList .listNav .special {
+.content .building .first .left .buildList .listNav .special {
   width: 27%;
   text-align: center;
 }
 
-.container .build .first .left .buildList .listBox .listDetail {
+.content .building .first .left .buildList .listBox .listDetail {
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -431,17 +431,17 @@ template {
   border-top: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .listPic {
+.content .building .first .left .buildList .listBox .listDetail .listPic {
   width: 27%;
   height: 200px;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .listPic img {
+.content .building .first .left .buildList .listBox .listDetail .listPic img {
   width: 100%;
   height: 200px;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .listCenter {
+.content .building .first .left .buildList .listBox .listDetail .listCenter {
   padding: 10px 0;
   width: 47%;
   margin-left: 20px;
@@ -457,17 +457,17 @@ template {
           justify-content: space-between;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .listCenter .listTitle {
+.content .building .first .left .buildList .listBox .listDetail .listCenter .listTitle {
   font-size: 18px;
   font-weight: 500;
   line-height: 27px;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .listCenter .unitPrice {
+.content .building .first .left .buildList .listBox .listDetail .listCenter .unitPrice {
   line-height: 24px;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .listCenter .listSpecial {
+.content .building .first .left .buildList .listBox .listDetail .listCenter .listSpecial {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -476,7 +476,7 @@ template {
           justify-content: flex-start;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .listCenter .listSpecial div {
+.content .building .first .left .buildList .listBox .listDetail .listCenter .listSpecial div {
   text-align: center;
   width: 105px;
   height: 30px;
@@ -486,31 +486,31 @@ template {
   margin-right: 5px;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .totalPrice {
+.content .building .first .left .buildList .listBox .listDetail .totalPrice {
   line-height: 200px;
   height: 200px;
   margin-left: 11%;
 }
 
-.container .build .first .left .buildList .listBox .listDetail .totalPrice span {
+.content .building .first .left .buildList .listBox .listDetail .totalPrice span {
   font-size: 27px;
   font-weight: 500;
   color: #03a2fb;
 }
 
-.container .build .first .left .all {
+.content .building .first .left .all {
   height: 50px;
   line-height: 50px;
   text-align: center;
   background: #fff;
 }
 
-.container .build .first .left .buildInfor {
+.content .building .first .left .buildInfor {
   background: #fff;
   margin: 20px 0;
 }
 
-.container .build .first .left .buildInfor .buildRow {
+.content .building .first .left .buildInfor .buildRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -523,7 +523,7 @@ template {
   border-bottom: 1px solid #f4f4f4;
 }
 
-.container .build .first .left .buildInfor .buildRow div {
+.content .building .first .left .buildInfor .buildRow div {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -533,19 +533,19 @@ template {
           justify-content: flex-start;
 }
 
-.container .build .first .left .buildInfor .buildRow div .developer {
+.content .building .first .left .buildInfor .buildRow div .developer {
   width: 25%;
 }
 
-.container .build .first .left .buildInfor .buildDetail {
+.content .building .first .left .buildInfor .buildDetail {
   padding: 30px 85px 50px 85px;
 }
 
-.container .build .first .left .quotation {
+.content .building .first .left .quotation {
   background: #fff;
 }
 
-.container .build .first .left .quotation .average {
+.content .building .first .left .quotation .average {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -556,20 +556,20 @@ template {
   padding: 30px 0 20px 0;
 }
 
-.container .build .first .left .quotation .average .buildPrice {
+.content .building .first .left .quotation .average .buildPrice {
   line-height: 25px;
   width: 33%;
 }
 
-.container .build .first .left .quotation .average .buildPrice:not(:last-child) {
+.content .building .first .left .quotation .average .buildPrice:not(:last-child) {
   border-right: 1px solid #f4f4f4;
 }
 
-.container .build .first .right {
+.content .building .first .right {
   width: 20%;
 }
 
-.container .build .first .right .agent {
+.content .building .first .right .agent {
   background: #fff;
   height: 310px;
   border-radius: 5px;
@@ -577,29 +577,29 @@ template {
   padding-top: 30px;
 }
 
-.container .build .first .right .agent img {
+.content .building .first .right .agent img {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-.container .build .first .right .agent .name {
+.content .building .first .right .agent .name {
   padding-bottom: 20px;
   border-bottom: 1px solid #f4f4f4;
 }
 
-.container .build .first .right .agent .free {
+.content .building .first .right .agent .free {
   padding: 15px 0;
   border-bottom: 1px solid #f4f4f4;
 }
 
-.container .build .first .right .agent .free .tel {
+.content .building .first .right .agent .free .tel {
   font-size: 20px;
   color: #03a2fb;
 }
 
-.container .build .first .right .agent .service {
+.content .building .first .right .agent .service {
   margin: 15px auto;
   width: 76%;
   height: 40px;
@@ -609,29 +609,29 @@ template {
   color: #fff;
 }
 
-.container .build .first .right .agent .service:hover {
+.content .building .first .right .agent .service:hover {
   cursor: pointer;
 }
 
-.container .build .first .right .findHouse {
+.content .building .first .right .findHouse {
   margin-top: 30px;
   height: 430px;
   background: #ccc;
   position: relative;
 }
 
-.container .build .first .right .findHouse .entrust {
+.content .building .first .right .findHouse .entrust {
   width: 86%;
   position: absolute;
   top: 225px;
   left: 6%;
 }
 
-.container .build .first .right .findHouse .entrust input {
+.content .building .first .right .findHouse .entrust input {
   width: 100%;
 }
 
-.container .build .first .right .findHouse .entrust .order {
+.content .building .first .right .findHouse .entrust .order {
   margin: 0 auto;
   margin-top: 40px;
   height: 40px;
@@ -643,16 +643,16 @@ template {
   color: #fff;
 }
 
-.container .build .first .right .findHouse .entrust .order:hover {
+.content .building .first .right .findHouse .entrust .order:hover {
   cursor: pointer;
 }
 
-.container .build .second {
+.content .building .second {
   margin: 20px 0;
   background: #fff;
 }
 
-.container .build .second #map {
+.content .building .second #map {
   padding: 20px;
   height: 510px;
 }

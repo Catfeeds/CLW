@@ -1,6 +1,6 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-.container{
+.content{
   font-size: 14px;
     a{
       text-decoration: none;
@@ -31,7 +31,7 @@
         }
       }
     }
-    .build{
+    .building{
       padding: 0 18%;
       position: relative;
       top: -55px;
