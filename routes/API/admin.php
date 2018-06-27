@@ -11,7 +11,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('get_safe_string', 'BannerController@safeString');
 
     // 安全验证
-    Route::group(['middleware' => 'safe.validate'], function () {
+//    Route::group(['middleware' => 'safe.validate'], function () {
         // 权限组管理
         Route::resource('permission_groups','PermissionGroupsController');
 
@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         // 退出
         Route::post('logout','LoginsController@logout');
-    });
+//    });
 
     Route::group(['middleware' => 'apiAuth:admin'], function () {
         /*

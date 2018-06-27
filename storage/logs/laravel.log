@@ -442,3 +442,349 @@
 [2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
 [2018-06-27 16:49:13] local.INFO: select * from information_schema.tables where table_schema = ? and table_name = ?  
 [2018-06-27 16:49:13] local.INFO: select `migration` from `migrations` order by `batch` asc, `migration` asc  
+[2018-06-27 17:00:18] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(23): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 17:03:07] local.INFO: select count(*) as aggregate from `permission_groups` where (`stage` = ?)  
+[2018-06-27 17:03:07] local.INFO: select * from `permission_groups` where (`stage` = ?) limit 10 offset 0  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:25] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select count(*) as aggregate from `blocks`  
+[2018-06-27 17:14:31] local.INFO: select * from `blocks` limit 10 offset 0  
+[2018-06-27 17:14:31] local.INFO: select * from `areas` where `areas`.`id` in (?)  
+[2018-06-27 17:14:31] local.INFO: select * from `buildings` where `buildings`.`block_id` in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:58:56] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 17:58:59] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 18:01:50] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 18:07:04] local.INFO: select * from `admins`  
+[2018-06-27 18:07:04] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-27 18:07:19] local.INFO: select * from `admins`  
+[2018-06-27 18:07:21] local.INFO: select * from `admins`  
+[2018-06-27 18:07:21] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_personal_access_clients` order by `id` desc limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: insert into `oauth_access_tokens` (`id`, `user_id`, `client_id`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) values (?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: update `oauth_access_tokens` set `name` = ? where `id` = ?  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:43] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select count(*) as aggregate from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null  
+[2018-06-27 18:08:39] local.INFO: select * from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null order by `updated_at` desc limit 10 offset 0  
+[2018-06-27 18:08:39] local.INFO: select * from `building_blocks` where `building_blocks`.`id` in (?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:08:39] local.INFO: select * from `buildings` where `buildings`.`id` in (?, ?, ?, ?)  
+[2018-06-27 18:08:39] local.INFO: select * from `house_labels` where `house_labels`.`house_id` in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
