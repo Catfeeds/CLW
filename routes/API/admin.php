@@ -5,30 +5,38 @@
  * Date: 2018/3/12
  * Time: 上午11:54
  */
+
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    // 权限组管理
-    Route::resource('permission_groups','PermissionGroupsController');
+    // 安全验证码
+    Route::get('get_safe_string', 'BannerController@safeString');
 
-    // 权限管理
-    Route::resource('permissions','PermissionsController');
-    Route::get('/permissions_group', 'PermissionsController@permissionsGroup');
+    // 安全验证
+    Route::group(['middleware' => 'safe.validate'], function () {
+        // 权限组管理
+        Route::resource('permission_groups','PermissionGroupsController');
 
-    // 角色管理
-    Route::resource('roles','RolesController');
-    Route::get('/get_all_permissions', 'RolesController@getAllPermissions');
+        // 权限管理
+        Route::resource('permissions','PermissionsController');
+        Route::get('/permissions_group', 'PermissionsController@permissionsGroup');
 
-    // 中介用户
-    Route::resource('media_user','MediaUsersController');
+        // 角色管理
+        Route::resource('roles','RolesController');
+        Route::get('/get_all_permissions', 'RolesController@getAllPermissions');
 
-    // 七牛token
-    Route::get('/get_qi_niu_token', 'BannerController@token');
+        // 中介用户
+        Route::resource('media_user','MediaUsersController');
 
-    // 登录
-    Route::resource('logins','LoginsController');
+        // 七牛token
+        Route::get('/get_qi_niu_token', 'BannerController@token');
 
-    // 退出
-    Route::post('logout','LoginsController@logout');
-//    Route::group(['middleware' => 'apiAuth:admin'], function () {
+        // 登录
+        Route::resource('logins','LoginsController');
+
+        // 退出
+        Route::post('logout','LoginsController@logout');
+    });
+
+    Route::group(['middleware' => 'apiAuth:admin'], function () {
         /*
         |--------------------------------------------------------------------------
         | 管理员
@@ -201,24 +209,21 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //慢查询
         Route::post('query', 'QueryController@create');
 
-    /*
-    |--------------------------------------------------------------------------
-    | App,Android版本管理
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('app_android', 'AppAndroidController');
+        /*
+        |--------------------------------------------------------------------------
+        | App,Android版本管理
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('app_android', 'AppAndroidController');
 
-    /*
-    |--------------------------------------------------------------------------
-    | 资讯管理
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('information', 'InformationController');
-    Route::get('set_top/{id}', 'InformationController@setTop');
-    Route::get('del_top/{id}', 'InformationController@delTop');
+        /*
+        |--------------------------------------------------------------------------
+        | 资讯管理
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('information', 'InformationController');
+        Route::get('set_top/{id}', 'InformationController@setTop');
+        Route::get('del_top/{id}', 'InformationController@delTop');
 
-//    });
-
-
-
+    });
 });

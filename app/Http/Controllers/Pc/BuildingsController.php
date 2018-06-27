@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Pc;
 
 use App\Http\Controllers\Controller;
-use App\Models\Area;
-use App\Models\Block;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
@@ -12,6 +10,7 @@ use Illuminate\Http\Request;
 
 class BuildingsController extends Controller
 {
+    // 楼盘详情
     public function show(
         Request $request,
         Building $building,
@@ -21,46 +20,25 @@ class BuildingsController extends Controller
     {
         // 楼盘下房源基本详情
         $building = $repository->getShow($building, $service);
-
         // 楼盘下所有房源
         $houses = $building->house;
-
+        // 楼盘所属商圈
+        $block = $building->block;
         // 房源数量
         $building->house_count = $houses->count();
-
         // 获取楼盘下房源均价(楼盘下房源总价格/楼盘下房源总面积)
-        $building->buildingAverage = round($houses->sum('total_price') / $houses->sum('constru_acreage'),2).'元/㎡.月';
-
-        // 商圈
-        $block = $building->block;
-
-        // 获取商圈下房源均价
-        $blockId = $block->id;    // 商圈id
-        $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
-        $blockAllHouse = $this->getAllHouse($block);
-        $building->blockAverage = round(collect($blockAllHouse)->collapse()->sum('total_price') / collect($blockAllHouse)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
-
-        // 获取区域下房源均价
-        $areaId = $block->area->id;   // 区域id
-        $area = Area::where('id', $areaId)->with('building.buildingBlock.house')->first();
-        $areaAllHouse = $this->getAllHouse($area);
-        $building->areaAverage = round(collect($areaAllHouse)->collapse()->sum('total_price') / collect($areaAllHouse)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
-
+        $building->buildingAverage = $service->getBuildingAveragePrice($houses);
+        // 商圈下房源均价
+        $building->blockAverage = $service->getBlockAveragePrice($block->id);
+        // 楼盘所属区域
+        $areaId = $block->area->id;
+        // 区域下房源均价
+        $building->areaAverage = $service->getAreaAveragePrice($areaId);
         // 猜你喜欢
-        $request->area_id = $areaId;
+        $request->area_id = $areaId;   // 区域id
         $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
-        return $block;
+        // return $building;
         return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block]);
     }
 
-    public function getAllHouse($res)
-    {
-        $datas = array();
-        foreach ($res->building as $v) {
-            foreach ($v->buildingBlock as $val) {
-                $datas[] = $val->house->toArray();
-            }
-        }
-        return $datas;
-    }
 }

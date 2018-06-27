@@ -5,7 +5,7 @@
 @endsection
 @section('body')
 <div class="content">
-        <div class="nav"><span>首页</span><span>>洪山区</span><span>>光谷</span><span>>现代世贸中心</span></div>
+        <div class="nav"><span>首页</span><span>>洪山区</span><span>>光谷</span><span>>{{$building->name}}</span></div>
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
@@ -25,15 +25,15 @@
                         <div class="introBox">
                             <div class="introTitle">{{$building->name}}</div>
                             <div class="introBuild">
-                                <div>{{$building->house_count}}</div>
+                                <div class="introNum">{{$building->house_count}}</div>
                                 <div>在租房源/套</div>
                             </div>
                             <div class="introBuild">
-                                <div>{{$building->constru_acreage}}</div>
+                                <div class="introNum">{{$building->constru_acreage}}</div>
                                 <div>可租面积/平米</div>
                             </div>
                             <div class="introRental">
-                                <div>{{$building->unit_price}}</div>
+                                <div class="introPrice">{{$building->unit_price}}</div>
                                 <div>月度租金/元每平方米</div>
                             </div>
                         </div>
@@ -42,10 +42,9 @@
                             <a href="#"><div><img src="">查看地图</div></a>
                         </div>
                         <div class="introBetter">
-                            <div><img src="/we_img/house_detail_car.png"></div>
-                            <div><img src="/we_img/house_detail_building.png"></div>
-                            <div><img src="/we_img/house_detail_pioneer.png"></div>
-                            <div><img src="/we_img/house_detail_register.png"></div>
+                            @foreach($building->feature_name_pic as $feature)
+                            <div><img src="{{$feature}}"></div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- 筛选条件 -->
@@ -132,8 +131,8 @@
                 <div class="right">
                     <!-- 经纪 -->
                     <div class="agent">
-                        <img src="/we_img/house_detail_banner03.jpg">
-                        <div class="name"><div>林亚楠</div><div>光谷楼盘经纪</div></div>
+                        <img src="{{$block->agent_pic_cn}}">
+                        <div class="name"><div>{{$block->agent_name}}</div><div>{{$block->name}}楼盘经纪</div></div>
                         <div class="free"><div>免费咨询</div><div class="tel">400-580-8888 转 2347</div></div>
                         <div class="service">在线客服</div>
                     </div>

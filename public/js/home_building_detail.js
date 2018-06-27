@@ -8913,7 +8913,7 @@ var banner = new Swiper('#banner', {
   pagination: '.swiper-pagination',
   paginationClickable: true,
   paginationBulletRender: function paginationBulletRender(banner, index, className) {
-    return '<span class="' + className + '"><img src="' + Data.pic_url[index][url] + '"></span>';
+    return '<span class="' + className + '"><img src="' + Data.pic_url[index].url + '"></span>';
   }
 });
 // 点击导航

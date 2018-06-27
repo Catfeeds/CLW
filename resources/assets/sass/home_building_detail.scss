@@ -17,6 +17,13 @@
         padding: 16px 18%;
     }
     #banner{
+      width: 100%;
+      .swiper-slide{
+        height: 560px;
+        img{
+          width: 100%;
+        }
+      }
       .swiper-pagination{
         bottom: 75px;
         .swiper-pagination-bullet{
@@ -53,7 +60,7 @@
               .introTitle{
                 width: 43%;
                 line-height: 70px;
-                font-size: 26px;
+                font-size: 25px;
                 font-weight: 700;
                 margin-left: 40px;
               }
@@ -61,11 +68,22 @@
                 text-align: center;
                 width: 19%;
                 border-left: 1px solid #f4f4f4;
+                .introNum{
+                  font-size: 25px;
+                  font-weight: 700;
+                  line-height: 40px;
+                }
               }
               .introRental{
                 text-align: center;
                 width: 19%;
                 border-left: 1px solid #f4f4f4;
+                .introPrice{
+                  font-size: 25px;
+                  font-weight: 700;
+                  line-height: 40px;
+                  color: #03a2f9;
+                }
               }
             }
             .introAddress{

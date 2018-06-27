@@ -215,6 +215,18 @@ template {
   padding: 16px 18%;
 }
 
+.content #banner {
+  width: 100%;
+}
+
+.content #banner .swiper-slide {
+  height: 560px;
+}
+
+.content #banner .swiper-slide img {
+  width: 100%;
+}
+
 .content #banner .swiper-pagination {
   bottom: 75px;
 }
@@ -271,7 +283,7 @@ template {
 .content .build .first .left .intro .introBox .introTitle {
   width: 43%;
   line-height: 70px;
-  font-size: 26px;
+  font-size: 25px;
   font-weight: 700;
   margin-left: 40px;
 }
@@ -282,10 +294,23 @@ template {
   border-left: 1px solid #f4f4f4;
 }
 
+.content .build .first .left .intro .introBox .introBuild .introNum {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
 .content .build .first .left .intro .introBox .introRental {
   text-align: center;
   width: 19%;
   border-left: 1px solid #f4f4f4;
+}
+
+.content .build .first .left .intro .introBox .introRental .introPrice {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 40px;
+  color: #03a2f9;
 }
 
 .content .build .first .left .intro .introAddress {
