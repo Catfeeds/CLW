@@ -49,4 +49,22 @@ class InformationController extends APIBaseController
         $res = $information->delete();
         return $this->sendResponse($res,'资讯删除成功');
     }
+
+    public function setTop(
+        $id,
+        InformationRepository $repository
+    )
+    {
+        $res = $repository->setTop($id);
+        return $this->sendResponse($res, '置顶成功');
+    }
+
+    public function delTop(
+        $id,
+        InformationRepository $repository
+    )
+    {
+        $res = $repository->delTop($id);
+        return $this->sendResponse($res, '取消置顶成功');
+    }
 }
