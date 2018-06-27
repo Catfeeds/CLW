@@ -292,7 +292,7 @@ function distribution(FormData) {
 =======
 >>>>>>> origin/wanghao
                 app.unshopkowner.splice(app.index, 1);
-                getShopkeeperList(2);
+                getShopkeeperList(1, this.page1, true);
             }
         },
         error: function error(res) {
