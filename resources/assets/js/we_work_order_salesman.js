@@ -155,7 +155,7 @@ function distribution(FormData, index) {
                     duration: 1000
                 });
                 app.unsalesman.splice(index,1);
-                getSaiesmanList(2)
+                getSaiesmanList(2, 1, true)
             }
         },
         error: function (res) {
