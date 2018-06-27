@@ -1,14 +1,48 @@
-webpackJsonp([6],{
+webpackJsonp([3],{
 
-/***/ 101:
+/***/ 62:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(63);
+
+
+/***/ }),
+
+/***/ 63:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
+__webpack_require__(0);
+
+Vue.component('house-detail-list', __webpack_require__(13));
+Vue.component('detail-banner', __webpack_require__(14));
+Vue.component('feature-banner', __webpack_require__(75));
+Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
+  ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
+});
+new Vue({
+  el: '#Vuebuilding',
+  data: {
+    imgList: JSON.parse($('#imgList').val()),
+    features: JSON.parse($('#features').val()),
+    center: JSON.parse($('#gps').val())
+  }
+});
+
+/***/ }),
+
+/***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(102)
+var __vue_script__ = __webpack_require__(76)
 /* template */
-var __vue_template__ = __webpack_require__(103)
+var __vue_template__ = __webpack_require__(77)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48,12 +82,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 102:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
 //
 //
@@ -83,7 +117,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 103:
+/***/ 77:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -116,40 +150,6 @@ if (false) {
   }
 }
 
-/***/ }),
-
-/***/ 88:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(89);
-
-
-/***/ }),
-
-/***/ 89:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
-__webpack_require__(2);
-
-Vue.component('house-detail-list', __webpack_require__(16));
-Vue.component('detail-banner', __webpack_require__(17));
-Vue.component('feature-banner', __webpack_require__(101));
-Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
-  ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
-});
-new Vue({
-  el: '#Vuebuilding',
-  data: {
-    imgList: JSON.parse($('#imgList').val()),
-    features: JSON.parse($('#features').val()),
-    center: JSON.parse($('#gps').val())
-  }
-});
-
 /***/ })
 
-},[88]);
+},[62]);

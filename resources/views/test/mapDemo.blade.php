@@ -10,12 +10,11 @@
 </head>
 <body>
 <div id="app">
-    <baidu-map class="map" style="display: flex;flex:1;flex-direction: column" center="北京">
-        <bm-view style="width: 100%; flex: 1"></bm-view>
-    </baidu-map>
-    <script src="{{res('/js/home_manifest.js')}}"></script>
-    <script src="{{res('/js/home_vendor.js')}}"></script>
-    <script src="{{res('/js/home_mapLookForHouse.js')}}"></script>
+    {{-- <map-look-for></map-look-for> --}}
+    <self-div a1='ss1' a2='ss2' a3='ss3'> </self-div>
 </div>
+<script src="{{res('/js/home_manifest.js')}}"></script>
+<script src="{{res('/js/home_vendor.js')}}"></script>
+<script src="{{res('/js/home_mapLookForHouse.js')}}"></script>
 </body>
 </html>

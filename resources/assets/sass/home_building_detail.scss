@@ -100,7 +100,7 @@ body{
                 border-left: 1px solid #f4f4f4;
               }
             }
-            div:hover{
+            .filterActive{
               background: #03a2fb;
               color: #fff;
             }
@@ -121,8 +121,16 @@ body{
               div{
                 margin-right: 5%;
               }
+              div:hover{
+                color: #03a2fb;
+                cursor: pointer;
+              }
               span{
                 margin-right: 2%;
+              }
+              span:hover{
+                color: #03a2fb;
+                cursor: pointer;
               }
             }
           }
@@ -148,22 +156,17 @@ body{
               }
             }
             .listDetail{
-              padding: 20px 0 20px 20px;
+              margin: 20px 0 20px 20px;
               display: flex;
-              justify-content: space-between;
+              justify-content: flex-start;
               text-align: center;
+              &:not(:first-child){
+                border-top: 1px solid #f4f4f4;
+              }
               .listPic{
                 width: 18.5%;
                 img{
                   width: 100%;
-                }
-                span{
-                  font-size: 24px;
-                  font-weight: 700;
-                  color: #03a2fb;
-                }
-                &:not(:first-child){
-                  border-right: 1px solid #f4f4f4;
                 }
               }
               .listNum{
@@ -270,6 +273,9 @@ body{
               background: #03a2fb;
               color: #fff;
             }
+            .service:hover{
+              cursor: pointer;
+            }
           }
           .findHouse{
             margin-top: 30px;
@@ -305,7 +311,7 @@ body{
       .second{
         margin: 20px 0;
         background: #fff;
-        .map{
+        #map{
           padding: 20px;
           height: 510px;
         }
