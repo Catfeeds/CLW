@@ -43,5 +43,5 @@ Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function (
 });
 // 楚楼网商城
 Route::group(['prefix' => 'mall', 'namespace' => 'Mall'], function () {
-    \Composer\Autoload\includeFile(__DIR__ . '/Pc/h');
+    \Composer\Autoload\includeFile(__DIR__ . '/Pc/mall.php');
 });
