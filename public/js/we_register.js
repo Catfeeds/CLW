@@ -1,25 +1,14 @@
 webpackJsonp([15],{
 
-<<<<<<< HEAD
 /***/ 140:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(141);
-=======
-/***/ 139:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(140);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 141:
-=======
-/***/ 140:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,8 +160,4 @@ $(document).on('click', '#getSms', function (e) {
 
 /***/ })
 
-<<<<<<< HEAD
 },[140]);
-=======
-},[139]);
->>>>>>> origin/wanghao

@@ -1,25 +1,14 @@
 webpackJsonp([20],{
 
-<<<<<<< HEAD
 /***/ 134:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(135);
-=======
-/***/ 133:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(134);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 135:
-=======
-/***/ 134:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -120,8 +109,4 @@ function getValue(name) {
 
 /***/ })
 
-<<<<<<< HEAD
 },[134]);
-=======
-},[133]);
->>>>>>> origin/wanghao

@@ -1,25 +1,14 @@
 webpackJsonp([5],{
 
-<<<<<<< HEAD
 /***/ 150:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(151);
-=======
-/***/ 149:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(150);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 151:
-=======
-/***/ 150:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -28,15 +17,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_picker_style_css__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_picker_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_picker_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_picker__ = __webpack_require__(154);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_picker_style_css__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_picker_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui_lib_picker_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_picker__ = __webpack_require__(153);
->>>>>>> origin/wanghao
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_picker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_style_css__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_mint_ui_lib_style_css__);
@@ -167,21 +150,13 @@ $(document).on('click', '.loginOut button', function () {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 152:
-=======
-/***/ 151:
->>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-<<<<<<< HEAD
 var content = __webpack_require__(153);
-=======
-var content = __webpack_require__(152);
->>>>>>> origin/wanghao
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -202,11 +177,7 @@ if(false) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 153:
-=======
-/***/ 152:
->>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -221,11 +192,7 @@ exports.push([module.i, "\n.picker {\n  overflow: hidden;\n}\n.picker-toolbar {\
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 154:
-=======
-/***/ 153:
->>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -1678,8 +1645,4 @@ function broadcast(componentName, eventName, params) {
 
 /***/ })
 
-<<<<<<< HEAD
 },[150]);
-=======
-},[149]);
->>>>>>> origin/wanghao

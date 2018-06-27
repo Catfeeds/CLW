@@ -1,25 +1,14 @@
 webpackJsonp([2],{
 
-<<<<<<< HEAD
 /***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(166);
-=======
-/***/ 164:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(165);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 166:
-=======
-/***/ 165:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44,15 +33,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_tab_item_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_mint_ui_lib_tab_item_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_tab_item__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_tab_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_tab_item__);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_navbar_style_css__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_navbar_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_navbar_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_navbar__ = __webpack_require__(169);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_navbar_style_css__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_navbar_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_mint_ui_lib_navbar_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_navbar__ = __webpack_require__(168);
->>>>>>> origin/wanghao
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_navbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_navbar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_mint_ui_lib_cell_style_css__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_mint_ui_lib_cell_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_mint_ui_lib_cell_style_css__);
@@ -300,10 +283,6 @@ function distribution(FormData) {
                     position: 'center',
                     duration: 1000
                 });
-<<<<<<< HEAD
-                getShopkeeperList(1);
-=======
->>>>>>> origin/wanghao
                 app.unshopkowner.splice(app.index, 1);
                 getShopkeeperList(1, this.page1, true);
             }
@@ -320,21 +299,13 @@ function distribution(FormData) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 167:
-=======
-/***/ 166:
->>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-<<<<<<< HEAD
 var content = __webpack_require__(168);
-=======
-var content = __webpack_require__(167);
->>>>>>> origin/wanghao
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -355,11 +326,7 @@ if(false) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 168:
-=======
-/***/ 167:
->>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -374,11 +341,7 @@ exports.push([module.i, "/* Cell Component */\n/* Header Component */\n/* Button
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 169:
-=======
-/***/ 168:
->>>>>>> origin/wanghao
 /***/ (function(module, exports) {
 
 module.exports =
@@ -5499,8 +5462,4 @@ if(false) {
 
 /***/ })
 
-<<<<<<< HEAD
 },[165]);
-=======
-},[164]);
->>>>>>> origin/wanghao

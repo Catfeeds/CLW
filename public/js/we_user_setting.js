@@ -1,25 +1,14 @@
 webpackJsonp([7],{
 
-<<<<<<< HEAD
 /***/ 163:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(164);
-=======
-/***/ 162:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(163);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 164:
-=======
-/***/ 163:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -79,8 +68,4 @@ $(document).on('touchend || tap', '.loginOut', function () {
 
 /***/ })
 
-<<<<<<< HEAD
 },[163]);
-=======
-},[162]);
->>>>>>> origin/wanghao

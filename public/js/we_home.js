@@ -25,12 +25,8 @@ __webpack_require__(82);
 __webpack_require__(83);
 __webpack_require__(84);
 __webpack_require__(85);
-<<<<<<< HEAD
 __webpack_require__(86);
 module.exports = __webpack_require__(87);
-=======
-module.exports = __webpack_require__(86);
->>>>>>> origin/wanghao
 
 
 /***/ }),
@@ -365,7 +361,6 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 // removed by extract-text-webpack-plugin
 
-<<<<<<< HEAD
 /***/ }),
 
 /***/ 87:
@@ -373,8 +368,6 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 // removed by extract-text-webpack-plugin
 
-=======
->>>>>>> origin/wanghao
 /***/ })
 
 },[53]);

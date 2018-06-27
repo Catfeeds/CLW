@@ -1,25 +1,14 @@
 webpackJsonp([13],{
 
-<<<<<<< HEAD
 /***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(147);
-=======
-/***/ 145:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(146);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 147:
-=======
-/***/ 146:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -116,8 +105,4 @@ if (app.list.length !== 0) {
 
 /***/ })
 
-<<<<<<< HEAD
 },[146]);
-=======
-},[145]);
->>>>>>> origin/wanghao

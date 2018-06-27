@@ -1,25 +1,14 @@
 webpackJsonp([10],{
 
-<<<<<<< HEAD
 /***/ 157:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(158);
-=======
-/***/ 156:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(157);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ 158:
-=======
-/***/ 157:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -110,8 +99,4 @@ $(document).on('click', '.loginOut button', function () {
 
 /***/ })
 
-<<<<<<< HEAD
 },[157]);
-=======
-},[156]);
->>>>>>> origin/wanghao
