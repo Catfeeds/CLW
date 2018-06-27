@@ -157,7 +157,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         // 推荐商圈列表数据
         Route::get('all_building_blocks', 'BlocksController@allBuildingBlock');
-        // 推荐商圈
+        // 商圈添加推荐
+        Route::post('add_recommend', 'BlocksController@addRecommend');
+        /*
+        |--------------------------------------------------------------------------
+        | 商圈管理
+        |--------------------------------------------------------------------------
+        */
+        //
         Route::resource('blocks', 'BlocksController');
         /*
         |--------------------------------------------------------------------------
