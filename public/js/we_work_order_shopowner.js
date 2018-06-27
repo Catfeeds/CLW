@@ -121,10 +121,17 @@ var app = new __WEBPACK_IMPORTED_MODULE_18_vue___default.a({
 
         // 上拉加载更多 !待处理!
         getUnList: function getUnList() {
-            __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
+            if (!pulldown1) {
+                __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            } else {
+                __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             console.log(111);
             if (this.pulldown1) return;
             getShopkeeperList(1, this.page1);
@@ -142,11 +149,17 @@ var app = new __WEBPACK_IMPORTED_MODULE_18_vue___default.a({
 
         // 上拉加载更多 !已处理!
         getList: function getList() {
-            __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
-            console.log(222);
+            if (!pulldown2) {
+                __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            } else {
+                __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             if (this.pulldown2) return;
             getShopkeeperList(2, this.page2);
             console.log('上拉加载更多', this.page2);
