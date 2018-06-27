@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlocksRepository extends Model
 {
+    // 商圈列表
     public function blockList()
     {
-        return Block::where([])->paginate(10);
+        return Block::where([])->with('area', 'building')->paginate(10);
     }
 
+    // 添加商圈
     public function addBlock(
         $request
     )
@@ -25,6 +27,7 @@ class BlocksRepository extends Model
         ]);
     }
 
+    // 修改商圈
     public function updateBlock(
         $request,
         Block $block
