@@ -66,3 +66,25 @@
 [2018-06-27 10:00:32] local.INFO: select * from `admins` where `id` = ? limit 1  
 [2018-06-27 10:00:32] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
 [2018-06-27 10:00:32] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `areas`  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `blocks` where `area_id` = ? order by `recommend` desc  
+[2018-06-27 10:05:43] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 10:05:43] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
