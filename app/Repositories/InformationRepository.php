@@ -39,4 +39,18 @@ class InformationRepository extends Model
         if (!$information->save()) return false;
         return true;
     }
+
+    public function setTop(
+        $id
+    )
+    {
+        return Information::where('id', $id)->update(['top' => 1]);
+    }
+
+    public function delTop(
+        $id
+    )
+    {
+        return Information::where('id', $id)->update(['top' => 2]);
+    }
 }

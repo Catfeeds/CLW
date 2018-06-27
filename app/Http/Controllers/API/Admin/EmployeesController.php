@@ -49,8 +49,8 @@ class EmployeesController extends APIBaseController
         $employee = Employee::where('tel', $request->tel)->orWhere('openid', $request->openid)->first();
         if ($employee) return $this->sendError('请勿重复绑定');
         $res = $repository->addEmployee($request);
-        if (!$res) return $this->sendResponse($res,'绑定成功');
-        return $this->sendError('绑定失败');
+        if (!$res) return $this->sendResponse($res,'绑定失败');
+        return $this->sendError('绑定成功');
     }
 
 
