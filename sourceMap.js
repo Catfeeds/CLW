@@ -79,11 +79,22 @@ module.exports = {
   home: {
     scss: [
       'home_mapLookForHouse',
-      'home_index'
+      'home_footer',
+      'home_header',
+      'home_head',
+      'home_house_detail',
+      'home_download',
+      'home_page',
+      'home_building_detail'
     ],
     js: [
       'home_mapLookForHouse',
-      'home_index'
+      'home_footer',
+      'home_header',
+      'home_head',
+      'home_house_detail',
+      'home_building_detail',
+      'home_page'
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',

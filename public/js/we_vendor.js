@@ -39604,8 +39604,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
+<<<<<<< HEAD
+ * Swiper 4.3.0
+=======
  * Swiper 4.3.3
 >>>>>>> origin/wanghao
+>>>>>>> origin/lz
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * http://www.idangero.us/swiper/
  *
@@ -39616,8 +39620,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 <<<<<<< HEAD
  * Released on: May 27, 2018
 =======
+<<<<<<< HEAD
+ * Released on: May 27, 2018
+=======
  * Released on: June 5, 2018
 >>>>>>> origin/wanghao
+>>>>>>> origin/lz
  */
 
 (function (global, factory) {
@@ -41764,10 +41772,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
     var translate = rtlTranslate ? swiper.translate : -swiper.translate;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/lz
 
     var normalizedTranslate = translate < 0 ? -Math.floor(Math.abs(translate)) : Math.floor(translate);
     var normalizedSnapGrid = snapGrid.map(function (val) { return Math.floor(val); });
     var normalizedSlidesGrid = slidesGrid.map(function (val) { return Math.floor(val); });
+<<<<<<< HEAD
+=======
 =======
     function normalize(val) {
       if (val < 0) { return -Math.floor(Math.abs(val)); }
@@ -41777,6 +41790,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var normalizedSnapGrid = snapGrid.map(function (val) { return normalize(val); });
     var normalizedSlidesGrid = slidesGrid.map(function (val) { return normalize(val); });
 >>>>>>> origin/wanghao
+>>>>>>> origin/lz
 
     var currentSnap = snapGrid[normalizedSnapGrid.indexOf(normalizedTranslate)];
     var prevSnap = snapGrid[normalizedSnapGrid.indexOf(normalizedTranslate) - 1];

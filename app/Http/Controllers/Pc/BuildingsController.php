@@ -51,8 +51,9 @@ class BuildingsController extends Controller
         // $likeBuilding 猜你喜欢
         // $building 楼盘基本数据
         // $houses 楼盘下房源数据
-
-        return $building;
+        // dd(['building' => $building->toArray(), 'likeBuilding' => $likeBuilding, 'houses' => $houses->toArray()]);
+        return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses]);
+        // return $building;
     }
 
     public function getAllHouse($res)
