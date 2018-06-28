@@ -86,7 +86,8 @@ module.exports = {
       'home_download',
       'home_page',
       'home_building_detail',
-      'home_information'
+      'home_information',
+      'home_paging'
     ],
     js: [
       'home_mapLookForHouse',

@@ -2,7 +2,7 @@
 @section('title', '咨询列表')
 @section('header')
     <link rel="stylesheet" href="{{res('/css/home_information.css')}}">
-
+    <link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
 @endsection
 @section('body')
 
@@ -19,7 +19,7 @@
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
                                         @foreach($tops as $top)
-                                            <div class="swiper-slide"><img src="https://upload.chulouwang.com/{{$top->banner}}"></div>
+                                            <div class="swiper-slide"><img src="{{$top->banner_cn}}"></div>
                                         @endforeach
                                     </div>
                                     <div class="swiper-pagination"></div>
@@ -32,34 +32,41 @@
                         </div>
                     </li>
                     <!--咨询-->
-                    <li class="list">
-                        <div class="list-time"><span class="year">2018 </span><span class="md">05/22</span></div>
-                        <div class="list-body">
-                            <!--图片-->
-                            <div class="list-body-left"><img></div>
-                            <div class="list-body-right">
-                                <!--标题-->
-                                <div>成都一写字楼空调噪音扰民？官放：协商蒋多举措施降噪音</div>
-                                <!--时间-->
-                                <div class="list-body-time">2018/06/07 10:12:15</div>
-                                <!--简介-->
-                                <div class="list-body-content">
-                                    成都天府进程绿道首期即将开放成都天府进程绿道首期即将开放成都天府进程绿道首期即将开放成都天府进程绿道首期即将开放成都天府进程绿道首期即将开放成都天府进程绿道首期即将开放
+                    @foreach($contents as $key => $content)
+                        <?php $time = explode('-', $key)?>
+                        <li class="list">
+                            <div class="list-time"><span class="year">{{$time[0]}} </span><span
+                                        class="md">{{$time[1].'/'.$time[2]}}</span></div>
+                            @foreach($content as $cont)
+                                <div class="list-body">
+                                    <!--图片-->
+                                    <div class="list-body-left"><img src="{{$cont->banner_cn}}"></div>
+                                    <div class="list-body-right">
+                                        <!--标题-->
+                                        <div>{{$cont->title}}</div>
+                                        <!--时间-->
+                                        <div class="list-body-time">{{$cont->created_at}}</div>
+                                        <!--简介-->
+                                        <div class="list-body-content">
+                                            {{$cont->brief}}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
+                            @endforeach
+                        </li>
+                    @endforeach
                 </ul>
+                <div style="text-align: center; background-color: #fff">
+                    {{ $contents->links() }}
+                </div>
             </div>
             <div class="right">
                 <div class="right-title"><span>热门资讯</span></div>
                 <div>
                     <ul>
-                        <li><span>行业新闻</span>|<span>成都天府进程绿道首期即将开放</span></li>
-                        <li><span>行业新闻</span>|<span>成都天府进程绿道首期即将开放</span></li>
-                        <li><span>行业新闻</span>|<span>成都天府进程绿道首期即将开放</span></li>
-                        <li><span>行业新闻</span>|<span>成都天府进程绿道首期即将开放</span></li>
-                        <li><span>行业新闻</span>|<span>成都天府进程绿道首期即将开放</span></li>
+                        @foreach($hots as $hot)
+                            <li><span>{{$hot->title}}</span></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
