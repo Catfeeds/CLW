@@ -21,8 +21,8 @@ class RegistersService
         $request
     )
     {
-        $masterRedis = new MasterRedis();
 
+        $masterRedis = new MasterRedis();
         $key = config('redisKey.STRING_SMSCODE_') . 'register:' . $request->tel;
         // 验证手机短信是否正确
         $telCaptcha = $masterRedis->getString($key, 'old');
@@ -73,7 +73,6 @@ class RegistersService
     )
     {
         $masterRedis = new MasterRedis();
-
         $key = config('redisKey.STRING_SMSCODE_') . 'register:' . $request->tel;
         // 验证手机短信是否正确
         $telCaptcha = $masterRedis->getString($key, 'old');
