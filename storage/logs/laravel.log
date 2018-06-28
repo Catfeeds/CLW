@@ -788,3 +788,77 @@
 [2018-06-27 18:08:39] local.INFO: select * from `users` where `id` = ? limit 1  
 [2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
 [2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select count(*) as aggregate from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null  
+[2018-06-27 18:23:33] local.INFO: select * from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null order by `updated_at` desc limit 10 offset 0  
+[2018-06-27 18:23:33] local.INFO: select * from `building_blocks` where `building_blocks`.`id` in (?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:23:33] local.INFO: select * from `buildings` where `buildings`.`id` in (?, ?, ?, ?)  
+[2018-06-27 18:23:33] local.INFO: select * from `house_labels` where `house_labels`.`house_id` in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:33] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select count(*) as aggregate from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null  
+[2018-06-27 18:23:42] local.INFO: select * from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null order by `updated_at` desc limit 10 offset 0  
+[2018-06-27 18:23:42] local.INFO: select * from `building_blocks` where `building_blocks`.`id` in (?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:23:42] local.INFO: select * from `buildings` where `buildings`.`id` in (?, ?, ?, ?)  
+[2018-06-27 18:23:42] local.INFO: select * from `house_labels` where `house_labels`.`house_id` in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:23:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:23:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
