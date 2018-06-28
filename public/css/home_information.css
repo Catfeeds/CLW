@@ -230,6 +230,8 @@ body {
 }
 
 .continue .main .left {
+  min-width: 790px;
+  max-width: 790px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -249,7 +251,6 @@ body {
 
 .continue .main .left .common {
   margin: 0px 20px 20px 20px;
-  width: 750px;
 }
 
 .continue .main .left .common .swiper {
@@ -279,9 +280,11 @@ body {
 
 .continue .main .left .list {
   background-color: #fff;
+  margin-bottom: 20px;
 }
 
 .continue .main .left .list .list-time {
+  background-color: #fcfcfc;
   border-bottom: 1px solid #f1f1f1;
   padding: 20px 20px 10px 20px;
 }
@@ -292,6 +295,7 @@ body {
 
 .continue .main .left .list .list-time .md {
   font-size: 18px;
+  font-weight: bold;
 }
 
 .continue .main .left .list .list-body {
@@ -347,6 +351,8 @@ body {
 
 .continue .main .right {
   min-width: 360px;
+  max-width: 360px;
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -362,6 +368,7 @@ body {
 }
 
 .continue .main .right .right-title {
+  background-color: #fcfcfc;
   padding: 15px 0px;
   border-bottom: 1px solid #f1f1f1;
 }
@@ -369,6 +376,8 @@ body {
 .continue .main .right .right-title span {
   margin-left: 20px;
   font-size: 16px;
+  overflow: hidden;
+  width: 320px;
 }
 
 .continue .main .right ul {
@@ -377,6 +386,6 @@ body {
 
 .continue .main .right ul li {
   padding: 10px 0px;
-  font-size: 15px;
+  font-size: 12px;
 }
 
