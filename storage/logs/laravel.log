@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2018-06-26 15:15:24] local.INFO: select * from `buildings` where `id` = ? limit 1  
 [2018-06-26 15:15:24] local.INFO: select `office_building_houses`.*, `building_blocks`.`building_id` from `office_building_houses` inner join `building_blocks` on `building_blocks`.`id` = `office_building_houses`.`building_block_id` where `building_blocks`.`building_id` = ? and `shelf` = ? and `office_building_houses`.`deleted_at` is null  
 [2018-06-26 15:15:24] local.INFO: select `building_features`.*, `CLW`.`building_has_features`.`building_id` as `pivot_building_id`, `CLW`.`building_has_features`.`building_feature_id` as `pivot_building_feature_id` from `building_features` inner join `CLW`.`building_has_features` on `building_features`.`id` = `CLW`.`building_has_features`.`building_feature_id` where `CLW`.`building_has_features`.`building_id` = ?  
@@ -16144,3 +16145,1127 @@ Did you mean one of these?
 [2018-06-27 18:14:03] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
 [2018-06-27 18:14:03] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
 [2018-06-27 18:14:03] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+=======
+[2018-06-27 15:47:42] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `buildings` where `buildings`.`block_id` = ? and `buildings`.`block_id` is not null  
+[2018-06-27 15:47:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:47:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `buildings` where `buildings`.`block_id` = ? and `buildings`.`block_id` is not null  
+[2018-06-27 15:48:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:48:17] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:35] local.INFO: select * from `admins`  
+[2018-06-27 15:49:35] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-27 15:49:35] local.INFO: select * from `oauth_personal_access_clients` order by `id` desc limit 1  
+[2018-06-27 15:49:35] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:35] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:35] local.INFO: insert into `oauth_access_tokens` (`id`, `user_id`, `client_id`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) values (?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 15:49:35] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:35] local.INFO: update `oauth_access_tokens` set `name` = ? where `id` = ?  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `areas` where `areas`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `cities` where `cities`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:36] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:40] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `areas` where `areas`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `cities` where `cities`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:41] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `buildings` where `buildings`.`block_id` = ? and `buildings`.`block_id` is not null  
+[2018-06-27 15:49:47] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:49:47] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:49:57] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:49:57] local.INFO: select * from `buildings` where `buildings`.`block_id` = ? and `buildings`.`block_id` is not null  
+[2018-06-27 15:50:13] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `buildings` where `buildings`.`block_id` = ? and `buildings`.`block_id` is not null  
+[2018-06-27 15:50:13] local.INFO: delete from `blocks` where `id` = ?  
+[2018-06-27 15:50:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select count(*) as aggregate from `blocks`  
+[2018-06-27 15:50:14] local.INFO: select * from `blocks` limit 10 offset 80  
+[2018-06-27 15:50:14] local.INFO: select * from `areas` where `areas`.`id` in (?, ?)  
+[2018-06-27 15:50:14] local.INFO: select * from `buildings` where `buildings`.`block_id` in (?, ?)  
+[2018-06-27 15:50:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:18] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `areas` where `areas`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `cities` where `cities`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:19] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `areas` where `areas`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `cities` where `cities`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:29] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `blocks` where `id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `areas` where `areas`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `cities` where `cities`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 15:50:56] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:14:11] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select count(*) as aggregate from `blocks`  
+[2018-06-27 16:14:12] local.INFO: select * from `blocks` limit 10 offset 0  
+[2018-06-27 16:14:12] local.INFO: select * from `areas` where `areas`.`id` in (?)  
+[2018-06-27 16:14:12] local.INFO: select * from `buildings` where `buildings`.`block_id` in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:14:12] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:21:47] local.ERROR: Class App\Http\Controllers\API\BannerController does not exist {"exception":"[object] (ReflectionException(code: -1): Class App\\Http\\Controllers\\API\\BannerController does not exist at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php:752)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array)
+#3 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(226): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(796): Illuminate\\Routing\\Route->getController()
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(757): Illuminate\\Routing\\Route->controllerMiddleware()
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(671): Illuminate\\Routing\\Route->gatherMiddleware()
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#14 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#36 {main}
+"} 
+[2018-06-27 16:23:04] local.ERROR: Class App\Http\Controllers\API\BannerController does not exist {"exception":"[object] (ReflectionException(code: -1): Class App\\Http\\Controllers\\API\\BannerController does not exist at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php:752)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array)
+#3 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(226): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(796): Illuminate\\Routing\\Route->getController()
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(757): Illuminate\\Routing\\Route->controllerMiddleware()
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(671): Illuminate\\Routing\\Route->gatherMiddleware()
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#14 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#36 {main}
+"} 
+[2018-06-27 16:23:10] local.ERROR: Class App\Http\Controllers\API\BannerController does not exist {"exception":"[object] (ReflectionException(code: -1): Class App\\Http\\Controllers\\API\\BannerController does not exist at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php:752)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array)
+#3 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(226): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(796): Illuminate\\Routing\\Route->getController()
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(757): Illuminate\\Routing\\Route->controllerMiddleware()
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(671): Illuminate\\Routing\\Route->gatherMiddleware()
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#14 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#36 {main}
+"} 
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:09] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:28:46] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:15] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:23] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 16:37:24] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 16:49:13] local.INFO: select * from information_schema.tables where table_schema = ? and table_name = ?  
+[2018-06-27 16:49:13] local.INFO: select `migration` from `migrations` order by `batch` asc, `migration` asc  
+[2018-06-27 17:00:18] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(23): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 17:03:07] local.INFO: select count(*) as aggregate from `permission_groups` where (`stage` = ?)  
+[2018-06-27 17:03:07] local.INFO: select * from `permission_groups` where (`stage` = ?) limit 10 offset 0  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:12:51] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:13:18] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:13] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:14] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:25] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:26] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select count(*) as aggregate from `blocks`  
+[2018-06-27 17:14:31] local.INFO: select * from `blocks` limit 10 offset 0  
+[2018-06-27 17:14:31] local.INFO: select * from `areas` where `areas`.`id` in (?)  
+[2018-06-27 17:14:31] local.INFO: select * from `buildings` where `buildings`.`block_id` in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 17:14:31] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 17:58:56] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 17:58:59] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 18:01:50] local.ERROR: The payload is invalid. {"exception":"[object] (Illuminate\\Contracts\\Encryption\\DecryptException(code: 0): The payload is invalid. at /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php:191)
+[stacktrace]
+#0 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(134): Illuminate\\Encryption\\Encrypter->getJsonPayload(NULL)
+#1 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php(160): Illuminate\\Encryption\\Encrypter->decrypt(NULL, false)
+#2 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(221): Illuminate\\Encryption\\Encrypter->decryptString(NULL)
+#3 /luozhen/CLW/app/Http/Middleware/SafeValidate.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('decryptString', Array)
+#4 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): App\\Http\\Middleware\\SafeValidate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 120, '1')
+#11 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#14 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#15 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#16 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(590): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#17 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#18 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /luozhen/CLW/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(65): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /luozhen/CLW/vendor/fideloper/proxy/src/TrustProxies.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /luozhen/CLW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#40 /luozhen/CLW/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#41 {main}
+"} 
+[2018-06-27 18:07:04] local.INFO: select * from `admins`  
+[2018-06-27 18:07:04] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-27 18:07:19] local.INFO: select * from `admins`  
+[2018-06-27 18:07:21] local.INFO: select * from `admins`  
+[2018-06-27 18:07:21] local.INFO: select * from `admins` where (`name` = ?) limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_personal_access_clients` order by `id` desc limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: insert into `oauth_access_tokens` (`id`, `user_id`, `client_id`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) values (?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: update `oauth_access_tokens` set `name` = ? where `id` = ?  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:22] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:07:42] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:07:43] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `admins` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select count(*) as aggregate from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null  
+[2018-06-27 18:08:39] local.INFO: select * from `office_building_houses` where `house_busine_state` = ? and `office_building_houses`.`deleted_at` is null order by `updated_at` desc limit 10 offset 0  
+[2018-06-27 18:08:39] local.INFO: select * from `building_blocks` where `building_blocks`.`id` in (?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:08:39] local.INFO: select * from `buildings` where `buildings`.`id` in (?, ?, ?, ?)  
+[2018-06-27 18:08:39] local.INFO: select * from `house_labels` where `house_labels`.`house_id` in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `users` where `id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_access_tokens` where `oauth_access_tokens`.`id` = ? limit 1  
+[2018-06-27 18:08:39] local.INFO: select * from `oauth_clients` where `oauth_clients`.`id` = ? limit 1  
+>>>>>>> origin/lz
+[2018-06-27 18:15:01] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:15:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:15:01] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:15:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:15:36] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:15:36] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:15:36] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:15:36] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:16:23] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:16:23] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:16:23] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:16:23] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:17:15] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:17:15] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:17:15] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:17:15] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:17:39] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:17:39] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:17:39] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:17:39] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:20:19] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:20:19] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:20:19] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:20:19] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:20:49] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:20:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:20:49] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:20:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:21:03] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:21:03] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:21:04] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:21:04] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:22:46] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:22:46] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:22:46] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:22:46] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:24:27] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:24:28] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:24:28] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:24:28] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:24:46] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:24:46] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:24:46] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:24:46] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:25:19] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:25:19] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:25:19] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:25:19] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:25:38] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:25:38] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:25:38] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:25:39] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:28:04] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:28:04] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:28:04] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:28:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:30:59] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:30:59] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:30:59] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:30:59] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:32:13] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:32:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:32:13] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:32:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:36:58] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:36:58] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:36:58] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:36:58] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:37:24] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:37:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:37:24] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:37:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:37:29] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:37:29] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:37:29] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:37:29] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:38:01] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:38:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:38:01] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:38:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:38:29] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:38:29] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:38:29] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:38:29] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:39:24] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:39:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:39:24] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:39:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:40:05] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:40:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:40:05] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:40:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:40:56] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:40:56] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:40:56] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:40:56] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:41:24] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:41:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:41:24] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:41:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:41:47] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:41:47] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:41:47] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:41:47] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:42:22] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:42:23] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:42:23] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:42:23] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:42:40] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:42:40] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:42:41] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:42:41] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:45:13] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:45:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:45:13] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:45:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:45:28] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:45:28] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:45:28] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:45:28] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 18:45:38] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 18:45:38] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 18:45:38] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 18:45:38] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:16:52] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:16:52] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:16:52] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:16:52] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:16:54] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:16:54] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:16:54] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:16:54] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:17:03] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:17:03] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:17:03] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:17:03] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:17:25] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:17:25] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:17:25] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:17:25] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:17:49] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:17:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:17:49] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:17:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:26:23] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:26:23] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:26:23] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:26:23] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:28:40] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:28:40] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:28:40] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:28:40] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:29:54] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:29:54] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:29:54] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:29:54] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:30:12] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:30:12] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:30:12] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:30:12] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:30:25] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:30:26] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:30:26] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:30:26] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:30:48] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:30:48] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:30:48] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:30:48] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:31:46] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:31:46] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:31:46] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:31:46] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:32:01] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:32:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:32:01] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:32:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:34:21] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:34:21] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:34:21] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:34:21] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:34:27] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:34:28] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:34:28] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:34:28] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-27 19:34:33] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-27 19:34:33] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-27 19:34:33] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-27 19:34:33] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:19:39] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:19:39] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:19:39] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:19:39] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:21:49] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:21:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:21:49] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:21:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:25:22] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:25:22] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:25:22] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:25:22] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:25:43] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:25:43] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:25:43] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:25:43] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:26:31] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:26:31] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:26:31] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:26:31] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:28:21] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:28:21] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:28:21] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:28:21] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:34:04] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:34:04] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:34:04] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:34:04] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:36:50] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:36:50] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:36:50] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:36:50] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:39:05] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:39:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:39:05] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:39:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:42:57] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:42:57] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:42:57] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:42:57] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:44:00] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:44:00] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:44:00] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:44:00] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 11:45:54] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 11:45:54] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 11:45:54] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 11:45:54] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:15:04] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:15:04] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:15:04] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:15:04] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:16:49] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:16:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:16:49] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:16:49] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:17:21] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:17:21] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:17:21] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:17:21] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:18:05] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:18:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:18:05] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:18:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:18:14] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:18:14] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:18:14] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:18:14] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:23:11] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:23:11] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:23:11] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:23:11] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:24:24] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:24:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:24:24] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:24:24] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:28:41] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:28:41] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:28:41] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:28:41] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:29:32] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:29:32] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:29:32] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:29:32] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:30:16] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:30:16] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:30:16] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:30:16] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:31:14] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:31:14] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:31:14] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:31:14] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:32:48] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:32:48] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:32:48] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:32:48] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:33:05] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:33:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:33:05] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:33:05] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:33:30] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:33:31] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:33:31] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:33:31] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:36:57] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:36:57] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:36:57] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:36:57] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:37:01] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:37:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:37:01] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:37:01] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:37:13] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:37:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:37:13] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:37:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:37:33] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:37:33] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:37:33] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:37:33] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:39:13] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:39:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:39:13] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:39:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:40:00] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:40:00] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:40:00] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:40:00] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:40:18] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:40:18] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:40:18] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:40:18] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:40:30] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:40:30] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:40:30] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:40:30] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:41:17] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:41:17] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:41:17] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:41:17] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  
+[2018-06-28 14:42:12] local.INFO: select * from `information` where `top` = ? and `information`.`deleted_at` is null order by `created_at` desc limit 3  
+[2018-06-28 14:42:12] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-06-28 14:42:13] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-06-28 14:42:13] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `created_at` desc limit 10 offset 0  

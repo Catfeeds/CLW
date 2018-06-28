@@ -15,8 +15,8 @@ __webpack_require__(2);
 var Swiper = __webpack_require__(8);
 
 var mySwiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination'
-    //pagination : '#swiper-pagination1',
+    pagination: '.swiper-pagination',
+    width: 770
 });
 
 /***/ }),

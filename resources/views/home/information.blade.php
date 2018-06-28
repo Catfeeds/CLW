@@ -5,9 +5,10 @@
 
 @endsection
 @section('body')
-    <div class="container">
+
+    <div class="continue">
         <!--  -->
-        <div class="nav"><span>首页</span><span>>咨询</span><span>>全部咨询</span></div>
+        <div class="nav"><span>首页 </span><span>> 资讯 </span><span>> 全部资讯</span></div>
         <div class="main">
             <div class="left">
                 <ul>
@@ -17,9 +18,9 @@
                             <div class="swiper">
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <div class="swiper-slide">Slide 1</div>
-                                        <div class="swiper-slide">Slide 2</div>
-                                        <div class="swiper-slide">Slide 3</div>
+                                        @foreach($tops as $top)
+                                            <div class="swiper-slide"><img src="https://upload.chulouwang.com/{{$top->banner}}"></div>
+                                        @endforeach
                                     </div>
                                     <div class="swiper-pagination"></div>
                                 </div>
@@ -32,7 +33,7 @@
                     </li>
                     <!--咨询-->
                     <li class="list">
-                        <div class="list-time"><span>2018 05/22</span></div>
+                        <div class="list-time"><span class="year">2018 </span><span class="md">05/22</span></div>
                         <div class="list-body">
                             <!--图片-->
                             <div class="list-body-left"><img></div>
@@ -51,7 +52,7 @@
                 </ul>
             </div>
             <div class="right">
-                <div class="right-title"><span>热门咨询</span></div>
+                <div class="right-title"><span>热门资讯</span></div>
                 <div>
                     <ul>
                         <li><span>行业新闻</span>|<span>成都天府进程绿道首期即将开放</span></li>

@@ -15,8 +15,8 @@ class InformationController extends Controller
         $top = $repository->carousel(); // 轮播图
         $hot = $repository->hotInformation(); // 热点
         $content = $repository->getList();
-        dd($top);
-        return view('home.information', ['content' => $content, 'top' => $top, 'hots' => $hot]);
+
+        return view('home.information', ['content' => $content, 'tops' => $top, 'hots' => $hot]);
     }
 
     public function show()

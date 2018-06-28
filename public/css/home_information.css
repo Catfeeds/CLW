@@ -214,21 +214,22 @@ body {
   border-bottom: 1px solid #999999;
 }
 
-.container {
-  margin: 20px 18%;
+.continue {
+  margin: 20px 18% 20px 16%;
 }
 
-.container .nav {
+.continue .nav {
   margin: 10px 0px;
+  font-size: 12px;
 }
 
-.container .main {
+.continue .main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.container .main .left {
+.continue .main .left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -242,36 +243,58 @@ body {
   margin-right: 20px;
 }
 
-.container .main .left ul li {
+.continue .main .left ul li {
   background-color: #fff;
 }
 
-.container .main .left .common {
+.continue .main .left .common {
   margin: 0px 20px 20px 20px;
+  width: 750px;
 }
 
-.container .main .left .left-title {
+.continue .main .left .common .swiper {
+  padding-top: 20px;
+}
+
+.continue .main .left .common .swiper .swiper-pagination {
+  text-align: right !important;
+}
+
+.continue .main .left .common .swiper img {
+  width: 100%;
+  height: 422px;
+}
+
+.continue .main .left .left-title {
   text-align: center;
   font-size: 20px;
   padding: 20px 0px 10px 0px;
 }
 
-.container .main .left .left-content {
+.continue .main .left .left-content {
   margin: 0px 40px;
   padding-bottom: 20px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-.container .main .left .list {
+.continue .main .left .list {
   background-color: #fff;
 }
 
-.container .main .left .list .list-time {
+.continue .main .left .list .list-time {
   border-bottom: 1px solid #f1f1f1;
   padding: 20px 20px 10px 20px;
 }
 
-.container .main .left .list .list-body {
+.continue .main .left .list .list-time .year {
+  font-size: 12px;
+}
+
+.continue .main .left .list .list-time .md {
+  font-size: 18px;
+}
+
+.continue .main .left .list .list-body {
   padding: 20px 0px;
   border-bottom: 1px solid #f1f1f1;
   display: -webkit-box;
@@ -279,7 +302,7 @@ body {
   display: flex;
 }
 
-.container .main .left .list .list-body .list-body-left {
+.continue .main .left .list .list-body .list-body-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,12 +311,13 @@ body {
           flex: 22;
 }
 
-.container .main .left .list .list-body .list-body-left img {
-  width: 100%;
+.continue .main .left .list .list-body .list-body-left img {
+  width: 354px;
+  height: 217px;
   padding: 0px 20px;
 }
 
-.container .main .left .list .list-body .list-body-right {
+.continue .main .left .list .list-body .list-body-right {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -306,22 +330,23 @@ body {
           flex: 25;
 }
 
-.container .main .left .list .list-body .list-body-right div {
-  padding: 0px 10px 15px 20px;
+.continue .main .left .list .list-body .list-body-right div {
+  padding: 0px 10px 15px 10px;
 }
 
-.container .main .left .list .list-body .list-body-right .list-body-time {
+.continue .main .left .list .list-body .list-body-right .list-body-time {
   font-size: 12px;
   color: #6c6c6c;
 }
 
-.container .main .left .list .list-body .list-body-right .list-body-content {
+.continue .main .left .list .list-body .list-body-right .list-body-content {
   font-size: 10px !important;
   color: #6c6c6c;
   line-height: 16px;
 }
 
-.container .main .right {
+.continue .main .right {
+  min-width: 360px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -336,20 +361,22 @@ body {
   background-color: #fff;
 }
 
-.container .main .right .right-title {
-  padding: 20px 0px;
+.continue .main .right .right-title {
+  padding: 15px 0px;
   border-bottom: 1px solid #f1f1f1;
 }
 
-.container .main .right .right-title span {
+.continue .main .right .right-title span {
   margin-left: 20px;
+  font-size: 16px;
 }
 
-.container .main .right ul {
+.continue .main .right ul {
   margin: 20px;
 }
 
-.container .main .right ul li {
+.continue .main .right ul li {
   padding: 10px 0px;
+  font-size: 15px;
 }
 
