@@ -1,4 +1,4 @@
-webpackJsonp([2],[
+webpackJsonp([0],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -22,7 +22,9 @@ __webpack_require__(23);
 __webpack_require__(24);
 __webpack_require__(25);
 __webpack_require__(26);
-module.exports = __webpack_require__(27);
+__webpack_require__(27);
+__webpack_require__(28);
+module.exports = __webpack_require__(29);
 
 
 /***/ }),
@@ -101,6 +103,18 @@ new Vue({
 
 /***/ }),
 /* 27 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 29 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

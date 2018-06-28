@@ -1,6 +1,6 @@
-webpackJsonp([1],[
-/* 0 */,
-/* 1 */
+webpackJsonp([2],{
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5360,8 +5360,107 @@ else if (typeof define === 'function' && define.amd) {
 
 
 /***/ }),
-/* 2 */,
-/* 3 */
+
+/***/ 10:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ 11:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "list" }, [
+      _c("div", { staticClass: "detail" }, [
+        _c("div", [
+          _c("img", {
+            attrs: { src: "/we_img/house_detail_banner01.jpg", alt: "" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "buildDetail" }, [
+          _c("div", { staticClass: "building" }, [
+            _c("div", { staticClass: "name" }, [_vm._v("光谷新世界")]),
+            _vm._v(" "),
+            _c("div", [_c("span", [_vm._v("55-90")]), _vm._v("元/m²月")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "introduce" }, [
+            _vm._v(
+              "光谷位于洪山、江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众创..."
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "location" }, [
+            _c("img", {
+              attrs: { src: "/we_img/house_detail_address.png", alt: "" }
+            }),
+            _vm._v(" 江夏区-东湖高新区")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "landmark" }, [
+            _c("div", [_vm._v("可注册")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("地铁10分钟")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("地标建筑")])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-280f3245", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 3:
 /***/ (function(module, exports) {
 
 /*
@@ -5443,7 +5542,37 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 4 */
+
+/***/ 38:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(39);
+
+
+/***/ }),
+
+/***/ 39:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(0);
+var Swiper = __webpack_require__(1);
+var betterList = __webpack_require__(4);
+new Vue({
+  el: '#third',
+  components: { betterList: betterList }
+});
+var banner = new Swiper('#banner', {
+  direction: 'horizontal',
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  paginationBulletRender: function paginationBulletRender(banner, index, className) {
+    return '<span class="' + className + '"><img src="/we_img/banner' + (index + 1) + '.jpg"></span>';
+  }
+});
+
+/***/ }),
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -5494,7 +5623,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -5520,7 +5650,8 @@ if(false) {
 }
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -5534,7 +5665,8 @@ exports.push([module.i, "\n.list {\n  padding: 20px 15px;\n  display: -webkit-bo
 
 
 /***/ }),
-/* 7 */
+
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -5762,7 +5894,8 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 8 */
+
+/***/ 8:
 /***/ (function(module, exports) {
 
 /**
@@ -5795,7 +5928,8 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 9 */
+
+/***/ 9:
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -5903,153 +6037,6 @@ module.exports = function normalizeComponent (
 }
 
 
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "list" }, [
-      _c("div", { staticClass: "detail" }, [
-        _c("div", [
-          _c("img", {
-            attrs: { src: "/we_img/house_detail_banner01.jpg", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "buildDetail" }, [
-          _c("div", { staticClass: "building" }, [
-            _c("div", { staticClass: "name" }, [_vm._v("光谷新世界")]),
-            _vm._v(" "),
-            _c("div", [_c("span", [_vm._v("55-90")]), _vm._v("元/m²月")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "introduce" }, [
-            _vm._v(
-              "光谷位于洪山、江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众创..."
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "location" }, [
-            _c("img", {
-              attrs: { src: "/we_img/house_detail_address.png", alt: "" }
-            }),
-            _vm._v(" 江夏区-东湖高新区")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "landmark" }, [
-            _c("div", [_vm._v("可注册")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("地铁10分钟")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("地标建筑")])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-280f3245", module.exports)
-  }
-}
-
-/***/ }),
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(37);
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(0);
-var Swiper = __webpack_require__(1);
-var betterList = __webpack_require__(4);
-new Vue({
-  el: '#third',
-  components: { betterList: betterList }
-});
-var banner = new Swiper('#banner', {
-  direction: 'horizontal',
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  paginationBulletRender: function paginationBulletRender(banner, index, className) {
-    return '<span class="' + className + '"><img src="/we_img/banner' + (index + 1) + '.jpg"></span>';
-  }
-});
-
 /***/ })
-],[36]);
+
+},[38]);

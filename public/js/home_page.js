@@ -5361,28 +5361,31 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ }),
 
-/***/ 38:
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(39);
+module.exports = __webpack_require__(41);
 
 
 /***/ }),
 
-/***/ 39:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
 var Swiper = __webpack_require__(1);
-var mySwiper = new Swiper('.swiper-container', {
-  pagination: {
-    el: ".swiper-pagination",
-    bulletClass: "my-pagination"
-  },
-  aotoplay: true,
-  loop: true
+
+var banner = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  autoplay: 2000,
+  loop: true,
+  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
+    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
+  }
+
 });
 
 /***/ })
 
-},[38]);
+},[40]);
