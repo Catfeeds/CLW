@@ -7,7 +7,9 @@
  */
 namespace App\Handler;
 
+
 use Qiniu\Auth;
+
 
 /**
  * Class Common
@@ -73,4 +75,8 @@ class Common
 
         );
     }
+
+
+
+
 }

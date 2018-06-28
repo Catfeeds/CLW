@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Information;
 use App\Models\LouWangInformation;
 use Illuminate\Console\Command;
 
@@ -40,14 +41,25 @@ class GetLouWangInformation extends Command
     }
 
     /**
-     * 说明: 修改用户密码
+     * 说明: 获取楼王的资讯填充到管理后台
      *
      * @author 罗振
      */
     public function getLouWangInformation()
     {
         $informations = LouWangInformation::where(['status' => 1])->get();
-        
 
+        foreach ($informations as $v) {
+            $res = Information::create([
+                'banner' => $v->banner,
+                'source' => $v->source,
+                'title' => $v->title,
+                'brief' => $v->brief,
+                'content' => $v->content,
+                'created_at' => $v->created_at,
+                'updated_at' => $v->updated_at
+            ]);
+            if (empty($res)) \Log::info($v->guid.'的资讯添加失败');
+        }
     }
 }

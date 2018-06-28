@@ -32,6 +32,7 @@ class AppAndroidRepository extends Model
             'url' => $request->url,
             'type' => $request->type,
             'stage' => $request->stage,
+            'force' => $request->force,
             'status' => 1
         ]);
         if (empty($addRes)) return ['status' => false, 'message' => '添加失败'];

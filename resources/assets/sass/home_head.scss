@@ -1,0 +1,47 @@
+@import "home_master";
+header{
+  .title{
+    background: #000;
+    height: 45px;
+    padding: 0 20%;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    .building{
+      height: 20px;
+      margin: 12px 0;
+      line-height: 20px;
+    }
+    .login{
+      display: flex;
+      justify-content: space-between;
+      div{
+        height: 20px;
+        margin: 12px 0;
+        padding: 0 10px;
+        line-height: 20px;
+      }
+      div:not(:last-child){
+        border-right: 1px solid #fff;
+      }
+    }
+  }
+  .head{
+    background: #fff;
+    height: 100px;
+    margin: 0 20%;
+    display: flex;
+    justify-content: flex-start;
+    line-height: 100px;
+    div{
+      padding: 0 20px;
+      a{
+        color: #000;
+        text-decoration: none;
+      }
+    }
+    div:hover{
+      border-bottom: 2px solid #03a2fb;
+    }
+  }
+}
