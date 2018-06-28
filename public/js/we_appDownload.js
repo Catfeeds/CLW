@@ -1,17 +1,17 @@
 webpackJsonp([22],{
 
-/***/ 172:
+/***/ 140:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(173);
+module.exports = __webpack_require__(141);
 
 
 /***/ }),
 
-/***/ 173:
+/***/ 141:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
+__webpack_require__(0);
 function is_weixin() {
   var ua = navigator.userAgent.toLowerCase();
   if (ua.match(/MicroMessenger/i) == "micromessenger") {
@@ -35,4 +35,4 @@ $('a.js_down-btn').on('click', function () {
 
 /***/ })
 
-},[172]);
+},[140]);

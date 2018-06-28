@@ -1,33 +1,22 @@
 webpackJsonp([16],{
 
-<<<<<<< HEAD
-/***/ 132:
+/***/ 106:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(133);
-=======
-/***/ 131:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(132);
->>>>>>> origin/wanghao
+module.exports = __webpack_require__(107);
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 133:
-=======
-/***/ 132:
->>>>>>> origin/wanghao
+/***/ 107:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * Created by zxz1992 on 2018/5/23.
  */
-__webpack_require__(2);
+__webpack_require__(0);
 var listAppData = JSON.parse($('#listAppData').val());
-Vue.component('building-list', __webpack_require__(10));
+Vue.component('building-list', __webpack_require__(7));
 var app = new Vue({
   el: '#app',
   data: {
@@ -37,8 +26,4 @@ var app = new Vue({
 
 /***/ })
 
-<<<<<<< HEAD
-},[132]);
-=======
-},[131]);
->>>>>>> origin/wanghao
+},[106]);
