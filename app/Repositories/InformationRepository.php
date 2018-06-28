@@ -70,7 +70,7 @@ class InformationRepository extends Model
     // 首页资讯
     public function getList()
     {
-        $information = Information::where([])->orderBy('created_at','desc')->paginate(10);
+        $information = Information::where([])->orderBy('created_at','desc')->paginate(4);
         foreach ($information as $v) {
             $v->add_time = $v->created_at->format('Y-m-d');
         }
