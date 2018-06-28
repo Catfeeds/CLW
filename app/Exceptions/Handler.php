@@ -2,9 +2,9 @@
 
 namespace App\Exceptions;
 
-use App\Models\AcceptMessage;
-use App\Models\Employee;
-use App\Services\MessagesService;
+use App\Http\Controllers\API\Admin\AcceptMessagesController;
+use App\Http\Requests\Admin\AcceptMessagesRequest;
+use App\Repositories\AcceptMessagesRepository;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
@@ -61,17 +61,16 @@ class Handler extends ExceptionHandler
             } else {
                 $errorInfo = $this->errorMessage($exception);
             }
-
             // 获取错误类型
             $temp = explode('\\', get_class($exception));
             $type = end($temp);
-            $class = new MessagesService();
-//            $openid = $class->getOpenid(1);
-//            $data['type'] = $type;
-//            $data['name'] = 'jacklin';
-//            $data['errorInfo'] = $errorInfo;
-//            $data['openid'] = json_encode($openid);
-//            curl(config('setting.wechat_url').'/waring_notice','post',$data);
+            $class = new AcceptMessagesController(new AcceptMessagesRepository(),new AcceptMessagesRequest());
+            $openid = $class->getOpenid(3);
+            $data['type'] = $type;
+            $data['name'] = config('app.name');
+            $data['errorInfo'] = $errorInfo;
+            $data['openid'] = json_encode($openid);
+            curl(config('setting.wechat_url').'/waring_notice','post',$data);
         }
 
         if ($exception instanceof ValidationException) {
