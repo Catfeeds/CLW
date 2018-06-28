@@ -8,13 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="stylesheet" href="{{res('/mui/mui.css')}}">
     <title>@section('title')楚楼网--找写字楼上楚楼网十分钟轻松搞定@show</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <script>
         // 百度统计 商桥客服
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?a8bb44e51deceeae65bac46930eab06e";
+            hm.src = "https://hm.baidu.com/hm.js?9c8a95f83c5e8b29448aa6440cb7dd2e";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();

@@ -126,17 +126,15 @@ class OfficeBuildingHousesService
         $office->building_name = $office->buildingBlock->building->name;
         //楼层总数
         $office->total_floor = $office->buildingBlock->total_floor?$office->buildingBlock->total_floor . '层' : '';
-        //支付方式
-        $office->property_company = $office->buildingBlock->property_company;
-        //客梯数量
-        $office->passenger_lift = $office->buildingBlock->passenger_lift?$office->buildingBlock->passenger_lift . '部': '';
-        //货梯数量
-        $office->cargo_lift = $office->buildingBlock->cargo_lift?$office->buildingBlock->cargo_lift. '部' : '';
-        //总裁电梯数量
-        $office->president_lift = $office->buildingBlock->president_lift?$office->buildingBlock->president_lift . '部' : '';
+//        //客梯数量
+//        $office->passenger_lift = $office->buildingBlock->passenger_lift?$office->buildingBlock->passenger_lift . '部': '';
+//        //货梯数量
+//        $office->cargo_lift = $office->buildingBlock->cargo_lift?$office->buildingBlock->cargo_lift. '部' : '';
+//        //总裁电梯数量
+//        $office->president_lift = $office->buildingBlock->president_lift?$office->buildingBlock->president_lift . '部' : '';
         //总电梯数
-        $elevator_num = $office->buildingBlock->passenger_lift + $office->buildingBlock->cargo_lift + $office->buildingBlock->president_lift;
-        $office->elevator_num =  $elevator_num ? $elevator_num . '部' : '';
+//        $elevator_num = $office->buildingBlock->passenger_lift + $office->buildingBlock->cargo_lift + $office->buildingBlock->president_lift;
+        $office->elevator_num =  $office->buildingBlock->elevator_num;
         //gps
         $office->gps = $office->buildingBlock->building->gps;
         //空调类型
@@ -266,5 +264,4 @@ class OfficeBuildingHousesService
 
         return $res;
     }
-
 }

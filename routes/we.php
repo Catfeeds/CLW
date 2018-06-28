@@ -23,6 +23,7 @@ Route::get('/building_detail', function(){
 });
 // 首页
 Route::get('/', 'IndexController@index');
+
 // 获取手机验证码
 Route::get('/sms/captcha/{tell}/{tmp}', 'RegistersController@getSmsCode');
 
@@ -73,6 +74,9 @@ Route::get('other_condition', 'HouseController@otherCondition');
 
 // 服务
 Route::resource('servers', 'ServerController');
+
+// 获取最新下载地址
+Route::resource('get_new_version', 'AppAndroidController');
 
 /*
 |--------------------------------------------------------------------------
@@ -136,7 +140,4 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     Route::resource('collections', 'CollectionsController');
     Route::get('ajax_collections', 'CollectionsController@ajaxCollection');
     Route::get('del/{id}', 'CollectionsController@del');
-
-
  });
-
