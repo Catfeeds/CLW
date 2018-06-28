@@ -1,18 +1,30 @@
-webpackJsonp([2],{
+webpackJsonp([4],{
 
+<<<<<<< HEAD
 /***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(166);
+=======
+/***/ 136:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(137);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 166:
+=======
+/***/ 137:
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(4);
@@ -68,16 +80,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui__);
+>>>>>>> origin/wanghao
 
 
 
-__WEBPACK_IMPORTED_MODULE_18_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_17_mint_ui_lib_actionsheet___default.a.name, __WEBPACK_IMPORTED_MODULE_17_mint_ui_lib_actionsheet___default.a);
-__WEBPACK_IMPORTED_MODULE_18_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_15_mint_ui_lib_button___default.a.name, __WEBPACK_IMPORTED_MODULE_15_mint_ui_lib_button___default.a);
-__WEBPACK_IMPORTED_MODULE_18_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_13_mint_ui_lib_cell___default.a.name, __WEBPACK_IMPORTED_MODULE_13_mint_ui_lib_cell___default.a);
-__WEBPACK_IMPORTED_MODULE_18_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_navbar___default.a.name, __WEBPACK_IMPORTED_MODULE_11_mint_ui_lib_navbar___default.a);
-__WEBPACK_IMPORTED_MODULE_18_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_tab_item___default.a.name, __WEBPACK_IMPORTED_MODULE_9_mint_ui_lib_tab_item___default.a);
-__WEBPACK_IMPORTED_MODULE_18_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_loadmore___default.a.name, __WEBPACK_IMPORTED_MODULE_7_mint_ui_lib_loadmore___default.a); // 下拉刷新
-__WEBPACK_IMPORTED_MODULE_18_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_mint_ui_lib_infinite_scroll___default.a); // 上拉加载更多
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Actionsheet"].name, __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Actionsheet"]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Button"].name, __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Button"]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Cell"].name, __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Cell"]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Navbar"].name, __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Navbar"]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["TabItem"].name, __WEBPACK_IMPORTED_MODULE_1_mint_ui__["TabItem"]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Loadmore"].name, __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Loadmore"]); // 下拉刷新
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["InfiniteScroll"]); // 上拉加载更多
 /* 或写为
  * Vue.use(Button)
  * Vue.use(Cell)
@@ -93,7 +111,7 @@ var sheetClick = function sheetClick(e) {
 };
 var url = '';
 var requestType = false;
-var app = new __WEBPACK_IMPORTED_MODULE_18_vue___default.a({
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     data: {
         index: null,
@@ -121,10 +139,17 @@ var app = new __WEBPACK_IMPORTED_MODULE_18_vue___default.a({
 
         // 上拉加载更多 !待处理!
         getUnList: function getUnList() {
-            __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
+            if (!pulldown1) {
+                __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            } else {
+                __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             console.log(111);
             if (this.pulldown1) return;
             getShopkeeperList(1, this.page1);
@@ -142,11 +167,17 @@ var app = new __WEBPACK_IMPORTED_MODULE_18_vue___default.a({
 
         // 上拉加载更多 !已处理!
         getList: function getList() {
-            __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
-            console.log(222);
+            if (!pulldown2) {
+                __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            } else {
+                __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             if (this.pulldown2) return;
             getShopkeeperList(2, this.page2);
             console.log('上拉加载更多', this.page2);
@@ -190,7 +221,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_18_vue___default.a({
                 }
             },
             error: function error(res) {
-                __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+                Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                     message: res.responseJSON.message,
                     position: 'center',
                     duration: 5000
@@ -243,11 +274,11 @@ function getShopkeeperList(status, page) {
                 }
             }
             requestType = false;
-            __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.close();
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].close();
         },
         error: function error(res) {
-            __WEBPACK_IMPORTED_MODULE_3_mint_ui_lib_indicator___default.a.close();
-            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].close();
+            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: res.responseJSON.message,
                 position: 'center',
                 duration: 5000
@@ -265,7 +296,7 @@ function distribution(FormData) {
         success: function success(data) {
             console.log(data);
             if (data.success) {
-                __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+                Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                     message: data.message,
                     position: 'center',
                     duration: 1000
@@ -275,7 +306,7 @@ function distribution(FormData) {
             }
         },
         error: function error(res) {
-            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
                 message: res.responseJSON.message,
                 position: 'center',
                 duration: 5000
@@ -284,6 +315,7 @@ function distribution(FormData) {
     });
 }
 
+<<<<<<< HEAD
 /***/ }),
 
 /***/ 167:
@@ -5450,3 +5482,8 @@ if(false) {
 /***/ })
 
 },[165]);
+=======
+/***/ })
+
+},[136]);
+>>>>>>> origin/wanghao

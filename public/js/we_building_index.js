@@ -2,18 +2,19 @@ webpackJsonp([1],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var bind = __webpack_require__(47);
 var isBuffer = __webpack_require__(111);
+=======
+var bind = __webpack_require__(19);
+var isBuffer = __webpack_require__(85);
+>>>>>>> origin/wanghao
 
 /*global toString:true*/
 
@@ -316,6 +317,10 @@ module.exports = {
 
 
 /***/ }),
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */,
@@ -323,17 +328,19 @@ module.exports = {
 /* 12 */,
 /* 13 */,
 /* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+<<<<<<< HEAD
 var utils = __webpack_require__(7);
 var normalizeHeaderName = __webpack_require__(113);
+=======
+var utils = __webpack_require__(3);
+var normalizeHeaderName = __webpack_require__(87);
+>>>>>>> origin/wanghao
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -349,10 +356,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(48);
+    adapter = __webpack_require__(20);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(48);
+    adapter = __webpack_require__(20);
   }
   return adapter;
 }
@@ -423,43 +430,22 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ }),
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */
+/* 16 */,
+/* 17 */,
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(110);
+=======
+module.exports = __webpack_require__(84);
+>>>>>>> origin/wanghao
 
 /***/ }),
-/* 47 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -477,12 +463,13 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 48 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(7);
 var settle = __webpack_require__(114);
 var buildURL = __webpack_require__(116);
@@ -490,6 +477,15 @@ var parseHeaders = __webpack_require__(117);
 var isURLSameOrigin = __webpack_require__(118);
 var createError = __webpack_require__(49);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(119);
+=======
+var utils = __webpack_require__(3);
+var settle = __webpack_require__(88);
+var buildURL = __webpack_require__(90);
+var parseHeaders = __webpack_require__(91);
+var isURLSameOrigin = __webpack_require__(92);
+var createError = __webpack_require__(21);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(93);
+>>>>>>> origin/wanghao
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -586,7 +582,11 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
+<<<<<<< HEAD
       var cookies = __webpack_require__(120);
+=======
+      var cookies = __webpack_require__(94);
+>>>>>>> origin/wanghao
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -664,13 +664,17 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 49 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var enhanceError = __webpack_require__(115);
+=======
+var enhanceError = __webpack_require__(89);
+>>>>>>> origin/wanghao
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -689,7 +693,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 50 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -701,7 +705,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 51 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -727,6 +731,34 @@ module.exports = Cancel;
 
 
 /***/ }),
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
 /* 52 */,
 /* 53 */,
 /* 54 */,
@@ -753,6 +785,7 @@ module.exports = Cancel;
 /* 75 */,
 /* 76 */,
 /* 77 */,
+<<<<<<< HEAD
 /* 78 */,
 /* 79 */,
 /* 80 */,
@@ -780,17 +813,25 @@ module.exports = Cancel;
 /* 102 */,
 /* 103 */,
 /* 104 */
+=======
+/* 78 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(105);
+module.exports = __webpack_require__(79);
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 105 */
+=======
+/* 79 */
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_lib_toast_style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast__ = __webpack_require__(4);
@@ -803,10 +844,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue__);
 
 
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue__);
+>>>>>>> origin/wanghao
 /**
  * Created by zxz1992 on 2018/5/22.
  */
-__webpack_require__(2);
+__webpack_require__(0);
 
 
 
@@ -825,8 +876,8 @@ var app = new Vue({
     more: null
   },
   components: {
-    buildingSelect: __WEBPACK_IMPORTED_MODULE_3__components_buildingSelect_vue___default.a,
-    buildingList: __WEBPACK_IMPORTED_MODULE_4__components_buildingList_vue___default.a
+    buildingSelect: __WEBPACK_IMPORTED_MODULE_2__components_buildingSelect_vue___default.a,
+    buildingList: __WEBPACK_IMPORTED_MODULE_3__components_buildingList_vue___default.a
   },
   created: function created() {
     this.getData = pageOne.data.length === 10;
@@ -876,7 +927,7 @@ var app = new Vue({
         data: condition,
         success: function success(data) {
           if (data.data.data.length === 0) {
-            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
               message: '已无更多数据',
               position: 'center',
               duration: 3000
@@ -897,9 +948,9 @@ var app = new Vue({
         },
         error: function error(_error) {
           if (_error.status < 500) {
-            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()(_error.responseJSON.message);
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error.responseJSON.message);
           } else {
-            __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()('服务器出错');
+            Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
           }
         }
       });
@@ -909,7 +960,7 @@ var app = new Vue({
       var tel = $('#telInput').val(),
           telReg = /^[1][0-9]{10}$/;
       if (!telReg.test(tel)) {
-        __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
           message: '请输入11位手机号',
           position: 'center',
           duration: 3000
@@ -931,13 +982,13 @@ var app = new Vue({
             $('#backdrop').fadeOut(300);
             $('#telInput').val('');
             if (data.success) {
-              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                 message: '信息提交成功，楚楼网30分钟内联系您',
                 position: 'center',
                 duration: 3000
               });
             } else {
-              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()({
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
                 message: data.message,
                 position: 'center',
                 duration: 3000
@@ -947,9 +998,9 @@ var app = new Vue({
           error: function error(_error2) {
             $('#backdrop').fadeOut(300);
             if (_error2.status < 500) {
-              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()(_error2.responseJSON.message);
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])(_error2.responseJSON.message);
             } else {
-              __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_toast___default()('服务器出错');
+              Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])('服务器出错');
             }
           }
         });
@@ -964,19 +1015,31 @@ function GetQueryString(name) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 106 */
+=======
+/* 80 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
+<<<<<<< HEAD
   __webpack_require__(107)
+=======
+  __webpack_require__(81)
+>>>>>>> origin/wanghao
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(109)
+var __vue_script__ = __webpack_require__(83)
 /* template */
+<<<<<<< HEAD
 var __vue_template__ = __webpack_require__(129)
+=======
+var __vue_template__ = __webpack_require__(103)
+>>>>>>> origin/wanghao
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1015,17 +1078,29 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 107 */
+=======
+/* 81 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
+<<<<<<< HEAD
 var content = __webpack_require__(108);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var update = __webpack_require__(11)("b274be70", content, false, {});
+=======
+var content = __webpack_require__(82);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("84aebc14", content, false, {});
+>>>>>>> origin/wanghao
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -1041,10 +1116,14 @@ if(false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 108 */
+=======
+/* 82 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
@@ -1055,16 +1134,24 @@ exports.push([module.i, "\n.VueSelectBox[data-v-85f18832] {\n  height: 100%;\n  
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 109 */
+=======
+/* 83 */
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(128);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__we_request__ = __webpack_require__(102);
+>>>>>>> origin/wanghao
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 //
@@ -1466,16 +1553,27 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 110 */
+=======
+/* 84 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(7);
 var bind = __webpack_require__(47);
 var Axios = __webpack_require__(112);
 var defaults = __webpack_require__(18);
+=======
+var utils = __webpack_require__(3);
+var bind = __webpack_require__(19);
+var Axios = __webpack_require__(86);
+var defaults = __webpack_require__(15);
+>>>>>>> origin/wanghao
 
 /**
  * Create an instance of Axios
@@ -1508,15 +1606,25 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
+<<<<<<< HEAD
 axios.Cancel = __webpack_require__(51);
 axios.CancelToken = __webpack_require__(126);
 axios.isCancel = __webpack_require__(50);
+=======
+axios.Cancel = __webpack_require__(23);
+axios.CancelToken = __webpack_require__(100);
+axios.isCancel = __webpack_require__(22);
+>>>>>>> origin/wanghao
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
+<<<<<<< HEAD
 axios.spread = __webpack_require__(127);
+=======
+axios.spread = __webpack_require__(101);
+>>>>>>> origin/wanghao
 
 module.exports = axios;
 
@@ -1525,7 +1633,11 @@ module.exports.default = axios;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 111 */
+=======
+/* 85 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports) {
 
 /*!
@@ -1552,16 +1664,27 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 112 */
+=======
+/* 86 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var defaults = __webpack_require__(18);
 var utils = __webpack_require__(7);
 var InterceptorManager = __webpack_require__(121);
 var dispatchRequest = __webpack_require__(122);
+=======
+var defaults = __webpack_require__(15);
+var utils = __webpack_require__(3);
+var InterceptorManager = __webpack_require__(95);
+var dispatchRequest = __webpack_require__(96);
+>>>>>>> origin/wanghao
 
 /**
  * Create a new instance of Axios
@@ -1638,13 +1761,17 @@ module.exports = Axios;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 113 */
+=======
+/* 87 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(7);
+var utils = __webpack_require__(3);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -1657,13 +1784,17 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 114 */
+=======
+/* 88 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(49);
+var createError = __webpack_require__(21);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1690,7 +1821,11 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 115 */
+=======
+/* 89 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1718,13 +1853,17 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 116 */
+=======
+/* 90 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(7);
+var utils = __webpack_require__(3);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -1793,13 +1932,17 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 117 */
+=======
+/* 91 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(7);
+var utils = __webpack_require__(3);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -1853,13 +1996,17 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 118 */
+=======
+/* 92 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(7);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1928,7 +2075,11 @@ module.exports = (
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 119 */
+=======
+/* 93 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1971,13 +2122,17 @@ module.exports = btoa;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 120 */
+=======
+/* 94 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(7);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -2031,13 +2186,17 @@ module.exports = (
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 121 */
+=======
+/* 95 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(7);
+var utils = __webpack_require__(3);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -2090,18 +2249,31 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 122 */
+=======
+/* 96 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(7);
 var transformData = __webpack_require__(123);
 var isCancel = __webpack_require__(50);
 var defaults = __webpack_require__(18);
 var isAbsoluteURL = __webpack_require__(124);
 var combineURLs = __webpack_require__(125);
+=======
+var utils = __webpack_require__(3);
+var transformData = __webpack_require__(97);
+var isCancel = __webpack_require__(22);
+var defaults = __webpack_require__(15);
+var isAbsoluteURL = __webpack_require__(98);
+var combineURLs = __webpack_require__(99);
+>>>>>>> origin/wanghao
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -2183,13 +2355,17 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 123 */
+=======
+/* 97 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(7);
+var utils = __webpack_require__(3);
 
 /**
  * Transform the data for a request or a response
@@ -2210,7 +2386,11 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 124 */
+=======
+/* 98 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2231,7 +2411,11 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 125 */
+=======
+/* 99 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2252,13 +2436,17 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 126 */
+=======
+/* 100 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(51);
+var Cancel = __webpack_require__(23);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -2316,7 +2504,11 @@ module.exports = CancelToken;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 127 */
+=======
+/* 101 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2350,11 +2542,15 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 128 */
+=======
+/* 102 */
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /**
  * Created by zxz1992 on 2018/5/22.
@@ -2427,7 +2623,11 @@ function Ajax() {
 /* harmony default export */ __webpack_exports__["a"] = (Ajax);
 
 /***/ }),
+<<<<<<< HEAD
 /* 129 */
+=======
+/* 103 */
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -3043,4 +3243,8 @@ if (false) {
 }
 
 /***/ })
+<<<<<<< HEAD
 ],[104]);
+=======
+],[78]);
+>>>>>>> origin/wanghao

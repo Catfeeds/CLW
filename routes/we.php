@@ -18,9 +18,9 @@ Route::get('/house_detail', function(){
     return view('home.house_detail');
 });
 // 测试楼盘详情页
-Route::get('/building_detail', function(){
-    return view('home.building_detail');
-});
+// Route::get('/building_detail', function(){
+//     return view('home.building_detail');
+// });
 // 首页
 Route::get('/', 'IndexController@index');
 

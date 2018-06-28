@@ -29,19 +29,19 @@ class BuildingsController extends Controller
         $building->house_count = $houses->count();
 
         // 获取楼盘下房源均价(楼盘下房源总价格/楼盘下房源总面积)
-        $building->buildingAverage = round($houses->sum('total_price') / $houses->sum('constru_acreage'),2);
+        $building->buildingAverage = round($houses->sum('total_price') / $houses->sum('constru_acreage'),2).'元/㎡.月';
 
         // 获取商圈下房源均价
         $blockId = $building->block->id;    // 商圈id
         $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
         $blockAllHouse = $this->getAllHouse($block);
-        $building->blockAverage = round(collect($blockAllHouse)->collapse()->sum('total_price') / collect($blockAllHouse)->collapse()->sum('constru_acreage'),2);
+        $building->blockAverage = round(collect($blockAllHouse)->collapse()->sum('total_price') / collect($blockAllHouse)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
 
         // 获取区域下房源均价
         $areaId = $building->block->area->id;
         $area = Area::where('id', $areaId)->with('building.buildingBlock.house')->first();
         $areaAllHouse = $this->getAllHouse($area);
-        $building->areaAverage = round(collect($areaAllHouse)->collapse()->sum('total_price') / collect($areaAllHouse)->collapse()->sum('constru_acreage'),2);
+        $building->areaAverage = round(collect($areaAllHouse)->collapse()->sum('total_price') / collect($areaAllHouse)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
 
         // 猜你喜欢
         $request->area_id = $areaId;
@@ -51,8 +51,9 @@ class BuildingsController extends Controller
         // $likeBuilding 猜你喜欢
         // $building 楼盘基本数据
         // $houses 楼盘下房源数据
-
-        return $building;
+        // dd(['building' => $building->toArray(), 'likeBuilding' => $likeBuilding, 'houses' => $houses->toArray()]);
+        return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses]);
+        // return $building;
     }
 
     public function getAllHouse($res)

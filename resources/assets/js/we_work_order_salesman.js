@@ -42,10 +42,17 @@ const app = new Vue({
         },
         // 上拉加载更多 !待确定!
         getUnList() {
-            Indicator.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
+            if(!pulldown1) {
+                Indicator.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            }else{
+                Indicator.open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             if(this.pulldown1) return
             getSaiesmanList(1, this.page1)
         },
@@ -60,10 +67,17 @@ const app = new Vue({
         },
         // 上拉加载更多 !已确定!
         getList() {
-            Indicator.open({
-                text: '加载中...',
-                spinnerType: 'fading-circle'
-            });
+            if(!pulldown2) {
+                Indicator.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+            }else{
+                Indicator.open({
+                    text: '再无更多数据...',
+                    spinnerType: 'fading-circle'
+                });
+            }
             if(this.pulldown2) return
             getSaiesmanList(2, this.page2)
             console.log('上拉加载更多', this.page2)
