@@ -192,4 +192,3 @@
 @section('script')
 <script src="/js/home_building_detail.js"></script>
 @endsection
-<!DOCTYPE html>
