@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Crypt;
 
 class SafeValidate
 {
@@ -19,11 +20,14 @@ class SafeValidate
         Closure $next
     )
     {
-
-
-
-
-
+        try {
+            if (empty($request->header('safeString')) || Crypt::decryptString($request->header('safeString')) != 'chulouwang'.date('Y-m-d',time())) {
+                return response()->json(["message" => "认证失败"], 401);
+            }
+        } catch (\Exception $e) {
+            \Log::info($e->getFile().$e->getLine().$e->getMessage());
+            return response()->json(["message" => "认证失败"], 401);
+        }
 
         return $next($request);
     }
