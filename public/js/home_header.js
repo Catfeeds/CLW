@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 webpackJsonp([7],{
+=======
+webpackJsonp([6],{
+>>>>>>> origin/master
 
 /***/ 114:
 /***/ (function(module, exports, __webpack_require__) {

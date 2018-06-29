@@ -86,8 +86,13 @@ module.exports = {
       'home_download',
       'home_page',
       'home_building_detail',
+<<<<<<< HEAD
       'home_personal',
       'home_house_list'
+=======
+      'home_information',
+      'home_paging'
+>>>>>>> origin/master
     ],
     js: [
       'home_mapLookForHouse',
@@ -97,8 +102,12 @@ module.exports = {
       'home_house_detail',
       'home_building_detail',
       'home_page',
+<<<<<<< HEAD
       'home_personal',
       'home_house_list'
+=======
+      'home_information'
+>>>>>>> origin/master
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',

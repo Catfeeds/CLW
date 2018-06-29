@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlocksRepository extends Model
 {
+    // 商圈列表
     public function blockList()
     {
-        return Block::where([])->paginate(10);
+        return Block::where([])->with('area', 'building')->paginate(10);
     }
 
+    // 添加商圈
     public function addBlock(
         $request
     )
@@ -25,6 +27,7 @@ class BlocksRepository extends Model
         ]);
     }
 
+    // 修改商圈
     public function updateBlock(
         $request,
         Block $block
@@ -40,21 +43,12 @@ class BlocksRepository extends Model
         return true;
     }
 
-    /**
-     * 说明: 商圈添加推荐
-     *
-     * @param Block $block
-     * @param $request
-     * @return bool
-     * @author 罗振
-     */
-    public function updateRecommend(
-        Block $block,
+    // 商圈添加推荐
+    public function addRecommend(
+        $id,
         $request
     )
     {
-        $block->recommend = $request->recommend;
-        if (!$block->save()) return false;
-        return true;
+        return Block::where('id', $id)->update(['recommend' => $request->recommend]);
     }
 }

@@ -12,24 +12,14 @@ class OfficeBuildingHousesController extends Controller
     //房源详情
     public function show
     (
+        OfficeBuildingHousesRepository $buildingHousesRepository,
         OfficeBuildingHouse $officeBuildingHouse,
         OfficeBuildingHousesService $service
     )
     {
-        $res = $service->getShow($officeBuildingHouse);
-        return $res;
-    }
-
-    //房源详情下的相关房源
-    public function showOffice
-    (
-        $id,
-        OfficeBuildingHousesRepository $buildingHousesRepository,
-        OfficeBuildingHousesService $service
-    )
-    {
-        $res = $buildingHousesRepository->getShowOffice($service, $id);
-        return $res;
+        $house = $service->getShow($officeBuildingHouse);
+        $rimHouse = $buildingHousesRepository->getShowOffice($service, $officeBuildingHouse->id);
+        return '房源详情';
     }
 
 }

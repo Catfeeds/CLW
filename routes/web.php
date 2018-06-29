@@ -43,19 +43,13 @@ Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () 
 
 //业务员
 Route::get('work_order_salesman', 'We\WorkOrderController@salesman');
-//Route::get('work_order_salesman', function (){
-//    return view('we.work_order_salesman');
-//});
 
 // 店长
 Route::get('work_order_shopowner', 'We\WorkOrderController@shopwner');
-//Route::get('work_order_shopowner', function (){
-//    return view('we.work_order_shopowner');
-//});
 
 // 楚楼网官网
 Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function () {
-    include_route_files(__DIR__ . '/Pc');
+    \Composer\Autoload\includeFile(__DIR__ . '/Pc/home.php');
 });
 // 楚楼网商城
 Route::group(['prefix' => 'mall', 'namespace' => 'Mall'], function () {
