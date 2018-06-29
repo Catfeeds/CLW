@@ -26,10 +26,14 @@ class Block extends Model
         return $this->hasMany('App\Models\Building','block_id', 'id');
     }
 
+    public function blockLocation()
+    {
+        return $this->belongsTo('App\Models\BlockLocation', 'id','block_id');
+    }
+
     public function getAgentPicCnAttribute()
     {
         if (empty($this->agent_cn)) return '';
         return config('setting.qiniu_url').$this->agent_cn;
     }
-
 }

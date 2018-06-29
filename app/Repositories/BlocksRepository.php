@@ -10,7 +10,7 @@ class BlocksRepository extends Model
     // 商圈列表
     public function blockList()
     {
-        return Block::where([])->with('area', 'building')->paginate(10);
+        return Block::where([])->with('area', 'building', 'blockLocation')->paginate(10);
     }
 
     // 添加商圈

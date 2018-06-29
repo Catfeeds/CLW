@@ -49,7 +49,7 @@ class OfficeBuildingHouse extends Model
             return collect($this->indoor_img)->map(function($img) {
                 return [
                     'name' => $img,
-                    'url' => config('setting.qiniu_url') . $img
+                    'url' => config('setting.qiniu_url') . $img . config('setting.qiniu_suffix')
                 ];
             });
         } else {
