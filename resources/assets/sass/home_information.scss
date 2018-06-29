@@ -25,6 +25,8 @@ body{
   .main{
     display: flex;
     .left{
+      min-width: 790px;
+      max-width: 790px;
       display: flex;
       flex: 25;
       flex-direction: column;
@@ -34,7 +36,6 @@ body{
       }
       .common{
         margin: 0px 20px 20px 20px;
-        width: 750px;
         .swiper{
           padding-top: 20px;
           .swiper-pagination{
@@ -58,7 +59,9 @@ body{
       }
       .list{
         background-color: #fff;
+        margin-bottom: 20px;
         .list-time{
+          background-color: #fcfcfc;
           border-bottom: 1px solid #f1f1f1;
           padding: 20px 20px 10px 20px;
           .year{
@@ -66,6 +69,7 @@ body{
           }
           .md{
             font-size: 18px;
+            font-weight: bold;
           }
         }
         .list-body{
@@ -104,24 +108,29 @@ body{
     }
     .right{
       min-width: 360px;
+      max-width: 360px;
+      height: 400px;
       display: flex;
       flex: 11;
       flex-direction: column;
       border: 1px solid #f1f1f1;
       background-color: #fff;
       .right-title{
+        background-color: #fcfcfc;
         padding: 15px 0px;
         border-bottom: 1px solid #f1f1f1;
         span{
           margin-left: 20px;
           font-size: 16px;
+          overflow: hidden;
+          width: 320px;
         }
       }
       ul{
         margin: 20px;
         li{
           padding: 10px 0px;
-          font-size: 15px;
+          font-size: 12px;
         }
 
       }

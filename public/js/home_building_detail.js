@@ -8880,20 +8880,21 @@ if (false) {
 /* 116 */,
 /* 117 */,
 /* 118 */,
-/* 119 */
+/* 119 */,
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(120);
+module.exports = __webpack_require__(121);
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
 var Swiper = __webpack_require__(8);
 var betterList = __webpack_require__(28);
-var detailMap = __webpack_require__(121);
+var detailMap = __webpack_require__(122);
 var Data = $('#props').data('data');
 new Vue({
   el: '#second',
@@ -8947,19 +8948,19 @@ $('#price span').on('click', function () {
 });
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(122)
+  __webpack_require__(123)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(124)
+var __vue_script__ = __webpack_require__(125)
 /* template */
-var __vue_template__ = __webpack_require__(125)
+var __vue_template__ = __webpack_require__(126)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -8998,13 +8999,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(123);
+var content = __webpack_require__(124);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -9024,7 +9025,7 @@ if(false) {
 }
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -9038,7 +9039,7 @@ exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9298,7 +9299,7 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
 });
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -9551,4 +9552,4 @@ if (false) {
 }
 
 /***/ })
-],[119]);
+],[120]);

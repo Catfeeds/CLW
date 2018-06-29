@@ -11,11 +11,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 安全验证码
     Route::get('get_safe_string', 'BannerController@safeString');
 
+
     // 登录
     Route::resource('logins','LoginsController');
 
     // 安全验证
 //    Route::group(['middleware' => 'safe.validate'], function () {
+        //根据类型获取接收人人员openid
+        Route::get('get_openid/{type}', 'AcceptMessagesController@getOpenid');
         // 权限组管理
         Route::resource('permission_groups','PermissionGroupsController');
 
@@ -188,11 +191,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //消息发送管理
         Route::resource('accept_message', 'AcceptMessagesController');
         //获取消息下拉数据
-        Route::get('select_type', 'AcceptMessagesController@getSelectType');
+//        Route::get('select_type', 'AcceptMessagesController@getSelectType');
         //获取员工下拉数据
         Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
+
+        //获取绑定消息的员工
+        Route::get('get_binding/{type}', 'AcceptMessagesController@getBinding');
+
+
+
         //获取员工没有绑定的消息类型
-        Route::get('get_un_type/{id}', 'AcceptMessagesController@getUnType');
+//        Route::get('get_un_type/{id}', 'AcceptMessagesController@getUnType');
 
 
         //生成二维码
