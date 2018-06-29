@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+@extends('home.layouts.layout')
+@section('title', '楼盘列表页')
   <link rel="stylesheet" href="/css/home_pagination.css">
   <link rel="stylesheet" href="/css/home_house_list.css">
-</head>
-<body>
+@section('header')
+@section('body')
   <div class="house_list_container">
     <div class="house_list_title">
       <div class="title_content clearfix">
@@ -154,8 +149,9 @@
       </div> 
     </div>
   </div>
+@endsection
+@section('script')
   <script src="/js/home_manifest.js"></script>
   <script src="/js/home_vendor.js"></script>
   <script src="/js/home_house_list.js"></script>
-</body>
-</html>
+@endsection

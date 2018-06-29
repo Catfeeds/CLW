@@ -1,34 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>首页</title>
+@extends('home.layouts.layout')
+@section('title', '首页')
+@section('header')
   <link rel="stylesheet" href="/css/home_page.css">
-</head>
-<body>
+@endsection
+@section('body')
   <div class="container_box">
-    <!--头部导航-->
-    <div class="header">
-      <div class="nav clearfix">
-        <div class="nav_logo f_l">
-          <img src="/we_img/homePage_logo.png" alt="">
-        </div>
-        <ul class="nav_items f_l clearfix">
-          <li class="nav_item"><a href="javascript:void(0);">首页</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">写字楼出租</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">联合办公</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">企业服务</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">资讯中心</a></li>
-        </ul>
-        <div class="nav_phone f_l">400-580-888</div>
-        <div class="nav_set f_r">
-          <div class="f_l"><a href="javascript:void(0);" class="login f_l">注册</a></div>
-          <div class="f_l"><a href="javascript:void(0);" class="register f_l">登录</a></div>
-        </div>
-      </div>
-    </div>
     <!--搜索区域-->
     <div class="search_area">
       <div class="search_box">
@@ -668,55 +644,11 @@
       </div>
     </div>-->
     <!--底部-->
-    <div class="footer">
-      <footer class="footer_content clearfix">
-        <div class="footer_logo f_l">
-          <img src="/we_img/footer_logo.png" alt="logo">
-        </div>
-        <div class="footer_info f_r">
-          <div class="info_header clearfix">
-            <div class="about_us f_l">
-              <a href="javascript:void(0);">关于我们</a>
-            </div>
-            <div class="contact_us f_l">
-              <a href="javascript:void(0);">联系我们</a>
-            </div>
-            <div class="contact_free f_r">
-              免费咨询 400-580-888 周一至周日 8:00-20:00
-            </div>
-          </div>
-          <div class="info_content">
-            <ul class="list1">
-              <li><a href="javascript:void(0);">公司介绍</a></li>
-              <li><a href="javascript:void(0);">联系我们</a></li>
-              <li><a href="javascript:void(0);">使用协议</a></li>
-              <li><a href="javascript:void(0);">隐私政策</a></li>
-            </ul>
-            <ul class="list2">
-              <li>楚楼 (武汉) 信息科技有限公司</li>
-              <li>地址:湖北省武汉市江夏区光谷智慧园1栋801</li>
-              <li>电子邮箱:service@chulouwang.com</li>
-            </ul>
-            <div class="code_area clearfix">
-              <div class="wx_code f_l">
-                <img src="/we_img/wx_code.png" alt="微信公众号">
-                <div>公众号</div>
-              </div>
-              <div class="download_code f_l">
-                <img src="/we_img/downloadApp_code.png" alt="下载二维码">
-                <div>下载APP</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <div class="footer_bottom">
-        <div class="footer_content">版权所有鄂ICP备18001084 鄂公网安备 42018502001214号</div>
-      </div>
-    </div>
+    
   </div>
+@endsection
+@section('script')
   <script src="/js/home_manifest.js"></script>
   <script src="/js/home_vendor.js"></script>
   <script src="/js/home_page.js"></script>
-</body>
-</html>
+@endsection

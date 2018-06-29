@@ -250,27 +250,27 @@ $(function() {
   $(".js_order_selected").on("click",function(){
     alert('成功订阅');
     $(".js_result").hide();
-})
+});
   $(".title_right > div > a").on("click",function(){
     $(this).addClass("current");
     $(this).parent("div").siblings().children("a").removeClass("current");
-  })
+  });
   $(".js_order_price").on("click",function(){
-      $(this).toggleClass("js_set")
-        var status = $(".js_order_price").hasClass("js_set")
+        $(this).toggleClass("js_set");
+        var status = $(this).hasClass("js_set");
         console.log(status);
         var data = getData();
-        // console.log(data)
+        console.log(data)
         var orderData = setOrder(status,data);
-        console.log(orderData);
+        // console.log(orderData);
       
         createDom(orderData,status);
-  })
+  });
   $(".sort_default").on("click",function(){
       createDom(houseData);
-  })
+  });
 
-})
+});
 function getData(){
     var data = [];
     var obj = $(".js_content > div");

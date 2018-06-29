@@ -200,12 +200,12 @@ $(function () {
     });
     $(".js_order_price").on("click", function () {
         $(this).toggleClass("js_set");
-        var status = $(".js_order_price").hasClass("js_set");
+        var status = $(this).hasClass("js_set");
         console.log(status);
         var data = getData();
-        // console.log(data)
+        console.log(data);
         var orderData = setOrder(status, data);
-        console.log(orderData);
+        // console.log(orderData);
 
         createDom(orderData, status);
     });

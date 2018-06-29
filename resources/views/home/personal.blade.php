@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>个人中心</title>
+@extends('home.layouts.layout')
+@section('title', '个人中心')
+@section('header')
   <link rel="stylesheet" href="/css/home_personal.css">
   <link rel="stylesheet" href="/css/home_pagination.css">
-</head>
-<body>
-  <div id="test"></div>
+@endsection
+@section('body')
   <div class="personal">
     <div class="container clearfix">
       <div class="title">
@@ -74,19 +69,11 @@
       </div>
     </div>
   </div>
+@endsection
 
-
-
-
-
-
-
-
-
-
+@section('script')
   <script src="/js/home_manifest.js"></script>
   <script src="/js/home_vendor.js"></script>
 
   <script src="/js/home_personal.js"></script>
-</body>
-</html>
+@endsection

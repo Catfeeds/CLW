@@ -287,7 +287,7 @@ body .personal .container .left_container .my_account .account_content .account_
   height: 50px;
   width: 100%;
   margin: 1px;
-  background-color: #22a6f6;
+  background-color: #fff;
 }
 
 body .personal .container .left_container .my_account .account_content .account_item:first-child {
