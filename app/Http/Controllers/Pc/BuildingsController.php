@@ -37,7 +37,7 @@ class BuildingsController extends Controller
         // 猜你喜欢
         $request->area_id = $areaId;   // 区域id
         $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
-
+        // return $building;
         return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block]);
     }
 

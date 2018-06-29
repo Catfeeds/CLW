@@ -9,9 +9,9 @@
 </head>
 <body>
 <h1>
-    <img src=" {{ url('captcha/1') }} " />
+    <img src=" <?php echo e(url('captcha/1')); ?> " />
     <input type="text" name="code"  id="code" onchange="getCode(this)">
-    <a href=" {{url('sms/captcha/15926298802/1')}} "> 跳转</a>
+    <a href=" <?php echo e(url('sms/captcha/15926298802/1')); ?> "> 跳转</a>
 </h1>
 <script>
     function getCode(obj) {
