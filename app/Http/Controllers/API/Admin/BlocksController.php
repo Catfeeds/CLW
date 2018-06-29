@@ -28,6 +28,7 @@ class BlocksController extends APIBaseController
     )
     {
         $res = $repository->addBlock($request);
+        if (!$res) return $this->sendError('商圈添加失败');
         return $this->sendResponse($res,'商圈添加成功');
     }
 
