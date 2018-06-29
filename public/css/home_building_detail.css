@@ -410,6 +410,10 @@ template {
   cursor: pointer;
 }
 
+.content .build .first .left .rent .rentAcreage .current {
+  color: #03a2fb;
+}
+
 .content .build .first .left .buildList {
   background: #fff;
   margin: 20px 0;

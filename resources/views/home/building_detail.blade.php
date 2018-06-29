@@ -59,41 +59,58 @@
                     <div class="rent" id="rent">
                         <div class="h1">出租房源</div>
                         <div>
-                            <div class="rentAcreage" id="rentAcreage"><div>面积</div>
-                            <span>全部</span><span>0-100m²</span><span>100-300m²</span><span>300-500m²</span><span>500-1000m²</span><span>1000m²</span><span>以上</span></div>
-                            <div class="rentAcreage" id="price"><div>价格</div><span>全部</span><span>40-60/m²月</span><span>60-80/m²月</span><span>80-120/m²月</span><span>120-140/m²月</span><span>140/m²月</span><span>以上</span></div>
+                            <div class="rentAcreage js_rentAcreage" id="rentAcreage">
+                                <div>面积</div>
+                                <span class="current">全部</span>
+                                <span class="js_active" data-min='0' data-max='100'>0-100m²</span>
+                                <span class="js_active" data-min='100' data-max='300'>100-300m²</span>
+                                <span class="js_active" data-min='300' data-max='500'>300-500m²</span>
+                                <span class="js_active" data-min='500' data-max='1000'>500-1000m²</span>
+                                <span class="js_active" data-min='1000'>1000m²以上</span>
+                            </div>
+                            <div class="rentAcreage js_rentPrice" id="rentPrice">
+                                <div>价格</div>
+                                <span class="current">全部</span>
+                                <span class="js_active" data-min='40' data-max='60'>40-60/m²月</span>
+                                <span class="js_active" data-min='60' data-max='80'>60-80/m²月</span>
+                                <span class="js_active" data-min='80' data-max='120'>80-120/m²月</span>
+                                <span class="js_active" data-min='120' data-max='140'>120-140/m²月</span>
+                                <span class="js_active" data-min='140'>140/m²月以上</span>
+                            </div>
                         </div>
                     </div>
                     <!-- 房源列表 -->
                     <div class="buildList" id="buildList">
                         <div class="listNav">
-                            <div>共<span> {{$houses->count()}} </span>套</div>
-                            <div>面积</div>
-                            <div>单价</div>
+                            <div class="js_listCount">共 <span>{{$houses->count()}}</span> 套</div>
+                            <div class="js_listArea">面积<span class='js_rise'>↑</span><span class='js_drop'>↓</span></div>
+                            <div class="js_listPrice">单价<span>↑</span><span>↓</span></div>
                             <div>总价</div>
                             <div class="special">特色</div>
                         </div>
-                        @foreach($houses as $house)
-                        <a href="#">
-                        <div class="listDetail">
-                            <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
-                            <div class="listPic listNum"><span>{{$house->constru_acreage_cn}}</span></div>
-                            <div class="listPic listNum"><span>{{$house->unit_price_cn}}</span></div>
-                            <div class="listPic listNum"><span>{{$house->total_price_cn}}</span></div>
-                            <div class="listSpecial listNum">
-                                @if(!empty($house->house_feature[0]))
-                                <span>{{$house->house_feature[0]}}</span>
-                                @endif
-                                @if(!empty($house->house_feature[1]))
-                                <span>{{$house->house_feature[1]}}</span>
-                                @endif
-                                @if(!empty($house->house_feature[2]))
-                                <span>{{$house->house_feature[2]}}</span>
-                                @endif
-                            </div>
+                        <div class="js_listDetail">
+                            @foreach($houses as $house)
+                            <a href="#">
+                                <div class="listDetail">
+                                    <div class="listPic" id="listPic"><img src="{{$house->indoor_img_cn}}"></div>
+                                    <div class="listPic listNum" id="listArea"><span>{{$house->constru_acreage_cn}}</span></div>
+                                    <div class="listPic listNum" id="listPrice"><span>{{$house->unit_price_cn}}</span></div>
+                                    <div class="listPic listNum" id="listTotal"><span>{{$house->total_price_cn}}</span></div>
+                                    <div class="listSpecial listNum" id="listSpecial">
+                                        @if(!empty($house->house_feature[0]))
+                                        <span>{{$house->house_feature[0]}}</span>
+                                        @endif
+                                        @if(!empty($house->house_feature[1]))
+                                        <span>{{$house->house_feature[1]}}</span>
+                                        @endif
+                                        @if(!empty($house->house_feature[2]))
+                                        <span>{{$house->house_feature[2]}}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </a>
+                            @endforeach
                         </div>
-                        </a>
-                        @endforeach
                     </div>
                     <!-- 查看所有 -->
                     <div class="all">查看所有出租房源</div>
@@ -192,4 +209,3 @@
 @section('script')
 <script src="/js/home_building_detail.js"></script>
 @endsection
-<!DOCTYPE html>
