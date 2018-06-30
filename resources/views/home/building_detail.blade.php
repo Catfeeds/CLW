@@ -5,7 +5,10 @@
 @endsection
 @section('body')
 <div class="content">
-        <div class="nav"><span>首页</span><span>>洪山区</span><span>>光谷</span><span>>{{$building->name}}</span></div>
+    <?php 
+        $arrs=array('首页','洪山区','光谷','慧谷时空')
+    ?>
+    @include('home.layouts.nav', ['arrs'=>$arrs])
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
@@ -34,7 +37,7 @@
                             </div>
                             <div class="introRental">
                                 <div class="introPrice">{{$building->unit_price}}</div>
-                                <div>月度租金/元每平方米</div>
+                                <div>月度租金/元每平方米</div> 
                             </div>
                         </div>
                         <div class="introAddress">
@@ -83,8 +86,8 @@
                     <div class="buildList" id="buildList">
                         <div class="listNav">
                             <div class="js_listCount">共 <span>{{$houses->count()}}</span> 套</div>
-                            <div class="js_listArea">面积<span class='js_rise'>↑</span><span class='js_drop'>↓</span></div>
-                            <div class="js_listPrice">单价<span>↑</span><span>↓</span></div>
+                            <div class="js_listArea">面积<span class='js_rise'>↑</span><span class='js_drop' style="display:none">↓</span></div>
+                            <div class="js_listPrice">单价<span class='js_rise'>↑</span><span class='js_drop' style="display:none">↓</span></div>
                             <div>总价</div>
                             <div class="special">特色</div>
                         </div>
@@ -113,7 +116,9 @@
                         </div>
                     </div>
                     <!-- 查看所有 -->
+                    @if($houses->count()>10)
                     <div class="all">查看所有出租房源</div>
+                    @endif
                     <!-- 楼盘信息 -->
                     <div class="buildInfor" id="buildInfor">
                         <div class="h1">楼盘信息</div>

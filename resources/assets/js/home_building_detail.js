@@ -7,6 +7,8 @@ var initHouseData = getVal() // 房源数据
 var houseDetail = getVal()
 var houseCount = parseInt($('.js_listCount span').html()) // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML') // 房源列表模板
+var rightTop = $('.right').offset().top // 右侧边栏至顶部的距离
+var secondTop = $('#second').offset().top // 周边配套至顶部的距离
 new Vue({
   el: '#second',
   components: {detailMap},
@@ -20,6 +22,22 @@ new Vue({
 new Vue({
   el: '#third',
   components: {betterList}
+})
+
+// 页面滚动事件
+$(window).scroll(function(){
+  var scrollTop = $(window).scrollTop()
+  if((scrollTop >= rightTop) && ((scrollTop + 770) < secondTop)) {
+    $('.right').addClass('location')
+    $('.right').css('margin-top', '0')
+  } else if((scrollTop <= rightTop) || ((scrollTop + 770) >= secondTop)) {
+    if((scrollTop + 770) >= secondTop) {
+      $('.right').css('margin-top', secondTop-rightTop-820)
+      $('.right').removeClass('location')
+    } else {
+      $('.right').removeClass('location')
+    }
+  }
 })
 
 // 轮播
@@ -38,18 +56,21 @@ $('.filter div').on('click', function(){
   $(this).siblings().removeClass('filterActive')
   var val = $(this).html()
   if(val == '出租房源') {
-    document.getElementById('rent').scrollIntoView(true)
+    navigation('#rent')
   } else if(val == '楼盘信息') {
-    document.getElementById('buildInfor').scrollIntoView(true)
+    navigation('#buildInfor')
   } else if(val == '市场行情') {
-    document.getElementById('quotation').scrollIntoView(true)
+    navigation('#quotation')
   } else if(val == '周边配套') {
-    document.getElementById('second').scrollIntoView(true)
+    navigation('#second')
   } else if(val == '猜你喜欢') {
-    document.getElementById('third').scrollIntoView(true)
+    navigation('#third')
   }
-  // console.log('整体导航', val)
 })
+function navigation(obj) {
+  $('html,body').animate({scrollTop: $(obj).offset().top + 'px'},500)
+  // document.getElementById('second').scrollIntoView(true)
+}
 
 // 出租房源面积筛选
 $('#rentAcreage span').on('click', function(){
@@ -71,32 +92,58 @@ $('#rentPrice span').on('click', function(){
 $('.js_listArea').on('click', function(){
   var term = 'area'
   var sequence = true
-  console.log('dom', $('.js_listArea .js_rise'))
-  $('.js_rise').toggle()
-  $('.js_drop').toggle()
+  // console.log('dom', $('.js_listArea .js_rise'))
+  $('.js_listArea .js_rise').toggle()
+  $('.js_listArea .js_drop').toggle()
+  // console.log('aasadadas', $('.js_listArea .js_drop').is(':hidden'))
+  sequence = $('.js_listArea .js_drop').is(':hidden')
   var html = order(houseDetail, sequence, term)
   createVal(html)
 })
 
 // 按照单价排序
 $('.js_listPrice').on('click', function(){
-  console.log('sssss', $('.js_listPrice'))
+  var term = 'price'
+  var sequence = true
+  // console.log('dom', $('.js_listPrice .js_rise'))
+  $('.js_listPrice .js_rise').toggle()
+  $('.js_listPrice .js_drop').toggle()
+  // console.log('aasadadas', $('.js_listPrice .js_drop').is(':hidden'))
+  sequence = $('.js_listPrice .js_drop').is(':hidden')
+  var html = order(houseDetail, sequence, term)
+  createVal(html) 
 })
 // 排序
 function order(houseDetail, sequence, term) {
-  for(var i = 0; i < houseDetail.length; i++) {
-    for(var k = 0; k < houseDetail.length; k++) {
-      var area1 = parseFloat(houseDetail[i][term])
-      var area2 = parseFloat(houseDetail[k][term])
-      if(area1 < area2) {
-        var item = houseDetail[i]
-        houseDetail[i] = houseDetail[k]
-        houseDetail[k] = item
+  if(sequence) {
+    for(var i = 0; i < houseDetail.length; i++) {
+      for(var k = 0; k < houseDetail.length; k++) {
+        var area1 = parseFloat(houseDetail[i][term])
+        var area2 = parseFloat(houseDetail[k][term])
+        if(area1 > area2) {
+          var item = houseDetail[i]
+          houseDetail[i] = houseDetail[k]
+          houseDetail[k] = item
+        }
       }
     }
+    // console.log('hhhhh', houseDetail)
+    return houseDetail
+  } else {
+    for(var i = 0; i < houseDetail.length; i++) {
+      for(var k = 0; k < houseDetail.length; k++) {
+        var area1 = parseFloat(houseDetail[i][term])
+        var area2 = parseFloat(houseDetail[k][term])
+        if(area1 < area2) {
+          var item = houseDetail[i]
+          houseDetail[i] = houseDetail[k]
+          houseDetail[k] = item
+        }
+      }
+    }
+    // console.log('hhhhh', houseDetail)
+    return houseDetail
   }
-  console.log('hhhhh', houseDetail)
-  return houseDetail
 }
 
 // 通过dom节点获取blade模板渲染出的数据
@@ -113,8 +160,11 @@ function getVal() {
     item.total = list.eq(i).find('#listTotal>span').html() // 获取总价
     item.feature = list.eq(i).find('#listSpecial').html() // 获取房源特色
     data.push(item)
+    // 最多只显示10条数据，其他的隐藏
+    if(i >= 10) {
+      list.eq(i).css('display', 'none')
+    }
   }
-  console.log('aaaa', data)
   return data
 }
 
@@ -128,9 +178,18 @@ function createVal(data) {
     list.find('#listPrice>span').html(data[p].price)
     list.find('#listTotal>span').html(data[p].total)
     list.find('#listSpecial').html(data[p].feature)
+    // 最多只显示10条数据，其他的隐藏
+    if(p >= 10) {
+      list.css('display', 'none')
+    }
   }
-  $('.js_listCount span').html( data.length )
+  $('.js_listCount span').html( data.length ) // 房源的总数量
+  // 房源数量大于10条显示查看更多
+  if(data.length > 10) {
+    $('.all').css('display', 'block')
+  }
   houseDetail = data
+  secondTop = $('#second').offset().top // 获取周边配套至顶部的高度
 }
 
 // 筛选
@@ -185,3 +244,10 @@ function select(min, max, term, data) {
   }
   return item
 }
+
+// 查看所有数据
+$('.all').on('click', function(){
+  $('.js_listDetail .listDetail').css('display', 'flex')
+  $('.all').css('display', 'none')
+  secondTop = $('#second').offset().top
+})

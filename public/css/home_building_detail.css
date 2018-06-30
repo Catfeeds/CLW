@@ -509,6 +509,7 @@ template {
   line-height: 50px;
   text-align: center;
   background: #fff;
+  display: block;
 }
 
 .content .build .first .left .buildInfor {
@@ -571,8 +572,15 @@ template {
   border-right: 1px solid #f4f4f4;
 }
 
+.content .build .first .location {
+  position: fixed;
+  top: 0;
+  right: 18%;
+}
+
 .content .build .first .right {
-  width: 20%;
+  width: 195px;
+  margin-top: 0;
 }
 
 .content .build .first .right .agent {
