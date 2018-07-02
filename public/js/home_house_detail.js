@@ -83,8 +83,6 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ 10:
 /***/ (function(module, exports) {
 
@@ -119,24 +117,19 @@ module.exports = function listToStyles (parentId, list) {
 
 /***/ }),
 
->>>>>>> origin/master
-/***/ 118:
+/***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(119);
+module.exports = __webpack_require__(121);
 
 
 /***/ }),
 
-/***/ 119:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-<<<<<<< HEAD
-var Swiper = __webpack_require__(12);
-=======
 var Swiper = __webpack_require__(8);
->>>>>>> origin/master
 var betterList = __webpack_require__(28);
 new Vue({
   el: '#enjoy',
@@ -194,7 +187,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/betterList.vue"
+Component.options.__file = "resources\\assets\\js\\components\\betterList.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -203,9 +196,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5721d505", Component.options)
+    hotAPI.createRecord("data-v-280f3245", Component.options)
   } else {
-    hotAPI.reload("data-v-5721d505", Component.options)
+    hotAPI.reload("data-v-280f3245", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -227,13 +220,13 @@ var content = __webpack_require__(30);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("80b212f6", content, false, {});
+var update = __webpack_require__(5)("58742ae0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5721d505\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5721d505\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-280f3245\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-280f3245\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -352,7 +345,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5721d505", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-280f3245", module.exports)
   }
 }
 
@@ -2775,239 +2768,6 @@ module.exports = function normalizeComponent (
                 if (s.params.effect !== 'slide') {
                     s.setWrapperTranslate(translate);
                 }
-<<<<<<< HEAD
-                else return null;
-            };
-        }
-    }
-    
-
-    window.Swiper = Swiper;
-})();
-
-/*===========================
-Swiper AMD Export
-===========================*/
-if (true)
-{
-    module.exports = window.Swiper;
-}
-else if (typeof define === 'function' && define.amd) {
-    define([], function () {
-        'use strict';
-        return window.Swiper;
-    });
-}
-
-//# sourceMappingURL=maps/swiper.js.map
-
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(29)
-}
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(31)
-/* template */
-var __vue_template__ = __webpack_require__(32)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\betterList.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-280f3245", Component.options)
-  } else {
-    hotAPI.reload("data-v-280f3245", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 29:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(30);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(5)("58742ae0", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-280f3245\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-280f3245\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.list {\n  padding: 20px 15px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n.list .detail {\n    background: #fff;\n    width: 31%;\n}\n.list .detail img {\n      width: 100%;\n      height: 210px;\n}\n.list .detail .buildDetail {\n      padding: 20px;\n      height: 120px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n}\n.list .detail .buildDetail .building {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.list .detail .buildDetail .building .name {\n          font-size: 20px;\n          font-weight: 700;\n}\n.list .detail .buildDetail .building span {\n          font-size: 20px;\n          color: #03a2f9;\n}\n.list .detail .buildDetail .introduce {\n        font-size: 14px;\n}\n.list .detail .buildDetail .location img {\n        width: 12px;\n        height: 17px;\n        vertical-align: middle;\n}\n.list .detail .buildDetail .landmark {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.list .detail .buildDetail .landmark div {\n          padding: 2px 5px;\n          background: #facee2;\n          margin-right: 5px;\n          border-radius: 3px;\n}\n.list .detail:not(:first-child) {\n      margin-left: 25px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 31:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-
-/***/ 32:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "list" }, [
-      _c("div", { staticClass: "detail" }, [
-        _c("div", [
-          _c("img", {
-            attrs: { src: "/we_img/house_detail_banner01.jpg", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "buildDetail" }, [
-          _c("div", { staticClass: "building" }, [
-            _c("div", { staticClass: "name" }, [_vm._v("光谷新世界")]),
-            _vm._v(" "),
-            _c("div", [_c("span", [_vm._v("55-90")]), _vm._v("元/m²月")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "introduce" }, [
-            _vm._v(
-              "光谷位于洪山、江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众创..."
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "location" }, [
-            _c("img", {
-              attrs: { src: "/we_img/house_detail_address.png", alt: "" }
-            }),
-            _vm._v(" 江夏区-东湖高新区")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "landmark" }, [
-            _c("div", [_vm._v("可注册")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("地铁10分钟")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("地标建筑")])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-280f3245", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 5:
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-=======
                 return false;
             }
             s.updateClasses();
@@ -3439,7 +3199,6 @@ var hasDocument = typeof document !== 'undefined'
             s.removeSlide(slidesIndexes);
         };
         
->>>>>>> origin/wanghao
 
         /*=========================
           Effects
@@ -6292,4 +6051,4 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ })
 
-},[118]);
+},[120]);

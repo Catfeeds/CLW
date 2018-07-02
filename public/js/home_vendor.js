@@ -1,10 +1,6 @@
 webpackJsonp([3],{
 
-<<<<<<< HEAD
-/***/ 133:
-=======
-/***/ 131:
->>>>>>> origin/master
+/***/ 137:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(2);
@@ -21846,8 +21842,4 @@ module.exports = g;
 
 /***/ })
 
-<<<<<<< HEAD
-},[133]);
-=======
-},[131]);
->>>>>>> origin/master
+},[137]);

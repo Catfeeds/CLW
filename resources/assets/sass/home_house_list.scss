@@ -104,10 +104,13 @@ body {
         }
         .area {
           .area_detail {
+            position: relative;
             display: none;
             margin-left: 70px;
             padding-left: 25px;
-            background-color: rgba(242, 242, 242, 1);
+            background-color: #f6faff;
+            border: 1px solid #ebebeb;
+            border-bottom:  none;
             li {
               float: left;
               height: 37px;
@@ -118,6 +121,7 @@ body {
               }
             }
           }
+          
         }
         .subway {
           width: 100%;

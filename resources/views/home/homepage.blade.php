@@ -648,7 +648,5 @@
   </div>
 @endsection
 @section('script')
-  <script src="/js/home_manifest.js"></script>
-  <script src="/js/home_vendor.js"></script>
   <script src="/js/home_page.js"></script>
 @endsection

@@ -1,25 +1,28 @@
 webpackJsonp([4],{
 
-/***/ 127:
+/***/ 129:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(128);
+module.exports = __webpack_require__(130);
 
 
 /***/ }),
 
-/***/ 128:
+/***/ 130:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
 var Swiper = __webpack_require__(8);
-var mySwiper = new Swiper('.swiper-container', {
-  pagination: {
-    el: ".swiper-pagination",
-    bulletClass: "my-pagination"
-  },
-  aotoplay: true,
-  loop: true
+
+var banner = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  autoplay: 2000,
+  loop: true,
+  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
+    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
+  }
+
 });
 
 /***/ }),
@@ -5383,36 +5386,6 @@ else if (typeof define === 'function' && define.amd) {
 //# sourceMappingURL=maps/swiper.js.map
 
 
-<<<<<<< HEAD
-/***/ }),
-
-/***/ 127:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(128);
-
-
-/***/ }),
-
-/***/ 128:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(2);
-var Swiper = __webpack_require__(12);
-
-var banner = new Swiper('.swiper-container', {
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  autoplay: 2000,
-  loop: true,
-  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
-    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
-  }
-
-});
-
-=======
->>>>>>> origin/master
 /***/ })
 
-},[127]);
+},[129]);
