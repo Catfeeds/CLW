@@ -18,7 +18,12 @@ html{
         bottom: 50px;
         a.download-btn{
           flex: 1;
-          padding: 0 10px;
+          &:first-child{
+            padding: 0 10px 0 35px
+          }
+          &:last-child{
+            padding: 0 35px 0 10px
+          }
           >img{
             width: 100%;
           }

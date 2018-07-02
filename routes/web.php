@@ -18,8 +18,8 @@ Route:: get('map_test', function () {
     return view('test.mapDemo');
 });
 //首页
-Route::get('homepage',function(){
-    return view('home.homepage');
+Route::get('index',function(){
+    return view('home.index');
 });
 //app下载页面
 Route::get('download',function(){
