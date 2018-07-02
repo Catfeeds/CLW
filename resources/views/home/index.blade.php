@@ -169,11 +169,68 @@
   <div class="topic-content">
     <ul class="sever-list">
       <li class="sever-item">
-        <img src="/home_img/index_topic1_plant.jpg" alt="绿植服务">
+        <a href="javascript:void(0)">
+          <img src="/home_img/index_topic1_plant.jpg" alt="绿植服务">
+          <div class="bg-box"></div>
+          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
+          <div class="server-title">绿洲租摆</div>
+        </a>
+      </li>
+      <li class="sever-item">
+        <a href="javascript:void(0)">
+          <img src="/home_img/index_topic1_clear.jpg" alt="绿植服务">
+          <div class="bg-box"></div>
+          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
+          <div class="server-title">保洁服务</div>
+        </a>
+      </li>
+      <li class="sever-item">
+        <a href="javascript:void(0)">
+          <img src="/home_img/index_topic1_jiaju.jpg" alt="绿植服务">
+          <div class="bg-box"></div>
+          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
+          <div class="server-title">办公家具</div>
+        </a>
+      </li>
+      <li class="sever-item">
+        <a href="javascript:void(0)">
+          <img src="/home_img/index_topic1_gongshang.jpg" alt="绿植服务">
+          <div class="bg-box"></div>
+          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
+          <div class="server-title">工商代办</div>
+        </a>
+      </li>
+      <li class="sever-item">
+        <a href="javascript:void(0)">
+          <img src="/home_img/index_topic1_moveHome.jpg" alt="绿植服务">
+          <div class="bg-box"></div>
+          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
+          <div class="server-title">搬家服务</div>
+        </a>
       </li>
       <li class="clearfloat"></li>
     </ul>
   </div>
+</div>
+<div class="topic-box">
+    <h2 class="topic-title">核心商圈</h2>
+    <div class="elaborate-title">享优质配套 与大咖公司为邻</div>
+</div>
+<div class="topic-box">
+  <h2 class="topic-title">精选专题</h2>
+  <div class="elaborate-title">优质写字楼 聚你所需</div>
+</div>
+<div class="topic-box">
+  <h2 class="topic-title">精品写字楼</h2>
+  <div class="elaborate-title">配套成熟，量身定制</div>
+</div>
+<div class="topic-box">
+  <h2 class="topic-title">推荐服务</h2>
+  <div class="elaborate-title">让办公更舒心</div>
+</div>
+<div class="topic-box">
+  <h2 class="topic-title">资讯中心</h2>
+  <div class="elaborate-title">了解行业动态，把握市场命脉</div>
 </div>
 @endsection
 @section('script')

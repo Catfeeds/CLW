@@ -401,7 +401,7 @@ body .index-header-box .banner-content-box .banner-commercial-box {
 }
 
 body .index-header-box .banner-content-box .banner-commercial-box .velocity-factor {
-  margin-top: 55px;
+  margin-top: 50px;
   display: inline-block;
   width: 178px;
   height: 57px;
@@ -455,6 +455,7 @@ body .index-header-box .banner-footer-box .banner-png-list .banner-png-item .ban
 
 body .topic-box {
   padding-top: 100px;
+  padding-bottom: 90px;
 }
 
 body .topic-box:nth-child(2n+1) {
@@ -490,10 +491,86 @@ body .topic-box .topic-content .sever-list {
 
 body .topic-box .topic-content .sever-list .sever-item {
   float: left;
-  width: 20%;
+  width: 240px;
+  height: 406px;
+  position: relative;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+body .topic-box .topic-content .sever-list .sever-item * {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+body .topic-box .topic-content .sever-list .sever-item:hover .server-title {
+  font-size: 42px;
+  line-height: 45px;
+  top: 100px;
+  left: 108px;
+}
+
+body .topic-box .topic-content .sever-list .sever-item:hover .bg-box {
+  opacity: 0.6;
+}
+
+body .topic-box .topic-content .sever-list .sever-item:hover {
+  z-index: 2;
+}
+
+body .topic-box .topic-content .sever-list .sever-item:hover a {
+  width: 255px;
+  left: -7.5px;
+  top: -8px;
+}
+
+body .topic-box .topic-content .sever-list .sever-item:hover .text-box {
+  opacity: 1;
+  bottom: 22px;
+}
+
+body .topic-box .topic-content .sever-list .sever-item a {
+  position: absolute;
+  display: block;
+  width: 240px;
+  top: 0px;
+  left: 0px;
 }
 
 body .topic-box .topic-content .sever-list .sever-item img {
   width: 100%;
+  display: block;
+}
+
+body .topic-box .topic-content .sever-list .sever-item .server-title {
+  color: #ffffff;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  z-index: 1;
+  width: 2px;
+  line-height: 16px;
+}
+
+body .topic-box .topic-content .sever-list .sever-item .text-box {
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 0;
+}
+
+body .topic-box .topic-content .sever-list .sever-item .bg-box {
+  background: #000000;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
