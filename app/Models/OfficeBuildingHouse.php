@@ -21,7 +21,7 @@ class OfficeBuildingHouse extends Model
     ];
 
     protected $appends = [
-        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'payment_type_cn',
+        'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'house_type_cn','payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
         'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'floor_cn', 'show_cn'
     ];
@@ -34,7 +34,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getIndoorImgCnAttribute()
     {
-        return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
+        return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('setting.house_default_img');
     }
 
     /**
@@ -49,7 +49,7 @@ class OfficeBuildingHouse extends Model
             return collect($this->indoor_img)->map(function($img) {
                 return [
                     'name' => $img,
-                    'url' => config('setting.qiniu_url') . $img
+                    'url' => config('setting.qiniu_url') . $img . config('setting.qiniu_suffix')
                 ];
             });
         } else {
@@ -166,6 +166,21 @@ class OfficeBuildingHouse extends Model
             $houseType = $houseType.$this->hall.'厅';
         }
 
+        return $houseType;
+    }
+
+    public function getHouseTypeCnAttribute()
+    {
+        $houseType = '';
+        if (!empty($this->room)) {
+            $houseType = $this->room.'室';
+        }
+        if (!empty($this->hall)) {
+            $houseType = $houseType.$this->hall.'厅';
+        }
+
+        if ($this->split == 1) $houseType .= ',可定制';
+        if ($this->split == 2) $houseType .= ',不可定制';
         return $houseType;
     }
 

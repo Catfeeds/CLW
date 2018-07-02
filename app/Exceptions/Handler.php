@@ -2,9 +2,9 @@
 
 namespace App\Exceptions;
 
-use App\Models\AcceptMessage;
-use App\Models\Employee;
-use App\Services\MessagesService;
+use App\Http\Controllers\API\Admin\AcceptMessagesController;
+use App\Http\Requests\Admin\AcceptMessagesRequest;
+use App\Repositories\AcceptMessagesRepository;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
@@ -53,22 +53,24 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if (empty(config('app.debug', false))) {
-            $errorInfo = '';
             if (!empty(method_exists($exception, 'getStatusCode'))) {
                 if ($exception->getStatusCode() != 404) {
-                    $errorInfo = $this->errorMessage($exception);
+                    $errorInfo = $this->errorMessage($exception, $request);
+                } else {
+                    //如果报错为404,直接结束,不发送消息
+                    return parent::render($request, $exception);
                 }
             } else {
-                $errorInfo = $this->errorMessage($exception);
+                $errorInfo = $this->errorMessage($exception, $request);
             }
 
             // 获取错误类型
             $temp = explode('\\', get_class($exception));
             $type = end($temp);
-            $class = new MessagesService();
-            $openid = $class->getOpenid(1);
+            $class = new AcceptMessagesController(new AcceptMessagesRepository(),new AcceptMessagesRequest());
+            $openid = $class->getOpenid(3);
             $data['type'] = $type;
-            $data['name'] = 'jacklin';
+            $data['name'] = config('app.name');
             $data['errorInfo'] = $errorInfo;
             $data['openid'] = json_encode($openid);
             curl(config('setting.wechat_url').'/waring_notice','post',$data);
@@ -91,12 +93,12 @@ class Handler extends ExceptionHandler
      * @return string
      * @author 罗振
      */
-    public function errorMessage($exception)
+    public function errorMessage($exception, $request)
     {
         $file = $exception->getFile(); // 报错文件
         $line = $exception->getLine(); // 报错行数
         $message = $exception->getMessage();    // 报错信息
-
-        return $file.'文件的'.$line.'行报错,报错信息为:'.$message;
+        $uri = $request->getRequestUri(); //接口
+        return 'api:'.$uri.",line:".$file.$line.'行'."info:".$message;
     }
 }

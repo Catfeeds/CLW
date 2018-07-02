@@ -12,6 +12,10 @@ class Block extends Model
 
     protected $connection = 'media';
 
+    protected $appends = [
+        'agent_pic_cn'
+    ];
+
     public function area()
     {
         return $this->belongsTo('App\Models\Area','area_id','id');
@@ -22,4 +26,14 @@ class Block extends Model
         return $this->hasMany('App\Models\Building','block_id', 'id');
     }
 
+    public function blockLocation()
+    {
+        return $this->belongsTo('App\Models\BlockLocation', 'id','block_id');
+    }
+
+    public function getAgentPicCnAttribute()
+    {
+        if (empty($this->agent_cn)) return '';
+        return config('setting.qiniu_url').$this->agent_cn;
+    }
 }

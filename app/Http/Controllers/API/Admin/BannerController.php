@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Controllers\Traits\QiNiu;
+use App\Http\Controllers\Traits\SafeString;
 use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use App\Repositories\BannerRepository;
@@ -11,6 +12,7 @@ use App\Repositories\BannerRepository;
 class BannerController extends APIBaseController
 {
     use QiNiu;
+    use SafeString;
 
     /**
      * 说明: 获取列表

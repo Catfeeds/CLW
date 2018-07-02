@@ -5,9 +5,9 @@ namespace App\Http\Controllers\API\Admin;
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\AcceptMessagesRequest;
 use App\Models\AcceptMessage;
+use App\Models\Employee;
 use App\Repositories\AcceptMessagesRepository;
 use App\Services\MessagesService;
-use function PHPSTORM_META\type;
 
 class AcceptMessagesController extends APIBaseController
 {
@@ -23,19 +23,19 @@ class AcceptMessagesController extends APIBaseController
         $this->req = $request;
     }
 
-    public function getUnType($id, MessagesService $service)
-    {
-        $res = $service->getUnType($id);
-        return $this->sendResponse($res,'获取成功');
-    }
+//    public function getUnType($id, MessagesService $service)
+//    {
+//        $res = $service->getUnType($id);
+//        return $this->sendResponse($res,'获取成功');
+//    }
 
 
-    //消息数据
-    public function getSelectType(MessagesService $service)
-    {
-       $res = $service->getSelectType();
-       return $this->sendResponse($res, '消息下拉数据');
-    }
+//    //消息数据
+//    public function getSelectType(MessagesService $service)
+//    {
+//       $res = $service->getSelectType();
+//       return $this->sendResponse($res, '消息下拉数据');
+//    }
 
     //员工数据
     public function getSelectUsers(MessagesService $service)
@@ -44,17 +44,23 @@ class AcceptMessagesController extends APIBaseController
         return $this->sendResponse($res, '员工下拉数据');
     }
 
-    //消息接收人员列表
-    public function index()
+    public function getBinding($type, MessagesService $service)
     {
-        $res= $this->repo->messageList($this->req);
+        $res= $service->getBinding($type);
+        return $this->sendResponse($res,'获取成功');
+    }
+
+    //消息接收人员列表
+    public function index(MessagesService $service)
+    {
+        $res= $this->repo->messageList($this->req, $service);
         return $this->sendResponse($res,'获取成功');
     }
 
     //添加消息接收人员
-    public function store()
+    public function store(MessagesService $service)
     {
-        $res = $this->repo->addAcceptMessage($this->req);
+        $res = $this->repo->addAcceptMessage($this->req, $service);
         return $this->sendResponse($res, '设置成功');
     }
 
@@ -63,6 +69,16 @@ class AcceptMessagesController extends APIBaseController
     {
         $res = AcceptMessage::where(['type' => $this->req->type,'employee_id' => $this->req->employee_id])->delete();
         return $this->sendResponse($res,'删除成功');
+    }
+
+    //获取员工openid
+    public function getOpenid($type)
+    {
+        $employee_id = AcceptMessage::where('type',$type)->pluck('employee_id')->toArray();
+        if (!empty($employee_id)) {
+            $openid = Employee::whereIn('id', $employee_id)->pluck('openid')->toArray();
+        }
+        return $openid;
     }
 
 }

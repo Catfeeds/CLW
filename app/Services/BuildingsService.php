@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\Area;
+use App\Models\Block;
 
 class BuildingsService
 {
@@ -112,4 +114,39 @@ class BuildingsService
         $res->constru_acreage = intval($res->house->min('constru_acreage')) . '-' . intval($res->house->max('constru_acreage'));
     }
 
+    // 获取楼盘下房子均价
+    public function getBuildingAveragePrice($houses)
+    {
+        return round($houses->sum('total_price') / $houses->sum('constru_acreage'),2).'元/㎡.月';
+    }
+
+    // 获取商圈下房子均价
+    public function getBlockAveragePrice($blockId)
+    {
+        $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
+        return $this->getAveragePrice($block);
+    }
+
+    // 获取区域下房子均价
+    public function getAreaAveragePrice($areaId)
+    {
+        $area = Area::where('id', $areaId)->with('building.buildingBlock.house')->first();
+        return $this->getAveragePrice($area);
+    }
+
+    // 获取商圈和区域下房子均价公共发放
+    public function getAveragePrice(
+        $res
+    )
+    {
+        // 获取商圈和区域下面所有房源
+        $datas = array();
+        foreach ($res->building as $v) {
+            foreach ($v->buildingBlock as $val) {
+                $datas[] = $val->house->toArray();
+            }
+        }
+        // 计算商圈和区域下面所有房源的均价
+        return round(collect($datas)->collapse()->sum('total_price') / collect($datas)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
+    }
 }

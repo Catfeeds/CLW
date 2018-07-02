@@ -3,25 +3,92 @@
 namespace App\Repositories;
 
 use App\Models\Block;
+use App\Models\BlockLocation;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class BlocksRepository extends Model
 {
-    /**
-     * 说明: 商圈添加推荐
-     *
-     * @param Block $block
-     * @param $request
-     * @return bool
-     * @author 罗振
-     */
-    public function updateRecommend(
-        Block $block,
+    // 商圈列表
+    public function blockList()
+    {
+        return Block::where([])->with('area', 'building', 'blockLocation')->paginate(10);
+    }
+
+    // 添加商圈
+    public function addBlock(
         $request
     )
     {
-        $block->recommend = $request->recommend;
-        if (!$block->save()) return false;
-        return true;
+        DB::connection('mysql')->beginTransaction();
+        DB::connection('media')->beginTransaction();
+        try {
+             $block = Block::create([
+                'name' => $request->name,
+                'area_id' => $request->area_id,
+                'recommend' => $request->recommend,
+                'agent_name' => $request->agent_name,
+                'agent_pic' => $request->agent_pic,
+            ]);
+            if (empty($block)) throw new \Exception('商圈添加失败');
+            $blockLocation = BlockLocation::create([
+                    'block_id' => $block->id,
+                    'x' => $request->x,
+                    'y' => $request->y,
+                    'scope' => $request->baidu_coord
+                ]);
+            if (empty($blockLocation)) throw new \Exception('商圈地理范围添加失败');
+            DB::connection('mysql')->commit();
+            DB::connection('media')->commit();
+            return true;
+        } catch (\Exception $exception) {
+            DB::connection('mysql')->rollBack();
+            DB::connection('media')->rollBack();
+            \Log::error('商圈添加失败'. $exception->getMessage());
+            return false;
+        }
+
+    }
+
+    // 修改商圈
+    public function updateBlock(
+        $request,
+        Block $block
+    )
+    {
+        DB::connection('mysql')->beginTransaction();
+        DB::connection('media')->beginTransaction();
+        try {
+            $block->name = $request->name;
+            $block->area_id = $request->area_id;
+            $block->recommend = $request->recommend;
+            $block->agent_name = $request->agent_name;
+            $block->agent_pic = $request->agent_pic;
+            if (!$block->save()) throw new \Exception('商圈修改失败');
+
+            $blockLocation = BlockLocation::where('block_id', $block->id)->first();
+            $blockLocation->x = $request->x;
+            $blockLocation->y = $request->y;
+            $blockLocation->scope = $request->baidu_coord;
+            if (!$blockLocation->save()) throw new \Exception('商圈地理位置修改失败');
+            DB::connection('mysql')->commit();
+            DB::connection('media')->commit();
+            return true;
+        } catch(\Exception $exception) {
+            DB::connection('mysql')->rollBack();
+            DB::connection('media')->rollBack();
+            \Log::error('商圈修改失败'. $exception->getMessage());
+            return false;
+        }
+    }
+
+    // 商圈添加推荐
+    public function addRecommend(
+        $id,
+        $request
+    )
+    {
+        return Block::where('id', $id)->update(['recommend' => $request->recommend]);
     }
 }

@@ -8,7 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-<h1>123</h1>
-<img src=" {{$url}} " width="200" height="200">
+<h1>
+    <img src=" {{ url('captcha/1') }} " />
+    <input type="text" name="code"  id="code" onchange="getCode(this)">
+    <a href=" {{url('sms/captcha/15926298802/1')}} "> 跳转</a>
+</h1>
+<script>
+    function getCode(obj) {
+        var temp = document.getElementsByTagName('a')[0].href;
+        document.getElementsByTagName('a')[0].href = temp + '/' + obj.value;
+    }
+</script>
+
 </body>
 </html>

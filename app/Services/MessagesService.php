@@ -11,16 +11,16 @@ class MessagesService
 {
 
 
-    //消息下拉数据
-    public function getSelectType()
-    {
-        return MessageType::all()->map(function($v) {
-            return [
-                'label' => $v->name,
-                'value' => $v->id,
-            ];
-        });
-    }
+//    //消息下拉数据
+//    public function getSelectType()
+//    {
+//        return MessageType::all()->map(function($v) {
+//            return [
+//                'label' => $v->name,
+//                'value' => $v->id,
+//            ];
+//        });
+//    }
 
     //员工下拉数据
     public function getSelectUsers()
@@ -33,27 +33,35 @@ class MessagesService
         });
     }
 
-    //获取员工openid
-    public function getOpenid($type)
+
+
+//    //获取某员工下没有绑定的消息类型
+//    public function getUnType($id)
+//    {
+//        //查询现在已经绑定的消息类型
+//        $type = AcceptMessage::where('employee_id', $id)->pluck('type')->toArray();
+//        //查询没有绑定的消息类型
+//        $res = MessageType::whereNotIn('id', $type)->get();
+//        return $res->map(function($v) {
+//           return [
+//               'label' => $v->name,
+//               'value' => $v->id,
+//           ];
+//        });
+//
+//    }
+
+    //查询类型下已经绑定的人员
+    public function getBinding($type)
     {
-        $employee_id = AcceptMessage::where('type',$type)->pluck('employee_id')->toArray();
-        $openid = Employee::whereIn('id', $employee_id)->pluck('openid')->toArray();
-        return $openid;
+        $id = $this->getBindingArr($type);
+        return Employee::whereIn('id', $id)->pluck('id')->toArray();
     }
 
-    //获取某员工下没有绑定的消息类型
-    public function getUnType($id)
+    //获取绑定人员数组
+    public function getBindingArr($type)
     {
-        //查询现在已经绑定的消息类型
-        $type = AcceptMessage::where('employee_id', $id)->pluck('type')->toArray();
-        //查询没有绑定的消息类型
-        $res = MessageType::whereNotIn('id', $type)->get();
-        return $res->map(function($v) {
-           return [
-               'label' => $v->name,
-               'value' => $v->id,
-           ];
-        });
-
+        return  AcceptMessage::where('type', $type)->pluck('employee_id')->toArray();
     }
+
 }

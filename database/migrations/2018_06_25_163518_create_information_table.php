@@ -16,10 +16,12 @@ class CreateInformationTable extends Migration
         Schema::create('information', function (Blueprint $table) {
             $table->increments('id');
             $table->string('banner')->nullable()->comment('资讯缩略图');
-            $table->string('source', 100)->comment('来源');
-            $table->string('title', 100)->comment('标题');
-            $table->string('brief')->comment('摘要');
-            $table->longText('content')->comment('资讯内容');
+            $table->string('source', 100)->nullable()->comment('来源');
+            $table->string('title', 100)->nullable()->comment('标题');
+            $table->string('brief')->nullable()->comment('摘要');
+            $table->longText('content')->nullable()->comment('资讯内容');
+            $table->string('click_num',32)->nullable()->comment('点击量');
+            $table->tinyInteger('top')->default(2)->comment('1: 置顶 2: 不置顶');
             $table->timestamps();
             $table->softDeletes();
         });
