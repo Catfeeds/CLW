@@ -1,1 +1,53 @@
 @import "~normalize.css";
+.clearfloat{
+  display:block;
+  clear:both;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:    #cccccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #cccccc;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #cccccc;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:    #cccccc;
+}
+
+
+input,button,select,textarea{
+  outline:none;
+}
+*{
+  font-family: PingFangSC-Medium, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  list-style: none;
+  padding: 0;
+}
+a[href] {
+  text-decoration: none;
+}
+
+// 颜色配置
+$master-blue: #007bff;
+$master-white: #ffffff;
+
+// 文字大小配置
+.font-level1 {
+  font-size: 12px;
+}
+.font-level2 {
+  font-size: 14px;
+}
+.font-level3 {
+  font-size: 16px;
+}
+.font-level4 {
+  font-size: 18px;
+}
+
+// 主题宽度
+$master-width: 1200px;
