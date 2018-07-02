@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use Notifiable, HasApiTokens, HasRoles;
 
-    protected $guard_name = 'admin';
+    protected $guard_name = 'web';
 
     protected $guarded = [];
 

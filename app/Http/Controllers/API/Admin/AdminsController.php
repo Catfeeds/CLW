@@ -15,6 +15,7 @@ class AdminsController extends APIBaseController
     )
     {
         $res = $service->addAdminUser($request);
+        if (!$res) return $this->sendError('添加失败');
         return $this->sendResponse($res,'添加成功');
     }
 

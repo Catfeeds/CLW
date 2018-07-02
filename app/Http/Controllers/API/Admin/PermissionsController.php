@@ -2,66 +2,60 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Http\Requests\Admin\PermissionsRequest;
-use App\Models\Permission;
-use App\Repositories\PermissionsRepository;
+use Illuminate\Http\Request;
 
 class PermissionsController extends APIBaseController
 {
-    public function index(
-        PermissionsRepository $repository
-    )
+    public function index()
     {
-        $res = $repository->mediaPermissionsList();
-        return $this->sendResponse($res,'中介权限列表获取成功');
+        $res = curl(config('setting.media_url').'/api/permissions','get');
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
-    public function store(
-        PermissionsRequest $request,
-        PermissionsRepository $repository
-    )
+    public function store(Request $request)
     {
-        $res = $repository->addPermissions($request);
-        return $this->sendResponse($res,'中介权限添加成功');
+        $data['name'] = $request->name;
+        $data['label'] = $request->label;
+        $data['group_id'] = $request->group_id;
+        $res = curl(config('setting.media_url').'/api/permissions','post', $data);
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
-    public function edit(
-        Permission $permission
-    )
+    public function edit($id)
     {
-        return $this->sendResponse($permission, '获取权限原始数据成功');
+        $res = curl(config('setting.media_url').'/api/permissions/'.$id.'/edit','get');
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
-    public function update(
-        PermissionsRequest $request,
-        Permission $permission,
-        PermissionsRepository $repository
+    public function update
+    (
+        $id,
+        Request $request
     )
     {
-        $res = $repository->updatePermissions($request, $permission);
-        if (empty($res)) return $this->sendError('修改失败');
-        return $this->sendResponse($res,'修改成功');
+        $data['name'] = $request->name;
+        $data['label'] = $request->label;
+        $data['group_id'] = $request->group_id;
+        $data['_method'] = 'put';
+        $res = curl(config('setting.media_url').'/api/permissions/'.$id,'post', $data);
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
-    public function destroy(
-        Permission $permission
-    )
+    public function destroy($id)
     {
-        $res = $permission->delete();
-        return $this->sendResponse($res,'删除权限成功');
+        $res = curl(config('setting.media_url').'/api/permissions/'.$id,'delete' );
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
-    public function permissionsGroup(
-        PermissionsRepository $repository
-    )
+    public function permissionsGroup()
     {
-        $res = $repository->permissionsGroup();
-
-        return $this->sendResponse($res->map(function ($v) {
-            return [
-                'value' => $v->id,
-                'label' => $v->group_name
-            ];
-        }), '获取权限组成功');
+        $res = curl(config('setting.media_url').'/api/permissions_group','get' );
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 }
