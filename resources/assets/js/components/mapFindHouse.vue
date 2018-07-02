@@ -1,35 +1,48 @@
 <template>
     <baidu-map ref="map" class="map"
-               center="武汉"
+               :center="location"
                :ak='ak'
                :zoom="zoom"
                scroll-wheel-zoom
                @zoomend='zoomend'
-               @click="getPoint"
                @ready="ready"
     >
 
         <div v-if='!subwayKeyword'>
             <!--区域浮动圆-->
-            <self-overlay v-show='zoom<14' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in areaList"
+            <self-overlay v-show='zoom<13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in areaList"
                           :key="'areaBox'+ index">
-                <div class="areaStyle" @mouseover='areaActive = item.name' @mouseleave='areaActive = ""'>
+                <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='areaActive = item.name'
+                     @mouseleave='areaActive = ""'>
                     <span>{{item.name}}</span>
                     <span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>
                     <span>{{item.tao}}套</span>
                 </div>
             </self-overlay>
-            <!--商圈浮动圆-->
-            <self-overlay v-show='zoom>=14' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in blockList"
+            <!--商圈浮动矩形-->
+            <self-overlay v-show='zoom<14&&zoom>=13' :position="{lng: item.x, lat: item.y}"
+                          v-for="(item, index) in blockList"
                           :key="'blockBox'+ index">
-                <div class="areaStyle" @mouseover='blockActive = item.baidu_coord' @mouseleave='blockActive = ""'>
+                <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                     @mouseleave='blockActive = ""'>
                     <span>{{item.name}}</span>
-                    <span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>
+                    <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
                     <span>{{item.tao}}套</span>
+                </div>
+            </self-overlay>
+            <!--楼盘浮动矩形-->
+            <self-overlay v-show='zoom>=14' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in buildList"
+                          :key="'blockBox'+ index">
+                <div class="areaStyle" @click="seeBuildDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                     @mouseleave='blockActive = ""'>
+                    <span>{{item.title}}</span>
+                    <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
+                    <!--<span>{{item.tao}}套</span>-->
                 </div>
             </self-overlay>
             <!--商圈区块-->
-            <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5" :stroke-weight="2"></bm-polygon>
+            <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
+                        :stroke-weight="2"></bm-polygon>
             <bm-boundary
                     v-if='areaActive !== ""'
                     :name="areaActive"
@@ -39,6 +52,18 @@
             </bm-boundary>
         </div>
         <!--地铁线-->
+        <!--地铁线浮动矩形-->
+        <site-cover v-if='subwayKeyword' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in siteList"
+                    :key="'blockBox'+ index">
+            <div class="areaStyle" @click="seeBuildDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                 @mouseleave='blockActive = ""'>
+                <span>{{item.name}}</span>
+                <span>{{item.num}}个</span>
+            </div>
+            <div class="arrow"><em></em></div>
+        </site-cover>
+        <bm-view class="map">
+        </bm-view>
         <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'
                 :autoViewport="true" :panel='false' selectFirstResult></bm-bus>
         <!--左上角请选择-->
@@ -52,96 +77,6 @@
                 </el-option>
             </el-select>
         </bm-control>
-        <!--搜索-->
-        <bm-local-search
-                :page-capacity="100" :auto-viewport="true" style="display:none" :nearby="point" :keyword="keyword"
-                @searchcomplete="result" :select-first-result="true"></bm-local-search>
-        <!--&lt;!&ndash;选择范围&ndash;&gt;-->
-        <!--<bm-circle :center="point.center" :location="location" :radius="point.radius" :stroke-weight="1"-->
-                   <!--:stroke-opacity="0.1" fill-color="blue" :fill-opacity="0.4"></bm-circle>-->
-        <el-tabs type="border-card" @tab-click="handleClick" class="screen">
-            <el-tab-pane label="交通">
-                <el-tabs @tab-click="chioce" v-model="activeName">
-                    <el-tab-pane label="地铁" name="first">
-                        <div class="screenList">
-                            <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                                <div>
-                                    <div>{{item.title}}</div>
-                                    <div>{{item.address}}</div>
-                                </div>
-                                <div>{{getDistance(item.point)}}km</div>
-                            </div>
-                        </div>
-                    </el-tab-pane>
-                    <el-tab-pane label="公交" name="second">
-                        <div class="screenList">
-                            <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                                <div>
-                                    <div>{{item.title}}</div>
-                                    <div>{{item.address}}</div>
-                                </div>
-                                <div>{{getDistance(item.point)}}km</div>
-                            </div>
-                        </div>
-                    </el-tab-pane>
-                </el-tabs>
-            </el-tab-pane>
-            <el-tab-pane label="餐饮">
-                <div class="screenList1">
-                    <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                        <div>
-                            <div>{{item.title}}</div>
-                            <div>{{item.address}}</div>
-                        </div>
-                        <div>{{getDistance(item.point)}}km</div>
-                    </div>
-                </div>
-            </el-tab-pane>
-            <el-tab-pane label="娱乐">
-                <div class="screenList1">
-                    <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                        <div>
-                            <div>{{item.title}}</div>
-                            <div>{{item.address}}</div>
-                        </div>
-                        <div>{{getDistance(item.point)}}km</div>
-                    </div>
-                </div>
-            </el-tab-pane>
-            <el-tab-pane label="银行">
-                <div class="screenList1">
-                    <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                        <div>
-                            <div>{{item.title}}</div>
-                            <div>{{item.address}}</div>
-                        </div>
-                        <div>{{getDistance(item.point)}}km</div>
-                    </div>
-                </div>
-            </el-tab-pane>
-            <el-tab-pane label="酒店">
-                <div class="screenList1">
-                    <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                        <div>
-                            <div>{{item.title}}</div>
-                            <div>{{item.address}}</div>
-                        </div>
-                        <div>{{getDistance(item.point)}}km</div>
-                    </div>
-                </div>
-            </el-tab-pane>
-            <el-tab-pane label="周边楼盘">
-                <div class="screenList1">
-                    <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                        <div>
-                            <div>{{item.title}}</div>
-                            <div>{{item.address}}</div>
-                        </div>
-                        <div>{{getDistance(item.point)}}km</div>
-                    </div>
-                </div>
-            </el-tab-pane>
-        </el-tabs>
     </baidu-map>
 </template>
 <script>
@@ -159,7 +94,8 @@
     import {Select, Option, Tabs, TabPane} from 'element-ui';
     var ElSelect = Select, ElOption = Option, ElTabs = Tabs, ElTabPane = TabPane
     import selfOverlay from './map/selfOverlay'
-    import {getAreaList, getBlock} from '../home_api'
+    import siteCover from './map/siteCover'
+    import {getAreaList, getBlock, getBuildList} from '../home_api'
     export default {
         components: {
             BaiduMap,
@@ -175,12 +111,15 @@
             ElTabs,
             ElTabPane,
             BmLocalSearch,
-            BmCircle
+            BmCircle,
+            siteCover
         },
         data() {
             return {
                 activeName: 'first', // 默认地铁
                 location: '武汉', // 检索区域
+                centerLocaion: '武汉',
+                locationType: false,
                 point: {
                     center: {
                         lng: 114.279103,
@@ -189,6 +128,25 @@
                     radius: 1000
                 }, // 检索中心点
                 keyword: '地铁', // 检索词
+                siteList: [{
+                    name: "汉口北",
+                    num: 0,
+                    x: "114.33608245849610000000",
+                    y: "30.71769714355468800000",
+                    station: "1"
+                }, {
+                    name: "滠口新城",
+                    num: 0,
+                    x: "114.34879302978516000000",
+                    y: "30.69034767150879000000",
+                    station: "1"
+                }, {
+                    name: "滕子岗站",
+                    num: "3",
+                    x: "114.34787750244140000000",
+                    y: "30.68033409118652300000",
+                    station: "1"
+                }], // 站点列表
                 blockList: [],
                 subwayKeyword: null,
                 subwayOptions: [
@@ -215,17 +173,22 @@
                     massClear: false // 是否清楚区域上的覆盖物
                 },
                 areaList: [],
+                buildList: [], // 楼盘浮动
                 list: [], // 周边详情
                 BMap: ''
             }
         },
         watch: {
             zoom: function (val) {
-                if (val > 14) {
+                console.log('zoom', val);
+                if (val > 13) {
                     this.areaActive = ''
                 } else {
                     this.blockActive = ''
+                    this.location = '武汉'
                 }
+                console.log('location', this.location);
+
             },
             subwayKeyword: function (val) {
                 if (val) {
@@ -255,7 +218,30 @@
                 return coord
             }
         },
+
         methods: {
+            // 点击区域详情
+            seeRegionDetail(data) {
+                this.zoom = 13
+                this.centerLocaion = {lng: data.x, lat: data.y}
+                this.locationType = true
+                console.log('data', data)
+            },
+            // 点击商圈详情
+            seeAreaDetail(data) {
+                getBuildList().then(res => {
+                    if (res.success) {
+                        this.buildList = res.data
+                        console.log('res', res);
+                        console.log('this.buildList', this.buildList);
+                        this.zoom = 14
+//                        this.location = {lng: data.x, lat: data.y}
+                    }
+                })
+            },
+            seeBuildDetail(data) {
+
+            },
             ready(val) {
                 this.BMap = val.BMap
                 console.log('11111', this.BMap)
@@ -287,8 +273,8 @@
                 }
             },
             getPoint(e) {
-                this.point.center.lng = e.point.lng
-                this.point.center.lat = e.point.lat
+//                this.point.center.lng = e.point.lng
+//                this.point.center.lat = e.point.lat
                 // console.log('ssss', this.point)
             },
             zoomend: function (e) {
@@ -296,26 +282,33 @@
                 this.center.lng = lng
                 this.center.lat = lat
                 this.zoom = e.target.getZoom()
+                if (this.locationType) {
+                    this.location = this.centerLocaion
+                    this.locationType = false
+                }
             },
+            // 地铁线
             getbuslist(el) {
+                console.log('el', el)
                 if (el.getBusListItem(0)) {
                     this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0))
                 }
             },
+            // 地铁线
             buslinehtml(el) {
                 this.$nextTick(function () {
                     setTimeout(function () {
                         document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000'
                     }, 50)
                 })
-            },
-            getDistance(itemPoint) {
-                var pointA = new this.BMap.Point(parseFloat(this.point.center.lng), parseFloat(this.point.center.lat))
-                var pointB = new this.BMap.Point(parseFloat(itemPoint.lng), parseFloat(itemPoint.lat)) // 店铺的经纬度
-                var map = new this.BMap.Map
-                var distance = (map.getDistance(pointA, pointB) / 1000).toFixed(2) // 保留小数点后两位
-                return distance
             }
+//            getDistance(itemPoint) {
+//                var pointA = new this.BMap.Point(parseFloat(this.point.center.lng), parseFloat(this.point.center.lat))
+//                var pointB = new this.BMap.Point(parseFloat(itemPoint.lng), parseFloat(itemPoint.lat)) // 店铺的经纬度
+//                var map = new this.BMap.Map
+//                var distance = (map.getDistance(pointA, pointB) / 1000).toFixed(2) // 保留小数点后两位
+//                return distance
+//            }
         },
         created() {
             getAreaList().then(res => {
@@ -338,7 +331,7 @@
             width: 100%;
             flex: 1;
         }
-        .areaStyle {
+        .regionStyle {
             width: 120px;
             height: 120px;
             border-radius: 60px;
@@ -348,6 +341,18 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            &:hover {
+                background: #1e99e0;
+            }
+        }
+        .areaStyle {
+            width: 120px;
+            height: 30px;
+            font-size: 14px;
+            background: #1e99e0ab;
+            color: #ffffff;
+            text-align: center;
+            line-height: 30px;
             &:hover {
                 background: #1e99e0;
             }
@@ -371,6 +376,28 @@
                 width: 320px;
                 height: 325px;
                 overflow: auto;
+            }
+        }
+        .arrow {
+            width: 0;
+            height: 6px;
+            border-top: 6px solid #1e99e0ab;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            position: absolute;
+            top: 30px;
+            left: 42%;
+            margin-left: -3px;
+            em {
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 6px solid #1e99e0ab;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                position: absolute;
+                top: -7px;
+                left: -6px;
             }
         }
     }
