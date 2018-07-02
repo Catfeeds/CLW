@@ -26,7 +26,7 @@ class WorkOrderController extends Controller
         //通过openid查询电话
         $tel = $this->getTel($openid);
         if (!$tel) return response('缺少参数','404');
-        return view('we.work_order_salesman')->with('tel', $tel);
+        return view('we.work_order_salesman', ['tel'=>$tel, 'safeString'=>$safeString]);
     }
 
     /**
@@ -45,7 +45,7 @@ class WorkOrderController extends Controller
         //通过openid查询电话
         $tel = $this->getTel($openid);
         if (!$tel) return response('缺少参数','404');
-        return view('we.work_order_shopowner')->with('tel', $tel);
+        return view('we.work_order_shopowner', ['tel'=>$tel, 'safeString'=>$safeString]);
     }
 
     //通过openid查询手机号
