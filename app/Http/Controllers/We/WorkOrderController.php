@@ -5,6 +5,7 @@ namespace App\Http\Controllers\We;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class WorkOrderController extends Controller
 {
@@ -17,6 +18,9 @@ class WorkOrderController extends Controller
      */
     public function salesman(Request $request)
     {
+        $string = 'chulouwang'.date('Y-m-d',time());
+        $safeString = Hash::make($string);
+
         $openid = $request->openid;
         if (!$openid) return response('缺少参数','404');
         //通过openid查询电话
@@ -33,6 +37,9 @@ class WorkOrderController extends Controller
      */
     public function shopwner(Request $request)
     {
+        $string = 'chulouwang'.date('Y-m-d',time());
+        $safeString = Hash::make($string);
+
         $openid = $request->openid;
         if (!$openid) return response('缺少参数','404');
         //通过openid查询电话

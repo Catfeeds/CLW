@@ -16,7 +16,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::resource('logins','LoginsController');
 
     // 安全验证
-//    Route::group(['middleware' => 'safe.validate'], function () {
+    Route::group(['middleware' => 'safe.validate'], function () {
         //根据类型获取接收人人员openid
         Route::get('get_openid/{type}', 'AcceptMessagesController@getOpenid');
 
@@ -49,7 +49,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         // 七牛token
         Route::get('/get_qi_niu_token', 'BannerController@token');
-//    });
+    });
 
     Route::group(['middleware' => 'apiAuth:admin'], function () {
         // 退出
