@@ -9,9 +9,6 @@ class MediaPermissionGroup extends Model
     protected $table = 'permission_groups';
 
     protected $guarded = [];
-
-    protected $connection = 'media';
-
     public function permission()
     {
         return $this->hasMany('App\Models\Permission', 'group_id','id');

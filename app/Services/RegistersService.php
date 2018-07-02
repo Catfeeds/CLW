@@ -106,15 +106,25 @@ class RegistersService
         return ['status' => true, 'message' => '注册成功'];
     }
 
-    public function addAdminUser
-    (
-        $request
-    )
+    public function addAdminUser( $request)
     {
-        return Admin::create([
-            'nick_name' => $request->nick_name,
-            'name' => $request->name,
-            'password' => bcrypt($request->password),
-        ]);
+        \DB::beginTransaction();
+        try {
+            $admin =  Admin::create([
+                'nick_name' => $request->nick_name,
+                'name' => $request->name,
+                'password' => bcrypt($request->password),
+            ]);
+            $admin->assignRole('10');
+            \DB::commit();
+            return true;
+        } catch(\Exception $exception) {
+            \DB::rollback();
+            \Log::error('用户添加失败'. $exception->getMessage());
+            return false;
+        }
+
+
+
     }
 }

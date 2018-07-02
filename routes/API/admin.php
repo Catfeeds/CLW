@@ -19,16 +19,30 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 //    Route::group(['middleware' => 'safe.validate'], function () {
         //根据类型获取接收人人员openid
         Route::get('get_openid/{type}', 'AcceptMessagesController@getOpenid');
+
+        //--------- 中介系统权限管理
         // 权限组管理
         Route::resource('permission_groups','PermissionGroupsController');
-
         // 权限管理
         Route::resource('permissions','PermissionsController');
-        Route::get('/permissions_group', 'PermissionsController@permissionsGroup');
-
+        Route::get('permissions_group', 'PermissionsController@permissionsGroup');
         // 角色管理
         Route::resource('roles','RolesController');
-        Route::get('/get_all_permissions', 'RolesController@getAllPermissions');
+        Route::get('get_all_permissions', 'RolesController@getAllPermissions');
+        //-------
+
+        //------  CLW后台权限管理
+        // 权限组管理
+        Route::resource('backstage_permission_groups','BackstagePermissionGroupsController');
+        // 权限管理
+        Route::resource('backstage_permissions','BackstagePermissionsController');
+        Route::get('backstage_permissions_group', 'BackstagePermissionsController@permissionsGroup');
+        // 角色管理
+        Route::resource('backstage_roles','BackstageRolesController');
+        Route::get('backstage_get_all_permissions', 'BackstageRolesController@getAllPermissions');
+        Route::get('get_roles','BackstageRolesController@getRoles');
+        //------
+
 
         // 中介用户
         Route::resource('media_user','MediaUsersController');
