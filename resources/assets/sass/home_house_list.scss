@@ -394,11 +394,14 @@ body {
                         border: 1px solid #3c3c;
                         .renovation{
                           position: absolute;
-
+                          bottom:0px;
+                          left:0px;
+                          color: #fff;
+                          background-color: #000000;
                         }
                       }
                       div{
-                        //display: none;
+                        display: none;
                       }
                     }
                     li:first-child {

@@ -807,6 +807,14 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .renovation {
   position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: #fff;
+  background-color: #000000;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li div {
+  display: none;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li:first-child {

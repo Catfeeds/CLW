@@ -71,13 +71,28 @@ class BuildingsController extends Controller
         // 楼盘列表数据
         $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         return view('home.house_list', [
-            'page' => $res['page'],
             'house_count' => $res['house_count'],
             'areas' => $areas,
             'blocks' => $blocks,
             'buildingFeatures' => $buildingFeatures,
-            'Results'=>$res,
-            'request' => $request->all()
+            'Results'=>$res['data'],
+            'page' => $res['page'],
+            'request' => $request->all(),
+            'count' => $res['house_count']
         ]);
     }
+
+    public function buildingSearch(
+        Request $request
+    )
+    {
+
+
+        $res = \DB::select("select * from media.building_keywords where MATCH(keywords) AGAINST('1' IN BOOLEAN MODE)");
+        dd($res);
+
+
+
+    }
+
 }

@@ -145,7 +145,7 @@
                 <div class="house_show">
                     <div class="house_show_title">
                         <div class="house_num">
-                            出租写字楼共<span>{{$Results['house_count']??0}}</span>套
+                            出租写字楼共<span>{{$count??0}}</span>套
                         </div>
                         <div class="title_right">
                             <div class="sort_default"><a href="javascript:void(0);">默认</a></div>
@@ -154,9 +154,9 @@
                                             class="up js_up">▲</span><span class="down js_down">▼</span></a></div>
                         </div>
                     </div>
-                    @if(!empty($Results['page']['data']))
+                    @if(!empty($Results))
                     <div class="js_content">
-                            @foreach($Results['page']['data'] as $key => $data)
+                            @foreach($Results as $key => $data)
                                 <div class="detail">
                                     <div class="img_box">
                                         <img src="{{$data->img_cn}}" alt="" style="width: 242px;height: 200px">
@@ -207,11 +207,11 @@
                     </div>
                     <div class="pagination">
                         <ul id="page" class="page clearfix">
-                            <li class='pageItem' page-rel='prepage'>上一页</li>
+                            {{--<li class='pageItem' page-rel='prepage'>上一页</li>--}}
                             {{--@for($i=1;$i<=$Results['total_page'];$i++)--}}
                                 {{--<li class="@if($Results['page']['current_page']==$i) pageItemActive @else pageItem @endif" page-rel='itempage'><a >{{$i}}</a></li>--}}
                             {{--@endfor--}}
-                            <li class='pageItem' page-rel='nextpage'>下一页</li>
+                            {{--<li class='pageItem' page-rel='nextpage'>下一页</li>--}}
                         </ul>
                     </div>
                     @endif
