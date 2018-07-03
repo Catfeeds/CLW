@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'weChat.login' => \App\Http\Middleware\WeChatLogin::class,
         'safe.validate' => \App\Http\Middleware\SafeValidate::class,
 //        'weAuth' => \App\Http\Middleware\WeAuth::class,
+        'pcLogin' => \App\Http\Middleware\PcLogin::class,
     ];
 }

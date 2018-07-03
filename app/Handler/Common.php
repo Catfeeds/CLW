@@ -72,14 +72,4 @@ class Common
             'per_page' => 10
         );
     }
-
-
-    public static function user()
-    {
-        return Auth::guard('admin')->user();
-    }
-
-
-
-
 }

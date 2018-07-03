@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-
-class OfficeBuildingHouse extends BaseModel
+class Custom extends BaseModel
 {
     protected $guarded = [];
     protected $connection = 'media';
