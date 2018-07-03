@@ -212,12 +212,6 @@ template {
 .container .banner .swiper {
   width: 49%;
   height: 435px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .container .banner .swiper #bigImg {

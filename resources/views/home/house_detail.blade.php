@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/home_house_detail.css">
-</head>
-<body>
+@extends('home.layouts.layout')
+@section('title', '房源详情')
+@section('header')
+<link rel="stylesheet" href="/css/home_house_detail.css">
+@endsection
+@section('body')
 <div class="container">
     <!-- 导航条 -->
     <div class="nav">
@@ -126,8 +122,7 @@
         <better-list></better-list>
     </div>
 </div>
-</body>
-<script src="/js/home_manifest.js"></script>
-<script src="/js/home_vendor.js"></script>
+@endsection
+@section('script')
 <script src="/js/home_house_detail.js"></script>
-</html>
+@endsection
