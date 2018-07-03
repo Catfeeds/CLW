@@ -206,13 +206,14 @@
                             @endforeach
                     </div>
                     <div class="pagination">
-                        <ul id="page" class="page clearfix">
+                        {!! $page !!}
+                        {{--<ul id="page" class="page clearfix">--}}
                             {{--<li class='pageItem' page-rel='prepage'>上一页</li>--}}
                             {{--@for($i=1;$i<=$Results['total_page'];$i++)--}}
                                 {{--<li class="@if($Results['page']['current_page']==$i) pageItemActive @else pageItem @endif" page-rel='itempage'><a >{{$i}}</a></li>--}}
                             {{--@endfor--}}
                             {{--<li class='pageItem' page-rel='nextpage'>下一页</li>--}}
-                        </ul>
+                        {{--</ul>--}}
                     </div>
                     @endif
                 </div>
