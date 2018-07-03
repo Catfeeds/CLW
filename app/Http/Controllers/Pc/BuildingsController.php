@@ -68,16 +68,17 @@ class BuildingsController extends Controller
 
         // 获取特色
         $buildingFeatures = BuildingFeature::pluck('name','id')->toArray();
-
         // 楼盘列表数据
         $res = $buildingsRepository->buildingList($request, $service, null,true,true);
-
         return view('home.house_list', [
-            'page' => $res['page'],
             'house_count' => $res['house_count'],
             'areas' => $areas,
             'blocks' => $blocks,
-            'buildingFeatures' => $buildingFeatures
+            'buildingFeatures' => $buildingFeatures,
+            'Results'=>$res['data'],
+            'page' => $res['page'],
+            'request' => $request->all(),
+            'count' => $res['house_count']
         ]);
     }
 

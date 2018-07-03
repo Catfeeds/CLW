@@ -3,16 +3,17 @@
                :center="location"
                :ak='ak'
                :zoom="zoom"
-               :min-zoom="12"
                scroll-wheel-zoom
                @zoomend='zoomend'
+               @ready="ready"
     >
+
         <div v-if='!subwayKeyword'>
-            <!--区域数据 浮动圆-->
-            <self-overlay v-show='zoom<13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
+            <!--区域浮动圆-->
+            <self-overlay v-show='zoom<13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in areaList"
                           :key="'areaBox'+ index">
-                <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
-                     @mouseleave='Active = ""'>
+                <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='areaActive = item.name'
+                     @mouseleave='areaActive = ""'>
                     <span>{{item.name}}</span>
                     <span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>
                     <span>{{item.tao}}套</span>
@@ -22,8 +23,8 @@
             <self-overlay v-show='zoom<14&&zoom>=13' :position="{lng: item.x, lat: item.y}"
                           v-for="(item, index) in blockList"
                           :key="'blockBox'+ index">
-                <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='Active = item.baidu_coord'
-                     @mouseleave='Active = ""'>
+                <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                     @mouseleave='blockActive = ""'>
                     <span>{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
                     <span>{{item.tao}}套</span>
@@ -32,73 +33,98 @@
             <!--楼盘浮动矩形-->
             <self-overlay v-show='zoom>=14' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in buildList"
                           :key="'blockBox'+ index">
-                <div class="areaStyle" @click="seeBuildDetail(item)" @mouseover='Active = item.baidu_coord'
-                     @mouseleave='Active = ""'>
+                <div class="areaStyle" @click="seeBuildDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                     @mouseleave='blockActive = ""'>
                     <span>{{item.title}}</span>
+                    <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
+                    <!--<span>{{item.tao}}套</span>-->
                 </div>
             </self-overlay>
+
+            <!--商圈区块-->
+            <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
+                        :stroke-weight="2"></bm-polygon>
+            <bm-boundary
+                    v-if='areaActive !== ""'
+                    :name="areaActive"
+                    :massClear='boundaryStyle.massClear'
+                    :strokeWeight="boundaryStyle.strokeWeight"
+                    :strokeColor="boundaryStyle.strokeColor">
+            </bm-boundary>
         </div>
-        <!--线路-->
-        <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'
-                :autoViewport="true" :panel='false' selectFirstResult></bm-bus>
+        <!--地铁线-->
         <!--地铁线浮动矩形-->
         <site-cover v-if='subwayKeyword' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in siteList"
                     :key="'blockBox'+ index">
-            <div class="areaStyle" @click="seeMtro(item)" @mouseover='blockActive = item.baidu_coord'
+            <div class="areaStyle" @click="seeBuildDetail(item)" @mouseover='blockActive = item.baidu_coord'
                  @mouseleave='blockActive = ""'>
                 <span>{{item.name}}</span>
                 <span>{{item.num}}个</span>
                 <div class="triangle"></div>
             </div>
         </site-cover>
-        <!--左侧列表-->
+        <bm-view class="map">
+        </bm-view>
+        <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'
+                :autoViewport="true" :panel='false' selectFirstResult></bm-bus>
+        <!--&lt;!&ndash;左上角请选择&ndash;&gt;-->
+        <bm-control style="width:100px; height:200px">
+            <el-select v-model="subwayKeyword" clearable placeholder="请选择">
+                <el-option
+                        v-for="(item, index) in subwayOptions"
+                        :key="'subwayOption'+index"
+                        :label="item"
+                        :value="item">
+                </el-option>
+            </el-select>
+        </bm-control>
         <div class="screen">
-            <el-input v-model="condition.content" placeholder="请输入内容" class="input-with-select">
+            <el-input placeholder="请输入内容" class="input-with-select">
                 <el-button slot="append" icon="el-icon-search"></el-button>
             </el-input>
             <el-row style="padding: 5px 0px">
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
-                        <el-select v-model="condition.region" size="mini" filterable placeholder="区域">
+                        <el-select size="mini" filterable placeholder="区域">
                             <el-option
                                     v-for="item in options"
-                                    :key="item.label"
+                                    :key="item.value"
                                     :label="item.label"
-                                    :value="item.label">
+                                    :value="item.value">
                             </el-option>
                         </el-select>
                     </div>
                 </el-col>
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
-                        <el-select v-model="condition.acreage" size="mini" filterable placeholder="类型">
+                        <el-select size="mini" filterable placeholder="类型">
                             <el-option
                                     v-for="item in options"
-                                    :key="item.label"
+                                    :key="item.value"
                                     :label="item.label"
-                                    :value="item.label">
+                                    :value="item.value">
                             </el-option>
                         </el-select>
                     </div>
                 </el-col>
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
-                        <el-select v-model="condition.price" size="mini" filterable placeholder="价格">
+                        <el-select size="mini" filterable placeholder="价格">
                             <el-option
                                     v-for="item in options"
-                                    :key="item.label"
+                                    :key="item.value"
                                     :label="item.label"
-                                    :value="item.label">
+                                    :value="item.value">
                             </el-option>
                         </el-select>
                     </div>
                 </el-col>
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
-                        <el-select v-model="condition.metro" size="mini" filterable placeholder="地铁">
+                        <el-select size="mini" filterable placeholder="地铁">
                             <el-option
-                                    v-for="item in subwayOptions"
-                                    :key="item.label"
+                                    v-for="item in options"
+                                    :key="item.value"
                                     :label="item.label"
                                     :value="item.value">
                             </el-option>
@@ -108,7 +134,7 @@
             </el-row>
             <el-row style="padding: 5px 0px">
                 <el-col :span="15">
-                    <img src=""/>
+                   <img src="" />
                     武汉 为您找到15个楼盘
                 </el-col>
                 <el-col :span="9">
@@ -126,8 +152,7 @@
             </el-row>
             <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index">
                 <el-col :span="8">
-                    <img style="width: 130px;height: 130px"
-                         src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg">
+                    <img style="width: 130px;height: 130px" src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg">
                 </el-col>
                 <el-col :span="15">
                     <div>博悦府</div>
@@ -143,10 +168,15 @@
 <script>
     import {
         BaiduMap,
-        BmBus
+        BmView,
+        BmBoundary,
+        BmMarker,
+        BmPolygon,
+        BmBus,
+        BmControl,
+        BmLocalSearch,
+        BmCircle
     } from 'vue-baidu-map'
-    import selfOverlay from './map/selfOverlay' // 悬浮窗容器
-    import siteCover from './map/siteCover.vue' // 地铁悬浮窗容器
     import {Select, Option, Tabs, TabPane, Form, FormItem, Input, Button, Main, Row, Col, Cascader} from 'element-ui';
     var ElSelect = Select,
         ElOption = Option,
@@ -160,18 +190,26 @@
         ElMain = Main,
         ElCascader = Cascader,
         ElInput = Input
-    import {getRegionList, getBlock, getBuildList, getSiteList} from '../home_api'
-    export default
-    {
+    import selfOverlay from './map/selfOverlay'
+    import siteCover from './map/siteCover'
+    import {getAreaList, getBlock, getBuildList, getSiteList} from '../home_api'
+    export default {
         components: {
             BaiduMap,
-            BmBus,
+            BmView,
+            BmBoundary,
+            BmMarker,
             selfOverlay,
-            siteCover,
+            BmPolygon,
+            BmBus,
+            BmControl,
             ElSelect,
             ElOption,
             ElTabs,
             ElTabPane,
+            BmLocalSearch,
+            BmCircle,
+            siteCover,
             ElFormItem,
             ElInput,
             ElButton,
@@ -183,57 +221,34 @@
         },
         data() {
             return {
-                ak: process.env.baiduAK, // 百度密钥
-                location: '武汉', // 检索区域
-                zoom: 12, // 地图缩放级别
-                keyword: '地铁', // 检索词
-                regionList: [], // 区域数据
-                blockList: [], // 商圈列数据
-                buildList: [], // 楼盘数据
-                centerLocaion: '武汉', // 临时存放中心点
-                locationType: false, // zommed 结束后标识
-                Active: '',// 鼠标经过颜色变深标识
-                subwayKeyword: null,
-                condition: {
-                    content: '', // 搜索内容
-                    region: '', // 区域
-                    acreage: '', // 面积
-                    price: '', // 价格
-                    metro: '' // 地铁
-                }, // 条件
                 options: [{
-                    label: '1号线',
-                    value: 1
+                    value: '选项1',
+                    label: '黄金糕'
+                }, {
+                    value: '选项2',
+                    label: '双皮奶'
+                }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                }, {
+                    value: '选项4',
+                    label: '龙须面'
+                }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
                 }],
-                subwayOptions: [{
-                        label: '1号线',
-                        value: '1号线'
+                activeName: 'first', // 默认地铁
+                location: '武汉', // 检索区域
+                centerLocaion: '武汉',
+                locationType: false,
+                point: {
+                    center: {
+                        lng: 114.279103,
+                        lat: 30.590757
                     },
-                    {
-                        label: '2号线',
-                        value: '2号线'
-                    },
-                    {
-                        label: '3号线',
-                        value: '3号线'
-                    },
-                    {
-                        label: '4号线',
-                        value: '4号线'
-                    },
-                    {
-                        label: '6号线',
-                        value: '6号线'
-                    },
-                    {
-                        label: '8号线',
-                        value: '8号线'
-                    },
-                    {
-                        label: '阳逻线',
-                        value: '阳逻线'
-                    }
-                ],
+                    radius: 1000
+                }, // 检索中心点
+                keyword: '地铁', // 检索词
                 siteList: [{
                     name: "汉口北",
                     num: 0,
@@ -253,24 +268,48 @@
                     y: "30.68033409118652300000",
                     station: "1"
                 }], // 站点列表
+                blockList: [],
+                subwayKeyword: null,
+                subwayOptions: [
+                    '1号线',
+                    '2号线',
+                    '3号线',
+                    '4号线',
+                    '6号线',
+                    '8号线',
+                    '阳逻线'
+                ],
+                blockActive: '',
+                center: { // 当前地图中心点
+                    lng: 114.419095,
+                    lat: 30.561904
+                },
+                areaActive: '',
+                zoom: 11, // 地图缩放级别
+                ak1: 'lLmcMmNWaaDudSm49M7UHkgDQExxx6A0',
+                ak: process.env.baiduAK, // 百度密钥
+                boundaryStyle: {
+                    strokeColor: 'red', // 区域折线
+                    strokeWeight: 2, // 折线宽度
+                    massClear: false // 是否清楚区域上的覆盖物
+                },
+                areaList: [],
+                buildList: [], // 楼盘浮动
+                list: [], // 周边详情
+                BMap: ''
             }
         },
-        created() {
-            // 获取区域 数据
-            getRegionList().then(res => {
-                if (res.success) {
-                    this.regionList = res.data
-                }
-            })
-            // 获取商圈数据
-            getBlock().then(res => {
-                this.blockList = res.data
-            })
-        },
         watch: {
-            'condition.metro': function (val) {
-                this.subwayKeyword = this.condition.metro
-                if(this.condition.metro === '') this.subwayKeyword = false;
+            zoom: function (val) {
+                console.log('zoom', val);
+                if (val > 13) {
+                    this.areaActive = ''
+                } else {
+                    this.blockActive = ''
+                    this.location = '武汉'
+                }
+                console.log('location', this.location);
+
             },
             subwayKeyword: function (val) {
                 if (val) {
@@ -286,43 +325,92 @@
                 }
             }
         },
-        methods: {
-            ready(val) {
-                this.BMap = val.BMap
-                console.log('11111', this.BMap)
-            },
-            zoomend: function (e) {
-                console.log('this.zoom1', this.zoom)
-                this.zoom = e.target.getZoom()
-                console.log('this.zoom2', this.zoom)
-                // 修改中心点
-                if (this.locationType) {
-                    this.location = this.centerLocaion
-                    this.locationType = false
+        computed: {
+            polygonPath: function () {
+                const copeData = this.blockActive.split(";")
+                const coord = []
+                for (var numb in copeData) {
+                    coord.push({lng: null, lat: null})
+                    var temp = copeData[numb].split(",")
+                    coord[numb].lng = parseFloat(temp[0])
+                    coord[numb].lat = parseFloat(temp[1])
                 }
-            },
-            // 查看区域详情 -> 商圈列表
-            seeRegionDetail(data){
+                console.log(coord)
+                return coord
+            }
+        },
+
+        methods: {
+            // 点击区域详情
+            seeRegionDetail(data) {
                 this.zoom = 13
                 this.centerLocaion = {lng: data.x, lat: data.y}
                 this.locationType = true
+                console.log('data', data)
             },
             // 点击商圈详情
             seeAreaDetail(data) {
                 getBuildList().then(res => {
                     if (res.success) {
-                        this.zoom = 14
                         this.buildList = res.data
-                        this.centerLocaion = {lng: data.x, lat: data.y}
-                        this.locationType = true
+                        console.log('res', res);
+                        console.log('this.buildList', this.buildList);
+                        this.zoom = 14
+//                        this.location = {lng: data.x, lat: data.y}
                     }
                 })
             },
-            seeMtro(data){
+            seeBuildDetail(data) {
 
+            },
+            ready(val) {
+                this.BMap = val.BMap
+                console.log('11111', this.BMap)
+            },
+            // 检索完成后的回调函数
+            result(val) {
+                var result = val.Br
+                console.log('ssssss', val)
+                var arr = []
+                if (result) {
+                    for (var p of result) {
+                        arr.push({title: p.title, address: p.address, point: p.point})
+                    }
+                }
+                this.list = arr
+                // console.log('bbbbbb', this.list)
+            },
+            // 选择交通详情
+            chioce(tab, event) {
+                this.keyword = tab.label
+            },
+            // 选择周边环境
+            handleClick(tab, event) {
+                if (tab.label == '交通') {
+                    this.keyword = '地铁'
+                } else {
+                    this.keyword = tab.label
+                    this.activeName = 'first'
+                }
+            },
+            getPoint(e) {
+//                this.point.center.lng = e.point.lng
+//                this.point.center.lat = e.point.lat
+                // console.log('ssss', this.point)
+            },
+            zoomend: function (e) {
+                const {lng, lat} = e.target.getCenter()
+                this.center.lng = lng
+                this.center.lat = lat
+                this.zoom = e.target.getZoom()
+                if (this.locationType) {
+                    this.location = this.centerLocaion
+                    this.locationType = false
+                }
             },
             // 地铁线
             getbuslist(el) {
+                console.log('el', el)
                 if (el.getBusListItem(0)) {
                     this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0))
                 }
@@ -335,9 +423,25 @@
                     }, 50)
                 })
             }
+//            getDistance(itemPoint) {
+//                var pointA = new this.BMap.Point(parseFloat(this.point.center.lng), parseFloat(this.point.center.lat))
+//                var pointB = new this.BMap.Point(parseFloat(itemPoint.lng), parseFloat(itemPoint.lat)) // 店铺的经纬度
+//                var map = new this.BMap.Map
+//                var distance = (map.getDistance(pointA, pointB) / 1000).toFixed(2) // 保留小数点后两位
+//                return distance
+//            }
+        },
+        created() {
+            getAreaList().then(res => {
+                this.areaList = res.data
+            })
+            getBlock().then(res => {
+                this.blockList = res.data
+            })
         }
     }
 </script>
+
 <style lang="scss">
     .map {
         position: relative;
@@ -395,7 +499,7 @@
             width: 400px;
             height: 98vh;
             background: #fff;
-            overflow: scroll;
+            overflow:scroll;
             .screenList {
                 width: 320px;
                 height: 270px;
@@ -413,3 +517,5 @@
         }
     }
 </style>
+
+
