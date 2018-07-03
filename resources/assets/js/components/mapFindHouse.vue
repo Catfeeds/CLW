@@ -53,54 +53,54 @@
         </site-cover>
         <!--左侧列表-->
         <div class="screen">
-            <el-input placeholder="请输入内容" class="input-with-select">
+            <el-input v-model="condition.content" placeholder="请输入内容" class="input-with-select">
                 <el-button slot="append" icon="el-icon-search"></el-button>
             </el-input>
             <el-row style="padding: 5px 0px">
-                <!--<el-col :span="6">-->
-                    <!--<div class="grid-content bg-purple">-->
-                        <!--<el-select size="mini" filterable placeholder="区域">-->
-                            <!--<el-option-->
-                                    <!--v-for="item in options"-->
-                                    <!--:key="item.value"-->
-                                    <!--:label="item.label"-->
-                                    <!--:value="item.value">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
-                    <!--</div>-->
-                <!--</el-col>-->
-                <!--<el-col :span="6">-->
-                    <!--<div class="grid-content bg-purple">-->
-                        <!--<el-select size="mini" filterable placeholder="类型">-->
-                            <!--<el-option-->
-                                    <!--v-for="item in options"-->
-                                    <!--:key="item.value"-->
-                                    <!--:label="item.label"-->
-                                    <!--:value="item.value">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
-                    <!--</div>-->
-                <!--</el-col>-->
-                <!--<el-col :span="6">-->
-                    <!--<div class="grid-content bg-purple">-->
-                        <!--<el-select size="mini" filterable placeholder="价格">-->
-                            <!--<el-option-->
-                                    <!--v-for="item in options"-->
-                                    <!--:key="item.value"-->
-                                    <!--:label="item.label"-->
-                                    <!--:value="item.value">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
-                    <!--</div>-->
-                <!--</el-col>-->
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
-                        <el-select v-model="subwayKeyword" size="mini" filterable placeholder="地铁">
+                        <el-select v-model="condition.region" size="mini" filterable placeholder="区域">
+                            <el-option
+                                    v-for="item in options"
+                                    :key="item.label"
+                                    :label="item.label"
+                                    :value="item.label">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <el-select v-model="condition.acreage" size="mini" filterable placeholder="类型">
+                            <el-option
+                                    v-for="item in options"
+                                    :key="item.label"
+                                    :label="item.label"
+                                    :value="item.label">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <el-select v-model="condition.price" size="mini" filterable placeholder="价格">
+                            <el-option
+                                    v-for="item in options"
+                                    :key="item.label"
+                                    :label="item.label"
+                                    :value="item.label">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <el-select v-model="condition.metro" size="mini" filterable placeholder="地铁">
                             <el-option
                                     v-for="item in subwayOptions"
                                     :key="item.label"
                                     :label="item.label"
-                                    :value="item.label">
+                                    :value="item.value">
                             </el-option>
                         </el-select>
                     </div>
@@ -194,7 +194,17 @@
                 locationType: false, // zommed 结束后标识
                 Active: '',// 鼠标经过颜色变深标识
                 subwayKeyword: null,
-                options: [],
+                condition: {
+                    content: '', // 搜索内容
+                    region: '', // 区域
+                    acreage: '', // 面积
+                    price: '', // 价格
+                    metro: '' // 地铁
+                }, // 条件
+                options: [{
+                    label: '1号线',
+                    value: 1
+                }],
                 subwayOptions: [{
                         label: '1号线',
                         value: '1号线'
@@ -258,6 +268,10 @@
             })
         },
         watch: {
+            'condition.metro': function (val) {
+                this.subwayKeyword = this.condition.metro
+                if(this.condition.metro === '') this.subwayKeyword = false;
+            },
             subwayKeyword: function (val) {
                 if (val) {
                     this.$nextTick(function () {
@@ -278,7 +292,9 @@
                 console.log('11111', this.BMap)
             },
             zoomend: function (e) {
+                console.log('this.zoom1', this.zoom)
                 this.zoom = e.target.getZoom()
+                console.log('this.zoom2', this.zoom)
                 // 修改中心点
                 if (this.locationType) {
                     this.location = this.centerLocaion
