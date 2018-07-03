@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\BlocksRequest;
 use App\Models\Block;
+use App\Repositories\BlockLocationsRepository;
 use App\Repositories\BlocksRepository;
 use App\Services\BlocksService;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class BlocksController extends APIBaseController
     )
     {
         $res = $repository->addBlock($request);
+        if (!$res) return $this->sendError('商圈添加失败');
         return $this->sendResponse($res,'商圈添加成功');
     }
 
@@ -35,6 +37,9 @@ class BlocksController extends APIBaseController
         Block $block
     )
     {
+        if (!empty($block->blockLocation)) {
+            $block->blockLocationId = $block->blockLocation->id;   // 商圈基础地理位置
+        }
         $block->city_id = $block->area->city->id;
         return $this->sendResponse($block,'获取修改商圈前原始数据成功');
     }
@@ -88,4 +93,14 @@ class BlocksController extends APIBaseController
         $res = $repository->addRecommend($id, $request);
         return $this->sendResponse($res, '操作成功');
     }
+
+    // 获取所有商圈基础地理位置
+    public function blockLocations(
+        BlockLocationsRepository $repository
+    )
+    {
+        $res = $repository->blockLocations();
+        return $this->sendResponse($res,'获取所有商圈基础地理位置成功');
+    }
+
 }

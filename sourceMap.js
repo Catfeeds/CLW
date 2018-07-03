@@ -78,6 +78,7 @@ module.exports = {
   // pc端资源
   home: {
     scss: [
+      'home_index',
       'home_mapLookForHouse',
       'home_footer',
       'home_header',
@@ -90,6 +91,7 @@ module.exports = {
       'home_paging'
     ],
     js: [
+      'home_index',
       'home_mapLookForHouse',
       'home_footer',
       'home_header',

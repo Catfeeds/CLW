@@ -34,7 +34,7 @@ class OfficeBuildingHouse extends Model
      */
     public function getIndoorImgCnAttribute()
     {
-        return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]:config('setting.house_default_img');
+        return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('setting.house_default_img');
     }
 
     /**
@@ -49,7 +49,7 @@ class OfficeBuildingHouse extends Model
             return collect($this->indoor_img)->map(function($img) {
                 return [
                     'name' => $img,
-                    'url' => config('setting.qiniu_url') . $img
+                    'url' => config('setting.qiniu_url') . $img . config('setting.qiniu_suffix')
                 ];
             });
         } else {

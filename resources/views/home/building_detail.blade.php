@@ -31,8 +31,8 @@
                                 <div class="introNum">{{$building->house_count}}</div>
                                 <div>在租房源/套</div>
                             </div>
-                            <div class="introBuild">
-                                <div class="introNum">{{$building->constru_acreage}}</div>
+                            <div class="introArea">
+                                <div class="areaNum">{{$building->constru_acreage}}</div>
                                 <div>可租面积/平米</div>
                             </div>
                             <div class="introRental">
@@ -41,8 +41,8 @@
                             </div>
                         </div>
                         <div class="introAddress">
-                            <div><img src="/we_img/house_detail_address.png"> 地址：{{$building->address}}</div>
-                            <a href="#"><div><img src="">查看地图</div></a>
+                            <div><img src="/home_img/house_detail_map1.png"> 地址：{{$building->address}}</div>
+                            <a href="#"><div class="introMap"><img src="/home_img/house_detail_map.png"> 查看地图</div></a>
                         </div>
                         <div class="introBetter">
                             @foreach($building->feature_name_pic as $feature)
@@ -85,29 +85,61 @@
                     <!-- 房源列表 -->
                     <div class="buildList" id="buildList">
                         <div class="listNav">
-                            <div class="js_listCount">共 <span>{{$houses->count()}}</span> 套</div>
-                            <div class="js_listArea">面积<span class='js_rise'>↑</span><span class='js_drop' style="display:none">↓</span></div>
-                            <div class="js_listPrice">单价<span class='js_rise'>↑</span><span class='js_drop' style="display:none">↓</span></div>
-                            <div>总价</div>
-                            <div class="special">特色</div>
+                            <div class="js_listCount listCount">共 <span>{{$houses->count()}}</span> 套</div>
+                            <div class="js_listArea listArea">
+                                <span>面积</span>
+                                <div class="listSort">
+                                    <span class='js_rise rise'><img src="/home_img/build_detail_up_before.png">
+                                    <img src="/home_img/build_detail_up_after.png">
+                                    </span>
+                                    <span class='js_drop drop'><img src="/home_img/build_detail_down_defore.png">
+                                    <img src="/home_img/build_detail_down_after.png">
+                                    </span>
+                                </div>   
+                            </div>
+                            <div class="js_listPrice listArea">
+                                <span>单价</span>
+                                <div class="listSort">
+                                    <span class='js_rise rise'><img src="/home_img/build_detail_up_before.png">
+                                    <img src="/home_img/build_detail_up_after.png">
+                                    </span>
+                                    <span class='js_drop drop'><img src="/home_img/build_detail_down_defore.png">
+                                    <img src="/home_img/build_detail_down_after.png">
+                                    </span>
+                                </div>  
+                            </div>
+                            <div class="js_listTotal listArea">
+                                <span>总价</span>
+                                <div class="listSort">
+                                    <span class='js_rise rise'><img src="/home_img/build_detail_up_before.png">
+                                    <img src="/home_img/build_detail_up_after.png">
+                                    </span>
+                                    <span class='js_drop drop'><img src="/home_img/build_detail_down_defore.png">
+                                    <img src="/home_img/build_detail_down_after.png">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="special special">特色</div>
                         </div>
                         <div class="js_listDetail">
                             @foreach($houses as $house)
                             <a href="#">
                                 <div class="listDetail">
-                                    <div class="listPic" id="listPic"><img src="{{$house->indoor_img_cn}}"></div>
-                                    <div class="listPic listNum" id="listArea"><span>{{$house->constru_acreage_cn}}</span></div>
-                                    <div class="listPic listNum" id="listPrice"><span>{{$house->unit_price_cn}}</span></div>
-                                    <div class="listPic listNum" id="listTotal"><span>{{$house->total_price_cn}}</span></div>
-                                    <div class="listSpecial listNum" id="listSpecial">
+                                    <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
+                                    <div class="listNum">
+                                        <span>{{$house->constru_acreage_cn}}</span>
+                                        <span>{{$house->unit_price_cn}}</span>
+                                        <span>{{$house->total_price_cn}}</span>
+                                    </div>
+                                    <div class="listSpecial" id="listSpecial">
                                         @if(!empty($house->house_feature[0]))
-                                        <span>{{$house->house_feature[0]}}</span>
+                                        <div class="special1">{{$house->house_feature[0]}}</div>
                                         @endif
                                         @if(!empty($house->house_feature[1]))
-                                        <span>{{$house->house_feature[1]}}</span>
+                                        <div class="special2">{{$house->house_feature[1]}}</div>
                                         @endif
                                         @if(!empty($house->house_feature[2]))
-                                        <span>{{$house->house_feature[2]}}</span>
+                                        <div class="special3">{{$house->house_feature[2]}}</div>
                                         @endif
                                     </div>
                                 </div>
@@ -122,22 +154,29 @@
                     <!-- 楼盘信息 -->
                     <div class="buildInfor" id="buildInfor">
                         <div class="h1">楼盘信息</div>
-                        <div class="buildRow">
-                            <div><span class="developer">开发商</span><span>{{$building->developer}}</span></div>
-                            <div><span class="developer">建筑年代</span><span>{{$building->years_cn}}</span></div>
+                        <div class="buildInforBox">
+                            <div class="buildRow">
+                                <div>
+                                    <span class="developer">开发商</span><span>{{$building->developer}}</span>
+                                </div>
+                                <div>
+                                    <span class="developer">建筑年代</span>
+                                    <span>{{$building->years_cn}}</span>
+                                </div>
+                            </div>
+                            <div class="buildRow">
+                                <div><span class="developer">总建筑面积</span><span>{{$building->acreage_cn}}</span></div>
+                                <div><span class="developer">楼栋数量</span><span>{{$building->building_block_num_cn}}</span></div>
+                            </div>
+                            <div class="buildRow">
+                                <div><span class="developer">车位数量</span><span>{{$building->parking_num_cn}}</span></div>
+                                <div><span class="developer">停车费</span><span>{{$building->parking_fee_cn}}</span></div>
+                            </div>
+                            <div class="buildRow">
+                                <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
+                            </div>
+                            <div class="buildDetail">{{$building->describe}}</div>
                         </div>
-                        <div class="buildRow">
-                            <div><span class="developer">总建筑面积</span><span>{{$building->acreage_cn}}</span></div>
-                            <div><span class="developer">楼栋数量</span><span>{{$building->building_block_num_cn}}</span></div>
-                        </div>
-                        <div class="buildRow">
-                            <div><span class="developer">车位数量</span><span>{{$building->parking_num_cn}}</span></div>
-                            <div><span class="developer">停车费</span><span>{{$building->parking_fee_cn}}</span></div>
-                        </div>
-                        <div class="buildRow">
-                            <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
-                        </div>
-                        <div class="buildDetail">{{$building->describe}}</div>
                     </div>
                     <!-- 市场行情 -->
                     <div class="quotation" id="quotation">
@@ -153,10 +192,15 @@
                 <div class="right">
                     <!-- 经纪 -->
                     <div class="agent">
-                        <img src="{{$block->agent_pic_cn}}">
-                        <div class="name"><div>{{$block->agent_name}}</div><div>{{$block->name}}楼盘经纪</div></div>
-                        <div class="free"><div>免费咨询</div><div class="tel">400-580-8888 转 2347</div></div>
-                        <div class="service">在线客服</div>
+                        <img class="agentPic" src="{{$block->agent_pic_cn}}">
+                        <div class="name">
+                            <div class="nameFirst">{{$block->agent_name}}林亚兰</div>
+                            <div>{{$block->name}}楼盘经纪</div>
+                        </div>
+                        <div class="free">免费咨询</div>
+                        <div class="service">
+                            <img src="/home_img/build_detail_button.png">
+                        </div>
                     </div>
                     <!-- 委托找房 -->
                     <div class="findHouse">
@@ -175,39 +219,25 @@
                 </div>
                 <div id="props" data-data='{{$building->toJson()}}' style="display:none"></div>
             </div>
-            <div class="third" id="third">
+            <div class="enjoy" id="enjoy">
+            <div class="enjoyBox">
                 <div class="h1">猜你喜欢</div>
-                <div class="list">
+                <div class="enjoyList">
                     @foreach($likeBuilding as $like)
-                    <div class="detail">
-                        <div><img src="{{$like['img_cn']}}" alt=""></div>
-                        <div class="buildDetail">
-                            <!-- 楼盘名称 -->
-                            <div class="building">
-                                <div class="name">{{$like['name']}}</div>
-                                <div><span>{{$like['unit_price']}}</span>元/m²月</div>
-                            </div>
-                            <!-- 楼盘详情 -->
-                            <div class="introduce">{{$like['describe']}}</div>
-                            <!-- 地址 -->
-                            <div class="location"><img src="/we_img/house_detail_address.png" alt="">{{$like['address']}}</div>
-                            <!-- 优势 -->
-                            <div class="landmark">
-                                @if(!empty($like['feature'][0]))
-                                <div>{{$like['feature'][0]}}</div>
-                                @endif
-                                @if(!empty($like['feature'][1]))
-                                <div>{{$like['feature'][1]}}</div>
-                                @endif
-                                @if(!empty($like['feature'][2]))
-                                <div>{{$like['feature'][2]}}</div>
-                                @endif
+                    <div class="enjoyDetail">
+                        <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
+                        <div class='enjoyInfor'>
+                            <div class="enjoyTitle">{{$like['name']}}</div>
+                            <div class="enjoyIntro">
+                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$like['address_cn']}}</div>
+                                <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
+        </div>
         </div>
     </div>
 @endsection

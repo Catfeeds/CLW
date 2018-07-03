@@ -1,6 +1,5 @@
 require('./home_common');
 const Swiper = require('swiper');
-var betterList = require('./components/betterList.vue');
 var detailMap = require('./components/detailMap.vue')
 var Data = $('#props').data('data') // 获取blade模板渲染出来的$building里的数据
 var initHouseData = getVal() // 房源数据
@@ -9,6 +8,7 @@ var houseCount = parseInt($('.js_listCount span').html()) // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML') // 房源列表模板
 var rightTop = $('.right').offset().top // 右侧边栏至顶部的距离
 var secondTop = $('#second').offset().top // 周边配套至顶部的距离
+// console.log('sssss', Data.gps)
 new Vue({
   el: '#second',
   components: {detailMap},
@@ -18,12 +18,6 @@ new Vue({
     }
   }
 })
-
-new Vue({
-  el: '#third',
-  components: {betterList}
-})
-
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()

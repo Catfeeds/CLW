@@ -15,9 +15,9 @@
     @yield('header')
 </head>
 <body>
-@include('home.head')
+{{-- @include('home.head') --}}
 @yield('body')
-@include('home.footer')
+{{-- @include('home.footer') --}}
 <script src="{{res('/js/home_manifest.js')}}"></script>
 <script src="{{res('/js/home_vendor.js')}}"></script>
 @yield('script')
