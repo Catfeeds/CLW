@@ -70,7 +70,6 @@ class Common
             'current_page' => $page??1,
             'data' => $data,
             'per_page' => 10,
-
         );
     }
 

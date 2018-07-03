@@ -3,7 +3,6 @@ namespace App\Repositories;
 
 use App\Handler\Common;
 use App\Models\Area;
-use App\Models\Block;
 use App\Models\Building;
 use App\Models\BuildingBlock;
 use App\Models\BuildingFeature;
@@ -22,6 +21,7 @@ class BuildingsRepository extends  Model
      * @param $service
      * @param null $building_id
      * @param null $whetherPage
+     * @param null $getCount
      * @return array
      * @author 罗振
      */
@@ -29,12 +29,12 @@ class BuildingsRepository extends  Model
         $request,
         $service,
         $building_id = null,
-        $whetherPage = null
+        $whetherPage = null,
+        $getCount = null
     )
     {
         // 取得符合条件房子
         $houses = $this->houseList($request, $building_id);
-
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
@@ -45,6 +45,12 @@ class BuildingsRepository extends  Model
         if (empty($whetherPage)) {
             $data = $data->forpage($request->page??1, 10);
             return Common::pageData($request->page, $data->values());
+        } elseif ($getCount) {
+            $data = $data->forpage($request->page??1, 10);
+            return [
+                'count' => $houses->count(),
+                'page' => Common::pageData($request->page, $data->values())
+            ];
         } else {
             return $data->toArray();
         }
@@ -156,6 +162,11 @@ class BuildingsRepository extends  Model
 
         // 装修
         if (!empty($request->renovation)) $houses = $houses->where('renovation', $request->renovation);
+
+        // pc价格排序
+        if (!empty($request->price_sort)) {
+            $houses = $houses->orderBy('unit_price', $request->price_sort);
+        }
 
         return $houses;
     }

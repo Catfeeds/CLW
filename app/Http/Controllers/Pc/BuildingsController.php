@@ -70,8 +70,8 @@ class BuildingsController extends Controller
         $buildingFeatures = BuildingFeature::pluck('name','id')->toArray();
 
         // 楼盘列表数据
-        $res = $buildingsRepository->buildingList($request, $service);
-
+        $res = $buildingsRepository->buildingList($request, $service, null,true,true);
+        dd($res);
         return view('home.house_list', [
             'areas' => $areas,
             'blocks' => $blocks,
