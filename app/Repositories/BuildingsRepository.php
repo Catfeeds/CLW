@@ -50,10 +50,10 @@ class BuildingsRepository extends  Model
             $data = $data->forpage($request->page??1, 10);
             return Common::pageData($request->page, $data->values());
         } elseif ($getCount) {
-            $data = $data->forpage($request->page??1, 10);
+            $data = $data->forpage($request->nowPage??1, 10);
             $customPage = new CustomPage();
             $baseUrl = url('/building_list');
-            $page = $customPage->getSelfPageView($request->page??1,$totalPage,$baseUrl,[]);
+            $page = $customPage->getSelfPageView($request->nowPage??1,$totalPage,$baseUrl,[]);
 
             return [
                 'house_count' => $houses->count(),

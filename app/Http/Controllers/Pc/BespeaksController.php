@@ -21,7 +21,7 @@ class BespeaksController extends Controller
         BespeaksService $bespeaksService
     )
     {
-        if (empty($result = $bespeaksService->addBespeaks($request, 'App'))) {
+        if (empty($result = $bespeaksService->addBespeaks($request, 'PC'))) {
             return $this->sendError('预约失败');
         }
         return $this->sendResponse($result, '预约成功');
