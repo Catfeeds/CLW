@@ -13,8 +13,8 @@
         </div>
         <div class="serch_area f_r ">
           <input type="text" class="serch_inp" placeholder="搜索关键词">
-          <button class="serch_btn"></button>
-          <button class="serch_map"></button>
+          <button class="serch_btn"><span></span></button>
+          <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div>
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
           </ul>
           <ul class="area_detail clearfix js_hongshanList">
             <li><a href="javascript:void(0); current all">全部</a></li>
-            <li><a href="javascript:void(0);">光谷</a></li>
+            <li class="sanjiao"><a href="javascript:void(0);">光谷</a></li>
             <li><a href="javascript:void(0);">街道口</a></li>
             <li><a href="javascript:void(0);">广埠屯</a></li>
             <li><a href="javascript:void(0);">卓刀泉</a></li>
@@ -48,8 +48,8 @@
             <li><a href="javascript:void(0);">光谷东</a></li>
           </ul>
         </div>
-        <div class="subway">
-          <ul class="list clearfix">
+        <!-- <div class="subway ">
+          <ul class="list clearfix js_subway">
             <li class="item">地铁</li>
             <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
             <li class="item"><a href="javscript:void(0)" class="js_addCurrent">1号线</a></li>
@@ -59,15 +59,31 @@
             <li class="item"><a href="javscript:void(0)" class="js_addCurrent">5号线</a></li>
             <li class="item"><a href="javscript:void(0)" class="js_addCurrent">6号线</a></li>
           </ul>
-        </div>
-        <div class="type">
+          <ul class="subway_detail clearfix">
+            <li><a href="javascript:void(0); current all">不限</a></li>
+            <li class="sanjiao"><a href="javascript:void(0);">汉口北</a></li>
+            <li><a href="javascript:void(0);">滠口新城</a></li>
+            <li><a href="javascript:void(0);">滕子岗</a></li>
+            <li><a href="javascript:void(0);">堤角</a></li>
+            <li><a href="javascript:void(0);">新荣</a></li>
+            <li><a href="javascript:void(0);">丹水池</a></li>
+            <li><a href="javascript:void(0);">徐州新村</a></li>
+            <li><a href="javascript:void(0);">二七路</a></li>
+            <li><a href="javascript:void(0);">头道街</a></li>
+            <li><a href="javascript:void(0);">黄浦路</a></li>
+            <li><a href="javascript:void(0);">三阳路</a></li>
+            <li><a href="javascript:void(0);">大智路</a></li>
+            <li><a href="javascript:void(0);">循礼门</a></li>
+          </ul>
+        </div> -->
+        <!-- <div class="type">
           <ul class="list clearfix">
             <li class="item">类型</li>
             <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
             <li class="item"><a href="javscript:void(0)" class="js_addCurrent">普通办公</a></li>
             <li class="item"><a href="javscript:void(0)" class="js_addCurrent">创意花园</a></li>
           </ul>
-        </div>
+        </div> -->
         <div class="acverge">
           <ul class="list clearfix">
             <li class="item">面积</li>
@@ -115,7 +131,7 @@
         <div class="result js_result clearfix" style="display:none">
           <div class="title f_l">已选</div>
           <div class="selected_box f_l clearfix"></div>
-          <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div>
+          <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
           <div class="cleaning f_l"><a href="javascript:void(0)" class="js_cleaning">清空</a></div>
         </div>
       </div>
@@ -143,8 +159,10 @@
           </div>
           <div class="phone">
             <input type="text" placeholder="请输入手机号">
+            <span></span>
             <div><a href="javascript:void(0);">立即委托</a></div>
           </div>
+          <div class="rent_describe">已经有<span>15141</span>位客户委托找房</div>
         </div>
       </div> 
     </div>

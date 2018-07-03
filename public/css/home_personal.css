@@ -180,6 +180,62 @@ template {
   display: none;
 }
 
+.clearfloat {
+  display: block;
+  clear: both;
+}
+
+::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+:-moz-placeholder {
+  color: #cccccc;
+}
+
+::-moz-placeholder {
+  color: #cccccc;
+}
+
+:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
+
+* {
+  font-family: PingFangSC-Medium, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  list-style: none;
+  padding: 0;
+}
+
+a[href] {
+  text-decoration: none;
+}
+
+.font-level1 {
+  font-size: 12px;
+}
+
+.font-level2 {
+  font-size: 14px;
+}
+
+.font-level3 {
+  font-size: 16px;
+}
+
+.font-level4 {
+  font-size: 18px;
+}
+
 body #test {
   width: 200px;
   height: 200px;

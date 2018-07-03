@@ -13,7 +13,9 @@ return [
     // 开发 七牛存储空间
     'qiniu_bucket' => env('QINIU_BUCKET', 'louwang-test'),
     'qiniu_url' => env('QINIU_URL', 'http://osibaji20.bkt.clouddn.com/'),// 七牛访问url
-
+    // 七牛测试后缀
+    'qiniu_suffix' => '-test',
+    
     'cdn_path' => env('CDN_PATH', ''),// cdn_path
 
     'version' => '?version=20180531',

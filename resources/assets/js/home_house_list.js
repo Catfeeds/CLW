@@ -125,36 +125,36 @@ var  page = {
   }
 }
 var datas = [
-  {'id':1,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':2,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':22,'price':15.1,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':3,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':14,'price':25.7,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':4,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':46,'price':41.2,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':5,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':23,'price':19.6,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':6,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':34,'price':28.6,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':7,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':12,'price':38.1,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':8,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':55.1,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':9,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':53.5,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':10,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':11,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':12,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':13,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':14,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':15,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':16,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':17,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':18,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':19,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':20,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':21,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':22,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':23,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':24,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':25,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':26,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':27,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':28,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':29,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
-  {'id':30,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址:[江汉]淮海路与云霞路交汇处向...','acverge':'57-700m²'},
+  {'id':1,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':2,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':22,'price':15.1,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':3,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':14,'price':25.7,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':4,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':46,'price':41.2,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':5,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':23,'price':19.6,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':6,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':34,'price':28.6,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':7,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':12,'price':38.1,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':8,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':55.1,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':9,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':53.5,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 面积: 57-700m²'},
+  {'id':10,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':11,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':12,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':13,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':14,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':15,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':16,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':17,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':18,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':19,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':20,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':21,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':22,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':23,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':24,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':25,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':26,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':27,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':28,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':29,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
+  {'id':30,'imgSrc':'/we_img/house_show_img.png','name':'泛海民生金融中心','tao':17,'price':37.3,'location':'地址: [江汉]淮海路与云霞路交汇处向...','acverge':'面积: 57-700m²'},
 ];
 var options = {
   'id':'page',
@@ -189,9 +189,9 @@ var options = {
                 </div>
                 <div class="house_special">
                     <ul>
-                    <li style="background-color:#92f7e4;"><span class="icon"></span>地铁十分钟</li>
-                    <li style="background-color:#a3eaf9;"><span class="icon"></span>地标建筑</li>
-                    <li style="background-color:#fff4bd;"><span class="icon"></span>创业园</li>
+                    <li style="color:#849aae;background-image: linear-gradient(#f4f7f9,#f4f7f9);"><span class="icon"></span>交通便利</li>
+                    <li style="color:#59c6d3;background-image: linear-gradient(#e1f5f8,#e1f5f8);border-radius:2px;"><span class="icon"></span>繁华地段</li>
+                    <li style="color:#45c28d;background-image: linear-gradient(#e1f5ed,#e1f5ed);border-radius:2px;"><span class="icon"></span>地铁十分钟</li>
                     </ul>
                 </div>
             </div>
@@ -217,6 +217,12 @@ $(function() {
   })
   $(".js_area .all").click(function(){
       $(".area_detail").hide()
+  })
+  $(".js_subway .js_addCurrent").click(function(){
+      $(".subway_detail").show();
+  })
+  $(".js_subway .all").click(function(){
+    $(".subway_detail").hide();
   })
   $(".item > .js_addCurrent").on("click",function(){
     if($(".all.current").length === $(".all").length){

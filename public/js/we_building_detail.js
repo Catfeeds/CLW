@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 webpackJsonp([3],{
 
 <<<<<<< HEAD
@@ -211,3 +212,6 @@ new Vue({
 
 },[62]);
 >>>>>>> origin/wanghao
+=======
+webpackJsonp([3],{62:function(e,t,n){e.exports=n(63)},63:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s=n(9),r=n.n(s);n(0),Vue.component("house-detail-list",n(13)),Vue.component("detail-banner",n(14)),Vue.component("feature-banner",n(75)),Vue.use(r.a,{ak:"GNEfPXFcuuKglYSB8R45IzmhzfjKDclf"}),new Vue({el:"#Vuebuilding",data:{imgList:JSON.parse($("#imgList").val()),features:JSON.parse($("#features").val()),center:JSON.parse($("#gps").val())}})},75:function(e,t,n){var s=n(4)(n(76),n(77),!1,null,null,null);e.exports=s.exports},76:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s=n(11);n.n(s);t.default={props:["list"],components:{swiper:s.swiper,swiperSlide:s.swiperSlide},data:function(){return{options:{slidesPerView:4,slidesPerGroup:4}}}}},77:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("swiper",{attrs:{options:e.options}},e._l(e.list,function(t,s){return n("swiper-slide",{key:"feature"+s,staticStyle:{position:"relative"}},[n("img",{attrs:{src:t.pic}}),e._v(" "),n("h5",[e._v(e._s(t.name))])])}))},staticRenderFns:[]}}},[62]);
+>>>>>>> origin/zxz

@@ -180,6 +180,62 @@ template {
   display: none;
 }
 
+.clearfloat {
+  display: block;
+  clear: both;
+}
+
+::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+:-moz-placeholder {
+  color: #cccccc;
+}
+
+::-moz-placeholder {
+  color: #cccccc;
+}
+
+:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
+
+* {
+  font-family: PingFangSC-Medium, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  list-style: none;
+  padding: 0;
+}
+
+a[href] {
+  text-decoration: none;
+}
+
+.font-level1 {
+  font-size: 12px;
+}
+
+.font-level2 {
+  font-size: 14px;
+}
+
+.font-level3 {
+  font-size: 16px;
+}
+
+.font-level4 {
+  font-size: 18px;
+}
+
 a {
   text-decoration: none;
   color: #444;
@@ -216,17 +272,18 @@ body {
 
 body .house_list_container {
   width: 100%;
-  background-color: #ededed;
+  background-color: #f5f5f5;
 }
 
 body .house_list_container .house_list_title {
   width: 100%;
-  background-color: #f8f7f7;
+  background-color: #fff;
   margin-bottom: 20px;
+  border-bottom: 1px solid #e9e9e9;
 }
 
 body .house_list_container .house_list_title .title_content {
-  width: 62.5%;
+  width: 1200px;
   height: 50px;
   padding: 0 20px;
   margin: 0 auto;
@@ -245,7 +302,6 @@ body .house_list_container .house_list_title .title_content .link .homepage:hove
 
 body .house_list_container .house_list_title .title_content .serch_area {
   padding-top: 7px;
-  width: 73.5%;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -253,12 +309,10 @@ body .house_list_container .house_list_title .title_content .serch_area {
 }
 
 body .house_list_container .house_list_title .title_content .serch_area .serch_inp {
-  -webkit-box-flex: 7;
-      -ms-flex: 7;
-          flex: 7;
+  width: 348px;
   height: 34px;
   border: 1px solid #e3e3e3;
-  border-radius: 5px 0 0 5px;
+  border-radius: 25px 0 0 25px;
   padding-left: 10px;
 }
 
@@ -279,30 +333,38 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_i
 }
 
 body .house_list_container .house_list_title .title_content .serch_area .serch_btn {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  width: 74px;
   height: 34px;
   border: none;
   background-color: #03a2fb;
-  border-radius: 0 5px 5px 0;
-  margin-right: 5px;
+  border-radius: 0 25px 25px 0;
+  margin-right: 20px;
   outline: none;
+  position: relative;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_map {
-  -webkit-box-flex: 1.5;
-      -ms-flex: 1.5;
-          flex: 1.5;
+body .house_list_container .house_list_title .title_content .serch_area .serch_btn span {
+  display: block;
+  width: 21px;
+  position: absolute;
+  left: 22px;
+  top: 7px;
+  height: 20px;
+  background: url("/home_img/index_search_btn.png") no-repeat center/20px 20px;
+}
+
+body .house_list_container .house_list_title .title_content .serch_area .serch_map a {
+  width: 75px;
   height: 34px;
-  border: 1px solid #d7ecfa;
-  background-color: #fff;
   outline: none;
+  text-align: right;
+  line-height: 34px;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 body .house_list_container .house_list_content {
-  width: 62.5%;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -371,8 +433,10 @@ body .house_list_container .house_list_content .select_area .result .list .item 
   color: #03a2fb;
 }
 
-body .house_list_container .house_list_content .select_area .area .area_detail {
-  position: relative;
+body .house_list_container .house_list_content .select_area .area .area_detail,
+body .house_list_container .house_list_content .select_area .area .subway_detail,
+body .house_list_container .house_list_content .select_area .subway .area_detail,
+body .house_list_container .house_list_content .select_area .subway .subway_detail {
   display: none;
   margin-left: 70px;
   padding-left: 25px;
@@ -381,15 +445,48 @@ body .house_list_container .house_list_content .select_area .area .area_detail {
   border-bottom: none;
 }
 
-body .house_list_container .house_list_content .select_area .area .area_detail li {
+body .house_list_container .house_list_content .select_area .area .area_detail li,
+body .house_list_container .house_list_content .select_area .area .subway_detail li,
+body .house_list_container .house_list_content .select_area .subway .area_detail li,
+body .house_list_container .house_list_content .select_area .subway .subway_detail li {
+  position: relative;
   float: left;
   height: 37px;
   line-height: 37px;
   width: 75px;
 }
 
-body .house_list_container .house_list_content .select_area .area .area_detail li a {
+body .house_list_container .house_list_content .select_area .area .area_detail li a,
+body .house_list_container .house_list_content .select_area .area .subway_detail li a,
+body .house_list_container .house_list_content .select_area .subway .area_detail li a,
+body .house_list_container .house_list_content .select_area .subway .subway_detail li a {
   font-size: 14px;
+}
+
+body .house_list_container .house_list_content .select_area .area .area_detail .sanjiao::before,
+body .house_list_container .house_list_content .select_area .area .subway_detail .sanjiao::before,
+body .house_list_container .house_list_content .select_area .subway .area_detail .sanjiao::before,
+body .house_list_container .house_list_content .select_area .subway .subway_detail .sanjiao::before {
+  content: "";
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ebebeb;
+  left: 7px;
+  top: -10px;
+}
+
+body .house_list_container .house_list_content .select_area .area .area_detail .sanjiao::after,
+body .house_list_container .house_list_content .select_area .area .subway_detail .sanjiao::after,
+body .house_list_container .house_list_content .select_area .subway .area_detail .sanjiao::after,
+body .house_list_container .house_list_content .select_area .subway .subway_detail .sanjiao::after {
+  content: "";
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f6faff;
+  left: 7px;
+  top: -9px;
 }
 
 body .house_list_container .house_list_content .select_area .subway {
@@ -647,13 +744,20 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   color: #000;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_name span {
-  color: #f35453;
-  font-size: 22px;
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_name .js_tao {
+  display: inline-block;
+  color: #fff;
+  width: 54px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  background-color: #7ab9fd;
+  margin-top: 2px;
+  margin-left: 5px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_name .price span {
-  color: #03a2fb;
+  color: #ff4949;
   font-size: 22px;
 }
 
@@ -746,21 +850,21 @@ body .house_list_container .house_list_content .house_list .house_show .paginati
 }
 
 body .house_list_container .house_list_content .house_list .rent_house {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  height: 430px;
-  background-color: #404040;
+  width: 240px;
+  height: 335;
+  background: url(/home_img/rent_background.jpg) no-repeat center;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house .title {
-  margin-top: 105px;
-  margin-bottom: 70px;
+  margin-top: 36px;
+  margin-bottom: 39px;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house .title div {
   text-align: center;
   color: #fff;
+  text-shadow: 0 4px 1px rgba(53,53,53,0.78);
+  font-size: 14px;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house .title div:first-child {
@@ -772,17 +876,17 @@ body .house_list_container .house_list_content .house_list .rent_house .title di
 body .house_list_container .house_list_content .house_list .rent_house .phone {
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house .phone input {
-  border: none;
-  height: 42px;
-  width: 89%;
-  background-color: #525252;
-  padding-left: 20px;
-  color: #fff;
-  margin-bottom: 40px;
-  min-width: 120px;
+  width: 212px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: solid 1px #e2e3e4;
+  padding-left: 33px;
+  margin-bottom: 23px;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house .phone input::-webkit-input-placeholder {
@@ -801,19 +905,44 @@ body .house_list_container .house_list_content .house_list .rent_house .phone in
   font-size: 14px;
 }
 
+body .house_list_container .house_list_content .house_list .rent_house .phone span {
+  display: block;
+  background: url(/home_img/phone.png) no-repeat;
+  width: 9px;
+  height: 16px;
+  position: absolute;
+  left: 33px;
+  top: 12px;
+}
+
 body .house_list_container .house_list_content .house_list .rent_house .phone div {
-  margin: auto;
-  width: 54%;
+  margin: 0 auto;
+  width: 214px;
   height: 41px;
-  background-color: #03a2fb;
-  border-radius: 25px;
-  text-align: center;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2a59db), to(#5c85f6)),-webkit-gradient(linear, left top, left bottom, from(#fff200), to(#fff200));
+  background-image: linear-gradient(-90deg, #2a59db 0%, #5c85f6 100%),linear-gradient(#fff200, #fff200);
+  background-blend-mode: normal,normal;
+  -webkit-box-shadow: 0px 7px 6px 0pxrgba 53,53,53,0.19;
+          box-shadow: 0px 7px 6px 0pxrgba 53,53,53,0.19;
+  border-radius: 20px;
   line-height: 41px;
-  min-width: 70px;
+  margin-bottom: 51px;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house .phone div a {
+  font-size: 18px;
   color: #fff;
+}
+
+body .house_list_container .house_list_content .house_list .rent_house .rent_describe {
+  font-family: NotoSansHans-Light;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
+body .house_list_container .house_list_content .house_list .rent_house .rent_describe span {
+  color: #f6e71e;
 }
 
 .f_l {

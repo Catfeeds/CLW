@@ -171,6 +171,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('all_building_blocks', 'BlocksController@allBuildingBlock');
         // 商圈添加推荐
         Route::post('add_recommend/{id}', 'BlocksController@addRecommend');
+        // 获取所有商圈基础地理位置
+        Route::get('block_locations', 'BlocksController@blockLocations');
         /*
         |--------------------------------------------------------------------------
         | 商圈管理
