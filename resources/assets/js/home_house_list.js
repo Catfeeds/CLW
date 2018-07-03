@@ -1,6 +1,30 @@
 require('./home_common');
-
-
+// 根据参数拼接url地址
+function createURL(url, param) {
+    var link = '';
+    $.each(param, function (key, item) {
+        link += '&' + key + "=" + item;
+    });
+    var result = url + "?" + link.substr(1);
+    return result;
+}
+var data = {
+    area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
+    block_id: $('#search').data('block_id') ? $('#search').data('block_id') : '',
+    features: $('#search').data('features') ? $('#search').data('features') : '',
+    acreage: $('#search').data('acreage') ? $('#search').data('acreage') : '',
+    unit_price: $('#search').data('unit_price') ? $('#search').data('unit_price') : '',
+    renovation: $('#search').data('renovation') ? $('#search').data('renovation') : '',
+    keyword: $('#search').data('keyword') ? $('#search').data('keyword') : '',
+    price_sort: $('#search').data('keyword') ? $('#search').data('price_sort') : '',
+}
+if(data.area_id=='') data.block_id=''
+$('.js_condition').click(function () {
+    var content = $(this).data('content')
+    data[$(this).data('dom')] = content?content:'';
+    // console.log($(this).data('dom'), createURL('building_list', data))
+    window.location.href = createURL('building_list', data)
+})
 
 
 //

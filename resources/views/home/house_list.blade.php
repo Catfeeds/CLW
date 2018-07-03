@@ -4,6 +4,16 @@
 <link rel="stylesheet" href="/css/home_house_list.css">
 @section('header')
 @section('body')
+    <input type="hidden" id="search"
+           data-area_id="{{ $request['area_id']??'' }}"
+           data-block_id="{{ $request['block_id']??'' }}"
+           data-features="{{ $request['features']??'' }}"
+           data-acreage="{{ $request['acreage']??'' }}"
+           data-unit_price="{{ $request['unit_price']??'' }}"
+           data-renovation="{{ $request['renovation']??'' }}"
+           data-keyword="{{ $request['keyword']??'' }}"
+           data-price_sort="{{ $request['price_sort']??'' }}">
+
     <div class="house_list_container">
         <div class="house_list_title">
             <div class="title_content clearfix">
@@ -23,22 +33,27 @@
                 <div class="area">
                     <ul class="list clearfix js_area">
                         <li class="item">区域</li>
-                        <li class="item"><a href="javscript:void(0)"
-                                            class="all js_addCurrent  @if(!empty($request['area_id']))current @endif">全部</a>
+                        <li class="item js_condition" data-content="" data-dom="area_id">
+                            <a class="all js_addCurrent  @if(empty($request['area_id']))current @endif">全部</a>
                         </li>
                         @foreach($areas as $area)
-                            <li class="item"><a data-content="{{$area['id']}}" href="javscript:void(0)"
-                                                class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])current @endif">{{$area['name']}}</a>
+                            <li class="item js_condition" data-content="{{$area['id']}}" data-dom="area_id">
+                                <a class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])current @endif">{{$area['name']}}</a>
                             </li>
                         @endforeach
                     </ul>
-                    <ul class="area_detail clearfix js_hongshanList">
-                        <li><a href="javascript:void(0); current all">全部</a></li>
-                        {{--<li class="sanjiao"><a href="javascript:void(0);">光谷</a></li>--}}
-                        @foreach($blocks as $key => $block)
-                            <li><a href="javascript:void(0);" data-content="{{$key}}">{{$block}}</a></li>
-                        @endforeach
-                    </ul>
+                    @if(!empty($blocks))
+                        <ul class="area_detail clearfix js_hongshanList">
+                            <li class="js_condition" data-content="" data-dom="block_id"><a
+                                        class="all @if(empty($request['block_id']))current @endif">全部</a></li>
+                            {{--<li class="sanjiao"><a href="javascript:void(0);">光谷</a></li>--}}
+                            @foreach($blocks as $key => $block)
+                                <li class="js_condition" data-content="{{$key}}" data-dom="block_id"><a
+                                            class="@if(!empty($request['block_id'])&&$request['block_id']==$key)current @endif"
+                                            data-content="{{$key}}">{{$block}}</a></li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
                 <!-- <div class="subway ">
                   <ul class="list clearfix js_subway">
@@ -79,45 +94,44 @@
                 <div class="acverge">
                     <ul class="list clearfix">
                         <li class="item">面积</li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">0-100m²</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">100-300m²</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">300-500m²</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">500-1000m²</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">1000m²以上</a></li>
+                        <li class="item js_condition" data-dom="acreage" data-content=""><a class="js_addCurrent all @if(empty($request['acreage']))current @endif">全部</a></li>
+                        @foreach(['0-100','100-300','300-500','500-1000','1000-10000'] as $acreage)
+                            <li class="item js_condition" data-dom="acreage" data-content="{{$acreage}}">
+                                <a class="@if(!empty($request['acreage'])&&$request['acreage']==$acreage)current @endif">{{$acreage=='1000-10000'?'1000m²以上':$acreage.'m²'}}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="price">
                     <ul class="list clearfix">
                         <li class="item">价格</li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">40-60元/m²·月</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">60-80元/m²·月</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">80-120元/m²·月</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">120-140元/m²·月</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">140元/m²·月以上</a></li>
+                        <li class="item js_condition" data-dom="unit_price" data-content="">
+                            <a class="js_addCurrent all @if(empty($request['unit_price']))current @endif">全部</a>
+                        </li>
+                         @foreach(['40-60','60-80','80-120','120-140','140-1000'] as $price)
+                            <li class="item js_condition" data-dom="unit_price" data-content="{{$price}}">
+                                <a class="@if(!empty($request['unit_price'])&&$request['unit_price']==$price)current @endif">{{$price=='140-1000'?'140/m²·月以上':$price.'/m²·月'}}</a>
+                            </li>
+                         @endforeach
                     </ul>
                 </div>
                 <div class="decoration">
                     <ul class="list clearfix">
                         <li class="item">装修</li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">豪华装修</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">精装修</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">中装修</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">简装修</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">毛坯</a></li>
+                        <li class="item js_condition" data-dom="renovation" data-content=""><a class="js_addCurrent all @if(empty($request['renovation']))current @endif">全部</a></li>
+                        @foreach(['豪华装修','精装修','中装修','简装修','毛坯'] as $renovation)
+                            <li class="item js_condition" data-dom="renovation" data-content="{{$renovation}}">
+                                <a class="@if(!empty($request['renovation'])&&$request['renovation']==$renovation)current @endif">{{$renovation}}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="special">
                     <ul class="list clearfix">
                         <li class="item">特色</li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">核心商圈</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">创意园区</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">地标建筑</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">知名物业</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">地铁10分钟</a></li>
-                        <li class="item"><a href="javscript:void(0)" class="js_addCurrent">新风系统</a></li>
+                        @foreach($buildingFeatures as $key => $features)
+                            <li class="item" da data-content="{{$key}}"><a class="js_addCurrent current all">{{$features}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="result js_result clearfix" style="display:none">
@@ -131,7 +145,7 @@
                 <div class="house_show">
                     <div class="house_show_title">
                         <div class="house_num">
-                            出租写字楼共<span>127</span>套
+                            出租写字楼共<span>{{$Results['house_count']??0}}</span>套
                         </div>
                         <div class="title_right">
                             <div class="sort_default"><a href="javascript:void(0);">默认</a></div>
@@ -140,50 +154,67 @@
                                             class="up js_up">▲</span><span class="down js_down">▼</span></a></div>
                         </div>
                     </div>
-
+                    @if(!empty($Results['page']['data']))
                     <div class="js_content">
-                        <div class="detail">
-                            <div class="img_box">
-                                <img src="/we_img/house_show_img.png" alt="">
-                            </div>
-                            <div class="detail_title">
-                                <div class="house_name clearfix">
-                                    <div class="name f_l">泛海民生金融中心</div>
-                                    <span class='js_tao'>17套</span>
-                                    <div class="price f_r"><span class="js_acvergePrice">37.3</span>元/m²月
+                            @foreach($Results['page']['data'] as $key => $data)
+                                <div class="detail">
+                                    <div class="img_box">
+                                        <img src="{{$data->img_cn}}" alt="" style="width: 242px;height: 200px">
+                                    </div>
+                                    <div class="detail_title">
+                                        <div class="house_name clearfix">
+                                            <div class="name f_l">{{$data->name}}</div>
+                                            <span class='js_tao'>{{$data->house_count}}套</span>
+                                            <div class="price f_r"><span class="js_acvergePrice">{{$data->avg_price}}</span>元/m²月
+                                            </div>
+                                        </div>
+                                        <div class="house_location">地址: [{{$data->address_cn}}]{{$data->address}}</div>
+                                        <div class="house_acverge">面积: 57-700m²</div>
+                                        <div class="acverge_select">
+                                            <ul>
+                                                <li style="position: relative">
+                                                    <a href="javascript:void(0);">210m²</a>
+                                                    <div class="acreage-detail">
+                                                        <div style="position: relative">
+                                                            <img src="{{$data->img_cn}}" alt="" style="width:200px;height: 160px">
+                                                            <span class="renovation">装修</span>
+                                                        </div>
+                                                        <div>装修</div>
+                                                        <div>面积|价格</div>
+                                                    </div>
+                                                </li>
+                                                <li><a href="javascript:void(0);">210m²</a></li>
+                                                <li><a href="javascript:void(0);">210m²</a></li>
+                                                <li><a href="javascript:void(0);">210m²</a></li>
+                                                <li><a href="javascript:void(0);">210m²</a></li>
+                                                <li><a href="javascript:void(0);">更多...</a></li>
+                                            </ul>
+                                        </div>
+                                        @if(!empty($data->features))
+                                            <div class="house_special">
+                                                <ul>
+                                                    @foreach($data->features as $features)
+                                                        <li>
+                                                            <span class="icon"></span>{{$features->name}}
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="house_location">地址: [江汉]淮海路与云霞路交汇处向...</div>
-                                <div class="house_acverge">面积: 57-700m²</div>
-                                <div class="acverge_select">
-                                    <ul>
-                                        <li><a href="javascript:void(0);">210m²</a></li>
-                                        <li><a href="javascript:void(0);">210m²</a></li>
-                                        <li><a href="javascript:void(0);">210m²</a></li>
-                                        <li><a href="javascript:void(0);">210m²</a></li>
-                                        <li><a href="javascript:void(0);">210m²</a></li>
-                                        <li><a href="javascript:void(0);">更多...</a></li>
-                                    </ul>
-                                </div>
-                                <div class="house_special">
-                                    <ul>
-                                        <li style="color:#849aae;background-image: linear-gradient(#f4f7f9,#f4f7f9);">
-                                            <span class="icon"></span>交通便利
-                                        </li>
-                                        <li style="color:#59c6d3;background-image: linear-gradient(#e1f5f8,#e1f5f8);border-radius:2px;">
-                                            <span class="icon"></span>繁华地段
-                                        </li>
-                                        <li style="color:#45c28d;background-image: linear-gradient(#e1f5ed,#e1f5ed);border-radius:2px;">
-                                            <span class="icon"></span>地铁十分钟
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
                     </div>
                     <div class="pagination">
-                        <ul id="page" class="page clearfix"></ul>
+                        <ul id="page" class="page clearfix">
+                            <li class='pageItem' page-rel='prepage'>上一页</li>
+                            {{--@for($i=1;$i<=$Results['total_page'];$i++)--}}
+                                {{--<li class="@if($Results['page']['current_page']==$i) pageItemActive @else pageItem @endif" page-rel='itempage'><a >{{$i}}</a></li>--}}
+                            {{--@endfor--}}
+                            <li class='pageItem' page-rel='nextpage'>下一页</li>
+                        </ul>
                     </div>
+                    @endif
                 </div>
                 <div class="rent_house">
                     <div class="title">
@@ -202,6 +233,6 @@
     </div>
 @endsection
 @section('script')
-    {{--<script src="/js/home_house_list.js"></script>--}}
+    <script src="/js/home_house_list.js"></script>
 
 @endsection

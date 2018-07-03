@@ -799,6 +799,16 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   font-size: 14px;
 }
 
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #3c3c;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .renovation {
+  position: absolute;
+}
+
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li:first-child {
   border-left: 1px solid #ededed;
 }
@@ -806,6 +816,10 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li:hover {
   background-color: #e7eaea;
   color: #5e5c5a;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li:hover div {
+  display: block;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special {
@@ -831,6 +845,26 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   color: #71726f;
   font-size: 14px;
   min-width: 100px;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul>li:first-child {
+  color: #849aae;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f7f9), to(#f4f7f9));
+  background-image: linear-gradient(#f4f7f9, #f4f7f9);
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul>li:first-child(2) {
+  color: #59c6d3;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1f5f8), to(#e1f5f8));
+  background-image: linear-gradient(#e1f5f8, #e1f5f8);
+  border-radius: 2px;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul>li:first-child(3) {
+  color: #45c28d;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1f5ed), to(#e1f5ed));
+  background-image: linear-gradient(#e1f5ed, #e1f5ed);
+  border-radius: 2px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .pagination {
