@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Pc;
 
 use App\Http\Controllers\Controller;
+use App\Models\Area;
+use App\Models\Block;
 use App\Models\Building;
+use App\Models\BuildingFeature;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use Illuminate\Http\Request;
@@ -39,6 +42,36 @@ class BuildingsController extends Controller
         $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
         // return $building;
         return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block]);
+    }
+
+    // 楼盘列表视图页
+    public function buildingListView(
+        Request $request
+    )
+    {
+        // 获取区域
+        $allAreas = Area::all();
+        $areas = $allAreas->map(function($v) {
+            return [
+                'id' => $v->id,
+                'name' => $v->name,
+            ];
+        });
+
+        // 获取区域
+        $blocks = array();
+        if (!empty($request->area_id)) {
+            $blocks = Block::where('area_id', $request->area_id)->pluck('name','id')->toArray();
+        }
+
+        // 获取特色
+        $buildingFeatures = BuildingFeature::pluck('name','id')->toArray();
+
+        return view('home.house_list', [
+            'areas' => $areas,
+            'blocks' => $blocks,
+            'buildingFeatures' => $buildingFeatures
+        ]);
     }
 
 }
