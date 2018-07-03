@@ -13,3 +13,11 @@ export function getBlock() {
   methods: 'GET'
  })
 }
+
+
+export function getBuildList() {
+    return request({
+        url: '/getBuildList',
+        methods: 'GET'
+    })
+}
