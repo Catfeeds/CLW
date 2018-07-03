@@ -42,12 +42,16 @@ class BuildingsRepository extends  Model
 
         $data = $this->buildingDataComplete($buildings, $buildingData, $service);
 
+        // 总页数
+        $totalPage = ceil($data->count() / 10);
+
         if (empty($whetherPage)) {
             $data = $data->forpage($request->page??1, 10);
             return Common::pageData($request->page, $data->values());
         } elseif ($getCount) {
             $data = $data->forpage($request->page??1, 10);
             return [
+                'total_page' => (int)$totalPage,
                 'house_count' => $houses->count(),
                 'page' => Common::pageData($request->page, $data->values())
             ];

@@ -44,7 +44,7 @@ class BuildingsController extends Controller
         return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block]);
     }
 
-    // 楼盘列表视图页
+    // 楼盘列表
     public function buildingList(
         Request $request,
         BuildingsRepository $buildingsRepository,
@@ -71,7 +71,7 @@ class BuildingsController extends Controller
 
         // 楼盘列表数据
         $res = $buildingsRepository->buildingList($request, $service, null,true,true);
-
+        dd($res);
         return view('home.house_list', [
             'page' => $res['page'],
             'house_count' => $res['house_count'],
