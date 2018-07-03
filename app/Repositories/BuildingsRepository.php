@@ -48,7 +48,7 @@ class BuildingsRepository extends  Model
         } elseif ($getCount) {
             $data = $data->forpage($request->page??1, 10);
             return [
-                'count' => $houses->count(),
+                'house_count' => $houses->count(),
                 'page' => Common::pageData($request->page, $data->values())
             ];
         } else {
