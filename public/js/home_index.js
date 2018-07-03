@@ -5401,10 +5401,11 @@ else if (typeof define === 'function' && define.amd) {
 /* 40 */,
 /* 41 */,
 /* 42 */,
-/* 43 */
+/* 43 */,
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(44);
+__webpack_require__(45);
 __webpack_require__(48);
 __webpack_require__(49);
 __webpack_require__(50);
@@ -5417,11 +5418,12 @@ __webpack_require__(56);
 __webpack_require__(57);
 __webpack_require__(58);
 __webpack_require__(59);
-module.exports = __webpack_require__(60);
+__webpack_require__(60);
+module.exports = __webpack_require__(61);
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
@@ -5431,7 +5433,6 @@ var mySwiper = new Swiper('.swiper-container', {
 });
 
 /***/ }),
-/* 45 */,
 /* 46 */,
 /* 47 */,
 /* 48 */
@@ -5511,5 +5512,11 @@ var mySwiper = new Swiper('.swiper-container', {
 
 // removed by extract-text-webpack-plugin
 
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
-],[43]);
+],[44]);
