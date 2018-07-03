@@ -32,6 +32,8 @@ class AdminsController extends APIBaseController
         if (empty($user)) {
             return $this->sendError('登录账户异常');
         }
-        return $this->sendResponse($user, '成功');
+        $res = $user->toArray();
+        $res['access'] = $user->getAllPermissions()->pluck('name')->toArray()??[];
+        return $this->sendResponse($res, '获取成功');
     }
 }

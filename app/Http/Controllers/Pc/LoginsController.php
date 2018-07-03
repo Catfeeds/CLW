@@ -13,11 +13,11 @@ class LoginsController extends Controller
 
     public function index()
     {
-        return '登录页面';
+        return view('home.login');
     }
     
     //登录
-    public function signIn(Request $request)
+    public function store(Request $request)
     {
         $res = User::where('tel', $request->tel)->first();
         if (Hash::check($request->password,$res->password)) {

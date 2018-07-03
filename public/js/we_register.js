@@ -1,14 +1,26 @@
+<<<<<<< HEAD
 webpackJsonp([15],{
 
+<<<<<<< HEAD
+/***/ 140:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(141);
+=======
 /***/ 114:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(115);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ 141:
+=======
 /***/ 115:
+>>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -156,4 +168,11 @@ $(document).on('click', '#getSms', function (e) {
 
 /***/ })
 
+<<<<<<< HEAD
+},[140]);
+=======
 },[114]);
+>>>>>>> origin/wanghao
+=======
+webpackJsonp([15],{113:function(e,t,s){e.exports=s(114)},114:function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=s(2),o=(s.n(n),s(1));s.n(o);s(0);var r=$("#tel"),a=$("#sms"),i=$("#password"),c=($("#time"),$("#getSms")),u=!0;$(document).on("click","#submit",function(e){var t=r.val(),s=a.val(),n=i.val();if(!t||""===t.trim())return Object(o.Toast)({message:"请输入手机号码",position:"center",duration:2e3}),!1;if(!s||""===s.trim())return Object(o.Toast)({message:"请输入短信验证码",position:"center",duration:2e3}),!1;if(!n||""===n.trim())return Object(o.Toast)({message:"请输入密码",position:"center",duration:2e3}),!1;if(n.length<6||n.length>18)return Object(o.Toast)({message:"密码长度必须在6-18位之间",position:"center",duration:2e3}),!1;var c={tel:t,smsCode:s,password:n};$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/registers",type:"post",data:c,success:function(e){if(e.success){var t=Object(o.Toast)({message:c.message,position:"center",duration:2e3});window.location.href="/user",setTimeout(function(){t.close(),window.location.href="/user"},1e3)}else Object(o.Toast)({message:e.message,position:"center",duration:2e3})},error:function(e){Object(o.Toast)({message:e.responseJSON.message,position:"center",duration:2e3})}})}),$(document).on("click","#getSms",function(e){if(!r.val()||""===r.val().trim())return Object(o.Toast)({message:"请输入手机号码",position:"center",duration:2e3}),!1;if(!u)return!1;u=!1;var t=r.val()+"/register";$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/sms/captcha/"+t,type:"get",success:function(e){if(e.success){u=!1,c.html("120s");var t=setInterval(function(){c.html(parseInt(c.html())-1+"s"),parseInt(c.html())||(c.html("获取验证码"),window.clearInterval(t),u=!0)},1e3);Object(o.Toast)({message:"短信发送成功",position:"center",duration:2e3})}},error:function(e){u=!0,Object(o.Toast)({message:e.responseJSON.message,position:"center",duration:2e3})}})})}},[113]);
+>>>>>>> origin/zxz

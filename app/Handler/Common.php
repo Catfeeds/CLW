@@ -73,14 +73,4 @@ class Common
 
         );
     }
-
-
-    public static function user()
-    {
-        return Auth::guard('admin')->user();
-    }
-
-
-
-
 }
