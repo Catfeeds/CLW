@@ -437,7 +437,6 @@ body .house_list_container .house_list_content .select_area .area .area_detail,
 body .house_list_container .house_list_content .select_area .area .subway_detail,
 body .house_list_container .house_list_content .select_area .subway .area_detail,
 body .house_list_container .house_list_content .select_area .subway .subway_detail {
-  display: none;
   margin-left: 70px;
   padding-left: 25px;
   background-color: #f6faff;
