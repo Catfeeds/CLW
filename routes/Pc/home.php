@@ -26,4 +26,4 @@ Route::get('captcha/{tmp}','RegistersController@captcha');
 Route::get('/sms/captcha/{tel}/{tmp}/{code}', 'RegistersController@getSmsCode');
 
 // 楼盘列表视图页
-Route::get('building_list_view', 'BuildingsController@buildingListView');
+Route::get('building_list', 'BuildingsController@buildingList');
