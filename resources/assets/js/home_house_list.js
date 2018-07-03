@@ -19,6 +19,21 @@ var data = {
     price_sort: $('#search').data('keyword') ? $('#search').data('price_sort') : '',
 }
 if(data.area_id=='') data.block_id=''
+// var html = '<div class="selected_box f_l clearfix">'
+//
+// $('.current').each(function () {
+//     if($(this).data('dom') !== undefined){
+//         dom =  $(this).data('dom')
+//         console.log($(this).data('content'))
+//         <div class="selected js_special">创意园区<span class="close"> &nbsp;x</span></div>
+//
+//         html +=  '</div>'
+//
+//     }
+// })
+// var html = '<div class="selected_box f_l clearfix">'
+
+
 $('.js_condition').click(function () {
     var content = $(this).data('content')
     data[$(this).data('dom')] = content?content:'';
@@ -258,6 +273,7 @@ $('.js_condition').click(function () {
 //         $(".js_result").show();
 //       // console.log($(this).parents(".list").parent("div").attr("class"));
 //         if(!$(this).hasClass("all")){
+// <div class='selected js_
 //             $(".selected_box > .js_"+$(this).parents(".list").parent().attr("class")).remove();
 //             $(".selected_box").append("<div class='selected js_" + $(this).parents(".list").parent().attr("class") + "'>" + $(this).html() + "<span class='close'> &nbspx</span></div>");
 //             console.log($(".selected_box > .js_"+$(this).parents(".list").parent().attr("class")))
