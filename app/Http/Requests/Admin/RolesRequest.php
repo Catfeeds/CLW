@@ -54,7 +54,7 @@ class RolesRequest extends FormRequest
             case 'store':
                 return [
                     'name_cn' => 'required|max:255',
-                    'name_en' => 'required|max:255|regex:/^[a-z\d\_]*$/i|unique:media.roles,name',
+                    'name_en' => 'required|max:255|regex:/^[a-z\d\_]*$/i|unique:roles,name',
                     'permissions' => 'required|array',
                     'permissions.*' => [
                         'required',

@@ -7,9 +7,7 @@
  */
 namespace App\Handler;
 
-
-use Qiniu\Auth;
-
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Common
@@ -74,6 +72,12 @@ class Common
             'per_page' => 10,
 
         );
+    }
+
+
+    public static function user()
+    {
+        return Auth::guard('admin')->user();
     }
 
 

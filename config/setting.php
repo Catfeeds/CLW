@@ -36,6 +36,7 @@ return [
     // 房源默认图片
     'house_default_img' => 'https://cdn.chulouwang.com/app/imgs/house_none.jpg',
     'wechat_url' => env('WECHAT_URL'),
+    'media_url' => env('MEDIA_URL'),
 
 
     // 客户端类型
