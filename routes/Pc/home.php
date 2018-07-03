@@ -27,3 +27,6 @@ Route::resource('registers', 'RegistersController');
 Route::get('captcha/{tmp}','RegistersController@captcha');
 //获取手机验证码
 Route::get('/sms/captcha/{tel}/{tmp}/{code}', 'RegistersController@getSmsCode');
+
+// 楼盘列表视图页
+Route::get('building_list_view', 'BuildingsController@buildingListView');
