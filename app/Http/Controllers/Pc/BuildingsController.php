@@ -71,7 +71,7 @@ class BuildingsController extends Controller
 
         // 楼盘列表数据
         $res = $buildingsRepository->buildingList($request, $service, null,true,true);
-        dd($res);
+
         return view('home.house_list', [
             'page' => $res['page'],
             'house_count' => $res['house_count'],
@@ -80,4 +80,18 @@ class BuildingsController extends Controller
             'buildingFeatures' => $buildingFeatures
         ]);
     }
+
+    public function buildingSearch(
+        Request $request
+    )
+    {
+
+
+        $res = \DB::select("select * from media.building_keywords where MATCH(keywords) AGAINST('1' IN BOOLEAN MODE)");
+        dd($res);
+
+
+
+    }
+
 }

@@ -9,6 +9,7 @@ use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
 use App\Models\BuildingLabel;
 use App\Models\OfficeBuildingHouse;
+use App\Services\CustomPage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -49,11 +50,13 @@ class BuildingsRepository extends  Model
             $data = $data->forpage($request->page??1, 10);
             return Common::pageData($request->page, $data->values());
         } elseif ($getCount) {
-            $data = $data->forpage($request->page??1, 10);
+            $customPage = new CustomPage();
+            $baseUrl = url('/building_list');
+            $page = $customPage->getSelfPageView($request->page??1,$totalPage,$baseUrl,[]);
+
             return [
-                'total_page' => (int)$totalPage,
                 'house_count' => $houses->count(),
-                'page' => Common::pageData($request->page, $data->values())
+                'page' => $page
             ];
         } else {
             return $data->toArray();

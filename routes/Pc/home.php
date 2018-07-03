@@ -30,3 +30,6 @@ Route::get('/sms/captcha/{tel}/{tmp}/{code}', 'RegistersController@getSmsCode');
 
 // 楼盘列表视图页
 Route::get('building_list', 'BuildingsController@buildingList');
+
+Route::get('building_search', 'BuildingsController@buildingSearch');
+
