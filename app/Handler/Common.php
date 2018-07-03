@@ -7,9 +7,7 @@
  */
 namespace App\Handler;
 
-
-use Qiniu\Auth;
-
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Common
@@ -75,8 +73,4 @@ class Common
 
         );
     }
-
-
-
-
 }

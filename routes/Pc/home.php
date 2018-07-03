@@ -15,9 +15,6 @@ Route::resource('information','InformationsController');
 //登录页面
 Route::resource('login','LoginsController');
 
-//登录
-Route::get('sign_in','LoginsController@signIn');
-
 //退出登录
 Route::get('logout','LoginsController@logout');
 

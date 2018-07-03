@@ -25,10 +25,19 @@
                                     <div class="swiper-pagination"></div>
                                 </div>
                             </div>
-                            <!-- 标题 -->
-                            <div class="left-title">佛山8.9亿挂牌禅城、三水两宗商住地</div>
-                            <!-- 简介 -->
-                            <div class="left-content">啊实打实大师的大师大师大师大师大师大圣诞节快乐就是大了</div>
+                            <div class="swiper-container1">
+                                <div class="swiper-wrapper swiper-no-swiping">
+                                @foreach($tops as $top)
+                                    <div class="swiper-slide">
+                                        <!-- 标题 -->
+                                        <div class="left-title">{{$top->title}}</div>
+                                        <!-- 简介 -->
+                                        <div class="left-content">{{$top->brief}}</div>
+                                    </div>
+                                @endforeach
+                                </div>
+                            </div>
+
                         </div>
                     </li>
                     <!--咨询-->

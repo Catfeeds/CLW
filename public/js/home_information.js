@@ -14,9 +14,20 @@ module.exports = __webpack_require__(139);
 __webpack_require__(1);
 var Swiper = __webpack_require__(4);
 
-var mySwiper = new Swiper('.swiper-container', {
+var mySwiper1 = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
-    width: 770
+    effect: 'fade',
+    width: 770,
+    onTransitionEnd: function onTransitionEnd(swiper) {
+        console.log(swiper.activeIndex);
+        mySwiper2.slideTo(swiper.activeIndex);
+    }
+});
+var mySwiper2 = new Swiper('.swiper-container1', {
+    effect: 'fade',
+    fade: {
+        crossFade: true
+    }
 });
 
 /***/ }),

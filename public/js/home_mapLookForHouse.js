@@ -4448,484 +4448,23 @@ module.exports = __webpack_require__(62);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mapLookForHouse__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mapLookForHouse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_mapLookForHouse__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse__);
 /**
  * Created by zxz1992 on 2018/6/5.
  */
 __webpack_require__(1);
 
-Vue.component('self-div', __WEBPACK_IMPORTED_MODULE_0__components_mapLookForHouse___default.a);
+Vue.component('self-div', __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse___default.a);
 new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(64)
-}
-var normalizeComponent = __webpack_require__(7)
-/* script */
-var __vue_script__ = __webpack_require__(66)
-/* template */
-var __vue_template__ = __webpack_require__(116)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\mapLookForHouse.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5eb3200b", Component.options)
-  } else {
-    hotAPI.reload("data-v-5eb3200b", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(65);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(6)("748e048e", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5eb3200b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapLookForHouse.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5eb3200b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapLookForHouse.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n}\n.map .screen {\n    position: absolute;\n    top: 40px;\n    right: 30px;\n    width: 350px;\n    height: 400px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 66 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_tab_pane_css__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_tab_pane_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_tab_pane_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_tabs_css__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_tabs_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_tabs_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_option_css__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_option_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_option_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_select_css__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_select_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__map_selfOverlay__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__map_selfOverlay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__map_selfOverlay__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_api__ = __webpack_require__(95);
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-var ElSelect = __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select___default.a,
-    ElOption = __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option___default.a,
-    ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
-    ElTabPane = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane___default.a;
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    BaiduMap: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BaiduMap"],
-    BmView: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmView"],
-    BmBoundary: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmBoundary"],
-    BmMarker: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmMarker"],
-    selfOverlay: __WEBPACK_IMPORTED_MODULE_10__map_selfOverlay___default.a,
-    BmPolygon: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmPolygon"],
-    BmBus: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmBus"],
-    BmControl: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmControl"],
-    ElSelect: ElSelect,
-    ElOption: ElOption,
-    ElTabs: ElTabs,
-    ElTabPane: ElTabPane,
-    BmLocalSearch: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmLocalSearch"],
-    BmCircle: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmCircle"]
-  },
-  data: function data() {
-    return {
-      activeName: 'first', // 默认地铁
-      location: '武汉', // 检索区域
-      point: {
-        center: {
-          lng: 114.279103,
-          lat: 30.590757
-        },
-        radius: 1000
-      }, // 检索中心点
-      keyword: '地铁', // 检索词
-      blockList: [],
-      subwayKeyword: null,
-      subwayOptions: ['1号线', '2号线', '3号线', '4号线', '6号线', '8号线', '阳逻线'],
-      blockActive: '',
-      center: { // 当前地图中心点
-        lng: 114.419095,
-        lat: 30.561904
-      },
-      areaActive: '',
-      zoom: 11, // 地图缩放级别
-      ak1: 'lLmcMmNWaaDudSm49M7UHkgDQExxx6A0',
-      ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
-      boundaryStyle: {
-        strokeColor: 'red', // 区域折线
-        strokeWeight: 2, // 折线宽度
-        massClear: false // 是否清楚区域上的覆盖物
-      },
-      areaList: [],
-      list: [], // 周边详情
-      BMap: ''
-    };
-  },
-
-  watch: {
-    zoom: function zoom(val) {
-      if (val > 14) {
-        this.areaActive = '';
-      } else {
-        this.blockActive = '';
-      }
-    },
-    subwayKeyword: function subwayKeyword(val) {
-      if (val) {
-        this.$nextTick(function () {
-          if (this.$refs.bus) {
-            this.$refs.bus.search(val);
-          } else {
-            setTimeout(function () {
-              this.$refs.bus.search(val);
-            }, 50);
-          }
-        });
-      }
-    }
-  },
-  computed: {
-    polygonPath: function polygonPath() {
-      var copeData = this.blockActive.split(";");
-      var coord = [];
-      for (var numb in copeData) {
-        coord.push({ lng: null, lat: null });
-        var temp = copeData[numb].split(",");
-        coord[numb].lng = parseFloat(temp[0]);
-        coord[numb].lat = parseFloat(temp[1]);
-      }
-      console.log(coord);
-      return coord;
-    }
-  },
-  methods: {
-    ready: function ready(val) {
-      this.BMap = val.BMap;
-      console.log('11111', this.BMap);
-    },
-
-    // 检索完成后的回调函数
-    result: function result(val) {
-      var result = val.Br;
-      console.log('ssssss', val);
-      var arr = [];
-      if (result) {
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-          for (var _iterator = result[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var p = _step.value;
-
-            arr.push({ title: p.title, address: p.address, point: p.point });
-          }
-        } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-              _iterator.return();
-            }
-          } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
-            }
-          }
-        }
-      }
-      this.list = arr;
-      // console.log('bbbbbb', this.list)
-    },
-
-    // 选择交通详情
-    chioce: function chioce(tab, event) {
-      this.keyword = tab.label;
-    },
-
-    // 选择周边环境
-    handleClick: function handleClick(tab, event) {
-      if (tab.label == '交通') {
-        this.keyword = '地铁';
-      } else {
-        this.keyword = tab.label;
-        this.activeName = 'first';
-      }
-    },
-    getPoint: function getPoint(e) {
-      this.point.center.lng = e.point.lng;
-      this.point.center.lat = e.point.lat;
-      // console.log('ssss', this.point)
-    },
-
-    zoomend: function zoomend(e) {
-      var _e$target$getCenter = e.target.getCenter(),
-          lng = _e$target$getCenter.lng,
-          lat = _e$target$getCenter.lat;
-
-      this.center.lng = lng;
-      this.center.lat = lat;
-      this.zoom = e.target.getZoom();
-    },
-    getbuslist: function getbuslist(el) {
-      if (el.getBusListItem(0)) {
-        this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0));
-      }
-    },
-    buslinehtml: function buslinehtml(el) {
-      this.$nextTick(function () {
-        setTimeout(function () {
-          document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
-        }, 50);
-      });
-    },
-    getDistance: function getDistance(itemPoint) {
-      var pointA = new this.BMap.Point(parseFloat(this.point.center.lng), parseFloat(this.point.center.lat));
-      var pointB = new this.BMap.Point(parseFloat(itemPoint.lng), parseFloat(itemPoint.lat)); // 店铺的经纬度
-      var map = new this.BMap.Map();
-      var distance = (map.getDistance(pointA, pointB) / 1000).toFixed(2); // 保留小数点后两位
-      return distance;
-    }
-  },
-  created: function created() {
-    var _this = this;
-
-    Object(__WEBPACK_IMPORTED_MODULE_11__home_api__["a" /* getAreaList */])().then(function (res) {
-      _this.areaList = res.data;
-    });
-    Object(__WEBPACK_IMPORTED_MODULE_11__home_api__["b" /* getBlock */])().then(function (res) {
-      _this.blockList = res.data;
-    });
-  }
-});
-
-/***/ }),
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
 /* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11392,6 +10931,7 @@ if (false) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = getAreaList;
 /* harmony export (immutable) */ __webpack_exports__["b"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["c"] = getBuildList;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(96);
 
 
@@ -11405,6 +10945,13 @@ function getAreaList() {
 function getBlock() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/detailArea',
+    methods: 'GET'
+  });
+}
+
+function getBuildList() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/getBuildList',
     methods: 'GET'
   });
 }
@@ -12374,7 +11921,706 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 116 */
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(167)
+}
+var normalizeComponent = __webpack_require__(7)
+/* script */
+var __vue_script__ = __webpack_require__(169)
+/* template */
+var __vue_template__ = __webpack_require__(175)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\mapFindHouse.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3196877c", Component.options)
+  } else {
+    hotAPI.reload("data-v-3196877c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(168);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("016c9f20", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3196877c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapFindHouse.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3196877c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapFindHouse.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n}\n.map .screen {\n    position: absolute;\n    top: 40px;\n    right: 30px;\n    width: 350px;\n    height: 400px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n.map .arrow {\n    width: 0;\n    height: 6px;\n    border-top: 6px solid #1e99e0ab;\n    border-left: 8px solid transparent;\n    border-right: 8px solid transparent;\n    position: absolute;\n    top: 30px;\n    left: 42%;\n    margin-left: -3px;\n}\n.map .arrow em {\n      display: block;\n      width: 0;\n      height: 0;\n      border-top: 6px solid #1e99e0ab;\n      border-left: 6px solid transparent;\n      border-right: 6px solid transparent;\n      position: absolute;\n      top: -7px;\n      left: -6px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 169 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_tab_pane_css__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_tab_pane_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_tab_pane_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_tabs_css__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_tabs_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_tabs_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_option_css__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_option_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_option_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_select_css__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_select_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__map_selfOverlay__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__map_selfOverlay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__map_selfOverlay__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__map_siteCover__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__map_siteCover___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__map_siteCover__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__home_api__ = __webpack_require__(95);
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+var ElSelect = __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_select___default.a,
+    ElOption = __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_option___default.a,
+    ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
+    ElTabPane = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_tab_pane___default.a;
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        BaiduMap: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BaiduMap"],
+        BmView: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmView"],
+        BmBoundary: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmBoundary"],
+        BmMarker: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmMarker"],
+        selfOverlay: __WEBPACK_IMPORTED_MODULE_10__map_selfOverlay___default.a,
+        BmPolygon: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmPolygon"],
+        BmBus: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmBus"],
+        BmControl: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmControl"],
+        ElSelect: ElSelect,
+        ElOption: ElOption,
+        ElTabs: ElTabs,
+        ElTabPane: ElTabPane,
+        BmLocalSearch: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmLocalSearch"],
+        BmCircle: __WEBPACK_IMPORTED_MODULE_9_vue_baidu_map__["BmCircle"],
+        siteCover: __WEBPACK_IMPORTED_MODULE_11__map_siteCover___default.a
+    },
+    data: function data() {
+        return {
+            activeName: 'first', // 默认地铁
+            location: '武汉', // 检索区域
+            centerLocaion: '武汉',
+            locationType: false,
+            point: {
+                center: {
+                    lng: 114.279103,
+                    lat: 30.590757
+                },
+                radius: 1000
+            }, // 检索中心点
+            keyword: '地铁', // 检索词
+            siteList: [{
+                name: "汉口北",
+                num: 0,
+                x: "114.33608245849610000000",
+                y: "30.71769714355468800000",
+                station: "1"
+            }, {
+                name: "滠口新城",
+                num: 0,
+                x: "114.34879302978516000000",
+                y: "30.69034767150879000000",
+                station: "1"
+            }, {
+                name: "滕子岗站",
+                num: "3",
+                x: "114.34787750244140000000",
+                y: "30.68033409118652300000",
+                station: "1"
+            }], // 站点列表
+            blockList: [],
+            subwayKeyword: null,
+            subwayOptions: ['1号线', '2号线', '3号线', '4号线', '6号线', '8号线', '阳逻线'],
+            blockActive: '',
+            center: { // 当前地图中心点
+                lng: 114.419095,
+                lat: 30.561904
+            },
+            areaActive: '',
+            zoom: 11, // 地图缩放级别
+            ak1: 'lLmcMmNWaaDudSm49M7UHkgDQExxx6A0',
+            ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
+            boundaryStyle: {
+                strokeColor: 'red', // 区域折线
+                strokeWeight: 2, // 折线宽度
+                massClear: false // 是否清楚区域上的覆盖物
+            },
+            areaList: [],
+            buildList: [], // 楼盘浮动
+            list: [], // 周边详情
+            BMap: ''
+        };
+    },
+
+    watch: {
+        zoom: function zoom(val) {
+            console.log('zoom', val);
+            if (val > 13) {
+                this.areaActive = '';
+            } else {
+                this.blockActive = '';
+                this.location = '武汉';
+            }
+            console.log('location', this.location);
+        },
+        subwayKeyword: function subwayKeyword(val) {
+            if (val) {
+                this.$nextTick(function () {
+                    if (this.$refs.bus) {
+                        this.$refs.bus.search(val);
+                    } else {
+                        setTimeout(function () {
+                            this.$refs.bus.search(val);
+                        }, 50);
+                    }
+                });
+            }
+        }
+    },
+    computed: {
+        polygonPath: function polygonPath() {
+            var copeData = this.blockActive.split(";");
+            var coord = [];
+            for (var numb in copeData) {
+                coord.push({ lng: null, lat: null });
+                var temp = copeData[numb].split(",");
+                coord[numb].lng = parseFloat(temp[0]);
+                coord[numb].lat = parseFloat(temp[1]);
+            }
+            console.log(coord);
+            return coord;
+        }
+    },
+
+    methods: {
+        // 点击区域详情
+        seeRegionDetail: function seeRegionDetail(data) {
+            this.zoom = 13;
+            this.centerLocaion = { lng: data.x, lat: data.y };
+            this.locationType = true;
+            console.log('data', data);
+        },
+
+        // 点击商圈详情
+        seeAreaDetail: function seeAreaDetail(data) {
+            var _this = this;
+
+            Object(__WEBPACK_IMPORTED_MODULE_12__home_api__["c" /* getBuildList */])().then(function (res) {
+                if (res.success) {
+                    _this.buildList = res.data;
+                    console.log('res', res);
+                    console.log('this.buildList', _this.buildList);
+                    _this.zoom = 14;
+                    //                        this.location = {lng: data.x, lat: data.y}
+                }
+            });
+        },
+        seeBuildDetail: function seeBuildDetail(data) {},
+        ready: function ready(val) {
+            this.BMap = val.BMap;
+            console.log('11111', this.BMap);
+        },
+
+        // 检索完成后的回调函数
+        result: function result(val) {
+            var result = val.Br;
+            console.log('ssssss', val);
+            var arr = [];
+            if (result) {
+                var _iteratorNormalCompletion = true;
+                var _didIteratorError = false;
+                var _iteratorError = undefined;
+
+                try {
+                    for (var _iterator = result[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                        var p = _step.value;
+
+                        arr.push({ title: p.title, address: p.address, point: p.point });
+                    }
+                } catch (err) {
+                    _didIteratorError = true;
+                    _iteratorError = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+                    } finally {
+                        if (_didIteratorError) {
+                            throw _iteratorError;
+                        }
+                    }
+                }
+            }
+            this.list = arr;
+            // console.log('bbbbbb', this.list)
+        },
+
+        // 选择交通详情
+        chioce: function chioce(tab, event) {
+            this.keyword = tab.label;
+        },
+
+        // 选择周边环境
+        handleClick: function handleClick(tab, event) {
+            if (tab.label == '交通') {
+                this.keyword = '地铁';
+            } else {
+                this.keyword = tab.label;
+                this.activeName = 'first';
+            }
+        },
+        getPoint: function getPoint(e) {
+            //                this.point.center.lng = e.point.lng
+            //                this.point.center.lat = e.point.lat
+            // console.log('ssss', this.point)
+        },
+
+        zoomend: function zoomend(e) {
+            var _e$target$getCenter = e.target.getCenter(),
+                lng = _e$target$getCenter.lng,
+                lat = _e$target$getCenter.lat;
+
+            this.center.lng = lng;
+            this.center.lat = lat;
+            this.zoom = e.target.getZoom();
+            if (this.locationType) {
+                this.location = this.centerLocaion;
+                this.locationType = false;
+            }
+        },
+        // 地铁线
+        getbuslist: function getbuslist(el) {
+            console.log('el', el);
+            if (el.getBusListItem(0)) {
+                this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0));
+            }
+        },
+
+        // 地铁线
+        buslinehtml: function buslinehtml(el) {
+            this.$nextTick(function () {
+                setTimeout(function () {
+                    document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
+                }, 50);
+            });
+        }
+        //            getDistance(itemPoint) {
+        //                var pointA = new this.BMap.Point(parseFloat(this.point.center.lng), parseFloat(this.point.center.lat))
+        //                var pointB = new this.BMap.Point(parseFloat(itemPoint.lng), parseFloat(itemPoint.lat)) // 店铺的经纬度
+        //                var map = new this.BMap.Map
+        //                var distance = (map.getDistance(pointA, pointB) / 1000).toFixed(2) // 保留小数点后两位
+        //                return distance
+        //            }
+
+    },
+    created: function created() {
+        var _this2 = this;
+
+        Object(__WEBPACK_IMPORTED_MODULE_12__home_api__["a" /* getAreaList */])().then(function (res) {
+            _this2.areaList = res.data;
+        });
+        Object(__WEBPACK_IMPORTED_MODULE_12__home_api__["b" /* getBlock */])().then(function (res) {
+            _this2.blockList = res.data;
+        });
+    }
+});
+
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(171)
+}
+var normalizeComponent = __webpack_require__(7)
+/* script */
+var __vue_script__ = __webpack_require__(173)
+/* template */
+var __vue_template__ = __webpack_require__(174)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-44fb3c69"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\map\\siteCover.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-44fb3c69", Component.options)
+  } else {
+    hotAPI.reload("data-v-44fb3c69", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(172);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("64f982e6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-44fb3c69\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./siteCover.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-44fb3c69\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./siteCover.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.sample[data-v-44fb3c69] {\n  position: absolute;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 173 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['position'],
+  components: {
+    BmOverlay: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmOverlay"]
+  },
+  watch: {
+    position: {
+      handler: function handler() {
+        this.$refs.customOverlay.reload();
+      },
+
+      deep: true
+    }
+  },
+  methods: {
+    handleClick: function handleClick() {
+      global.alert('Well done.');
+    },
+    draw: function draw(_ref) {
+      var el = _ref.el,
+          BMap = _ref.BMap,
+          map = _ref.map;
+      var _position = this.position,
+          lng = _position.lng,
+          lat = _position.lat;
+
+      var pixel = map.pointToOverlayPixel(new BMap.Point(lng, lat));
+      el.style.left = parseInt(pixel.x - 56) + 'px';
+      el.style.top = parseInt(pixel.y - 38) + 'px';
+    }
+  }
+});
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(9)))
+
+/***/ }),
+/* 174 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "bm-overlay",
+    {
+      ref: "customOverlay",
+      staticClass: "sample",
+      attrs: { pane: "labelPane" },
+      on: { draw: _vm.draw }
+    },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-44fb3c69", module.exports)
+  }
+}
+
+/***/ }),
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -12387,12 +12633,12 @@ var render = function() {
       ref: "map",
       staticClass: "map",
       attrs: {
-        center: "武汉",
+        center: _vm.location,
         ak: _vm.ak,
         zoom: _vm.zoom,
         "scroll-wheel-zoom": ""
       },
-      on: { zoomend: _vm.zoomend, click: _vm.getPoint, ready: _vm.ready }
+      on: { zoomend: _vm.zoomend, ready: _vm.ready }
     },
     [
       !_vm.subwayKeyword
@@ -12407,8 +12653,8 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.zoom < 14,
-                        expression: "zoom<14"
+                        value: _vm.zoom < 13,
+                        expression: "zoom<13"
                       }
                     ],
                     key: "areaBox" + index,
@@ -12418,8 +12664,11 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "areaStyle",
+                        staticClass: "regionStyle",
                         on: {
+                          click: function($event) {
+                            _vm.seeRegionDetail(item)
+                          },
                           mouseover: function($event) {
                             _vm.areaActive = item.name
                           },
@@ -12452,6 +12701,48 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
+                        value: _vm.zoom < 14 && _vm.zoom >= 13,
+                        expression: "zoom<14&&zoom>=13"
+                      }
+                    ],
+                    key: "blockBox" + index,
+                    attrs: { position: { lng: item.x, lat: item.y } }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "areaStyle",
+                        on: {
+                          click: function($event) {
+                            _vm.seeAreaDetail(item)
+                          },
+                          mouseover: function($event) {
+                            _vm.blockActive = item.baidu_coord
+                          },
+                          mouseleave: function($event) {
+                            _vm.blockActive = ""
+                          }
+                        }
+                      },
+                      [
+                        _c("span", [_vm._v(_vm._s(item.name))]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(item.tao) + "套")])
+                      ]
+                    )
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _vm._l(_vm.buildList, function(item, index) {
+                return _c(
+                  "self-overlay",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
                         value: _vm.zoom >= 14,
                         expression: "zoom>=14"
                       }
@@ -12465,6 +12756,9 @@ var render = function() {
                       {
                         staticClass: "areaStyle",
                         on: {
+                          click: function($event) {
+                            _vm.seeBuildDetail(item)
+                          },
                           mouseover: function($event) {
                             _vm.blockActive = item.baidu_coord
                           },
@@ -12473,17 +12767,7 @@ var render = function() {
                           }
                         }
                       },
-                      [
-                        _c("span", [_vm._v(_vm._s(item.name))]),
-                        _vm._v(" "),
-                        _c("span", [
-                          _vm._v(
-                            _vm._s((item.price / 10000).toFixed(1)) + "万元/㎡"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(item.tao) + "套")])
-                      ]
+                      [_c("span", [_vm._v(_vm._s(item.title))])]
                     )
                   ]
                 )
@@ -12514,6 +12798,46 @@ var render = function() {
             2
           )
         : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.siteList, function(item, index) {
+        return _vm.subwayKeyword
+          ? _c(
+              "site-cover",
+              {
+                key: "blockBox" + index,
+                attrs: { position: { lng: item.x, lat: item.y } }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "areaStyle",
+                    on: {
+                      click: function($event) {
+                        _vm.seeBuildDetail(item)
+                      },
+                      mouseover: function($event) {
+                        _vm.blockActive = item.baidu_coord
+                      },
+                      mouseleave: function($event) {
+                        _vm.blockActive = ""
+                      }
+                    }
+                  },
+                  [
+                    _c("span", [_vm._v(_vm._s(item.name))]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(item.num) + "个")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "arrow" }, [_c("em")])
+              ]
+            )
+          : _vm._e()
+      }),
+      _vm._v(" "),
+      _c("bm-view", { staticClass: "map" }),
       _vm._v(" "),
       _vm.subwayKeyword
         ? _c("bm-bus", {
@@ -12551,227 +12875,9 @@ var render = function() {
           )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("bm-local-search", {
-        staticStyle: { display: "none" },
-        attrs: {
-          "page-capacity": 100,
-          "auto-viewport": true,
-          nearby: _vm.point,
-          keyword: _vm.keyword,
-          "select-first-result": true
-        },
-        on: { searchcomplete: _vm.result }
-      }),
-      _vm._v(" "),
-      _c("bm-circle", {
-        attrs: {
-          center: _vm.point.center,
-          location: _vm.location,
-          radius: _vm.point.radius,
-          "stroke-weight": 1,
-          "stroke-opacity": 0.1,
-          "fill-color": "blue",
-          "fill-opacity": 0.4
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "el-tabs",
-        {
-          staticClass: "screen",
-          attrs: { type: "border-card" },
-          on: { "tab-click": _vm.handleClick }
-        },
-        [
-          _c(
-            "el-tab-pane",
-            { attrs: { label: "交通" } },
-            [
-              _c(
-                "el-tabs",
-                {
-                  on: { "tab-click": _vm.chioce },
-                  model: {
-                    value: _vm.activeName,
-                    callback: function($$v) {
-                      _vm.activeName = $$v
-                    },
-                    expression: "activeName"
-                  }
-                },
-                [
-                  _c(
-                    "el-tab-pane",
-                    { attrs: { label: "地铁", name: "first" } },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "screenList" },
-                        _vm._l(_vm.list, function(item, index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "screenDetail" },
-                            [
-                              _c("div", [
-                                _c("div", [_vm._v(_vm._s(item.title))]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v(_vm._s(item.address))])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _vm._v(
-                                  _vm._s(_vm.getDistance(item.point)) + "km"
-                                )
-                              ])
-                            ]
-                          )
-                        })
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "el-tab-pane",
-                    { attrs: { label: "公交", name: "second" } },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "screenList" },
-                        _vm._l(_vm.list, function(item, index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "screenDetail" },
-                            [
-                              _c("div", [
-                                _c("div", [_vm._v(_vm._s(item.title))]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v(_vm._s(item.address))])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _vm._v(
-                                  _vm._s(_vm.getDistance(item.point)) + "km"
-                                )
-                              ])
-                            ]
-                          )
-                        })
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("el-tab-pane", { attrs: { label: "餐饮" } }, [
-            _c(
-              "div",
-              { staticClass: "screenList1" },
-              _vm._l(_vm.list, function(item, index) {
-                return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
-                  ])
-                ])
-              })
-            )
-          ]),
-          _vm._v(" "),
-          _c("el-tab-pane", { attrs: { label: "娱乐" } }, [
-            _c(
-              "div",
-              { staticClass: "screenList1" },
-              _vm._l(_vm.list, function(item, index) {
-                return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
-                  ])
-                ])
-              })
-            )
-          ]),
-          _vm._v(" "),
-          _c("el-tab-pane", { attrs: { label: "银行" } }, [
-            _c(
-              "div",
-              { staticClass: "screenList1" },
-              _vm._l(_vm.list, function(item, index) {
-                return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
-                  ])
-                ])
-              })
-            )
-          ]),
-          _vm._v(" "),
-          _c("el-tab-pane", { attrs: { label: "酒店" } }, [
-            _c(
-              "div",
-              { staticClass: "screenList1" },
-              _vm._l(_vm.list, function(item, index) {
-                return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
-                  ])
-                ])
-              })
-            )
-          ]),
-          _vm._v(" "),
-          _c("el-tab-pane", { attrs: { label: "周边楼盘" } }, [
-            _c(
-              "div",
-              { staticClass: "screenList1" },
-              _vm._l(_vm.list, function(item, index) {
-                return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
-                  ])
-                ])
-              })
-            )
-          ])
-        ],
-        1
       )
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -12780,7 +12886,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5eb3200b", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3196877c", module.exports)
   }
 }
 
