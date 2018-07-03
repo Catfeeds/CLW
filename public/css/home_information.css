@@ -326,7 +326,7 @@ body {
 .continue .main .left .line {
   width: 200px;
   height: 1px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #999;
   margin-bottom: 5px;
   margin: 0 auto;
 }
@@ -335,7 +335,7 @@ body {
   text-align: center;
   font-size: 20px;
   font-weight: 600;
-  padding: 12px 0px 12px 0px;
+  padding: 20px 0px 12px 0px;
   color: #444;
 }
 
@@ -483,13 +483,15 @@ body {
 }
 
 .continue .main .right .zixun ul {
-  margin: 20px;
+  margin: 10px 20px;
   background-color: #fff;
 }
 
 .continue .main .right .zixun ul li {
   padding: 10px 0px;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 22px;
+  color: #444;
 }
 
 div ul.pagination li.active {

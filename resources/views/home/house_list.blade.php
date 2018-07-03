@@ -142,8 +142,8 @@
               出租写字楼共<span>127</span>套
             </div>
             <div class="title_right">
-              <div class="sort_default"><a href="javascript:void(0);">默认</a></div>
-              <div class="sort_price"><a href="javascript:void(0);" class="js_order_price order_price js_set">价格排序<span class="up js_up">▲</span><span class="down js_down">▼</span></a></div>
+              <div class="sort_default"><a href="javascript:void(0);">默认<span class="up js_up"></span><span class="down js_down"></span></a></div>
+              <div class="sort_price"><a href="javascript:void(0);" class="js_order_price order_price js_set">价格排序<span class="up js_up"></span><span class="down js_down"></span></a></div>
             </div>
           </div>
           

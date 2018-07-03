@@ -67,13 +67,11 @@
                         </li>
                     @endforeach
                 </ul>
-                <div style="text-align: center; background-color: #fff">
-                    {{ $contents->links() }}
-                </div>
+                
             </div>
             <div class="right">
                 <div class="img">
-                    <img src="/home_img/zixun.jpg" alt="">
+                    <img src="/home_img/infomation_right.jpg" alt="">
                 </div>
                 <div class="zixun">
                     <div class="right-title"><span>热门资讯</span></div>
@@ -87,6 +85,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div style="padding-left:500px; background-color: #fff">
+        {{ $contents->links() }}
     </div>
 @endsection
 @section('script')
