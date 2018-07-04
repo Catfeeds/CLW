@@ -23,36 +23,13 @@
           <li class="select-area-item">
             <a href="javascript:void(0)">全部</a>
           </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">武昌</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">洪山</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">江夏</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">江岸</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">江汉</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">黄陂</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">硚口</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">汉阳</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">汉南</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">青山</a>
-          </li>
+         @foreach ($area as $area_item)
+            @if(!in_array($area_item->name, ['东西湖区', '新洲区', '蔡甸区']))
+              <li class="select-area-item">
+                <a href="javascript:void(0)">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
+              </li>
+            @endif
+         @endforeach
           <li class="select-area-item">
             <a href="javascript:void(0)">更多>></a>
           </li>
