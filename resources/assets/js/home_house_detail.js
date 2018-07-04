@@ -1,13 +1,15 @@
 require('./home_common')
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
+var Data = $('#props').data('data')
+console.log(Data)
 
 new Vue({
   el: '.facilities',
   components: { detailMap },
   data() {
     return {
-      data: [114.438748, 30.510597]
+      data: Data.gps
     }
   }
 })

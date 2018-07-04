@@ -1,5 +1,6 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
+@include nav();
 .content{
   .head{
     height: 50px;

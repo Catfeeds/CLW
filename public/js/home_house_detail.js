@@ -840,13 +840,15 @@ module.exports = __webpack_require__(251);
 __webpack_require__(5);
 var Swiper = __webpack_require__(8);
 var detailMap = __webpack_require__(63);
+var Data = $('#props').data('data');
+console.log(Data);
 
 new Vue({
   el: '.facilities',
   components: { detailMap: detailMap },
   data: function data() {
     return {
-      data: [114.438748, 30.510597]
+      data: Data.gps
     };
   }
 });
