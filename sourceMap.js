@@ -90,7 +90,10 @@ module.exports = {
       'home_personal',
       'home_house_list',
       'home_information',
-      'home_paging'
+      'home_paging',
+      'home_login',
+      'home_register',
+      'home_sellhouse'
     ],
     js: [
       'home_index',
@@ -103,7 +106,8 @@ module.exports = {
       'home_page',
       'home_personal',
       'home_house_list',
-      'home_information'
+      'home_information',
+      'home_login'
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',

@@ -252,6 +252,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('set_top/{id}', 'InformationController@setTop');
         Route::get('del_top/{id}', 'InformationController@delTop');
 
+
         /*
         |--------------------------------------------------------------------------
         | pc端推荐服务管理
@@ -260,4 +261,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('pc_service_recommends', 'PcServiceRecommendsController');
 
     });
+    Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
 });

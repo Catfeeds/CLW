@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PcEnterpriseService extends Model
 {
-    //
+    protected $guarded = [];
+    protected $connection = 'mysql';
 }
