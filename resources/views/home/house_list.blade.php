@@ -213,22 +213,20 @@
                                         <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                         <div class="acverge_select">
                                             <ul>
+                                                @foreach($data->pc_house as $pchouse)
                                                 <li style="position: relative">
-                                                    <a href="javascript:void(0);">210m²</a>
+                                                    <a href="javascript:void(0);">{{$pchouse->constru_acreage}}㎡</a>
                                                     <div class="acreage-detail">
                                                         <div style="position: relative">
                                                             <img src="{{$data->img_cn}}" alt=""
                                                                  style="width:200px;height: 160px">
                                                             <span class="renovation">装修</span>
                                                         </div>
-                                                        <div>装修</div>
-                                                        <div>面积|价格</div>
+                                                        <div>{{$pchouse->constru_acreage}}㎡</div>
+                                                        <div>{{$pchouse->unit_price}}元/㎡</div>
                                                     </div>
                                                 </li>
-                                                <li><a href="javascript:void(0);">210m²</a></li>
-                                                <li><a href="javascript:void(0);">210m²</a></li>
-                                                <li><a href="javascript:void(0);">210m²</a></li>
-                                                <li><a href="javascript:void(0);">210m²</a></li>
+                                                @endforeach
                                                 <li><a href="javascript:void(0);">更多...</a></li>
                                             </ul>
                                         </div>
