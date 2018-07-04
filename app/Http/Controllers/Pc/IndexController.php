@@ -8,6 +8,7 @@ use App\Repositories\BuildingsRepository;
 use App\Repositories\HotBlocksRepository;
 use App\Repositories\InformationRepository;
 use App\Repositories\PcEnterpriseServicesRepository;
+use App\Repositories\PcServiceRecommendsRepository;
 use App\Repositories\RecommendsRepository;
 
 class IndexController extends Controller
@@ -19,7 +20,8 @@ class IndexController extends Controller
         BuildingsRepository $buildingsRepository,
         RecommendsRepository $recommendsRepository,
         HotBlocksRepository $hotBlocksRepository,
-        PcEnterpriseServicesRepository $pcEnterpriseServicesRepository
+        PcEnterpriseServicesRepository $pcEnterpriseServicesRepository,
+        PcServiceRecommendsRepository $pcServiceRecommendsRepository
     )
     {
         //全部区域
@@ -35,7 +37,7 @@ class IndexController extends Controller
         //核心商圈
         $coreBlock = $hotBlocksRepository->getList();
         //推荐服务
-
+        $recommendService = $pcServiceRecommendsRepository->PcServiceRecommendList()->take(4);
         //企业服务
         $service = $pcEnterpriseServicesRepository->getList()->take(5);
         return view('home.index', [
@@ -45,7 +47,8 @@ class IndexController extends Controller
             'eliteBuilding' => $eliteBuilding,
             'recommends' => $recommends,
             'coreBlock' => $coreBlock,
-            'service' => $service
+            'service' => $service,
+            'recommendService' => $recommendService
         ]);
     }
 }
