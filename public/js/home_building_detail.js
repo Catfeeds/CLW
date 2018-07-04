@@ -194,9 +194,17 @@ module.exports = __webpack_require__(124);
 
 __webpack_require__(2);
 var Swiper = __webpack_require__(4);
-var betterList = __webpack_require__(28);
 var detailMap = __webpack_require__(125);
-var Data = $('#props').data('data');
+var findHouse = __webpack_require__(282);
+var Data = $('#props').data('data'); // 获取blade模板渲染出来的$building里的数据
+var initHouseData = getVal(); // 房源数据
+// console.log('初始化数据', initHouseData)
+var houseDetail = getVal();
+var houseCount = parseInt($('.js_listCount span').html()); // 房源数量
+var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML'); // 房源列表模板
+var rightTop = $('.right').offset().top; // 右侧边栏至顶部的距离
+var secondTop = $('#second').offset().top; // 周边配套至顶部的距离
+// console.log('sssss', Data.gps)
 new Vue({
   el: '#second',
   components: { detailMap: detailMap },
@@ -207,45 +215,274 @@ new Vue({
   }
 });
 new Vue({
-  el: '#third',
-  components: { betterList: betterList }
+  el: '.findHouse',
+  components: { findHouse: findHouse }
 });
-// 轮播
-var banner = new Swiper('#banner', {
-  direction: 'horizontal',
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  paginationBulletRender: function paginationBulletRender(banner, index, className) {
-    return '<span class="' + className + '"><img src="' + Data.pic_url[index].url + '"></span>';
+// 页面滚动事件
+$(window).scroll(function () {
+  var scrollTop = $(window).scrollTop();
+  if (scrollTop >= rightTop && scrollTop + 690 < secondTop) {
+    $('.right').addClass('location');
+    $('.right').css('margin-top', '0');
+  } else if (scrollTop <= rightTop || scrollTop + 690 >= secondTop) {
+    if (scrollTop + 690 >= secondTop) {
+      $('.right').css('margin-top', secondTop - rightTop - 697);
+      $('.right').removeClass('location');
+    } else {
+      $('.right').removeClass('location');
+    }
   }
 });
+
+// 轮播
+var banner = new Swiper('#banner', {
+  direction: 'horizontal', // 横向滑动
+  pagination: '.swiper-pagination', // 添加分页器
+  paginationClickable: true, // 分页器可点击
+  paginationBulletRender: function paginationBulletRender(banner, index, className) {
+    return '<span class="' + className + '"><img src="' + Data.pic_url[index].url + '"></span>';
+  } // 自定义分页器
+});
+
 // 点击导航
 $('.filter div').on('click', function () {
   $(this).addClass('filterActive');
   $(this).siblings().removeClass('filterActive');
   var val = $(this).html();
   if (val == '出租房源') {
-    document.getElementById('rent').scrollIntoView(true);
+    navigation('#rent');
   } else if (val == '楼盘信息') {
-    document.getElementById('buildInfor').scrollIntoView(true);
+    navigation('#buildInfor');
   } else if (val == '市场行情') {
-    document.getElementById('quotation').scrollIntoView(true);
+    navigation('#quotation');
   } else if (val == '周边配套') {
-    document.getElementById('second').scrollIntoView(true);
+    navigation('#second');
   } else if (val == '猜你喜欢') {
-    document.getElementById('third').scrollIntoView(true);
+    navigation('#third');
   }
-  console.log('整体导航', val);
 });
+function navigation(obj) {
+  $('html,body').animate({ scrollTop: $(obj).offset().top + 'px' }, 500);
+  // document.getElementById('second').scrollIntoView(true)
+}
+
 // 出租房源面积筛选
 $('#rentAcreage span').on('click', function () {
   var acreage = $(this).html();
-  console.log('面积筛选', acreage);
+  changePic();
+  $(this).addClass('current');
+  $(this).siblings().removeClass('current');
+  selectTerm($(this));
 });
+
 // 价格筛选
-$('#price span').on('click', function () {
+$('#rentPrice span').on('click', function () {
   var price = $(this).html();
-  console.log(price);
+  changePic();
+  $(this).addClass('current');
+  $(this).siblings().removeClass('current');
+  selectTerm($(this));
+});
+
+// 按照面积排序
+$('.js_listArea').on('click', function () {
+  var term = 'area';
+  var obj = '.js_listArea';
+  var sequence = changeOrder(obj);
+  var html = order(houseDetail, sequence, term);
+  createVal(html);
+});
+
+// 按照单价排序
+$('.js_listPrice').on('click', function () {
+  var term = 'price';
+  var obj = '.js_listPrice';
+  var sequence = changeOrder(obj);
+  var html = order(houseDetail, sequence, term);
+  createVal(html);
+});
+
+// 按照总价进行排序
+$('.js_listTotal').on('click', function () {
+  console.log('ssssss', $(this).siblings().find('.js_price_up_before'));
+  var term = 'total';
+  var obj = '.js_listTotal';
+  var sequence = changeOrder(obj);
+  var html = order(houseDetail, sequence, term);
+  createVal(html);
+});
+
+// 重置图标
+function changePic() {
+  $('#buildList').find('.js_price_up_after').css('display', 'block');
+  $('#buildList').find('.js_price_up_before').css('display', 'none');
+  $('#buildList').find('.js_price_down_after').css('display', 'block');
+  $('#buildList').find('.js_price_down_before').css('display', 'none');
+}
+
+// 排序
+function order(houseDetail, sequence, term) {
+  // console.log('排序', houseDetail)
+  if (sequence) {
+    for (var i = 0; i < houseDetail.length; i++) {
+      for (var k = 0; k < houseDetail.length; k++) {
+        var area1 = parseFloat(houseDetail[i][term]);
+        var area2 = parseFloat(houseDetail[k][term]);
+        if (area1 < area2) {
+          var item = houseDetail[i];
+          houseDetail[i] = houseDetail[k];
+          houseDetail[k] = item;
+        }
+      }
+    }
+    // console.log('33333', houseDetail)
+    return houseDetail;
+  } else {
+    for (var i = 0; i < houseDetail.length; i++) {
+      for (var k = 0; k < houseDetail.length; k++) {
+        var area1 = parseFloat(houseDetail[i][term]);
+        var area2 = parseFloat(houseDetail[k][term]);
+        if (area1 > area2) {
+          var item = houseDetail[i];
+          houseDetail[i] = houseDetail[k];
+          houseDetail[k] = item;
+        }
+      }
+    }
+    // console.log('11111', houseDetail)
+    return houseDetail;
+  }
+}
+
+// 控制图标显示与隐藏
+function changeOrder(obj) {
+  var sequence = true;
+  $(obj).siblings().find('.js_price_up_before').css('display', 'none');
+  $(obj).siblings().find('.js_price_up_after').css('display', 'block');
+  $(obj).siblings().find('.js_price_down_before').css('display', 'none');
+  $(obj).siblings().find('.js_price_down_after').css('display', 'block');
+  $('' + obj + ' .js_price_up_after').toggle();
+  $('' + obj + ' .js_price_up_before').toggle();
+  if (!$('' + obj + ' .js_price_up_after').is(':hidden')) {
+    $('' + obj + ' .js_price_down_after').css('display', 'none');
+    $('' + obj + ' .js_price_down_before').css('display', 'block');
+  } else {
+    $('' + obj + ' .js_price_down_after').css('display', 'block');
+    $('' + obj + ' .js_price_down_before').css('display', 'none');
+  }
+  sequence = $('' + obj + ' .js_price_up_after').is(':hidden');
+  return sequence;
+}
+
+// 通过dom节点获取blade模板渲染出的数据
+function getVal() {
+  // 定义空数组存放获取列表详细数据
+  var data = [];
+  // 有多少条房源数据
+  var list = $('.js_listDetail .listDetail');
+  // console.log('元素', list)
+  for (var i = 0; i < list.length; i++) {
+    var item = {}; // 定义对象存放每一个房源的数据
+    item.img = list.eq(i).find('img').attr('src'); // 获取图片路径
+    item.area = list.eq(i).find('.listNum>#listArea').html(); // 获取面积
+    item.price = list.eq(i).find('.listNum>#listPrice').html(); // 获取单价
+    item.total = list.eq(i).find('.listNum>#listTotal').html(); // 获取总价
+    item.feature = list.eq(i).find('#listSpecial').html(); // 获取房源特色
+    data.push(item);
+    // 最多只显示10条数据，其他的隐藏
+    if (i >= 10) {
+      list.eq(i).css('display', 'none');
+    }
+  }
+  // console.log('zheshishuju', data)
+  return data;
+}
+
+// 添加数据
+function createVal(data) {
+  $('.js_listDetail .listDetail').remove();
+  for (var p in data) {
+    var list = $(listTemplate).appendTo('.js_listDetail');
+    list.find('img').attr('src', data[p].img);
+    list.find('.listNum>#listArea').html(data[p].area);
+    list.find('.listNum>#listPrice').html(data[p].price);
+    list.find('.listNum>#listTotal').html(data[p].total);
+    list.find('#listSpecial').html(data[p].feature);
+    // 最多只显示10条数据，其他的隐藏
+    if (p >= 10) {
+      list.css('display', 'none');
+    }
+  }
+  // console.log('wewfdsgedfg', data)
+  $('.js_listCount span').html(data.length); // 房源的总数量
+  // 房源数量大于10条显示查看更多
+  if (data.length > 10) {
+    $('.all').css('display', 'block');
+  }
+  houseDetail = data;
+  secondTop = $('#second').offset().top; // 获取周边配套至顶部的高度
+}
+
+// 筛选
+function selectTerm(current) {
+  var min = current.attr('data-min') || null; // 获取当前点击选项的最小值
+  var max = current.attr('data-max') || null; // 获取当前点击选项的最大值
+  var active = $('.js_active.current'); // 获取当前点击元素
+  // 点击除全部以外的其他筛选条件
+  if (min !== null) {
+    if (active.length == 1) {
+      // 判断点击的选项是属于面积还是价格
+      var term = current.parent().hasClass('js_rentAcreage') ? 'area' : 'price';
+      var data = initHouseData;
+      var val = select(min, max, term, data);
+      createVal(val);
+    } else {
+      var min1 = active.eq(0).attr('data-min') || null;
+      var max1 = active.eq(0).attr('data-max') || null;
+      var min2 = active.eq(1).attr('data-min') || null;
+      var max2 = active.eq(1).attr('data-max') || null;
+      temp1 = select(min1, max1, 'area', initHouseData);
+      temp2 = select(min2, max2, 'price', temp1);
+      createVal(temp2);
+    }
+  } else {
+    // 点击全部判断是否还有其他筛选条件
+    if (active.length == 0) {
+      createVal(initHouseData);
+    } else {
+      selectTerm($('.js_active.current'));
+    }
+  }
+}
+
+// 根据选项进行操作初始数据
+function select(min, max, term, data) {
+  // console.log(min, max, term, data)
+  var item = [];
+  if (max) {
+    for (var p in data) {
+      var val = parseFloat(data[p][term]);
+      if (val >= min && val <= max) {
+        item.push(data[p]);
+      }
+    }
+  } else {
+    for (var p in data) {
+      var val = parseFloat(data[p][term]);
+      if (val >= min) {
+        item.push(data[p]);
+      }
+    }
+  }
+  // console.log('筛选', item)
+  return item;
+}
+
+// 查看所有数据
+$('.all').on('click', function () {
+  $('.js_listDetail .listDetail').css('display', 'flex');
+  $('.all').css('display', 'none');
+  secondTop = $('#second').offset().top;
 });
 
 /***/ }),
@@ -3317,19 +3554,19 @@ var index = (function () {
 
 /***/ }),
 
-/***/ 28:
+/***/ 282:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(29)
+  __webpack_require__(283)
 }
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(31)
+var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(32)
+var __vue_template__ = __webpack_require__(285)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -3346,7 +3583,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/betterList.vue"
+Component.options.__file = "resources/assets/js/components/findHouse.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -3355,9 +3592,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5721d505", Component.options)
+    hotAPI.createRecord("data-v-65885160", Component.options)
   } else {
-    hotAPI.reload("data-v-5721d505", Component.options)
+    hotAPI.reload("data-v-65885160", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -3369,23 +3606,23 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 29:
+/***/ 283:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(30);
+var content = __webpack_require__(284);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(6)("80b212f6", content, false, {});
+var update = __webpack_require__(6)("64bb1035", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5721d505\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5721d505\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./betterList.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -3396,7 +3633,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 30:
+/***/ 284:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -3404,48 +3641,14 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.list {\n  padding: 20px 15px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n.list .detail {\n    background: #fff;\n    width: 31%;\n}\n.list .detail img {\n      width: 100%;\n      height: 210px;\n}\n.list .detail .buildDetail {\n      padding: 20px;\n      height: 120px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n}\n.list .detail .buildDetail .building {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.list .detail .buildDetail .building .name {\n          font-size: 20px;\n          font-weight: 700;\n}\n.list .detail .buildDetail .building span {\n          font-size: 20px;\n          color: #03a2f9;\n}\n.list .detail .buildDetail .introduce {\n        font-size: 14px;\n}\n.list .detail .buildDetail .location img {\n        width: 12px;\n        height: 17px;\n        vertical-align: middle;\n}\n.list .detail .buildDetail .landmark {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.list .detail .buildDetail .landmark div {\n          padding: 2px 5px;\n          background: #facee2;\n          margin-right: 5px;\n          border-radius: 3px;\n}\n.list .detail:not(:first-child) {\n      margin-left: 25px;\n}\n", ""]);
+exports.push([module.i, "\n.rent_house {\n  width: 240px;\n  height: 335px;\n  background: url(/home_img/rent_background.jpg) no-repeat center;\n}\n.rent_house .title {\n    padding-top: 36px;\n    padding-bottom: 39px;\n}\n.rent_house .title div {\n      text-align: center;\n      color: #fff;\n      text-shadow: 0 4px 1px rgba(53, 53, 53, 0.78);\n      font-size: 14px;\n}\n.rent_house .title div:first-child {\n      font-size: 28px;\n      font-weight: 600;\n      margin-bottom: 15px;\n}\n.rent_house .phone {\n    width: 100%;\n    text-align: center;\n    position: relative;\n}\n.rent_house .phone input {\n      width: 212px;\n      height: 40px;\n      background-color: #ffffff;\n      border-radius: 20px;\n      border: solid 1px #e2e3e4;\n      padding-left: 33px;\n      margin-bottom: 23px;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n}\n.rent_house .phone input::-webkit-input-placeholder {\n      font-size: 14px;\n}\n.rent_house .phone input:-ms-input-placeholder {\n      font-size: 14px;\n}\n.rent_house .phone input::-ms-input-placeholder {\n      font-size: 14px;\n}\n.rent_house .phone input::placeholder {\n      font-size: 14px;\n}\n.rent_house .phone span {\n      display: block;\n      background: url(/home_img/phone.png) no-repeat;\n      width: 9px;\n      height: 16px;\n      position: absolute;\n      left: 33px;\n      top: 12px;\n}\n.rent_house .phone div {\n      margin: 0 auto;\n      width: 214px;\n      height: 41px;\n      background-image: -webkit-gradient(linear, right top, left top, from(#2a59db), to(#5c85f6)), -webkit-gradient(linear, left top, left bottom, from(#fff200), to(#fff200));\n      background-image: linear-gradient(-90deg, #2a59db 0%, #5c85f6 100%), linear-gradient(#fff200, #fff200);\n      background-blend-mode: normal,normal;\n      -webkit-box-shadow: 0px 7px 6px 0pxrgba 53, 53, 53, 0.19;\n              box-shadow: 0px 7px 6px 0pxrgba 53, 53, 53, 0.19;\n      border-radius: 20px;\n      line-height: 41px;\n      margin-bottom: 51px;\n}\n.rent_house .phone div a {\n        font-size: 18px;\n        color: #fff;\n}\n.rent_house .rent_describe {\n    font-family: NotoSansHans-Light;\n    color: #fff;\n    font-size: 14px;\n    text-align: center;\n}\n.rent_house .rent_describe span {\n      color: #f6e71e;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 31:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-
-/***/ 32:
+/***/ 285:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -3459,42 +3662,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "list" }, [
-      _c("div", { staticClass: "detail" }, [
-        _c("div", [
-          _c("img", {
-            attrs: { src: "/we_img/house_detail_banner01.jpg", alt: "" }
-          })
-        ]),
+    return _c("div", { staticClass: "rent_house" }, [
+      _c("div", { staticClass: "title" }, [
+        _c("div", [_vm._v("免费委托找房")]),
         _vm._v(" "),
-        _c("div", { staticClass: "buildDetail" }, [
-          _c("div", { staticClass: "building" }, [
-            _c("div", { staticClass: "name" }, [_vm._v("光谷新世界")]),
-            _vm._v(" "),
-            _c("div", [_c("span", [_vm._v("55-90")]), _vm._v("元/m²月")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "introduce" }, [
-            _vm._v(
-              "光谷位于洪山、江夏区境内，地段好、高等院校林立，科研机构众多，被国务院确立为大众创..."
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "location" }, [
-            _c("img", {
-              attrs: { src: "/we_img/house_detail_address.png", alt: "" }
-            }),
-            _vm._v(" 江夏区-东湖高新区")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "landmark" }, [
-            _c("div", [_vm._v("可注册")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("地铁10分钟")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("地标建筑")])
+        _c("div", [_vm._v("一键委托,一分钟回复")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "phone" }, [
+        _c("input", { attrs: { type: "text", placeholder: "请输入手机号" } }),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("div", [
+          _c("a", { attrs: { href: "javascript:void(0);" } }, [
+            _vm._v("立即委托")
           ])
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "rent_describe" }, [
+        _vm._v("已经有"),
+        _c("span", [_vm._v("15141")]),
+        _vm._v("位客户委托找房")
       ])
     ])
   }
@@ -3504,7 +3694,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5721d505", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-65885160", module.exports)
   }
 }
 
