@@ -250,9 +250,11 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="pagination">
-                            {!! $page !!}
-                        </div>
+                        @if($Results->count())
+                            <div class="pagination">
+                                {!! $page !!}
+                            </div>
+                        @endif
                     @endif
                 </div>
                 <div class="rent_house">
