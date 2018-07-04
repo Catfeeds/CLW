@@ -860,6 +860,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress {
   color: #999;
+  width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress img {

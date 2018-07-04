@@ -134,30 +134,30 @@
                             <div class="houseTitle">栋座信息</div>
                             <div class="housePay">
                                 <div>
-                                    <span class="houseBox">等级</span><span>{{$house['building_block']['class']}}</span>
+                                    <span class="houseBox">等级</span><span>{{$house->class}}</span>
                                 </div>
                                 <div>
-                                    <span class="houseBox">物业公司</span><span>位于高层</span>
+                                    <span class="houseBox">物业公司</span><span>{{$house->property_company}}</span>
                                 </div>
                                 <div>
-                                    <span class="houseBox">房屋结构</span><span>2018-03-10</span>
+                                    <span class="houseBox">房屋结构</span><span>{{$house->structure}}</span>
                                 </div>
                                 <div>
-                                    <span class="houseBox">物业费</span><span>可以</span>
+                                    <span class="houseBox">物业费</span><span>{{$house->property_fee}}</span>
                                 </div>
                             </div>
                             <div class="housePay">
                                 <div>
-                                    <span class="houseBox">采暖方式</span><span>精装修</span>
+                                    <span class="houseBox">采暖方式</span><span>{{$house->heating}}</span>
                                 </div>
                                 <div>
-                                    <span class="houseBox">电梯数量</span><span>商住两用</span>
+                                    <span class="houseBox">电梯数量</span><span>{{$house->elevator_num}}</span>
                                 </div>
                                 <div>
-                                    <span class="houseBox">总楼层</span><span>5室1厅，可定制</span>
+                                    <span class="houseBox">总楼层</span><span>{{$house->total_floor}}</span>
                                 </div>
                                 <div>
-                                    <span class="houseBox">空调类型</span><span>东</span>
+                                    <span class="houseBox">空调类型</span><span>{{$house->air_conditioner}}</span>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                 </div>
                 <!-- 免费委托找房 -->
                 <div class="findHouse">
-                    <img src="/home_img/house_detail_find_house.jpg">
+                    <find-house></find-house>
                 </div>
             </div>
         </div>
@@ -189,7 +189,7 @@
                     <div class="map" id="map">
                         <detail-map :coordinate='data'></detail-map>
                     </div>
-                    <div id="props" data-data='{{$house->toJson()}}' style="display:none"></div>
+                    <div id="props" data-data='{{$house->toJson()}}' style="display:none"></div>            
                 </div>
             </div>
         </div>
@@ -198,46 +198,20 @@
             <div class="enjoyBox">
                 <div class="head">猜你喜欢</div>
                 <div class="enjoyList">
+                    @foreach($rimHouse as $rimHouses)
+                    <a href="{{url('/office_building_houses').'/'.$rimHouses->id}}">
                     <div class="enjoyDetail">
-                        <div class="enjoyPic"><img src="/home_img/temp_index_banner.jpg" alt=""></div>
+                        <div class="enjoyPic"><img src="{{$rimHouses->indoor_img_cn}}" alt=""></div>
                         <div class='enjoyInfor'>
-                            <div class="enjoyTitle">光谷新世界</div>
+                            <div class="enjoyTitle">{{$rimHouses->building_name}}</div>
                             <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> 江夏区-东湖高新</div>
-                                <div class="enjoyPrice"><span>90</span> 元/m²月</div>
+                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$rimHouses->address}}</div>
+                                <div class="enjoyPrice"><span>{{$rimHouses->unit_price}}</span> 元/m²月</div>
                             </div>
                         </div>
                     </div>
-                    <div class="enjoyDetail">
-                        <div class="enjoyPic"><img src="/home_img/temp_index_banner.jpg" alt=""></div>
-                        <div class='enjoyInfor'>
-                            <div class="enjoyTitle">光谷新世界</div>
-                            <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> 江夏区-东湖高新</div>
-                                <div class="enjoyPrice"><span>90</span> 元/m²月</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="enjoyDetail">
-                        <div class="enjoyPic"><img src="/home_img/temp_index_banner.jpg" alt=""></div>
-                        <div class='enjoyInfor'>
-                            <div class="enjoyTitle">光谷新世界</div>
-                            <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> 江夏区-东湖高新</div>
-                                <div class="enjoyPrice"><span>90</span> 元/m²月</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="enjoyDetail">
-                        <div class="enjoyPic"><img src="/home_img/temp_index_banner.jpg" alt=""></div>
-                        <div class='enjoyInfor'>
-                            <div class="enjoyTitle">光谷新世界</div>
-                            <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> 江夏区-东湖高新</div>
-                                <div class="enjoyPrice"><span>90</span> 元/m²月</div>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
+                    @endforeach
                 </div>
             </div>
         </div>

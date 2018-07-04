@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Pc;
 use App\Http\Controllers\Controller;
 use App\Repositories\AreasRepository;
 use App\Repositories\BuildingsRepository;
+use App\Repositories\HotBlocksRepository;
 use App\Repositories\InformationRepository;
+use App\Repositories\RecommendsRepository;
 
 class IndexController extends Controller
 {
@@ -13,7 +15,9 @@ class IndexController extends Controller
     (
         AreasRepository $areasRepository,
         InformationRepository $informationRepository,
-        BuildingsRepository $buildingsRepository
+        BuildingsRepository $buildingsRepository,
+        RecommendsRepository $recommendsRepository,
+        HotBlocksRepository $hotBlocksRepository
     )
     {
         //全部区域
@@ -24,8 +28,19 @@ class IndexController extends Controller
         $hotInformation = $informationRepository->hotInformation();
         //精品写字楼
         $eliteBuilding = $buildingsRepository->getEliteBuilding();
+        //精选专题
+        $recommends = $recommendsRepository->getList();
+        //核心商圈
+        $coreBlock = $hotBlocksRepository->getList();
         //推荐服务
-
-        return view('home.index');
+        //企业服务
+        return view('home.index', [
+            'area' => $area,
+            'information' => $information,
+            'hotInformation' => $hotInformation,
+            'eliteBuilding' => $eliteBuilding,
+            'recommends' => $recommends,
+            'coreBlock' => $coreBlock
+        ]);
     }
 }

@@ -840,8 +840,8 @@ module.exports = __webpack_require__(251);
 __webpack_require__(5);
 var Swiper = __webpack_require__(8);
 var detailMap = __webpack_require__(63);
+var findHouse = __webpack_require__(254);
 var Data = $('#props').data('data');
-console.log(Data);
 
 new Vue({
   el: '.facilities',
@@ -851,6 +851,10 @@ new Vue({
       data: Data.gps
     };
   }
+});
+new Vue({
+  el: '.findHouse',
+  components: { findHouse: findHouse }
 });
 // 轮播图
 var smallImg = new Swiper('#smallImg', {
@@ -882,6 +886,152 @@ $('#prev').on('click', function () {
 $('#next').on('click', function () {
   smallImg.slideNext();
 });
+
+/***/ }),
+
+/***/ 254:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(255)
+}
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(257)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\findHouse.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-824b67c0", Component.options)
+  } else {
+    hotAPI.reload("data-v-824b67c0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 255:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(256);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(10)("0fd16034", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 256:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.rent_house {\n  width: 240px;\n  height: 335px;\n  background: url(/home_img/rent_background.jpg) no-repeat center;\n}\n.rent_house .title {\n    padding-top: 36px;\n    padding-bottom: 39px;\n}\n.rent_house .title div {\n      text-align: center;\n      color: #fff;\n      text-shadow: 0 4px 1px rgba(53, 53, 53, 0.78);\n      font-size: 14px;\n}\n.rent_house .title div:first-child {\n      font-size: 28px;\n      font-weight: 600;\n      margin-bottom: 15px;\n}\n.rent_house .phone {\n    width: 100%;\n    text-align: center;\n    position: relative;\n}\n.rent_house .phone input {\n      width: 212px;\n      height: 40px;\n      background-color: #ffffff;\n      border-radius: 20px;\n      border: solid 1px #e2e3e4;\n      padding-left: 33px;\n      margin-bottom: 23px;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n}\n.rent_house .phone input::-webkit-input-placeholder {\n      font-size: 14px;\n}\n.rent_house .phone input:-ms-input-placeholder {\n      font-size: 14px;\n}\n.rent_house .phone input::-ms-input-placeholder {\n      font-size: 14px;\n}\n.rent_house .phone input::placeholder {\n      font-size: 14px;\n}\n.rent_house .phone span {\n      display: block;\n      background: url(/home_img/phone.png) no-repeat;\n      width: 9px;\n      height: 16px;\n      position: absolute;\n      left: 33px;\n      top: 12px;\n}\n.rent_house .phone div {\n      margin: 0 auto;\n      width: 214px;\n      height: 41px;\n      background-image: -webkit-gradient(linear, right top, left top, from(#2a59db), to(#5c85f6)), -webkit-gradient(linear, left top, left bottom, from(#fff200), to(#fff200));\n      background-image: linear-gradient(-90deg, #2a59db 0%, #5c85f6 100%), linear-gradient(#fff200, #fff200);\n      background-blend-mode: normal,normal;\n      -webkit-box-shadow: 0px 7px 6px 0pxrgba 53, 53, 53, 0.19;\n              box-shadow: 0px 7px 6px 0pxrgba 53, 53, 53, 0.19;\n      border-radius: 20px;\n      line-height: 41px;\n      margin-bottom: 51px;\n}\n.rent_house .phone div a {\n        font-size: 18px;\n        color: #fff;\n}\n.rent_house .rent_describe {\n    font-family: NotoSansHans-Light;\n    color: #fff;\n    font-size: 14px;\n    text-align: center;\n}\n.rent_house .rent_describe span {\n      color: #f6e71e;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 257:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rent_house" }, [
+      _c("div", { staticClass: "title" }, [
+        _c("div", [_vm._v("免费委托找房")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("一键委托,一分钟回复")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "phone" }, [
+        _c("input", { attrs: { type: "text", placeholder: "请输入手机号" } }),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("div", [
+          _c("a", { attrs: { href: "javascript:void(0);" } }, [
+            _vm._v("立即委托")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "rent_describe" }, [
+        _vm._v("已经有"),
+        _c("span", [_vm._v("15141")]),
+        _vm._v("位客户委托找房")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-824b67c0", module.exports)
+  }
+}
 
 /***/ }),
 
