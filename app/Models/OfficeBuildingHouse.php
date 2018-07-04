@@ -19,7 +19,7 @@ class OfficeBuildingHouse extends BaseModel
     // 图片
     public function getIndoorImgCnAttribute()
     {
-        return empty($this->indoor_img)?'':config('setting.qiniu_url').$this->indoor_img[0].config('setting.qiniu_suffix');
+        return empty($this->indoor_img)?config('setting.house_default_img'):config('setting.qiniu_url').$this->indoor_img[0].config('setting.qiniu_suffix');
     }
 
     // 装修

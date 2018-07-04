@@ -217,14 +217,15 @@
                                         <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                         <div class="acverge_select">
                                             <ul>
+                                                {{--{{dd($data->pc_house->toArray())}}--}}
                                                 @foreach($data->pc_house as $pchouse)
                                                 <li style="position: relative">
                                                     <a href="javascript:void(0);">{{$pchouse->constru_acreage}}㎡</a>
                                                     <div class="acreage-detail">
                                                         <div style="position: relative">
-                                                            <img src="{{$data->img_cn}}" alt=""
+                                                            <img src="{{$pchouse->indoor_img_cn}}" alt=""
                                                                  style="width:200px;height: 160px">
-                                                            <span class="renovation">装修</span>
+                                                            <span class="renovation">{{$pchouse->renovation_cn}}</span>
                                                         </div>
                                                         <div>{{$pchouse->constru_acreage}}㎡</div>
                                                         <div>{{$pchouse->unit_price}}元/㎡</div>
