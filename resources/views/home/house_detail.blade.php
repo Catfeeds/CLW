@@ -50,7 +50,7 @@
                     <div><span>装修程度</span>{{$house->renovation_cn}}</div>
                     <div class="address">
                         <div><span>楼盘地址</span>{{$house->address}}</div>
-                        <a href="#"><img src="/home_img/house_detail_map.png"> 查看地图</a>
+                        <span class="js_map"><img src="/home_img/house_detail_map.png"> 查看地图</span>
                     </div>
                     <div class="better">
                         @if(!empty($house->house_feature[0]))

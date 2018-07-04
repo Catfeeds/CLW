@@ -866,7 +866,7 @@ new Vue({
 // 页面滚动事件
 $(window).scroll(function () {
   var scrollTop = $(window).scrollTop();
-  if (scrollTop >= rightTop && scrollTop + 690 < secondTop) {
+  if (scrollTop + 60 >= rightTop && scrollTop + 690 < secondTop) {
     $('.right').addClass('location');
     $('.right').css('margin-top', '0');
   } else if (scrollTop <= rightTop || scrollTop + 690 >= secondTop) {
@@ -887,6 +887,12 @@ var banner = new Swiper('#banner', {
   paginationBulletRender: function paginationBulletRender(banner, index, className) {
     return '<span class="' + className + '"><img src="' + Data.pic_url[index].url + '"></span>';
   } // 自定义分页器
+});
+
+// 点击查看地图
+// 点击查看地图
+$('.js_map').on('click', function () {
+  $('html,body').animate({ scrollTop: $('#second').offset().top - 60 + 'px' }, 500);
 });
 
 // 点击导航
@@ -3797,7 +3803,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n}\n.map .screen {\n    position: absolute;\n    top: 40px;\n    right: 30px;\n    width: 350px;\n    height: 400px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n}\n.map .screen {\n    position: absolute;\n    top: 40px;\n    right: 30px;\n    width: 350px;\n    height: 400px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail .screenDist {\n        margin-bottom: 15px;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox .screenTitle {\n            font-size: 16px;\n            margin-bottom: 5px;\n            color: #333;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox .distance img {\n            vertical-align: middle;\n            margin-right: 5px;\n}\n.map .screen .screenList .screenDetail .screenDist .screenAddress {\n          color: #999;\n          width: 280px;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n.map .screen .screenList1 .screenDist {\n        margin-bottom: 15px;\n}\n.map .screen .screenList1 .screenDist .screenBox {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between;\n}\n.map .screen .screenList1 .screenDist .screenBox .screenTitle {\n            font-size: 16px;\n            margin-bottom: 5px;\n            color: #333;\n}\n.map .screen .screenList1 .screenDist .screenBox .distance img {\n            vertical-align: middle;\n            margin-right: 5px;\n}\n.map .screen .screenList1 .screenDist .screenAddress {\n          color: #999;\n          width: 280px;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n}\n", ""]);
 
 // exports
 
@@ -3827,6 +3833,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4057,7 +4077,7 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
       var pointA = new this.BMap.Point(parseFloat(this.point.center.lng), parseFloat(this.point.center.lat));
       var pointB = new this.BMap.Point(parseFloat(itemPoint.lng), parseFloat(itemPoint.lat)); // 店铺的经纬度
       var map = new this.BMap.Map();
-      var distance = (map.getDistance(pointA, pointB) / 1000).toFixed(2); // 保留小数点后两位
+      var distance = parseInt(map.getDistance(pointA, pointB)); // 保留小数点后两位
       return distance;
     }
   }
@@ -4147,16 +4167,27 @@ var render = function() {
                             "div",
                             { key: index, staticClass: "screenDetail" },
                             [
-                              _c("div", [
-                                _c("div", [_vm._v(_vm._s(item.title))]),
+                              _c("div", { staticClass: "screenDist" }, [
+                                _c("div", { staticClass: "screenBox" }, [
+                                  _c("div", { staticClass: "screenTitle" }, [
+                                    _vm._v(_vm._s(item.title))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "distance" }, [
+                                    _c("img", {
+                                      attrs: { src: "/home_img/map.png" }
+                                    }),
+                                    _vm._v(
+                                      "距离" +
+                                        _vm._s(_vm.getDistance(item.point)) +
+                                        "m"
+                                    )
+                                  ])
+                                ]),
                                 _vm._v(" "),
-                                _c("div", [_vm._v(_vm._s(item.address))])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _vm._v(
-                                  _vm._s(_vm.getDistance(item.point)) + "km"
-                                )
+                                _c("div", { staticClass: "screenAddress" }, [
+                                  _vm._v(_vm._s(item.address))
+                                ])
                               ])
                             ]
                           )
@@ -4177,16 +4208,27 @@ var render = function() {
                             "div",
                             { key: index, staticClass: "screenDetail" },
                             [
-                              _c("div", [
-                                _c("div", [_vm._v(_vm._s(item.title))]),
+                              _c("div", { staticClass: "screenDist" }, [
+                                _c("div", { staticClass: "screenBox" }, [
+                                  _c("div", { staticClass: "screenTitle" }, [
+                                    _vm._v(_vm._s(item.title))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "distance" }, [
+                                    _c("img", {
+                                      attrs: { src: "/home_img/map.png" }
+                                    }),
+                                    _vm._v(
+                                      "距离" +
+                                        _vm._s(_vm.getDistance(item.point)) +
+                                        "m"
+                                    )
+                                  ])
+                                ]),
                                 _vm._v(" "),
-                                _c("div", [_vm._v(_vm._s(item.address))])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _vm._v(
-                                  _vm._s(_vm.getDistance(item.point)) + "km"
-                                )
+                                _c("div", { staticClass: "screenAddress" }, [
+                                  _vm._v(_vm._s(item.address))
+                                ])
                               ])
                             ]
                           )
@@ -4207,14 +4249,23 @@ var render = function() {
               { staticClass: "screenList1" },
               _vm._l(_vm.list, function(item, index) {
                 return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
+                  _c("div", { staticClass: "screenDist" }, [
+                    _c("div", { staticClass: "screenBox" }, [
+                      _c("div", { staticClass: "screenTitle" }, [
+                        _vm._v(_vm._s(item.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "distance" }, [
+                        _c("img", { attrs: { src: "/home_img/map.png" } }),
+                        _vm._v(
+                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
+                        )
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
+                    _c("div", { staticClass: "screenAddress" }, [
+                      _vm._v(_vm._s(item.address))
+                    ])
                   ])
                 ])
               })
@@ -4227,14 +4278,23 @@ var render = function() {
               { staticClass: "screenList1" },
               _vm._l(_vm.list, function(item, index) {
                 return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
+                  _c("div", { staticClass: "screenDist" }, [
+                    _c("div", { staticClass: "screenBox" }, [
+                      _c("div", { staticClass: "screenTitle" }, [
+                        _vm._v(_vm._s(item.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "distance" }, [
+                        _c("img", { attrs: { src: "/home_img/map.png" } }),
+                        _vm._v(
+                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
+                        )
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
+                    _c("div", { staticClass: "screenAddress" }, [
+                      _vm._v(_vm._s(item.address))
+                    ])
                   ])
                 ])
               })
@@ -4247,14 +4307,23 @@ var render = function() {
               { staticClass: "screenList1" },
               _vm._l(_vm.list, function(item, index) {
                 return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
+                  _c("div", { staticClass: "screenDist" }, [
+                    _c("div", { staticClass: "screenBox" }, [
+                      _c("div", { staticClass: "screenTitle" }, [
+                        _vm._v(_vm._s(item.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "distance" }, [
+                        _c("img", { attrs: { src: "/home_img/map.png" } }),
+                        _vm._v(
+                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
+                        )
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
+                    _c("div", { staticClass: "screenAddress" }, [
+                      _vm._v(_vm._s(item.address))
+                    ])
                   ])
                 ])
               })
@@ -4267,14 +4336,23 @@ var render = function() {
               { staticClass: "screenList1" },
               _vm._l(_vm.list, function(item, index) {
                 return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
+                  _c("div", { staticClass: "screenDist" }, [
+                    _c("div", { staticClass: "screenBox" }, [
+                      _c("div", { staticClass: "screenTitle" }, [
+                        _vm._v(_vm._s(item.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "distance" }, [
+                        _c("img", { attrs: { src: "/home_img/map.png" } }),
+                        _vm._v(
+                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
+                        )
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
+                    _c("div", { staticClass: "screenAddress" }, [
+                      _vm._v(_vm._s(item.address))
+                    ])
                   ])
                 ])
               })
@@ -4287,14 +4365,23 @@ var render = function() {
               { staticClass: "screenList1" },
               _vm._l(_vm.list, function(item, index) {
                 return _c("div", { key: index, staticClass: "screenDetail" }, [
-                  _c("div", [
-                    _c("div", [_vm._v(_vm._s(item.title))]),
+                  _c("div", { staticClass: "screenDist" }, [
+                    _c("div", { staticClass: "screenBox" }, [
+                      _c("div", { staticClass: "screenTitle" }, [
+                        _vm._v(_vm._s(item.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "distance" }, [
+                        _c("img", { attrs: { src: "/home_img/map.png" } }),
+                        _vm._v(
+                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
+                        )
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(item.address))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s(_vm.getDistance(item.point)) + "km")
+                    _c("div", { staticClass: "screenAddress" }, [
+                      _vm._v(_vm._s(item.address))
+                    ])
                   ])
                 ])
               })
