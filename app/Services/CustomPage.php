@@ -172,27 +172,4 @@ class CustomPage
 
         return $fields_string;
     }
-
-
-    public function arrayToObject($e)
-    {
-
-        if (gettype($e) != 'array') return;
-        foreach ($e as $k => $v) {
-            if (gettype($v) == 'array' || getType($v) == 'object')
-                $e[$k] = (object)$this->arrayToObject($v);
-        }
-        return (object)$e;
-    }
-
-    public function objectToArray($e)
-    {
-        $e = (array)$e;
-        foreach ($e as $k => $v) {
-            if (gettype($v) == 'resource') return;
-            if (gettype($v) == 'object' || gettype($v) == 'array')
-                $e[$k] = (array)$this->objectToArray($v);
-        }
-        return $e;
-    }
 }
