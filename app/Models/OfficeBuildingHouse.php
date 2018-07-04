@@ -273,6 +273,11 @@ class OfficeBuildingHouse extends BaseModel
      * @use renovation_cn
      * @author 罗振
      */
+
+
+
+
+    // 装修
     public function getRenovationCnAttribute()
     {
         if ($this->renovation == 1) {
@@ -289,6 +294,7 @@ class OfficeBuildingHouse extends BaseModel
             return '';
         }
     }
+
 
     /**
      * 说明: 写字楼类型中文
@@ -436,5 +442,4 @@ class OfficeBuildingHouse extends BaseModel
         }
         return $data;
     }
-
 }

@@ -10,7 +10,6 @@ use App\Models\Building;
 use App\Models\BuildingFeature;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
-use App\Services\CustomPage;
 use Illuminate\Http\Request;
 
 class BuildingsController extends Controller
@@ -84,9 +83,10 @@ class BuildingsController extends Controller
 
             $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true);
         } else {
-            // 处理价格,面积
+            // 处理价格,面积,特色
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
+            if (!empty($request->features) && strlen($request->features) > 1) $request->offsetSet('features', explode('-',$request->features));
 
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);

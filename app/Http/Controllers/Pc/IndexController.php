@@ -35,7 +35,7 @@ class IndexController extends Controller
         //核心商圈
         $coreBlock = $hotBlocksRepository->getList();
         //推荐服务
-        
+
         //企业服务
         $service = $pcEnterpriseServicesRepository->getList()->take(5);
         return view('home.index', [

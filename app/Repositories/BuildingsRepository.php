@@ -82,6 +82,8 @@ class BuildingsRepository extends  Model
     )
     {
         foreach ($buildingData as $index => $v) {
+            $buildingData[$index]->pc_house = $v->house->take(5);
+
             // 价格及面积区间
             $service->priceAndAcreageSection($v);
 
