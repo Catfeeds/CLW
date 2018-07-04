@@ -42,7 +42,12 @@ class BuildingsRepository extends  Model
 
         $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
 
-        $data = $this->buildingDataComplete($buildings, $buildingData, $service);
+        // pc价格排序
+        if (!empty($request->price_sort)) {
+            $data = $this->buildingDataComplete($buildings, $buildingData, $service, $request->price_sort);
+        } else {
+            $data = $this->buildingDataComplete($buildings, $buildingData, $service);
+        }
 
         // 总页数
         $totalPage = ceil($data->count() / 10);
@@ -72,13 +77,15 @@ class BuildingsRepository extends  Model
      * @param $buildings
      * @param $buildingData
      * @param $service
+     * @param null $priceSort
      * @return \Illuminate\Support\Collection
-     * @author jacklin
+     * @author 罗振
      */
     public function buildingDataComplete(
         $buildings,
         $buildingData,
-        $service
+        $service,
+        $priceSort = null
     )
     {
         foreach ($buildingData as $index => $v) {
@@ -107,11 +114,23 @@ class BuildingsRepository extends  Model
             $buildingData[$index]->orderByLabel = !empty($v->label)?2:1;
         }
 
-        // 排序方式
-        $res = collect($buildingData)->sortByDesc(function ($val) {
-            return [$val->orderByLabel, $val->house_count, $val->block_recommend];
-        });
-
+        if (empty($priceSort)) {
+            // 排序方式
+            $res = collect($buildingData)->sortByDesc(function ($val) {
+                return [$val->orderByLabel, $val->house_count, $val->block_recommend];
+            });
+        } else {
+            if ($priceSort == 'asc') {
+                $res = collect($buildingData)->sortBy(function ($val) use ($priceSort) {
+                    return [$val->avg_price];
+                });
+            } else {
+                $res = collect($buildingData)->sortByDesc(function ($val) use ($priceSort) {
+                    return [$val->avg_price];
+                });
+            }
+        }
+        
         return collect($res);
     }
 
@@ -174,11 +193,6 @@ class BuildingsRepository extends  Model
 
         // 装修
         if (!empty($request->renovation)) $houses = $houses->where('renovation', $request->renovation);
-
-        // pc价格排序
-        if (!empty($request->price_sort)) {
-            $houses = $houses->orderBy('unit_price', $request->price_sort);
-        }
 
         return $houses;
     }
