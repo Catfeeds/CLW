@@ -71,6 +71,9 @@ class BuildingsController extends Controller
         // 获取特色
         $buildingFeatures = BuildingFeature::pluck('name','id')->toArray();
 
+        // 前段返回条件
+        $data = $request->all();
+
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
 
@@ -84,7 +87,7 @@ class BuildingsController extends Controller
             // 处理价格,面积
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
-            
+
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
@@ -96,7 +99,7 @@ class BuildingsController extends Controller
             'buildingFeatures' => $buildingFeatures,
             'Results'=>$res['data'],
             'page' => $res['page'],
-            'request' => $request->all(),
+            'request' => $data,
             'count' => $res['house_count']
         ]);
     }
