@@ -17,7 +17,7 @@ class RolesRepository extends Model
         $request
     )
     {
-        \DB::connection('media')->beginTransaction();
+        \DB::beginTransaction();
         try {
             // 添加角色表
             $role = Role::create([
@@ -26,13 +26,12 @@ class RolesRepository extends Model
                 'name_en' => $request->name_en,
                 'guard_name' => 'web',
             ]);
-
             // 添加关联表
             $role->givePermissionTo($request->permissions);
-            \DB::connection('media')->commit();
+            \DB::commit();
             return true;
         } catch (\Exception $e) {
-            \DB::connection('media')->rollBack();
+            \DB::rollBack();
             \Log::error('添加角色失败：' . $e->getFile() . $e->getLine() . $e->getMessage());
             return false;
         }
@@ -88,5 +87,16 @@ class RolesRepository extends Model
         }
 
         return $data;
+    }
+
+    public function getRoles()
+    {
+        $res = Role::all();
+        return $res->map(function($v) {
+            return [
+                'label' => $v->name_cn,
+                'value' => $v->id
+            ];
+        });
     }
 }

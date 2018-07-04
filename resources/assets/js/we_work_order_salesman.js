@@ -106,6 +106,9 @@ function getSaiesmanList(status, page, type=false) {
     if(requestType) return;
     requestType = true;
     $.ajax({
+        headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+        },
         url: url + "/api/staff_list",
         type: 'get',
         data:{
@@ -158,6 +161,9 @@ function getSaiesmanList(status, page, type=false) {
 // 业务员确认工单
 function distribution(FormData, index) {
     $.ajax({
+        headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+        },
         url: url + "/api/determine",
         type: 'post',
         data: FormData,

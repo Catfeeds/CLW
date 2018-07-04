@@ -1,6 +1,7 @@
 require('./home_common');
 const Swiper = require('swiper');
 var detailMap = require('./components/detailMap.vue')
+var findHouse = require('./components/findHouse.vue')
 var Data = $('#props').data('data') // 获取blade模板渲染出来的$building里的数据
 var initHouseData = getVal() // 房源数据
 // console.log('初始化数据', initHouseData)
@@ -18,6 +19,10 @@ new Vue({
       data: Data.gps
     }
   }
+})
+new Vue({
+  el: '.findHouse',
+  components: { findHouse }
 })
 // 页面滚动事件
 $(window).scroll(function(){

@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>首页</title>
+@extends('home.layouts.layout')
+@section('title', '首页')
+@section('header')
   <link rel="stylesheet" href="/css/home_page.css">
-</head>
-<body>
+@endsection
+@section('body')
   <div class="container_box">
-    <!--头部导航-->
-    <div class="header">
-      <div class="nav clearfix">
-        <div class="nav_logo f_l"></div>
-        <ul class="nav_items f_l clearfix">
-          <li class="nav_item"><a href="javascript:void(0);">首页</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">写字楼出租</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">联合办公</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">企业服务</a></li>
-          <li class="nav_item"><a href="javascript:void(0);">资讯中心</a></li>
-        </ul>
-        <div class="nav_phone f_l">400-580-888</div>
-        <div class="nav_set f_r">
-          <div class="f_l"><a href="javascript:void(0);" class="login f_l">注册</a></div>
-          <div class="f_l"><a href="javascript:void(0);" class="register f_l">登录</a></div>
-        </div>
-      </div>
-    </div>
     <!--搜索区域-->
     <div class="search_area">
       <div class="search_box">
@@ -37,9 +15,35 @@
           <button class="check_map">地图找房</button>
         </div>
         <div class="result">
-          <div class="result_area">区域:</div>
-          <div class="result_acverge">面积:</div>
-          <div class="result_price">价格:</div>
+          <div class="result_area">区域:
+            <a href="javascript:void(0);">洪山</a>
+            <a href="javascript:void(0);">武昌</a>
+            <a href="javascript:void(0);">江汉</a>
+            <a href="javascript:void(0);">汉阳</a>
+            <a href="javascript:void(0);">江岸</a>
+            <a href="javascript:void(0);">江夏</a>
+            <a href="javascript:void(0);">东西湖</a>
+            <a href="javascript:void(0);">沌口</a>
+            <a href="javascript:void(0);">硚口</a>
+            <a href="javascript:void(0);">更多>></a>
+          </div>
+          <div class="result_acverge">面积:
+          <a href="javascript:void(0);">100m²以下</a>
+            <a href="javascript:void(0);">100-200m²</a>
+            <a href="javascript:void(0);">200-300m²</a>
+            <a href="javascript:void(0);">300-500m²</a>
+            <a href="javascript:void(0);">500-700m²</a>
+            <a href="javascript:void(0);">700-1000m²</a>
+            <a href="javascript:void(0);">1000m²以上</a>
+          </div>
+          <div class="result_price">价格:
+          <a href="javascript:void(0);">0-40元/m²·月</a>
+            <a href="javascript:void(0);">40-60元/m²·月</a>
+            <a href="javascript:void(0);">60-80元/m²·月</a>
+            <a href="javascript:void(0);">8-120元/m²·月</a>
+            <a href="javascript:void(0);">120-140元/m²·月</a>
+            <a href="javascript:void(0);">140元/m²·月以上</a>
+          </div>
         </div>
       </div>
     </div>
@@ -429,137 +433,130 @@
           </div>
           <div class="left_content">
             <ul class="clearfix">
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="/we_img/wifi_img.png" alt="">
-                </div>
-                <div class="icon_name">无线wifi</div>
-              </li>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/wifi_img.png" alt="">
+                  </div>
+                  <div class="icon_name">无线wifi</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/coff_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">免费咖啡茶饮</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/meeting_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">会议室</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/airClean_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">空气净化系统</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/qiantai_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">前台服务</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/commit_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">社区团队支持</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/secuty_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">7x24保安服务</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/cleaning_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">保洁服务</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/send_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">快递服务</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/playRoom_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">路演厅</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/wifi_img.png" alt="">
+                  </div>
+                  <div class="icon_name">无线wifi</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/copy_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">智能云打印</div>
+                </li>
+              </a>
+              <a href="javascript:void(0);">
+                <li>
+                  <div class="icon">
+                    <img src="/we_img/code_icon.png" alt="">
+                  </div>
+                  <div class="icon_name">VRN空调服务</div>
+                </li>
+              </a>
             </ul>
           </div>
         </div>
-        <div class="right_show f_r swiper-container">
-          <div class="img_box swiper-wrapper">
-            <img src="/we_img/cooperation_img.png" alt="1" class="swiper-slide">
-            <img src="/we_img/house_detail_banner01.jpg" alt="2" class="swiper-slide">
-            <img src="/we_img/house_detail_banner02.jpg" alt="3" class="swiper-slide">
-            <img src="/we_img/cooperation_img.png" alt="4" class="swiper-slide">
+        <div class="right f_r swiper-container" id="banner">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="/we_img/house_detail_banner01.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="/we_img/house_detail_banner02.jpg" alt="">  
+            </div>
+            <div class="swiper-slide">
+              <img src="/we_img/house_detail_banner03.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="/we_img/house_detail_banner04.jpg" alt="">
+            </div>
           </div>
-          <div class="cooperation_list swiper-pagination">
-            <div class="item my-pagination"id="current">
-              <!--<a href="javascript:void(0);">-->
-                <div class="item_name">美百年</div>
-                <div class="item_detail">武汉越秀财富中心</div>
-              <!--</a>-->
-            </div>
-            <div class="item my-pagination">
-              <!--<a href="javascript:void(0);">-->
-                <div class="item_name">美百年</div>
-                <div class="item_detail">武汉越秀财富中心</div>
-              <!--</a>-->
-            </div>
-            <div class="item my-pagination">
-              <!--<a href="javascript:void(0);">-->
-                <div class="item_name">美百年</div>
-                <div class="item_detail">武汉越秀财富中心</div>
-              <!--</a>-->
-            </div>
-            <div class="item my-pagination">
-              <!--<a href="javascript:void(0);">-->
-                <div class="item_name">美百年</div>
-                <div class="item_detail">武汉越秀财富中心</div>
-              <!--</a>-->
-            </div>
+          <div class="swiper-pagination">
+            
           </div>
         </div>
       </div>
@@ -647,55 +644,9 @@
       </div>
     </div>-->
     <!--底部-->
-    <div class="footer">
-      <footer class="footer_content clearfix">
-        <div class="footer_logo f_l">
-          <img src="/we_img/footer_logo.png" alt="logo">
-        </div>
-        <div class="footer_info f_r">
-          <div class="info_header clearfix">
-            <div class="about_us f_l">
-              <a href="javascript:void(0);">关于我们</a>
-            </div>
-            <div class="contact_us f_l">
-              <a href="javascript:void(0);">联系我们</a>
-            </div>
-            <div class="contact_free f_r">
-              免费咨询 400-580-888 周一至周日 8:00-20:00
-            </div>
-          </div>
-          <div class="info_content">
-            <ul class="list1">
-              <li><a href="javascript:void(0);">公司介绍</a></li>
-              <li><a href="javascript:void(0);">联系我们</a></li>
-              <li><a href="javascript:void(0);">使用协议</a></li>
-              <li><a href="javascript:void(0);">隐私政策</a></li>
-            </ul>
-            <ul class="list2">
-              <li>楚楼 (武汉) 信息科技有限公司</li>
-              <li>地址:湖北省武汉市江夏区光谷智慧园1栋801</li>
-              <li>电子邮箱:service@chulouwang.com</li>
-            </ul>
-            <div class="code_area clearfix">
-              <div class="wx_code f_l">
-                <img src="/we_img/wx_code.png" alt="微信公众号">
-                <div>公众号</div>
-              </div>
-              <div class="download_code f_l">
-                <img src="/we_img/downloadApp_code.png" alt="下载二维码">
-                <div>下载APP</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <div class="footer_bottom">
-        <div class="footer_content">版权所有鄂ICP备18001084 鄂公网安备 42018502001214号</div>
-      </div>
-    </div>
+    
   </div>
-  <script src="/js/home_manifest.js"></script>
-  <script src="/js/home_vendor.js"></script>
+@endsection
+@section('script')
   <script src="/js/home_page.js"></script>
-</body>
-</html>
+@endsection

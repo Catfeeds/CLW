@@ -1,22 +1,33 @@
-webpackJsonp([6],{
+webpackJsonp([7],{
 
-/***/ 127:
+/***/ 139:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(128);
+module.exports = __webpack_require__(140);
 
 
 /***/ }),
 
-/***/ 128:
+/***/ 140:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(3);
+__webpack_require__(1);
 var Swiper = __webpack_require__(6);
 
-var mySwiper = new Swiper('.swiper-container', {
+var mySwiper1 = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
-    width: 770
+    effect: 'fade',
+    width: 770,
+    onTransitionEnd: function onTransitionEnd(swiper) {
+        console.log(swiper.activeIndex);
+        mySwiper2.slideTo(swiper.activeIndex);
+    }
+});
+var mySwiper2 = new Swiper('.swiper-container1', {
+    effect: 'fade',
+    fade: {
+        crossFade: true
+    }
 });
 
 /***/ }),
@@ -5382,4 +5393,4 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ })
 
-},[127]);
+},[139]);

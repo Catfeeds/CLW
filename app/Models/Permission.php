@@ -5,7 +5,4 @@ namespace App\Models;
 class Permission extends \Spatie\Permission\Models\Permission
 {
     protected $table = 'permissions';
-
-    protected $connection = 'media';
-
 }

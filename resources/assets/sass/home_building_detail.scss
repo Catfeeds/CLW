@@ -377,32 +377,6 @@
           }
           .findHouse{
             margin-top: 30px;
-            height: 430px;
-            background: #ccc;
-            position: relative;
-            .entrust{
-              width: 86%;
-              position: absolute;
-              top: 225px;
-              left: 6%;
-              input{
-                width: 100%;
-              }
-              .order{
-                margin: 0 auto;
-                margin-top: 40px;
-                height: 40px;
-                border-radius: 20px;
-                width: 53%;
-                background: #03a2fb;
-                text-align: center;
-                line-height: 40px;
-                color: #fff;
-              }
-              .order:hover{
-                cursor: pointer;
-              }
-            }
           }
         }
       }

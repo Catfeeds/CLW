@@ -204,11 +204,7 @@
                     </div>
                     <!-- 委托找房 -->
                     <div class="findHouse">
-                        <img src="" alt="">
-                        <div class="entrust">
-                            <input type="text" placeholder="请输入手机号" id="entrust">
-                            <div class="order">立即委托</div>
-                        </div>
+                        <find-house></find-house>
                     </div>
                 </div>
             </div>

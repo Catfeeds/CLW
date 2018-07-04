@@ -5,54 +5,56 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\RolesRequest;
 use App\Models\Role;
 use App\Repositories\RolesRepository;
+use Illuminate\Http\Request;
 
 class RolesController extends APIBaseController
 {
-    public function index(
-        RolesRepository $repository
-    )
+    public function index()
     {
-        $res = $repository->roleList();
-        return $this->sendResponse($res,'获取角色列表成功');
+        $res = curl(config('setting.media_url').'/api/roles','get');
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
-    public function store(
-        RolesRequest $request,
-        RolesRepository $repository
-    )
+    public function store(Request $request)
     {
-        $res = $repository->addRole($request);
-        if (empty($res)) return $this->sendError('角色添加失败');
-        return $this->sendResponse($res,'角色添加成功');
+        $data['name'] = $request->name_en;
+        $data['name_cn'] = $request->name_cn;
+        $data['name_en'] = $request->name_en;
+        $data['permissions'] = json_encode($request->permissions);
+        $res = curl(config('setting.media_url').'/api/roles','post', $data);
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
-    public function edit(
-        Role $role
-    )
+    public function edit($id)
     {
-        // 角色所有权限
-        $role->oldPermissions = $role->permissions()->pluck('name')->toArray();
-        return $this->sendResponse($role,'获取角色原始数据成功');
+        $res = curl(config('setting.media_url').'/api/roles/'.$id.'/edit','get');
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
     public function update(
-        Role $role,
-        RolesRequest $request,
-        RolesRepository $repository
+        $id,
+        Request $request
     )
     {
-        $res = $repository->updateRole($request, $role);
-        if (empty($res)) return $this->sendError('角色修改失败');
-        return $this->sendResponse($res,'角色修改成功');
+        $data['name'] = $request->name_en;
+        $data['name_cn'] = $request->name_cn;
+        $data['name_en'] = $request->name_en;
+        $data['permissions'] = json_encode($request->permissions);
+        $data['_method'] = 'put';
+        $res = curl(config('setting.media_url').'/api/roles/'.$id,'post', $data);
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
     // 获取所有权限
-    public function getAllPermissions(
-        RolesRepository $repository
-    )
+    public function getAllPermissions()
     {
-        $res = $repository->getAllPermissions();
-        return $this->sendResponse($res,'获取所有权限数据成功');
+        $res = curl(config('setting.media_url').'/api/get_all_permissions','get');
+        if (empty($res->data)) return $this->sendError($res->message);
+        return $this->sendResponse($res->data,$res->message);
     }
 
 }
