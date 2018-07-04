@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Models;
-use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class OfficeBuildingHouse extends Model
+class OfficeBuildingHouse extends BaseModel
 {
     use SoftDeletes;
     protected $table = 'office_building_houses';
@@ -23,7 +24,8 @@ class OfficeBuildingHouse extends Model
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'house_type_cn','payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
-        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'floor_cn', 'show_cn'
+        'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'floor_cn', 'show_cn',
+        'station_number_cn'
     ];
 
     /**
@@ -86,7 +88,7 @@ class OfficeBuildingHouse extends Model
 
     public function getShowCnAttribute()
     {
-            if ($this->shelf == 1) return '上架';
+        if ($this->shelf == 1) return '上架';
         return '下架';
     }
 
@@ -106,6 +108,14 @@ class OfficeBuildingHouse extends Model
         }
 
     }
+    
+    //工位加入单位
+    public function getStationNumberCnAttribute()
+    {
+        if (!$this->station_number) return '';
+        return $this->station_number . '个';
+    }
+    
 
     /**
      * 说明: 面积加入单位
@@ -263,6 +273,11 @@ class OfficeBuildingHouse extends Model
      * @use renovation_cn
      * @author 罗振
      */
+
+
+
+
+    // 装修
     public function getRenovationCnAttribute()
     {
         if ($this->renovation == 1) {
@@ -279,6 +294,7 @@ class OfficeBuildingHouse extends Model
             return '';
         }
     }
+
 
     /**
      * 说明: 写字楼类型中文
@@ -426,5 +442,4 @@ class OfficeBuildingHouse extends Model
         }
         return $data;
     }
-
 }

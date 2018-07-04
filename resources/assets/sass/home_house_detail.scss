@@ -1,5 +1,6 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
+@include nav();
 .content{
   .head{
     height: 50px;
@@ -320,6 +321,10 @@
               .enjoyAddress{
                 @extend .font-level1;
                 color: #999;
+                width: 140px;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;  
                 img{
                   vertical-align: text-bottom;
                 }

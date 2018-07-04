@@ -1,15 +1,21 @@
 require('./home_common')
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
+var findHouse = require('./components/findHouse.vue')
+var Data = $('#props').data('data')
 
 new Vue({
   el: '.facilities',
   components: { detailMap },
   data() {
     return {
-      data: [114.438748, 30.510597]
+      data: Data.gps
     }
   }
+})
+new Vue({
+  el: '.findHouse',
+  components: { findHouse }
 })
 // 轮播图
 var smallImg = new Swiper('#smallImg', {

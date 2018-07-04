@@ -19,8 +19,13 @@ class RecommendsRepository extends Model
         foreach ($recommends as $recommend) {
             $recommend->name = $recommend->building->name;
         }
-
         return $recommends;
+    }
+
+    //pc端精选专题
+    public function getList()
+    {
+        return Recommend::take(5)->where('pc_pic','!=',null)->get();
     }
 
     /**
@@ -37,7 +42,8 @@ class RecommendsRepository extends Model
             'introduce' => $request->introduce,
             'pic' => $request->pic,
             'building_id' => $request->building_id,
-            'building_info' => $request->building_info
+            'building_info' => $request->building_info,
+            'pc_pic' => $request->pc_pic
         ]);
     }
 
@@ -56,6 +62,7 @@ class RecommendsRepository extends Model
         $recommend->pic = $request->pic;
         $recommend->building_id = $request->building_id;
         $recommend->building_info = $request->building_info;
+        $recommend->pc_pic = $request->pc_pic;
         if (!$recommend->save()) return false;
         return true;
     }

@@ -27,12 +27,12 @@ new Vue({
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()
-  if((scrollTop >= rightTop) && ((scrollTop + 770) < secondTop)) {
+  if((scrollTop >= rightTop) && ((scrollTop + 690) < secondTop)) {
     $('.right').addClass('location')
     $('.right').css('margin-top', '0')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 770) >= secondTop)) {
-    if((scrollTop + 770) >= secondTop) {
-      $('.right').css('margin-top', secondTop-rightTop-820)
+  } else if((scrollTop <= rightTop) || ((scrollTop + 690) >= secondTop)) {
+    if((scrollTop + 690) >= secondTop) {
+      $('.right').css('margin-top', secondTop-rightTop-697)
       $('.right').removeClass('location')
     } else {
       $('.right').removeClass('location')
@@ -75,6 +75,7 @@ function navigation(obj) {
 // 出租房源面积筛选
 $('#rentAcreage span').on('click', function(){
   var acreage = $(this).html()
+  changePic()
   $(this).addClass('current')
   $(this).siblings().removeClass('current')
   selectTerm($(this))
@@ -83,6 +84,7 @@ $('#rentAcreage span').on('click', function(){
 // 价格筛选
 $('#rentPrice span').on('click', function(){
   var price = $(this).html()
+  changePic()
   $(this).addClass('current')
   $(this).siblings().removeClass('current')
   selectTerm($(this))
@@ -91,12 +93,8 @@ $('#rentPrice span').on('click', function(){
 // 按照面积排序
 $('.js_listArea').on('click', function(){
   var term = 'area'
-  var sequence = true
-  // console.log('dom', $('.js_listArea .js_rise'))
-  $('.js_listArea .js_rise').toggle()
-  $('.js_listArea .js_drop').toggle()
-  // console.log('aasadadas', $('.js_listArea .js_drop').is(':hidden'))
-  sequence = $('.js_listArea .js_drop').is(':hidden')
+  var obj = '.js_listArea'
+  var sequence = changeOrder(obj)
   var html = order(houseDetail, sequence, term)
   createVal(html)
 })
@@ -104,32 +102,34 @@ $('.js_listArea').on('click', function(){
 // 按照单价排序
 $('.js_listPrice').on('click', function(){
   var term = 'price'
-  var sequence = true
-  // console.log('dom', $('.js_listPrice .js_rise'))
-  $('.js_listPrice .js_rise').toggle()
-  $('.js_listPrice .js_drop').toggle()
-  // console.log('aasadadas', $('.js_listPrice .js_drop').is(':hidden'))
-  sequence = $('.js_listPrice .js_drop').is(':hidden')
+  var obj = '.js_listPrice'
+  var sequence = changeOrder(obj)
   var html = order(houseDetail, sequence, term)
   createVal(html) 
 })
+
+// 按照总价进行排序
+$('.js_listTotal').on('click', function() {
+  console.log('ssssss', $(this).siblings().find('.js_price_up_before'))
+  var term = 'total'
+  var obj = '.js_listTotal'
+  var sequence = changeOrder(obj)
+  var html = order(houseDetail, sequence, term)
+  createVal(html)
+})
+
+// 重置图标
+function changePic() {
+  $('#buildList').find('.js_price_up_after').css('display', 'block')
+  $('#buildList').find('.js_price_up_before').css('display', 'none')
+  $('#buildList').find('.js_price_down_after').css('display', 'block')
+  $('#buildList').find('.js_price_down_before').css('display', 'none')
+}
+
 // 排序
 function order(houseDetail, sequence, term) {
+  // console.log('排序', houseDetail)
   if(sequence) {
-    for(var i = 0; i < houseDetail.length; i++) {
-      for(var k = 0; k < houseDetail.length; k++) {
-        var area1 = parseFloat(houseDetail[i][term])
-        var area2 = parseFloat(houseDetail[k][term])
-        if(area1 > area2) {
-          var item = houseDetail[i]
-          houseDetail[i] = houseDetail[k]
-          houseDetail[k] = item
-        }
-      }
-    }
-    // console.log('hhhhh', houseDetail)
-    return houseDetail
-  } else {
     for(var i = 0; i < houseDetail.length; i++) {
       for(var k = 0; k < houseDetail.length; k++) {
         var area1 = parseFloat(houseDetail[i][term])
@@ -141,9 +141,43 @@ function order(houseDetail, sequence, term) {
         }
       }
     }
-    // console.log('hhhhh', houseDetail)
+    // console.log('33333', houseDetail)
+    return houseDetail
+  } else {
+    for(var i = 0; i < houseDetail.length; i++) {
+      for(var k = 0; k < houseDetail.length; k++) {
+        var area1 = parseFloat(houseDetail[i][term])
+        var area2 = parseFloat(houseDetail[k][term])
+        if(area1 > area2) {
+          var item = houseDetail[i]
+          houseDetail[i] = houseDetail[k]
+          houseDetail[k] = item
+        }
+      }
+    }
+    // console.log('11111', houseDetail)
     return houseDetail
   }
+}
+
+// 控制图标显示与隐藏
+function changeOrder(obj) {
+  var sequence = true
+  $(obj).siblings().find('.js_price_up_before').css('display', 'none')
+  $(obj).siblings().find('.js_price_up_after').css('display', 'block')
+  $(obj).siblings().find('.js_price_down_before').css('display', 'none')
+  $(obj).siblings().find('.js_price_down_after').css('display', 'block')
+  $(''+obj+' .js_price_up_after').toggle()
+  $(''+obj+' .js_price_up_before').toggle()
+  if(!$(''+obj+' .js_price_up_after').is(':hidden')) {
+    $(''+obj+' .js_price_down_after').css('display', 'none')
+    $(''+obj+' .js_price_down_before').css('display', 'block')
+  } else {
+    $(''+obj+' .js_price_down_after').css('display', 'block')
+    $(''+obj+' .js_price_down_before').css('display', 'none')
+  }
+  sequence = $(''+obj+' .js_price_up_after').is(':hidden')
+  return sequence
 }
 
 // 通过dom节点获取blade模板渲染出的数据

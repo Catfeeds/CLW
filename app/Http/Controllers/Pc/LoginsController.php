@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Pc;
+namespace App\Http\Controllers\PC;
 
+use App\Models\Custom;
+use App\Models\OfficeBuildingHouse;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-
 
 class LoginsController extends Controller
 {
@@ -15,6 +16,7 @@ class LoginsController extends Controller
     {
         return view('home.login');
     }
+
     
     //登录
     public function store(Request $request)
