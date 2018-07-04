@@ -29,7 +29,7 @@ var data = {
     acreage: $('#search').data('acreage') ? $('#search').data('acreage') : '',
     unit_price: $('#search').data('unit_price') ? $('#search').data('unit_price') : '',
     renovation: $('#search').data('renovation') ? $('#search').data('renovation') : '',
-    price_sort: $('#search').data('keyword') ? $('#search').data('price_sort') : '' // ASC [DESC] 价格排序
+    price_sort: $('#search').data('price_sort') ? $('#search').data('price_sort') : '' // ASC [DESC] 价格排序
 
     // 判断 是否展示 已选
 };var condition = false;
@@ -39,8 +39,9 @@ if (data.area_id == '') data.block_id = '';
 // 检查当前已选
 for (var key in data) {
     if (data[key] !== '') {
-        condition = true;
         var dom = '.' + key;
+        if ($(dom).length == 0) continue;
+        condition = true;
         if ($(dom).length !== 1) {
             html = '';
             $(dom).each(function () {
@@ -106,11 +107,26 @@ $('.js_features').click(function () {
     window.location.href = createURL('building_list', data);
 });
 // 搜索关键词
-
 $('.serch_btn').click(function () {
     window.location.href = createURL('building_list', { keyword: $('.serch_inp').val() });
 });
 
+// 价格排序
+$('.js_price_sort').click(function () {
+    var contont = $(this).data('content');
+    if (contont == '' || contont == 'desc') {
+        data.price_sort = 'asc';
+    } else {
+        data.price_sort = 'desc';
+    }
+    window.location.href = createURL('building_list', data);
+});
+
+// 默认排序
+$('.js_price_default').click(function () {
+    data.price_sort = '';
+    window.location.href = createURL('building_list', data);
+});
 function removeData() {
     return {
         area_id: '',
