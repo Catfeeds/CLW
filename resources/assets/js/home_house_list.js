@@ -1,5 +1,11 @@
 require('./home_common');
+var findHouse = require('./components/findHouse.vue')
 
+
+new Vue ({
+    el:".findHouse",
+    components: { findHouse }
+});
 
 /**
  * 

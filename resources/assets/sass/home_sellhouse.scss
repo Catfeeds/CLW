@@ -1,0 +1,29 @@
+@import 'home_master';
+body {
+  background-color: #eee;
+  .container {
+    width: 100%;
+    padding-top: 98px;
+    .title {
+      text-align: center;
+      color:#fff;
+      font-size: 46px;
+      margin: 0 auto;
+      margin-bottom: 18px;
+    }
+    .min_title {
+      text-align: center;
+      color:#fff;
+      margin: 0 auto;
+      font-size: 20px;
+      margin-bottom: 38px;
+    }
+    .form_container {
+      border-radius: 11px;
+      width: 22%;
+      height: 474px;
+      background-color: #fff;
+      margin: 0 auto;
+    }
+  }
+}
