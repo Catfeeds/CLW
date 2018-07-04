@@ -91,7 +91,6 @@ class BuildingsController extends Controller
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
-
         return view('home.house_list', [
             'house_count' => $res['house_count'],
             'areas' => $areas,
