@@ -13,6 +13,10 @@
           <input type="password" placeholder="请输入密码" id="password" name="password" />
           <button class="login_btn" name="login_btn">登录</button>
         </form>
+        <div class="others">
+            <a href="{{url('/register')}}" class="forget">忘记密码</a>
+            <a href="{{url('/register')}}" class="register">新用户注册</a>
+        </div>
       </div>
     </div>
   </div>

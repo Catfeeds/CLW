@@ -21,7 +21,11 @@ class HotBlocksRepository extends Model
     //pc端核心商圈
     public function getList()
     {
-        return HotBlock::take(5)->where('pc_img', '!=', null)->get();
+        $res = HotBlock::with('block')->take(5)->where('pc_img', '!=', null)->get();
+        foreach ($res as $v) {
+            $v->area_id = $v->block->area_id;
+        }
+        return $res;
     }
 
     /**

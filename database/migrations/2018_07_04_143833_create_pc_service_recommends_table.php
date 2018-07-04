@@ -18,6 +18,7 @@ class CreatePcServiceRecommendsTable extends Migration
             $table->string('pic','128')->nullable()->comment('图片');
             $table->string('url','32')->nullable()->comment('推荐服务商品url');
             $table->timestamps();
+            $table->softDeletes();
         });
         DB::statement("alter table `pc_service_recommends` comment'pc端推荐服务商铺管理'");
     }

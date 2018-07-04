@@ -19,7 +19,6 @@ class OfficeBuildingHousesController extends Controller
     {
         $house = $service->getShow($officeBuildingHouse);
         $rimHouse = $buildingHousesRepository->getShowOffice($service, $officeBuildingHouse->id)->take(4);
-        // dd($house->toArray());
         return view('home.house_detail', ['house' => $house, 'rimHouse' => $rimHouse]);
     }
 

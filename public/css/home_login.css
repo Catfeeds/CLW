@@ -291,6 +291,10 @@ body .container .login_container .form_box .title {
   text-align: center;
 }
 
+body .container .login_container .form_box form {
+  margin-bottom: 20px;
+}
+
 body .container .login_container .form_box form #username,
 body .container .login_container .form_box form #password {
   width: 300px;
@@ -300,12 +304,12 @@ body .container .login_container .form_box form #password {
   border: 1px solid #e4e4e4;
   margin-left: 40px;
   padding-left: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   outline: #1abc9c;
 }
 
 body .container .login_container .form_box form .login_btn {
-  margin-top: 50px;
+  margin-top: 30px;
   width: 300px;
   height: 50px;
   margin-left: 40px;
@@ -319,6 +323,26 @@ body .container .login_container .form_box form .login_btn {
 
 body .container .login_container .form_box form .login_btn:hover {
   background-color: rgba(0,144,255,0.7);
+}
+
+body .container .login_container .form_box .others .forget,
+body .container .login_container .form_box .others .register {
+  color: #007bff;
+  float: left;
+  margin-left: 40px;
+}
+
+body .container .login_container .form_box .others .register {
+  float: right;
+  margin-right: 40px;
+}
+
+body .container .login_container .form_box .others::after {
+  content: '';
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  clear: both;
 }
 
 input.error {

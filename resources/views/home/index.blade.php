@@ -21,40 +21,17 @@
         </h5>
         <ul class="select-area-list">
           <li class="select-area-item">
-            <a href="javascript:void(0)">全部</a>
+            <a href="{{url('/building_list')}}">全部</a>
           </li>
+         @foreach ($area as $area_item)
+            @if(!in_array($area_item->name, ['东西湖区', '新洲区', '蔡甸区']))
+              <li class="select-area-item">
+              <a href="{{url('/building_list?area_id='.$area_item->id)}}">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
+              </li>
+            @endif
+         @endforeach
           <li class="select-area-item">
-            <a href="javascript:void(0)">武昌</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">洪山</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">江夏</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">江岸</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">江汉</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">黄陂</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">硚口</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">汉阳</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">汉南</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">青山</a>
-          </li>
-          <li class="select-area-item">
-            <a href="javascript:void(0)">更多>></a>
+            <a href="{{url('/building_list')}}">更多>></a>
           </li>
           <li class="clearfloat"></li>
         </ul>
@@ -62,11 +39,11 @@
           面积(㎡)
         </h5>
         <div class="select-click-list">
-          <a class="select-click-item" title="0～100㎡" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="100～300㎡" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="300～500㎡" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="500～1000㎡" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="1000㎡以上" href="javascript:void(0)"></a>
+        <a class="select-click-item" title="0～100㎡" href="{{url('/building_list?acreage=0-100')}}"></a>
+        <a class="select-click-item" title="100～300㎡" href="{{url('/building_list?acreage=100-300')}}"></a>
+          <a class="select-click-item" title="300～500㎡" href="{{url('/building_list?acreage=300-500')}}"></a>
+          <a class="select-click-item" title="500～1000㎡" href="{{url('/building_list?acreage=500-1000')}}"></a>
+          <a class="select-click-item" title="1000㎡以上" href="{{url('/building_list?acreage=1000-10000')}}"></a>
           <div class="clearfloat"></div>
         </div>
         <div class="select-characterization-list">
@@ -82,12 +59,12 @@
           价格(元/㎡·月)
         </h5>
         <div class="select-click-list special-style">
-          <a class="select-click-item" title="0～40元/㎡·月" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="40～60元/㎡·月" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="60～80元/㎡·月" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="80～120元/㎡·月" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="120～140元/㎡·月" href="javascript:void(0)"></a>
-          <a class="select-click-item" title="140元/㎡·月以上" href="javascript:void(0)"></a>
+          <a class="select-click-item" title="0～40元/㎡·月" href="{{url('/building_list?unit_price=0-40')}}"></a>
+          <a class="select-click-item" title="40～60元/㎡·月" href="{{url('/building_list?unit_price=40-60')}}"></a>
+          <a class="select-click-item" title="60～80元/㎡·月" href="{{url('/building_list?unit_price=60-80')}}"></a>
+          <a class="select-click-item" title="80～120元/㎡·月" href="{{url('/building_list?unit_price=80-120')}}"></a>
+          <a class="select-click-item" title="120～140元/㎡·月" href="{{url('/building_list?unit_price=120-140')}}"></a>
+          <a class="select-click-item" title="140元/㎡·月以上" href="{{url('/building_list?unit_price=140-1000')}}"></a>
           <div class="clearfloat"></div>
         </div>
         <div class="select-characterization-list special-style">
@@ -224,86 +201,50 @@
     <div class="elaborate-title">享优质配套 与大咖公司为邻</div>
     <div class="topic-content">
       <ul class="commercial-center-list">
-        <li class="commercial-center-item">
-          <a href="javascript:void(0)">
-            <img src="home_img/temp_1.jpg" alt="光谷">
-          </a>
-        </li>
-        <li class="commercial-center-item">
-          <a href="javascript:void(0)">
-            <img src="home_img/temp_2.jpg" alt="关山">
-          </a>
-        </li>
-        <li class="commercial-center-item">
-          <a href="javascript:void(0)">
-            <img src="home_img/temp_3.jpg" alt="中北路">
-          </a>
-        </li>
-        <li class="commercial-center-item">
-          <a href="javascript:void(0)">
-            <img src="home_img/temp_4.jpg" alt="洪山广场">
-          </a>
-        </li>
-        <li class="commercial-center-item">
-          <a href="javascript:void(0)">
-            <img src="home_img/temp_5.jpg" alt="傅家坡">
-          </a>
-        </li>
+        @foreach ( $coreBlock as $coreBlock_item )
+          <li class="commercial-center-item">
+            <a href="{{url('/building_list?area_id='.$coreBlock_item->area_id.'&block_id='.$coreBlock_item->block_id)}}">
+              <img src="{{$coreBlock_item->pc_img}}">
+            </a>
+          </li>
+        @endforeach
       </ul>
     </div>
-    <a href="javascript:void(0)" class="more-info">查看更多</a>
+    <a href="{{url('/building_list')}}" class="more-info">查看更多</a>
 </div>
 <div class="topic-box">
   <h2 class="topic-title">精选专题</h2>
   <div class="elaborate-title">优质写字楼 聚你所需</div>
   <div class="topic-content">
     <ul class="careful-select-list">
-      <li class="careful-select-item">
-        <a href="javascript:void(0)">
-          <img src="home_img/temps_01.jpg" alt="IT精选">
-        </a>
-      </li>
-      <li class="careful-select-item">
-        <a href="javascript:void(0)">
-          <img src="home_img/temps_02.jpg" alt="临江地域">
-        </a>
-      </li>
-      <li class="careful-select-item">
-        <a href="javascript:void(0)">
-          <img src="home_img/temps_03.jpg" alt="高性价">
-        </a>
-      </li>
-      <li class="careful-select-item">
-        <a href="javascript:void(0)">
-          <img src="home_img/temps_04.jpg" alt="大人流">
-        </a>
-      </li>
-      <li class="careful-select-item">
-        <a href="javascript:void(0)">
-          <img src="home_img/temps_05.jpg" alt="临江地域">
-        </a>
-      </li>
+      @foreach ( $recommends as $recommends_item )
+        <li class="careful-select-item">
+        <a href="javascript:void(0)" title="{{$recommends_item->title}}">
+            <img src="{{$recommends_item->pc_pic}}" alt="{{$recommends_item->title}}">
+          </a>
+        </li>
+      @endforeach
     </ul>
   </div>
-  <a href="javascript:void(0)" class="more-info">查看更多</a>
+<a href="{{url('/building_list')}}" class="more-info">查看更多</a>
 </div>
 <div class="topic-box">
   <h2 class="topic-title">精品写字楼</h2>
   <div class="elaborate-title">配套成熟，量身定制</div>
   <div class="topic-content">
     <ul class="fine-quality-list">
-      @for($i = 0; $i < 10; $i++) 
+      @foreach ( $eliteBuilding as $eliteBuilding_item )
         <li class="fine-quality-item">
-          <a href="javascript:void(0)">
+          <a href="{{url('/buildings').'/'.$eliteBuilding_item->id}}">
             <div class="img-box">
-              <img src="/home_img/templsit_3.png" alt="国际中心">
+              <img src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
             </div>
             <div class="text-box">
-              <h3>汉街万达环球国际中心</h3>
+              <h3>{{$eliteBuilding_item->name}}</h3>
               <div class="orther-info">
-                <span class="position-box"><img src="/home_img/index_position.png" alt="">武昌-中北路</span>
+                <span class="position-box"><img src="/home_img/index_position.png" alt="">{{$eliteBuilding_item->address_cn}}</span>
                 <span class="price-box">
-                  <b class="num-box">90</b>
+                  <b class="num-box">{{explode('元', $eliteBuilding_item->avg_price)[0]}}</b>
                   元/㎡·月
                 </span>
                 <div class="clearfloat"></div>
@@ -311,11 +252,11 @@
             </div>
           </a>
         </li>
-      @endfor
+      @endforeach
       <li class="clearfloat"></li>
     </ul>
   </div>
-  <a href="javascript:void(0)" class="more-info">查看更多</a>
+  <a href="{{url('/building_list')}}" class="more-info">查看更多</a>
 </div>
 <div class="topic-box">
   <h2 class="topic-title">推荐服务</h2>
@@ -357,20 +298,18 @@
   <div class="topic-content">
     <div class="infamation-left">
       <ul class="infamation-list">
-        @for($j = 0; $j < 3; $j++) 
+        @for($j = 0; $j < 3; $j++)
           <li class="infamation-item">
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)" title="{{$information[$j]->title}}">
               <div class="float-left">
-                <img src="/home_img/tempss_1.jpg" alt="">
+              <img src="{{$information[$j]->banner_cn}}" alt="{{$information[$j]->title}}">
               </div>
               <div class="float-right">
-                <h3>行业资讯|2018年北京写字楼市场将呈现几个关键词索引哈哈哈哈哈</h3>
+                <h3>{{$information[$j]->title}}</h3>
                 <p>
-                    @for($i = 0; $i < 4; $i++) 
-                      行业资讯北京写字楼市场将呈现几个关引哈哈哈哈哈
-                    @endfor
+                    {{$information[$j]->brief}}
                 </p>
-                <div class="time-box">2018-08-18 08:18:18</div>
+                <div class="time-box">{{$information[$j]->created_at}}</div>
               </div>
               <div class="clearfloat"></div>
             </a>
@@ -382,16 +321,16 @@
       <h3>热点资讯</h3>
       <ul class="hot-infomation-list">
         @for($j = 0; $j < 4; $j++)
-          <li class="hot-infomation-item">
-            <a href="javascript:void(0)">
-              <h4>行业资讯|2018年北京写字楼市场将呈现几个关键词索引哈哈哈哈哈</h4>
-              <p>
-                @for($i = 0; $i < 4; $i++) 
-                  行业资讯北京写字楼市场将呈现几个关引哈哈哈哈哈
-                @endfor
-              </p>
-            </a>
-          </li>
+          @if(!empty($hotInformation[$j]))
+            <li class="hot-infomation-item">
+            <a href="javascript:void(0)" title="{{$hotInformation[$j]->title}}">
+                <h4>{{$hotInformation[$j]->title}}</h4>
+                <p>
+                    {{$hotInformation[$j]->brief}}
+                </p>
+              </a>
+            </li>
+          @endif
         @endfor
       </ul>
     </div>

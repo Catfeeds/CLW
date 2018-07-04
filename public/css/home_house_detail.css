@@ -276,7 +276,7 @@ body {
 nav {
   width: 100%;
   position: absolute;
-  z-index: 6;
+  z-index: 999;
 }
 
 nav.active {
@@ -298,6 +298,12 @@ nav.active .nav-content {
   padding: 10px 0;
 }
 
+nav.active .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
 nav.active .nav-content .nav-list .nav-item a {
   color: #666666;
   font-family: NotoSansHans-Regular;
@@ -306,6 +312,7 @@ nav.active .nav-content .nav-list .nav-item a {
 
 nav.active .nav-content .login-box .tel-box {
   width: 196px;
+  height: 24px;
 }
 
 nav.active .nav-content .login-box .user-login-box div.active-line {

@@ -62,13 +62,11 @@
               margin: 0 auto;
               width: 214px;
               height: 41px;
-              background-image: linear-gradient(-90deg,#2a59db 0%,#5c85f6 100%), 
-              linear-gradient(#fff200,#fff200);
-              background-blend-mode: normal,normal;
-              box-shadow: 0px 7px 6px 0pxrgba(53, 53, 53, 0.19);
+              background-image: linear-gradient(-90deg,#2a59db 0%,#5c85f6 100%),linear-gradient(#fff200,#fff200);
               border-radius: 20px;
               line-height: 41px;
               margin-bottom: 51px;
+              box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);
               a{
                 font-size: 18px;
                 color:#fff;

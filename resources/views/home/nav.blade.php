@@ -6,10 +6,10 @@
     </div>
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="javascript:void(0)">首页</a>
+        <a href="{{url('/')}}">首页</a>
       </li>
       <li class="nav-item">
-        <a href="javascript:void(0)">写字楼出租</a>
+        <a href="{{url('/building_list')}}">写字楼出租</a>
       </li>
       <li class="nav-item">
         <a href="javascript:void(0)">企业服务</a>
