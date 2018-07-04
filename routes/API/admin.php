@@ -252,5 +252,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('set_top/{id}', 'InformationController@setTop');
         Route::get('del_top/{id}', 'InformationController@delTop');
 
+        //pc端企业服务管理
+
+
     });
+    Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
 });
