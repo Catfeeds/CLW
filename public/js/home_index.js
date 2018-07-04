@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 webpackJsonp([3],[
 /* 0 */,
 /* 1 */,
@@ -6,6 +7,81 @@ webpackJsonp([3],[
 /* 4 */,
 /* 5 */,
 /* 6 */
+=======
+webpackJsonp([2],{
+
+/***/ 100:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 102:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 104:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 105:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 106:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 107:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 108:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 109:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 8:
+>>>>>>> origin/master
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5365,6 +5441,7 @@ else if (typeof define === 'function' && define.amd) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 7 */,
 /* 8 */,
 /* 9 */,
@@ -5428,11 +5505,41 @@ module.exports = __webpack_require__(61);
 
 __webpack_require__(1);
 var Swiper = __webpack_require__(6);
+=======
+
+/***/ 92:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(93);
+__webpack_require__(97);
+__webpack_require__(98);
+__webpack_require__(99);
+__webpack_require__(100);
+__webpack_require__(101);
+__webpack_require__(102);
+__webpack_require__(103);
+__webpack_require__(104);
+__webpack_require__(105);
+__webpack_require__(106);
+__webpack_require__(107);
+__webpack_require__(108);
+module.exports = __webpack_require__(109);
+
+
+/***/ }),
+
+/***/ 93:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(5);
+var Swiper = __webpack_require__(8);
+>>>>>>> origin/master
 var mySwiper = new Swiper('.swiper-container', {
   autoplay: 3000
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 46 */,
 /* 47 */,
 /* 48 */
@@ -5445,69 +5552,24 @@ var mySwiper = new Swiper('.swiper-container', {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+=======
+>>>>>>> origin/master
 
-/***/ }),
-/* 50 */
+/***/ 97:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 51 */
+
+/***/ 98:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 60 */
+/***/ 99:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -5519,4 +5581,9 @@ var mySwiper = new Swiper('.swiper-container', {
 // removed by extract-text-webpack-plugin
 
 /***/ })
+<<<<<<< HEAD
 ],[44]);
+=======
+
+},[92]);
+>>>>>>> origin/master

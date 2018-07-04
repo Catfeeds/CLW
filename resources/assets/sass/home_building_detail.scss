@@ -133,9 +133,17 @@
               }
             }
             .introBetter{
-              padding: 15px;
+              height: 90px;
               display: flex;
-              justify-content: space-between;
+              justify-content: flex-start;
+              .betterTitle{
+                margin-left: 25px;
+                line-height: 90px;
+              }
+              .betterDetail{
+                height: 28px;
+                line-height: 28px;
+              }
             }
           }
           .filter{

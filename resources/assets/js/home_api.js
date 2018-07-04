@@ -1,8 +1,8 @@
 import request from './home_request'
 
-export function getAreaList() {
+export function getRegionList() {
   return request({
-    url: '/getArea',
+    url: '/getRegionList',
     methods: 'GET'
   })
 }
@@ -18,6 +18,13 @@ export function getBlock() {
 export function getBuildList() {
     return request({
         url: '/getBuildList',
+        methods: 'GET'
+    })
+}
+
+export function getSiteList() {
+    return request({
+        url: '/getSiteList',
         methods: 'GET'
     })
 }

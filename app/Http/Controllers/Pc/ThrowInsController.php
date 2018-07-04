@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\PC;
 
-
-use App\Http\Controllers\API\APIBaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\ThrowInsRequest;
 use App\Repositories\ThrowInsRepository;
@@ -25,7 +23,7 @@ class ThrowInsController extends Controller
         ThrowInsRequest $request
     )
     {
-        if (empty($res = $repository->addThrowIn($request, 'App'))) return $this->sendError('投放失败');
+        if (empty($res = $repository->addThrowIn($request, 'PC'))) return $this->sendError('投放失败');
         return $this->sendResponse($res, '投放房源添加成功');
     }
 }

@@ -45,21 +45,22 @@
                             <a href="#"><div class="introMap"><img src="/home_img/house_detail_map.png"> 查看地图</div></a>
                         </div>
                         <div class="introBetter">
-                            <div class="introBetter">
+                            <div class="betterTitle">楼盘特色: </div>
+                            <div class="betterDetail">
                                 <img src="/home_img/build_detail_subway.png">
-                                <div>地铁10分钟</div>
+                                <span>地铁10分钟</span>
                             </div>
-                            <div>
+                            <div class="betterDetail">
                                 <img src="/home_img/build_detail_landmark.png">
-                                <div>地标建筑</div>
+                                <span>地标建筑</span>
                             </div>
-                            <div>
+                            <div class="betterDetail">
                                 <img src="/home_img/build_detail_pioneer_park .png">
-                                <div>创业园</div>
+                                <span>创业园</span>
                             </div>
-                            <div>
+                            <div class="betterDetail">
                                 <img src="/home_img/build_detail_register.png">
-                                <div>可注册</div>
+                                <span>可注册</span>
                             </div>
                             @foreach($building->feature_name_pic as $feature)
                             <div><img src="{{$feature}}"></div>

@@ -69,8 +69,7 @@ class Common
         return array(
             'current_page' => $page??1,
             'data' => $data,
-            'per_page' => 10,
-
+            'per_page' => 10
         );
     }
 }

@@ -1,18 +1,33 @@
 webpackJsonp([7],{
 
+<<<<<<< HEAD
 /***/ 139:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(140);
+=======
+/***/ 264:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(265);
+>>>>>>> origin/master
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 140:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
 var Swiper = __webpack_require__(6);
+=======
+/***/ 265:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(5);
+var Swiper = __webpack_require__(8);
+>>>>>>> origin/master
 
 var mySwiper1 = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
@@ -32,7 +47,11 @@ var mySwiper2 = new Swiper('.swiper-container1', {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 6:
+=======
+/***/ 8:
+>>>>>>> origin/master
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5393,4 +5412,8 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ })
 
+<<<<<<< HEAD
 },[139]);
+=======
+},[264]);
+>>>>>>> origin/master

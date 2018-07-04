@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Pc;
 
 use App\Http\Controllers\Controller;
+use App\Models\Area;
+use App\Models\Block;
 use App\Models\Building;
+use App\Models\BuildingFeature;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use Illuminate\Http\Request;
@@ -39,6 +42,57 @@ class BuildingsController extends Controller
         $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
         // return $likeBuilding;
         return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block]);
+    }
+
+    // 楼盘列表
+    public function buildingList(
+        Request $request,
+        BuildingsRepository $buildingsRepository,
+        BuildingsService $service
+    )
+    {
+        // 获取区域
+        $allAreas = Area::all();
+        $areas = $allAreas->map(function($v) {
+            return [
+                'id' => $v->id,
+                'name' => $v->name,
+            ];
+        });
+
+        // 获取区域
+        $blocks = array();
+        if (!empty($request->area_id)) {
+            $blocks = Block::where('area_id', $request->area_id)->pluck('name','id')->toArray();
+        }
+
+        // 获取特色
+        $buildingFeatures = BuildingFeature::pluck('name','id')->toArray();
+        // 楼盘列表数据
+        $res = $buildingsRepository->buildingList($request, $service, null,true,true);
+        return view('home.house_list', [
+            'house_count' => $res['house_count'],
+            'areas' => $areas,
+            'blocks' => $blocks,
+            'buildingFeatures' => $buildingFeatures,
+            'Results'=>$res['data'],
+            'page' => $res['page'],
+            'request' => $request->all(),
+            'count' => $res['house_count']
+        ]);
+    }
+
+    public function buildingSearch(
+        Request $request
+    )
+    {
+
+
+        $res = \DB::select("select * from media.building_keywords where MATCH(keywords) AGAINST('1' IN BOOLEAN MODE)");
+        dd($res);
+
+
+
     }
 
 }

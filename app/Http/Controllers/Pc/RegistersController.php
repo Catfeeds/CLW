@@ -12,7 +12,6 @@ class RegistersController extends Controller
     //注册页面
     public function index()
     {
-        return view('test');
         return '注册页面';
     }
 
@@ -24,8 +23,7 @@ class RegistersController extends Controller
     )
     {
         $res = $service->weAddUser($request);
-        if (empty($res['status'])) return $this->sendError($res['message']);
-        return $this->sendResponse($res,'注册成功');
+        return '跳转首页';
     }
 
 

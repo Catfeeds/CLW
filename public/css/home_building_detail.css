@@ -427,13 +427,23 @@ a[href] {
 }
 
 .content .build .first .left .intro .introBetter {
-  padding: 15px;
+  height: 90px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.content .build .first .left .intro .introBetter .betterTitle {
+  margin-left: 25px;
+  line-height: 90px;
+}
+
+.content .build .first .left .intro .introBetter .betterDetail {
+  height: 28px;
+  line-height: 28px;
 }
 
 .content .build .first .left .filter {
