@@ -30,7 +30,9 @@ class BuildingFeaturesRepository extends Model
         return BuildingFeature::create([
             'name' => $request->name,
             'weight' => $request->weight,
-            'pic' => $request->pic
+            'pic' => $request->pic,
+            'pc_pic' => $request->pc_pic
+
         ]);
     }
 
@@ -47,6 +49,7 @@ class BuildingFeaturesRepository extends Model
         $buildingFeatures->name = $request->name;
         $buildingFeatures->weight = $request->weight;
         $buildingFeatures->pic = $request->pic;
+        $buildingFeatures->pc_pic = $request->pc_pic;
         if (!$buildingFeatures->save()) return false;
         return true;
     }

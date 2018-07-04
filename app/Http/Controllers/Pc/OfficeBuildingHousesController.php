@@ -19,7 +19,6 @@ class OfficeBuildingHousesController extends Controller
     {
         $house = $service->getShow($officeBuildingHouse);
         $rimHouse = $buildingHousesRepository->getShowOffice($service, $officeBuildingHouse->id);
-        dd($rimHouse);
         return '房源详情';
     }
 
