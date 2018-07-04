@@ -190,7 +190,7 @@
                         <div class="title_right">
                             <div class="sort_default" @if(empty($request['price_sort']))style="background: #03a2fb" @endif><a href="javascript:void(0);">默认</a></div>
                             <div class="sort_price">
-                                <a href="javascript:void(0);" class="js_order_price order_price js_set">
+                                <a href="javascript:void(0);" class="js_order_price order_price js_set" data-dom="price_sort" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
                                     <span class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc')style="background-color: #03a2fb" @endif">▲</span>
                                     <span class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc')style="background-color: #03a2fb" @endif">▼</span>
@@ -225,7 +225,7 @@
                                                         <div style="position: relative">
                                                             <img src="{{$pchouse->indoor_img_cn}}" alt=""
                                                                  style="width:200px;height: 160px">
-                                                            <span class="renovation">{{$pchouse->renovation_cn}}</span>
+                                                            <span class="zx">{{$pchouse->renovation_cn}}</span>
                                                         </div>
                                                         <div>{{$pchouse->constru_acreage}}㎡</div>
                                                         <div>{{$pchouse->unit_price}}元/㎡</div>

@@ -42,6 +42,8 @@ for (var key in data) {
         condition = true;
         var dom = '.' + key;
         if ($(dom).length !== 1) {
+            console.log('dom', dom);
+            console.log('dom', $(dom));
             html = '';
             $(dom).each(function () {
                 html += '<div class="selected js_special">' + $(this).data('content') + '<span data-dom="' + $(this).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
