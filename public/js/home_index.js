@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-webpackJsonp([3],[
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
-=======
-webpackJsonp([2],{
+webpackJsonp([3],{
 
 /***/ 100:
 /***/ (function(module, exports) {
@@ -80,8 +70,14 @@ webpackJsonp([2],{
 
 /***/ }),
 
+/***/ 110:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 8:
->>>>>>> origin/master
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5441,76 +5437,11 @@ else if (typeof define === 'function' && define.amd) {
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */
+
+/***/ 93:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(45);
-__webpack_require__(48);
-__webpack_require__(49);
-__webpack_require__(50);
-__webpack_require__(51);
-__webpack_require__(52);
-__webpack_require__(53);
-__webpack_require__(54);
-__webpack_require__(55);
-__webpack_require__(56);
-__webpack_require__(57);
-__webpack_require__(58);
-__webpack_require__(59);
-__webpack_require__(60);
-module.exports = __webpack_require__(61);
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(1);
-var Swiper = __webpack_require__(6);
-=======
-
-/***/ 92:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(93);
+__webpack_require__(94);
 __webpack_require__(97);
 __webpack_require__(98);
 __webpack_require__(99);
@@ -5523,37 +5454,22 @@ __webpack_require__(105);
 __webpack_require__(106);
 __webpack_require__(107);
 __webpack_require__(108);
-module.exports = __webpack_require__(109);
+__webpack_require__(109);
+module.exports = __webpack_require__(110);
 
 
 /***/ }),
 
-/***/ 93:
+/***/ 94:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
 var Swiper = __webpack_require__(8);
->>>>>>> origin/master
 var mySwiper = new Swiper('.swiper-container', {
   autoplay: 3000
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 46 */,
-/* 47 */,
-/* 48 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-=======
->>>>>>> origin/master
 
 /***/ 97:
 /***/ (function(module, exports) {
@@ -5574,16 +5490,6 @@ var mySwiper = new Swiper('.swiper-container', {
 
 // removed by extract-text-webpack-plugin
 
-/***/ }),
-/* 61 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
 /***/ })
-<<<<<<< HEAD
-],[44]);
-=======
 
-},[92]);
->>>>>>> origin/master
+},[93]);

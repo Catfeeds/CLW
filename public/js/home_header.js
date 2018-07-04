@@ -1,33 +1,18 @@
 webpackJsonp([10],{
 
-<<<<<<< HEAD
-/***/ 125:
+/***/ 246:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(126);
-=======
-/***/ 245:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(246);
->>>>>>> origin/master
+module.exports = __webpack_require__(247);
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 126:
-=======
-/***/ 246:
->>>>>>> origin/master
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
 
 /***/ })
 
-<<<<<<< HEAD
-},[125]);
-=======
-},[245]);
->>>>>>> origin/master
+},[246]);

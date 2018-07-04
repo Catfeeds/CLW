@@ -46,7 +46,7 @@
                         </div>
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
-                            <div class="betterDetail">
+                            <!-- <div class="betterDetail">
                                 <img src="/home_img/build_detail_subway.png">
                                 <span>地铁10分钟</span>
                             </div>
@@ -61,9 +61,12 @@
                             <div class="betterDetail">
                                 <img src="/home_img/build_detail_register.png">
                                 <span>可注册</span>
-                            </div>
+                            </div> -->
                             @foreach($building->feature_name_pic as $feature)
-                            <div><img src="{{$feature}}"></div>
+                            <div class="betterDetail">
+                                <img src="/home_img/build_detail_subway.png">
+                                <span>地铁10分钟</span>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -140,7 +143,7 @@
                         </div>
                         <div class="js_listDetail">
                             @foreach($houses as $house)
-                            <a href="#">
+                            <a href="{{url('/office_building_houses').'/'.$house->id}}">
                                 <div class="listDetail">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">

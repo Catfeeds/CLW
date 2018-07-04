@@ -9,6 +9,7 @@ use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
 use App\Models\BuildingLabel;
 use App\Models\OfficeBuildingHouse;
+use App\Services\BuildingsService;
 use App\Services\CustomPage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -50,10 +51,10 @@ class BuildingsRepository extends  Model
             $data = $data->forpage($request->page??1, 10);
             return Common::pageData($request->page, $data->values());
         } elseif ($getCount) {
-            $data = $data->forpage($request->page??1, 10);
+            $data = $data->forpage($request->nowPage??1, 10);
             $customPage = new CustomPage();
             $baseUrl = url('/building_list');
-            $page = $customPage->getSelfPageView($request->page??1,$totalPage,$baseUrl,[]);
+            $page = $customPage->getSelfPageView($request->nowPage??1,$totalPage,$baseUrl,[]);
 
             return [
                 'house_count' => $houses->count(),
@@ -434,6 +435,23 @@ class BuildingsRepository extends  Model
     public function getBuildingFeatureList()
     {
         return BuildingFeature::all();
+    }
+
+    //获取精选写字楼
+    public function getEliteBuilding()
+    {
+        $service = new BuildingsService();
+        $tmp = DB::select('select id from `media`.`buildings` where exists (select * from `building_labels` where `media`.`buildings`.`id` = `building_labels`.`building_id`)');
+        $building_id = collect($tmp)->pluck('id')->toArray();
+        $res = Building::with('house','area','block')->whereIn('id', $building_id)->paginate(10);
+        foreach ($res as $v) {
+            $service->getAddress($v);
+            $house[] = $v->house;
+            foreach ($house as $value) {
+                $v->avg_price = $service->getBuildingAveragePrice($value);
+            }
+        }
+        return $res;
     }
 
 }
