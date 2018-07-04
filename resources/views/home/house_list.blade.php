@@ -14,7 +14,6 @@
         <div class="serch_area f_r ">
           <input type="text" class="serch_inp" placeholder="搜索关键词">
           <button class="serch_btn"><span></span></button>
-          <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div>
         </div>
       </div>
     </div>

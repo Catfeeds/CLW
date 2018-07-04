@@ -285,7 +285,7 @@ body .house_list_container .house_list_title {
 body .house_list_container .house_list_title .title_content {
   width: 1200px;
   height: 55px;
-  padding: 0 20px;
+  padding-left: 20px;
   margin: 0 auto;
   line-height: 55px;
   min-width: 520px;
@@ -301,7 +301,7 @@ body .house_list_container .house_list_title .title_content .link .homepage:hove
 }
 
 body .house_list_container .house_list_title .title_content .serch_area {
-  padding: 10px 10px;
+  padding: 10px 0 10px 10px;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -340,9 +340,9 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_b
   border: none;
   background-color: #007bff;
   border-radius: 0 25px 25px 0;
-  margin-right: 20px;
   outline: none;
   position: relative;
+  cursor: pointer;
 }
 
 body .house_list_container .house_list_title .title_content .serch_area .serch_btn span {
@@ -355,16 +355,6 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_b
   background: url("/home_img/index_search_btn.png") no-repeat center/20px 20px;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_map a {
-  width: 75px;
-  height: 34px;
-  outline: none;
-  text-align: right;
-  line-height: 34px;
-  border-radius: 5px;
-  font-size: 12px;
-}
-
 body .house_list_container .house_list_content {
   width: 1200px;
   margin: 0 auto;
@@ -374,7 +364,6 @@ body .house_list_container .house_list_content .select_area {
   background-color: #fff;
   width: 100%;
   padding: 0 7px 7px;
-  border-radius: 7px;
   margin-bottom: 20px;
   min-width: 1200px;
 }
@@ -388,7 +377,7 @@ body .house_list_container .house_list_content .select_area .decoration,
 body .house_list_container .house_list_content .select_area .special,
 body .house_list_container .house_list_content .select_area .result {
   width: 100%;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 body .house_list_container .house_list_content .select_area .area .list,
@@ -553,6 +542,10 @@ body .house_list_container .house_list_content .select_area .decoration .list .i
           flex: 0.94;
 }
 
+body .house_list_container .house_list_content .select_area .special {
+  border-bottom: none;
+}
+
 body .house_list_container .house_list_content .select_area .special .list {
   width: 60%;
 }
@@ -571,8 +564,9 @@ body .house_list_container .house_list_content .select_area .special .item:nth-c
 
 body .house_list_container .house_list_content .select_area .result {
   margin-top: 7px;
-  border: 1px solid #f1f1f1;
+  border-top: 1px solid #f1f1f1;
   width: 100%;
+  border-bottom: none;
 }
 
 body .house_list_container .house_list_content .select_area .result .title {
@@ -658,7 +652,6 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   line-height: 50px;
   border-bottom: 1px solid #ededed;
   background-color: #fff;
-  border-radius: 7px 7px 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -707,7 +700,7 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   width: 8px;
   height: 7px;
   position: absolute;
-  left: 30px;
+  left: 35px;
   top: 4px;
   background: url(/home_img/up.png) no-repeat;
 }
@@ -735,7 +728,7 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   width: 8px;
   height: 7px;
   position: absolute;
-  left: 57px;
+  left: 61px;
   top: 4px;
   background: url(/home_img/up.png) no-repeat;
 }
@@ -876,7 +869,6 @@ body .house_list_container .house_list_content .house_list .house_show .paginati
   height: 50px;
   background-color: #fff;
   margin-top: 20px;
-  border-radius: 5px;
   padding-top: 5px;
 }
 
@@ -907,7 +899,7 @@ body .house_list_container .house_list_content .house_list .rent_house .title di
 body .house_list_container .house_list_content .house_list .rent_house .title div:first-child {
   font-size: 28px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house .phone {
