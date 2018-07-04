@@ -18,6 +18,7 @@
       </div>
     </div>
     <div class="house_list_content">
+     <div class="select_box">
       <div class="select_area">
         <div class="area">
           <ul class="list clearfix js_area">
@@ -134,6 +135,7 @@
           <div class="cleaning f_l"><a href="javascript:void(0)" class="js_cleaning">清空</a></div>
         </div>
       </div>
+     </div>
       <div class="house_list">
         <div class="house_show">
           <div class="house_show_title">
