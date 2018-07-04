@@ -29,7 +29,6 @@ var data = {
     acreage: $('#search').data('acreage') ? $('#search').data('acreage') : '',
     unit_price: $('#search').data('unit_price') ? $('#search').data('unit_price') : '',
     renovation: $('#search').data('renovation') ? $('#search').data('renovation') : '',
-    keyword: $('#search').data('keyword') ? $('#search').data('keyword') : '',
     price_sort: $('#search').data('keyword') ? $('#search').data('price_sort') : '' // ASC [DESC] 价格排序
 
     // 判断 是否展示 已选
@@ -72,7 +71,6 @@ $(document).on('click', '.js_close', function () {
 });
 // 监听点击 条件处理
 $('.js_condition').click(function () {
-    date.keyword = '';
     var content = $(this).data('content');
     if (data[$(this).data('dom')] == content) return;
     data[$(this).data('dom')] = content ? content : '';
@@ -83,7 +81,6 @@ $('.js_condition').click(function () {
 });
 // 监听 特色 点击事件
 $('.js_features').click(function () {
-    date.keyword = '';
     // 如果存在 说明该项已被点击 该取消了
     if ($(this).data('type') !== undefined) {
         if (data.features.toString().length !== 1) {
