@@ -3,6 +3,12 @@
   display:block;
   clear:both;
 }
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}
 ::-webkit-input-placeholder { /* WebKit browsers */
   color:    #cccccc;
 }
@@ -21,7 +27,7 @@ input,button,select,textarea{
   outline:none;
 }
 *{
-  font-family: PingFangSC-Medium, sans-serif;
+  font-family: PingFang-SC-Regular, Source Han Sans CN,Arial,'Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeiti,SimHei,sans-serif;
   font-size: 14px;
   font-weight: normal;
   list-style: none;

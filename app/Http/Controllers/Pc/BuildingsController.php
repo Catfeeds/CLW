@@ -86,13 +86,8 @@ class BuildingsController extends Controller
         Request $request
     )
     {
-
-
-        $res = \DB::select("select * from media.building_keywords where MATCH(keywords) AGAINST('1' IN BOOLEAN MODE)");
+        $res = \DB::select("select * from media.building_keywords where MATCH(keywords) AGAINST('光谷' IN BOOLEAN MODE)");
         dd($res);
-
-
-
     }
 
 }
