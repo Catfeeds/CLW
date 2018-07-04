@@ -42,7 +42,7 @@ class BuildingsRepository extends  Model
         $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
 
         $data = $this->buildingDataComplete($buildings, $buildingData, $service);
-        
+
         // 总页数
         $totalPage = ceil($data->count() / 10);
 
@@ -81,6 +81,8 @@ class BuildingsRepository extends  Model
     )
     {
         foreach ($buildingData as $index => $v) {
+            $buildingData[$index]->pc_house = $v->house->take(5);
+
             // 价格及面积区间
             $service->priceAndAcreageSection($v);
 
