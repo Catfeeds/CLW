@@ -557,20 +557,14 @@ a[href] {
 
 .content .build .first .left .buildList .listNav .listArea .listSort .rise {
   height: 6px;
-}
-
-.content .build .first .left .buildList .listNav .listArea .listSort .rise img {
-  position: relative;
-  top: -6px;
+  line-height: 0;
+  margin-top: 17px;
 }
 
 .content .build .first .left .buildList .listNav .listArea .listSort .drop {
+  line-height: 0;
   height: 6px;
-}
-
-.content .build .first .left .buildList .listNav .listArea .listSort .drop img {
-  position: relative;
-  top: -3px;
+  margin-top: 2px;
 }
 
 .content .build .first .left .buildList .listNav .special {
@@ -770,7 +764,7 @@ a[href] {
 }
 
 .content .build .first .right .findHouse {
-  margin-top: 30px;
+  margin-top: 26px;
 }
 
 .content .build .second {
