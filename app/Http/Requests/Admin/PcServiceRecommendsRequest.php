@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PcServiceRecommend extends FormRequest
+class PcServiceRecommendsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,11 +28,13 @@ class PcServiceRecommend extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'url' => 'required'
+                    'pic' => 'required|max:32',
+                    'url' => 'required|max:32'
                 ];
             case 'update':
                 return [
-                    'url' => 'required'
+                    'pic' => 'required|max:32',
+                    'url' => 'required|max:32'
                 ];
             default;
                 return [

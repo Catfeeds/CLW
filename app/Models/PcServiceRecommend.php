@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class PcServiceRecommend extends Model
+class PcServiceRecommend extends BaseModel
 {
     //
 }
