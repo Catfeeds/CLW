@@ -122,6 +122,7 @@ class OfficeBuildingHousesService
      */
     public function getShow($office)
     {
+        dd($office->buildingBlock);
         //楼盘名称
         $office->building_name = $office->buildingBlock->building->name;
         //楼层总数
