@@ -84,14 +84,15 @@ class BuildingsController extends Controller
 
             $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true);
         } else {
-            // 处理价格,面积
+            // 处理价格,面积,特色
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
+
+            if (!empty($request->features) && strlen($request->features) > 1) $request->offsetSet('unit_price', explode('-',$request->features));
 
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
-
         return view('home.house_list', [
             'house_count' => $res['house_count'],
             'areas' => $areas,
