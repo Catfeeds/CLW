@@ -21,6 +21,7 @@ function createURL(url, param) {
     var result = url + "?" + link.substr(1);
     return result;
 }
+// 拿到所有条件值
 var data = {
     area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
     block_id: $('#search').data('block_id') ? $('#search').data('block_id') : '',
@@ -30,27 +31,87 @@ var data = {
     renovation: $('#search').data('renovation') ? $('#search').data('renovation') : '',
     keyword: $('#search').data('keyword') ? $('#search').data('keyword') : '',
     price_sort: $('#search').data('keyword') ? $('#search').data('price_sort') : ''
-};
+    // 判断 是否展示 已选
+};var condition = false;
+// 如果区域为空 商圈也要变为空
 if (data.area_id == '') data.block_id = '';
-// var html = '<div class="selected_box f_l clearfix">'
-//
-// $('.current').each(function () {
-//     if($(this).data('dom') !== undefined){
-//         dom =  $(this).data('dom')
-//         console.log($(this).data('content'))
-//         <div class="selected js_special">创意园区<span class="close"> &nbsp;x</span></div>
-//
-//         html +=  '</div>'
-//
-//     }
-// })
-// var html = '<div class="selected_box f_l clearfix">'
 
+// 检查当前已选
+for (var key in data) {
+    if (data[key] !== '') {
+        condition = true;
+        var dom = '.' + key;
+        if ($(dom).length !== 1) {
+            html = '';
+            $(dom).each(function () {
+                html += '<div class="selected js_special">' + $(this).data('content') + '<span data-dom="' + $(this).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
+            });
+        } else {
+            html = '<div class="selected js_special">' + $(dom).data('content') + '<span data-dom="' + $(dom).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
+        }
 
+        $('.selected_box').append(html);
+    }
+}
+// 展示 已选信息
+if (condition) {
+    $('.js_result').show();
+}
+// 清空处理
+$('.js_cleaning').click(function () {
+    // $('.selected_box').html('')
+    data = {
+        area_id: '',
+        block_id: '',
+        features: '',
+        acreage: '',
+        unit_price: '',
+        renovation: '',
+        keyword: '',
+        price_sort: ''
+    };
+    window.location.href = createURL('building_list', data);
+});
+// 监听删除 某项已选的信息
+$(document).on('click', '.js_close', function () {
+    // $(this).parent().remove()
+    data[$(this).data('dom')] = '';
+    window.location.href = createURL('building_list', data);
+});
+// 监听点击 条件处理
 $('.js_condition').click(function () {
     var content = $(this).data('content');
+    if (data[$(this).data('dom')] == content) return;
     data[$(this).data('dom')] = content ? content : '';
+    // 如果条件切换的的 是区域 则要清空商圈
+    if ($(this).data('dom') == 'area_id') data.block_id = '';
     // console.log($(this).data('dom'), createURL('building_list', data))
+    window.location.href = createURL('building_list', data);
+});
+// 监听 特色 点击事件
+$('.js_features').click(function () {
+    // 如果存在 说明该项已被点击 该取消了
+    if ($(this).data('type') !== undefined) {
+        var dates = data.features.split('-');
+        if (dates.length !== 1) {
+            var string = '';
+            for (var key in dates) {
+                if (dates[key] != $(this).data('content')) {
+                    string += dates[key] + '-';
+                }
+            }
+            data.features = string.substr(0, string.length - 1);
+        } else {
+            data.features = $(this).data('content');
+        }
+    } else {
+        // 添加
+        if (data.features === '') {
+            data.features = $(this).data('content');
+        } else {
+            data.features = data.features + '-' + $(this).data('content');
+        }
+    }
     window.location.href = createURL('building_list', data);
 });
 

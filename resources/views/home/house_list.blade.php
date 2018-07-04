@@ -3,6 +3,23 @@
 <link rel="stylesheet" href="/css/home_pagination.css">
 <link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
 <link rel="stylesheet" href="/css/home_house_list.css">
+<style>
+    .icon{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-position: left -66px;
+        margin-right: 6px;
+        vertical-align: -3px;
+    }
+    .icon-tick{
+        background: url('/home_img/tick.svg');
+    }
+    .icon-untick{
+        background: url('/home_img/untick.svg');
+    }
+
+</style>
 @section('header')
 @section('body')
     <input type="hidden" id="search"
@@ -39,7 +56,7 @@
                         </li>
                         @foreach($areas as $area)
                             <li class="item js_condition" data-content="{{$area['id']}}" data-dom="area_id">
-                                <a data-content="{{$area['name']}}" data-dom="area_id" class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])current @endif">{{$area['name']}}</a>
+                                <a data-content="{{$area['name']}}" data-dom="area_id" class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])area_id current @endif">{{$area['name']}}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -50,7 +67,7 @@
                             {{--<li class="sanjiao"><a href="javascript:void(0);">光谷</a></li>--}}
                             @foreach($blocks as $key => $block)
                                 <li class="js_condition" data-content="{{$key}}" data-dom="block_id">
-                                    <a data-content="{{$block}}" data-dom="block_id" class="@if(!empty($request['block_id'])&&$request['block_id']==$key)current @endif"
+                                    <a data-content="{{$block}}" data-dom="block_id" class="@if(!empty($request['block_id'])&&$request['block_id']==$key)block_id current @endif"
                                             data-content="{{$key}}">{{$block}}
                                     </a>
                                 </li>
@@ -103,7 +120,7 @@
                             <li class="item js_condition" data-dom="acreage" data-content="{{$acreage}}">
                                 <?php $acreageShow = $acreage=='1000-10000'?'1000m²以上':$acreage.'m²'
                                 ?>
-                                <a data-content="{{$acreageShow}}" data-dom="acreage" class="@if(!empty($request['acreage'])&&$request['acreage']==$acreage)current @endif">{{$acreageShow}}</a>
+                                <a data-content="{{$acreageShow}}" data-dom="acreage" class="@if(!empty($request['acreage'])&&$request['acreage']==$acreage)acreage current @endif">{{$acreageShow}}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -118,7 +135,7 @@
                             <li class="item js_condition" data-dom="unit_price" data-content="{{$price}}">
                                 <?php $priceShow = $price=='140-1000'?'140/m²·月以上':$price.'/m²·月'
                                 ?>
-                                <a data-content="{{$priceShow}}" data-dom="unit_price" class="@if(!empty($request['unit_price'])&&$request['unit_price']==$price)current @endif">{{$priceShow}}</a>
+                                <a data-content="{{$priceShow}}" data-dom="unit_price" class="@if(!empty($request['unit_price'])&&$request['unit_price']==$price)current unit_price @endif">{{$priceShow}}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -129,9 +146,9 @@
                         <li class="item js_condition" data-dom="renovation" data-content=""><a
                                     class="js_addCurrent all @if(empty($request['renovation']))current @endif">全部</a>
                         </li>
-                        @foreach(['豪华装修','精装修','中装修','简装修','毛坯'] as $renovation)
-                            <li class="item js_condition" data-dom="renovation" data-content="{{$renovation}}">
-                                <a data-content="{{$renovation}}" data-dom="renovation" class="@if(!empty($request['renovation'])&&$request['renovation']==$renovation)current @endif">{{$renovation}}</a>
+                        @foreach([1=>'豪华装修',2=>'精装修',3=>'中装修',4=>'简装修',5=>'毛坯'] as $key => $renovation)
+                            <li class="item js_condition" data-dom="renovation" data-content="{{$key}}">
+                                <a data-content="{{$renovation}}" data-dom="renovation" class="@if(!empty($request['renovation'])&&$request['renovation']==$key)current renovation @endif">{{$renovation}}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -139,17 +156,26 @@
                 <div class="special">
                     <ul class="list clearfix">
                         <li class="item">特色</li>
+                        <?php
+                            $featuresArray = empty($request['features'])?[]:explode('-',$request['features']);
+                        ?>
                         @foreach($buildingFeatures as $key => $features)
-                            <li class="item" da data-content="{{$key}}">
-                                {{--<a class="js_addCurrent current all">{{$features}}</a>--}}
+                            <?php
+                               $type = (!empty($request['features'])&&in_array($key, $featuresArray));
+                            ?>
+                            <li class="item js_features" @if($type)data-type="true" @endif data-content="{{$key}}">
+                                @if($type)
+                                    <a class="js_addCurrent current all features" data-dom="features" data-content="{{$features}}"><em class="icon icon-tick"></em>{{$features}}</a>
+                                @else
+                                    <a class="js_addCurrent all"><em class="icon icon-untick "></em>{{$features}}</a>
+                                @endif
                             </li>
                         @endforeach
                     </ul>
                 </div>
-                <div class="result js_result clearfix">
+                <div class="result js_result clearfix" style="display: none">
                     <div class="title f_l">已选</div>
                     <div class="selected_box f_l clearfix">
-
                     </div>
                     <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
                     <div class="cleaning f_l"><a href="javascript:void(0)" class="js_cleaning">清空</a></div>
