@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/home_index.css">
 @endsection
 @section('body')
+@include('home.nav' , ['fixed' => 1])
 <header class="index-header-box">
   <div class="banner-content-box">
     <div class="banner-search-box">

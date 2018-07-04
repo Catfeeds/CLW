@@ -1,9 +1,11 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
+@include nav();
 img{
   max-width: 100%;
 }
 body {
+  padding-top: 0;
   // 头部轮播区
   .index-header-box{
     height: 100vh;
@@ -243,7 +245,7 @@ body {
       }
     }
     &:nth-child(2n+1) {
-      background-color: #f4f4f4;
+      background-color: $master-white;
     }
     padding-top: 80px;
     padding-bottom: 50px;
@@ -609,6 +611,7 @@ body {
       }
       .infamation-right{
         float: right;
+        padding-top: 20px;
         width: 255px;
         h3{
           margin: 0;
@@ -644,7 +647,7 @@ body {
                 margin: 10px 0;
                 overflow: hidden;
                 width: 100%;
-                height: 50px;
+                height: 53px;
                 font-family: PingFang-SC-Regular;
                 font-size: 14px;
                 font-weight: normal;

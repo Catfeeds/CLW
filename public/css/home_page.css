@@ -242,6 +242,11 @@ textarea {
   padding: 0;
 }
 
+html,
+body {
+  background-color: #f5f5f5;
+}
+
 a[href] {
   text-decoration: none;
 }
