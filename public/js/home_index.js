@@ -1,9 +1,11 @@
-webpackJsonp([2],[
+webpackJsonp([3],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
 /* 3 */,
-/* 4 */
+/* 4 */,
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5363,8 +5365,6 @@ else if (typeof define === 'function' && define.amd) {
 
 
 /***/ }),
-/* 5 */,
-/* 6 */,
 /* 7 */,
 /* 8 */,
 /* 9 */,
@@ -5427,7 +5427,7 @@ module.exports = __webpack_require__(61);
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-var Swiper = __webpack_require__(4);
+var Swiper = __webpack_require__(6);
 var mySwiper = new Swiper('.swiper-container', {
   autoplay: 3000
 });
