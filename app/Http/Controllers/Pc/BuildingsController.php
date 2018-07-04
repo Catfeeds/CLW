@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pc;
 
+use App\Handler\Common;
 use App\Http\Controllers\Controller;
 use App\Models\Area;
 use App\Models\Block;
@@ -9,6 +10,7 @@ use App\Models\Building;
 use App\Models\BuildingFeature;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
+use App\Services\CustomPage;
 use Illuminate\Http\Request;
 
 class BuildingsController extends Controller
@@ -68,8 +70,24 @@ class BuildingsController extends Controller
 
         // 获取特色
         $buildingFeatures = BuildingFeature::pluck('name','id')->toArray();
-        // 楼盘列表数据
-        $res = $buildingsRepository->buildingList($request, $service, null,true,true);
+
+        if (!empty($request->keyword)) {
+            $string = "'". $request['keyword'] . "'";
+
+            $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
+
+            // 获取所有楼盘id
+            $buildingIds = array_column(Common::objectToArray($res), 'building_id');
+
+            $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true);
+        } else {
+            // 处理价格,面积
+            if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
+            if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
+            
+            // 楼盘列表数据
+            $res = $buildingsRepository->buildingList($request, $service, null,true,true);
+        }
 
         return view('home.house_list', [
             'house_count' => $res['house_count'],
@@ -83,17 +101,21 @@ class BuildingsController extends Controller
         ]);
     }
 
+    // 通过城市,区域,商圈,楼盘,楼盘地址搜索
     public function buildingSearch(
         Request $request
     )
     {
+        $string = "'". $request->search . "'";
 
+        $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
 
-        $res = \DB::select("select * from media.building_keywords where MATCH(keywords) AGAINST('1' IN BOOLEAN MODE)");
-        dd($res);
+        // 获取所有楼盘id
+        $buildingIds = array_column(Common::objectToArray($res), 'building_id');
 
+        $res = Building::whereIn('id', $buildingIds)->paginate(10);
 
-
+        return $this->sendResponse($res,'获取搜索楼盘成功');
     }
 
 }
