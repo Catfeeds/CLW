@@ -234,9 +234,8 @@
   <div class="topic-content">
     <ul class="fine-quality-list">
       @foreach ( $eliteBuilding as $eliteBuilding_item )
-      {{-- {{dd($eliteBuilding_item)}} --}}
         <li class="fine-quality-item">
-          <a href="javascript:void(0)">
+          <a href="{{url('/buildings').'/'.$eliteBuilding_item->id}}">
             <div class="img-box">
               <img src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
             </div>
