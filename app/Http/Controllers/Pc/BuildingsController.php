@@ -71,9 +71,10 @@ class BuildingsController extends Controller
         // 获取特色
         $buildingFeatures = BuildingFeature::pluck('name','id')->toArray();
 
-        if (!empty($request->keyword)) {
-            $request = $request->except('block_id', 'area_id', 'features', 'acreage', 'unit_price', 'renovation');
+        // 前段返回条件
+        $data = $request->all();
 
+        if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
 
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
@@ -83,10 +84,13 @@ class BuildingsController extends Controller
 
             $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true);
         } else {
+            // 处理价格,面积
+            if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
+            if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
+
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
-
 
         return view('home.house_list', [
             'house_count' => $res['house_count'],
@@ -95,7 +99,7 @@ class BuildingsController extends Controller
             'buildingFeatures' => $buildingFeatures,
             'Results'=>$res['data'],
             'page' => $res['page'],
-            'request' => $request,
+            'request' => $data,
             'count' => $res['house_count']
         ]);
     }
