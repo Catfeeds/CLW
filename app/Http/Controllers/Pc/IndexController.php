@@ -34,7 +34,6 @@ class IndexController extends Controller
         $coreBlock = $hotBlocksRepository->getList();
         //推荐服务
         //企业服务
-
         return view('home.index', [
             'area' => $area,
             'information' => $information,
