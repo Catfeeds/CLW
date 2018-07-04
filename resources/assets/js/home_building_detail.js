@@ -3,6 +3,7 @@ const Swiper = require('swiper');
 var detailMap = require('./components/detailMap.vue')
 var Data = $('#props').data('data') // 获取blade模板渲染出来的$building里的数据
 var initHouseData = getVal() // 房源数据
+// console.log('初始化数据', initHouseData)
 var houseDetail = getVal()
 var houseCount = parseInt($('.js_listCount span').html()) // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML') // 房源列表模板
@@ -146,12 +147,13 @@ function getVal() {
   var data = []
   // 有多少条房源数据
   var list = $('.js_listDetail .listDetail')
+  // console.log('元素', list)
   for(var i = 0; i < list.length; i++) {
     var item = {} // 定义对象存放每一个房源的数据
     item.img = list.eq(i).find('img').attr('src') // 获取图片路径
-    item.area = list.eq(i).find('#listArea>span').html() // 获取面积
-    item.price = list.eq(i).find('#listPrice>span').html() // 获取单价
-    item.total = list.eq(i).find('#listTotal>span').html() // 获取总价
+    item.area = list.eq(i).find('.listNum>#listArea').html() // 获取面积
+    item.price = list.eq(i).find('.listNum>#listPrice').html() // 获取单价
+    item.total = list.eq(i).find('.listNum>#listTotal').html() // 获取总价
     item.feature = list.eq(i).find('#listSpecial').html() // 获取房源特色
     data.push(item)
     // 最多只显示10条数据，其他的隐藏
@@ -159,6 +161,7 @@ function getVal() {
       list.eq(i).css('display', 'none')
     }
   }
+  // console.log('zheshishuju', data)
   return data
 }
 
@@ -168,15 +171,16 @@ function createVal(data) {
   for(var p in data) {
     var list = $(listTemplate).appendTo('.js_listDetail')
     list.find('img').attr('src', data[p].img)
-    list.find('#listArea>span').html(data[p].area)
-    list.find('#listPrice>span').html(data[p].price)
-    list.find('#listTotal>span').html(data[p].total)
+    list.find('.listNum>#listArea').html(data[p].area)
+    list.find('.listNum>#listPrice').html(data[p].price)
+    list.find('.listNum>#listTotal').html(data[p].total)
     list.find('#listSpecial').html(data[p].feature)
     // 最多只显示10条数据，其他的隐藏
     if(p >= 10) {
       list.css('display', 'none')
     }
   }
+  // console.log('wewfdsgedfg', data)
   $('.js_listCount span').html( data.length ) // 房源的总数量
   // 房源数量大于10条显示查看更多
   if(data.length > 10) {
@@ -220,6 +224,7 @@ function selectTerm(current) {
 
 // 根据选项进行操作初始数据
 function select(min, max, term, data) {
+  // console.log(min, max, term, data)
   var item = []
   if(max) {
     for(var p in data) {
@@ -236,6 +241,7 @@ function select(min, max, term, data) {
       }
     }
   }
+  // console.log('筛选', item)
   return item
 }
 

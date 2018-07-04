@@ -337,66 +337,112 @@ function updateLink(linkElement, obj) {
 /***/ }),
 
 /***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+/* globals __VUE_SSR_CONTEXT__ */
 
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
 
-exports.__esModule = true;
-exports.removeResizeListener = exports.addResizeListener = undefined;
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
 
-var _resizeObserverPolyfill = __webpack_require__(23);
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
 
-var _resizeObserverPolyfill2 = _interopRequireDefault(_resizeObserverPolyfill);
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
 
-var isServer = typeof window === 'undefined';
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
 
-/* istanbul ignore next */
-var resizeHandler = function resizeHandler(entries) {
-  for (var _iterator = entries, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref;
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
 
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref = _iterator[_i++];
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
     } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref = _i.value;
-    }
-
-    var entry = _ref;
-
-    var listeners = entry.target.__resizeListeners__ || [];
-    if (listeners.length) {
-      listeners.forEach(function (fn) {
-        fn();
-      });
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
     }
   }
-};
 
-/* istanbul ignore next */
-var addResizeListener = exports.addResizeListener = function addResizeListener(element, fn) {
-  if (isServer) return;
-  if (!element.__resizeListeners__) {
-    element.__resizeListeners__ = [];
-    element.__ro__ = new _resizeObserverPolyfill2.default(resizeHandler);
-    element.__ro__.observe(element);
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
   }
-  element.__resizeListeners__.push(fn);
-};
+}
 
-/* istanbul ignore next */
-var removeResizeListener = exports.removeResizeListener = function removeResizeListener(element, fn) {
-  if (!element || !element.__resizeListeners__) return;
-  element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
-  if (!element.__resizeListeners__.length) {
-    element.__ro__.disconnect();
-  }
-};
 
 /***/ }),
 
@@ -441,15 +487,15 @@ module.exports = function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 128:
+/***/ 123:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(129);
+module.exports = __webpack_require__(124);
 
 
 /***/ }),
 
-/***/ 129:
+/***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(3);
@@ -457,6 +503,7 @@ var Swiper = __webpack_require__(6);
 var detailMap = __webpack_require__(28);
 var Data = $('#props').data('data'); // 获取blade模板渲染出来的$building里的数据
 var initHouseData = getVal(); // 房源数据
+// console.log('初始化数据', initHouseData)
 var houseDetail = getVal();
 var houseCount = parseInt($('.js_listCount span').html()); // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML'); // 房源列表模板
@@ -600,12 +647,13 @@ function getVal() {
   var data = [];
   // 有多少条房源数据
   var list = $('.js_listDetail .listDetail');
+  // console.log('元素', list)
   for (var i = 0; i < list.length; i++) {
     var item = {}; // 定义对象存放每一个房源的数据
     item.img = list.eq(i).find('img').attr('src'); // 获取图片路径
-    item.area = list.eq(i).find('#listArea>span').html(); // 获取面积
-    item.price = list.eq(i).find('#listPrice>span').html(); // 获取单价
-    item.total = list.eq(i).find('#listTotal>span').html(); // 获取总价
+    item.area = list.eq(i).find('.listNum>#listArea').html(); // 获取面积
+    item.price = list.eq(i).find('.listNum>#listPrice').html(); // 获取单价
+    item.total = list.eq(i).find('.listNum>#listTotal').html(); // 获取总价
     item.feature = list.eq(i).find('#listSpecial').html(); // 获取房源特色
     data.push(item);
     // 最多只显示10条数据，其他的隐藏
@@ -613,6 +661,7 @@ function getVal() {
       list.eq(i).css('display', 'none');
     }
   }
+  // console.log('zheshishuju', data)
   return data;
 }
 
@@ -622,15 +671,16 @@ function createVal(data) {
   for (var p in data) {
     var list = $(listTemplate).appendTo('.js_listDetail');
     list.find('img').attr('src', data[p].img);
-    list.find('#listArea>span').html(data[p].area);
-    list.find('#listPrice>span').html(data[p].price);
-    list.find('#listTotal>span').html(data[p].total);
+    list.find('.listNum>#listArea').html(data[p].area);
+    list.find('.listNum>#listPrice').html(data[p].price);
+    list.find('.listNum>#listTotal').html(data[p].total);
     list.find('#listSpecial').html(data[p].feature);
     // 最多只显示10条数据，其他的隐藏
     if (p >= 10) {
       list.css('display', 'none');
     }
   }
+  // console.log('wewfdsgedfg', data)
   $('.js_listCount span').html(data.length); // 房源的总数量
   // 房源数量大于10条显示查看更多
   if (data.length > 10) {
@@ -674,6 +724,7 @@ function selectTerm(current) {
 
 // 根据选项进行操作初始数据
 function select(min, max, term, data) {
+  // console.log(min, max, term, data)
   var item = [];
   if (max) {
     for (var p in data) {
@@ -690,6 +741,7 @@ function select(min, max, term, data) {
       }
     }
   }
+  // console.log('筛选', item)
   return item;
 }
 
@@ -1356,7 +1408,7 @@ module.exports = function normalizeComponent (
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(8);
 
 /***/ }),
 
@@ -3161,7 +3213,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(29)
 }
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(31)
 /* template */
@@ -3215,7 +3267,7 @@ var content = __webpack_require__(30);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("1d552c30", content, false, {});
+var update = __webpack_require__(9)("1d552c30", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -9153,6 +9205,70 @@ else if (typeof define === 'function' && define.amd) {
 /***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+exports.__esModule = true;
+exports.removeResizeListener = exports.addResizeListener = undefined;
+
+var _resizeObserverPolyfill = __webpack_require__(23);
+
+var _resizeObserverPolyfill2 = _interopRequireDefault(_resizeObserverPolyfill);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var isServer = typeof window === 'undefined';
+
+/* istanbul ignore next */
+var resizeHandler = function resizeHandler(entries) {
+  for (var _iterator = entries, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    var _ref;
+
+    if (_isArray) {
+      if (_i >= _iterator.length) break;
+      _ref = _iterator[_i++];
+    } else {
+      _i = _iterator.next();
+      if (_i.done) break;
+      _ref = _i.value;
+    }
+
+    var entry = _ref;
+
+    var listeners = entry.target.__resizeListeners__ || [];
+    if (listeners.length) {
+      listeners.forEach(function (fn) {
+        fn();
+      });
+    }
+  }
+};
+
+/* istanbul ignore next */
+var addResizeListener = exports.addResizeListener = function addResizeListener(element, fn) {
+  if (isServer) return;
+  if (!element.__resizeListeners__) {
+    element.__resizeListeners__ = [];
+    element.__ro__ = new _resizeObserverPolyfill2.default(resizeHandler);
+    element.__ro__.observe(element);
+  }
+  element.__resizeListeners__.push(fn);
+};
+
+/* istanbul ignore next */
+var removeResizeListener = exports.removeResizeListener = function removeResizeListener(element, fn) {
+  if (!element || !element.__resizeListeners__) return;
+  element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
+  if (!element.__resizeListeners__.length) {
+    element.__ro__.disconnect();
+  }
+};
+
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
+
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -9377,116 +9493,6 @@ function applyToTag (styleElement, obj) {
 }
 
 
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
 /***/ })
 
-},[128]);
+},[123]);

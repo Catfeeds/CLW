@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="introAddress">
-                            <div><img src="/home_img/house_detail_map1.png"> 地址：{{$building->address}}</div>
+                            <div><img src="/home_img/build_detail_address.png"> 地址：{{$building->address}}</div>
                             <a href="#"><div class="introMap"><img src="/home_img/house_detail_map.png"> 查看地图</div></a>
                         </div>
                         <div class="introBetter">
@@ -119,7 +119,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="special special">特色</div>
+                            <div class="special">特色</div>
                         </div>
                         <div class="js_listDetail">
                             @foreach($houses as $house)
@@ -127,9 +127,9 @@
                                 <div class="listDetail">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">
-                                        <span>{{$house->constru_acreage_cn}}</span>
-                                        <span>{{$house->unit_price_cn}}</span>
-                                        <span>{{$house->total_price_cn}}</span>
+                                        <span id="listArea">{{$house->constru_acreage_cn}}</span>
+                                        <span id="listPrice">{{$house->unit_price_cn}}</span>
+                                        <span id="listTotal">{{$house->total_price_cn}}</span>
                                     </div>
                                     <div class="listSpecial" id="listSpecial">
                                         @if(!empty($house->house_feature[0]))
