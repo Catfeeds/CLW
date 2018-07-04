@@ -188,10 +188,14 @@
                             出租写字楼共<span>{{$count??0}}</span>套
                         </div>
                         <div class="title_right">
-                            <div class="sort_default"><a href="javascript:void(0);">默认</a></div>
-                            <div class="sort_price"><a href="javascript:void(0);"
-                                                       class="js_order_price order_price js_set">价格排序<span
-                                            class="up js_up">▲</span><span class="down js_down">▼</span></a></div>
+                            <div class="sort_default js_price_default" @if(empty($request['price_sort']))style="background: #03a2fb" @endif><a href="javascript:void(0);">默认</a></div>
+                            <div class="sort_price">
+                                <a href="javascript:void(0);" class="order_price js_price_sort" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
+                                    价格排序
+                                    <span class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc')style="background-color: #03a2fb" @endif">▲</span>
+                                    <span class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc')style="background-color: #03a2fb" @endif">▼</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     @if(!empty($Results))
@@ -213,14 +217,15 @@
                                         <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                         <div class="acverge_select">
                                             <ul>
+                                                {{--{{dd($data->pc_house->toArray())}}--}}
                                                 @foreach($data->pc_house as $pchouse)
                                                 <li style="position: relative">
                                                     <a href="javascript:void(0);">{{$pchouse->constru_acreage}}㎡</a>
                                                     <div class="acreage-detail">
                                                         <div style="position: relative">
-                                                            <img src="{{$data->img_cn}}" alt=""
+                                                            <img src="{{$pchouse->indoor_img_cn}}" alt=""
                                                                  style="width:200px;height: 160px">
-                                                            <span class="renovation">装修</span>
+                                                            <span class="zx">{{$pchouse->renovation_cn}}</span>
                                                         </div>
                                                         <div>{{$pchouse->constru_acreage}}㎡</div>
                                                         <div>{{$pchouse->unit_price}}元/㎡</div>

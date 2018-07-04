@@ -21,6 +21,14 @@ Route:: get('map_test', function () {
 Route::get('index',function(){
     return view('home.index');
 });
+//登录页面
+Route::get('login',function(){
+    return view('home.login');
+});
+//注册界面
+Route::get('register',function(){
+    return view('home.register');
+});
 //app下载页面
 Route::get('download',function(){
     return view('home.download');
@@ -32,6 +40,10 @@ Route::get('personal',function(){
 //房源列表页面
 Route::get('house_list',function(){
     return view('home.house_list');
+});
+//投放房源页面
+Route::get('sellhouse',function(){
+    return view('home.sellhouse');
 });
 /*
  * 微信端路由

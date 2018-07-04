@@ -91,7 +91,9 @@ module.exports = {
       'home_house_list',
       'home_information',
       'home_paging',
-      'home_login'
+      'home_login',
+      'home_register',
+      'home_sellhouse'
     ],
     js: [
       'home_index',
