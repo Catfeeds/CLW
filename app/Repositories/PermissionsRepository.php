@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PermissionsRepository extends Model
 {
-    public function mediaPermissionsList()
+    public function permissionsList()
     {
         return Permission::where(['guard_name' => 'web'])->paginate(10);
     }

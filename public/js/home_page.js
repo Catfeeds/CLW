@@ -1,30 +1,33 @@
 webpackJsonp([5],{
 
-/***/ 130:
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(131);
+module.exports = __webpack_require__(259);
 
 
 /***/ }),
 
-/***/ 131:
+/***/ 259:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
-var Swiper = __webpack_require__(4);
-var mySwiper = new Swiper('.swiper-container', {
-  pagination: {
-    el: ".swiper-pagination",
-    bulletClass: "my-pagination"
-  },
-  aotoplay: true,
-  loop: true
+__webpack_require__(5);
+var Swiper = __webpack_require__(8);
+
+var banner = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  autoplay: 2000,
+  loop: true,
+  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
+    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
+  }
+
 });
 
 /***/ }),
 
-/***/ 4:
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5385,4 +5388,4 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ })
 
-},[130]);
+},[258]);

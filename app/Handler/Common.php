@@ -7,9 +7,7 @@
  */
 namespace App\Handler;
 
-
-use Qiniu\Auth;
-
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Common
@@ -71,12 +69,44 @@ class Common
         return array(
             'current_page' => $page??1,
             'data' => $data,
-            'per_page' => 10,
-
+            'per_page' => 10
         );
     }
 
+    /**
+     * 说明: 数组转对象
+     *
+     * @param $e
+     * @return object|void
+     * @author 罗振
+     */
+    public static function arrayToObject($e)
+    {
 
+        if (gettype($e) != 'array') return;
+        foreach ($e as $k => $v) {
+            if (gettype($v) == 'array' || getType($v) == 'object')
+                $e[$k] = (object)Common::arrayToObject($v);
+        }
+        return (object)$e;
+    }
 
+    /**
+     * 说明: 对象转数组
+     *
+     * @param $e
+     * @return array|void
+     * @author 罗振
+     */
+    public static function objectToArray($e)
+    {
+        $e = (array)$e;
+        foreach ($e as $k => $v) {
+            if (gettype($v) == 'resource') return;
+            if (gettype($v) == 'object' || gettype($v) == 'array')
+                $e[$k] = (array)Common::objectToArray($v);
+        }
+        return $e;
+    }
 
 }

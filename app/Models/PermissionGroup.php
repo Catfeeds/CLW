@@ -10,6 +10,4 @@ class PermissionGroup extends Model
 
     protected $guarded = [];
 
-    protected $connection = 'media';
-
 }

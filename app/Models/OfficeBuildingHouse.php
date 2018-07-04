@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Models;
-use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class OfficeBuildingHouse extends Model
+class OfficeBuildingHouse extends BaseModel
 {
     use SoftDeletes;
     protected $table = 'office_building_houses';
@@ -86,7 +87,7 @@ class OfficeBuildingHouse extends Model
 
     public function getShowCnAttribute()
     {
-            if ($this->shelf == 1) return '上架';
+        if ($this->shelf == 1) return '上架';
         return '下架';
     }
 

@@ -87,6 +87,8 @@ module.exports = {
       'home_download',
       'home_page',
       'home_building_detail',
+      'home_personal',
+      'home_house_list',
       'home_information',
       'home_paging'
     ],
@@ -99,6 +101,8 @@ module.exports = {
       'home_house_detail',
       'home_building_detail',
       'home_page',
+      'home_personal',
+      'home_house_list',
       'home_information'
     ],
     vendorName: 'home_vendor',

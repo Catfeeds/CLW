@@ -110,6 +110,9 @@ const app = new Vue({
         getShopkeeperList(2, this.page2, true);
         var that = this
         $.ajax({
+            headers: {
+                'safeString': $('meta[name="safeString"]').attr('content')
+            },
             url: url + "/api/get_staff",
             type: 'get',
             data:{
@@ -144,6 +147,9 @@ function getShopkeeperList(status, page, type=false) {
     if(requestType) return;
     requestType = true;
     $.ajax({
+        headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+        },
         url: url + "/api/shopkeeper_list",
         type: 'get',
         data:{
@@ -198,6 +204,9 @@ function getShopkeeperList(status, page, type=false) {
 // 店长分配工单
 function distribution(FormData) {
     $.ajax({
+        headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+        },
         url: url + "/api/distribution",
         type: 'post',
         data: FormData,
