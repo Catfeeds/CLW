@@ -203,7 +203,7 @@
       <ul class="commercial-center-list">
         @foreach ( $coreBlock as $coreBlock_item )
           <li class="commercial-center-item">
-            <a href="javascript:void(0)">
+            <a href="{{url('/building_list?area_id='.$coreBlock_item->area_id.'&block_id='.$coreBlock_item->block_id)}}">
               <img src="{{$coreBlock_item->pc_img}}">
             </a>
           </li>
