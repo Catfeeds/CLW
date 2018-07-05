@@ -107,7 +107,8 @@ module.exports = {
       'home_personal',
       'home_house_list',
       'home_information',
-      'home_login'
+      'home_login',
+      'home_sellhouse'
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',
