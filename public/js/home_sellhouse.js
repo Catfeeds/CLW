@@ -1,32 +1,55 @@
-webpackJsonp([7],{
+webpackJsonp([5],{
 
-/***/ 269:
+/***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(270);
+module.exports = __webpack_require__(272);
 
 
 /***/ }),
 
-/***/ 270:
+/***/ 272:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(4);
 __webpack_require__(73);
-
-$(function () {
-  $().ready(function () {
-    $("#login_form").validate({
-      rules: {
-        username: { required: true, minlength: 5 },
-        password: { required: true, minlength: 8 }
-      },
-      message: {
-        username: { required: "用户名不能为空", minlength: "请输入正确的用户名" },
-        password: "请输入正确的密码"
-      }
-    });
-  });
+var url = 'http://www.clw.com';
+console.log('url', url);
+var type = $("#commentForm").validate({
+    rules: {
+        tel: {
+            required: true,
+            maxlength: 16
+        },
+        appellation: {
+            required: true,
+            maxlength: 32
+        }
+    },
+    messages: {
+        tel: {
+            required: "请输入电话",
+            minlength: "电话长度格式错误"
+        },
+        appellation: {
+            required: "请输入联系人",
+            maxlength: "联系人最长不能超过32"
+        }
+    },
+    submitHandler: function submitHandler(form) {
+        $.ajax({
+            type: 'post',
+            url: url + '/bespeaks',
+            data: $('#commentForm').serialize(),
+            success: function success(data) {
+                alert(data.message);
+            },
+            error: function error(data) {
+                alert(data.responseJSON.message);
+                console.log('erro', data);
+            }
+        });
+    }
 });
 
 /***/ }),
@@ -1641,4 +1664,4 @@ return $;
 
 /***/ })
 
-},[269]);
+},[271]);

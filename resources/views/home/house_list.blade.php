@@ -158,13 +158,13 @@
                                     </div>
                                     <div class="detail_title">
                                         <div class="house_name clearfix">
-                                            <div class="name f_l">{{$data->name}}</div>
+                                            <div class="name f_l">{!!$data->name!!}</div>
                                             <span class='js_tao'>{{$data->house_count}}套</span>
                                             <div class="price f_r"><span
                                                         class="js_acvergePrice">{{$data->avg_price}}</span>元/m²月
                                             </div>
                                         </div>
-                                        <div class="house_location">地址: [{{$data->address_cn}}]{{$data->address}}</div>
+                                        <div class="house_location">地址: [{!!$data->address_cn!!}]{!!$data->address!!}</div>
                                         <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                         <div class="acverge_select">
                                             <ul>

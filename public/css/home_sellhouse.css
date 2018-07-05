@@ -459,6 +459,10 @@ body .container .form_container {
   margin-bottom: 53px;
 }
 
+body .container .form_container form .content {
+  margin-bottom: 20px;
+}
+
 body .container .form_container form .connect,
 body .container .form_container form .phone {
   position: relative;
@@ -498,7 +502,6 @@ body .container .form_container form input {
   border: 1px solid #ccc;
   height: 44px;
   padding-left: 15px;
-  margin-bottom: 20px;
 }
 
 body .container .form_container form textarea::-webkit-input-placeholder,
@@ -597,23 +600,5 @@ input,
 textarea {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-@media screen and (max-width: 1200px) {
-  body {
-    padding: 0;
-  }
-
-  body nav {
-    display: none;
-  }
-
-  body .container .title {
-    display: none;
-  }
-
-  body .container .min_title {
-    display: none;
-  }
 }
 

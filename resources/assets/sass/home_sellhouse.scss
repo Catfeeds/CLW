@@ -35,6 +35,9 @@ body {
       padding: 30px 45px 38px 40px;
       margin-bottom: 53px;
       form {
+        .content{
+          margin-bottom: 20px;
+        }
         .connect,.phone {
           position: relative;
           padding-left: 10px;
@@ -68,7 +71,6 @@ body {
           border: 1px solid #ccc;
           height: 44px;
           padding-left: 15px;
-          margin-bottom: 20px;
         }
         textarea::placeholder,input::placeholder {
           font-size: 14px;
@@ -132,19 +134,19 @@ body {
 div,span,li,ul,ol,p,input,textarea {
   box-sizing: border-box;
 }
-@media screen and (max-width:1200px) {
-  body {
-    padding: 0;
-    nav {
-      display: none;
-    }
-    .container {
-      .title {
-        display: none;
-      }
-      .min_title {
-        display: none;
-      }
-    }
-  }
-}
+//@media screen and (max-width:1200px) {
+//  body {
+//    padding: 0;
+//    nav {
+//      display: none;
+//    }
+//    .container {
+//      .title {
+//        display: none;
+//      }
+//      .min_title {
+//        display: none;
+//      }
+//    }
+//  }
+//}

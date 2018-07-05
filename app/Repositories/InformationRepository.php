@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\Information;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class InformationRepository extends Model
 {
