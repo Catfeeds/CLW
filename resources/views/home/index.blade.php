@@ -91,23 +91,8 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <div style="background-image: url('/home_img/temp_index_banner.jpg');" class="banner-img"></div>
+          <div style="background-image: url('/home_img/index_banner.jpg');" class="banner-img"></div>
         </div>
-        <div class="swiper-slide">
-          <div style="background-image: url('/home_img/temp_index_banner2.jpg');" class="banner-img"></div>
-        </div>
-        <div class="swiper-slide">
-          <div style="background-image: url('/home_img/temp_index_banner3.jpg');" class="banner-img"></div>
-        </div>
-        <div class="swiper-slide">
-            <div style="background-image: url('/home_img/temp_index_banner.jpg');" class="banner-img"></div>
-          </div>
-          <div class="swiper-slide">
-            <div style="background-image: url('/home_img/temp_index_banner2.jpg');" class="banner-img"></div>
-          </div>
-          <div class="swiper-slide">
-            <div style="background-image: url('/home_img/temp_index_banner3.jpg');" class="banner-img"></div>
-          </div>
       </div>
     </div>
   </div>

@@ -286,7 +286,6 @@ nav.active .nav-content .logo-box {
 
 nav.active .nav-content .nav-list .nav-item a {
   color: #666666;
-  font-family: NotoSansHans-Regular;
   font-size: 14px;
 }
 
@@ -346,6 +345,7 @@ nav .nav-content {
 
 nav .nav-content .logo-box {
   float: left;
+  display: block;
   margin-right: 60px;
   width: 170px;
   height: 24px;
