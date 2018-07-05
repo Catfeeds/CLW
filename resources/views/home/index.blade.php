@@ -5,7 +5,7 @@
 @endsection
 @section('body')
 @include('home.nav' , ['fixed' => 1])
-<header class="index-header-box">
+<header class="index-header-box js_headerHeight">
   <div class="banner-content-box">
     <div class="banner-search-box">
       <form class="form-box">
