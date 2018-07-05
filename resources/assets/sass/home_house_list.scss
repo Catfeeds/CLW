@@ -1,5 +1,5 @@
 @import 'home_master';
-
+@include nav();
 a {
   text-decoration: none;
   color:#444;
@@ -334,9 +334,6 @@ body {
                 height: 199px;
                 margin-right: 22px;
                 background-color: #ccc;
-                img{
-                  width: 242px;height: 200px
-                }
               }
               .detail_title {
                 flex:3;
@@ -435,21 +432,16 @@ body {
                       font-size: 14px;
                       min-width: 100px;
                     }
-                    li:first-child{
+                    >li:first-child{
                       color:#849aae;
                       background-image: linear-gradient(#f4f7f9,#f4f7f9);
                     }
-                    li:nth-child(2){
+                    >li:first-child(2){
                       color:#59c6d3;
                       background-image: linear-gradient(#e1f5f8,#e1f5f8);
                       border-radius:2px;
                     }
-                    li:nth-child(3){
-                      color:#45c28d;
-                      background-image: linear-gradient(#e1f5ed,#e1f5ed);
-                      border-radius:2px;
-                    }
-                    i:nth-child(4){
+                    >li:first-child(3){
                       color:#45c28d;
                       background-image: linear-gradient(#e1f5ed,#e1f5ed);
                       border-radius:2px;
@@ -460,7 +452,6 @@ body {
             }
           }
           .pagination {
-            text-align: center;
             width: 100%;
             height: 50px;
             background-color: #fff;
@@ -469,7 +460,8 @@ body {
             padding-top: 5px;
             ul {
               margin: 0 auto;
-              width: 28%;
+              width: 42%;
+              min-width: 392px;
             }
           }
         }

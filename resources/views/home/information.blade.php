@@ -31,6 +31,7 @@
                                     <div class="swiper-slide">
                                         <!-- 标题 -->
                                         <div class="left-title">{{$top->title}}</div>
+                                        <div class="line"></div>
                                         <!-- 简介 -->
                                         <div class="left-content">{{$top->brief}}</div>
                                     </div>
@@ -50,9 +51,10 @@
                                 <div class="list-body">
                                     <!--图片-->
                                     <div class="list-body-left"><img src="{{$cont->banner_cn}}"></div>
-                                    <div class="list-body-right">
+                                    <div class="list-body-right">                                       
+                                        <div class="class"><span class="icon"></span><span>行业新闻</span></div>
                                         <!--标题-->
-                                        <div>{{$cont->title}}</div>
+                                        <div class="title">{{$cont->title}}</div>
                                         <!--时间-->
                                         <div class="list-body-time">{{$cont->created_at}}</div>
                                         <!--简介-->
@@ -65,21 +67,28 @@
                         </li>
                     @endforeach
                 </ul>
-                <div style="text-align: center; background-color: #fff">
-                    {{ $contents->links() }}
-                </div>
+                
             </div>
             <div class="right">
-                <div class="right-title"><span>热门资讯</span></div>
-                <div>
-                    <ul>
-                        @foreach($hots as $hot)
-                            <li><span>{{$hot->title}}</span></li>
-                        @endforeach
-                    </ul>
+                <div class="img">
+                    <img src="/home_img/infomation_right.jpg" alt="">
+                </div>
+                <div class="zixun">
+                    <div class="right-title"><span>热门资讯</span></div>
+                    <div>
+                        <ul>
+                            @foreach($hots as $hot)
+                                <li><span>{{$hot->title}}</span></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div style="padding-left:500px; background-color: #fff">
+        {{ $contents->links() }}
     </div>
 @endsection
 @section('script')

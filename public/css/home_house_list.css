@@ -185,6 +185,14 @@ template {
   clear: both;
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
 ::-webkit-input-placeholder {
   color: #cccccc;
 }
@@ -209,11 +217,16 @@ textarea {
 }
 
 * {
-  font-family: PingFangSC-Medium, sans-serif;
+  font-family: PingFang-SC-Regular, Source Han Sans CN,Arial,'Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeiti,SimHei,sans-serif;
   font-size: 14px;
   font-weight: normal;
   list-style: none;
   padding: 0;
+}
+
+html,
+body {
+  background-color: #f5f5f5;
 }
 
 a[href] {
@@ -234,6 +247,172 @@ a[href] {
 
 .font-level4 {
   font-size: 18px;
+}
+
+body {
+  padding-top: 61px;
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  z-index: 6;
+}
+
+nav.active {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #ededed;
+}
+
+nav.active img.fade {
+  display: none;
+}
+
+nav.active img.active {
+  display: block;
+}
+
+nav.active .nav-content {
+  padding: 10px 0;
+}
+
+nav.active .nav-content .nav-list .nav-item a {
+  color: #666666;
+  font-family: NotoSansHans-Regular;
+  font-size: 14px;
+}
+
+nav.active .nav-content .login-box .tel-box {
+  width: 196px;
+}
+
+nav.active .nav-content .login-box .user-login-box div.active-line {
+  display: block;
+  float: left;
+  width: 1px;
+  height: 15px;
+  background-color: #959393;
+  margin-top: 8px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.register-a {
+  font-family: NotoSansHans-Light;
+  font-size: 14px;
+  color: #007bff;
+  margin-right: 0;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.register-a img {
+  margin-top: 8px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a {
+  font-family: NotoSansHans-Light;
+  font-size: 14px;
+  color: #959393;
+  border: none;
+  width: auto;
+  margin-left: 5px;
+}
+
+nav img.fade {
+  display: block;
+  float: left;
+}
+
+nav img.active {
+  display: none;
+  float: left;
+}
+
+nav .nav-content {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+nav .nav-content .logo-box {
+  float: left;
+  margin-right: 60px;
+  width: 180px;
+  height: 40px;
+}
+
+nav .nav-content .logo-box img {
+  width: 100%;
+}
+
+nav .nav-content .nav-list {
+  float: left;
+  margin: 0;
+  height: 40px;
+  line-height: 40px;
+}
+
+nav .nav-content .nav-list .nav-item {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+nav .nav-content .nav-list .nav-item a {
+  color: #fff;
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+}
+
+nav .nav-content .login-box {
+  float: right;
+  height: 40px;
+}
+
+nav .nav-content .login-box .tel-box {
+  float: left;
+  margin-top: 8px;
+  margin-right: 30px;
+  width: 175px;
+  height: 25px;
+}
+
+nav .nav-content .login-box .tel-box img {
+  height: 100%;
+  max-width: none;
+}
+
+nav .nav-content .login-box .user-login-box {
+  float: right;
+}
+
+nav .nav-content .login-box .user-login-box div.active-line {
+  display: none;
+}
+
+nav .nav-content .login-box .user-login-box a {
+  display: block;
+  float: left;
+  color: #fff;
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+}
+
+nav .nav-content .login-box .user-login-box a.register-a {
+  margin-right: 20px;
+  height: 34px;
+  line-height: 34px;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a {
+  width: 80px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 18px;
+  border: solid 1px #eeeded;
 }
 
 a {
@@ -726,11 +905,6 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   background-color: #ccc;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .img_box img {
-  width: 242px;
-  height: 200px;
-}
-
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title {
   -webkit-box-flex: 3;
       -ms-flex: 3;
@@ -860,27 +1034,20 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   min-width: 100px;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul li:first-child {
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul>li:first-child {
   color: #849aae;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f7f9), to(#f4f7f9));
   background-image: linear-gradient(#f4f7f9, #f4f7f9);
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul li:nth-child(2) {
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul>li:first-child(2) {
   color: #59c6d3;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#e1f5f8), to(#e1f5f8));
   background-image: linear-gradient(#e1f5f8, #e1f5f8);
   border-radius: 2px;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul li:nth-child(3) {
-  color: #45c28d;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1f5ed), to(#e1f5ed));
-  background-image: linear-gradient(#e1f5ed, #e1f5ed);
-  border-radius: 2px;
-}
-
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul i:nth-child(4) {
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul>li:first-child(3) {
   color: #45c28d;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#e1f5ed), to(#e1f5ed));
   background-image: linear-gradient(#e1f5ed, #e1f5ed);
@@ -888,7 +1055,6 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 }
 
 body .house_list_container .house_list_content .house_list .house_show .pagination {
-  text-align: center;
   width: 100%;
   height: 50px;
   background-color: #fff;
@@ -899,7 +1065,8 @@ body .house_list_container .house_list_content .house_list .house_show .paginati
 
 body .house_list_container .house_list_content .house_list .house_show .pagination ul {
   margin: 0 auto;
-  width: 28%;
+  width: 42%;
+  min-width: 392px;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house {
