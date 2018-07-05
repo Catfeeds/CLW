@@ -131,6 +131,9 @@
               .introMap{
                 margin-left: 53px;
                 color: $master-blue;
+                &:hover{
+                  cursor: pointer;
+                }
               }
             }
             .introBetter{
@@ -348,7 +351,7 @@
         }
         .location{
           position: fixed;
-          top: 0;
+          top: 61px;
           margin-left: 960px;
         }
         .right{

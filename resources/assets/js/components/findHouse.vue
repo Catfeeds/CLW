@@ -5,13 +5,28 @@
             <div>一键委托,一分钟回复</div>
         </div>
         <div class="phone">
-            <input type="text" placeholder="请输入手机号">
+            <input v-model="value" type="text" placeholder="请输入手机号">
             <span></span>
-            <div><a href="javascript:void(0);">立即委托</a></div>
+            <div @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
         </div>
         <div class="rent_describe">已经有<span>15141</span>位客户委托找房</div>
     </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      value: ''
+    }
+  },
+  methods: {
+    getVal() {
+      console.log('sssss', this.value)
+    }
+  }
+}
+</script>
+
 <style lang="scss">
     .rent_house {
         width: 240px;

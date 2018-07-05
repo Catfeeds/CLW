@@ -612,6 +612,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
   color: #007bff;
 }
 
+.content .build .first .left .intro .introAddress .introMap:hover {
+  cursor: pointer;
+}
+
 .content .build .first .left .intro .introBetter {
   height: 90px;
   display: -webkit-box;
@@ -921,7 +925,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .build .first .location {
   position: fixed;
-  top: 0;
+  top: 61px;
   margin-left: 960px;
 }
 

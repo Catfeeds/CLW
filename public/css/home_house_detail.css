@@ -539,8 +539,21 @@ nav .nav-content .login-box .user-login-box a.login-a {
   height: 26px;
   border: solid 1px #eeeded;
   border-radius: 50%;
-  line-height: 28px;
-  text-align: center;
+}
+
+.content .banner .infor .price .pircePic div {
+  margin: 5px;
+  width: 16px;
+  height: 15px;
+  background: url(/home_img/house_detail_collect_before.png) no-repeat;
+}
+
+.content .banner .infor .price .pircePic:hover {
+  cursor: pointer;
+}
+
+.content .banner .infor .price .pircePic:hover div {
+  background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
 }
 
 .content .banner .infor .acreage {
@@ -577,6 +590,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
   width: 20px;
   height: 18px;
   vertical-align: text-bottom;
+}
+
+.content .banner .infor .acreage .address .js_map:hover {
+  cursor: pointer;
 }
 
 .content .banner .infor .acreage .better {

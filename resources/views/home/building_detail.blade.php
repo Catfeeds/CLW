@@ -65,8 +65,8 @@
                             </div> -->
                             @foreach($building->feature_name_pic as $feature)
                             <div class="betterDetail">
-                                <img src="/home_img/build_detail_subway.png">
-                                <span>地铁10分钟</span>
+                                <img src="{{$feature['pic']}}">
+                                <span>{{$feature['name']}}</span>
                             </div>
                             @endforeach
                         </div>

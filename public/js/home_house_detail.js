@@ -681,6 +681,20 @@ $(window).scroll(function () {
   }
 });
 
+// 点击收藏
+$('.pircePic').on('click', function () {
+  var obj = $(this).find('div');
+  if (obj.hasClass('.active')) {
+    obj.css('background', 'url(/home_img/house_detail_collect_before.png)');
+    obj.removeClass('.active');
+    console.log(22222);
+  } else {
+    console.log(11111);
+    obj.css('background', 'url(/home_img/house_detail_collect_after.png)');
+    obj.addClass('.active');
+  }
+});
+
 /***/ }),
 
 /***/ 26:
@@ -714,6 +728,42 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+
+/***/ 300:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      value: ''
+    };
+  },
+
+  methods: {
+    getVal: function getVal() {
+      console.log('sssss', this.value);
+    }
+  }
+});
 
 /***/ }),
 
@@ -3344,6 +3394,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3356,7 +3409,9 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
     ElTabs: ElTabs,
     ElTabPane: ElTabPane,
     BmLocalSearch: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmLocalSearch"],
-    BmCircle: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmCircle"]
+    BmCircle: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmCircle"],
+    BmMarker: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmMarker"],
+    BmLaber: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmLaber"]
   },
   data: function data() {
     return {
@@ -3528,6 +3583,26 @@ var render = function() {
           "fill-opacity": 0.4
         }
       }),
+      _vm._v(" "),
+      _c(
+        "bm-marker",
+        {
+          attrs: {
+            position: this.point.center,
+            dragging: true,
+            animation: "BMAP_ANIMATION_BOUNCE"
+          }
+        },
+        [
+          _c("bm-label", {
+            attrs: {
+              labelStyle: { color: "red", fontSize: "24px" },
+              offset: { width: -35, height: 30 }
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "el-tabs",
@@ -3815,7 +3890,7 @@ function injectStyle (ssrContext) {
 }
 var normalizeComponent = __webpack_require__(10)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(300)
 /* template */
 var __vue_template__ = __webpack_require__(71)
 /* template functional */
@@ -3906,37 +3981,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "rent_house" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "phone" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.value,
+            expression: "value"
+          }
+        ],
+        attrs: { type: "text", placeholder: "请输入手机号" },
+        domProps: { value: _vm.value },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.value = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("div", { on: { click: _vm.getVal } }, [
+        _c("a", { attrs: { href: "javascript:void(0);" } }, [
+          _vm._v("立即委托")
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "rent_house" }, [
-      _c("div", { staticClass: "title" }, [
-        _c("div", [_vm._v("免费委托找房")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("一键委托,一分钟回复")])
-      ]),
+    return _c("div", { staticClass: "title" }, [
+      _c("div", [_vm._v("免费委托找房")]),
       _vm._v(" "),
-      _c("div", { staticClass: "phone" }, [
-        _c("input", { attrs: { type: "text", placeholder: "请输入手机号" } }),
-        _vm._v(" "),
-        _c("span"),
-        _vm._v(" "),
-        _c("div", [
-          _c("a", { attrs: { href: "javascript:void(0);" } }, [
-            _vm._v("立即委托")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "rent_describe" }, [
-        _vm._v("已经有"),
-        _c("span", [_vm._v("15141")]),
-        _vm._v("位客户委托找房")
-      ])
+      _c("div", [_vm._v("一键委托,一分钟回复")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rent_describe" }, [
+      _vm._v("已经有"),
+      _c("span", [_vm._v("15141")]),
+      _vm._v("位客户委托找房")
     ])
   }
 ]

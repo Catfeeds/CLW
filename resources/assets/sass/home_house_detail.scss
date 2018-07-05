@@ -77,8 +77,18 @@
           height: 26px;
           border: solid 1px #eeeded;
           border-radius: 50%;
-          line-height: 28px;
-          text-align: center;
+          div{
+            margin: 5px;
+            width: 16px;
+            height: 15px;
+            background: url(/home_img/house_detail_collect_before.png) no-repeat;
+          }
+          &:hover{
+            cursor: pointer;
+            div{
+              background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
+            }
+          }
         }
       }
       .acreage{
@@ -103,6 +113,9 @@
               width: 20px;
               height: 18px;
               vertical-align: text-bottom;
+            }
+            &:hover{
+              cursor: pointer;
             }
           }
         }
