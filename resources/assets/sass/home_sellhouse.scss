@@ -41,6 +41,15 @@ body {
       form {
         .content{
           margin-bottom: 20px;
+          position: relative;
+          label.error {
+            display: block;
+            left: 0;
+            bottom: -17px;
+            color:Red;
+            font-size:13px;
+            position: absolute;
+          }
         }
         .connect,.phone {
           position: relative;
