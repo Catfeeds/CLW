@@ -24,7 +24,6 @@ body {
       .title_content {
         width: $master-width;
         height: 50px;
-        padding-left:20px;
         margin: 0 auto;
         line-height: 50px;
         min-width: 520px;
@@ -108,7 +107,7 @@ body {
             line-height: 0;
             height: 0;
           }
-          .area,.acverge,.price,.decoration,.special {
+          .area,.acverge,.price,.decoration,.special,.result {
             ul {
               border-bottom: 1px solid #f0f1f1;
               padding-left: 10px;
@@ -137,187 +136,6 @@ body {
           }
         }
       }
-      // .select_area {
-      //   background-color: #fff;
-      //   width: 100%;
-      //   padding: 0 7px 7px ;
-      //   border-radius:7px;
-      //   margin-bottom: 20px;
-      //   min-width: 1200px;
-      //   .area,.subway,.type,.acverge,.price,.decoration,.special,.result {
-      //     width: 100%;
-      //     border-bottom: 1px solid #f1f1f1;
-      //     .list {
-      //       width: 83%;  
-      //       display: flex;
-      //       padding-left: 15px;
-      //       .item {
-      //         flex: 1;              
-      //         float: left;
-      //         height: 40px;
-      //         line-height: 40px;
-      //         font-size: 14px;
-      //         color:#b2b2b2;
-      //         a:hover {
-      //           color:#03a2fb;
-      //         }
-      //       }
-      //     }
-      //   }
-      //   .area,.subway {
-      //     .area_detail,.subway_detail {
-      //       margin-left: 70px;
-      //       padding-left: 25px;
-      //       background-color: #f6faff;
-      //       border: 1px solid #ebebeb;
-      //       border-bottom:  none;
-      //       li {
-      //         position: relative;
-      //         float: left;
-      //         height: 37px;
-      //         line-height: 37px;
-      //         width: 75px;
-      //         a {
-      //           font-size: 14px;
-      //         }
-      //       }
-      //       .sanjiao::before {
-      //         content: "";
-      //         position: absolute;
-      //         border-left: 10px solid transparent;
-      //         border-right: 10px solid transparent;
-      //         border-bottom: 10px solid #ebebeb;
-      //         left: 7px;
-      //         top: -10px;
-      //       }
-      //       .sanjiao::after {
-      //         content: "";
-      //         position: absolute;
-      //         border-left: 10px solid transparent;
-      //         border-right: 10px solid transparent;
-      //         border-bottom: 10px solid #f6faff;
-      //         left: 7px;
-      //         top: -9px;
-      //       }
-      //     }
-         
-          
-      //   }
-      //   .subway {
-      //     width: 100%;
-      //     .list {
-      //       width: 55%;
-      //     }
-      //   }
-      //   .type {
-      //     .list {
-      //       width: 28%;
-      //     }
-      //   }
-      //   .acverge {
-      //     .list {
-      //       width: 56%;
-      //       .item {
-      //         flex: 1;
-      //       }
-      //       .item:first-child,.item:nth-child(2) {
-      //         flex:0.8;
-      //       }
-      //     }
-      //   }
-      //   .price {
-      //     .list {
-      //       .item:first-child {
-      //         flex: 0.48
-      //       }
-      //       .item:nth-child(2) {
-      //         flex:0.5;
-      //       }
-      //     }
-      //   }
-      //   .decoration {
-      //     .list {
-      //       width: 50%;
-      //       .item:first-child {
-      //         flex: 0.94
-      //       }
-      //     }
-      //   }
-      //   .special {
-      //     .list {
-      //       width: 60%;
-      //     }
-      //     .item:first-child {
-      //       flex: 0.73;
-      //       padding-left:1px;
-      //     }
-      //     .item:nth-child(2) {
-      //       flex: 0.78
-      //     }
-      //   }
-      //   .result {
-      //     margin-top: 7px;
-      //     border: 1px solid #f1f1f1;
-      //     width: 100%;
-          
-      //     .title {
-      //       height: 50px;
-      //       padding-left: 13px;
-      //       line-height: 50px;
-      //       font-size: 14px;
-      //       color:#b2b2b2;
-      //       margin-right: 51px;
-      //     }
-      //     .selected_box {
-      //       .selected {
-      //         height: 30px;
-      //         float: left;
-      //         text-align: center;
-      //         line-height: 30px;
-      //         margin-top: 10px;
-      //         border: 1px dashed #ddd;
-      //         margin-right: 20px;
-      //         font-size: 14px;
-      //         color:#b2b2b2;
-      //         padding: 0 5px;
-      //       }
-      //       .close {
-      //         font-size: 14px;
-      //         line-height: 25px;
-      //         cursor: pointer;
-      //       }
-      //     }
-      //     .order_selected {
-      //       margin-top: 10px;
-      //       a {
-      //         display: block;
-      //         padding: 7px 10px;
-      //         background-color:rgba(148, 148, 148, 1);
-      //         color:#fff; 
-      //         font-size: 14px;
-      //         border-radius: 3px;
-      //       }
-      //       a:hover {
-      //         opacity: 0.5;
-      //       }
-      //     }
-      //     .cleaning {
-      //       margin-top: 10px;
-      //       a {
-      //         display: block;
-      //         width: 80px;
-      //         height: 30px;
-      //         line-height: 30px;
-      //         text-align: center;
-      //         font-size: 14px;
-      //         color:#666;
-      //       }
-      //       a:hover {
-      //         color:#03a2fb;
-      //       }
-      //     }
-      //   }
-      // }
       .house_list {
         width: $master-width;
         margin: 0 auto;
@@ -331,7 +149,6 @@ body {
             line-height: 50px;
             border-bottom: 1px solid #ededed;
             background-color: #fff;
-            border-radius: 7px 7px 0 0;
             display: flex;
             padding:0 20px 0 40px;
             color:#858484;
@@ -457,7 +274,20 @@ body {
                           bottom:0px;
                           left:0px;
                           color: #fff;
-                          background-color: #000000;
+                          padding: 0 10px;
+                          font-size: 12px;
+                          background-color: rgba(0, 0, 0, 0.32);
+                        }
+                        .zx_acverge {
+                          padding-left: 10px;
+                        }
+                        .zx_acverge:hover,.zx_price:hover {
+                          color:$master-blue;
+                        }
+                        .zx_acverge,.zx_price {
+                          font-size: 12px;
+                          color:#878585;
+                          cursor: pointer;
                         }
                       }
                       div{
@@ -525,7 +355,6 @@ body {
             height: 50px;
             background-color: #fff;
             margin-top: 20px;
-            border-radius: 5px;
             padding-top: 5px;
             padding-left: 354px;
             ul.pagination {

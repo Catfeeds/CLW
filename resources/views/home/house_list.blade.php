@@ -60,42 +60,6 @@
                         </ul>
                     @endif
                 </div>
-                <!-- <div class="subway ">
-                  <ul class="list clearfix js_subway">
-                    <li class="item">地铁</li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">1号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">2号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">3号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">4号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">5号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">6号线</a></li>
-                  </ul>
-                  <ul class="subway_detail clearfix">
-                    <li><a href="javascript:void(0); current all">不限</a></li>
-                    <li class="sanjiao"><a href="javascript:void(0);">汉口北</a></li>
-                    <li><a href="javascript:void(0);">滠口新城</a></li>
-                    <li><a href="javascript:void(0);">滕子岗</a></li>
-                    <li><a href="javascript:void(0);">堤角</a></li>
-                    <li><a href="javascript:void(0);">新荣</a></li>
-                    <li><a href="javascript:void(0);">丹水池</a></li>
-                    <li><a href="javascript:void(0);">徐州新村</a></li>
-                    <li><a href="javascript:void(0);">二七路</a></li>
-                    <li><a href="javascript:void(0);">头道街</a></li>
-                    <li><a href="javascript:void(0);">黄浦路</a></li>
-                    <li><a href="javascript:void(0);">三阳路</a></li>
-                    <li><a href="javascript:void(0);">大智路</a></li>
-                    <li><a href="javascript:void(0);">循礼门</a></li>
-                  </ul>
-                </div> -->
-                <!-- <div class="type">
-                  <ul class="list clearfix">
-                    <li class="item">类型</li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">普通办公</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">创意花园</a></li>
-                  </ul>
-                </div> -->
                 <div class="acverge">
                     <ul class="list clearfix">
                         <li class="item">面积</li>
@@ -214,8 +178,8 @@
                                                                  style="width:200px;height: 160px">
                                                             <span class="zx">{{$pchouse->renovation_cn}}</span>
                                                         </div>
-                                                        <div>{{$pchouse->constru_acreage}}㎡</div>
-                                                        <div>{{$pchouse->unit_price}}元/㎡</div>
+                                                        <div class="zx_acverge f_l">{{$pchouse->constru_acreage}}㎡ |</div>
+                                                        <div class="zx_price f_l">&nbsp;{{$pchouse->unit_price}}元/㎡</div>
                                                     </div>
                                                 </li>
                                                 @endforeach

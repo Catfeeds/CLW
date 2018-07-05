@@ -463,7 +463,6 @@ body .house_list_container .house_list_title {
 body .house_list_container .house_list_title .title_content {
   width: 1200px;
   height: 50px;
-  padding-left: 20px;
   margin: 0 auto;
   line-height: 50px;
   min-width: 520px;
@@ -576,7 +575,8 @@ body .house_list_container .house_list_content .select_box .select_area .area ul
 body .house_list_container .house_list_content .select_box .select_area .acverge ul,
 body .house_list_container .house_list_content .select_box .select_area .price ul,
 body .house_list_container .house_list_content .select_box .select_area .decoration ul,
-body .house_list_container .house_list_content .select_box .select_area .special ul {
+body .house_list_container .house_list_content .select_box .select_area .special ul,
+body .house_list_container .house_list_content .select_box .select_area .result ul {
   border-bottom: 1px solid #f0f1f1;
   padding-left: 10px;
 }
@@ -585,7 +585,8 @@ body .house_list_container .house_list_content .select_box .select_area .area ul
 body .house_list_container .house_list_content .select_box .select_area .acverge ul li,
 body .house_list_container .house_list_content .select_box .select_area .price ul li,
 body .house_list_container .house_list_content .select_box .select_area .decoration ul li,
-body .house_list_container .house_list_content .select_box .select_area .special ul li {
+body .house_list_container .house_list_content .select_box .select_area .special ul li,
+body .house_list_container .house_list_content .select_box .select_area .result ul li {
   float: left;
   height: 40px;
   line-height: 40px;
@@ -596,7 +597,8 @@ body .house_list_container .house_list_content .select_box .select_area .area ul
 body .house_list_container .house_list_content .select_box .select_area .acverge ul li a,
 body .house_list_container .house_list_content .select_box .select_area .price ul li a,
 body .house_list_container .house_list_content .select_box .select_area .decoration ul li a,
-body .house_list_container .house_list_content .select_box .select_area .special ul li a {
+body .house_list_container .house_list_content .select_box .select_area .special ul li a,
+body .house_list_container .house_list_content .select_box .select_area .result ul li a {
   color: #444;
   cursor: pointer;
 }
@@ -605,7 +607,8 @@ body .house_list_container .house_list_content .select_box .select_area .area ul
 body .house_list_container .house_list_content .select_box .select_area .acverge ul li a:hover,
 body .house_list_container .house_list_content .select_box .select_area .price ul li a:hover,
 body .house_list_container .house_list_content .select_box .select_area .decoration ul li a:hover,
-body .house_list_container .house_list_content .select_box .select_area .special ul li a:hover {
+body .house_list_container .house_list_content .select_box .select_area .special ul li a:hover,
+body .house_list_container .house_list_content .select_box .select_area .result ul li a:hover {
   color: #007bff;
 }
 
@@ -613,7 +616,8 @@ body .house_list_container .house_list_content .select_box .select_area .area ul
 body .house_list_container .house_list_content .select_box .select_area .acverge ul li:first-child,
 body .house_list_container .house_list_content .select_box .select_area .price ul li:first-child,
 body .house_list_container .house_list_content .select_box .select_area .decoration ul li:first-child,
-body .house_list_container .house_list_content .select_box .select_area .special ul li:first-child {
+body .house_list_container .house_list_content .select_box .select_area .special ul li:first-child,
+body .house_list_container .house_list_content .select_box .select_area .result ul li:first-child {
   color: #b2b2b2;
 }
 
@@ -642,7 +646,6 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   line-height: 50px;
   border-bottom: 1px solid #ededed;
   background-color: #fff;
-  border-radius: 7px 7px 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -820,7 +823,25 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   bottom: 0px;
   left: 0px;
   color: #fff;
-  background-color: #000000;
+  padding: 0 10px;
+  font-size: 12px;
+  background-color: rgba(0,0,0,0.32);
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx_acverge {
+  padding-left: 10px;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx_acverge:hover,
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx_price:hover {
+  color: #007bff;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx_acverge,
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx_price {
+  font-size: 12px;
+  color: #878585;
+  cursor: pointer;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li div {
@@ -900,7 +921,6 @@ body .house_list_container .house_list_content .house_list .house_show div.pagin
   height: 50px;
   background-color: #fff;
   margin-top: 20px;
-  border-radius: 5px;
   padding-top: 5px;
   padding-left: 354px;
 }
