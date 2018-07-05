@@ -542,15 +542,17 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introTitle {
+  width: 322px;
   line-height: 70px;
   font-size: 34px;
+  font-weight: 600;
   padding: 0 45px 0 27px;
 }
 
 .content .build .first .left .intro .introBox .introBuild {
   text-align: center;
   border-left: 1px solid #ededed;
-  padding: 0 47px;
+  width: 180px;
 }
 
 .content .build .first .left .intro .introBox .introBuild div {
@@ -558,7 +560,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introBuild .introNum {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 40px;
   color: #444;
 }
@@ -566,7 +569,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .intro .introBox .introArea {
   text-align: center;
   border-left: 1px solid #ededed;
-  padding: 0 30px;
+  width: 180px;
 }
 
 .content .build .first .left .intro .introBox .introArea div {
@@ -574,7 +577,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introArea .areaNum {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 40px;
   color: #444;
 }
@@ -582,7 +586,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .intro .introBox .introRental {
   text-align: center;
   border-left: 1px solid #ededed;
-  padding: 0 20px;
+  width: 180px;
 }
 
 .content .build .first .left .intro .introBox .introRental div {
@@ -590,7 +594,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introRental .introPrice {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 40px;
   color: #007bff;
 }
@@ -727,7 +732,6 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listNav {
-  color: #666;
   height: 50px;
   line-height: 50px;
   padding-left: 25px;
@@ -740,7 +744,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listNav .listCount {
-  color: #878585;
+  color: #666;
   width: 236px;
 }
 
@@ -757,6 +761,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.content .build .first .left .buildList .listNav .listArea span {
+  color: #666;
 }
 
 .content .build .first .left .buildList .listNav .listArea .listSort {
@@ -783,6 +791,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
   line-height: 0;
   height: 6px;
   margin-top: 2px;
+}
+
+.content .build .first .left .buildList .listNav .special {
+  color: #666;
 }
 
 .content .build .first .left .buildList .listDetail {
@@ -822,7 +834,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listDetail .listNum div span {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .content .build .first .left .buildList .listDetail .listNum div #listPrice {
@@ -876,6 +888,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
   display: block;
   margin-bottom: 20px;
   margin-top: 1px;
+  color: #666;
 }
 
 .content .build .first .left .buildInfor {
@@ -886,7 +899,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
   background: #fff;
 }
 
-.content .build .first .left .buildInfor .buildInforBox .buildRow {
+.content .build .first .left .buildInfor .buildInforBox .buildInforList {
+  padding: 20px 0;
+}
+
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -894,11 +911,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding-left: 40px;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
 }
 
-.content .build .first .left .buildInfor .buildInforBox .buildRow div {
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow div {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -908,7 +925,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
           justify-content: flex-start;
 }
 
-.content .build .first .left .buildInfor .buildInforBox .buildRow div .developer {
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow div .developer {
   width: 110px;
   color: #999;
 }
@@ -916,6 +933,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .buildInfor .buildInforBox .buildDetail {
   padding: 35px 100px 35px 40px;
   color: #666;
+  border-top: 1px solid #f5f5f5;
+  line-height: 24px;
 }
 
 .content .build .first .left .quotation {
