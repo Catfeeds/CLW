@@ -19,8 +19,13 @@ class InformationsController extends Controller
         return view('home.information', ['contents' => $content, 'tops' => $top, 'hots' => $hot]);
     }
 
-    public function show(Information $information)
+    public function show
+    (
+        Information $information,
+        InformationRepository $repository
+    )
     {
-        return '资讯详情';
+        $hotInformation = $repository->hotInformation();
+        return view('home.show',['information' =>$information,'hotInformation'=>$hotInformation]);
     }
 }
