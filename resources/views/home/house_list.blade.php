@@ -3,23 +3,6 @@
 <link rel="stylesheet" href="/css/home_pagination.css">
 <link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
 <link rel="stylesheet" href="/css/home_house_list.css">
-<style>
-    .icon{
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        background-position: left -66px;
-        margin-right: 6px;
-        vertical-align: -3px;
-    }
-    .icon-tick{
-        background: url('/home_img/tick.svg');
-    }
-    .icon-untick{
-        background: url('/home_img/untick.svg');
-    }
-
-</style>
 @section('header')
 @section('body')
 @include('home.nav')
@@ -37,17 +20,18 @@
         <div class="house_list_title">
             <div class="title_content clearfix">
                 <div class="link f_l">
-                    <a href="javscript:void(0)" class="homepage">首页 </a>＞
+                    <a href="javscript:void(0)" class="homepage">首页 </a>&nbsp;>&nbsp;
                     <a href="javscript:void(0)">写字楼出租</a>
                 </div>
                 <div class="serch_area f_r ">
                     <input type="text" class="serch_inp" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
                     <button class="serch_btn"><span></span></button>
-                    <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div>
+                    <!-- <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div> -->
                 </div>
             </div>
         </div>
         <div class="house_list_content">
+            <div class="select_box">
             <div class="select_area">
                 <div class="area">
                     <ul class="list clearfix js_area">
@@ -76,42 +60,6 @@
                         </ul>
                     @endif
                 </div>
-                <!-- <div class="subway ">
-                  <ul class="list clearfix js_subway">
-                    <li class="item">地铁</li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">1号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">2号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">3号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">4号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">5号线</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">6号线</a></li>
-                  </ul>
-                  <ul class="subway_detail clearfix">
-                    <li><a href="javascript:void(0); current all">不限</a></li>
-                    <li class="sanjiao"><a href="javascript:void(0);">汉口北</a></li>
-                    <li><a href="javascript:void(0);">滠口新城</a></li>
-                    <li><a href="javascript:void(0);">滕子岗</a></li>
-                    <li><a href="javascript:void(0);">堤角</a></li>
-                    <li><a href="javascript:void(0);">新荣</a></li>
-                    <li><a href="javascript:void(0);">丹水池</a></li>
-                    <li><a href="javascript:void(0);">徐州新村</a></li>
-                    <li><a href="javascript:void(0);">二七路</a></li>
-                    <li><a href="javascript:void(0);">头道街</a></li>
-                    <li><a href="javascript:void(0);">黄浦路</a></li>
-                    <li><a href="javascript:void(0);">三阳路</a></li>
-                    <li><a href="javascript:void(0);">大智路</a></li>
-                    <li><a href="javascript:void(0);">循礼门</a></li>
-                  </ul>
-                </div> -->
-                <!-- <div class="type">
-                  <ul class="list clearfix">
-                    <li class="item">类型</li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent current all">全部</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">普通办公</a></li>
-                    <li class="item"><a href="javscript:void(0)" class="js_addCurrent">创意花园</a></li>
-                  </ul>
-                </div> -->
                 <div class="acverge">
                     <ul class="list clearfix">
                         <li class="item">面积</li>
@@ -179,8 +127,9 @@
                     <div class="selected_box f_l clearfix">
                     </div>
                     <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
-                    <div class="cleaning f_l"><a href="javascript:void(0)" class="js_cleaning">清空</a></div>
+                    <div class="cleaning f_l clearfix"><img src="/home_img/cleaning2.png" alt=""><a href="javascript:void(0)" class="js_cleaning f_r">清空</a></div>
                 </div>
+            </div>
             </div>
             <div class="house_list">
                 <div class="house_show">
@@ -189,12 +138,12 @@
                             出租写字楼共<span>{{$count??0}}</span>套
                         </div>
                         <div class="title_right">
-                            <div class="sort_default js_price_default" @if(empty($request['price_sort']))style="background: #03a2fb" @endif><a href="javascript:void(0);">默认</a></div>
+                            <div class="sort_default js_price_default" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>
                             <div class="sort_price">
                                 <a href="javascript:void(0);" class="order_price js_price_sort" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
-                                    <span class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc')style="background-color: #03a2fb" @endif">▲</span>
-                                    <span class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc')style="background-color: #03a2fb" @endif">▼</span>
+                                    <img src="/home_img/build_detail_up_before.png" class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc') @endif" />
+                                    <img src="/home_img/down.png" class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc') @endif" />
                                 </a>
                             </div>
                         </div>
@@ -205,16 +154,17 @@
                                 <div class="detail">
                                     <div class="img_box">
                                         <img src="{{$data->img_cn}}" alt="" style="width: 242px;height: 200px">
+                                        <img src="/home_img/perfect_sel.png" alt="" class="first_select">
                                     </div>
                                     <div class="detail_title">
                                         <div class="house_name clearfix">
-                                            <div class="name f_l">{{$data->name}}</div>
+                                            <div class="name f_l">{!!$data->name!!}</div>
                                             <span class='js_tao'>{{$data->house_count}}套</span>
                                             <div class="price f_r"><span
                                                         class="js_acvergePrice">{{$data->avg_price}}</span>元/m²月
                                             </div>
                                         </div>
-                                        <div class="house_location">地址: [{{$data->address_cn}}]{{$data->address}}</div>
+                                        <div class="house_location">地址: [{!!$data->address_cn!!}]{!!$data->address!!}</div>
                                         <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                         <div class="acverge_select">
                                             <ul>
@@ -228,8 +178,8 @@
                                                                  style="width:200px;height: 160px">
                                                             <span class="zx">{{$pchouse->renovation_cn}}</span>
                                                         </div>
-                                                        <div>{{$pchouse->constru_acreage}}㎡</div>
-                                                        <div>{{$pchouse->unit_price}}元/㎡</div>
+                                                        <div class="zx_acverge f_l">{{$pchouse->constru_acreage}}㎡ |</div>
+                                                        <div class="zx_price f_l">&nbsp;{{$pchouse->unit_price}}元/㎡</div>
                                                     </div>
                                                 </li>
                                                 @endforeach
@@ -241,7 +191,7 @@
                                                 <ul>
                                                     @foreach($data->features as $features)
                                                         <li>
-                                                            <span class="icon"></span>{{$features->name}}
+                                                            {{$features->name}}
                                                         </li>
                                                     @endforeach
                                                 </ul>
