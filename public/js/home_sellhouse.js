@@ -1,18 +1,33 @@
 webpackJsonp([5],{
 
+<<<<<<< HEAD
 /***/ 273:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(274);
+=======
+/***/ 276:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(277);
+>>>>>>> origin/zc
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 274:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(4);
 __webpack_require__(39);
+=======
+/***/ 277:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(8);
+__webpack_require__(278);
+>>>>>>> origin/zc
 var url = 'http://www.clw.com';
 console.log('url', url);
 var type = $("#commentForm").validate({
@@ -54,7 +69,11 @@ var type = $("#commentForm").validate({
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 39:
+=======
+/***/ 278:
+>>>>>>> origin/zc
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -67,7 +86,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  */
 (function( factory ) {
 	if ( true ) {
+<<<<<<< HEAD
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(40)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+=======
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(148)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+>>>>>>> origin/zc
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -1664,4 +1687,8 @@ return $;
 
 /***/ })
 
+<<<<<<< HEAD
 },[273]);
+=======
+},[276]);
+>>>>>>> origin/zc

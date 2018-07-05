@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpackJsonp([6],{
 
 /***/ 10:
@@ -39,6 +40,11 @@ var mySwiper2 = new Swiper('.swiper-container1', {
 
 /***/ 8:
 >>>>>>> origin/wanghao
+=======
+webpackJsonp([7],{
+
+/***/ 27:
+>>>>>>> origin/zc
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5399,19 +5405,34 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 277:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(278);
+=======
+/***/ 274:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(275);
+>>>>>>> origin/zc
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 278:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
 var Swiper = __webpack_require__(10);
+=======
+/***/ 275:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(8);
+var Swiper = __webpack_require__(27);
+>>>>>>> origin/zc
 
 var mySwiper1 = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
@@ -5432,7 +5453,11 @@ var mySwiper2 = new Swiper('.swiper-container1', {
 /***/ })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 },[277]);
 =======
 },[269]);
 >>>>>>> origin/wanghao
+=======
+},[274]);
+>>>>>>> origin/zc

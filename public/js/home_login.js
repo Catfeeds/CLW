@@ -8,7 +8,12 @@ module.exports = __webpack_require__(272);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 272:
+=======
+<<<<<<< HEAD
+/***/ 270:
+>>>>>>> origin/zc
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(4);
@@ -1620,6 +1625,13 @@ if ( $.ajaxPrefilter ) {
 		}
 	} );
 } else {
+<<<<<<< HEAD
+=======
+=======
+/***/ 269:
+/***/ (function(module, exports) {
+>>>>>>> origin/zxz
+>>>>>>> origin/zc
 
 	// Proxy ajax
 	ajax = $.ajax;

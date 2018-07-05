@@ -1,21 +1,36 @@
 webpackJsonp([6],{
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /***/ 10:
 =======
 /***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(264);
+=======
+/***/ 268:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(269);
+>>>>>>> origin/zc
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(4);
 var Swiper = __webpack_require__(8);
+=======
+/***/ 269:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(8);
+var Swiper = __webpack_require__(27);
+>>>>>>> origin/zc
 
 var banner = new Swiper('.swiper-container', {
   pagination: '.swiper-pagination',
@@ -30,8 +45,12 @@ var banner = new Swiper('.swiper-container', {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 8:
 >>>>>>> origin/wanghao
+=======
+/***/ 27:
+>>>>>>> origin/zc
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5420,7 +5439,11 @@ var banner = new Swiper('.swiper-container', {
 /***/ })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 },[271]);
 =======
 },[263]);
 >>>>>>> origin/wanghao
+=======
+},[268]);
+>>>>>>> origin/zc

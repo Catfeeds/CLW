@@ -126,3 +126,7 @@ function removeData() {
         price_sort: ''
     }
 }
+//搜索区域条件三角标的显示与隐藏
+$(".js_area_sel").on("click",function(){
+    $(this).parent(".js_condition").css("::after",)
+})
