@@ -77,11 +77,12 @@ class BuildingsController extends Controller
         // 前段返回条件
         $data = $request->all();
 
+        // 分页跟随条件
+        $request->offsetSet('data', $data);
+
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
-
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
-
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
 
@@ -107,22 +108,4 @@ class BuildingsController extends Controller
             'count' => $res['house_count']
         ]);
     }
-
-    // 通过城市,区域,商圈,楼盘,楼盘地址搜索
-    public function buildingSearch(
-        Request $request
-    )
-    {
-        $string = "'". $request->search . "'";
-
-        $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
-
-        // 获取所有楼盘id
-        $buildingIds = array_column(Common::objectToArray($res), 'building_id');
-
-        $res = Building::whereIn('id', $buildingIds)->paginate(10);
-
-        return $this->sendResponse($res,'获取搜索楼盘成功');
-    }
-
 }
