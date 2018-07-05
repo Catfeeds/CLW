@@ -11,6 +11,7 @@
       <bm-local-search
       :page-capacity="100" :auto-viewport="true" style="display:none" :nearby="point" :keyword="keyword" @searchcomplete="result" :select-first-result="true"></bm-local-search>
       <bm-circle :center="point.center" :location="location" :radius="point.radius" :stroke-weight="1" :stroke-opacity="0.1" fill-color="blue" :fill-opacity="0.4"></bm-circle>
+      <bm-marker :position="this.point.center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker> 
       <el-tabs type="border-card" @tab-click="handleClick" class="screen">
           <el-tab-pane label="交通">
             <el-tabs @tab-click="chioce" v-model="activeName">
@@ -111,7 +112,7 @@
   </baidu-map>
 </template>
 <script>
-import { BaiduMap, BmLocalSearch, BmCircle } from 'vue-baidu-map'
+import { BaiduMap, BmLocalSearch, BmCircle, BmMarker } from 'vue-baidu-map'
 import { Tabs, TabPane } from 'element-ui';
 var ElTabs = Tabs, ElTabPane = TabPane
 export default {
@@ -121,7 +122,8 @@ export default {
     ElTabs,
     ElTabPane,
     BmLocalSearch,
-    BmCircle
+    BmCircle,
+    BmMarker
   },
   data() { 
     return {
@@ -260,11 +262,12 @@ export default {
             display: flex;
             justify-content: space-between;
             .screenTitle{
-              font-size: 16px;
+              font-size: 14px;
               margin-bottom: 5px;
               color: #333;
             }
             .distance{
+              font-size: 14px;
               img{
                 vertical-align: middle;
                 margin-right: 5px;
@@ -277,6 +280,7 @@ export default {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 12px;
           }
         }
       }
@@ -291,11 +295,12 @@ export default {
             display: flex;
             justify-content: space-between;
             .screenTitle{
-              font-size: 16px;
+              font-size: 14px;
               margin-bottom: 5px;
               color: #333;
             }
             .distance{
+              font-size: 14px;
               img{
                 vertical-align: middle;
                 margin-right: 5px;
@@ -308,6 +313,7 @@ export default {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 12px;
           }
         }
     }

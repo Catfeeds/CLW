@@ -81,7 +81,7 @@
     </div>
     <div class="banner-commercial-box">
       <img src="/home_img/index_banner_commercial_text.png" alt="">
-      <a class="velocity-factor" href="javascript:void(0)">
+      <a class="velocity-factor" href="{{url('/sellhouse')}}">
         立即委托
       </a>
     </div>
@@ -266,13 +266,13 @@
       <img src="/home_img/index_lookForHouse.png" alt="">
       <h3>委托找房</h3>
       <p>专业、可靠、免费优办提供一对一全程找房服务</p>
-      <a href="javascript:void(0)">委托找房>></a>
+      <a href="{{url('/sellhouse')}}">委托找房>></a>
     </div>
     <div class="launchHouse-box">
       <img src="/home_img/index_launchHouse.png" alt="">
       <h3>投放房源</h3>
       <p>专业、可靠、免费优办提供一对一全程服务</p>
-      <a href="javascript:void(0)">投放房源>></a>
+      <a href="{{url('/launchouse')}}">投放房源>></a>
     </div>
     <div class="clearfloat"></div>
   </div>

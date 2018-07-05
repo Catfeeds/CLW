@@ -1,56 +1,6 @@
 webpackJsonp([6],{
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/***/ 10:
-=======
-/***/ 263:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(264);
-=======
-/***/ 268:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(269);
->>>>>>> origin/zc
-
-
-/***/ }),
-
-<<<<<<< HEAD
-/***/ 264:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(4);
-var Swiper = __webpack_require__(8);
-=======
-/***/ 269:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(8);
-var Swiper = __webpack_require__(27);
->>>>>>> origin/zc
-
-var banner = new Swiper('.swiper-container', {
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  autoplay: 2000,
-  loop: true,
-  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
-    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
-  }
-
-});
-
-/***/ }),
-
-<<<<<<< HEAD
-/***/ 8:
->>>>>>> origin/wanghao
-=======
-/***/ 27:
->>>>>>> origin/zc
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5411,19 +5361,19 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ }),
 
-/***/ 271:
+/***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(272);
+module.exports = __webpack_require__(276);
 
 
 /***/ }),
 
-/***/ 272:
+/***/ 276:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(6);
-var Swiper = __webpack_require__(10);
+__webpack_require__(5);
+var Swiper = __webpack_require__(11);
 
 var banner = new Swiper('.swiper-container', {
   pagination: '.swiper-pagination',
@@ -5438,12 +5388,4 @@ var banner = new Swiper('.swiper-container', {
 
 /***/ })
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-},[271]);
-=======
-},[263]);
->>>>>>> origin/wanghao
-=======
-},[268]);
->>>>>>> origin/zc
+},[275]);

@@ -41,8 +41,16 @@ class BuildingsController extends Controller
         // 猜你喜欢
         $request->area_id = $areaId;   // 区域id
         $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
-        // return $likeBuilding;
-        return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block]);
+        //区域商圈名称对应id
+        $data[0]['id'] = $areaId;
+        $data[0]['name'] = $block->area->name;
+        $data[1]['id'] = $block->id;
+        $data[1]['name'] = $block->name;
+        $data[2]['id'] = $building->id;
+        $data[2]['name'] = $building->name;
+        
+        // return $data;
+        return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block, 'data' => $data]);
     }
 
     // 楼盘列表

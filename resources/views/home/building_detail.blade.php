@@ -6,10 +6,7 @@
 @section('body')
 @include('home.nav')
 <div class="content">
-    <?php 
-        $arrs=array('首页','洪山区','光谷','慧谷时空')
-    ?>
-    @include('home.layouts.nav', ['arrs'=>$arrs])
+    @include('home.layouts.nav', ['arrs'=>$data])
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
@@ -34,11 +31,11 @@
                             </div>
                             <div class="introArea">
                                 <div class="areaNum">{{$building->constru_acreage}}</div>
-                                <div>可租面积/平米</div>
+                                <div>可租面积/m²</div>
                             </div>
                             <div class="introRental">
                                 <div class="introPrice">{{$building->unit_price}}</div>
-                                <div>月度租金/元每平方米</div> 
+                                <div>月度租金 元/m²</div> 
                             </div>
                         </div>
                         <div class="introAddress">
@@ -47,26 +44,10 @@
                         </div>
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
-                            <!-- <div class="betterDetail">
-                                <img src="/home_img/build_detail_subway.png">
-                                <span>地铁10分钟</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_landmark.png">
-                                <span>地标建筑</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_pioneer_park .png">
-                                <span>创业园</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_register.png">
-                                <span>可注册</span>
-                            </div> -->
                             @foreach($building->feature_name_pic as $feature)
                             <div class="betterDetail">
-                                <img src="/home_img/build_detail_subway.png">
-                                <span>地铁10分钟</span>
+                                <img src="{{$feature['pic']}}">
+                                <span>{{$feature['name']}}</span>
                             </div>
                             @endforeach
                         </div>
@@ -148,11 +129,12 @@
                                 <div class="listDetail">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">
-                                        <span id="listArea">{{$house->constru_acreage_cn}}</span>
-                                        <span id="listPrice">{{$house->unit_price_cn}}</span>
-                                        <span id="listTotal">{{$house->total_price_cn}}</span>
+                                        <div><span id="listArea">{{$house->constru_acreage}}</span>m²</div>
+                                        <div><span id="listPrice">{{$house->unit_price}}</span>元/㎡·月</div>
+                                        <div><span id="listTotal">{{$house->total_price}}</span>元/月</div>
                                     </div>
                                     <div class="listSpecial" id="listSpecial">
+                                        <div class="special1">押一付一</div>
                                         @if(!empty($house->house_feature[0]))
                                         <div class="special1">{{$house->house_feature[0]}}</div>
                                         @endif
@@ -176,25 +158,27 @@
                     <div class="buildInfor" id="buildInfor">
                         <div class="h1">楼盘信息</div>
                         <div class="buildInforBox">
-                            <div class="buildRow">
-                                <div>
-                                    <span class="developer">开发商</span><span>{{$building->developer}}</span>
+                            <div class="buildInforList">
+                                <div class="buildRow">
+                                    <div>
+                                        <span class="developer">开发商</span><span>{{$building->developer}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="developer">建筑年代</span>
+                                        <span>{{$building->years_cn}}</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <span class="developer">建筑年代</span>
-                                    <span>{{$building->years_cn}}</span>
+                                <div class="buildRow">
+                                    <div><span class="developer">总建筑面积</span><span>{{$building->acreage_cn}}</span></div>
+                                    <div><span class="developer">楼栋数量</span><span>{{$building->building_block_num_cn}}</span></div>
                                 </div>
-                            </div>
-                            <div class="buildRow">
-                                <div><span class="developer">总建筑面积</span><span>{{$building->acreage_cn}}</span></div>
-                                <div><span class="developer">楼栋数量</span><span>{{$building->building_block_num_cn}}</span></div>
-                            </div>
-                            <div class="buildRow">
-                                <div><span class="developer">车位数量</span><span>{{$building->parking_num_cn}}</span></div>
-                                <div><span class="developer">停车费</span><span>{{$building->parking_fee_cn}}</span></div>
-                            </div>
-                            <div class="buildRow">
-                                <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
+                                <div class="buildRow">
+                                    <div><span class="developer">车位数量</span><span>{{$building->parking_num_cn}}</span></div>
+                                    <div><span class="developer">停车费</span><span>{{$building->parking_fee_cn}}</span></div>
+                                </div>
+                                <div class="buildRow">
+                                    <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
+                                </div>
                             </div>
                             <div class="buildDetail">{{$building->describe}}</div>
                         </div>

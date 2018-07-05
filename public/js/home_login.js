@@ -1633,6 +1633,7 @@ if ( $.ajaxPrefilter ) {
 >>>>>>> origin/zxz
 >>>>>>> origin/zc
 
+<<<<<<< HEAD
 	// Proxy ajax
 	ajax = $.ajax;
 	$.ajax = function( settings ) {
@@ -1650,6 +1651,9 @@ if ( $.ajaxPrefilter ) {
 }
 return $;
 }));
+=======
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'D:\\phpstudy\\software\\PHPTutorial\\WWW\\CLW\\resources\\assets\\js\\home_login.js'");
+>>>>>>> origin/cyq
 
 /***/ })
 

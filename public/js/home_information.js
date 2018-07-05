@@ -1,50 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-webpackJsonp([6],{
+webpackJsonp([8],{
 
-/***/ 10:
-=======
-webpackJsonp([9],{
-
-/***/ 269:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(270);
-
-
-/***/ }),
-
-/***/ 270:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(4);
-var Swiper = __webpack_require__(8);
-
-var mySwiper1 = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    effect: 'fade',
-    width: 770,
-    onTransitionEnd: function onTransitionEnd(swiper) {
-        console.log(swiper.activeIndex);
-        mySwiper2.slideTo(swiper.activeIndex);
-    }
-});
-var mySwiper2 = new Swiper('.swiper-container1', {
-    effect: 'fade',
-    fade: {
-        crossFade: true
-    }
-});
-
-/***/ }),
-
-/***/ 8:
->>>>>>> origin/wanghao
-=======
-webpackJsonp([7],{
-
-/***/ 27:
->>>>>>> origin/zc
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5405,34 +5361,19 @@ else if (typeof define === 'function' && define.amd) {
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 277:
+/***/ 281:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(278);
-=======
-/***/ 274:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(275);
->>>>>>> origin/zc
+module.exports = __webpack_require__(282);
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 278:
+/***/ 282:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(6);
-var Swiper = __webpack_require__(10);
-=======
-/***/ 275:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(8);
-var Swiper = __webpack_require__(27);
->>>>>>> origin/zc
+__webpack_require__(5);
+var Swiper = __webpack_require__(11);
 
 var mySwiper1 = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
@@ -5452,12 +5393,4 @@ var mySwiper2 = new Swiper('.swiper-container1', {
 
 /***/ })
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-},[277]);
-=======
-},[269]);
->>>>>>> origin/wanghao
-=======
-},[274]);
->>>>>>> origin/zc
+},[281]);
