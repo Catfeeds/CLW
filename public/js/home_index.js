@@ -7507,6 +7507,15 @@ new Swiper('.swiper-container', {
 });
 $(document).on('scroll', function (e) {
   if (e.target === document) {
+    if ($(document).scrollTop() >= $('.js_navChange')[0].offsetHeight) {
+      if (!$('.js_navChange').hasClass('transition')) {
+        $('.js_navChange').addClass('transition');
+      }
+    } else {
+      if ($('.js_navChange').hasClass('transition')) {
+        $('.js_navChange').removeClass('transition');
+      }
+    }
     if ($(document).scrollTop() >= $('.js_headerHeight')[0].offsetHeight) {
       if (!$('.js_navChange').hasClass('active')) {
         $('.js_navChange').addClass('active');
