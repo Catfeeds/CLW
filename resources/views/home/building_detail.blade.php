@@ -6,11 +6,7 @@
 @section('body')
 @include('home.nav')
 <div class="content">
-    <?php 
-        $arrs=array('首页','洪山区','光谷','慧谷时空')
-    ?>
-    <div></div>
-    @include('home.layouts.nav', ['arrs'=>$arrs])
+    @include('home.layouts.nav', ['arrs'=>$data])
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
@@ -48,22 +44,6 @@
                         </div>
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
-                            <!-- <div class="betterDetail">
-                                <img src="/home_img/build_detail_subway.png">
-                                <span>地铁10分钟</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_landmark.png">
-                                <span>地标建筑</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_pioneer_park .png">
-                                <span>创业园</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_register.png">
-                                <span>可注册</span>
-                            </div> -->
                             @foreach($building->feature_name_pic as $feature)
                             <div class="betterDetail">
                                 <img src="{{$feature['pic']}}">

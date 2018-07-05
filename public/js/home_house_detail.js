@@ -737,7 +737,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n}\n.map .screen {\n    position: absolute;\n    top: 40px;\n    right: 30px;\n    width: 350px;\n    height: 400px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail .screenDist {\n        margin-bottom: 15px;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox .screenTitle {\n            font-size: 16px;\n            margin-bottom: 5px;\n            color: #333;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox .distance img {\n            vertical-align: middle;\n            margin-right: 5px;\n}\n.map .screen .screenList .screenDetail .screenDist .screenAddress {\n          color: #999;\n          width: 280px;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n.map .screen .screenList1 .screenDist {\n        margin-bottom: 15px;\n}\n.map .screen .screenList1 .screenDist .screenBox {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between;\n}\n.map .screen .screenList1 .screenDist .screenBox .screenTitle {\n            font-size: 16px;\n            margin-bottom: 5px;\n            color: #333;\n}\n.map .screen .screenList1 .screenDist .screenBox .distance img {\n            vertical-align: middle;\n            margin-right: 5px;\n}\n.map .screen .screenList1 .screenDist .screenAddress {\n          color: #999;\n          width: 280px;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n}\n", ""]);
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n}\n.map .screen {\n    position: absolute;\n    top: 40px;\n    right: 30px;\n    width: 350px;\n    height: 400px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail .screenDist {\n        margin-bottom: 15px;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox .screenTitle {\n            font-size: 14px;\n            margin-bottom: 5px;\n            color: #333;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox .distance {\n            font-size: 14px;\n}\n.map .screen .screenList .screenDetail .screenDist .screenBox .distance img {\n              vertical-align: middle;\n              margin-right: 5px;\n}\n.map .screen .screenList .screenDetail .screenDist .screenAddress {\n          color: #999;\n          width: 280px;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n          font-size: 12px;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n.map .screen .screenList1 .screenDist {\n        margin-bottom: 15px;\n}\n.map .screen .screenList1 .screenDist .screenBox {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between;\n}\n.map .screen .screenList1 .screenDist .screenBox .screenTitle {\n            font-size: 14px;\n            margin-bottom: 5px;\n            color: #333;\n}\n.map .screen .screenList1 .screenDist .screenBox .distance {\n            font-size: 14px;\n}\n.map .screen .screenList1 .screenDist .screenBox .distance img {\n              vertical-align: middle;\n              margin-right: 5px;\n}\n.map .screen .screenList1 .screenDist .screenAddress {\n          color: #999;\n          width: 280px;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n          font-size: 12px;\n}\n", ""]);
 
 // exports
 
@@ -1481,6 +1481,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     getVal: function getVal() {
       if (this.value) {
+        this.isShow = false;
         Object(__WEBPACK_IMPORTED_MODULE_0__home_api__["a" /* findHouse */])({ tel: this.value }).then(function (res) {
           console.log(res);
         });
@@ -10348,28 +10349,28 @@ var index = (function () {
 function getRegionList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/getRegionList',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
 function getBlock() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/detailArea',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
 function getBuildList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/getBuildList',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
 function getSiteList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/getSiteList',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
@@ -10377,7 +10378,7 @@ function getSiteList() {
 function findHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/bespeaks',
-    methods: 'POST',
+    method: 'POST',
     data: data
   });
 }

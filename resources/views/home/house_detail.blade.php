@@ -8,9 +8,7 @@
 <div class="content">
     <div style="background: #fff">
     <!-- 导航条 -->
-        <div class="nav">
-            <span>首页</span><span>>洪山区</span><span>>光谷</span><span>>现代世贸中心</span>
-        </div>
+    @include('home.layouts.nav', ['arrs'=>$data])
         <!-- 轮播 --> 
         <div class="banner">
             <div class="swiper">
@@ -53,7 +51,7 @@
                     <div><span>可容纳工位数</span>{{$house->station_number_cn}}</div>
                     <div><span>装修程度</span>{{$house->renovation_cn}}</div>
                     <div class="address">
-                        <div><span>楼盘地址</span>{{$house->address}}</div>
+                        <div><span>楼盘地址</span><div class="addressInfor">{{$house->address}}</div></div>
                         <span class="js_map"><img src="/home_img/house_detail_map.png"> 查看地图</span>
                     </div>
                     <div class="better">

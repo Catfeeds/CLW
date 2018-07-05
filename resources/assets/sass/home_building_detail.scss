@@ -449,12 +449,12 @@
               width: 239px;
               border: 1px solid #e6e6e6;
               border-top: none;
-              padding: 15px 12px;
+              padding: 20px 12px 10px 12px;
               .enjoyTitle{
                 @extend .font-level3;
                 color: #444545;
-                margin-bottom: 16px;
-                font-weight: 600;
+                margin-bottom: 8px;
+                // font-weight: 600;
               }
               .enjoyIntro{
                 display: flex;

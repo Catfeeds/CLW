@@ -28,6 +28,7 @@ export default {
   methods: {
     getVal() {
       if(this.value) {
+        this.isShow = false
         findHouse({ tel: this.value }).then(res => {
           console.log(res)
         })

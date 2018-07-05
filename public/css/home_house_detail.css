@@ -493,10 +493,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 12px;
+  margin-bottom: 25px;
 }
 
 .content .banner .swiper .littelSwiper #smallImg {
-  width: 615px;
+  width: 622px;
   margin-top: 2px;
   height: 70px;
 }
@@ -514,7 +515,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
   font-size: 22px;
   font-weight: 600;
   line-height: 32px;
-  color: #444;
+  color: #666;
 }
 
 .content .banner .infor .price {
@@ -528,7 +529,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
   border-bottom: 1px solid #dbdbdb;
 }
 
-.content .banner .infor .price span {
+.content .banner .infor .price div {
+  color: #666;
+}
+
+.content .banner .infor .price div span {
   color: #007bff;
   font-weight: 600;
   font-size: 30px;
@@ -563,7 +568,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .banner .infor .acreage div {
-  color: #464545;
+  color: #666;
   margin-bottom: 16px;
 }
 
@@ -583,8 +588,23 @@ nav .nav-content .login-box .user-login-box a.login-a {
   margin-bottom: 0;
 }
 
+.content .banner .infor .acreage .address div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.content .banner .infor .acreage .address div .addressInfor {
+  width: 220px;
+}
+
 .content .banner .infor .acreage .address .js_map {
   color: #007bff;
+  width: 84px;
 }
 
 .content .banner .infor .acreage .address .js_map img {
@@ -665,9 +685,13 @@ nav .nav-content .login-box .user-login-box a.login-a {
   margin-top: 15px;
 }
 
+.content .banner .infor .tel .agent .name div {
+  color: #666;
+}
+
 .content .banner .infor .tel .agent .name .nameDet {
   font-size: 24px;
-  color: #4c4d4d;
+  color: #666;
   margin-bottom: 13px;
 }
 
@@ -729,13 +753,16 @@ nav .nav-content .login-box .user-login-box a.login-a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  color: #444545;
   line-height: 28px;
 }
 
 .content .second .houseInfor .houseDetail .left .house .housePay div .houseBox {
   width: 85px;
   color: #bab8ba;
+}
+
+.content .second .houseInfor .houseDetail .left .house .housePay div span {
+  color: #666;
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseType {
@@ -749,13 +776,16 @@ nav .nav-content .login-box .user-login-box a.login-a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  color: #444545;
   line-height: 28px;
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseType div .houseBox1 {
   width: 55px;
   color: #bab8ba;
+}
+
+.content .second .houseInfor .houseDetail .left .house .houseType div span {
+  color: #666;
 }
 
 .content .second .houseInfor .houseDetail .left .build {
@@ -842,13 +872,12 @@ nav .nav-content .login-box .user-login-box a.login-a {
   width: 239px;
   border: 1px solid #e6e6e6;
   border-top: none;
-  padding: 15px 12px;
+  padding: 20px 12px 10px 12px;
 }
 
 .content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
   color: #444545;
-  margin-bottom: 16px;
-  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro {

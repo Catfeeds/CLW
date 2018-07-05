@@ -262,11 +262,12 @@ export default {
             display: flex;
             justify-content: space-between;
             .screenTitle{
-              font-size: 16px;
+              font-size: 14px;
               margin-bottom: 5px;
               color: #333;
             }
             .distance{
+              font-size: 14px;
               img{
                 vertical-align: middle;
                 margin-right: 5px;
@@ -279,6 +280,7 @@ export default {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 12px;
           }
         }
       }
@@ -293,11 +295,12 @@ export default {
             display: flex;
             justify-content: space-between;
             .screenTitle{
-              font-size: 16px;
+              font-size: 14px;
               margin-bottom: 5px;
               color: #333;
             }
             .distance{
+              font-size: 14px;
               img{
                 vertical-align: middle;
                 margin-right: 5px;
@@ -310,6 +313,7 @@ export default {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 12px;
           }
         }
     }

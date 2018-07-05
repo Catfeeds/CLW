@@ -9,15 +9,20 @@ use App\Repositories\AcceptMessagesRepository;
 
 class BespeakObservers {
 
-    public function created(Bespeak $bespeak)
-    {
-        $class = new AcceptMessagesController(new AcceptMessagesRepository(),new AcceptMessagesRequest());
-        $openid = $class->getOpenid(1);
-        $name= $bespeak->appellation?$bespeak->appellation:'无';
-        $tel = $bespeak->tel;
-        $data['openid'] = json_encode($openid);
-        $data['name'] = $name;
-        $data['tel'] = $tel;
-        curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
-    }
+    // public function created(Bespeak $bespeak)
+    // {
+    //     $class = new AcceptMessagesController(new AcceptMessagesRepository(),new AcceptMessagesRequest());
+    //     $name= $bespeak->appellation?$bespeak->appellation:'无';
+    //     $tel = $bespeak->tel;
+    //     $data['name'] = $name;
+    //     $data['tel'] = $tel;
+    //     $openid = $class->getOpenid(1);
+    //     if ($openid) {
+    //         $data['openid'] = json_encode($openid);
+    //         curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
+    //     }
+
+
+
+    // }
 }

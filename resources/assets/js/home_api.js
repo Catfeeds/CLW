@@ -3,14 +3,14 @@ import request from './home_request'
 export function getRegionList() {
   return request({
     url: '/getRegionList',
-    methods: 'GET'
+    method: 'GET'
   })
 }
 
 export function getBlock() {
  return request({
   url: '/detailArea',
-  methods: 'GET'
+  method: 'GET'
  })
 }
 
@@ -18,14 +18,14 @@ export function getBlock() {
 export function getBuildList() {
     return request({
         url: '/getBuildList',
-        methods: 'GET'
+        method: 'GET'
     })
 }
 
 export function getSiteList() {
     return request({
         url: '/getSiteList',
-        methods: 'GET'
+        method: 'GET'
     })
 }
 
@@ -33,7 +33,7 @@ export function getSiteList() {
 export function findHouse(data) {
   return request({
     url: '/bespeaks',
-    methods: 'POST',
+    method: 'POST',
     data
   })
 }

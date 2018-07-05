@@ -5219,28 +5219,28 @@ var index = (function () {
 function getRegionList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/getRegionList',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
 function getBlock() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/detailArea',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
 function getBuildList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/getBuildList',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
 function getSiteList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/getSiteList',
-    methods: 'GET'
+    method: 'GET'
   });
 }
 
@@ -5248,7 +5248,7 @@ function getSiteList() {
 function findHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/bespeaks',
-    methods: 'POST',
+    method: 'POST',
     data: data
   });
 }
