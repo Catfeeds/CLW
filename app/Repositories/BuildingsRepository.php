@@ -57,6 +57,9 @@ class BuildingsRepository extends  Model
             return Common::pageData($request->page, $data->values());
         } elseif ($getCount) {
             $data = $data->forpage($request->nowPage??1, 10);
+            // 搜索高亮
+            if (!empty($request->keyword)) $data = $service->highlight($data, $request->keyword);
+
             $customPage = new CustomPage();
             $baseUrl = url('/building_list');
             $page = $customPage->getSelfPageView($request->nowPage??1,$totalPage,$baseUrl,$request->data);
@@ -115,11 +118,12 @@ class BuildingsRepository extends  Model
         }
 
         if (empty($priceSort)) {
-            // 排序方式
+            // 默认排序方式
             $res = collect($buildingData)->sortByDesc(function ($val) {
                 return [$val->orderByLabel, $val->house_count, $val->block_recommend];
             });
         } else {
+            // pc端价格排序
             if ($priceSort == 'asc') {
                 $res = collect($buildingData)->sortBy(function ($val) use ($priceSort) {
                     return [$val->avg_price];

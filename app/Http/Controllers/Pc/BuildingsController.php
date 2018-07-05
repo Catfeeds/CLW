@@ -73,6 +73,7 @@ class BuildingsController extends Controller
         // 前段返回条件
         $data = $request->all();
 
+        // 分页跟随条件
         $request->offsetSet('data', $data);
 
         if (!empty($request->keyword)) {
