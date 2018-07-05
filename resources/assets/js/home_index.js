@@ -1,6 +1,7 @@
 require('./home_common');
+import './components/home/login'
 const Swiper = require('swiper');
-var mySwiper = new Swiper('.swiper-container', {
+new Swiper('.swiper-container', {
   autoplay: 3000
 })
 $(document).on('scroll', function(e) {

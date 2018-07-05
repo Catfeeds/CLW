@@ -27,11 +27,12 @@
           <img class="active" src="/home_img/nav_tel.png" alt="">
       </div>
       <div class="user-login-box">
-        <a href="javascript:void(0)" class="register-a"><img class="active" src="/home_img/login_user.png" alt="" />注册</a>
+      <a href="{{url('/registers')}}" class="register-a"><img class="active" src="/home_img/login_user.png" alt="" />注册</a>
         <div class="active-line"></div>
-        <a href="javascript:void(0)" class="login-a">登录</a>
+      <a href="javascript:;" class="login-a js_login">登录</a>
       </div>
     </div>
     <div class="clearfloat"></div>
   </div>
 </nav>
+<div id="login"></div>

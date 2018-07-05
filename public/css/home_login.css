@@ -250,6 +250,179 @@ a[href] {
 }
 
 body {
+  padding-top: 61px;
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+}
+
+nav.active {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #ededed;
+}
+
+nav.active img.fade {
+  display: none;
+}
+
+nav.active img.active {
+  display: block;
+}
+
+nav.active .nav-content {
+  padding: 10px 0;
+}
+
+nav.active .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
+nav.active .nav-content .nav-list .nav-item a {
+  color: #666666;
+  font-size: 14px;
+}
+
+nav.active .nav-content .login-box .tel-box {
+  width: 196px;
+  height: 24px;
+}
+
+nav.active .nav-content .login-box .user-login-box div.active-line {
+  display: block;
+  float: left;
+  width: 1px;
+  height: 15px;
+  background-color: #959393;
+  margin-top: 8px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.register-a {
+  font-family: NotoSansHans-Light;
+  font-size: 14px;
+  color: #007bff;
+  margin-right: 0;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.register-a img {
+  margin-top: 8px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a {
+  font-family: NotoSansHans-Light;
+  font-size: 14px;
+  color: #959393;
+  border: none;
+  width: auto;
+  margin-left: 5px;
+}
+
+nav img.fade {
+  display: block;
+  float: left;
+}
+
+nav img.active {
+  display: none;
+  float: left;
+}
+
+nav .nav-content {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+nav .nav-content .logo-box {
+  float: left;
+  display: block;
+  margin-right: 60px;
+  width: 170px;
+  height: 24px;
+}
+
+nav .nav-content .logo-box img {
+  width: 100%;
+}
+
+nav .nav-content .nav-list {
+  float: left;
+  margin: 0;
+  height: 40px;
+  line-height: 40px;
+}
+
+nav .nav-content .nav-list .nav-item {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+nav .nav-content .nav-list .nav-item a {
+  color: #fff;
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+}
+
+nav .nav-content .login-box {
+  float: right;
+  height: 40px;
+}
+
+nav .nav-content .login-box .tel-box {
+  float: left;
+  margin-top: 8px;
+  margin-right: 30px;
+  width: 175px;
+  height: 25px;
+}
+
+nav .nav-content .login-box .tel-box img {
+  height: 100%;
+  max-width: none;
+}
+
+nav .nav-content .login-box .user-login-box {
+  float: right;
+}
+
+nav .nav-content .login-box .user-login-box div.active-line {
+  display: none;
+}
+
+nav .nav-content .login-box .user-login-box a {
+  display: block;
+  float: left;
+  color: #fff;
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+}
+
+nav .nav-content .login-box .user-login-box a.register-a {
+  margin-right: 20px;
+  height: 34px;
+  line-height: 34px;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a {
+  width: 80px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 18px;
+  border: solid 1px #eeeded;
+}
+
+body {
   width: 100%;
 }
 
@@ -257,12 +430,6 @@ body .container {
   width: 100%;
   background-color: #bfccd4;
   margin: 0 auto;
-}
-
-body .container .header {
-  width: 100%;
-  height: 100px;
-  background-color: #fff;
 }
 
 body .container .login_container {
