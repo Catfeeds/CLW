@@ -260,6 +260,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('pc_service_recommends', 'PcServiceRecommendsController');
 
+        //pc端企业服务
+        Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
     });
-    Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
+
 });
