@@ -41,7 +41,7 @@
                         </li>
                         @foreach($areas as $area)
                             <li class="item js_condition" data-content="{{$area['id']}}" data-dom="area_id">
-                                <a data-content="{{$area['name']}}" data-dom="area_id" class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])area_id current @endif">{{$area['name']}}</a>
+                                <a data-content="{{$area['name']}}" data-dom="area_id" class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])area_id current @endif js_area_sel">{{$area['name']}}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -138,7 +138,7 @@
                             出租写字楼共<span>{{$count??0}}</span>套
                         </div>
                         <div class="title_right">
-                            <div class="sort_default js_price_default" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>
+                            <div class="sort_default js_price_default current" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>
                             <div class="sort_price">
                                 <a href="javascript:void(0);" class="order_price js_price_sort" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
@@ -153,7 +153,7 @@
                             @foreach($Results as $key => $data)
                                 <div class="detail">
                                     <div class="img_box">
-                                        <img src="{{$data->img_cn}}" alt="" style="width: 242px;height: 200px">
+                                        <img src="{{$data->img_cn}}" alt="" class="house_img"/>
                                         <img src="/home_img/perfect_sel.png" alt="" class="first_select">
                                     </div>
                                     <div class="detail_title">
