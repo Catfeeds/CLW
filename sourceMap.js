@@ -93,7 +93,8 @@ module.exports = {
       'home_paging',
       'home_login',
       'home_register',
-      'home_sellhouse'
+      'home_sellhouse',
+      'home_information_show'
     ],
     js: [
       'home_index',

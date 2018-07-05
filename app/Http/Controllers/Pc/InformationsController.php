@@ -27,7 +27,7 @@ class InformationsController extends Controller
         InformationRepository $repository
     )
     {
-        $hotInformation = $repository->hotInformation();
-        return view('home.show',['information' =>$information,'hotInformation'=>$hotInformation]);
+        $hot = $repository->hotInformation(); // 热点
+        return view('home.information_show', ['information' => $information, 'hots' => $hot]);
     }
 }
