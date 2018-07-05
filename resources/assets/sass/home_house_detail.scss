@@ -77,6 +77,7 @@
         }
         .pircePic{
           margin-top: 6px;
+          margin-right: 30px;
           width: 26px;
           height: 26px;
           border: solid 1px #eeeded;
@@ -229,6 +230,7 @@
                 display: flex;
                 justify-content: flex-start;
                 line-height: 28px;
+                width: 350px;
                 .houseBox{
                   width: 85px;
                   color: #bab8ba;
@@ -239,7 +241,7 @@
               }
             }
             .houseType{
-              margin: 23px 0 0 130px;
+              margin-top: 23px;
               div{
                 display: flex;
                 justify-content: flex-start;
