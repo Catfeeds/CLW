@@ -20,7 +20,7 @@
         <div class="house_list_title">
             <div class="title_content clearfix">
                 <div class="link f_l">
-                    <a href="javscript:void(0)" class="homepage">首页 </a>＞
+                    <a href="javscript:void(0)" class="homepage">首页 </a>&nbsp;>&nbsp;
                     <a href="javscript:void(0)">写字楼出租</a>
                 </div>
                 <div class="serch_area f_r ">
@@ -127,7 +127,7 @@
                     <div class="selected_box f_l clearfix">
                     </div>
                     <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
-                    <div class="cleaning f_l"><a href="javascript:void(0)" class="js_cleaning">清空</a></div>
+                    <div class="cleaning f_l clearfix"><img src="/home_img/cleaning2.png" alt=""><a href="javascript:void(0)" class="js_cleaning f_r">清空</a></div>
                 </div>
             </div>
             </div>
