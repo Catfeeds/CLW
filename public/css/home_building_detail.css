@@ -236,6 +236,7 @@ textarea {
   font-weight: normal;
   list-style: none;
   padding: 0;
+  color: #333333;
 }
 
 html,
@@ -305,7 +306,6 @@ nav.active .nav-content .logo-box {
 
 nav.active .nav-content .nav-list .nav-item a {
   color: #666666;
-  font-family: NotoSansHans-Regular;
   font-size: 14px;
 }
 
@@ -365,9 +365,10 @@ nav .nav-content {
 
 nav .nav-content .logo-box {
   float: left;
+  display: block;
   margin-right: 60px;
-  width: 180px;
-  height: 40px;
+  width: 170px;
+  height: 24px;
 }
 
 nav .nav-content .logo-box img {
@@ -629,16 +630,20 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: start;
           justify-content: flex-start;
   line-height: 90px;
-  color: #666;
 }
 
 .content .build .first .left .intro .introBetter .betterTitle {
+  color: #666;
   margin-left: 25px;
   margin-right: 30px;
 }
 
 .content .build .first .left .intro .introBetter .betterDetail {
   margin-right: 40px;
+}
+
+.content .build .first .left .intro .introBetter .betterDetail span {
+  color: #666;
 }
 
 .content .build .first .left .intro .introBetter .betterDetail img {
@@ -658,11 +663,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: center;
-  color: #666;
 }
 
 .content .build .first .left .filter div {
   width: 186px;
+  color: #666;
 }
 
 .content .build .first .left .filter div:not(:first-child) {
@@ -672,10 +677,6 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .filter .filterActive {
   background: #007bff;
   color: #fff;
-}
-
-.content .build .first .left .rent {
-  color: #666;
 }
 
 .content .build .first .left .rent .rentAcreage {
@@ -708,6 +709,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .build .first .left .rent .rentAcreage span {
   margin-right: 35px;
+  color: #666;
 }
 
 .content .build .first .left .rent .rentAcreage span:hover {
@@ -815,11 +817,15 @@ nav .nav-content .login-box .user-login-box a.login-a {
           justify-content: space-between;
 }
 
-.content .build .first .left .buildList .listDetail .listNum span {
+.content .build .first .left .buildList .listDetail .listNum div {
+  color: #666;
+}
+
+.content .build .first .left .buildList .listDetail .listNum div span {
   font-size: 24px;
 }
 
-.content .build .first .left .buildList .listDetail .listNum #listPrice {
+.content .build .first .left .buildList .listDetail .listNum div #listPrice {
   color: #007bff;
 }
 
