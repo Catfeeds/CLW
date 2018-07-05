@@ -3,23 +3,6 @@
 <link rel="stylesheet" href="/css/home_pagination.css">
 <link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
 <link rel="stylesheet" href="/css/home_house_list.css">
-<style>
-    .icon{
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        background-position: left -66px;
-        margin-right: 6px;
-        vertical-align: -3px;
-    }
-    .icon-tick{
-        background: url('/home_img/tick.svg');
-    }
-    .icon-untick{
-        background: url('/home_img/untick.svg');
-    }
-
-</style>
 @section('header')
 @section('body')
 @include('home.nav')
@@ -43,11 +26,12 @@
                 <div class="serch_area f_r ">
                     <input type="text" class="serch_inp" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
                     <button class="serch_btn"><span></span></button>
-                    <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div>
+                    <!-- <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div> -->
                 </div>
             </div>
         </div>
         <div class="house_list_content">
+            <div class="select_box">
             <div class="select_area">
                 <div class="area">
                     <ul class="list clearfix js_area">
@@ -182,6 +166,7 @@
                     <div class="cleaning f_l"><a href="javascript:void(0)" class="js_cleaning">清空</a></div>
                 </div>
             </div>
+            </div>
             <div class="house_list">
                 <div class="house_show">
                     <div class="house_show_title">
@@ -189,12 +174,12 @@
                             出租写字楼共<span>{{$count??0}}</span>套
                         </div>
                         <div class="title_right">
-                            <div class="sort_default js_price_default" @if(empty($request['price_sort']))style="background: #03a2fb" @endif><a href="javascript:void(0);">默认</a></div>
+                            <div class="sort_default js_price_default" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>
                             <div class="sort_price">
                                 <a href="javascript:void(0);" class="order_price js_price_sort" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
-                                    <span class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc')style="background-color: #03a2fb" @endif">▲</span>
-                                    <span class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc')style="background-color: #03a2fb" @endif">▼</span>
+                                    <img src="/home_img/build_detail_up_before.png" class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc') @endif" />
+                                    <img src="/home_img/down.png" class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc') @endif" />
                                 </a>
                             </div>
                         </div>
@@ -205,6 +190,7 @@
                                 <div class="detail">
                                     <div class="img_box">
                                         <img src="{{$data->img_cn}}" alt="" style="width: 242px;height: 200px">
+                                        <img src="/home_img/perfect_sel.png" alt="" class="first_select">
                                     </div>
                                     <div class="detail_title">
                                         <div class="house_name clearfix">
@@ -241,7 +227,7 @@
                                                 <ul>
                                                     @foreach($data->features as $features)
                                                         <li>
-                                                            <span class="icon"></span>{{$features->name}}
+                                                            {{$features->name}}
                                                         </li>
                                                     @endforeach
                                                 </ul>
