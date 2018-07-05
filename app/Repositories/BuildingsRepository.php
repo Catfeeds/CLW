@@ -59,7 +59,7 @@ class BuildingsRepository extends  Model
             $data = $data->forpage($request->nowPage??1, 10);
             $customPage = new CustomPage();
             $baseUrl = url('/building_list');
-            $page = $customPage->getSelfPageView($request->nowPage??1,$totalPage,$baseUrl,[]);
+            $page = $customPage->getSelfPageView($request->nowPage??1,$totalPage,$baseUrl,$request->data);
 
             return [
                 'house_count' => $houses->count(),
