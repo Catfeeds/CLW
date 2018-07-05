@@ -305,7 +305,6 @@ nav.active .nav-content .login-box .user-login-box div.active-line {
 }
 
 nav.active .nav-content .login-box .user-login-box a.register-a {
-  font-family: NotoSansHans-Light;
   font-size: 14px;
   color: #007bff;
   margin-right: 0;
@@ -320,12 +319,12 @@ nav.active .nav-content .login-box .user-login-box a.register-a img {
 }
 
 nav.active .nav-content .login-box .user-login-box a.login-a {
-  font-family: NotoSansHans-Light;
   font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
   margin-left: 5px;
+  line-height: 38px;
 }
 
 nav img.fade {
@@ -417,7 +416,7 @@ nav .nav-content .login-box .user-login-box a.register-a {
 nav .nav-content .login-box .user-login-box a.login-a {
   width: 80px;
   height: 32px;
-  line-height: 32px;
+  line-height: 34px;
   text-align: center;
   border-radius: 18px;
   border: solid 1px #eeeded;
