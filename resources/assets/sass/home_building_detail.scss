@@ -133,6 +133,9 @@
               .introMap{
                 margin-left: 53px;
                 color: $master-blue;
+                img{
+                  vertical-align: middle
+                }
                 &:hover{
                   cursor: pointer;
                 }

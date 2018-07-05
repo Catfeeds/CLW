@@ -614,6 +614,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 
 .content .banner .infor .price .pircePic {
   margin-top: 6px;
+  margin-right: 30px;
   width: 26px;
   height: 26px;
   border: solid 1px #eeeded;
@@ -827,6 +828,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
       -ms-flex-pack: start;
           justify-content: flex-start;
   line-height: 28px;
+  width: 350px;
 }
 
 .content .second .houseInfor .houseDetail .left .house .housePay div .houseBox {
@@ -839,7 +841,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseType {
-  margin: 23px 0 0 130px;
+  margin-top: 23px;
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseType div {

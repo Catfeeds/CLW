@@ -148,7 +148,7 @@
                                     <span class="houseBox">物业费</span><span>{{$house->property_fee}}</span>
                                 </div>
                             </div>
-                            <div class="housePay">
+                            <div class="housePay"  style="margin-left: 0">
                                 <div>
                                     <span class="houseBox">采暖方式</span><span>{{$house->heating}}</span>
                                 </div>

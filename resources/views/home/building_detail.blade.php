@@ -134,7 +134,6 @@
                                         <div><span id="listTotal">{{$house->total_price}}</span>元/月</div>
                                     </div>
                                     <div class="listSpecial" id="listSpecial">
-                                        <div class="special1">押一付一</div>
                                         @if(!empty($house->house_feature[0]))
                                         <div class="special1">{{$house->house_feature[0]}}</div>
                                         @endif
