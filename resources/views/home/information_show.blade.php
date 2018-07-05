@@ -4,9 +4,10 @@
     <link rel="stylesheet" href="{{res('/css/home_information_show.css')}}">
 @endsection
 @section('body')
+    {{--@include('home.nav')--}}
     <div class="continue">
         <!--  -->
-        <div class="nav"><span>首页 </span><span>> 资讯 </span><span>> 全部资讯</span></div>
+        <div class="nav"><a href="{{url('/')}}"><span>首页 </span></a><span>> 资讯详情 </span></div>
         <div class="main">
             <div class="left">
                 <div class="title">{{$information->title}}</div>
@@ -18,7 +19,7 @@
                     {!! $information->content !!}
                 </div>
                 <div class="info-bottom">
-                    <div class="pub-number"><img /></div>
+                    <div class="pub-number"><img src="/home_img/qr_code.jpg" /></div>
                     <div class="pub-number"><span>关注楚楼网公众号，更多资讯等你看</span></div>
                     <div class="up-down">
                         <div><a>上一篇: 行业资讯 | 市场预测 成都写字楼将新增供应70万平方米</a></div>
@@ -36,7 +37,7 @@
                     <div>
                         <ul>
                             @foreach($hots as $hot)
-                                <li><span>{{$hot->title}}</span></li>
+                                <li><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
                             @endforeach
                         </ul>
                     </div>

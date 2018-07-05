@@ -5,10 +5,10 @@
     <link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
 @endsection
 @section('body')
-
+    {{--@include('home.nav')--}}
     <div class="continue">
         <!--  -->
-        <div class="nav"><span>首页 </span><span>> 资讯 </span><span>> 全部资讯</span></div>
+        <div class="nav"><a href="{{url('/')}}"><span>首页 </span></a><span>> 资讯 </span><span>> 全部资讯</span></div>
         <div class="main">
             <div class="left">
                 <ul>
@@ -19,7 +19,7 @@
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
                                         @foreach($tops as $top)
-                                            <div class="swiper-slide"><img src="{{$top->banner_cn}}"></div>
+                                            <div class="swiper-slide"><a href="{{url('/information').'/'.$top->id}}"><img src="{{$top->banner_cn}}"></a></div>
                                         @endforeach
                                     </div>
                                     <div class="swiper-pagination"></div>
@@ -30,7 +30,11 @@
                                 @foreach($tops as $top)
                                     <div class="swiper-slide">
                                         <!-- 标题 -->
-                                        <div class="left-title">{{$top->title}}</div>
+                                        <a href="{{url('/information').'/'.$top->id}}">
+                                            <div class="left-title">
+                                                {{$top->title}}
+                                            </div>
+                                        </a>
                                         <div class="line"></div>
                                         <!-- 简介 -->
                                         <div class="left-content">{{$top->brief}}</div>
@@ -48,21 +52,23 @@
                             <div class="list-time"><span class="year">{{$time[0]}} </span><span
                                         class="md">{{$time[1].'/'.$time[2]}}</span></div>
                             @foreach($content as $cont)
-                                <div class="list-body">
-                                    <!--图片-->
-                                    <div class="list-body-left"><img src="{{$cont->banner_cn}}"></div>
-                                    <div class="list-body-right">                                       
-                                        <div class="class"><span class="icon"></span><span>行业新闻</span></div>
-                                        <!--标题-->
-                                        <div class="title">{{$cont->title}}</div>
-                                        <!--时间-->
-                                        <div class="list-body-time">{{$cont->created_at}}</div>
-                                        <!--简介-->
-                                        <div class="list-body-content">
-                                            {{$cont->brief}}
+                                <a href="{{url('/information').'/'.$cont->id}}">
+                                    <div class="list-body">
+                                        <!--图片-->
+                                        <div class="list-body-left"><img src="{{$cont->banner_cn}}"></div>
+                                        <div class="list-body-right">
+                                            <div class="class"><span class="icon"></span><span>行业新闻</span></div>
+                                            <!--标题-->
+                                            <div class="title">{{$cont->title}}</div>
+                                            <!--时间-->
+                                            <div class="list-body-time">{{$cont->created_at}}</div>
+                                            <!--简介-->
+                                            <div class="list-body-content">
+                                                {{$cont->brief}}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </li>
                     @endforeach
@@ -78,7 +84,7 @@
                     <div>
                         <ul>
                             @foreach($hots as $hot)
-                                <li><span>{{$hot->title}}</span></li>
+                                <li><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
                             @endforeach
                         </ul>
                     </div>
