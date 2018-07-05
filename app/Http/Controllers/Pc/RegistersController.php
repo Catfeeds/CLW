@@ -10,10 +10,10 @@ use App\Services\RegistersService;
 class RegistersController extends Controller
 {
     //注册页面
-    public function index()
-    {
-        return '注册页面';
-    }
+//    public function index()
+//    {
+//        return '注册页面';
+//    }
 
     //注册
     public function store
@@ -23,7 +23,7 @@ class RegistersController extends Controller
     )
     {
         $res = $service->weAddUser($request);
-        return '跳转首页';
+        return $this->sendResponse($res,'注册成功');
     }
 
 
