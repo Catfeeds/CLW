@@ -77,10 +77,10 @@
                 <!-- 电话咨询 -->
                 <div class="tel">
                     <div class="agent">
-                        <img src="/we_img/house_detail_banner03.jpg">
+                        <img src="{{$agentInfo->agent_pic}}">
                         <div class="name">
-                            <div class="nameDet">林亚男</div>
-                            <div>光谷楼盘经纪</div>
+                            <div class="nameDet">{{$agentInfo->agent_name}}</div>
+                            <div>{{$agentInfo->name}}商圈经纪</div>
                         </div>
                     </div>
                     <!-- <div class="consult">

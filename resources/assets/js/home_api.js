@@ -28,3 +28,12 @@ export function getSiteList() {
         methods: 'GET'
     })
 }
+
+// 委托找房
+export function findHouse(data) {
+  return request({
+    url: '/bespeaks',
+    methods: 'POST',
+    data
+  })
+}

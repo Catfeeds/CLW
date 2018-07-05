@@ -5,23 +5,35 @@
             <div>一键委托,一分钟回复</div>
         </div>
         <div class="phone">
-            <input v-model="value" type="text" placeholder="请输入手机号">
-            <span></span>
-            <div @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
+            <div class="phoneBox">
+                <input v-model="value" type="text" placeholder="请输入手机号">
+                <div class="phoneTitle" v-if="isShow"><img src="/home_img/alert.svg"> 手机号码不能为空</div>
+                <span></span>
+            </div>
+            <div class="button" @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
         </div>
         <div class="rent_describe">已经有<span>15141</span>位客户委托找房</div>
     </div>
 </template>
 <script>
+import { findHouse } from '../home_api'
+import { MessageBox } from 'element-ui'
 export default {
   data() {
     return {
-      value: ''
+      value: '',
+      isShow: false
     }
   },
   methods: {
     getVal() {
-      console.log('sssss', this.value)
+      if(this.value) {
+        findHouse({ tel: this.value }).then(res => {
+          console.log(res)
+        })
+      } else {
+          this.isShow = true
+      }
     }
   }
 }
@@ -51,29 +63,43 @@ export default {
             width: 100%;
             text-align: center;
             position: relative;
-            input{
-              width: 212px;
-              height: 40px;
-              background-color: #ffffff;
-              border-radius: 20px;
-              border: solid 1px #e2e3e4;
-              padding-left: 33px;
-              margin-bottom: 23px;
-              box-sizing: border-box;
+            .phoneBox{
+              height: 65px;
+              input{
+                width: 212px;
+                height: 40px;
+                background-color: #ffffff;
+                border-radius: 20px;
+                border: solid 1px #e2e3e4;
+                padding-left: 33px;
+                margin-bottom: 5px;
+                box-sizing: border-box;
+              }
+              input::placeholder{
+                font-size: 14px;
+              }
+             .phoneTitle{
+                color: #fe7a85;
+                padding-bottom: 8px;
+                text-align: left;
+                font-size: 12px;
+                margin-left: 20px;
+                img{
+                    vertical-align: middle;
+                    width: 12px;
+                }
+              }
+              span {
+                display: block;
+                background: url(/home_img/phone.png) no-repeat;
+                width: 9px;
+                height: 16px;
+                position: absolute;
+                left: 33px;
+                top: 12px;
+              }
             }
-            input::placeholder{
-              font-size: 14px;
-            }
-            span {
-              display: block;
-              background: url(/home_img/phone.png) no-repeat;
-              width: 9px;
-              height: 16px;
-              position: absolute;
-              left: 33px;
-              top: 12px;
-            }
-            div {
+            .button {
               margin: 0 auto;
               width: 214px;
               height: 41px;

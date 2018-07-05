@@ -6944,13 +6944,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         var _this = this;
 
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["d" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
             }
         });
         // 获取商圈数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["a" /* getBlock */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["b" /* getBlock */])().then(function (res) {
             _this.blockList = res.data;
         });
     },
@@ -7001,7 +7001,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         seeAreaDetail: function seeAreaDetail(data) {
             var _this2 = this;
 
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["b" /* getBuildList */])().then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getBuildList */])().then(function (res) {
                 if (res.success) {
                     _this2.zoom = 14;
                     _this2.buildList = res.data;
@@ -18174,39 +18174,49 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["c"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["a"] = getBlock;
-/* harmony export (immutable) */ __webpack_exports__["b"] = getBuildList;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["b"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["c"] = getBuildList;
 /* unused harmony export getSiteList */
+/* harmony export (immutable) */ __webpack_exports__["a"] = findHouse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(229);
 
 
 function getRegionList() {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-        url: '/getRegionList',
-        methods: 'GET'
-    });
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/getRegionList',
+    methods: 'GET'
+  });
 }
 
 function getBlock() {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-        url: '/detailArea',
-        methods: 'GET'
-    });
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/detailArea',
+    methods: 'GET'
+  });
 }
 
 function getBuildList() {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-        url: '/getBuildList',
-        methods: 'GET'
-    });
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/getBuildList',
+    methods: 'GET'
+  });
 }
 
 function getSiteList() {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-        url: '/getSiteList',
-        methods: 'GET'
-    });
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/getSiteList',
+    methods: 'GET'
+  });
+}
+
+// 委托找房
+function findHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/bespeaks',
+    methods: 'POST',
+    data: data
+  });
 }
 
 /***/ }),
@@ -18222,7 +18232,7 @@ function getSiteList() {
 
 // 创建axios实例
 var service = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-  baseURL: 'http://192.168.0.188:8866/mock/5b19f300152f4405081fd865/map/', // api的base_url
+  // baseURL: 'http://192.168.0.188:8866/mock/5b19f300152f4405081fd865/map/', // api的base_url
   timeout: 15000 // 请求超时时间
 });
 

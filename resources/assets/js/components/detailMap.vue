@@ -11,9 +11,7 @@
       <bm-local-search
       :page-capacity="100" :auto-viewport="true" style="display:none" :nearby="point" :keyword="keyword" @searchcomplete="result" :select-first-result="true"></bm-local-search>
       <bm-circle :center="point.center" :location="location" :radius="point.radius" :stroke-weight="1" :stroke-opacity="0.1" fill-color="blue" :fill-opacity="0.4"></bm-circle>
-      <bm-marker :position="this.point.center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE">
-      <bm-label :labelStyle="{color: 'red', fontSize : '24px'}" :offset="{width: -35, height: 30}"></bm-label>
-      </bm-marker> 
+      <bm-marker :position="this.point.center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker> 
       <el-tabs type="border-card" @tab-click="handleClick" class="screen">
           <el-tab-pane label="交通">
             <el-tabs @tab-click="chioce" v-model="activeName">
@@ -114,7 +112,7 @@
   </baidu-map>
 </template>
 <script>
-import { BaiduMap, BmLocalSearch, BmCircle, BmMarker, BmLaber } from 'vue-baidu-map'
+import { BaiduMap, BmLocalSearch, BmCircle, BmMarker } from 'vue-baidu-map'
 import { Tabs, TabPane } from 'element-ui';
 var ElTabs = Tabs, ElTabPane = TabPane
 export default {
@@ -125,8 +123,7 @@ export default {
     ElTabPane,
     BmLocalSearch,
     BmCircle,
-    BmMarker,
-    BmLaber
+    BmMarker
   },
   data() { 
     return {

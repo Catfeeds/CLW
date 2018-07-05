@@ -126,7 +126,8 @@
               line-height: 50px;
               border-bottom: 1px solid #ededed;
               div{
-                @extend .font-level3;
+                @extend .font-level2;
+                color: #666;
               }
               .introMap{
                 margin-left: 53px;
@@ -141,6 +142,7 @@
               display: flex;
               justify-content: flex-start;
               line-height: 90px;
+              color: #666;
               .betterTitle{
                 margin-left: 25px;
                 margin-right: 30px;
@@ -162,6 +164,7 @@
             display: flex;
             justify-content: space-between;
             text-align: center;
+            color: #666;
             div{
               width: 186px;
               &:not(:first-child){
@@ -174,6 +177,7 @@
             }
           }
           .rent{
+            color: #666;
             .rentAcreage{
               background: #fff;
               font-size: 14px;
@@ -187,6 +191,7 @@
               }
               div{
                 margin-right: 45px;
+                color: #999;
               }
               div:hover{
                 color: $master-blue;
@@ -208,6 +213,7 @@
             background: #fff;
             margin-top: 20px;
             .listNav{
+              color: #666;
               height: 50px;
               line-height: 50px;
               padding-left: 25px;
@@ -222,7 +228,6 @@
                 }
               }
               .listArea{
-                color: #333;
                 width: 176px;
                 display: flex;
                 justify-content: flex-start;
@@ -243,9 +248,6 @@
                   }
                 }
               }
-              .special{
-                color: #333;
-              }
             }
             .listDetail{
               padding: 25px;
@@ -262,9 +264,15 @@
               .listNum{
                 margin-left: 93px;
                 line-height: 100px;
-                width: 406px;
+                width: 430px;
                 display: flex;
                 justify-content: space-between;
+                span{
+                  font-size: 24px;
+                }
+                #listPrice{
+                  color: $master-blue;
+                }
               }
               .listSpecial{
                 height: 88px;
@@ -272,7 +280,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 margin: 6px 0;
-                margin-left: 107px;
+                margin-left: 80px;
                 div{
                   text-align: center;
                   height: 24px;

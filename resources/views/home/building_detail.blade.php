@@ -148,11 +148,12 @@
                                 <div class="listDetail">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">
-                                        <span id="listArea">{{$house->constru_acreage_cn}}</span>
-                                        <span id="listPrice">{{$house->unit_price_cn}}</span>
-                                        <span id="listTotal">{{$house->total_price_cn}}</span>
+                                        <div><span id="listArea">{{$house->constru_acreage}}</span>m²</div>
+                                        <div><span id="listPrice">{{$house->unit_price}}</span>元/㎡·月</div>
+                                        <div><span id="listTotal">{{$house->total_price}}</span>元/月</div>
                                     </div>
                                     <div class="listSpecial" id="listSpecial">
+                                        <div class="special1">押一付一</div>
                                         @if(!empty($house->house_feature[0]))
                                         <div class="special1">{{$house->house_feature[0]}}</div>
                                         @endif

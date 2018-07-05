@@ -4,7 +4,7 @@
 import axios from 'axios'
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'http://192.168.0.188:8866/mock/5b19f300152f4405081fd865/map/', // api的base_url
+  // baseURL: 'http://192.168.0.188:8866/mock/5b19f300152f4405081fd865/map/', // api的base_url
   timeout: 15000 // 请求超时时间
 })
 

@@ -252,12 +252,12 @@ a[href] {
   font-size: 12px;
 }
 
-.font-level2 {
+.font-level2,
+.content .build .first .left .intro .introAddress div {
   font-size: 14px;
 }
 
 .font-level3,
-.content .build .first .left .intro .introAddress div,
 .content .build .first .right .agent .free,
 .content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
   font-size: 16px;
@@ -607,6 +607,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
   border-bottom: 1px solid #ededed;
 }
 
+.content .build .first .left .intro .introAddress div {
+  color: #666;
+}
+
 .content .build .first .left .intro .introAddress .introMap {
   margin-left: 53px;
   color: #007bff;
@@ -625,6 +629,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: start;
           justify-content: flex-start;
   line-height: 90px;
+  color: #666;
 }
 
 .content .build .first .left .intro .introBetter .betterTitle {
@@ -653,6 +658,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: center;
+  color: #666;
 }
 
 .content .build .first .left .filter div {
@@ -666,6 +672,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .filter .filterActive {
   background: #007bff;
   color: #fff;
+}
+
+.content .build .first .left .rent {
+  color: #666;
 }
 
 .content .build .first .left .rent .rentAcreage {
@@ -688,6 +698,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .build .first .left .rent .rentAcreage div {
   margin-right: 45px;
+  color: #999;
 }
 
 .content .build .first .left .rent .rentAcreage div:hover {
@@ -714,6 +725,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listNav {
+  color: #666;
   height: 50px;
   line-height: 50px;
   padding-left: 25px;
@@ -736,7 +748,6 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listNav .listArea {
-  color: #333;
   width: 176px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -772,10 +783,6 @@ nav .nav-content .login-box .user-login-box a.login-a {
   margin-top: 2px;
 }
 
-.content .build .first .left .buildList .listNav .special {
-  color: #333;
-}
-
 .content .build .first .left .buildList .listDetail {
   padding: 25px;
   display: -webkit-box;
@@ -799,13 +806,21 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .buildList .listDetail .listNum {
   margin-left: 93px;
   line-height: 100px;
-  width: 406px;
+  width: 430px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.content .build .first .left .buildList .listDetail .listNum span {
+  font-size: 24px;
+}
+
+.content .build .first .left .buildList .listDetail .listNum #listPrice {
+  color: #007bff;
 }
 
 .content .build .first .left .buildList .listDetail .listSpecial {
@@ -821,7 +836,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 6px 0;
-  margin-left: 107px;
+  margin-left: 80px;
 }
 
 .content .build .first .left .buildList .listDetail .listSpecial div {

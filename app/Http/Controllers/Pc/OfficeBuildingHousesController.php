@@ -20,6 +20,7 @@ class OfficeBuildingHousesController extends Controller
         $house = $service->getShow($officeBuildingHouse);
         $agentInfo = $buildingHousesRepository->getAgentInfo($officeBuildingHouse);
         $rimHouse = $buildingHousesRepository->getShowOffice($service, $officeBuildingHouse->id)->take(4);
+        // return $agentInfo;
         return view('home.house_detail', [
             'house' => $house,
             'rimHouse' => $rimHouse,
