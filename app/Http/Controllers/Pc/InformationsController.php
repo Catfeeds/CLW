@@ -8,6 +8,7 @@ use App\Repositories\InformationRepository;
 
 class InformationsController extends Controller
 {
+    // 资讯列表
     public function index
     (
         InformationRepository $repository
@@ -19,6 +20,7 @@ class InformationsController extends Controller
         return view('home.information', ['contents' => $content, 'tops' => $top, 'hots' => $hot]);
     }
 
+    // 资讯详情
     public function show
     (
         Information $information,
