@@ -41,9 +41,13 @@ Route::get('personal',function(){
 Route::get('house_list',function(){
     return view('home.house_list');
 });
-//投放房源页面
+//委托找房页面
 Route::get('sellhouse',function(){
     return view('home.sellhouse');
+});
+//投放房源页面
+Route::get('launchouse',function(){
+    return view('home.launchouse');
 });
 /*
  * 微信端路由

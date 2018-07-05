@@ -295,6 +295,10 @@ body {
   line-height: 50px;
 }
 
+.continue .nav span {
+  color: #999;
+}
+
 .continue .main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -473,7 +477,7 @@ body {
 }
 
 .continue .main .right .img img {
-  width: 360px;
+  width: 356px;
 }
 
 .continue .main .right .zixun {
@@ -503,8 +507,11 @@ body {
 
 .continue .main .right .zixun ul li {
   padding: 10px 0px;
-  font-size: 12px;
   line-height: 22px;
+}
+
+.continue .main .right .zixun ul li a {
+  font-size: 12px;
   color: #444;
 }
 

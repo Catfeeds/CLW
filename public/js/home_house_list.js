@@ -1,17 +1,33 @@
+<<<<<<< HEAD
 webpackJsonp([8],{
 
 /***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(276);
+=======
+webpackJsonp([11],{
+
+/***/ 267:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(268);
+>>>>>>> origin/wanghao
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 276:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
+=======
+/***/ 268:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+>>>>>>> origin/wanghao
 // 根据参数拼接url地址
 function createURL(url, param) {
     var link = '';
@@ -142,4 +158,8 @@ function removeData() {
 
 /***/ })
 
+<<<<<<< HEAD
 },[275]);
+=======
+},[267]);
+>>>>>>> origin/wanghao

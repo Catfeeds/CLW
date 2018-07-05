@@ -1,6 +1,44 @@
+<<<<<<< HEAD
 webpackJsonp([6],{
 
 /***/ 10:
+=======
+webpackJsonp([9],{
+
+/***/ 269:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(270);
+
+
+/***/ }),
+
+/***/ 270:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+var Swiper = __webpack_require__(8);
+
+var mySwiper1 = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    effect: 'fade',
+    width: 770,
+    onTransitionEnd: function onTransitionEnd(swiper) {
+        console.log(swiper.activeIndex);
+        mySwiper2.slideTo(swiper.activeIndex);
+    }
+});
+var mySwiper2 = new Swiper('.swiper-container1', {
+    effect: 'fade',
+    fade: {
+        crossFade: true
+    }
+});
+
+/***/ }),
+
+/***/ 8:
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5393,4 +5431,8 @@ var mySwiper2 = new Swiper('.swiper-container1', {
 
 /***/ })
 
+<<<<<<< HEAD
 },[277]);
+=======
+},[269]);
+>>>>>>> origin/wanghao

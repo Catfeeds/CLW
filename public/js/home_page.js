@@ -1,6 +1,37 @@
-webpackJsonp([5],{
+webpackJsonp([6],{
 
+<<<<<<< HEAD
 /***/ 10:
+=======
+/***/ 263:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(264);
+
+
+/***/ }),
+
+/***/ 264:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+var Swiper = __webpack_require__(8);
+
+var banner = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  autoplay: 2000,
+  loop: true,
+  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
+    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
+  }
+
+});
+
+/***/ }),
+
+/***/ 8:
+>>>>>>> origin/wanghao
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5388,4 +5419,8 @@ var banner = new Swiper('.swiper-container', {
 
 /***/ })
 
+<<<<<<< HEAD
 },[271]);
+=======
+},[263]);
+>>>>>>> origin/wanghao

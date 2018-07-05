@@ -422,13 +422,25 @@ nav .nav-content .login-box .user-login-box a.login-a {
   border: solid 1px #eeeded;
 }
 
-body {
-  background: url(/home_img/sellhouse_background.jpg) no-repeat center;
+html {
+  width: 100%;
   height: 100%;
+  position: relative;
+}
+
+body {
+  background: url(/home_img/sellhouse_background.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 body .container {
   width: 100%;
+  height: 100%;
   padding-top: 98px;
 }
 
@@ -451,11 +463,24 @@ body .container .min_title {
 body .container .form_container {
   border-radius: 11px;
   width: 410px;
-  height: 474px;
   background-color: #fff;
   margin: 0 auto;
   padding: 30px 45px 38px 40px;
   margin-bottom: 53px;
+}
+
+body .container .form_container form .content {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+body .container .form_container form .content label.error {
+  display: block;
+  left: 0;
+  bottom: -17px;
+  color: Red;
+  font-size: 13px;
+  position: absolute;
 }
 
 body .container .form_container form .connect,
@@ -497,7 +522,6 @@ body .container .form_container form input {
   border: 1px solid #ccc;
   height: 44px;
   padding-left: 15px;
-  margin-bottom: 20px;
 }
 
 body .container .form_container form textarea::-webkit-input-placeholder,
@@ -543,10 +567,13 @@ body .container .detail {
   width: 473px;
   height: 145px;
   background-color: rgba(0,0,0,0.32);
-  margin: 0 auto;
   border-radius: 11px;
   position: relative;
   padding: 43px 34px 37px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -231.5px;
 }
 
 body .container .detail ul {
@@ -593,25 +620,5 @@ input,
 textarea {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-@media screen and (max-width: 1200px) {
-  nav {
-    display: none;
-  }
-
-  .title {
-    display: none;
-  }
-
-  .min_title {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  body {
-    padding: 0;
-  }
 }
 
