@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/home_building_detail.css">
 @endsection
 @section('body')
+@include('home.nav')
 <div class="content">
     <?php 
         $arrs=array('首页','洪山区','光谷','慧谷时空')
@@ -42,7 +43,7 @@
                         </div>
                         <div class="introAddress">
                             <div><img src="/home_img/build_detail_address.png"> 地址：{{$building->address}}</div>
-                            <a href="#"><div class="introMap"><img src="/home_img/house_detail_map.png"> 查看地图</div></a>
+                            <span class="js_map"><div class="introMap"><img src="/home_img/house_detail_map.png"> 查看地图</div></span>
                         </div>
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
@@ -240,6 +241,7 @@
                 <div class="h1">猜你喜欢</div>
                 <div class="enjoyList">
                     @foreach($likeBuilding as $like)
+                    <a href="{{url('/buildings').'/'.$like['id']}}">
                     <div class="enjoyDetail">
                         <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
                         <div class='enjoyInfor'>
@@ -250,6 +252,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                     @endforeach
                 </div>
             </div>

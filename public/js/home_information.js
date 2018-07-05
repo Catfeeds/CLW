@@ -1,38 +1,6 @@
-webpackJsonp([8],{
+webpackJsonp([7],{
 
-/***/ 267:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(268);
-
-
-/***/ }),
-
-/***/ 268:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(4);
-var Swiper = __webpack_require__(8);
-
-var mySwiper1 = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    effect: 'fade',
-    width: 770,
-    onTransitionEnd: function onTransitionEnd(swiper) {
-        console.log(swiper.activeIndex);
-        mySwiper2.slideTo(swiper.activeIndex);
-    }
-});
-var mySwiper2 = new Swiper('.swiper-container1', {
-    effect: 'fade',
-    fade: {
-        crossFade: true
-    }
-});
-
-/***/ }),
-
-/***/ 8:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5391,6 +5359,38 @@ else if (typeof define === 'function' && define.amd) {
 //# sourceMappingURL=maps/swiper.js.map
 
 
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(275);
+
+
+/***/ }),
+
+/***/ 275:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(8);
+var Swiper = __webpack_require__(27);
+
+var mySwiper1 = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    effect: 'fade',
+    width: 770,
+    onTransitionEnd: function onTransitionEnd(swiper) {
+        console.log(swiper.activeIndex);
+        mySwiper2.slideTo(swiper.activeIndex);
+    }
+});
+var mySwiper2 = new Swiper('.swiper-container1', {
+    effect: 'fade',
+    fade: {
+        crossFade: true
+    }
+});
+
 /***/ })
 
-},[267]);
+},[274]);

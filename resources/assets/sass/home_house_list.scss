@@ -168,14 +168,12 @@ body {
           .special {
             ul {
               border-bottom: none;
-              li {
-                
-              }
             }
           }
           .result {
             border-top: 1px solid #f5f5f5;
-            padding-top: 10px;
+            padding-top: 15px;
+            margin-bottom: 5px;
             width: 100%;
             .title {
               margin-right: 30px;
@@ -185,6 +183,7 @@ body {
             }
             .selected_box { 
               .selected {
+                margin-top: 2px;
                 float: left;
                 margin-right:30px;
                 font-size: 12px;
@@ -200,19 +199,26 @@ body {
             .cleaning {
               width: 40px;
               position: relative;
-              line-height: 30px;
-              img {
-                width: 13px;
-                height: 12px;
+              line-height: 34px;
+              .icon_clean {
+                width: 14px;
+                height: 14px;
                 left: -2px;
                 top: 9px;
                 position: absolute;
+                background: url(/home_img/rubish.svg);
               }
               a {
+                font-size: 12px;
                 color:#333;
               }
               a:hover {
                 color:$master-blue;
+              }
+            }
+            .cleaning:hover {
+              .icon_clean {
+                background: url(/home_img/rubish1.svg);
               }
             }
           }
@@ -454,13 +460,34 @@ body {
             margin-top: 20px;
             padding: 25px 0;
             border-radius: 0;
+            text-align: center;
             ul.pagination {
-              margin-left:38%;
-              li.active {
+              display: inline-block;
+              li {
+                float: left;
+                width: 40px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                background-color: #fefefe;
+                border: 1px solid #e3e3e3;
+                border-radius: 4px;
+                margin-right: 5px;
                 a {
-                  background-color: $master-blue;
+                  color:#989898;
+                }
+                span {
+                  color:#989898;
+                }
+              }
+              li.active {
+                background-color: $master-blue;
+                a {
                   color:#fff;
                 }
+              }
+              li.disabled {
+                cursor: not-allowed;
               }
             }
           }

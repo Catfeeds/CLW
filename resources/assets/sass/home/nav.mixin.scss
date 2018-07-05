@@ -5,7 +5,7 @@
   nav{
     width: 100%;
     position: absolute;
-    z-index: 6;
+    z-index: 999;
     // 白色背景样式
     &.active{
       background-color: $master-white;
@@ -20,11 +20,15 @@
       }
       .nav-content{
         padding: 10px 0;
+        .logo-box{
+          width: 132px;
+          height: 30px;
+          padding-top: 3px;
+        }
         .nav-list{
           .nav-item{
             a{
               color: #666666;
-              font-family:  NotoSansHans-Regular;
               font-size: 14px;
             }
           }
@@ -32,6 +36,7 @@
         .login-box{
           .tel-box {
             width: 196px;
+            height: 24px;
           }
           .user-login-box{
             div.active-line{
@@ -83,9 +88,10 @@
       padding: 30px 0;
       .logo-box{
         float: left;
+        display: block;
         margin-right: 60px;
-        width: 180px;
-        height: 40px;
+        width: 170px;
+        height: 24px;
         img{
           width: 100%;
         }

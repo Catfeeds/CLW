@@ -236,6 +236,7 @@ textarea {
   font-weight: normal;
   list-style: none;
   padding: 0;
+  color: #333333;
 }
 
 html,
@@ -256,8 +257,7 @@ a[href] {
 }
 
 .font-level2,
-.content .banner .infor .price,
-.content .banner .infor .acreage .address a {
+.content .banner .infor .price {
   font-size: 14px;
 }
 
@@ -277,7 +277,7 @@ body {
 nav {
   width: 100%;
   position: absolute;
-  z-index: 6;
+  z-index: 999;
 }
 
 nav.active {
@@ -299,14 +299,20 @@ nav.active .nav-content {
   padding: 10px 0;
 }
 
+nav.active .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
 nav.active .nav-content .nav-list .nav-item a {
   color: #666666;
-  font-family: NotoSansHans-Regular;
   font-size: 14px;
 }
 
 nav.active .nav-content .login-box .tel-box {
   width: 196px;
+  height: 24px;
 }
 
 nav.active .nav-content .login-box .user-login-box div.active-line {
@@ -360,9 +366,10 @@ nav .nav-content {
 
 nav .nav-content .logo-box {
   float: left;
+  display: block;
   margin-right: 60px;
-  width: 180px;
-  height: 40px;
+  width: 170px;
+  height: 24px;
 }
 
 nav .nav-content .logo-box img {
@@ -563,12 +570,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
   margin-bottom: 0;
 }
 
-.content .banner .infor .acreage .address a {
-  text-decoration: none;
+.content .banner .infor .acreage .address .js_map {
   color: #007bff;
 }
 
-.content .banner .infor .acreage .address a img {
+.content .banner .infor .acreage .address .js_map img {
   width: 20px;
   height: 18px;
   vertical-align: text-bottom;
@@ -757,34 +763,14 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .second .houseInfor .houseDetail .findHouse {
   margin-top: 20px;
-  position: relative;
+  width: 240px;
+  height: 335px;
 }
 
-.content .second .houseInfor .houseDetail .findHouse .entrust {
-  width: 86%;
-  position: absolute;
-  top: 225px;
-  left: 6%;
-}
-
-.content .second .houseInfor .houseDetail .findHouse .entrust input {
-  width: 100%;
-}
-
-.content .second .houseInfor .houseDetail .findHouse .entrust .order {
-  margin: 0 auto;
-  margin-top: 40px;
-  height: 40px;
-  border-radius: 20px;
-  width: 53%;
-  background: #03a2fb;
-  text-align: center;
-  line-height: 40px;
-  color: #fff;
-}
-
-.content .second .houseInfor .houseDetail .findHouse .entrust .order:hover {
-  cursor: pointer;
+.content .second .houseInfor .houseDetail .location {
+  position: fixed;
+  top: 40px;
+  margin-left: 960px;
 }
 
 .content .second .facilities {

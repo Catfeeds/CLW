@@ -17,22 +17,26 @@
               <el-tab-pane label="地铁" name="first">
                 <div class="screenList">
                   <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                    <div>
-                      <div>{{item.title}}</div>
-                      <div>{{item.address}}</div>
+                    <div class="screenDist">
+                      <div class="screenBox">
+                        <div class="screenTitle">{{item.title}}</div>
+                        <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                      </div>
+                      <div class="screenAddress">{{item.address}}</div>
                     </div>
-                    <div>{{getDistance(item.point)}}km</div>
                   </div>
                 </div>
               </el-tab-pane>
               <el-tab-pane label="公交" name="second">
                 <div class="screenList">
                   <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                    <div>
-                      <div>{{item.title}}</div>
-                      <div>{{item.address}}</div>
+                    <div class="screenDist">
+                      <div class="screenBox">
+                        <div class="screenTitle">{{item.title}}</div>
+                        <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                      </div>
+                      <div class="screenAddress">{{item.address}}</div>
                     </div>
-                    <div>{{getDistance(item.point)}}km</div>
                   </div>
                 </div>
               </el-tab-pane>
@@ -41,55 +45,65 @@
           <el-tab-pane label="餐饮">
             <div class="screenList1">
               <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                <div>
-                  <div>{{item.title}}</div>
-                  <div>{{item.address}}</div>
+                <div class="screenDist">
+                  <div class="screenBox">
+                    <div class="screenTitle">{{item.title}}</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                  </div>
+                  <div class="screenAddress">{{item.address}}</div>
                 </div>
-                <div>{{getDistance(item.point)}}km</div>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="娱乐">
             <div class="screenList1">
               <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                <div>
-                  <div>{{item.title}}</div>
-                  <div>{{item.address}}</div>
+                <div class="screenDist">
+                  <div class="screenBox">
+                    <div class="screenTitle">{{item.title}}</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                  </div>
+                  <div class="screenAddress">{{item.address}}</div>
                 </div>
-                <div>{{getDistance(item.point)}}km</div>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="银行">
             <div class="screenList1">
               <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                <div>
-                  <div>{{item.title}}</div>
-                  <div>{{item.address}}</div>
+                <div class="screenDist">
+                  <div class="screenBox">
+                    <div class="screenTitle">{{item.title}}</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                  </div>
+                  <div class="screenAddress">{{item.address}}</div>
                 </div>
-                <div>{{getDistance(item.point)}}km</div>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="酒店">
             <div class="screenList1">
               <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                <div>
-                  <div>{{item.title}}</div>
-                  <div>{{item.address}}</div>
+                <div class="screenDist">
+                  <div class="screenBox">
+                    <div class="screenTitle">{{item.title}}</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                  </div>
+                  <div class="screenAddress">{{item.address}}</div>
                 </div>
-                <div>{{getDistance(item.point)}}km</div>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="周边楼盘">
             <div class="screenList1">
               <div v-for="(item, index) in list" :key='index' class="screenDetail">
-                <div>
-                  <div>{{item.title}}</div>
-                  <div>{{item.address}}</div>
+                <div class="screenDist">
+                  <div class="screenBox">
+                    <div class="screenTitle">{{item.title}}</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                  </div>
+                  <div class="screenAddress">{{item.address}}</div>
                 </div>
-                <div>{{getDistance(item.point)}}km</div>
               </div>
             </div>
           </el-tab-pane>
@@ -198,7 +212,7 @@ export default {
      var pointA = new this.BMap.Point(parseFloat(this.point.center.lng), parseFloat(this.point.center.lat))
      var pointB = new this.BMap.Point(parseFloat(itemPoint.lng), parseFloat(itemPoint.lat)) // 店铺的经纬度
      var map = new this.BMap.Map
-     var distance = (map.getDistance(pointA, pointB)/1000).toFixed(2) // 保留小数点后两位
+     var distance = parseInt(map.getDistance(pointA, pointB)) // 保留小数点后两位
      return distance
    }
   }
@@ -240,14 +254,62 @@ export default {
       height: 270px;
       overflow: auto;
       .screenDetail{
-        display: flex;
-        justify-content: space-between;
+        .screenDist{
+          margin-bottom: 15px;
+          .screenBox{
+            display: flex;
+            justify-content: space-between;
+            .screenTitle{
+              font-size: 16px;
+              margin-bottom: 5px;
+              color: #333;
+            }
+            .distance{
+              img{
+                vertical-align: middle;
+                margin-right: 5px;
+              }
+            }
+          }
+          .screenAddress{
+            color: #999;
+            width: 280px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
       }
     }
     .screenList1{
       width: 320px;
       height: 325px;
       overflow: auto;
+      .screenDist{
+          margin-bottom: 15px;
+          .screenBox{
+            display: flex;
+            justify-content: space-between;
+            .screenTitle{
+              font-size: 16px;
+              margin-bottom: 5px;
+              color: #333;
+            }
+            .distance{
+              img{
+                vertical-align: middle;
+                margin-right: 5px;
+              }
+            }
+          }
+          .screenAddress{
+            color: #999;
+            width: 280px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
     }
   }
 }

@@ -91,7 +91,6 @@ module.exports = {
       'home_house_list',
       'home_information',
       'home_paging',
-      'home_login',
       'home_register',
       'home_sellhouse'
     ],
@@ -107,7 +106,6 @@ module.exports = {
       'home_personal',
       'home_house_list',
       'home_information',
-      'home_login',
       'home_sellhouse'
     ],
     vendorName: 'home_vendor',

@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '楼盘列表页')
 <link rel="stylesheet" href="/css/home_pagination.css">
-<link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
+<!-- <link rel="stylesheet" href="{{res('/css/home_paging.css')}}"> -->
 <link rel="stylesheet" href="/css/home_house_list.css">
 @section('header')
 @section('body')
@@ -127,7 +127,7 @@
                     <div class="selected_box f_l clearfix">
                     </div>
                     <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
-                    <div class="cleaning f_l clearfix"><img src="/home_img/cleaning2.png" alt=""><a href="javascript:void(0)" class="js_cleaning f_r">清空</a></div>
+                    <div class="cleaning f_l clearfix"><span class="icon_clean"></span><a href="javascript:void(0)" class="js_cleaning f_r">清空</a></div>
                 </div>
             </div>
             </div>
@@ -223,8 +223,8 @@
             </div>
         </div>
     </div>
+@include('home.footer')
 @endsection
 @section('script')
     <script src="/js/home_house_list.js"></script>
-
 @endsection

@@ -27,7 +27,7 @@ new Vue({
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()
-  if((scrollTop >= rightTop) && ((scrollTop + 690) < secondTop)) {
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 690) < secondTop)) {
     $('.right').addClass('location')
     $('.right').css('margin-top', '0')
   } else if((scrollTop <= rightTop) || ((scrollTop + 690) >= secondTop)) {
@@ -48,6 +48,12 @@ var banner = new Swiper('#banner', {
   paginationBulletRender: function(banner, index, className){
     return '<span class="'+ className +'"><img src="'+ Data.pic_url[index].url +'"></span>'
   }, // 自定义分页器
+})
+
+// 点击查看地图
+// 点击查看地图
+$('.js_map').on('click', function() {
+  $('html,body').animate({scrollTop: $('#second').offset().top - 60 + 'px'},500)
 })
 
 // 点击导航

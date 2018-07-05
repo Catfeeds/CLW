@@ -5,7 +5,7 @@
 @endsection
 @section('body')
 @include('home.nav' , ['fixed' => 1])
-<header class="index-header-box">
+<header class="index-header-box js_headerHeight">
   <div class="banner-content-box">
     <div class="banner-search-box">
       <form class="form-box">
@@ -91,23 +91,8 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <div style="background-image: url('/home_img/temp_index_banner.jpg');" class="banner-img"></div>
+          <div style="background-image: url('/home_img/index_banner.jpg');" class="banner-img"></div>
         </div>
-        <div class="swiper-slide">
-          <div style="background-image: url('/home_img/temp_index_banner2.jpg');" class="banner-img"></div>
-        </div>
-        <div class="swiper-slide">
-          <div style="background-image: url('/home_img/temp_index_banner3.jpg');" class="banner-img"></div>
-        </div>
-        <div class="swiper-slide">
-            <div style="background-image: url('/home_img/temp_index_banner.jpg');" class="banner-img"></div>
-          </div>
-          <div class="swiper-slide">
-            <div style="background-image: url('/home_img/temp_index_banner2.jpg');" class="banner-img"></div>
-          </div>
-          <div class="swiper-slide">
-            <div style="background-image: url('/home_img/temp_index_banner3.jpg');" class="banner-img"></div>
-          </div>
       </div>
     </div>
   </div>
@@ -234,9 +219,8 @@
   <div class="topic-content">
     <ul class="fine-quality-list">
       @foreach ( $eliteBuilding as $eliteBuilding_item )
-      {{-- {{dd($eliteBuilding_item)}} --}}
         <li class="fine-quality-item">
-          <a href="javascript:void(0)">
+          <a href="{{url('/buildings').'/'.$eliteBuilding_item->id}}">
             <div class="img-box">
               <img src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
             </div>

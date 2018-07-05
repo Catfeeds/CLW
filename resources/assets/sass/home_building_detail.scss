@@ -1,5 +1,6 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
+@include nav();
 .content{
     a{
       text-decoration: none;
@@ -408,6 +409,8 @@
             display: flex;
             justify-content: space-between;
             .enjoyPic{
+              width: 265px;
+              height: 210px;
               img{
                 width: 265px;
                 height: 210px;

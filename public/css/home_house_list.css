@@ -222,6 +222,7 @@ textarea {
   font-weight: normal;
   list-style: none;
   padding: 0;
+  color: #333333;
 }
 
 html,
@@ -256,7 +257,7 @@ body {
 nav {
   width: 100%;
   position: absolute;
-  z-index: 6;
+  z-index: 999;
 }
 
 nav.active {
@@ -278,14 +279,20 @@ nav.active .nav-content {
   padding: 10px 0;
 }
 
+nav.active .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
 nav.active .nav-content .nav-list .nav-item a {
   color: #666666;
-  font-family: NotoSansHans-Regular;
   font-size: 14px;
 }
 
 nav.active .nav-content .login-box .tel-box {
   width: 196px;
+  height: 24px;
 }
 
 nav.active .nav-content .login-box .user-login-box div.active-line {
@@ -339,9 +346,10 @@ nav .nav-content {
 
 nav .nav-content .logo-box {
   float: left;
+  display: block;
   margin-right: 60px;
-  width: 180px;
-  height: 40px;
+  width: 170px;
+  height: 24px;
 }
 
 nav .nav-content .logo-box img {
@@ -669,7 +677,8 @@ body .house_list_container .house_list_content .select_box .select_area .special
 
 body .house_list_container .house_list_content .select_box .select_area .result {
   border-top: 1px solid #f5f5f5;
-  padding-top: 10px;
+  padding-top: 15px;
+  margin-bottom: 5px;
   width: 100%;
 }
 
@@ -681,6 +690,7 @@ body .house_list_container .house_list_content .select_box .select_area .result 
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .selected_box .selected {
+  margin-top: 2px;
   float: left;
   margin-right: 30px;
   font-size: 12px;
@@ -697,23 +707,29 @@ body .house_list_container .house_list_content .select_box .select_area .result 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning {
   width: 40px;
   position: relative;
-  line-height: 30px;
+  line-height: 34px;
 }
 
-body .house_list_container .house_list_content .select_box .select_area .result .cleaning img {
-  width: 13px;
-  height: 12px;
+body .house_list_container .house_list_content .select_box .select_area .result .cleaning .icon_clean {
+  width: 14px;
+  height: 14px;
   left: -2px;
   top: 9px;
   position: absolute;
+  background: url(/home_img/rubish.svg);
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning a {
+  font-size: 12px;
   color: #333;
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning a:hover {
   color: #007bff;
+}
+
+body .house_list_container .house_list_content .select_box .select_area .result .cleaning:hover .icon_clean {
+  background: url(/home_img/rubish1.svg);
 }
 
 body .house_list_container .house_list_content .house_list {
@@ -1031,15 +1047,43 @@ body .house_list_container .house_list_content .house_list .house_show div.pagin
   margin-top: 20px;
   padding: 25px 0;
   border-radius: 0;
+  text-align: center;
 }
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination {
-  margin-left: 38%;
+  display: inline-block;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li {
+  float: left;
+  width: 40px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: #fefefe;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li a {
+  color: #989898;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li span {
+  color: #989898;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.active {
+  background-color: #007bff;
 }
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.active a {
-  background-color: #007bff;
   color: #fff;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.disabled {
+  cursor: not-allowed;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house {
