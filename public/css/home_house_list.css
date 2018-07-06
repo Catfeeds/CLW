@@ -180,6 +180,22 @@ template {
   display: none;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.f_l {
+  float: left;
+}
+
+.f_r {
+  float: right;
+}
+
 .clearfloat {
   display: block;
   clear: both;
@@ -329,12 +345,16 @@ nav.transition .nav-content .login-box .user-login-box div.active-line {
   width: 1px;
   height: 15px;
   background-color: #959393;
-  margin-top: 8px;
+  margin-top: 10px;
+}
+
+nav.active .nav-content .login-box .user-login-box a,
+nav.transition .nav-content .login-box .user-login-box a {
+  font-size: 14px;
 }
 
 nav.active .nav-content .login-box .user-login-box a.register-a,
 nav.transition .nav-content .login-box .user-login-box a.register-a {
-  font-size: 14px;
   color: #007bff;
   margin-right: 0;
   height: 32px;
@@ -348,9 +368,17 @@ nav.transition .nav-content .login-box .user-login-box a.register-a img {
   margin-right: 5px;
 }
 
+nav.active .nav-content .login-box .user-login-box a.logout-a,
+nav.transition .nav-content .login-box .user-login-box a.logout-a {
+  padding-top: 2px;
+  height: 32px;
+  line-height: 32px;
+  color: #007bff;
+  margin-left: 5px;
+}
+
 nav.active .nav-content .login-box .user-login-box a.login-a,
 nav.transition .nav-content .login-box .user-login-box a.login-a {
-  font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
@@ -481,6 +509,17 @@ nav .nav-content .login-box .user-login-box a.register-a {
   line-height: 34px;
 }
 
+nav .nav-content .login-box .user-login-box a.register-a img {
+  position: relative;
+  top: 1px;
+  left: -5px;
+}
+
+nav .nav-content .login-box .user-login-box a.logout-a {
+  height: 34px;
+  line-height: 34px;
+}
+
 nav .nav-content .login-box .user-login-box a.login-a {
   width: 80px;
   height: 32px;
@@ -513,6 +552,138 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   width: 100%;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
+}
+
+body {
+  width: 100%;
+}
+
+body footer {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #202020;
+}
+
+body footer .title_box {
+  width: 100%;
+  border-bottom: 1px solid #303030;
+}
+
+body footer .title_box .title {
+  width: 1200px;
+  font-size: 34px;
+  color: #f5f5f5;
+  opacity: 0.7;
+  height: 81px;
+  line-height: 81px;
+  margin: 0 auto;
+  padding-left: 13px;
+}
+
+body footer .container {
+  height: 253px;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 25px 0 25px 13px;
+}
+
+body footer .container .left_info {
+  margin-right: 192px;
+}
+
+body footer .container .left_info img {
+  margin-bottom: 32px;
+}
+
+body footer .container .left_info .info {
+  color: #f5f5f5;
+  opacity: 0.5;
+  font-size: 12px;
+  line-height: 26px;
+  margin-bottom: 11px;
+}
+
+body footer .container .left_info .friend_link {
+  opacity: 0.5;
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .left_info .friend_link a {
+  color: #f5f5f5;
+}
+
+body footer .container .about_us {
+  padding-top: 15px;
+  margin-right: 120px;
+}
+
+body footer .container .about_us .abou_us_title {
+  font-size: 14px;
+  opacity: 0.6;
+  color: #f5f5f5;
+  margin-bottom: 30px;
+}
+
+body footer .container .about_us .link li {
+  margin-bottom: 17px;
+  text-align: center;
+}
+
+body footer .container .about_us .link li a {
+  opacity: 0.5;
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .serve {
+  padding-top: 15px;
+  margin-right: 91px;
+}
+
+body footer .container .serve div {
+  opacity: 0.5;
+  color: #f5f5f5;
+}
+
+body footer .container .serve_title {
+  opacity: 0.6 !important;
+  padding-left: 5px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+body footer .container .serve .phone {
+  font-size: 31px;
+  margin-bottom: 22px;
+}
+
+body footer .container .serve .time,
+body footer .container .serve .day {
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+body footer .container .code_download {
+  padding-top: 15px;
+}
+
+body footer .container .code_download .code_title {
+  opacity: 0.6;
+  font-size: 14px;
+  color: #f5f5f5;
+  margin-bottom: 35px;
+}
+
+body footer .container .code_download .wx_code {
+  width: 110px;
+}
+
+body footer .container .code_download .wx_code div {
+  margin-top: 17px;
+  font-size: 12px;
+  color: #f5f5f5;
+  opacity: 0.5;
 }
 
 a {
@@ -796,6 +967,10 @@ body .house_list_container .house_list_content .select_box .select_area .result 
   cursor: pointer;
 }
 
+body .house_list_container .house_list_content .select_box .select_area .result .selected_box .selected span {
+  color: #999;
+}
+
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning {
   width: 40px;
   position: relative;
@@ -848,7 +1023,7 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 20px 0 25px;
+  padding: 0 0 0 25px;
   color: #858484;
 }
 
@@ -887,17 +1062,17 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   color: #878585;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sore_default:hover a,
+body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_default:hover a,
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price:hover a {
-  color: #007bff;
+  color: #007bff !important;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  border-right: 1px solid #ededed;
   min-width: 60px;
+  padding-right: 10px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price a {
@@ -913,11 +1088,11 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   font-size: 10px;
   position: absolute;
   left: 60px;
-  top: 1px;
+  top: 4px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .order_price .down {
-  top: 9px;
+  top: 11px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail {
@@ -1008,18 +1183,13 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul {
   width: 96%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  width: 99px;
   height: 32px;
   border: 1px solid #ededed;
-  border-left: none;
+  border-right: none;
   line-height: 32px;
   text-align: center;
 }
@@ -1032,7 +1202,11 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail {
   position: absolute;
   background-color: #fff;
-  border: 1px solid #3c3c;
+  padding: 2px;
+  border: 1px solid #f3f3f3;
+  -webkit-box-shadow: 0 1px 3px rgba(233,236,247,0.7);
+          box-shadow: 0 1px 3px rgba(233,236,247,0.7);
+  z-index: 22;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx {
@@ -1043,10 +1217,6 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   padding: 0 10px;
   font-size: 12px;
   background-color: rgba(0,0,0,0.32);
-}
-
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx_acverge {
-  padding-left: 10px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li .acreage-detail .zx_acverge:hover,
@@ -1065,8 +1235,8 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   display: none;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li:first-child {
-  border-left: 1px solid #ededed;
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li:last-child {
+  border-right: 1px solid #ededed;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select ul li:last-child a {
@@ -1140,6 +1310,7 @@ body .house_list_container .house_list_content .house_list .house_show div.pagin
   padding: 25px 0;
   border-radius: 0;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination {
@@ -1156,6 +1327,7 @@ body .house_list_container .house_list_content .house_list .house_show div.pagin
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li a {
@@ -1168,6 +1340,7 @@ body .house_list_container .house_list_content .house_list .house_show div.pagin
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.active {
   background-color: #007bff;
+  border-color: #007bff;
 }
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.active a {
@@ -1176,6 +1349,18 @@ body .house_list_container .house_list_content .house_list .house_show div.pagin
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.disabled {
   cursor: not-allowed;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li:hover {
+  border-color: #007bff;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li:hover a {
+  color: #007bff;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.active:hover a {
+  color: #fff;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house {

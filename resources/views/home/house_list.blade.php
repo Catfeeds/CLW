@@ -1,7 +1,5 @@
 @extends('home.layouts.layout')
 @section('title', '楼盘列表页')
-<link rel="stylesheet" href="/css/home_pagination.css">
-<!-- <link rel="stylesheet" href="{{res('/css/home_paging.css')}}"> -->
 <link rel="stylesheet" href="/css/home_house_list.css">
 @section('header')
 @section('body')
@@ -135,12 +133,12 @@
                 <div class="house_show">
                     <div class="house_show_title">
                         <div class="house_num">
-                            出租写字楼共<span>{{$count??0}}</span>套
+                            出租写字楼共&nbsp;<span>{{$count??0}}</span>&nbsp;套
                         </div>
                         <div class="title_right">
-                            <div class="sort_default js_price_default current" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>
+                            <div class="sort_default js_price_default" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>
                             <div class="sort_price">
-                                <a href="javascript:void(0);" class="order_price js_price_sort" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
+                                <a href="javascript:void(0);" class="order_price js_price_sort js_up" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
                                     <img src="/home_img/build_detail_up_before.png" class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc') @endif" />
                                     <img src="/home_img/down.png" class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc') @endif" />
@@ -168,10 +166,10 @@
                                         <div class="house_location">地址: [{!!$data->address_cn!!}]{!!$data->address!!}</div>
                                         <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                         <div class="acverge_select">
-                                            <ul>
+                                            <ul class="clearfix">
                                                 {{--{{dd($data->pc_house->toArray())}}--}}
                                                 @foreach($data->pc_house as $pchouse)
-                                                <li style="position: relative">
+                                                <li style="position: relative" class="f_l">
                                                     <a href="javascript:void(0);">{{$pchouse->constru_acreage}}㎡</a>
                                                     <div class="acreage-detail">
                                                         <div style="position: relative">
@@ -184,7 +182,7 @@
                                                     </div>
                                                 </li>
                                                 @endforeach
-                                                <li><a href="javascript:void(0);">更多...</a></li>
+                                                <li class="f_l"><a href="javascript:void(0);">更多...</a></li>
                                             </ul>
                                         </div>
                                         @if(!empty($data->features))

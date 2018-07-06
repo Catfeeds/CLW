@@ -1,5 +1,5 @@
 require('./home_common');
-import './components/home/login'
+import './components/home/login' // 登录组件
 // 根据参数拼接url地址
 function createURL(url, param) {
     var link = '';
@@ -30,15 +30,14 @@ for(var key in data){
         var dom = '.'+key
         if($(dom).length==0) continue
         condition = true
+        var html = ''
         if($(dom).length!==1) {
-            html = ''
             $(dom).each(function () {
                 html += '<div class="selected js_special">'+$(this).data('content')+'<span data-dom="'+$(this).data('dom')+'" class="close js_close"> &nbsp;x</span></div>'
             })
         }else{
             html = '<div class="selected js_special">'+$(dom).data('content')+'<span data-dom="'+$(dom).data('dom')+'" class="close js_close"> &nbsp;x</span></div>'
         }
-
         $('.selected_box').append(html)
     }
 }
@@ -127,7 +126,3 @@ function removeData() {
         price_sort: ''
     }
 }
-//搜索区域条件三角标的显示与隐藏
-$(".js_area_sel").on("click",function(){
-    $(this).parent(".js_condition").css("::after",)
-})

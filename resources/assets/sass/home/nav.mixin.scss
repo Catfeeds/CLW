@@ -62,11 +62,11 @@
               width: 1px;
               height: 15px;
               background-color: #959393;
-              margin-top: 8px;
+              margin-top: 10px;
             }
             a{
+              font-size: 14px;
               &.register-a{
-                font-size: 14px;
                 color: $master-blue;
                 margin-right: 0;
                 height: 32px;
@@ -77,8 +77,15 @@
                   margin-right: 5px;
                 }
               }
+              &.logout-a{
+                padding-top: 2px;
+                height: 32px;
+                line-height: 32px;
+                color: $master-blue;
+                margin-left: 5px;
+
+              }
               &.login-a{
-                font-size: 14px;
                 color: #959393;
                 border: none;
                 width: auto;
@@ -184,6 +191,15 @@
               margin-right: 20px;
               height: 34px;
               line-height: 34px;
+              img{
+                position: relative;
+                top: 1px;
+                left: -5px;
+              }
+            }
+            &.logout-a{
+              height: 34px;
+              line-height: 34px;
             }
             &.login-a{
               width: 80px;
@@ -219,4 +235,16 @@
       }
     }
   }
+}
+.clearfix::after {
+  content:"";
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}.f_l {
+  float: left;
+}
+.f_r {
+  float: right;
 }

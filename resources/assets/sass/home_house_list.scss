@@ -1,5 +1,6 @@
 @import 'home_master';
 @include nav();
+@include footer();
 a {
   text-decoration: none;
   color:#444;
@@ -194,6 +195,9 @@ body {
                 color:#b2b2b2;
                 background-color: rgba(238, 246, 255, 0.5);
                 cursor: pointer;
+                span {
+                  color:#999;
+                }
               }
             }
             .cleaning {
@@ -238,7 +242,7 @@ body {
             border-bottom: 1px solid #ededed;
             background-color: #fff;
             display: flex;
-            padding:0 20px 0 25px;
+            padding:0 0 0 25px;
             color:#858484;
             .house_num {
               flex:4;
@@ -262,15 +266,15 @@ body {
                   // font-size: 14px;
                 }
               }
-              .sore_default:hover,.sort_price:hover {
+              .sort_default:hover,.sort_price:hover {
                 a {
-                  color:$master-blue;
+                  color:$master-blue !important;
                 }
               }
               .sort_price {
                 flex: 1;
-                border-right: 1px solid #ededed;
-                min-width: 60px;   
+                min-width: 60px; 
+                padding-right: 10px;  
                 a {
                   color:#878585;
                 }
@@ -281,10 +285,10 @@ body {
                   font-size: 10px;
                   position: absolute;
                   left:60px;
-                  top: 1px;
+                  top: 4px;
                 }
                 .down {
-                  top: 9px;
+                  top: 11px;
                 }
               }
             }
@@ -357,12 +361,11 @@ body {
                   margin-bottom: 10px;
                   ul {
                     width: 96%;
-                    display: flex;
                     li {
-                      flex:1;
+                      width: 99px;
                       height: 32px;
                       border: 1px solid #ededed;
-                      border-left: none;
+                      border-right:none; 
                       line-height: 32px;
                       text-align: center;
                       a {
@@ -372,7 +375,10 @@ body {
                       .acreage-detail{
                         position: absolute;
                         background-color: #fff;
-                        border: 1px solid #3c3c;
+                        padding: 2px;
+                        border: 1px solid #f3f3f3;
+                        box-shadow: 0 1px 3px rgba(233,236,247,0.7);
+                        z-index: 22;
                         .zx{
                           position: absolute;
                           bottom:0px;
@@ -381,9 +387,6 @@ body {
                           padding: 0 10px;
                           font-size: 12px;
                           background-color: rgba(0, 0, 0, 0.32);
-                        }
-                        .zx_acverge {
-                          padding-left: 10px;
                         }
                         .zx_acverge:hover,.zx_price:hover {
                           color:$master-blue;
@@ -398,10 +401,8 @@ body {
                         display: none;
                       }
                     }
-                    li:first-child {
-                      border-left: 1px solid #ededed;                 
-                    }
                     li:last-child{
+                      border-right: 1px solid #ededed;
                       a {
                         color: #878585;
                       }
@@ -461,6 +462,7 @@ body {
             padding: 25px 0;
             border-radius: 0;
             text-align: center;
+            margin-bottom: 20px;
             ul.pagination {
               display: inline-block;
               li {
@@ -473,6 +475,7 @@ body {
                 border: 1px solid #e3e3e3;
                 border-radius: 4px;
                 margin-right: 5px;
+                cursor: pointer;
                 a {
                   color:#989898;
                 }
@@ -482,12 +485,24 @@ body {
               }
               li.active {
                 background-color: $master-blue;
+                border-color: $master-blue;
                 a {
                   color:#fff;
                 }
               }
               li.disabled {
                 cursor: not-allowed;
+              }
+              li:hover {
+                border-color: $master-blue;
+                a {
+                  color:$master-blue;
+                }
+              }
+              li.active:hover {
+                a {
+                  color:#fff;
+                }
               }
             }
           }

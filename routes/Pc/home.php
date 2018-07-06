@@ -31,11 +31,12 @@ Route::resource('bespeaks', 'BespeaksController');
 //PC端房源投放
 Route::resource('throw_ins', 'ThrowInsController');
 
+
 Route::post('get_periphery_buildings','MapsController@getPeripheryBuildings');
+
 //收藏
 Route::resource('collections', 'CollectionsController');
 //房源详情取消收藏
 Route::get('del/{id}', 'CollectionsController@del');
-
 
 

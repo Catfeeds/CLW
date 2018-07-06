@@ -30,8 +30,13 @@
       <div class="user-login-box">
       {{-- <a href="{{url('/registers')}}" class="register-a"><img class="active" src="/home_img/login_user.png" alt="" />注册</a>
         <div class="active-line"></div> --}}
-      {{-- @if (empty(session('user'))) --}}
-      <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a>
+      @if (!empty(session('user')))
+        <a href="javascript:;" class="register-a"><img src="/home_img/login_user.png" alt="" />我的</a>
+        <div class="active-line"></div>
+        <a href="{{url('/logout')}}" class="logout-a">退出</a>
+      @else
+        <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a>
+      @endif
       </div>
     </div>
     <div class="clearfloat"></div>
