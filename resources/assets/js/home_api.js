@@ -37,3 +37,35 @@ export function findHouse(data) {
     data
   })
 }
+
+// 收藏房源
+export function collect(data) {
+  return request({
+    url: 'collections',
+    method: 'POST',
+    data
+  })
+}
+
+// 取消收藏
+export function cancelCollet(params) {
+  return request({
+    url: '/del/' + params,
+    method: 'GET'
+  })
+}
+// 获取登录验证码
+export function getLoginCode(tel) {
+  return request({
+    url: '/sms/captcha/' + tel + '/login',
+    method: 'GET'
+  })
+}
+// 登录
+export function login(data) {
+  return request({
+    url: '/logins',
+    method: 'POST',
+    data
+  })
+}

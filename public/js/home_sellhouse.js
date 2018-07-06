@@ -1,60 +1,6 @@
-webpackJsonp([5],{
+webpackJsonp([8],{
 
-/***/ 283:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(284);
-
-
-/***/ }),
-
-/***/ 284:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(5);
-__webpack_require__(96);
-var url = 'http://www.clw.com';
-console.log('url', url);
-var type = $("#commentForm").validate({
-    rules: {
-        tel: {
-            required: true,
-            maxlength: 16
-        },
-        appellation: {
-            required: true,
-            maxlength: 32
-        }
-    },
-    messages: {
-        tel: {
-            required: "请输入电话",
-            minlength: "电话长度格式错误"
-        },
-        appellation: {
-            required: "请输入联系人",
-            maxlength: "联系人最长不能超过32"
-        }
-    },
-    submitHandler: function submitHandler(form) {
-        $.ajax({
-            type: 'post',
-            url: url + '/bespeaks',
-            data: $('#commentForm').serialize(),
-            success: function success(data) {
-                alert(data.message);
-            },
-            error: function error(data) {
-                alert(data.responseJSON.message);
-                console.log('erro', data);
-            }
-        });
-    }
-});
-
-/***/ }),
-
-/***/ 96:
+/***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -67,7 +13,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  */
 (function( factory ) {
 	if ( true ) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(70)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(94)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -1662,6 +1608,60 @@ if ( $.ajaxPrefilter ) {
 return $;
 }));
 
+/***/ }),
+
+/***/ 277:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(278);
+
+
+/***/ }),
+
+/***/ 278:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(24);
+__webpack_require__(120);
+var url = 'http://www.clw.com';
+console.log('url', url);
+var type = $("#commentForm").validate({
+    rules: {
+        tel: {
+            required: true,
+            maxlength: 16
+        },
+        appellation: {
+            required: true,
+            maxlength: 32
+        }
+    },
+    messages: {
+        tel: {
+            required: "请输入电话",
+            minlength: "电话长度格式错误"
+        },
+        appellation: {
+            required: "请输入联系人",
+            maxlength: "联系人最长不能超过32"
+        }
+    },
+    submitHandler: function submitHandler(form) {
+        $.ajax({
+            type: 'post',
+            url: url + '/bespeaks',
+            data: $('#commentForm').serialize(),
+            success: function success(data) {
+                alert(data.message);
+            },
+            error: function error(data) {
+                alert(data.responseJSON.message);
+                console.log('erro', data);
+            }
+        });
+    }
+});
+
 /***/ })
 
-},[283]);
+},[277]);
