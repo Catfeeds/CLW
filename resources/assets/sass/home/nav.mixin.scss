@@ -1,6 +1,13 @@
 @mixin nav() {
   body{
     padding-top: 61px;
+    &.el-popup-parent--hidden{
+      nav{
+        .nav-content{
+          padding-right: 15px;
+        }
+      }
+    }
   }
   nav.active.transition{
     top:0;

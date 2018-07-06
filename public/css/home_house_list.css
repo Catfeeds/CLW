@@ -254,6 +254,10 @@ body {
   padding-top: 61px;
 }
 
+body.el-popup-parent--hidden nav .nav-content {
+  padding-right: 15px;
+}
+
 nav.active.transition,
 nav.transition {
   top: 0;

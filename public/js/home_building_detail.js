@@ -2364,7 +2364,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\home\\login\\login.vue"
+Component.options.__file = "resources/assets/js/components/home/login/login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -2373,9 +2373,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3608f090", Component.options)
+    hotAPI.createRecord("data-v-1639a0aa", Component.options)
   } else {
-    hotAPI.reload("data-v-3608f090", Component.options)
+    hotAPI.reload("data-v-1639a0aa", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -2396,13 +2396,13 @@ var content = __webpack_require__(28);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("4006e374", content, false, {});
+var update = __webpack_require__(8)("36072488", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
-     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -2420,7 +2420,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.login-box .el-dialog__body {\n  padding-top: 0px;\n  padding-left: 30px;\n  padding-right: 30px;\n}\n.login-box .el-dialog__body .title {\n    font-family: SourceHanSansCN-Bold;\n    font-size: 22px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #333333;\n}\n.login-box .el-dialog__body .small-title {\n    margin-top: 12px;\n    font-family: SourceHanSansCN-Regular;\n    font-size: 14px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #999999;\n}\n.login-box .el-dialog__body form {\n    display: block;\n    margin-top: 35px;\n    width: 360px;\n}\n.login-box .el-dialog__body form .input-box {\n      position: relative;\n      z-index: 1;\n      border: solid 1px #dddddd;\n      height: 48px;\n      width: 358px;\n      overflow: hidden;\n}\n.login-box .el-dialog__body form .input-box.error {\n        border-color: #ff0000;\n        z-index: 6;\n}\n.login-box .el-dialog__body form .input-box:nth-child(2) {\n        top: -1px;\n}\n.login-box .el-dialog__body form .input-box input {\n        border: none;\n        width: 100%;\n        height: 100%;\n        padding-left: 11px;\n        position: absolute;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box {\n        width: 110px;\n        top: 0;\n        bottom: 0;\n        padding-top: 10px;\n        z-index: 3;\n        position: absolute;\n        right: 0;\n        background-color: #ffffff;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box button {\n          width: 100%;\n          padding: 5px 0;\n          border-right: none;\n          border-top: none;\n          border-bottom: none;\n          border-left: 1px solid #dddddd !important;\n}\n.login-box .el-dialog__body .el-checkbox__input.is-checked + .el-checkbox__label {\n    color: #333333;\n}\n.login-box .el-dialog__body .btn-box {\n    margin-top: 25px;\n    width: 300px;\n    text-align: center;\n}\n.login-box .el-dialog__body .btn-box * {\n      color: #ffffff;\n}\n.login-box .el-dialog__body .btn-box button {\n      width: 360px;\n      background-color: #007bff;\n}\n.login-box .el-dialog__body .route-box {\n    margin-top: 20px;\n}\n.login-box .el-dialog__body .route-box a {\n      color: #007bff;\n}\n", ""]);
+exports.push([module.i, "\n.login-box .el-dialog {\n  margin-top: 26vh !important;\n}\n.login-box .el-dialog__body {\n  padding-top: 0px;\n  padding-left: 30px;\n  padding-right: 30px;\n  padding-bottom: 40px;\n}\n.login-box .el-dialog__body .title {\n    font-family: SourceHanSansCN-Bold;\n    font-size: 22px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #333333;\n}\n.login-box .el-dialog__body .small-title {\n    margin-top: 12px;\n    font-family: SourceHanSansCN-Regular;\n    font-size: 14px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #999999;\n}\n.login-box .el-dialog__body form {\n    display: block;\n    margin-top: 35px;\n    width: 360px;\n}\n.login-box .el-dialog__body form .input-box {\n      position: relative;\n      z-index: 1;\n      border: solid 1px #dddddd;\n      height: 48px;\n      width: 358px;\n      overflow: hidden;\n}\n.login-box .el-dialog__body form .input-box.error {\n        border-color: #ff0000;\n        z-index: 6;\n}\n.login-box .el-dialog__body form .input-box:nth-child(2) {\n        top: -1px;\n}\n.login-box .el-dialog__body form .input-box input {\n        border: none;\n        width: 100%;\n        height: 100%;\n        padding-left: 11px;\n        position: absolute;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box {\n        width: 110px;\n        top: 0;\n        bottom: 0;\n        padding-top: 10px;\n        z-index: 3;\n        position: absolute;\n        right: 0;\n        background-color: #ffffff;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box button {\n          width: 100%;\n          padding: 5px 0;\n          border-right: none;\n          border-top: none;\n          border-bottom: none;\n          border-left: 1px solid #dddddd !important;\n}\n.login-box .el-dialog__body .el-checkbox__input.is-checked + .el-checkbox__label {\n    color: #333333;\n}\n.login-box .el-dialog__body .btn-box {\n    margin-top: 25px;\n    width: 300px;\n    text-align: center;\n}\n.login-box .el-dialog__body .btn-box * {\n      color: #ffffff;\n}\n.login-box .el-dialog__body .btn-box button {\n      width: 360px;\n      background-color: #007bff;\n}\n.login-box .el-dialog__body .route-box {\n    margin-top: 20px;\n}\n.login-box .el-dialog__body .route-box a {\n      color: #007bff;\n}\n", ""]);
 
 // exports
 
@@ -2445,6 +2445,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_dialog_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_dialog_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_dialog__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_dialog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_element_ui_lib_dialog__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_api__ = __webpack_require__(55);
 
 
 
@@ -2455,7 +2456,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var ElDialog = __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_dialog___default.a; //
+ //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2486,6 +2493,7 @@ var ElDialog = __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_dialog___default.a; //
 //
 //
 
+var ElDialog = __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_dialog___default.a;
 var ElCheckbox = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_checkbox___default.a;
 var ElButton = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_button___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2493,14 +2501,52 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_button___default.a;
   data: function data() {
     return {
       active: 1,
+      isTel: true, // 手机号验证状态 true: 通过 false: 不通过
+      isCode: true, // 验证码状态 true: 通过 false: 不通过
       checked: true,
-      dialogVisible: false
+      dialogVisible: false,
+      tel: null, // 手机号
+      code: null // 短信验证码
     };
   },
 
+  watch: {
+    tel: function tel(val) {
+      if (!this.isTel) {
+        this.validateTel();
+      }
+    }
+  },
   methods: {
     show: function show() {
       this.dialogVisible = true;
+    },
+    validateTel: function validateTel() {
+      var Repx = /^1\d{10}$/;
+      if (Repx.test(this.tel)) {
+        this.isTel = true;
+        return true;
+      } else {
+        this.isTel = false;
+        return false;
+      }
+    },
+    validateCode: function validateCode() {
+      var Repx = /^\d{4}$/;
+      if (Repx.test(this.code)) {
+        this.isCode = true;
+        return true;
+      } else {
+        this.isCode = false;
+        return false;
+      }
+    },
+    getCode: function getCode() {
+      if (this.validateTel()) {
+        Object(__WEBPACK_IMPORTED_MODULE_7__home_api__["f" /* getLoginCode */])(this.tel).then(function (res) {
+          console.log(res);
+        });
+      }
     }
   }
 });
@@ -3588,20 +3634,75 @@ var render = function() {
               _c("form", [
                 _c("div", { staticClass: "input-box" }, [
                   _c("input", {
-                    attrs: { type: "text", placeholder: "请输入手机号" }
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.tel,
+                        expression: "tel"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "请输入手机号" },
+                    domProps: { value: _vm.tel },
+                    on: {
+                      blur: function($event) {
+                        _vm.validateTel()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.tel = $event.target.value
+                      }
+                    }
                   })
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "input-box" }, [
                   _c("input", {
-                    attrs: { type: "password", placeholder: "6位短信验证码" }
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.code,
+                        expression: "code"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "6位短信验证码" },
+                    domProps: { value: _vm.code },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.code = $event.target.value
+                      }
+                    }
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "sms-btn-box" }, [
-                    _c("button", { attrs: { type: "button" } }, [
-                      _vm._v("获取验证码")
-                    ])
+                    _c(
+                      "button",
+                      { attrs: { type: "button" }, on: { click: _vm.getCode } },
+                      [_vm._v("获取验证码")]
+                    )
                   ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticStyle: { position: "relative" } }, [
+                _c("div", { staticStyle: { position: "absolute" } }, [
+                  !_vm.isTel
+                    ? _c("span", { staticStyle: { color: "red" } }, [
+                        _vm._v("·请输入11位手机号")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.isCode
+                    ? _c("span", { staticStyle: { color: "red" } }, [
+                        _vm._v("·请输入4位验证码")
+                      ])
+                    : _vm._e()
                 ])
               ]),
               _vm._v(" "),
@@ -3643,7 +3744,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3608f090", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-1639a0aa", module.exports)
   }
 }
 
@@ -9458,13 +9559,14 @@ var removeResizeListener = exports.removeResizeListener = function removeResizeL
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["f"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["d"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["e"] = getBuildList;
 /* unused harmony export getSiteList */
 /* harmony export (immutable) */ __webpack_exports__["c"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["b"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["a"] = cancelCollet;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getLoginCode;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(66);
 
 
@@ -9518,6 +9620,13 @@ function collect(data) {
 function cancelCollet(params) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/del/' + params,
+    method: 'GET'
+  });
+}
+// 获取登录验证码
+function getLoginCode(tel) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/sms/captcha/' + tel + '/login',
     method: 'GET'
   });
 }
@@ -12934,7 +13043,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\detailMap.vue"
+Component.options.__file = "resources/assets/js/components/detailMap.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12943,9 +13052,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-32b256f8", Component.options)
+    hotAPI.createRecord("data-v-e5564c78", Component.options)
   } else {
-    hotAPI.reload("data-v-32b256f8", Component.options)
+    hotAPI.reload("data-v-e5564c78", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12966,13 +13075,13 @@ var content = __webpack_require__(112);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("1d552c30", content, false, {});
+var update = __webpack_require__(8)("709d1aae", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-32b256f8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-32b256f8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5564c78\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5564c78\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -13595,7 +13704,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-32b256f8", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-e5564c78", module.exports)
   }
 }
 
@@ -13629,7 +13738,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\findHouse.vue"
+Component.options.__file = "resources/assets/js/components/findHouse.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -13638,9 +13747,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-824b67c0", Component.options)
+    hotAPI.createRecord("data-v-65885160", Component.options)
   } else {
-    hotAPI.reload("data-v-824b67c0", Component.options)
+    hotAPI.reload("data-v-65885160", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -13661,13 +13770,13 @@ var content = __webpack_require__(117);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("0fd16034", content, false, {});
+var update = __webpack_require__(8)("64bb1035", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -13907,7 +14016,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-824b67c0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-65885160", module.exports)
   }
 }
 

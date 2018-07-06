@@ -54,3 +54,10 @@ export function cancelCollet(params) {
     method: 'GET'
   })
 }
+// 获取登录验证码
+export function getLoginCode(tel) {
+  return request({
+    url: '/sms/captcha/' + tel + '/login',
+    method: 'GET'
+  })
+}

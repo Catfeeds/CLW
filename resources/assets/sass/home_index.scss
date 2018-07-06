@@ -224,6 +224,7 @@ body {
   }
   // 内容样式
   .topic-box{
+    min-width: $master-width;
     // 委托投放
     &.special-style{
       background-position: center;

@@ -7,15 +7,21 @@
     <div class="small-title">登录享受更多楚楼网服务</div>
     <form>
       <div class="input-box">
-        <input type="text" placeholder="请输入手机号">
+        <input type="text" v-model="tel" placeholder="请输入手机号" @blur="validateTel()">
       </div>
       <div class="input-box">
-        <input type="password" placeholder="6位短信验证码">
+        <input type="text" v-model="code" placeholder="6位短信验证码">
         <div class="sms-btn-box">
-          <button type="button">获取验证码</button>
+          <button type="button" @click="getCode">获取验证码</button>
         </div>
       </div>
     </form>
+    <div style="position:relative">
+      <div style="position:absolute">
+        <span v-if='!isTel' style="color:red;">·请输入11位手机号</span>
+        <span v-if='!isCode' style="color:red;">·请输入4位验证码</span>
+      </div>
+    </div>
     <el-checkbox style="margin-top:25px;" v-model="checked">7天内免登录</el-checkbox>
     <div class="btn-box">
       <el-button type="primary">登录</el-button>
@@ -30,6 +36,7 @@
 </template>
 <script>
 import { Dialog, Checkbox, Button } from 'element-ui';
+import { getLoginCode } from '../../../home_api'
 const ElDialog = Dialog
 const ElCheckbox = Checkbox
 const ElButton = Button
@@ -38,24 +45,66 @@ export default {
   data() {
     return {
       active: 1,
+      isTel: true, // 手机号验证状态 true: 通过 false: 不通过
+      isCode: true, // 验证码状态 true: 通过 false: 不通过
       checked: true,
-      dialogVisible: false
+      dialogVisible: false,
+      tel: null, // 手机号
+      code: null // 短信验证码
+    }
+  },
+  watch: {
+    tel(val) {
+      if (!this.isTel) {
+        this.validateTel()
+      }
     }
   },
   methods: {
     show() {
       this.dialogVisible = true
+    },
+    validateTel() {
+      const Repx = /^1\d{10}$/
+      if(Repx.test(this.tel)) {
+        this.isTel = true
+        return true
+      } else {
+        this.isTel = false
+        return false
+      }
+    },
+    validateCode() {
+      const Repx = /^\d{4}$/
+      if(Repx.test(this.code)) {
+        this.isCode = true
+        return true
+      } else {
+        this.isCode = false
+        return false
+      }
+    },
+    getCode() {
+      if (this.validateTel()) {
+        getLoginCode(this.tel).then(res => {
+          console.log(res)
+        })
+      }
     }
   }
 }
 </script>
 <style lang="scss">
 .login-box{
+ .el-dialog{
+   margin-top: 26vh !important;
+ }
   .el-dialog__body{
     padding-top: 0px;
     padding: {
       left: 30px;
       right: 30px;
+      bottom: 40px;
     }
     .title{
       font-family: SourceHanSansCN-Bold;
