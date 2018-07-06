@@ -122,9 +122,9 @@ class LoginsService
         if ($request->smsCode != $telCaptcha) return ['status' => false, 'message' => '手机验证码错误，请重新输入'];
         // 验证成功，删除验证码
         $masterRedis->delKey($key);
-        $record = User::where(['tel' => $request->tel])->first();
+        $user = User::where(['tel' => $request->tel])->first();
         //如果用户不存在,则默认用户注册
-        if (empty($record)) {
+        if (empty($user)) {
             $user = User::create([
                'tel' => $request->tel,
                 'password' => bcrypt($request->tel)
