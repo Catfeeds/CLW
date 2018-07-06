@@ -28,12 +28,12 @@ new Vue({
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()
-  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 760) < secondTop)) {
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 923) < secondTop)) {
     $('.right').addClass('location')
     $('.right').css('margin-top', '0')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 763) >= secondTop)) {
-    if((scrollTop + 750) >= secondTop) {
-      $('.right').css('margin-top', secondTop-rightTop-697)
+  } else if((scrollTop <= rightTop) || ((scrollTop + 923) >= secondTop)) {
+    if((scrollTop + 923) >= secondTop) {
+      $('.right').css('margin-top', secondTop-rightTop-866)
       $('.right').removeClass('location')
     } else {
       $('.right').removeClass('location')
@@ -230,6 +230,8 @@ function createVal(data) {
   // 房源数量大于10条显示查看更多
   if(data.length > 10) {
     $('.all').css('display', 'block')
+  } else {
+    $('.all').css('display', 'none')
   }
   houseDetail = data
   secondTop = $('#second').offset().top // 获取周边配套至顶部的高度

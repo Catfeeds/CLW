@@ -1068,7 +1068,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 
 .content .build .first .right .agent {
   background: #fff;
-  height: 296px;
+  height: 292px;
   border-radius: 5px;
   text-align: center;
   padding-top: 20px;
@@ -1101,7 +1101,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 }
 
 .content .build .first .right .findHouse {
-  margin-top: 26px;
+  margin-top: 20px;
 }
 
 .content .build .second {

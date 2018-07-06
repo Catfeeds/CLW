@@ -109,6 +109,40 @@ class LoginsService
         return ['status' => true, 'token' => $token];
     }
 
+    //PC端快捷登录
+    public function fastLogin($request)
+    {
+        $masterRedis = new MasterRedis();
+        $key = config('redisKey.STRING_SMSCODE_') . 'login:' . $request->tel;
+        // 验证手机短信是否正确
+        $telCaptcha = $masterRedis->getString($key, 'old');
+        // 判断验证码是否存在
+        if (empty($telCaptcha)) return ['status' => false, 'message' => '验证码失效,请重新发送'];
+        // 判断验证码是否正确
+        if ($request->smsCode != $telCaptcha) return ['status' => false, 'message' => '手机验证码错误，请重新输入'];
+        // 验证成功，删除验证码
+        $masterRedis->delKey($key);
+        $record = User::where(['tel' => $request->tel])->first();
+        //如果用户不存在,则默认用户注册
+        if (empty($record)) {
+            $user = User::create([
+               'tel' => $request->tel,
+                'password' => bcrypt($request->tel)
+            ]);
+            if (empty($user)) return ['status' => false, 'message' => '注册失败'];
+        }
+        //登录记录表
+        $loginRecord = LoginRecord::create([
+            'user_id' => $user->id,
+            'login_ip' => $request->getClientIp(),
+            'login_city' => $this->getLocation($request->getClientIp()),
+            'login_source' => 'PC'
+        ]);
+        if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
+        session()->flash('user', $user);
+        return ['status' => true, 'message' => '登录成功'];
+    }
+
     /**
      * 说明: admin后台登录
      *
@@ -129,6 +163,8 @@ class LoginsService
         if (empty($token)) return ['status' => false, 'message' => '获取令牌失败'];
 
         return ['status' => true, 'token' => $token];
+
+
     }
 
     /**

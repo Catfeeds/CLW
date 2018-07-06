@@ -1,11 +1,13 @@
 require('./home_common')
-import './components/home/login'
+import { collect, cancelCollet } from './home_api'
+import './components/home/login' // 登录组件
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')
 var Data = $('#props').data('data')
 var rightTop = $('.findHouse').offset().top
 var secondTop = $('.facilities').offset().top
+// console.log('数据', $('.js_login'))
 new Vue({
   el: '.facilities',
   components: { detailMap },
@@ -59,12 +61,12 @@ $('#next').on('click', function() {
 // 页面滚动
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()
-  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 420) < secondTop)) {
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 595) < secondTop)) {
     $('.findHouse').addClass('location')
     $('.findHouse').css('margin-top', '20px')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 420) >= secondTop)) {
-    if((scrollTop + 420) >= secondTop) {
-      $('.findHouse').css('margin-top', secondTop-rightTop-335)
+  } else if((scrollTop <= rightTop) || ((scrollTop + 595) >= secondTop)) {
+    if((scrollTop + 595) >= secondTop) {
+      $('.findHouse').css('margin-top', secondTop-rightTop-518)
       $('.findHouse').removeClass('location')
     } else {
       $('.findHouse').removeClass('location')
@@ -78,11 +80,16 @@ $('.pircePic').on('click', function() {
   if(obj.hasClass('.active')) {
     obj.css('background', 'url(/home_img/house_detail_collect_before.png)')
     obj.removeClass('.active')
-    console.log(22222)
+    cancelCollet(Data.id).then(res => {
+      console.log('取消收藏', res)
+    })
   } else {
     console.log(11111)
     obj.css('background', 'url(/home_img/house_detail_collect_after.png)')
     obj.addClass('.active')
+    collect({ house_id: Data.id }).then(res => {
+      console.log('添加收藏', res)
+    })
   }
 })
 

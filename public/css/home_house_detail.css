@@ -627,28 +627,43 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   font-size: 30px;
 }
 
-.content .banner .infor .price .pircePic {
-  margin-top: 6px;
+.content .banner .infor .price .collect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin-right: 30px;
+}
+
+.content .banner .infor .price .collect .pircePic {
+  margin-top: 6px;
   width: 26px;
   height: 26px;
   border: solid 1px #eeeded;
   border-radius: 50%;
 }
 
-.content .banner .infor .price .pircePic div {
+.content .banner .infor .price .collect .pircePic div {
   margin: 5px;
   width: 16px;
   height: 15px;
   background: url(/home_img/house_detail_collect_before.png) no-repeat;
 }
 
-.content .banner .infor .price .pircePic:hover {
+.content .banner .infor .price .collect .pircePic:hover {
   cursor: pointer;
 }
 
-.content .banner .infor .price .pircePic:hover div {
+.content .banner .infor .price .collect .pircePic:hover div {
   background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
+}
+
+.content .banner .infor .price .collect .collectTitle {
+  height: 15px;
+  margin-top: 11px;
+  margin-left: 5px;
 }
 
 .content .banner .infor .acreage {

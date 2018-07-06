@@ -51,7 +51,7 @@ class CollectionsRepository extends Model
     public function addCollection($request)
     {
         return Collection::create([
-            'user_id' => $this->user()->id,
+            'user_id' => 1,
             'house_id' => $request->house_id
         ]);
     }
