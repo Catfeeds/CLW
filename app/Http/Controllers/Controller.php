@@ -25,16 +25,8 @@ class Controller extends BaseController
      * @return array
      * @author 罗振
      */
-    public function getSmsCode
-    (
-        $tel,
-        $temp,
-        $code
-    )
+    public function getSmsCode($tel, $temp)
     {
-        if (strtolower($code) != strtolower(session('code'))) {
-            return $this->sendError('验证码错误');
-        }
         // 生成6位随机验证码
         $captcha = mt_rand(1000, 9999);
         switch ($temp) {
@@ -66,7 +58,6 @@ class Controller extends BaseController
             if (empty(User::where('tel', $tel)->first()))
                 return $this->sendError('该手机号未注册');
         }
-
         $smsService = new SmsService();
         if (config('sms.open')) {
             $smsRes = $smsService->sendSMS($tel, $smsTemplate);
@@ -74,12 +65,10 @@ class Controller extends BaseController
         } else {
             Log::debug('短信发送配置关闭，发送给：' . $tel . ' 内容：' . $smsTemplate);
         }
-
         $masterRedis = new MasterRedis();
         // 写入redis,并且设置有效期
         $key = config('redisKey.STRING_SMSCODE_') . $temp . ':' . $tel;
         $masterRedis->addString($key, $captcha, config('setting.sms_life_time'));
-
         return $this->sendResponse(true, '验证码发送成功');
     }
 

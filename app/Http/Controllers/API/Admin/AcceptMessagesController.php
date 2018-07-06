@@ -81,7 +81,8 @@ class AcceptMessagesController extends APIBaseController
         if (!empty($employee_id)) {
             $openid = Employee::whereIn('id', $employee_id)->pluck('openid')->toArray();
         }
-        return $openid;
+        if (!empty($openid)) return $openid;
+        return '';
     }
 
 }

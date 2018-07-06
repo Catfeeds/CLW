@@ -17,12 +17,9 @@ class BespeakObservers {
         $data['name'] = $name;
         $data['tel'] = $tel;
         $openid = $class->getOpenid(1);
-        if ($openid) {
+        if (!empty($openid)) {
             $data['openid'] = json_encode($openid);
             curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
         }
-
-
-
     }
 }

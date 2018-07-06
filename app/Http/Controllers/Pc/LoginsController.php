@@ -2,25 +2,33 @@
 
 namespace App\Http\Controllers\PC;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use App\Services\LoginsService;
+use Illuminate\Http\Request;
 
 class LoginsController extends Controller
 {
-    //登录
-    public function store(Request $request)
+    //快捷登录
+    public function store
+    (
+        Request $request,
+        LoginsService $service
+    )
     {
-        $res = User::where('tel', $request->tel)->first();
-        if (Hash::check($request->password,$res->password)) {
-            session(['user' => $res]);
-            return $this->sendResponse($res, '登录成功');
-        } else {
-            return $this->sendError('登录失败');
-        }
+        $res = $service->fastLogin($request);
+        return $res;
     }
 
-    //退出
+    //发送短信验证码
+    public function smsCode(Request $request)
+    {
+        //同一ip地址每天发送20次
+        //同一电话每天5次,每小时3次
+        return $this->getSmsCode($request->tel, $request->tmp);
+    }
+
+
+    //退出登录
     public function logout()
     {
         if (session()->has('user')) {
