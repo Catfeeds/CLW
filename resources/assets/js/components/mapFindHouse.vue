@@ -37,6 +37,9 @@
                     <span>{{item.title}}</span>
                 </div>
             </self-overlay>
+            <!--商圈区块-->
+            <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
+                        :stroke-weight="2"></bm-polygon>
         </div>
         <!--线路-->
         <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'

@@ -1,42 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 271:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(272);
-
-
-/***/ }),
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-/***/ 270:
-=======
-/***/ 272:
->>>>>>> origin/wanghao
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(4);
-__webpack_require__(39);
-
-$(function () {
-  $().ready(function () {
-    $("#login_form").validate({
-      rules: {
-        username: { required: true, minlength: 5 },
-        password: { required: true, minlength: 8 }
-      },
-      message: {
-        username: { required: "用户名不能为空", minlength: "请输入正确的用户名" },
-        password: "请输入正确的密码"
-      }
-    });
-  });
-});
-
-/***/ }),
-
-/***/ 39:
+/***/ 149:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -49,7 +13,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  */
 (function( factory ) {
 	if ( true ) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(40)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(72)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -1625,13 +1589,79 @@ if ( $.ajaxPrefilter ) {
 		}
 	} );
 } else {
-=======
-/***/ 269:
-/***/ (function(module, exports) {
->>>>>>> origin/zxz
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/private/var/www/CLW/resources/assets/js/home_login.js'");
+	// Proxy ajax
+	ajax = $.ajax;
+	$.ajax = function( settings ) {
+		var mode = ( "mode" in settings ? settings : $.ajaxSettings ).mode,
+			port = ( "port" in settings ? settings : $.ajaxSettings ).port;
+		if ( mode === "abort" ) {
+			if ( pendingRequests[ port ] ) {
+				pendingRequests[ port ].abort();
+			}
+			pendingRequests[ port ] = ajax.apply( this, arguments );
+			return pendingRequests[ port ];
+		}
+		return ajax.apply( this, arguments );
+	};
+}
+return $;
+}));
+
+/***/ }),
+
+/***/ 281:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(282);
+
+
+/***/ }),
+
+/***/ 282:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(7);
+__webpack_require__(149);
+var url = 'http://www.clw.com';
+console.log('url', url);
+var type = $("#commentForm").validate({
+    rules: {
+        tel: {
+            required: true,
+            maxlength: 16
+        },
+        appellation: {
+            required: true,
+            maxlength: 32
+        }
+    },
+    messages: {
+        tel: {
+            required: "请输入电话",
+            minlength: "电话长度格式错误"
+        },
+        appellation: {
+            required: "请输入联系人",
+            maxlength: "联系人最长不能超过32"
+        }
+    },
+    submitHandler: function submitHandler(form) {
+        $.ajax({
+            type: 'post',
+            url: url + '/bespeaks',
+            data: $('#commentForm').serialize(),
+            success: function success(data) {
+                alert(data.message);
+            },
+            error: function error(data) {
+                alert(data.responseJSON.message);
+                console.log('erro', data);
+            }
+        });
+    }
+});
 
 /***/ })
 
-},[271]);
+},[281]);

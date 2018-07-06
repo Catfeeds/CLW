@@ -1,32 +1,5 @@
 webpackJsonp([6],{
 
-/***/ 268:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(269);
-
-
-/***/ }),
-
-/***/ 269:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(8);
-var Swiper = __webpack_require__(27);
-
-var banner = new Swiper('.swiper-container', {
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  autoplay: 2000,
-  loop: true,
-  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
-    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
-  }
-
-});
-
-/***/ }),
-
 /***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5386,6 +5359,33 @@ else if (typeof define === 'function' && define.amd) {
 //# sourceMappingURL=maps/swiper.js.map
 
 
+/***/ }),
+
+/***/ 271:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(272);
+
+
+/***/ }),
+
+/***/ 272:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(7);
+var Swiper = __webpack_require__(27);
+
+var banner = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  autoplay: 2000,
+  loop: true,
+  paginationBulletRender: function paginationBulletRender(swiper, index, className) {
+    return "<span class='" + className + "'>" + "<div class='title1'>美百年</div><div class='title2'>武汉越秀财富中心</div>" + "</span>";
+  }
+
+});
+
 /***/ })
 
-},[268]);
+},[271]);

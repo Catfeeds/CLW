@@ -151,7 +151,8 @@
                     @if(!empty($Results))
                         <div class="js_content">
                             @foreach($Results as $key => $data)
-                                <div class="detail">
+                                <a href="{{url('/buildings').'/'.$data->id}}">
+                                    <div class="detail">
                                     <div class="img_box">
                                         <img src="{{$data->img_cn}}" alt="" class="house_img"/>
                                         <img src="/home_img/perfect_sel.png" alt="" class="first_select">
@@ -199,6 +200,7 @@
                                         @endif
                                     </div>
                                 </div>
+                                </a>
                             @endforeach
                         </div>
                         @if($Results->count())

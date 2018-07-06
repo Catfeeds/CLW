@@ -75,4 +75,19 @@ class InformationRepository extends Model
         }
         return $information->setCollection(collect($information->items())->groupBy('add_time'));
     }
+
+    // 上一条
+    public function previous($id)
+    {
+        $previousId = Information::where('id', '<', $id)->max('id');
+        return Information::where('id', $previousId)->first();
+    }
+
+    // 下一条
+    public function next($id)
+    {
+        $nextId = Information::where('id', '>', $id)->min('id');
+        return Information::where('id', $nextId)->first();
+    }
+    
 }

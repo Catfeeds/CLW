@@ -1,13 +1,10 @@
 @extends('home.layouts.layout')
-@section('title', '投放房源')
+@section('title', '委托房源')
 @section('header')
   <link rel="stylesheet" href="/css/home_sellhouse.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    label.error {
-      color:Red;
-      font-size:13px;
-    }
+
   </style>
 @endsection
 @section('body')

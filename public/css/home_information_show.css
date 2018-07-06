@@ -323,6 +323,7 @@ body {
 
 .continue .main .left {
   width: 819px;
+  margin-right: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -330,151 +331,97 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-left: 39px;
+  padding-right: 64px;
+  padding-top: 48px;
+  background-color: #ffffff;
+}
+
+.continue .main .left .title {
+  font-family: SourceHanSansCN-Medium;
+  font-size: 26px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 41px;
+  letter-spacing: 0px;
+  color: #444444;
+}
+
+.continue .main .left .explain {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0px;
+  color: #999999;
+}
+
+.continue .main .left .explain .source {
+  margin-left: 30px;
+}
+
+.continue .main .left .info-body {
+  margin-top: 48px;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 33px;
+  letter-spacing: 0px;
+  color: #666666;
+}
+
+.continue .main .left .info-bottom {
+  text-align: center;
+}
+
+.continue .main .left .info-bottom .pub-number img {
+  width: 135px;
+  height: 135px;
+}
+
+.continue .main .left .info-bottom .pub-number span {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 33px;
+  letter-spacing: 0px;
+  color: #333333;
+}
+
+.continue .main .left .info-bottom .up-down {
+  margin: 68px 0px;
+  height: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.continue .main .left .info-bottom .up-down a div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: block;
+  max-width: 300px;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 33px;
+  letter-spacing: 0px;
+  color: #999999;
+}
+
+.continue .main .left .info-bottom .up-down a>div:nth-child(1) {
   margin-right: 20px;
 }
 
-.continue .main .left ul li {
-  background-color: #fff;
-}
-
-.continue .main .left .common .swiper .swiper-pagination {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-right: 76px;
-  margin-bottom: 30px;
-  text-align: right !important;
-}
-
-.continue .main .left .common .swiper .swiper-pagination .swiper-pagination-bullet {
-  width: 15px;
-  height: 15px;
-  border-radius: 0;
-  background-color: #fff;
-}
-
-.continue .main .left .common .swiper img {
-  width: 819px;
-  height: 458px;
-}
-
-.continue .main .left .line {
-  width: 200px;
-  height: 1px;
-  border-bottom: 1px solid #999;
-  margin-bottom: 5px;
-  margin: 0 auto;
-}
-
-.continue .main .left .left-title {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  padding: 20px 0px 12px 0px;
-  color: #444;
-}
-
-.continue .main .left .left-content {
-  margin: 10px 40px 0;
-  padding-bottom: 20px;
-  font-size: 14px;
-  color: #666;
-  line-height: 24px;
-}
-
-.continue .main .left .list {
-  margin-top: 20px;
-  background-color: #fff;
-  margin-bottom: 20px;
-}
-
-.continue .main .left .list .list-time {
-  background-color: #fff;
-  border-bottom: 1px solid #ededed;
-  padding: 15px 20px 15px 20px;
-}
-
-.continue .main .left .list .list-time .year {
-  font-size: 12px;
-}
-
-.continue .main .left .list .list-time .md {
-  font-size: 18px;
-  font-weight: bold;
-  color: #444;
-}
-
-.continue .main .left .list .list-body {
-  padding: 20px 20px;
-  border-bottom: 1px solid #f1f1f1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.continue .main .left .list .list-body .list-body-left {
-  width: 353px;
-  height: 216px;
-  margin-right: 24px;
-}
-
-.continue .main .left .list .list-body .list-body-left img {
-  width: 100%;
-  height: 100%;
-}
-
-.continue .main .left .list .list-body .list-body-right {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 25;
-      -ms-flex: 25;
-          flex: 25;
-}
-
-.continue .main .left .list .list-body .list-body-right div {
-  padding: 0px 10px 15px 10px;
-  color: #737171;
-}
-
-.continue .main .left .list .list-body .list-body-right .class {
-  width: 66px;
-}
-
-.continue .main .left .list .list-body .list-body-right .class .icon {
-  float: left;
-  display: block;
-  width: 16px;
-  height: 16px;
-  background: url(/home_img/hangye_logo.png) no-repeat;
-}
-
-.continue .main .left .list .list-body .list-body-right .class span {
-  display: block;
-  float: right;
-  padding-top: 2px;
-  font-size: 12px;
-}
-
-.continue .main .left .list .list-body .list-body-right .title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #444;
-  line-height: 28px;
-}
-
-.continue .main .left .list .list-body .list-body-right .list-body-time {
-  font-size: 12px;
-  color: #6c6c6c;
-}
-
-.continue .main .left .list .list-body .list-body-right .list-body-content {
-  font-size: 12px !important;
-  color: #6c6c6c;
-  line-height: 22px;
+.continue .main .left .info-bottom .up-down a>div:nth-child(2) {
+  margin-left: 20px;
 }
 
 .continue .main .right {
