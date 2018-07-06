@@ -3197,15 +3197,16 @@ $exports.store = store;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["g"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["d"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["e"] = getBuildList;
 /* unused harmony export getSiteList */
 /* harmony export (immutable) */ __webpack_exports__["c"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["b"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["a"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["f"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["h"] = login;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["i"] = login;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(66);
 
 
@@ -3277,6 +3278,23 @@ function login(data) {
     data: data
   });
 }
+// 根据中心获取楼盘
+function getCoreBuildList(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: 'http://192.168.0.110/get_periphery_buildings',
+    method: 'GET',
+    params: params
+  });
+}
+
+// // 根据中心获取楼盘
+// export function getCoreBuildLists(data) {
+//     return request({
+//         url: 'http://192.168.0.110/get_periphery_buildings',
+//         method: 'post',
+//         data: data
+//     })
+// }
 
 /***/ }),
 /* 56 */
@@ -8490,7 +8508,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 __webpack_require__(24);
 
-// import LookForHouse from './components/mapFindHouseDemo'
 Vue.component('self-div', __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse___default.a);
 new Vue({
   el: '#app'
@@ -8582,7 +8599,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n      border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      position: relative;\n      color: #000000;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
 
 // exports
 
@@ -8831,6 +8848,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
  // 悬浮窗容器
@@ -8853,6 +8893,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
     components: {
         BaiduMap: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BaiduMap"],
         BmBus: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBus"],
+        BmPolygon: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmPolygon"],
+        BmBoundary: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBoundary"],
         selfOverlay: __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default.a,
         siteCover: __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default.a,
         ElSelect: ElSelect,
@@ -8872,15 +8914,23 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         return {
             ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
             location: '武汉', // 检索区域
+            zhongxin: { lng: 114.312161, lat: 30.598964 },
             zoom: 12, // 地图缩放级别
             keyword: '地铁', // 检索词
             regionList: [], // 区域数据
             blockList: [], // 商圈列数据
             buildList: [], // 楼盘数据
+            buildListNum: 0, // 楼盘数据
             centerLocaion: '武汉', // 临时存放中心点
             locationType: false, // zommed 结束后标识
             Active: '', // 鼠标经过颜色变深标识
             subwayKeyword: null,
+            blockActive: '', // 是否显示区块
+            boundaryStyle: { // 区块线设置
+                strokeColor: 'red', // 区域折线
+                strokeWeight: 2, // 折线宽度
+                massClear: false // 是否清楚区域上的覆盖物
+            },
             condition: {
                 content: '', // 搜索内容
                 region: '', // 区域
@@ -8935,11 +8985,27 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             }] // 站点列表
         };
     },
+
+    computed: {
+        // 区块计算
+        polygonPath: function polygonPath() {
+            var copeData = this.blockActive.split(";");
+            var coord = [];
+            for (var numb in copeData) {
+                coord.push({ lng: null, lat: null });
+                var temp = copeData[numb].split(",");
+                coord[numb].lng = parseFloat(temp[0]);
+                coord[numb].lat = parseFloat(temp[1]);
+            }
+            console.log(coord);
+            return coord;
+        }
+    },
     created: function created() {
         var _this = this;
 
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["g" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["h" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
             }
@@ -8967,19 +9033,42 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     }
                 });
             }
+        },
+        zoom: function zoom(val) {
+            if (val >= 14) {
+                var data = {
+                    x: this.zhongxin.lng,
+                    y: this.zhongxin.lat,
+                    distance: 5
+                    // 请求楼盘数据
+                };this.getBuild(data);
+            }
         }
     },
     methods: {
+        dragging: function dragging(e) {
+            this.zhongxin = e.target.getCenter();
+        },
+        dragend: function dragend(val) {
+            if (this.zoom >= 14) {
+                var data = [{
+                    x: this.zhongxin.lng,
+                    y: this.zhongxin.lat,
+                    distance: 5
+                }];
+                // 请求楼盘数据
+                this.getBuild(data);
+            }
+        },
         ready: function ready(val) {
             this.BMap = val.BMap;
-            console.log('11111', this.BMap);
         },
 
         zoomend: function zoomend(e) {
-            console.log('this.zoom1', this.zoom);
             this.zoom = e.target.getZoom();
-            console.log('this.zoom2', this.zoom);
-            // 修改中心点
+            this.zhongxin = e.target.getCenter();
+            console.log('this.zoom', this.zoom);
+            // 修改中心点 点击后操作
             if (this.locationType) {
                 this.location = this.centerLocaion;
                 this.locationType = false;
@@ -9020,6 +9109,20 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 setTimeout(function () {
                     document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
                 }, 50);
+            });
+        },
+
+        // 根据条件获取数据
+        getBuild: function getBuild(data) {
+            var _this3 = this;
+
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(data).then(function (res) {
+                if (res.success) {
+                    _this3.buildList = res.data;
+                    _this3.buildListNum = res.data.length;
+                    console.log('res.data', res.data);
+                    console.log('res.data.length', res.data.length);
+                }
             });
         }
     }
@@ -19266,13 +19369,19 @@ var render = function() {
         "min-zoom": 12,
         "scroll-wheel-zoom": ""
       },
-      on: { zoomend: _vm.zoomend }
+      on: { zoomend: _vm.zoomend, dragging: _vm.dragging, dragend: _vm.dragend }
     },
     [
       !_vm.subwayKeyword
         ? _c(
             "div",
             [
+              _c("self-overlay", { attrs: { position: _vm.zhongxin } }, [
+                _c("div", { staticStyle: { "font-size": "50px" } }, [
+                  _vm._v("⊙")
+                ])
+              ]),
+              _vm._v(" "),
               _vm._l(_vm.regionList, function(item, index) {
                 return _c(
                   "self-overlay",
@@ -19346,10 +19455,10 @@ var render = function() {
                             _vm.seeAreaDetail(item)
                           },
                           mouseover: function($event) {
-                            _vm.Active = item.baidu_coord
+                            _vm.blockActive = item.baidu_coord
                           },
                           mouseleave: function($event) {
-                            _vm.Active = ""
+                            _vm.blockActive = ""
                           }
                         }
                       },
@@ -19365,7 +19474,7 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.buildList, function(item, index) {
                 return _c(
-                  "self-overlay",
+                  "site-cover",
                   {
                     directives: [
                       {
@@ -19375,8 +19484,13 @@ var render = function() {
                         expression: "zoom>=14"
                       }
                     ],
-                    key: "blockBox" + index,
-                    attrs: { position: { lng: item.x, lat: item.y } }
+                    key: "buildBox" + index,
+                    attrs: {
+                      position: {
+                        lng: parseFloat(item.x),
+                        lat: parseFloat(item.y)
+                      }
+                    }
                   },
                   [
                     _c(
@@ -19386,16 +19500,14 @@ var render = function() {
                         on: {
                           click: function($event) {
                             _vm.seeBuildDetail(item)
-                          },
-                          mouseover: function($event) {
-                            _vm.Active = item.baidu_coord
-                          },
-                          mouseleave: function($event) {
-                            _vm.Active = ""
                           }
                         }
                       },
-                      [_c("span", [_vm._v(_vm._s(item.title))])]
+                      [
+                        _c("div", { staticClass: "triangle" }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(item.name))])
+                      ]
                     )
                   ]
                 )
@@ -19408,6 +19520,17 @@ var render = function() {
                       "stroke-color": "red",
                       "stroke-opacity": 0.5,
                       "stroke-weight": 2
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.Active !== ""
+                ? _c("bm-boundary", {
+                    attrs: {
+                      name: _vm.Active,
+                      massClear: _vm.boundaryStyle.massClear,
+                      strokeWeight: _vm.boundaryStyle.strokeWeight,
+                      strokeColor: _vm.boundaryStyle.strokeColor
                     }
                   })
                 : _vm._e()
@@ -19432,7 +19555,7 @@ var render = function() {
           ? _c(
               "site-cover",
               {
-                key: "blockBox" + index,
+                key: "subway" + index,
                 attrs: { position: { lng: item.x, lat: item.y } }
               },
               [
@@ -19506,105 +19629,6 @@ var render = function() {
                         attrs: {
                           size: "mini",
                           filterable: "",
-                          placeholder: "区域"
-                        },
-                        model: {
-                          value: _vm.condition.region,
-                          callback: function($$v) {
-                            _vm.$set(_vm.condition, "region", $$v)
-                          },
-                          expression: "condition.region"
-                        }
-                      },
-                      _vm._l(_vm.options, function(item) {
-                        return _c("el-option", {
-                          key: item.label,
-                          attrs: { label: item.label, value: item.label }
-                        })
-                      })
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c(
-                      "el-select",
-                      {
-                        attrs: {
-                          size: "mini",
-                          filterable: "",
-                          placeholder: "类型"
-                        },
-                        model: {
-                          value: _vm.condition.acreage,
-                          callback: function($$v) {
-                            _vm.$set(_vm.condition, "acreage", $$v)
-                          },
-                          expression: "condition.acreage"
-                        }
-                      },
-                      _vm._l(_vm.options, function(item) {
-                        return _c("el-option", {
-                          key: item.label,
-                          attrs: { label: item.label, value: item.label }
-                        })
-                      })
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c(
-                      "el-select",
-                      {
-                        attrs: {
-                          size: "mini",
-                          filterable: "",
-                          placeholder: "价格"
-                        },
-                        model: {
-                          value: _vm.condition.price,
-                          callback: function($$v) {
-                            _vm.$set(_vm.condition, "price", $$v)
-                          },
-                          expression: "condition.price"
-                        }
-                      },
-                      _vm._l(_vm.options, function(item) {
-                        return _c("el-option", {
-                          key: item.label,
-                          attrs: { label: item.label, value: item.label }
-                        })
-                      })
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c(
-                      "el-select",
-                      {
-                        attrs: {
-                          size: "mini",
-                          filterable: "",
                           placeholder: "地铁"
                         },
                         model: {
@@ -19636,34 +19660,14 @@ var render = function() {
             [
               _c("el-col", { attrs: { span: 15 } }, [
                 _c("img", { attrs: { src: "" } }),
-                _vm._v("\n                武汉 为您找到15个楼盘\n            ")
+                _vm._v(
+                  "\n                武汉 为您找到" +
+                    _vm._s(_vm.buildListNum) +
+                    "个楼盘\n            "
+                )
               ]),
               _vm._v(" "),
-              _c("el-col", { attrs: { span: 9 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c(
-                      "el-select",
-                      {
-                        attrs: {
-                          size: "mini",
-                          filterable: "",
-                          placeholder: "价格排序"
-                        }
-                      },
-                      _vm._l(_vm.options, function(item) {
-                        return _c("el-option", {
-                          key: item.value,
-                          attrs: { label: item.label, value: item.value }
-                        })
-                      })
-                    )
-                  ],
-                  1
-                )
-              ])
+              _c("el-col", { attrs: { span: 9 } })
             ],
             1
           ),
