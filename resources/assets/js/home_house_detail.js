@@ -1,10 +1,12 @@
 require('./home_common')
+import { collect, cancelCollet } from './home_api'
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')
 var Data = $('#props').data('data')
 var rightTop = $('.findHouse').offset().top
 var secondTop = $('.facilities').offset().top
+console.log('数据', Data)
 new Vue({
   el: '.facilities',
   components: { detailMap },
@@ -77,11 +79,16 @@ $('.pircePic').on('click', function() {
   if(obj.hasClass('.active')) {
     obj.css('background', 'url(/home_img/house_detail_collect_before.png)')
     obj.removeClass('.active')
-    console.log(22222)
+    cancelCollet(Data.id).then(res => {
+      console.log('取消收藏', res)
+    })
   } else {
     console.log(11111)
     obj.css('background', 'url(/home_img/house_detail_collect_after.png)')
     obj.addClass('.active')
+    collect({ house_id: Data.id }).then(res => {
+      console.log('添加收藏', res)
+    })
   }
 })
 

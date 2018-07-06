@@ -7,7 +7,7 @@
         <div class="phone">
             <div class="phoneBox">
                 <input v-model="value" type="text" placeholder="请输入手机号">
-                <div class="phoneTitle" v-if="isShow"><img src="/home_img/alert.svg"> 手机号码不能为空</div>
+                <div class="phoneTitle" v-if="isShow"><img src="/home_img/alert.svg"> {{title}}</div>
                 <span></span>
             </div>
             <div class="button" @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
@@ -22,18 +22,25 @@ export default {
   data() {
     return {
       value: '',
-      isShow: false
+      isShow: false,
+      title: '手机号不能为空'
     }
   },
   methods: {
     getVal() {
-      if(this.value) {
-        this.isShow = false
-        findHouse({ tel: this.value }).then(res => {
-          console.log(res)
-        })
-      } else {
+      var tel = /^\d{11}$/
+      if(tel.test(this.value)) {
+        if(this.value) {
+          this.isShow = false
+          findHouse({ tel: this.value }).then(res => {
+            console.log(res)
+          })
+        } else {
           this.isShow = true
+        }
+      } else {
+        this.title = '手机号码格式不正确'
+        this.isShow = true
       }
     }
   }

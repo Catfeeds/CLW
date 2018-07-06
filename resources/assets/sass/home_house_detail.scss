@@ -75,24 +75,33 @@
             font-size: 30px;
           }
         }
-        .pircePic{
-          margin-top: 6px;
+        .collect{
+          display: flex;
+          justify-content: flex-start;
           margin-right: 30px;
-          width: 26px;
-          height: 26px;
-          border: solid 1px #eeeded;
-          border-radius: 50%;
-          div{
-            margin: 5px;
-            width: 16px;
-            height: 15px;
-            background: url(/home_img/house_detail_collect_before.png) no-repeat;
-          }
-          &:hover{
-            cursor: pointer;
+          .pircePic{
+            margin-top: 6px;
+            width: 26px;
+            height: 26px;
+            border: solid 1px #eeeded;
+            border-radius: 50%;
             div{
-              background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
+              margin: 5px;
+              width: 16px;
+              height: 15px;
+              background: url(/home_img/house_detail_collect_before.png) no-repeat;
             }
+            &:hover{
+              cursor: pointer;
+              div{
+                background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
+              }
+            }
+          }
+          .collectTitle{
+            height: 15px;
+            margin-top: 11px;
+            margin-left: 5px;
           }
         }
       }

@@ -1474,18 +1474,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       value: '',
-      isShow: false
+      isShow: false,
+      title: '手机号不能为空'
     };
   },
 
   methods: {
     getVal: function getVal() {
-      if (this.value) {
-        this.isShow = false;
-        Object(__WEBPACK_IMPORTED_MODULE_0__home_api__["a" /* findHouse */])({ tel: this.value }).then(function (res) {
-          console.log(res);
-        });
+      var tel = /^\d{11}$/;
+      if (tel.test(this.value)) {
+        if (this.value) {
+          this.isShow = false;
+          Object(__WEBPACK_IMPORTED_MODULE_0__home_api__["c" /* findHouse */])({ tel: this.value }).then(function (res) {
+            console.log(res);
+          });
+        } else {
+          this.isShow = true;
+        }
       } else {
+        this.title = '手机号码格式不正确';
         this.isShow = true;
       }
     }
@@ -1530,7 +1537,7 @@ var render = function() {
         _vm.isShow
           ? _c("div", { staticClass: "phoneTitle" }, [
               _c("img", { attrs: { src: "/home_img/alert.svg" } }),
-              _vm._v(" 手机号码不能为空")
+              _vm._v(" " + _vm._s(_vm.title))
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -1773,15 +1780,20 @@ module.exports = __webpack_require__(266);
 /***/ }),
 
 /***/ 266:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_api__ = __webpack_require__(77);
 __webpack_require__(14);
+
 var Swiper = __webpack_require__(28);
 var detailMap = __webpack_require__(166);
 var findHouse = __webpack_require__(171);
 var Data = $('#props').data('data');
 var rightTop = $('.findHouse').offset().top;
 var secondTop = $('.facilities').offset().top;
+console.log('数据', Data);
 new Vue({
   el: '.facilities',
   components: { detailMap: detailMap },
@@ -1854,11 +1866,16 @@ $('.pircePic').on('click', function () {
   if (obj.hasClass('.active')) {
     obj.css('background', 'url(/home_img/house_detail_collect_before.png)');
     obj.removeClass('.active');
-    console.log(22222);
+    Object(__WEBPACK_IMPORTED_MODULE_0__home_api__["a" /* cancelCollet */])(Data.id).then(function (res) {
+      console.log('取消收藏', res);
+    });
   } else {
     console.log(11111);
     obj.css('background', 'url(/home_img/house_detail_collect_after.png)');
     obj.addClass('.active');
+    Object(__WEBPACK_IMPORTED_MODULE_0__home_api__["b" /* collect */])({ house_id: Data.id }).then(function (res) {
+      console.log('添加收藏', res);
+    });
   }
 });
 
@@ -10338,11 +10355,13 @@ var index = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["d"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["b"] = getBlock;
-/* harmony export (immutable) */ __webpack_exports__["c"] = getBuildList;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["e"] = getBuildList;
 /* unused harmony export getSiteList */
-/* harmony export (immutable) */ __webpack_exports__["a"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["c"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["b"] = collect;
+/* harmony export (immutable) */ __webpack_exports__["a"] = cancelCollet;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(78);
 
 
@@ -10380,6 +10399,23 @@ function findHouse(data) {
     url: '/bespeaks',
     method: 'POST',
     data: data
+  });
+}
+
+// 收藏房源
+function collect(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: 'collections',
+    method: 'POST',
+    data: data
+  });
+}
+
+// 取消收藏
+function cancelCollet(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/del/' + params,
+    method: 'GET'
   });
 }
 

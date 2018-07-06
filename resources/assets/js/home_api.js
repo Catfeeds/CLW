@@ -37,3 +37,20 @@ export function findHouse(data) {
     data
   })
 }
+
+// 收藏房源
+export function collect(data) {
+  return request({
+    url: 'collections',
+    method: 'POST',
+    data
+  })
+}
+
+// 取消收藏
+export function cancelCollet(params) {
+  return request({
+    url: '/del/' + params,
+    method: 'GET'
+  })
+}

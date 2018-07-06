@@ -5208,11 +5208,13 @@ var index = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["d"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["b"] = getBlock;
-/* harmony export (immutable) */ __webpack_exports__["c"] = getBuildList;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["e"] = getBuildList;
 /* unused harmony export getSiteList */
-/* harmony export (immutable) */ __webpack_exports__["a"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["c"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["b"] = collect;
+/* harmony export (immutable) */ __webpack_exports__["a"] = cancelCollet;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(78);
 
 
@@ -5250,6 +5252,23 @@ function findHouse(data) {
     url: '/bespeaks',
     method: 'POST',
     data: data
+  });
+}
+
+// 收藏房源
+function collect(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: 'collections',
+    method: 'POST',
+    data: data
+  });
+}
+
+// 取消收藏
+function cancelCollet(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/del/' + params,
+    method: 'GET'
   });
 }
 
@@ -11536,13 +11555,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         var _this = this;
 
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["d" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
             }
         });
         // 获取商圈数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["b" /* getBlock */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["d" /* getBlock */])().then(function (res) {
             _this.blockList = res.data;
         });
     },
@@ -11593,7 +11612,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         seeAreaDetail: function seeAreaDetail(data) {
             var _this2 = this;
 
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getBuildList */])().then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["e" /* getBuildList */])().then(function (res) {
                 if (res.success) {
                     _this2.zoom = 14;
                     _this2.buildList = res.data;
