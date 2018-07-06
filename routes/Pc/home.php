@@ -37,4 +37,5 @@ Route::resource('collections', 'CollectionsController');
 Route::get('del/{id}', 'CollectionsController@del');
 
 
+Route::post('get_periphery_buildings','MapsController@getPeripheryBuildings');
 
