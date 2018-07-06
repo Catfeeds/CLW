@@ -8,6 +8,7 @@ use App\Repositories\InformationRepository;
 
 class InformationsController extends Controller
 {
+    // 资讯列表
     public function index
     (
         InformationRepository $repository
@@ -19,8 +20,21 @@ class InformationsController extends Controller
         return view('home.information', ['contents' => $content, 'tops' => $top, 'hots' => $hot]);
     }
 
-    public function show(Information $information)
+    // 资讯详情
+    public function show
+    (
+        Information $information,
+        InformationRepository $repository
+    )
     {
-        return '资讯详情';
+        $hotInformation = $repository->hotInformation();
+        $previous = $repository->previous($information->id);
+        $next = $repository->next($information->id);
+        return view('home.show',[
+            'information' =>$information,
+            'hotInformation'=>$hotInformation,
+            'previous' => $previous,
+            'next' => $next
+        ]);
     }
 }

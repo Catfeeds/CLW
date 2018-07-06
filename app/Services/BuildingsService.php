@@ -134,7 +134,7 @@ class BuildingsService
         return $this->getAveragePrice($area);
     }
 
-    // 获取商圈和区域下房子均价公共发放
+    // 获取商圈和区域下房子均价公共方法
     public function getAveragePrice(
         $res
     )
@@ -148,5 +148,28 @@ class BuildingsService
         }
         // 计算商圈和区域下面所有房源的均价
         return round(collect($datas)->collapse()->sum('total_price') / collect($datas)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
+    }
+
+    // 关键词搜索高亮处理
+    public function highlight(
+        $data,
+        $keyword
+    )
+    {
+        foreach ($data as $v) {
+            if (strpos($v->name, $keyword) !==false) {
+                $v->name = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->name);
+            }
+
+            if (strpos($v->address, $keyword) !==false) {
+                $v->address = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address);
+            }
+
+            if (strpos($v->address_cn, $keyword) !==false) {
+                $v->address_cn = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address_cn);
+            }
+        }
+
+        return $data;
     }
 }

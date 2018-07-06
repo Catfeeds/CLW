@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\Information;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class InformationRepository extends Model
 {
@@ -76,4 +75,19 @@ class InformationRepository extends Model
         }
         return $information->setCollection(collect($information->items())->groupBy('add_time'));
     }
+
+    // 上一条
+    public function previous($id)
+    {
+        $previousId = Information::where('id', '<', $id)->max('id');
+        return Information::where('id', $previousId)->pluck('title','id');
+    }
+
+    // 下一条
+    public function next($id)
+    {
+        $nextId = Information::where('id', '>', $id)->min('id');
+        return Information::where('id', $nextId)->pluck('title','id');
+    }
+    
 }
