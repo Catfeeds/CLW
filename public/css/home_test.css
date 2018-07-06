@@ -270,10 +270,6 @@ body {
   padding-top: 61px;
 }
 
-body.el-popup-parent--hidden nav .nav-content {
-  padding-right: 15px;
-}
-
 nav.active.transition,
 nav.transition {
   top: 0;
@@ -333,9 +329,9 @@ nav.transition .nav-content .login-box .tel-box {
   height: 24px;
 }
 
-nav.active .nav-content .login-box .tel-box span,
-nav.transition .nav-content .login-box .tel-box span {
-  color: #007bff;
+nav.active .nav-content .login-box .tel-box img,
+nav.transition .nav-content .login-box .tel-box img {
+  height: 100%;
 }
 
 nav.active .nav-content .login-box .user-login-box div.active-line,
@@ -345,16 +341,12 @@ nav.transition .nav-content .login-box .user-login-box div.active-line {
   width: 1px;
   height: 15px;
   background-color: #959393;
-  margin-top: 10px;
-}
-
-nav.active .nav-content .login-box .user-login-box a,
-nav.transition .nav-content .login-box .user-login-box a {
-  font-size: 14px;
+  margin-top: 8px;
 }
 
 nav.active .nav-content .login-box .user-login-box a.register-a,
 nav.transition .nav-content .login-box .user-login-box a.register-a {
+  font-size: 14px;
   color: #007bff;
   margin-right: 0;
   height: 32px;
@@ -368,17 +360,9 @@ nav.transition .nav-content .login-box .user-login-box a.register-a img {
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.logout-a,
-nav.transition .nav-content .login-box .user-login-box a.logout-a {
-  padding-top: 2px;
-  height: 32px;
-  line-height: 32px;
-  color: #007bff;
-  margin-left: 5px;
-}
-
 nav.active .nav-content .login-box .user-login-box a.login-a,
 nav.transition .nav-content .login-box .user-login-box a.login-a {
+  font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
@@ -467,24 +451,15 @@ nav .nav-content .login-box {
 
 nav .nav-content .login-box .tel-box {
   float: left;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-right: 30px;
-  width: 200px;
+  width: 175px;
   height: 25px;
 }
 
 nav .nav-content .login-box .tel-box img {
+  height: 96%;
   max-width: none;
-  float: left;
-  margin-top: 7px;
-  margin-right: 10px;
-}
-
-nav .nav-content .login-box .tel-box span {
-  float: left;
-  color: #fff;
-  font-family: Georgia;
-  font-size: 24px;
 }
 
 nav .nav-content .login-box .user-login-box {
@@ -509,17 +484,6 @@ nav .nav-content .login-box .user-login-box a.register-a {
   line-height: 34px;
 }
 
-nav .nav-content .login-box .user-login-box a.register-a img {
-  position: relative;
-  top: 1px;
-  left: -5px;
-}
-
-nav .nav-content .login-box .user-login-box a.logout-a {
-  height: 34px;
-  line-height: 34px;
-}
-
 nav .nav-content .login-box .user-login-box a.login-a {
   width: 80px;
   height: 32px;
@@ -530,6 +494,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
   position: relative;
   overflow: hidden;
   z-index: 3;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 nav .nav-content .login-box .user-login-box a.login-a::after {
@@ -556,42 +522,39 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 
 html,
 body {
-  background: url(/home_img/sellhouse_back.jpg);
-  background-position: center;
-  background-size: cover;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   width: 100%;
+  height: 100%;
+  background: url(/home_img/sellhouse_back.jpg) center;
 }
 
 html .container,
 body .container {
-  width: 100%;
+  width: 50%;
   height: 100%;
-  padding-top: 98px;
+  margin: 0 auto;
 }
 
 html .container .title,
 body .container .title {
-  text-align: center;
-  color: #fff;
   font-size: 46px;
-  margin: 0 auto;
-  margin-bottom: 18px;
+  color: #fff;
+  padding-top: 8.897%;
+  text-align: center;
 }
 
 html .container .min_title,
 body .container .min_title {
-  text-align: center;
-  color: #fff;
-  margin: 0 auto;
   font-size: 20px;
-  margin-bottom: 38px;
+  color: #fff;
+  text-align: center;
+  padding-top: 18px;
+  padding-bottom: 38px;
 }
 
 html .container .form_container,
 body .container .form_container {
-  width: 410px;
+  background: #fff;
+  width: 40%;
   margin: 0 auto;
 }
 
@@ -657,9 +620,6 @@ body .container .form_container form textarea {
   padding: 11px;
   border: 1px solid #ccc;
   margin-bottom: 30px;
-  outline: none;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 html .container .form_container form input,
@@ -668,9 +628,6 @@ body .container .form_container form input {
   border: 1px solid #ccc;
   height: 44px;
   padding-left: 15px;
-  outline: none;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 html .container .form_container form textarea::-webkit-input-placeholder,
@@ -728,14 +685,14 @@ body .container .detail {
   background-color: rgba(0,0,0,0.32);
   border-radius: 11px;
   position: relative;
-  padding: 25px 34px 37px;
+  padding: 43px 34px 37px;
   margin: 0 auto;
 }
 
 html .container .detail ul,
 body .container .detail ul {
   width: 100%;
-  height: 70%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -749,20 +706,12 @@ html .container .detail ul li,
 body .container .detail ul li {
   width: 100%;
   text-align: center;
-  position: relative;
 }
 
 html .container .detail ul li div,
 body .container .detail ul li div {
   color: rgba(255,255,255,0.62);
   margin-top: 19px;
-}
-
-html .container .detail ul li .arrow,
-body .container .detail ul li .arrow {
-  position: absolute;
-  left: 98px;
-  top: 11px;
 }
 
 html .container .detail::before,
@@ -775,87 +724,5 @@ body .container .detail::before {
   left: 50%;
   margin-left: -20px;
   top: -20px;
-}
-
-div,
-span,
-li,
-ul,
-ol,
-p,
-input,
-textarea {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-@media screen and (max-width: 1200px) {
-  body {
-    padding: 0;
-  }
-
-  body nav {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 960px) and (max-height: 766px) {
-  html,
-  body {
-    padding: 0;
-  }
-
-  html nav,
-  html .title,
-  html .min_title,
-  body nav,
-  body .title,
-  body .min_title {
-    display: none;
-  }
-
-  html .container,
-  body .container {
-    width: 100%;
-    padding-top: 30px;
-  }
-
-  html .container .form_container,
-  body .container .form_container {
-    max-width: 410px;
-    width: 81.33333%;
-    min-width: 320px;
-    margin: 0 auto;
-  }
-
-  html .container .form_container form button,
-  body .container .form_container form button {
-    width: 50%;
-  }
-
-  html .container .detail,
-  body .container .detail {
-    width: 100%;
-    max-width: 473px;
-    min-width: 320px;
-    height: 92px;
-    padding: 10px 5px 0 5px;
-  }
-
-  html .container .detail ul li div,
-  body .container .detail ul li div {
-    margin-top: 5px;
-  }
-
-  html .container .detail ul li .arrow,
-  body .container .detail ul li .arrow {
-    left: 90px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .arrow {
-    left: 78px;
-  }
 }
 

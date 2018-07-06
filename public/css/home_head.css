@@ -266,157 +266,68 @@ a[href] {
   font-size: 18px;
 }
 
-body {
-  width: 100%;
-}
-
-body .container {
-  width: 100%;
-}
-
-body .container .nav {
-  width: 100%;
-}
-
-body .container .nav .nav_box {
-  width: 60%;
-  margin: 0 auto;
-  height: 100px;
-}
-
-body .container .nav .nav_box .nav_logo {
-  width: 160px;
-  height: 100%;
-  line-height: 100px;
-  padding-top: 22px;
-}
-
-body .container .nav .nav_box .nav_logo a {
-  display: block;
-  width: 100%;
-  height: 55px;
-  background: url(/we_img/myLogo.png) no-repeat center;
-}
-
-body .container .nav .nav_box .nav_items {
-  width: 50%;
-  height: 100%;
-  line-height: 100px;
-}
-
-body .container .nav .nav_box .nav_items ul .nav_item {
-  float: left;
-  width: 20%;
-  text-align: center;
-}
-
-body .container .nav .nav_box .nav_items ul .nav_item a {
-  display: block;
-  color: #444;
-  font-size: 15px;
-}
-
-body .container .nav .nav_box .nav_items ul .nav_item a:hover {
-  color: #03a2fb;
-}
-
-body .container .app_download {
-  width: 100%;
-  height: 695px;
-  background-color: #ececef;
-}
-
-body .container .app_download .download_area {
-  width: 60%;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
-body .container .app_download .download_area .download {
-  width: 505px;
-  height: 345px;
-  position: absolute;
-  top: 145px;
-  right: 0;
-}
-
-body .container .app_download .download_area .download .download_title {
-  display: block;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 28px;
-}
-
-body .container .app_download .download_area .download .download_code {
-  width: 207px;
-  height: 238px;
-  position: absolute;
-  left: 0;
-  bottom: 10px;
-  background: url(/we_img/download_code.png) no-repeat;
-}
-
-body .container .app_download .download_area .download .Ios_download,
-body .container .app_download .download_area .download .Android_download {
-  position: absolute;
-  width: 266px;
-  height: 50px;
-  border-radius: 25px;
-  right: 0;
-  bottom: 60px;
-  background-color: #03a2fb;
-  text-align: center;
-  line-height: 50px;
-}
-
-body .container .app_download .download_area .download .Ios_download span a,
-body .container .app_download .download_area .download .Android_download span a {
+header .title {
+  background: #000;
+  height: 45px;
+  padding: 0 20%;
   color: #fff;
-  font-size: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-body .container .app_download .download_area .download .Ios_download {
-  bottom: 136px;
+header .title .building {
+  height: 20px;
+  margin: 12px 0;
+  line-height: 20px;
 }
 
-body .container .app_download .download_area .download .app_beta {
-  position: absolute;
-  bottom: 10px;
-  right: 80px;
-  font-size: 12px;
-  color: #797879;
+header .title .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-body .container .app_download .download_area .download .app_beta div:first-child {
-  margin-bottom: 7px;
+header .title .login div {
+  height: 20px;
+  margin: 12px 0;
+  padding: 0 10px;
+  line-height: 20px;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+header .title .login div:not(:last-child) {
+  border-right: 1px solid #fff;
+}
+
+header .head {
+  background: #fff;
+  height: 100px;
+  margin: 0 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 100px;
+}
+
+header .head div {
+  padding: 0 20px;
+}
+
+header .head div a {
+  color: #000;
   text-decoration: none;
 }
 
-.f_l {
-  float: left;
-}
-
-.f_r {
-  float: right;
-}
-
-.clearfix::after {
-  content: "";
-  height: 0;
-  line-height: 0;
-  visibility: hidden;
-  display: block;
-  clear: both;
+header .head div:hover {
+  border-bottom: 2px solid #03a2fb;
 }
 
