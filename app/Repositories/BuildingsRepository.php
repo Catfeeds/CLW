@@ -67,7 +67,8 @@ class BuildingsRepository extends  Model
                 'page' => $page,
                 'data' => $data
             ];
-        } else {
+        }  else {
+
             return $data->toArray();
         }
     }
