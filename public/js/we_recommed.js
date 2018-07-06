@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+webpackJsonp([16],{105:function(a,n,p){a.exports=p(106)},106:function(a,n,p){p(0);var t=JSON.parse($("#listAppData").val());Vue.component("building-list",p(7));new Vue({el:"#app",data:{list:t}})}},[105]);
+=======
 webpackJsonp([16],{
 
 /***/ 106:
@@ -27,3 +30,4 @@ var app = new Vue({
 /***/ })
 
 },[106]);
+>>>>>>> origin/wanghao

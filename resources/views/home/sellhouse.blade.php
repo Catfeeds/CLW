@@ -1,8 +1,11 @@
 @extends('home.layouts.layout')
-@section('title', '投放房源')
+@section('title', '委托房源')
 @section('header')
   <link rel="stylesheet" href="/css/home_sellhouse.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+  </style>
 @endsection
 @section('body')
   @include('home.nav')
@@ -10,18 +13,22 @@
     <div class="title">楚楼网帮您找房!</div>
     <div class="min_title">一键委托,轻松快捷</div>
     <div class="form_container">
-      <form action="">
+      <form id="commentForm">
         <div class="connect">
           <span>*</span>联系人
         </div>
-        <input type="text" placeholder="联系人姓名"/>
+        <div class="content">
+          <input name="appellation" type="text" placeholder="联系人姓名"/>
+        </div>
         <div class="phone">
           <span>*</span>联系电话
         </div>
-        <input type="text" placeholder="联系人手机号">
+        <div class="content">
+          <input name="tel" type="text" placeholder="联系人手机号">
+        </div>
         <div class="need">需求描述</div>
-        <textarea name="" id="need" cols="20" placeholder="如:大智路附近,200平米的写字楼,简装带办公家具,租金50元左右/平米每月,有地铁最好..."></textarea>
-        <button>立即委托</button>
+        <textarea name="demand" id="need" cols="20" placeholder="如:大智路附近,200平米的写字楼,简装带办公家具,租金50元左右/平米每月,有地铁最好..."></textarea>
+        <button type="submit">立即委托</button>
       </form>
     </div>
     <div class="detail">
@@ -35,4 +42,5 @@
   </div>
 @endsection
 @section('script')
+  <script src="/js/home_sellhouse.js"></script>
 @endsection

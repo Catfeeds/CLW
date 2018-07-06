@@ -1,12 +1,13 @@
 require('./home_common')
 import { collect, cancelCollet } from './home_api'
+import './components/home/login' // 登录组件
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')
 var Data = $('#props').data('data')
 var rightTop = $('.findHouse').offset().top
 var secondTop = $('.facilities').offset().top
-console.log('数据', Data)
+// console.log('数据', $('.js_login'))
 new Vue({
   el: '.facilities',
   components: { detailMap },

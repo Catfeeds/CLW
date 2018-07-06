@@ -15,7 +15,7 @@
         <a href="javascript:void(0)">企业服务</a>
       </li>
       <li class="nav-item">
-        <a href="javascript:void(0)">资讯中心</a>
+      <a href="{{url('/information')}}">资讯中心</a>
       </li>
       <li class="nav-item">
         <a href="javascript:void(0)">楚楼云管家</a>
@@ -27,9 +27,9 @@
           <img class="active" src="/home_img/nav_tel.png" alt="">
       </div>
       <div class="user-login-box">
-      <a href="{{url('/registers')}}" class="register-a"><img class="active" src="/home_img/login_user.png" alt="" />注册</a>
-        <div class="active-line"></div>
-      <a href="javascript:;" class="login-a js_login">登录</a>
+      {{-- <a href="{{url('/registers')}}" class="register-a"><img class="active" src="/home_img/login_user.png" alt="" />注册</a>
+        <div class="active-line"></div> --}}
+      <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a>
       </div>
     </div>
     <div class="clearfloat"></div>
