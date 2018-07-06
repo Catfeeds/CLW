@@ -3,15 +3,7 @@ import request from './home_request'
 export function getRegionList() {
   return request({
     url: '/getRegionList',
-<<<<<<< HEAD
-<<<<<<< HEAD
-      method: 'GET'
-=======
     method: 'GET'
->>>>>>> origin/lkt
-=======
-    method: 'GET'
->>>>>>> origin/zxz
   })
 }
 
@@ -37,28 +29,6 @@ export function getSiteList() {
     })
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// 根据中心获取楼盘
-export function getCoreBuildList(params) {
-    return request({
-        url: 'http://192.168.0.110/get_periphery_buildings',
-        method: 'GET',
-        params: params
-    })
-}
-
-// // 根据中心获取楼盘
-// export function getCoreBuildLists(data) {
-//     return request({
-//         url: 'http://192.168.0.110/get_periphery_buildings',
-//         method: 'post',
-//         data: data
-//     })
-// }
-=======
-=======
->>>>>>> origin/zxz
 // 委托找房
 export function findHouse(data) {
   return request({
@@ -99,16 +69,13 @@ export function login(data) {
     data
   })
 }
-<<<<<<< HEAD
->>>>>>> origin/lkt
-=======
 // 根据中心获取楼盘
 export function getCoreBuildList(params) {
-    return request({
-        url: 'http://192.168.0.110/get_periphery_buildings',
-        method: 'GET',
-        params: params
-    })
+  return request({
+      url: 'http://192.168.0.110/get_periphery_buildings',
+      method: 'GET',
+      params: params
+  })
 }
 
 // // 根据中心获取楼盘
@@ -119,4 +86,3 @@ export function getCoreBuildList(params) {
 //         data: data
 //     })
 // }
->>>>>>> origin/zxz
