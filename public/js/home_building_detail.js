@@ -2005,10 +2005,8 @@ function createVal(data) {
   $('.js_listCount span').html(data.length); // 房源的总数量
   // 房源数量大于10条显示查看更多
   if (data.length > 10) {
-    console.log('数据大于10条');
     $('.all').css('display', 'block');
   } else {
-    console.log('数据没有达到10条');
     $('.all').css('display', 'none');
   }
   houseDetail = data;
