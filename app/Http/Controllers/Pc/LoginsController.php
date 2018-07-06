@@ -88,6 +88,7 @@ class LoginsController extends Controller
     //退出登录
     public function logout()
     {
+
         if (session()->has('user')) {
             session()->flush('user');
         }

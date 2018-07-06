@@ -139,7 +139,7 @@ class LoginsService
             'login_source' => 'PC'
         ]);
         if (empty($loginRecord)) return ['status' => false, 'message' => '登录记录表添加失败'];
-        session()->flash('user', $user);
+        session(['user' => $user]);
         return ['status' => true, 'message' => '登录成功'];
     }
 
