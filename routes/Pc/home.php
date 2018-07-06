@@ -35,3 +35,5 @@ Route::resource('bespeaks', 'BespeaksController');
 //PC端房源投放
 Route::resource('throw_ins', 'ThrowInsController');
 
+Route::get('get_periphery_buildings','MapsController@getPeripheryBuildings');
+
