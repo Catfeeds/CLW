@@ -42,8 +42,14 @@ class BuildingsController extends Controller
         $request->area_id = $areaId;   // 区域id
         $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
         //区域商圈名称对应id
-        $data[$areaId] = $block->area->name;
-        $data[$block->id] = $block->name;
+        $data[0]['id'] = $areaId;
+        $data[0]['name'] = $block->area->name;
+        $data[1]['id'] = $block->id;
+        $data[1]['name'] = $block->name;
+        $data[2]['id'] = $building->id;
+        $data[2]['name'] = $building->name;
+        
+        // return $data;
         return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block, 'data' => $data]);
     }
 

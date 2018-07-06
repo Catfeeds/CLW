@@ -10,10 +10,19 @@ module.exports = __webpack_require__(272);
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /***/ 270:
 =======
 /***/ 272:
 >>>>>>> origin/wanghao
+=======
+<<<<<<< HEAD
+/***/ 272:
+=======
+<<<<<<< HEAD
+/***/ 270:
+>>>>>>> origin/zc
+>>>>>>> origin/zxz
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(4);
@@ -1625,12 +1634,35 @@ if ( $.ajaxPrefilter ) {
 		}
 	} );
 } else {
+<<<<<<< HEAD
+=======
 =======
 /***/ 269:
 /***/ (function(module, exports) {
 >>>>>>> origin/zxz
+>>>>>>> origin/zc
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/private/var/www/CLW/resources/assets/js/home_login.js'");
+<<<<<<< HEAD
+	// Proxy ajax
+	ajax = $.ajax;
+	$.ajax = function( settings ) {
+		var mode = ( "mode" in settings ? settings : $.ajaxSettings ).mode,
+			port = ( "port" in settings ? settings : $.ajaxSettings ).port;
+		if ( mode === "abort" ) {
+			if ( pendingRequests[ port ] ) {
+				pendingRequests[ port ].abort();
+			}
+			pendingRequests[ port ] = ajax.apply( this, arguments );
+			return pendingRequests[ port ];
+		}
+		return ajax.apply( this, arguments );
+	};
+}
+return $;
+}));
+=======
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'D:\\phpstudy\\software\\PHPTutorial\\WWW\\CLW\\resources\\assets\\js\\home_login.js'");
+>>>>>>> origin/cyq
 
 /***/ })
 

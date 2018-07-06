@@ -247,7 +247,7 @@ textarea {
 }
 
 * {
-  font-family: PingFang-SC-Regular, Source Han Sans CN,Arial,'Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeiti,SimHei,sans-serif;
+  font-family: PingFang-SC-Light;
   font-size: 14px;
   font-weight: normal;
   list-style: none;
@@ -257,7 +257,7 @@ textarea {
 
 html,
 body {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 
 a[href] {
@@ -269,12 +269,12 @@ a[href] {
   font-size: 12px;
 }
 
-.font-level2 {
+.font-level2,
+.content .build .first .left .intro .introAddress div {
   font-size: 14px;
 }
 
 .font-level3,
-.content .build .first .left .intro .introAddress div,
 .content .build .first .right .agent .free,
 .content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
   font-size: 16px;
@@ -289,48 +289,72 @@ body {
   padding-top: 61px;
 }
 
+nav.active.transition,
+nav.transition {
+  top: 0;
+}
+
 nav {
   width: 100%;
   position: absolute;
   z-index: 999;
 }
 
-nav.active {
+nav.active,
+nav.transition {
   background-color: #fff;
   position: fixed;
   top: 0;
   border-bottom: 1px solid #ededed;
 }
 
-nav.active img.fade {
+nav.active img.fade,
+nav.transition img.fade {
   display: none;
 }
 
-nav.active img.active {
+nav.active img.active,
+nav.transition img.active {
   display: block;
 }
 
-nav.active .nav-content {
+nav.active .nav-content,
+nav.transition .nav-content {
   padding: 10px 0;
 }
 
-nav.active .nav-content .logo-box {
+nav.active .nav-content .logo-box,
+nav.transition .nav-content .logo-box {
   width: 132px;
   height: 30px;
   padding-top: 3px;
 }
 
-nav.active .nav-content .nav-list .nav-item a {
+nav.active .nav-content .nav-list .nav-item a,
+nav.transition .nav-content .nav-list .nav-item a {
   color: #666666;
   font-size: 14px;
 }
 
-nav.active .nav-content .login-box .tel-box {
+nav.active .nav-content .nav-list .nav-item a:hover,
+nav.transition .nav-content .nav-list .nav-item a:hover {
+  color: #007bff;
+  opacity: 1;
+}
+
+nav.active .nav-content .login-box .tel-box,
+nav.transition .nav-content .login-box .tel-box {
   width: 196px;
   height: 24px;
 }
 
-nav.active .nav-content .login-box .user-login-box div.active-line {
+nav.active .nav-content .login-box .tel-box img,
+nav.transition .nav-content .login-box .tel-box img {
+  height: 100%;
+}
+
+nav.active .nav-content .login-box .user-login-box div.active-line,
+nav.transition .nav-content .login-box .user-login-box div.active-line {
   display: block;
   float: left;
   width: 1px;
@@ -339,8 +363,8 @@ nav.active .nav-content .login-box .user-login-box div.active-line {
   margin-top: 8px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.register-a,
+nav.transition .nav-content .login-box .user-login-box a.register-a {
   font-size: 14px;
   color: #007bff;
   margin-right: 0;
@@ -349,18 +373,44 @@ nav.active .nav-content .login-box .user-login-box a.register-a {
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a img {
+nav.active .nav-content .login-box .user-login-box a.register-a img,
+nav.transition .nav-content .login-box .user-login-box a.register-a img {
   margin-top: 8px;
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.login-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.login-a,
+nav.transition .nav-content .login-box .user-login-box a.login-a {
   font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
   margin-left: 5px;
+  line-height: 38px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a img,
+nav.transition .nav-content .login-box .user-login-box a.login-a img {
+  margin-top: 11px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a:hover,
+nav.transition .nav-content .login-box .user-login-box a.login-a:hover {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a::after,
+nav.transition .nav-content .login-box .user-login-box a.login-a::after {
+  width: 0 !important;
+}
+
+nav.transition {
+  top: -61px;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
 }
 
 nav img.fade {
@@ -409,6 +459,10 @@ nav .nav-content .nav-list .nav-item a {
   font-size: 16px;
 }
 
+nav .nav-content .nav-list .nav-item a:hover {
+  opacity: 0.8;
+}
+
 nav .nav-content .login-box {
   float: right;
   height: 40px;
@@ -423,7 +477,7 @@ nav .nav-content .login-box .tel-box {
 }
 
 nav .nav-content .login-box .tel-box img {
-  height: 100%;
+  height: 96%;
   max-width: none;
 }
 
@@ -455,7 +509,34 @@ nav .nav-content .login-box .user-login-box a.login-a {
   line-height: 32px;
   text-align: center;
   border-radius: 18px;
-  border: solid 1px #eeeded;
+  border: 1px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a::after {
+  content: "";
+  background: #007bff;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover {
+  border-color: #007bff;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover::after {
+  width: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .content {
@@ -558,15 +639,17 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introTitle {
+  width: 322px;
   line-height: 70px;
   font-size: 34px;
+  font-weight: 600;
   padding: 0 45px 0 27px;
 }
 
 .content .build .first .left .intro .introBox .introBuild {
   text-align: center;
   border-left: 1px solid #ededed;
-  padding: 0 47px;
+  width: 180px;
 }
 
 .content .build .first .left .intro .introBox .introBuild div {
@@ -574,7 +657,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introBuild .introNum {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 40px;
   color: #444;
 }
@@ -582,7 +666,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .intro .introBox .introArea {
   text-align: center;
   border-left: 1px solid #ededed;
-  padding: 0 30px;
+  width: 180px;
 }
 
 .content .build .first .left .intro .introBox .introArea div {
@@ -590,7 +674,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introArea .areaNum {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 40px;
   color: #444;
 }
@@ -598,7 +683,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .intro .introBox .introRental {
   text-align: center;
   border-left: 1px solid #ededed;
-  padding: 0 20px;
+  width: 180px;
 }
 
 .content .build .first .left .intro .introBox .introRental div {
@@ -606,7 +691,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBox .introRental .introPrice {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 40px;
   color: #007bff;
 }
@@ -624,9 +710,21 @@ nav .nav-content .login-box .user-login-box a.login-a {
   border-bottom: 1px solid #ededed;
 }
 
+.content .build .first .left .intro .introAddress div {
+  color: #666;
+}
+
 .content .build .first .left .intro .introAddress .introMap {
   margin-left: 53px;
   color: #007bff;
+}
+
+.content .build .first .left .intro .introAddress .introMap img {
+  vertical-align: middle;
+}
+
+.content .build .first .left .intro .introAddress .introMap:hover {
+  cursor: pointer;
 }
 
 .content .build .first .left .intro .introBetter {
@@ -641,12 +739,17 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .intro .introBetter .betterTitle {
+  color: #666;
   margin-left: 25px;
   margin-right: 30px;
 }
 
 .content .build .first .left .intro .introBetter .betterDetail {
   margin-right: 40px;
+}
+
+.content .build .first .left .intro .introBetter .betterDetail span {
+  color: #666;
 }
 
 .content .build .first .left .intro .introBetter .betterDetail img {
@@ -670,6 +773,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .build .first .left .filter div {
   width: 186px;
+  color: #666;
 }
 
 .content .build .first .left .filter div:not(:first-child) {
@@ -701,6 +805,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .build .first .left .rent .rentAcreage div {
   margin-right: 45px;
+  color: #999;
 }
 
 .content .build .first .left .rent .rentAcreage div:hover {
@@ -710,6 +815,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 
 .content .build .first .left .rent .rentAcreage span {
   margin-right: 35px;
+  color: #666;
 }
 
 .content .build .first .left .rent .rentAcreage span:hover {
@@ -739,7 +845,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listNav .listCount {
-  color: #878585;
+  color: #666;
   width: 236px;
 }
 
@@ -749,7 +855,6 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listNav .listArea {
-  color: #333;
   width: 176px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -757,6 +862,10 @@ nav .nav-content .login-box .user-login-box a.login-a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.content .build .first .left .buildList .listNav .listArea span {
+  color: #666;
 }
 
 .content .build .first .left .buildList .listNav .listArea .listSort {
@@ -786,7 +895,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
 }
 
 .content .build .first .left .buildList .listNav .special {
-  color: #333;
+  color: #666;
 }
 
 .content .build .first .left .buildList .listDetail {
@@ -812,13 +921,25 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .buildList .listDetail .listNum {
   margin-left: 93px;
   line-height: 100px;
-  width: 406px;
+  width: 430px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.content .build .first .left .buildList .listDetail .listNum div {
+  color: #666;
+}
+
+.content .build .first .left .buildList .listDetail .listNum div span {
+  font-size: 20px;
+}
+
+.content .build .first .left .buildList .listDetail .listNum div #listPrice {
+  color: #007bff;
 }
 
 .content .build .first .left .buildList .listDetail .listSpecial {
@@ -834,7 +955,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 6px 0;
-  margin-left: 107px;
+  margin-left: 80px;
 }
 
 .content .build .first .left .buildList .listDetail .listSpecial div {
@@ -868,6 +989,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
   display: block;
   margin-bottom: 20px;
   margin-top: 1px;
+  color: #666;
 }
 
 .content .build .first .left .buildInfor {
@@ -878,7 +1000,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
   background: #fff;
 }
 
-.content .build .first .left .buildInfor .buildInforBox .buildRow {
+.content .build .first .left .buildInfor .buildInforBox .buildInforList {
+  padding: 20px 0;
+}
+
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -886,11 +1012,11 @@ nav .nav-content .login-box .user-login-box a.login-a {
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding-left: 40px;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
 }
 
-.content .build .first .left .buildInfor .buildInforBox .buildRow div {
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow div {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -900,7 +1026,7 @@ nav .nav-content .login-box .user-login-box a.login-a {
           justify-content: flex-start;
 }
 
-.content .build .first .left .buildInfor .buildInforBox .buildRow div .developer {
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow div .developer {
   width: 110px;
   color: #999;
 }
@@ -908,6 +1034,8 @@ nav .nav-content .login-box .user-login-box a.login-a {
 .content .build .first .left .buildInfor .buildInforBox .buildDetail {
   padding: 35px 100px 35px 40px;
   color: #666;
+  border-top: 1px solid #f5f5f5;
+  line-height: 24px;
 }
 
 .content .build .first .left .quotation {
@@ -936,9 +1064,30 @@ nav .nav-content .login-box .user-login-box a.login-a {
   border-right: 1px solid #f1f0f0;
 }
 
+.content .build .first .left .serve div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 1px;
+}
+
+.content .build .first .left .serve .serve_title {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 18px;
+  color: #444545;
+  line-height: 18px;
+}
+
+.content .build .first .left .serve .swiper {
+  width: 100%;
+  height: 142px;
+  background-color: #fff;
+}
+
 .content .build .first .location {
   position: fixed;
-  top: 0;
+  top: 61px;
   margin-left: 960px;
 }
 
@@ -1030,13 +1179,12 @@ nav .nav-content .login-box .user-login-box a.login-a {
   width: 239px;
   border: 1px solid #e6e6e6;
   border-top: none;
-  padding: 15px 12px;
+  padding: 20px 12px 10px 12px;
 }
 
 .content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
   color: #444545;
-  margin-bottom: 16px;
-  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro {

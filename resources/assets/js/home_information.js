@@ -1,4 +1,5 @@
 require('./home_common');
+import './components/home/login'
 const Swiper = require('swiper');
 
 var mySwiper1 = new Swiper('.swiper-container',{

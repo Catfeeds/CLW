@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{res('/css/home_information_show.css')}}">
 @endsection
 @section('body')
-    {{--@include('home.nav')--}}
+    @include('home.nav')
     <div class="continue">
         <!--  -->
         <div class="nav"><a href="{{url('/')}}"><span>首页 </span></a><span>> 资讯详情 </span></div>

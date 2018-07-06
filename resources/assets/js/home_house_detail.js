@@ -1,4 +1,5 @@
 require('./home_common')
+import './components/home/login'
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')
@@ -70,3 +71,18 @@ $(window).scroll(function(){
     }
   }
 })
+
+// 点击收藏
+$('.pircePic').on('click', function() {
+  var obj = $(this).find('div')
+  if(obj.hasClass('.active')) {
+    obj.css('background', 'url(/home_img/house_detail_collect_before.png)')
+    obj.removeClass('.active')
+    console.log(22222)
+  } else {
+    console.log(11111)
+    obj.css('background', 'url(/home_img/house_detail_collect_after.png)')
+    obj.addClass('.active')
+  }
+})
+

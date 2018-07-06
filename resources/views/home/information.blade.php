@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
 @endsection
 @section('body')
-    {{--@include('home.nav')--}}
+    @include('home.nav')
     <div class="continue">
         <!--  -->
         <div class="nav"><a href="{{url('/')}}"><span>首页 </span></a><span>> 资讯 </span><span>> 全部资讯</span></div>
