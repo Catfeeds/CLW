@@ -22,8 +22,8 @@
                     <div class="pub-number"><img src="/home_img/qr_code.jpg" /></div>
                     <div class="pub-number"><span>关注楚楼网公众号，更多资讯等你看</span></div>
                     <div class="up-down">
-                        <div><a>上一篇: 行业资讯 | 市场预测 成都写字楼将新增供应70万平方米</a></div>
-                        <div><a>下一篇: 行业资讯 | 市场预测 成都写字楼将新增供应70万平方米</a></div>
+                        <a href="{{url('/information/'.$previous->id)}}"><div>上一篇: {{$previous->title}}</div></a>
+                        <a href="{{url('/information/'.$next->id)}}"><div>下一篇: {{$next->title}}</div></a>
                     </div>
 
                 </div>
@@ -45,10 +45,6 @@
             </div>
         </div>
     </div>
-
-    {{--<div style="padding-left:500px; background-color: #fff">--}}
-        {{--{{ $contents->links() }}--}}
-    {{--</div>--}}
 @endsection
 @section('script')
     <script src="{{res('/js/home_information.js')}}"></script>

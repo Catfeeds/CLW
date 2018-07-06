@@ -6495,545 +6495,24 @@ module.exports = __webpack_require__(121);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse__);
 /**
  * Created by zxz1992 on 2018/6/5.
  */
 __webpack_require__(4);
 
+// import LookForHouse from './components/mapFindHouseDemo'
 Vue.component('self-div', __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse___default.a);
 new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(123)
-}
-var normalizeComponent = __webpack_require__(10)
-/* script */
-var __vue_script__ = __webpack_require__(125)
-/* template */
-var __vue_template__ = __webpack_require__(252)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/mapFindHouse.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c7aca1fc", Component.options)
-  } else {
-    hotAPI.reload("data-v-c7aca1fc", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 123 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(124);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(9)("5324b11a", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c7aca1fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapFindHouse.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c7aca1fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapFindHouse.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 124 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n      border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 125 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_input_css__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_input_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_input_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_cascader_css__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_cascader_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_cascader_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_main_css__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_col_css__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_col_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_col_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_element_ui_lib_theme_chalk_row_css__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_element_ui_lib_theme_chalk_row_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_element_ui_lib_theme_chalk_row_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_element_ui_lib_theme_chalk_button_css__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_element_ui_lib_theme_chalk_button_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_element_ui_lib_theme_chalk_button_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_element_ui_lib_theme_chalk_form_item_css__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_element_ui_lib_theme_chalk_form_item_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_element_ui_lib_theme_chalk_form_item_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_element_ui_lib_theme_chalk_form_css__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_element_ui_lib_theme_chalk_form_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_element_ui_lib_theme_chalk_form_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_element_ui_lib_theme_chalk_tab_pane_css__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_element_ui_lib_theme_chalk_tab_pane_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_element_ui_lib_theme_chalk_tab_pane_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_element_ui_lib_theme_chalk_tabs_css__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_element_ui_lib_theme_chalk_tabs_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_element_ui_lib_theme_chalk_tabs_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_element_ui_lib_theme_chalk_option_css__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_element_ui_lib_theme_chalk_option_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_element_ui_lib_theme_chalk_option_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_element_ui_lib_theme_chalk_select_css__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_element_ui_lib_theme_chalk_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_element_ui_lib_theme_chalk_select_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__map_selfOverlay__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__home_api__ = __webpack_require__(231);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
- // 悬浮窗容器
- // 地铁悬浮窗容器
-
-var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
-    ElOption = __WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option___default.a,
-    ElTabs = __WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs___default.a,
-    ElTabPane = __WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane___default.a,
-    ElForm = __WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form___default.a,
-    ElFormItem = __WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item___default.a,
-    ElButton = __WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button___default.a,
-    ElRow = __WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row___default.a,
-    ElCol = __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col___default.a,
-    ElMain = __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main___default.a,
-    ElCascader = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader___default.a,
-    ElInput = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input___default.a;
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        BaiduMap: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BaiduMap"],
-        BmBus: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBus"],
-        selfOverlay: __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default.a,
-        siteCover: __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default.a,
-        ElSelect: ElSelect,
-        ElOption: ElOption,
-        ElTabs: ElTabs,
-        ElTabPane: ElTabPane,
-        ElFormItem: ElFormItem,
-        ElInput: ElInput,
-        ElButton: ElButton,
-        ElRow: ElRow,
-        ElCol: ElCol,
-        ElMain: ElMain,
-        ElCascader: ElCascader,
-        ElForm: ElForm
-    },
-    data: function data() {
-        return {
-            ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
-            location: '武汉', // 检索区域
-            zoom: 12, // 地图缩放级别
-            keyword: '地铁', // 检索词
-            regionList: [], // 区域数据
-            blockList: [], // 商圈列数据
-            buildList: [], // 楼盘数据
-            centerLocaion: '武汉', // 临时存放中心点
-            locationType: false, // zommed 结束后标识
-            Active: '', // 鼠标经过颜色变深标识
-            subwayKeyword: null,
-            condition: {
-                content: '', // 搜索内容
-                region: '', // 区域
-                acreage: '', // 面积
-                price: '', // 价格
-                metro: '' // 地铁
-            }, // 条件
-            options: [{
-                label: '1号线',
-                value: 1
-            }],
-            subwayOptions: [{
-                label: '1号线',
-                value: '1号线'
-            }, {
-                label: '2号线',
-                value: '2号线'
-            }, {
-                label: '3号线',
-                value: '3号线'
-            }, {
-                label: '4号线',
-                value: '4号线'
-            }, {
-                label: '6号线',
-                value: '6号线'
-            }, {
-                label: '8号线',
-                value: '8号线'
-            }, {
-                label: '阳逻线',
-                value: '阳逻线'
-            }],
-            siteList: [{
-                name: "汉口北",
-                num: 0,
-                x: "114.33608245849610000000",
-                y: "30.71769714355468800000",
-                station: "1"
-            }, {
-                name: "滠口新城",
-                num: 0,
-                x: "114.34879302978516000000",
-                y: "30.69034767150879000000",
-                station: "1"
-            }, {
-                name: "滕子岗站",
-                num: "3",
-                x: "114.34787750244140000000",
-                y: "30.68033409118652300000",
-                station: "1"
-            }] // 站点列表
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getRegionList */])().then(function (res) {
-            if (res.success) {
-                _this.regionList = res.data;
-            }
-        });
-        // 获取商圈数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["a" /* getBlock */])().then(function (res) {
-            _this.blockList = res.data;
-        });
-    },
-
-    watch: {
-        'condition.metro': function conditionMetro(val) {
-            this.subwayKeyword = this.condition.metro;
-            if (this.condition.metro === '') this.subwayKeyword = false;
-        },
-        subwayKeyword: function subwayKeyword(val) {
-            if (val) {
-                this.$nextTick(function () {
-                    if (this.$refs.bus) {
-                        this.$refs.bus.search(val);
-                    } else {
-                        setTimeout(function () {
-                            this.$refs.bus.search(val);
-                        }, 50);
-                    }
-                });
-            }
-        }
-    },
-    methods: {
-        ready: function ready(val) {
-            this.BMap = val.BMap;
-            console.log('11111', this.BMap);
-        },
-
-        zoomend: function zoomend(e) {
-            console.log('this.zoom1', this.zoom);
-            this.zoom = e.target.getZoom();
-            console.log('this.zoom2', this.zoom);
-            // 修改中心点
-            if (this.locationType) {
-                this.location = this.centerLocaion;
-                this.locationType = false;
-            }
-        },
-        // 查看区域详情 -> 商圈列表
-        seeRegionDetail: function seeRegionDetail(data) {
-            this.zoom = 13;
-            this.centerLocaion = { lng: data.x, lat: data.y };
-            this.locationType = true;
-        },
-
-        // 点击商圈详情
-        seeAreaDetail: function seeAreaDetail(data) {
-            var _this2 = this;
-
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["b" /* getBuildList */])().then(function (res) {
-                if (res.success) {
-                    _this2.zoom = 14;
-                    _this2.buildList = res.data;
-                    _this2.centerLocaion = { lng: data.x, lat: data.y };
-                    _this2.locationType = true;
-                }
-            });
-        },
-        seeMtro: function seeMtro(data) {},
-
-        // 地铁线
-        getbuslist: function getbuslist(el) {
-            if (el.getBusListItem(0)) {
-                this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0));
-            }
-        },
-
-        // 地铁线
-        buslinehtml: function buslinehtml(el) {
-            this.$nextTick(function () {
-                setTimeout(function () {
-                    document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
-                }, 50);
-            });
-        }
-    }
-});
-
-/***/ }),
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
 /* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19177,7 +18656,593 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 252 */
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(310)
+}
+var normalizeComponent = __webpack_require__(10)
+/* script */
+var __vue_script__ = __webpack_require__(312)
+/* template */
+var __vue_template__ = __webpack_require__(313)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/mapFindHouse.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c7aca1fc", Component.options)
+  } else {
+    hotAPI.reload("data-v-c7aca1fc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 310 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(311);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(9)("5324b11a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c7aca1fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapFindHouse.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c7aca1fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mapFindHouse.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 311 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle:hover {\n      background: #1e99e0;\n      border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 312 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_input_css__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_input_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_input_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_cascader_css__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_cascader_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_element_ui_lib_theme_chalk_cascader_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_main_css__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_ui_lib_theme_chalk_main_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_col_css__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_col_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_col_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_element_ui_lib_theme_chalk_row_css__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_element_ui_lib_theme_chalk_row_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_element_ui_lib_theme_chalk_row_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_element_ui_lib_theme_chalk_button_css__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_element_ui_lib_theme_chalk_button_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_element_ui_lib_theme_chalk_button_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_element_ui_lib_theme_chalk_form_item_css__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_element_ui_lib_theme_chalk_form_item_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_element_ui_lib_theme_chalk_form_item_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_element_ui_lib_theme_chalk_form_css__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_element_ui_lib_theme_chalk_form_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_element_ui_lib_theme_chalk_form_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_element_ui_lib_theme_chalk_tab_pane_css__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_element_ui_lib_theme_chalk_tab_pane_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_element_ui_lib_theme_chalk_tab_pane_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_element_ui_lib_theme_chalk_tabs_css__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_element_ui_lib_theme_chalk_tabs_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_element_ui_lib_theme_chalk_tabs_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_element_ui_lib_theme_chalk_option_css__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_element_ui_lib_theme_chalk_option_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_element_ui_lib_theme_chalk_option_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_element_ui_lib_theme_chalk_select_css__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_element_ui_lib_theme_chalk_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_element_ui_lib_theme_chalk_select_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__map_selfOverlay__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__home_api__ = __webpack_require__(231);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+ // 悬浮窗容器
+ // 地铁悬浮窗容器
+
+var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
+    ElOption = __WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option___default.a,
+    ElTabs = __WEBPACK_IMPORTED_MODULE_20_element_ui_lib_tabs___default.a,
+    ElTabPane = __WEBPACK_IMPORTED_MODULE_18_element_ui_lib_tab_pane___default.a,
+    ElForm = __WEBPACK_IMPORTED_MODULE_16_element_ui_lib_form___default.a,
+    ElFormItem = __WEBPACK_IMPORTED_MODULE_14_element_ui_lib_form_item___default.a,
+    ElButton = __WEBPACK_IMPORTED_MODULE_12_element_ui_lib_button___default.a,
+    ElRow = __WEBPACK_IMPORTED_MODULE_10_element_ui_lib_row___default.a,
+    ElCol = __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_col___default.a,
+    ElMain = __WEBPACK_IMPORTED_MODULE_6_element_ui_lib_main___default.a,
+    ElCascader = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_cascader___default.a,
+    ElInput = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_input___default.a;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        BaiduMap: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BaiduMap"],
+        BmBus: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBus"],
+        selfOverlay: __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default.a,
+        siteCover: __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default.a,
+        ElSelect: ElSelect,
+        ElOption: ElOption,
+        ElTabs: ElTabs,
+        ElTabPane: ElTabPane,
+        ElFormItem: ElFormItem,
+        ElInput: ElInput,
+        ElButton: ElButton,
+        ElRow: ElRow,
+        ElCol: ElCol,
+        ElMain: ElMain,
+        ElCascader: ElCascader,
+        ElForm: ElForm
+    },
+    data: function data() {
+        return {
+            ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
+            location: '武汉', // 检索区域
+            zoom: 12, // 地图缩放级别
+            keyword: '地铁', // 检索词
+            regionList: [], // 区域数据
+            blockList: [], // 商圈列数据
+            buildList: [], // 楼盘数据
+            centerLocaion: '武汉', // 临时存放中心点
+            locationType: false, // zommed 结束后标识
+            Active: '', // 鼠标经过颜色变深标识
+            subwayKeyword: null,
+            condition: {
+                content: '', // 搜索内容
+                region: '', // 区域
+                acreage: '', // 面积
+                price: '', // 价格
+                metro: '' // 地铁
+            }, // 条件
+            options: [{
+                label: '1号线',
+                value: 1
+            }],
+            subwayOptions: [{
+                label: '1号线',
+                value: '1号线'
+            }, {
+                label: '2号线',
+                value: '2号线'
+            }, {
+                label: '3号线',
+                value: '3号线'
+            }, {
+                label: '4号线',
+                value: '4号线'
+            }, {
+                label: '6号线',
+                value: '6号线'
+            }, {
+                label: '8号线',
+                value: '8号线'
+            }, {
+                label: '阳逻线',
+                value: '阳逻线'
+            }],
+            siteList: [{
+                name: "汉口北",
+                num: 0,
+                x: "114.33608245849610000000",
+                y: "30.71769714355468800000",
+                station: "1"
+            }, {
+                name: "滠口新城",
+                num: 0,
+                x: "114.34879302978516000000",
+                y: "30.69034767150879000000",
+                station: "1"
+            }, {
+                name: "滕子岗站",
+                num: "3",
+                x: "114.34787750244140000000",
+                y: "30.68033409118652300000",
+                station: "1"
+            }] // 站点列表
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        // 获取区域 数据
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getRegionList */])().then(function (res) {
+            if (res.success) {
+                _this.regionList = res.data;
+            }
+        });
+        // 获取商圈数据
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["a" /* getBlock */])().then(function (res) {
+            _this.blockList = res.data;
+        });
+    },
+
+    watch: {
+        'condition.metro': function conditionMetro(val) {
+            this.subwayKeyword = this.condition.metro;
+            if (this.condition.metro === '') this.subwayKeyword = false;
+        },
+        subwayKeyword: function subwayKeyword(val) {
+            if (val) {
+                this.$nextTick(function () {
+                    if (this.$refs.bus) {
+                        this.$refs.bus.search(val);
+                    } else {
+                        setTimeout(function () {
+                            this.$refs.bus.search(val);
+                        }, 50);
+                    }
+                });
+            }
+        }
+    },
+    methods: {
+        ready: function ready(val) {
+            this.BMap = val.BMap;
+            console.log('11111', this.BMap);
+        },
+
+        zoomend: function zoomend(e) {
+            console.log('this.zoom1', this.zoom);
+            this.zoom = e.target.getZoom();
+            console.log('this.zoom2', this.zoom);
+            // 修改中心点
+            if (this.locationType) {
+                this.location = this.centerLocaion;
+                this.locationType = false;
+            }
+        },
+        // 查看区域详情 -> 商圈列表
+        seeRegionDetail: function seeRegionDetail(data) {
+            this.zoom = 13;
+            this.centerLocaion = { lng: data.x, lat: data.y };
+            this.locationType = true;
+        },
+
+        // 点击商圈详情
+        seeAreaDetail: function seeAreaDetail(data) {
+            var _this2 = this;
+
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["b" /* getBuildList */])().then(function (res) {
+                if (res.success) {
+                    _this2.zoom = 14;
+                    _this2.buildList = res.data;
+                    _this2.centerLocaion = { lng: data.x, lat: data.y };
+                    _this2.locationType = true;
+                }
+            });
+        },
+        seeMtro: function seeMtro(data) {},
+
+        // 地铁线
+        getbuslist: function getbuslist(el) {
+            if (el.getBusListItem(0)) {
+                this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0));
+            }
+        },
+
+        // 地铁线
+        buslinehtml: function buslinehtml(el) {
+            this.$nextTick(function () {
+                setTimeout(function () {
+                    document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
+                }, 50);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19329,7 +19394,18 @@ var render = function() {
                     )
                   ]
                 )
-              })
+              }),
+              _vm._v(" "),
+              _vm.blockActive !== ""
+                ? _c("bm-polygon", {
+                    attrs: {
+                      path: _vm.polygonPath,
+                      "stroke-color": "red",
+                      "stroke-opacity": 0.5,
+                      "stroke-weight": 2
+                    }
+                  })
+                : _vm._e()
             ],
             2
           )

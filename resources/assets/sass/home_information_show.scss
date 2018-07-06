@@ -43,7 +43,6 @@ body {
       padding-top: 48px;
       background-color: #ffffff;
       .title {
-        height: 56px;
         font-family: SourceHanSansCN-Medium;
         font-size: 26px;
         font-weight: normal;
@@ -53,6 +52,7 @@ body {
         color: #444444;
       }
       .explain {
+        margin-top: 10px;
         font-size: 14px;
         font-weight: normal;
         letter-spacing: 0px;
@@ -91,7 +91,7 @@ body {
           height: 16px;
           display: flex;
           justify-content: center;
-          div{
+          a div{
             flex: 1;
             display:block;
             max-width: 300px;
@@ -106,10 +106,10 @@ body {
             letter-spacing: 0px;
             color: #999999;
           }
-          >div:nth-child(1){
+          a>div:nth-child(1){
             margin-right: 20px;
           }
-          >div:nth-child(2){
+          a>div:nth-child(2){
             margin-left: 20px;
           }
         }

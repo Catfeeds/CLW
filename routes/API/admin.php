@@ -20,6 +20,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //根据类型获取接收人人员openid
         Route::get('get_openid/{type}', 'AcceptMessagesController@getOpenid');
 
+        //通过电话获取openid
+        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
+
+        //微信绑定管理
+        Route::resource('employees', 'EmployeesController');
+
+        //换绑微信
+        Route::post('update_wechat', 'EmployeesController@updateWechat');
+
         //--------- 中介系统权限管理
         // 权限组管理
         Route::resource('permission_groups','PermissionGroupsController');
@@ -223,15 +232,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //生成二维码
         Route::post('code', 'EmployeesController@code');
 
-        //微信绑定管理
-        Route::resource('employees', 'EmployeesController');
-
-        //换绑微信
-        Route::post('update_wechat', 'EmployeesController@updateWechat');
-
-        //通过电话获取openid
-        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
-
         //慢查询
         Route::post('query', 'QueryController@create');
 
@@ -260,6 +260,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('pc_service_recommends', 'PcServiceRecommendsController');
 
+        //pc端企业服务
+        Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
     });
-    Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
+
 });
