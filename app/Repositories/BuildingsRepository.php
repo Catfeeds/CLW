@@ -68,7 +68,6 @@ class BuildingsRepository extends  Model
                 'data' => $data
             ];
         }  else {
-
             return $data->toArray();
         }
     }

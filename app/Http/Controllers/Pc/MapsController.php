@@ -25,7 +25,7 @@ class MapsController extends Controller
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
             $res = $repository->buildingList($request, $buildingsService, $buildingIds,true);
-        } elseif (!empty($request->x) && !empty($request->y) && !empty($request->distance)) {
+        } elseif (!empty($request->distance) && !empty($request->gps)) {
             $res = $mapsService->getPeripheryBuildings($request);
         } else {
             // 处理价格,面积,特色
