@@ -1,5 +1,6 @@
 @import 'home_master';
 @include nav();
+@include footer();
 a {
   text-decoration: none;
   color:#444;
@@ -194,6 +195,9 @@ body {
                 color:#b2b2b2;
                 background-color: rgba(238, 246, 255, 0.5);
                 cursor: pointer;
+                span {
+                  color:#999;
+                }
               }
             }
             .cleaning {
@@ -238,7 +242,7 @@ body {
             border-bottom: 1px solid #ededed;
             background-color: #fff;
             display: flex;
-            padding:0 20px 0 25px;
+            padding:0 0 0 25px;
             color:#858484;
             .house_num {
               flex:4;
@@ -269,8 +273,8 @@ body {
               }
               .sort_price {
                 flex: 1;
-                border-right: 1px solid #ededed;
-                min-width: 60px;   
+                min-width: 60px; 
+                padding-right: 10px;  
                 a {
                   color:#878585;
                 }

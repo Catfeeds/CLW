@@ -180,6 +180,22 @@ template {
   display: none;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.f_l {
+  float: left;
+}
+
+.f_r {
+  float: right;
+}
+
 .clearfloat {
   display: block;
   clear: both;
@@ -421,6 +437,129 @@ nav .nav-content .login-box .user-login-box a.login-a {
   text-align: center;
   border-radius: 18px;
   border: solid 1px #eeeded;
+}
+
+body {
+  width: 100%;
+}
+
+body footer {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #202020;
+}
+
+body footer .title_box {
+  width: 100%;
+  border-bottom: 1px solid #303030;
+}
+
+body footer .title_box .title {
+  width: 1200px;
+  font-size: 34px;
+  color: #f5f5f5;
+  height: 81px;
+  line-height: 81px;
+  margin: 0 auto;
+  padding-left: 13px;
+}
+
+body footer .container {
+  height: 253px;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 25px 0 25px 13px;
+}
+
+body footer .container .left_info {
+  margin-right: 192px;
+}
+
+body footer .container .left_info img {
+  margin-bottom: 32px;
+}
+
+body footer .container .left_info .info {
+  color: #f5f5f5;
+  font-size: 12px;
+  line-height: 26px;
+  margin-bottom: 11px;
+}
+
+body footer .container .left_info .friend_link {
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .left_info .friend_link a {
+  color: #f5f5f5;
+}
+
+body footer .container .about_us {
+  padding-top: 15px;
+  margin-right: 120px;
+}
+
+body footer .container .about_us .abou_us_title {
+  font-size: 14px;
+  color: #f5f5f5;
+  margin-bottom: 30px;
+}
+
+body footer .container .about_us .link li {
+  margin-bottom: 17px;
+  text-align: center;
+}
+
+body footer .container .about_us .link li a {
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .serve {
+  padding-top: 15px;
+  margin-right: 91px;
+}
+
+body footer .container .serve div {
+  color: #f5f5f5;
+}
+
+body footer .container .serve_title {
+  padding-left: 5px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+body footer .container .serve .phone {
+  font-size: 31px;
+  margin-bottom: 22px;
+}
+
+body footer .container .serve .time,
+body footer .container .serve .day {
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+body footer .container .code_download {
+  padding-top: 15px;
+}
+
+body footer .container .code_download .code_title {
+  font-size: 14px;
+  color: #f5f5f5;
+  margin-bottom: 35px;
+}
+
+body footer .container .code_download .wx_code {
+  width: 110px;
+}
+
+body footer .container .code_download .wx_code div {
+  margin-top: 17px;
+  font-size: 12px;
+  color: #f5f5f5;
 }
 
 a {
@@ -704,6 +843,10 @@ body .house_list_container .house_list_content .select_box .select_area .result 
   cursor: pointer;
 }
 
+body .house_list_container .house_list_content .select_box .select_area .result .selected_box .selected span {
+  color: #999;
+}
+
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning {
   width: 40px;
   position: relative;
@@ -756,7 +899,7 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 20px 0 25px;
+  padding: 0 0 0 25px;
   color: #858484;
 }
 
@@ -804,8 +947,8 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  border-right: 1px solid #ededed;
   min-width: 60px;
+  padding-right: 10px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price a {

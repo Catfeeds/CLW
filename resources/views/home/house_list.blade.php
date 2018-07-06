@@ -135,7 +135,7 @@
                 <div class="house_show">
                     <div class="house_show_title">
                         <div class="house_num">
-                            出租写字楼共<span>{{$count??0}}</span>套
+                            出租写字楼共&nbsp;<span>{{$count??0}}</span>&nbsp;套
                         </div>
                         <div class="title_right">
                             <div class="sort_default js_price_default current" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>

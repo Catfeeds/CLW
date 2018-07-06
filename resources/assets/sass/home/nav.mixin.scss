@@ -155,3 +155,15 @@
     }
   }
 }
+.clearfix::after {
+  content:"";
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}.f_l {
+  float: left;
+}
+.f_r {
+  float: right;
+}
