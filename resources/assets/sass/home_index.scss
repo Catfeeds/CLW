@@ -99,6 +99,9 @@ body {
               a{
                 font-size: 14px;
                 color: #666666;
+                &:hover{
+                  color: $master-blue;
+                }
               }
             }
           }
@@ -153,7 +156,7 @@ body {
           height: 57px;
           background-color: $master-blue;
           color: $master-white;
-          font-size: 24px;
+          font-size: 20px;
           text-align: center;
           line-height: 57px;
           border-radius: 30px;
@@ -319,9 +322,9 @@ body {
           width: 240px;
           height: 406px;
           position: relative;
-          transition: all 1s;
+          transition: all 0.5s;
           *{
-            transition: all 1s;
+            transition: all 0.5s;
           }
           &:hover{
             .server-title-active{
@@ -603,7 +606,8 @@ body {
             widows: 100%;
             &:hover{
               img{
-                box-shadow: 0 0 40px rgba(0,0,0,.1);
+                box-shadow: 0 15px 20px rgba(0,0,0,.1);
+                transform: translate3d(0,-2px,0);
                 transition: all .2s ease-in 0s;
               }
             }
@@ -628,6 +632,11 @@ body {
             a{
               display: block;
               width: 100%;
+              &:hover{
+                h3{
+                  color: $master-blue !important;
+                }
+              }
               >div.float-left{
                 width: 206px;
                 height: 152px;
@@ -701,6 +710,11 @@ body {
             a{
               padding-bottom: 15px;
               display: block;
+              &:hover{
+                h4{
+                  color: $master-blue;
+                }
+              }
               h4{
                 margin: 0;
                 height: 16px;
