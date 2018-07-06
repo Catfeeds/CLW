@@ -17666,28 +17666,28 @@ if (false) {
 function getRegionList() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
         url: '/getRegionList',
-        methods: 'GET'
+        method: 'GET'
     });
 }
 
 function getBlock() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
         url: '/detailArea',
-        methods: 'GET'
+        method: 'GET'
     });
 }
 
 function getBuildList() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
         url: '/getBuildList',
-        methods: 'GET'
+        method: 'GET'
     });
 }
 
 function getSiteList() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
         url: '/getSiteList',
-        methods: 'GET'
+        method: 'GET'
     });
 }
 
@@ -17695,10 +17695,19 @@ function getSiteList() {
 function getCoreBuildList(params) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
         url: 'http://192.168.0.110/get_periphery_buildings',
-        methods: 'GET',
+        method: 'GET',
         params: params
     });
 }
+
+// // 根据中心获取楼盘
+// export function getCoreBuildLists(data) {
+//     return request({
+//         url: 'http://192.168.0.110/get_periphery_buildings',
+//         method: 'post',
+//         data: data
+//     })
+// }
 
 /***/ }),
 /* 232 */
@@ -19128,6 +19137,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             regionList: [], // 区域数据
             blockList: [], // 商圈列数据
             buildList: [], // 楼盘数据
+            buildListNum: 0, // 楼盘数据
             centerLocaion: '武汉', // 临时存放中心点
             locationType: false, // zommed 结束后标识
             Active: '', // 鼠标经过颜色变深标识
@@ -19247,10 +19257,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     x: this.zhongxin.lng,
                     y: this.zhongxin.lat,
                     distance: 5
-                };
-                console.log('var', val);
-                // 请求楼盘数据
-                this.getBuild(data);
+                    // 请求楼盘数据
+                };this.getBuild(data);
             }
         }
     },
@@ -19260,17 +19268,17 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
         dragend: function dragend(val) {
             if (this.zoom >= 14) {
-                var data = {
+                var data = [{
                     x: this.zhongxin.lng,
                     y: this.zhongxin.lat,
                     distance: 5
-                    // 请求楼盘数据
-                };this.getBuild(data);
+                }];
+                // 请求楼盘数据
+                this.getBuild(data);
             }
         },
         ready: function ready(val) {
             this.BMap = val.BMap;
-            console.log('11111', this.BMap);
         },
 
         zoomend: function zoomend(e) {
@@ -19326,7 +19334,12 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             var _this3 = this;
 
             Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getCoreBuildList */])(data).then(function (res) {
-                _this3.buildList = res.data;
+                if (res.success) {
+                    _this3.buildList = res.data;
+                    _this3.buildListNum = res.data.length;
+                    console.log('res.data', res.data);
+                    console.log('res.data.length', res.data.length);
+                }
             });
         }
     }
@@ -19645,7 +19658,7 @@ var render = function() {
                 _c("img", { attrs: { src: "" } }),
                 _vm._v(
                   "\n                武汉 为您找到" +
-                    _vm._s(_vm.buildList.length) +
+                    _vm._s(_vm.buildListNum) +
                     "个楼盘\n            "
                 )
               ]),

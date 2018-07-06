@@ -135,7 +135,7 @@
             <el-row style="padding: 5px 0px">
                 <el-col :span="15">
                     <img src=""/>
-                    武汉 为您找到{{buildList.length}}个楼盘
+                    武汉 为您找到{{buildListNum}}个楼盘
                 </el-col>
                 <el-col :span="9">
                     <!--<div class="grid-content bg-purple">-->
@@ -221,6 +221,7 @@
                 regionList: [], // 区域数据
                 blockList: [], // 商圈列数据
                 buildList: [], // 楼盘数据
+                buildListNum: 0, // 楼盘数据
                 centerLocaion: '武汉', // 临时存放中心点
                 locationType: false, // zommed 结束后标识
                 Active: '',// 鼠标经过颜色变深标识
@@ -344,7 +345,6 @@
                         y: this.zhongxin.lat,
                         distance: 5
                     }
-                    console.log('var', val)
                     // 请求楼盘数据
                     this.getBuild(data)
                 }
@@ -358,18 +358,17 @@
             },
             dragend (val) {
                 if(this.zoom>=14) {
-                    const data = {
+                    const data = [{
                         x: this.zhongxin.lng,
                         y: this.zhongxin.lat,
                         distance: 5
-                    }
+                    }]
                     // 请求楼盘数据
                     this.getBuild(data)
                 }
             },
                 ready(val) {
                 this.BMap = val.BMap
-                console.log('11111', this.BMap)
             },
             zoomend: function (e) {
                 this.zoom = e.target.getZoom()
@@ -418,7 +417,12 @@
             // 根据条件获取数据
             getBuild(data) {
                 getCoreBuildList(data).then(res => {
-                    this.buildList = res.data
+                    if(res.success){
+                        this.buildList = res.data
+                        this.buildListNum = res.data.length
+                        console.log('res.data',res.data)
+                        console.log('res.data.length',res.data.length)
+                    }
                 })
             }
         }
