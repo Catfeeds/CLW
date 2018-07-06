@@ -1,9 +1,11 @@
 require('./home_common')
+import './components/home/login'
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')
 var Data = $('#props').data('data')
-
+var rightTop = $('.findHouse').offset().top
+var secondTop = $('.facilities').offset().top
 new Vue({
   el: '.facilities',
   components: { detailMap },
@@ -34,6 +36,12 @@ for(var j=0;j<smallImg.slides.length;j++){
     bigImg.slideTo(this.index)
   }
 }
+
+// 点击查看地图
+$('.js_map').on('click', function() {
+  $('html,body').animate({scrollTop: $('.facilitiesMap').offset().top - 60 + 'px'},500)
+})
+
 // 点击委托找房
 $('.order').on('click', function(){
   var val = $('#entrust').val()
@@ -47,3 +55,34 @@ $('#prev').on('click', function() {
 $('#next').on('click', function() {
   smallImg.slideNext()
 })
+
+// 页面滚动
+$(window).scroll(function(){
+  var scrollTop = $(window).scrollTop()
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 420) < secondTop)) {
+    $('.findHouse').addClass('location')
+    $('.findHouse').css('margin-top', '20px')
+  } else if((scrollTop <= rightTop) || ((scrollTop + 420) >= secondTop)) {
+    if((scrollTop + 420) >= secondTop) {
+      $('.findHouse').css('margin-top', secondTop-rightTop-335)
+      $('.findHouse').removeClass('location')
+    } else {
+      $('.findHouse').removeClass('location')
+    }
+  }
+})
+
+// 点击收藏
+$('.pircePic').on('click', function() {
+  var obj = $(this).find('div')
+  if(obj.hasClass('.active')) {
+    obj.css('background', 'url(/home_img/house_detail_collect_before.png)')
+    obj.removeClass('.active')
+    console.log(22222)
+  } else {
+    console.log(11111)
+    obj.css('background', 'url(/home_img/house_detail_collect_after.png)')
+    obj.addClass('.active')
+  }
+})
+

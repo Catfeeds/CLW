@@ -3,6 +3,7 @@
  */
 require('./home_common');
 import LookForHouse from './components/mapFindHouse'
+// import LookForHouse from './components/mapFindHouseDemo'
 Vue.component('self-div', LookForHouse)
 new Vue({
   el: '#app'

@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="safeString" content="{{ $safeString }}"/>
     <meta name="tel" content="{{ $tel }}"/>
+    <meta name="tel" content="15807290654"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="{{res('/css/we_work.css')}}">
     <script src="{{res('/js/we_manifest.js')}}"></script>
@@ -36,6 +37,7 @@
                                 <div><span>姓名:</span><span> @{{item.name}}</span></div>
                                 <div><span>电话:</span><span> @{{item.tel}}</span></div>
                                 <div><span>内容:</span><span> @{{item.position}}</span></div>
+                                <div><span>来源:</span><span> @{{item.source_cn}}</span></div>
                             </div>
                         </div>
                         <div class="list-bottom">
@@ -65,6 +67,7 @@
                                 <div><span>姓名:</span><span> @{{item.name}}</span></div>
                                 <div><span>电话:</span><span> @{{item.tel}}</span></div>
                                 <div><span>内容:</span><span> @{{item.position}}</span></div>
+                                <div><span>来源:</span><span> @{{item.source_cn}}</span></div>
                             </div>
                         </div>
                         <div class="list-bottom">

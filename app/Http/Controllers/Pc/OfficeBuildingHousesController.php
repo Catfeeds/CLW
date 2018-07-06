@@ -30,6 +30,9 @@ class OfficeBuildingHousesController extends Controller
         $data[1]['name'] = $block->name;
         $data[2]['id'] = $building->id;
         $data[2]['name'] = $building->name;
+        $data[3]['id'] = $building->id;
+        $data[3]['name'] = $building->name;
+        
         return view('home.house_detail', [
             'house' => $house,
             'rimHouse' => $rimHouse,

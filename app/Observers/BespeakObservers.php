@@ -22,4 +22,5 @@ class BespeakObservers {
             curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
         }
     }
+
 }

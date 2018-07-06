@@ -1,4 +1,5 @@
 require('./home_common');
+import './components/home/login'
 const Swiper = require('swiper');
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')
@@ -27,11 +28,11 @@ new Vue({
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()
-  if((scrollTop >= rightTop) && ((scrollTop + 690) < secondTop)) {
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 760) < secondTop)) {
     $('.right').addClass('location')
     $('.right').css('margin-top', '0')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 690) >= secondTop)) {
-    if((scrollTop + 690) >= secondTop) {
+  } else if((scrollTop <= rightTop) || ((scrollTop + 763) >= secondTop)) {
+    if((scrollTop + 750) >= secondTop) {
       $('.right').css('margin-top', secondTop-rightTop-697)
       $('.right').removeClass('location')
     } else {
@@ -48,6 +49,11 @@ var banner = new Swiper('#banner', {
   paginationBulletRender: function(banner, index, className){
     return '<span class="'+ className +'"><img src="'+ Data.pic_url[index].url +'"></span>'
   }, // 自定义分页器
+})
+
+// 点击查看地图
+$('.js_map').on('click', function() {
+  $('html,body').animate({scrollTop: $('#second').offset().top - 60 + 'px'},500)
 })
 
 // 点击导航
@@ -68,7 +74,7 @@ $('.filter div').on('click', function(){
   }
 })
 function navigation(obj) {
-  $('html,body').animate({scrollTop: $(obj).offset().top + 'px'},500)
+  $('html,body').animate({scrollTop: $(obj).offset().top - 60 + 'px'},500)
   // document.getElementById('second').scrollIntoView(true)
 }
 
@@ -190,9 +196,9 @@ function getVal() {
   for(var i = 0; i < list.length; i++) {
     var item = {} // 定义对象存放每一个房源的数据
     item.img = list.eq(i).find('img').attr('src') // 获取图片路径
-    item.area = list.eq(i).find('.listNum>#listArea').html() // 获取面积
-    item.price = list.eq(i).find('.listNum>#listPrice').html() // 获取单价
-    item.total = list.eq(i).find('.listNum>#listTotal').html() // 获取总价
+    item.area = list.eq(i).find('.listNum #listArea').html() // 获取面积
+    item.price = list.eq(i).find('.listNum #listPrice').html() // 获取单价
+    item.total = list.eq(i).find('.listNum #listTotal').html() // 获取总价
     item.feature = list.eq(i).find('#listSpecial').html() // 获取房源特色
     data.push(item)
     // 最多只显示10条数据，其他的隐藏
@@ -210,9 +216,9 @@ function createVal(data) {
   for(var p in data) {
     var list = $(listTemplate).appendTo('.js_listDetail')
     list.find('img').attr('src', data[p].img)
-    list.find('.listNum>#listArea').html(data[p].area)
-    list.find('.listNum>#listPrice').html(data[p].price)
-    list.find('.listNum>#listTotal').html(data[p].total)
+    list.find('.listNum #listArea').html(data[p].area)
+    list.find('.listNum #listPrice').html(data[p].price)
+    list.find('.listNum #listTotal').html(data[p].total)
     list.find('#listSpecial').html(data[p].feature)
     // 最多只显示10条数据，其他的隐藏
     if(p >= 10) {

@@ -8,9 +8,7 @@
 <div class="content">
     <div style="background: #fff">
     <!-- 导航条 -->
-        <div class="nav">
-            <span>首页</span><span>>洪山区</span><span>>光谷</span><span>>现代世贸中心</span>
-        </div>
+    @include('home.layouts.nav', ['arrs'=>$data])
         <!-- 轮播 --> 
         <div class="banner">
             <div class="swiper">
@@ -41,7 +39,11 @@
                     <div>
                         <span>{{$house->total_price}}</span>元/月（单价：{{$house->unit_price_cn}}）
                     </div>
-                    <div class="pircePic"><img src="/home_img/house_detail_collect_before.png"></div>
+                    <div class="pircePic">
+                        <div></div>
+                        <!-- <img class="js_pircePic1" src="/home_img/house_detail_collect_before.png">
+                        <img class="js_pircePic2" src="/home_img/house_detail_collect_after.png"> -->
+                    </div>
                 </div>
                 <!-- 面积 -->
                 <div class="acreage">
@@ -49,8 +51,8 @@
                     <div><span>可容纳工位数</span>{{$house->station_number_cn}}</div>
                     <div><span>装修程度</span>{{$house->renovation_cn}}</div>
                     <div class="address">
-                        <div><span>楼盘地址</span>{{$house->address}}</div>
-                        <a href="#"><img src="/home_img/house_detail_map.png"> 查看地图</a>
+                        <div><span>楼盘地址</span><div class="addressInfor">{{$house->address}}</div></div>
+                        <span class="js_map"><img src="/home_img/house_detail_map.png"> 查看地图</span>
                     </div>
                     <div class="better">
                         @if(!empty($house->house_feature[0]))
@@ -73,10 +75,10 @@
                 <!-- 电话咨询 -->
                 <div class="tel">
                     <div class="agent">
-                        <img src="/we_img/house_detail_banner03.jpg">
+                        <img src="{{$agentInfo->agent_pic}}">
                         <div class="name">
-                            <div class="nameDet">林亚男</div>
-                            <div>光谷楼盘经纪</div>
+                            <div class="nameDet">{{$agentInfo->agent_name}}</div>
+                            <div>{{$agentInfo->name}}商圈经纪</div>
                         </div>
                     </div>
                     <!-- <div class="consult">
@@ -146,7 +148,7 @@
                                     <span class="houseBox">物业费</span><span>{{$house->property_fee}}</span>
                                 </div>
                             </div>
-                            <div class="housePay">
+                            <div class="housePay"  style="margin-left: 0">
                                 <div>
                                     <span class="houseBox">采暖方式</span><span>{{$house->heating}}</span>
                                 </div>
