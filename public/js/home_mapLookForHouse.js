@@ -17655,10 +17655,11 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["c"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["a"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["b"] = getBuildList;
 /* unused harmony export getSiteList */
+/* harmony export (immutable) */ __webpack_exports__["c"] = getCoreBuildList;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(232);
 
 
@@ -17687,6 +17688,15 @@ function getSiteList() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
         url: '/getSiteList',
         methods: 'GET'
+    });
+}
+
+// 根据中心获取楼盘
+function getCoreBuildList(params) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+        url: 'http://192.168.0.110/get_periphery_buildings',
+        methods: 'GET',
+        params: params
     });
 }
 
@@ -19067,6 +19077,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
  // 悬浮窗容器
@@ -19200,7 +19212,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         var _this = this;
 
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["d" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
             }
@@ -19228,11 +19240,33 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     }
                 });
             }
+        },
+        zoom: function zoom(val) {
+            if (val >= 14) {
+                var data = {
+                    x: this.zhongxin.lng,
+                    y: this.zhongxin.lat,
+                    distance: 5
+                };
+                console.log('var', val);
+                // 请求楼盘数据
+                this.getBuild(data);
+            }
         }
     },
     methods: {
         dragging: function dragging(e) {
             this.zhongxin = e.target.getCenter();
+        },
+        dragend: function dragend(val) {
+            if (this.zoom >= 14) {
+                var data = {
+                    x: this.zhongxin.lng,
+                    y: this.zhongxin.lat,
+                    distance: 5
+                    // 请求楼盘数据
+                };this.getBuild(data);
+            }
         },
         ready: function ready(val) {
             this.BMap = val.BMap;
@@ -19285,6 +19319,15 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
                 }, 50);
             });
+        },
+
+        // 根据条件获取数据
+        getBuild: function getBuild(data) {
+            var _this3 = this;
+
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getCoreBuildList */])(data).then(function (res) {
+                _this3.buildList = res.data;
+            });
         }
     }
 });
@@ -19309,7 +19352,7 @@ var render = function() {
         "min-zoom": 12,
         "scroll-wheel-zoom": ""
       },
-      on: { zoomend: _vm.zoomend, dragging: _vm.dragging }
+      on: { zoomend: _vm.zoomend, dragging: _vm.dragging, dragend: _vm.dragend }
     },
     [
       !_vm.subwayKeyword
@@ -19414,7 +19457,7 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.buildList, function(item, index) {
                 return _c(
-                  "self-overlay",
+                  "site-cover",
                   {
                     directives: [
                       {
@@ -19425,7 +19468,12 @@ var render = function() {
                       }
                     ],
                     key: "buildBox" + index,
-                    attrs: { position: { lng: item.x, lat: item.y } }
+                    attrs: {
+                      position: {
+                        lng: parseFloat(item.x),
+                        lat: parseFloat(item.y)
+                      }
+                    }
                   },
                   [
                     _c(
@@ -19438,7 +19486,11 @@ var render = function() {
                           }
                         }
                       },
-                      [_c("span", [_vm._v(_vm._s(item.title))])]
+                      [
+                        _c("div", { staticClass: "triangle" }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(item.name))])
+                      ]
                     )
                   ]
                 )
@@ -19591,7 +19643,11 @@ var render = function() {
             [
               _c("el-col", { attrs: { span: 15 } }, [
                 _c("img", { attrs: { src: "" } }),
-                _vm._v("\n                武汉 为您找到15个楼盘\n            ")
+                _vm._v(
+                  "\n                武汉 为您找到" +
+                    _vm._s(_vm.buildList.length) +
+                    "个楼盘\n            "
+                )
               ]),
               _vm._v(" "),
               _c("el-col", { attrs: { span: 9 } })

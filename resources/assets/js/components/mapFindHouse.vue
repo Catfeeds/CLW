@@ -7,6 +7,7 @@
                scroll-wheel-zoom
                @zoomend='zoomend'
                @dragging='dragging'
+               @dragend='dragend'
     >
         <div v-if='!subwayKeyword'>
             <!--中心点测试-->
@@ -36,9 +37,10 @@
                 </div>
             </self-overlay>
             <!--楼盘浮动矩形-->
-            <self-overlay v-show='zoom>=14' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in buildList"
+            <site-cover v-show='zoom>=14' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}" v-for="(item, index) in buildList"
                           :key="'buildBox'+ index">
                 <div class="areaStyle" @click="seeBuildDetail(item)">
+                    <div class="triangle"></div>
                     <!--<div class="detail">-->
                         <!--<div>-->
                             <!--<img src="" width="200px; height:200px">-->
@@ -47,9 +49,9 @@
                         <!--<div>{{item.title}}</div>-->
                         <!--<div>面积: 57-700㎡</div>-->
                     <!--</div>-->
-                    <span>{{item.title}}</span>
+                    <span>{{item.name}}</span>
                 </div>
-            </self-overlay>
+            </site-cover>
             <!--商圈区块-->
             <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
@@ -133,7 +135,7 @@
             <el-row style="padding: 5px 0px">
                 <el-col :span="15">
                     <img src=""/>
-                    武汉 为您找到15个楼盘
+                    武汉 为您找到{{buildList.length}}个楼盘
                 </el-col>
                 <el-col :span="9">
                     <!--<div class="grid-content bg-purple">-->
@@ -186,7 +188,7 @@
         ElMain = Main,
         ElCascader = Cascader,
         ElInput = Input
-    import {getRegionList, getBlock, getBuildList, getSiteList} from '../home_api'
+    import {getRegionList, getBlock, getBuildList, getSiteList, getCoreBuildList} from '../home_api'
     export default
     {
         components: {
@@ -334,13 +336,38 @@
                         }
                     })
                 }
+            },
+            zoom:function (val) {
+                if(val>=14) {
+                    const data = {
+                        x: this.zhongxin.lng,
+                        y: this.zhongxin.lat,
+                        distance: 5
+                    }
+                    console.log('var', val)
+                    // 请求楼盘数据
+                    this.getBuild(data)
+                }
+
             }
         },
         methods: {
             dragging (e) {
                 this.zhongxin = e.target.getCenter()
+
             },
-            ready(val) {
+            dragend (val) {
+                if(this.zoom>=14) {
+                    const data = {
+                        x: this.zhongxin.lng,
+                        y: this.zhongxin.lat,
+                        distance: 5
+                    }
+                    // 请求楼盘数据
+                    this.getBuild(data)
+                }
+            },
+                ready(val) {
                 this.BMap = val.BMap
                 console.log('11111', this.BMap)
             },
@@ -386,6 +413,12 @@
                     setTimeout(function () {
                         document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000'
                     }, 50)
+                })
+            },
+            // 根据条件获取数据
+            getBuild(data) {
+                getCoreBuildList(data).then(res => {
+                    this.buildList = res.data
                 })
             }
         }
