@@ -61,3 +61,11 @@ export function getLoginCode(tel) {
     method: 'GET'
   })
 }
+// 登录
+export function login(data) {
+  return request({
+    url: '/logins',
+    method: 'POST',
+    data
+  })
+}

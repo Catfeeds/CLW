@@ -26,7 +26,6 @@ class LoginsController extends Controller
         $ip = $request->getClientIp();
 
         //判断redis中是否存在当前访问ip
-        dd(456);
 
         //同一ip地址每天发送20次
         //同一电话每天5次,每小时3次

@@ -10,21 +10,22 @@
         <input type="text" v-model="tel" placeholder="请输入手机号" @blur="validateTel()">
       </div>
       <div class="input-box">
-        <input type="text" v-model="code" placeholder="6位短信验证码">
+        <input type="text" v-model="code" placeholder="4位短信验证码" @blur="validateCode()">
         <div class="sms-btn-box">
-          <button type="button" @click="getCode">获取验证码</button>
+          <button v-if="secondNum<=0" type="button" @click="getCode">获取验证码</button>
+          <button type="button" v-else>{{secondNum}}s后重新发送</button>
         </div>
       </div>
     </form>
     <div style="position:relative">
       <div style="position:absolute">
         <span v-if='!isTel' style="color:red;">·请输入11位手机号</span>
-        <span v-if='!isCode' style="color:red;">·请输入4位验证码</span>
+        <span v-if='!isCode' style="color:red;">·请输入4位短信验证码</span>
       </div>
     </div>
     <el-checkbox style="margin-top:25px;" v-model="checked">7天内免登录</el-checkbox>
     <div class="btn-box">
-      <el-button type="primary">登录</el-button>
+      <el-button type="primary" @click="login">登录</el-button>
     </div>
     <!-- <div class="route-box">
       <a style='float:left' href='javascript:;'>手机快捷登录</a>
@@ -35,8 +36,8 @@
   </el-dialog>
 </template>
 <script>
-import { Dialog, Checkbox, Button } from 'element-ui';
-import { getLoginCode } from '../../../home_api'
+import { Dialog, Checkbox, Button, Message } from 'element-ui';
+import { getLoginCode, login } from '../../../home_api'
 const ElDialog = Dialog
 const ElCheckbox = Checkbox
 const ElButton = Button
@@ -45,6 +46,7 @@ export default {
   data() {
     return {
       active: 1,
+      secondNum: 0,
       isTel: true, // 手机号验证状态 true: 通过 false: 不通过
       isCode: true, // 验证码状态 true: 通过 false: 不通过
       checked: true,
@@ -58,12 +60,26 @@ export default {
       if (!this.isTel) {
         this.validateTel()
       }
+    },
+    code(val) {
+      if (!this.isCode) {
+        this.validateCode()
+      }
+    },
+    secondNum(val) {
+      if (val > 0) {
+        setTimeout(() => {
+          this.secondNum = val -1
+        }, 1000)
+      }
     }
   },
   methods: {
+    // 登录框显示
     show() {
       this.dialogVisible = true
     },
+    // 手机验证
     validateTel() {
       const Repx = /^1\d{10}$/
       if(Repx.test(this.tel)) {
@@ -74,6 +90,7 @@ export default {
         return false
       }
     },
+    // 验证码验证
     validateCode() {
       const Repx = /^\d{4}$/
       if(Repx.test(this.code)) {
@@ -84,10 +101,37 @@ export default {
         return false
       }
     },
+    // 获取验证码
     getCode() {
       if (this.validateTel()) {
+        this.secondNum = 60
         getLoginCode(this.tel).then(res => {
-          console.log(res)
+          Message({
+            message: '短信已发送请耐心等候',
+            type: 'success'
+          })
+        }).catch(() => {
+          Message({
+            message: '短信发送失败',
+            type: 'warning'
+          })
+          this.secondNum = 0
+        })
+      }
+    },
+    // 登录
+    login() {
+      if (this.validateTel() && this.validateCode()) {
+        login({ tel: this.tel, smsCode: this.code }).then(res => {
+          if (res) {
+            Message({
+              message: '登陆成功！即将刷新页面',
+              type: 'success'
+            })
+            setTimeout(() => {
+              window.location.reload()
+            }, 1500)
+          }
         })
       }
     }
@@ -157,6 +201,7 @@ export default {
           position: absolute;
           right: 0;
           background-color: #ffffff;
+          text-align: center;
           button{
             width: 100%;
             padding: 5px 0;
