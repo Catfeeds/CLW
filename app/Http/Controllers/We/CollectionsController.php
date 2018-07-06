@@ -8,7 +8,6 @@ use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
 use App\Services\OfficeBuildingHousesService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CollectionsController extends APIBaseController
