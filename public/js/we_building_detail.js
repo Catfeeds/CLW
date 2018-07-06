@@ -1,12 +1,14 @@
-<<<<<<< HEAD
 webpackJsonp([3],{
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 /***/ 101:
 =======
 >>>>>>> origin/zc
+>>>>>>> origin/master
 /***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44,13 +46,21 @@ new Vue({
 /***/ 75:
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 >>>>>>> origin/wanghao
 >>>>>>> origin/zc
+>>>>>>> origin/master
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(4)
 /* script */
+<<<<<<< HEAD
+var __vue_script__ = __webpack_require__(76)
+/* template */
+var __vue_template__ = __webpack_require__(77)
+=======
 <<<<<<< HEAD
 var __vue_script__ = __webpack_require__(76)
 /* template */
@@ -66,6 +76,7 @@ var __vue_script__ = __webpack_require__(76)
 var __vue_template__ = __webpack_require__(77)
 >>>>>>> origin/wanghao
 >>>>>>> origin/zc
+>>>>>>> origin/master
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -82,7 +93,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\featureBanner.vue"
+Component.options.__file = "resources/assets/js/components/featureBanner.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -91,9 +102,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5959920a", Component.options)
+    hotAPI.createRecord("data-v-8606c78a", Component.options)
   } else {
-    hotAPI.reload("data-v-5959920a", Component.options)
+    hotAPI.reload("data-v-8606c78a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -109,11 +120,15 @@ module.exports = Component.exports
 /***/ 76:
 =======
 <<<<<<< HEAD
+/***/ 76:
+=======
+<<<<<<< HEAD
 /***/ 102:
 =======
 /***/ 76:
 >>>>>>> origin/wanghao
 >>>>>>> origin/zc
+>>>>>>> origin/master
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -152,11 +167,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ 77:
 =======
 <<<<<<< HEAD
+/***/ 77:
+=======
+<<<<<<< HEAD
 /***/ 103:
 =======
 /***/ 77:
 >>>>>>> origin/wanghao
 >>>>>>> origin/zc
+>>>>>>> origin/master
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -185,10 +204,15 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5959920a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-8606c78a", module.exports)
   }
 }
 
+<<<<<<< HEAD
+/***/ })
+
+},[62]);
+=======
 <<<<<<< HEAD
 /***/ })
 
@@ -241,3 +265,4 @@ new Vue({
 =======
 webpackJsonp([3],{62:function(e,t,n){e.exports=n(63)},63:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s=n(9),r=n.n(s);n(0),Vue.component("house-detail-list",n(13)),Vue.component("detail-banner",n(14)),Vue.component("feature-banner",n(75)),Vue.use(r.a,{ak:"GNEfPXFcuuKglYSB8R45IzmhzfjKDclf"}),new Vue({el:"#Vuebuilding",data:{imgList:JSON.parse($("#imgList").val()),features:JSON.parse($("#features").val()),center:JSON.parse($("#gps").val())}})},75:function(e,t,n){var s=n(4)(n(76),n(77),!1,null,null,null);e.exports=s.exports},76:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s=n(11);n.n(s);t.default={props:["list"],components:{swiper:s.swiper,swiperSlide:s.swiperSlide},data:function(){return{options:{slidesPerView:4,slidesPerGroup:4}}}}},77:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("swiper",{attrs:{options:e.options}},e._l(e.list,function(t,s){return n("swiper-slide",{key:"feature"+s,staticStyle:{position:"relative"}},[n("img",{attrs:{src:t.pic}}),e._v(" "),n("h5",[e._v(e._s(t.name))])])}))},staticRenderFns:[]}}},[62]);
 >>>>>>> origin/zxz
+>>>>>>> origin/master

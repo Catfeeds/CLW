@@ -1,26 +1,14 @@
-<<<<<<< HEAD
 webpackJsonp([18],{
 
-<<<<<<< HEAD
-/***/ 138:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(139);
-=======
 /***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(113);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 139:
-=======
 /***/ 113:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -155,11 +143,4 @@ $(window).resize(function () {
 
 /***/ })
 
-<<<<<<< HEAD
-},[138]);
-=======
 },[112]);
->>>>>>> origin/wanghao
-=======
-webpackJsonp([18],{111:function(e,t,s){e.exports=s(112)},112:function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=s(2),o=(s.n(n),s(1));s.n(o);s(0);var a=$("#tel"),r=$("#sms"),i=$("#getSms"),c=!0;$(document).on("click",".loginBtn button",function(e){var t=a.val(),s=r.val();return t&&""!==t.trim()?s&&""!==s.trim()?void $.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/quick_login",type:"post",data:{tel:t,smsCode:s},success:function(e){if(e.success){var t=Object(o.Toast)({message:e.message,position:"center",duration:2e3});setTimeout(function(){t.close(),window.location.href="/user"},1e3)}},error:function(e){Object(o.Toast)({message:e.responseJSON.message,position:"center",duration:2e3})}}):(Object(o.Toast)({message:"请输入验证码",position:"center",duration:2e3}),!1):(Object(o.Toast)({message:"请输入手机号码",position:"center",duration:2e3}),!1)}),$(document).on("click","#getSms",function(e){console.log("censhiceshi ");var t=a.val();if(!t||""===t.trim())return Object(o.Toast)({message:"请输入手机号码",position:"center",duration:2e3}),!1;var s=t+"/login";if(!c)return!1;c=!1,$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/sms/captcha/"+s,type:"get",success:function(e){if(e.success){i.html("120s");var t=setInterval(function(){i.html(parseInt(i.html())-1+"s"),parseInt(i.html())||(c=!0,i.html("获取验证码"),window.clearInterval(t))},1e3);Object(o.Toast)({message:"短信发送成功",position:"center",duration:2e3})}},error:function(e){c=!0,Object(o.Toast)({message:e.responseJSON.message,position:"center",duration:2e3})}})});var u=window.innerHeight;console.log(u),$(window).resize(function(){window.innerHeight<u?($("#agree").removeClass("agree"),$("#agree").addClass("active")):($("#agree").removeClass("active"),$("#agree").addClass("agree"))})}},[111]);
->>>>>>> origin/zxz
