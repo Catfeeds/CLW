@@ -27,12 +27,12 @@ class InformationsController extends Controller
         InformationRepository $repository
     )
     {
-        $hotInformation = $repository->hotInformation();
+        $hot = $repository->hotInformation(); // 热点
         $previous = $repository->previous($information->id);
         $next = $repository->next($information->id);
         return view('home.information_show',[
             'information' =>$information,
-            'hots'=>$hotInformation,
+            'hots'=>$hot,
             'previous' => $previous,
             'next' => $next
         ]);

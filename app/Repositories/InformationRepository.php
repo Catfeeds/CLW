@@ -80,14 +80,14 @@ class InformationRepository extends Model
     public function previous($id)
     {
         $previousId = Information::where('id', '<', $id)->max('id');
-        return Information::where('id', $previousId)->pluck('title','id');
+        return Information::where('id', $previousId)->first();
     }
 
     // 下一条
     public function next($id)
     {
         $nextId = Information::where('id', '>', $id)->min('id');
-        return Information::where('id', $nextId)->pluck('title','id');
+        return Information::where('id', $nextId)->first();
     }
     
 }
