@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\PC;
 
-use App\Http\Requests\App\CollectionsRequest;
+use App\Http\Requests\WeChat\CollectionsRequest;
 use App\Models\Collection;
 use App\Repositories\CollectionsRepository;
 use App\Services\OfficeBuildingHousesService;
@@ -46,7 +46,7 @@ class CollectionsController extends Controller
     //房源详情取消收藏
     public function del($id)
     {
-        // $user = Session::get('user');
+//        $user = Session::get('user');
         $res = Collection::where(['user_id' => 1, 'house_id' => $id])->delete();
         return $this->sendResponse($res, '收藏取消成功');
     }

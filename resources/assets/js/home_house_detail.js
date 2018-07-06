@@ -61,12 +61,12 @@ $('#next').on('click', function() {
 // 页面滚动
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()
-  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 420) < secondTop)) {
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 595) < secondTop)) {
     $('.findHouse').addClass('location')
     $('.findHouse').css('margin-top', '20px')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 420) >= secondTop)) {
-    if((scrollTop + 420) >= secondTop) {
-      $('.findHouse').css('margin-top', secondTop-rightTop-335)
+  } else if((scrollTop <= rightTop) || ((scrollTop + 595) >= secondTop)) {
+    if((scrollTop + 595) >= secondTop) {
+      $('.findHouse').css('margin-top', secondTop-rightTop-518)
       $('.findHouse').removeClass('location')
     } else {
       $('.findHouse').removeClass('location')
