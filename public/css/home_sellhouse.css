@@ -329,12 +329,16 @@ nav.transition .nav-content .login-box .user-login-box div.active-line {
   width: 1px;
   height: 15px;
   background-color: #959393;
-  margin-top: 8px;
+  margin-top: 10px;
+}
+
+nav.active .nav-content .login-box .user-login-box a,
+nav.transition .nav-content .login-box .user-login-box a {
+  font-size: 14px;
 }
 
 nav.active .nav-content .login-box .user-login-box a.register-a,
 nav.transition .nav-content .login-box .user-login-box a.register-a {
-  font-size: 14px;
   color: #007bff;
   margin-right: 0;
   height: 32px;
@@ -348,9 +352,17 @@ nav.transition .nav-content .login-box .user-login-box a.register-a img {
   margin-right: 5px;
 }
 
+nav.active .nav-content .login-box .user-login-box a.logout-a,
+nav.transition .nav-content .login-box .user-login-box a.logout-a {
+  padding-top: 2px;
+  height: 32px;
+  line-height: 32px;
+  color: #007bff;
+  margin-left: 5px;
+}
+
 nav.active .nav-content .login-box .user-login-box a.login-a,
 nav.transition .nav-content .login-box .user-login-box a.login-a {
-  font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
@@ -477,6 +489,17 @@ nav .nav-content .login-box .user-login-box a {
 
 nav .nav-content .login-box .user-login-box a.register-a {
   margin-right: 20px;
+  height: 34px;
+  line-height: 34px;
+}
+
+nav .nav-content .login-box .user-login-box a.register-a img {
+  position: relative;
+  top: 1px;
+  left: -5px;
+}
+
+nav .nav-content .login-box .user-login-box a.logout-a {
   height: 34px;
   line-height: 34px;
 }

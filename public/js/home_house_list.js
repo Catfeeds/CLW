@@ -1560,7 +1560,7 @@ module.exports = __webpack_require__(274);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_login__ = __webpack_require__(25);
 __webpack_require__(24);
-
+ // 登录组件
 // 根据参数拼接url地址
 function createURL(url, param) {
     var link = '';
@@ -1591,15 +1591,14 @@ for (var key in data) {
         var dom = '.' + key;
         if ($(dom).length == 0) continue;
         condition = true;
+        var html = '';
         if ($(dom).length !== 1) {
-            html = '';
             $(dom).each(function () {
                 html += '<div class="selected js_special">' + $(this).data('content') + '<span data-dom="' + $(this).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
             });
         } else {
             html = '<div class="selected js_special">' + $(dom).data('content') + '<span data-dom="' + $(dom).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
         }
-
         $('.selected_box').append(html);
     }
 }
