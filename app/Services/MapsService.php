@@ -21,7 +21,7 @@ class MapsService
         }
 
         $buildings = collect($buildings)->collapse()->all();
-        
+
         array_unique($buildings);
 
         dump($buildings);

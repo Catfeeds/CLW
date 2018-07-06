@@ -217,16 +217,17 @@ textarea {
 }
 
 * {
-  font-family: PingFang-SC-Regular, Source Han Sans CN,Arial,'Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeiti,SimHei,sans-serif;
+  font-family: PingFang-SC-Light;
   font-size: 14px;
   font-weight: normal;
   list-style: none;
   padding: 0;
+  color: #333333;
 }
 
 html,
 body {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 
 a[href] {
@@ -253,42 +254,76 @@ body {
   padding-top: 61px;
 }
 
+body.el-popup-parent--hidden nav .nav-content {
+  padding-right: 15px;
+}
+
+nav.active.transition,
+nav.transition {
+  top: 0;
+}
+
 nav {
   width: 100%;
   position: absolute;
-  z-index: 6;
+  z-index: 999;
 }
 
-nav.active {
+nav.active,
+nav.transition {
   background-color: #fff;
   position: fixed;
   top: 0;
   border-bottom: 1px solid #ededed;
 }
 
-nav.active img.fade {
+nav.active img.fade,
+nav.transition img.fade {
   display: none;
 }
 
-nav.active img.active {
+nav.active img.active,
+nav.transition img.active {
   display: block;
 }
 
-nav.active .nav-content {
+nav.active .nav-content,
+nav.transition .nav-content {
   padding: 10px 0;
 }
 
-nav.active .nav-content .nav-list .nav-item a {
+nav.active .nav-content .logo-box,
+nav.transition .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
+nav.active .nav-content .nav-list .nav-item a,
+nav.transition .nav-content .nav-list .nav-item a {
   color: #666666;
-  font-family: NotoSansHans-Regular;
   font-size: 14px;
 }
 
-nav.active .nav-content .login-box .tel-box {
-  width: 196px;
+nav.active .nav-content .nav-list .nav-item a:hover,
+nav.transition .nav-content .nav-list .nav-item a:hover {
+  color: #007bff;
+  opacity: 1;
 }
 
-nav.active .nav-content .login-box .user-login-box div.active-line {
+nav.active .nav-content .login-box .tel-box,
+nav.transition .nav-content .login-box .tel-box {
+  width: 196px;
+  height: 24px;
+}
+
+nav.active .nav-content .login-box .tel-box span,
+nav.transition .nav-content .login-box .tel-box span {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box div.active-line,
+nav.transition .nav-content .login-box .user-login-box div.active-line {
   display: block;
   float: left;
   width: 1px;
@@ -297,8 +332,8 @@ nav.active .nav-content .login-box .user-login-box div.active-line {
   margin-top: 8px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.register-a,
+nav.transition .nav-content .login-box .user-login-box a.register-a {
   font-size: 14px;
   color: #007bff;
   margin-right: 0;
@@ -307,18 +342,44 @@ nav.active .nav-content .login-box .user-login-box a.register-a {
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a img {
+nav.active .nav-content .login-box .user-login-box a.register-a img,
+nav.transition .nav-content .login-box .user-login-box a.register-a img {
   margin-top: 8px;
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.login-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.login-a,
+nav.transition .nav-content .login-box .user-login-box a.login-a {
   font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
   margin-left: 5px;
+  line-height: 38px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a img,
+nav.transition .nav-content .login-box .user-login-box a.login-a img {
+  margin-top: 11px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a:hover,
+nav.transition .nav-content .login-box .user-login-box a.login-a:hover {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a::after,
+nav.transition .nav-content .login-box .user-login-box a.login-a::after {
+  width: 0 !important;
+}
+
+nav.transition {
+  top: -61px;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
 }
 
 nav img.fade {
@@ -339,9 +400,10 @@ nav .nav-content {
 
 nav .nav-content .logo-box {
   float: left;
+  display: block;
   margin-right: 60px;
-  width: 180px;
-  height: 40px;
+  width: 170px;
+  height: 24px;
 }
 
 nav .nav-content .logo-box img {
@@ -366,6 +428,10 @@ nav .nav-content .nav-list .nav-item a {
   font-size: 16px;
 }
 
+nav .nav-content .nav-list .nav-item a:hover {
+  opacity: 0.8;
+}
+
 nav .nav-content .login-box {
   float: right;
   height: 40px;
@@ -373,15 +439,24 @@ nav .nav-content .login-box {
 
 nav .nav-content .login-box .tel-box {
   float: left;
-  margin-top: 8px;
+  margin-top: 5px;
   margin-right: 30px;
-  width: 175px;
+  width: 200px;
   height: 25px;
 }
 
 nav .nav-content .login-box .tel-box img {
-  height: 100%;
   max-width: none;
+  float: left;
+  margin-top: 7px;
+  margin-right: 10px;
+}
+
+nav .nav-content .login-box .tel-box span {
+  float: left;
+  color: #fff;
+  font-family: Georgia;
+  font-size: 24px;
 }
 
 nav .nav-content .login-box .user-login-box {
@@ -412,7 +487,32 @@ nav .nav-content .login-box .user-login-box a.login-a {
   line-height: 32px;
   text-align: center;
   border-radius: 18px;
-  border: solid 1px #eeeded;
+  border: 1px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a::after {
+  content: "";
+  background: #007bff;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover {
+  border-color: #007bff;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover::after {
+  width: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -634,16 +734,17 @@ textarea {
 }
 
 * {
-  font-family: PingFang-SC-Regular, Source Han Sans CN,Arial,'Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeiti,SimHei,sans-serif;
+  font-family: PingFang-SC-Light;
   font-size: 14px;
   font-weight: normal;
   list-style: none;
   padding: 0;
+  color: #333333;
 }
 
 html,
 body {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 
 a[href] {
@@ -670,42 +771,76 @@ body {
   padding-top: 61px;
 }
 
+body.el-popup-parent--hidden nav .nav-content {
+  padding-right: 15px;
+}
+
+nav.active.transition,
+nav.transition {
+  top: 0;
+}
+
 nav {
   width: 100%;
   position: absolute;
-  z-index: 6;
+  z-index: 999;
 }
 
-nav.active {
+nav.active,
+nav.transition {
   background-color: #fff;
   position: fixed;
   top: 0;
   border-bottom: 1px solid #ededed;
 }
 
-nav.active img.fade {
+nav.active img.fade,
+nav.transition img.fade {
   display: none;
 }
 
-nav.active img.active {
+nav.active img.active,
+nav.transition img.active {
   display: block;
 }
 
-nav.active .nav-content {
+nav.active .nav-content,
+nav.transition .nav-content {
   padding: 10px 0;
 }
 
-nav.active .nav-content .nav-list .nav-item a {
+nav.active .nav-content .logo-box,
+nav.transition .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
+nav.active .nav-content .nav-list .nav-item a,
+nav.transition .nav-content .nav-list .nav-item a {
   color: #666666;
-  font-family: NotoSansHans-Regular;
   font-size: 14px;
 }
 
-nav.active .nav-content .login-box .tel-box {
-  width: 196px;
+nav.active .nav-content .nav-list .nav-item a:hover,
+nav.transition .nav-content .nav-list .nav-item a:hover {
+  color: #007bff;
+  opacity: 1;
 }
 
-nav.active .nav-content .login-box .user-login-box div.active-line {
+nav.active .nav-content .login-box .tel-box,
+nav.transition .nav-content .login-box .tel-box {
+  width: 196px;
+  height: 24px;
+}
+
+nav.active .nav-content .login-box .tel-box span,
+nav.transition .nav-content .login-box .tel-box span {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box div.active-line,
+nav.transition .nav-content .login-box .user-login-box div.active-line {
   display: block;
   float: left;
   width: 1px;
@@ -714,8 +849,8 @@ nav.active .nav-content .login-box .user-login-box div.active-line {
   margin-top: 8px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.register-a,
+nav.transition .nav-content .login-box .user-login-box a.register-a {
   font-size: 14px;
   color: #007bff;
   margin-right: 0;
@@ -724,18 +859,44 @@ nav.active .nav-content .login-box .user-login-box a.register-a {
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a img {
+nav.active .nav-content .login-box .user-login-box a.register-a img,
+nav.transition .nav-content .login-box .user-login-box a.register-a img {
   margin-top: 8px;
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.login-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.login-a,
+nav.transition .nav-content .login-box .user-login-box a.login-a {
   font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
   margin-left: 5px;
+  line-height: 38px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a img,
+nav.transition .nav-content .login-box .user-login-box a.login-a img {
+  margin-top: 11px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a:hover,
+nav.transition .nav-content .login-box .user-login-box a.login-a:hover {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a::after,
+nav.transition .nav-content .login-box .user-login-box a.login-a::after {
+  width: 0 !important;
+}
+
+nav.transition {
+  top: -61px;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
 }
 
 nav img.fade {
@@ -756,9 +917,10 @@ nav .nav-content {
 
 nav .nav-content .logo-box {
   float: left;
+  display: block;
   margin-right: 60px;
-  width: 180px;
-  height: 40px;
+  width: 170px;
+  height: 24px;
 }
 
 nav .nav-content .logo-box img {
@@ -783,6 +945,10 @@ nav .nav-content .nav-list .nav-item a {
   font-size: 16px;
 }
 
+nav .nav-content .nav-list .nav-item a:hover {
+  opacity: 0.8;
+}
+
 nav .nav-content .login-box {
   float: right;
   height: 40px;
@@ -790,15 +956,24 @@ nav .nav-content .login-box {
 
 nav .nav-content .login-box .tel-box {
   float: left;
-  margin-top: 8px;
+  margin-top: 5px;
   margin-right: 30px;
-  width: 175px;
+  width: 200px;
   height: 25px;
 }
 
 nav .nav-content .login-box .tel-box img {
-  height: 100%;
   max-width: none;
+  float: left;
+  margin-top: 7px;
+  margin-right: 10px;
+}
+
+nav .nav-content .login-box .tel-box span {
+  float: left;
+  color: #fff;
+  font-family: Georgia;
+  font-size: 24px;
 }
 
 nav .nav-content .login-box .user-login-box {
@@ -829,7 +1004,32 @@ nav .nav-content .login-box .user-login-box a.login-a {
   line-height: 32px;
   text-align: center;
   border-radius: 18px;
-  border: solid 1px #eeeded;
+  border: 1px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a::after {
+  content: "";
+  background: #007bff;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover {
+  border-color: #007bff;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover::after {
+  width: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 html {

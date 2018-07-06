@@ -12,18 +12,14 @@ Route::resource('office_building_houses', 'OfficeBuildingHousesController');
 //资讯
 Route::resource('information','InformationsController');
 
-//登录页面
+//登录
 Route::resource('logins','LoginsController');
 
 //退出登录
 Route::get('logout','LoginsController@logout');
 
-//注册
-Route::resource('registers', 'RegistersController');
-//生成验证码
-Route::get('captcha/{tmp}','RegistersController@captcha');
 //获取手机验证码
-Route::get('/sms/captcha/{tel}/{tmp}/{code}', 'RegistersController@getSmsCode');
+Route::get('sms/captcha/{tel}/{tmp}', 'LoginsController@smsCode');
 
 // 楼盘列表视图页
 Route::get('building_list', 'BuildingsController@buildingList');
@@ -36,4 +32,10 @@ Route::resource('bespeaks', 'BespeaksController');
 Route::resource('throw_ins', 'ThrowInsController');
 
 Route::post('get_periphery_buildings','MapsController@getPeripheryBuildings');
+//收藏
+Route::resource('collections', 'CollectionsController');
+//房源详情取消收藏
+Route::get('del/{id}', 'CollectionsController@del');
+
+
 

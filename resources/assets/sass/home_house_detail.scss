@@ -39,8 +39,9 @@
         display: flex;
         justify-content: space-between;
         margin-top: 12px;
+        margin-bottom: 25px;
         #smallImg{
-          width: 615px;
+          width: 622px;
           margin-top: 2px;
           height: 70px;
           .swiper-slide{
@@ -58,7 +59,7 @@
         font-size: 22px;
         font-weight: 600;
         line-height: 32px;
-        color: #444;
+        color: #666;
       }
       .price{
         padding: 20px 0 25px 0;
@@ -66,26 +67,49 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #dbdbdb;
-        span{
-          color: $master-blue;
-          font-weight: 600;
-          font-size: 30px;
+        div{
+          color: #666;
+          span{
+            color: $master-blue;
+            font-weight: 600;
+            font-size: 30px;
+          }
         }
-        .pircePic{
-          margin-top: 6px;
-          width: 26px;
-          height: 26px;
-          border: solid 1px #eeeded;
-          border-radius: 50%;
-          line-height: 28px;
-          text-align: center;
+        .collect{
+          display: flex;
+          justify-content: flex-start;
+          margin-right: 30px;
+          .pircePic{
+            margin-top: 6px;
+            width: 26px;
+            height: 26px;
+            border: solid 1px #eeeded;
+            border-radius: 50%;
+            div{
+              margin: 5px;
+              width: 16px;
+              height: 15px;
+              background: url(/home_img/house_detail_collect_before.png) no-repeat;
+            }
+            &:hover{
+              cursor: pointer;
+              div{
+                background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
+              }
+            }
+          }
+          .collectTitle{
+            height: 15px;
+            margin-top: 11px;
+            margin-left: 5px;
+          }
         }
       }
       .acreage{
         padding: 25px 0;
         border-bottom: 1px solid #eeeded;
         div{
-          color: #464545;
+          color: #666;
           margin-bottom: 16px;
           span{
             display: inline-block;
@@ -97,14 +121,24 @@
           display: flex;
           justify-content: space-between;
           margin-bottom: 0;
-          a{
-            text-decoration: none;
+          div{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0;
+            .addressInfor{
+              width: 220px;
+            }
+          }
+          .js_map{
             color: $master-blue;
-            @extend .font-level2;
+            width: 84px;
             img{
               width: 20px;
               height: 18px;
               vertical-align: text-bottom;
+            }
+            &:hover{
+              cursor: pointer;
             }
           }
         }
@@ -154,10 +188,11 @@
              margin-top: 15px;
              div{
                @extend .font-level1;
+               color: #666;
              }
              .nameDet{
                font-size: 24px;
-               color: #4c4d4d;
+               color: #666;
                margin-bottom: 13px;
              }
            }
@@ -173,9 +208,6 @@
             @extend .font-level1;
           }
         }
-      }
-      .button{
-
       }
     }
   }
@@ -206,24 +238,29 @@
               div{
                 display: flex;
                 justify-content: flex-start;
-                color: #444545;
                 line-height: 28px;
+                width: 350px;
                 .houseBox{
                   width: 85px;
                   color: #bab8ba;
                 }
+                span{
+                  color: #666;
+                }
               }
             }
             .houseType{
-              margin: 23px 0 0 130px;
+              margin-top: 23px;
               div{
                 display: flex;
                 justify-content: flex-start;
-                color: #444545;
                 line-height: 28px;
                 .houseBox1{
                   width: 55px;
                   color: #bab8ba;
+                }
+                span{
+                  color: #666;
                 }
               }
             }
@@ -244,30 +281,13 @@
         }
         .findHouse{
           margin-top: 20px;
-          position: relative;
-          .entrust{
-            width: 86%;
-            position: absolute;
-            top: 225px;
-            left: 6%;
-            input{
-              width: 100%;
-            }
-            .order{
-              margin: 0 auto;
-              margin-top: 40px;
-              height: 40px;
-              border-radius: 20px;
-              width: 53%;
-              background: #03a2fb;
-              text-align: center;
-              line-height: 40px;
-              color: #fff;
-            }
-            .order:hover{
-              cursor: pointer;
-            }
-          }
+          width: 240px;
+          height: 335px;
+        }
+        .location{
+          position: fixed;
+          top: 40px;
+          margin-left: 960px;
         }
       }
     }
@@ -307,12 +327,12 @@
             width: 239px;
             border: 1px solid #e6e6e6;
             border-top: none;
-            padding: 15px 12px;
+            padding: 20px 12px 10px 12px;
             .enjoyTitle{
               @extend .font-level3;
               color: #444545;
-              margin-bottom: 16px;
-              font-weight: 600;
+              margin-bottom: 8px;
+              // font-weight: 600;
             }
             .enjoyIntro{
               display: flex;

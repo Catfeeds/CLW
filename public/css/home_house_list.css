@@ -217,16 +217,17 @@ textarea {
 }
 
 * {
-  font-family: PingFang-SC-Regular, Source Han Sans CN,Arial,'Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeiti,SimHei,sans-serif;
+  font-family: PingFang-SC-Light;
   font-size: 14px;
   font-weight: normal;
   list-style: none;
   padding: 0;
+  color: #333333;
 }
 
 html,
 body {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 
 a[href] {
@@ -253,42 +254,76 @@ body {
   padding-top: 61px;
 }
 
+body.el-popup-parent--hidden nav .nav-content {
+  padding-right: 15px;
+}
+
+nav.active.transition,
+nav.transition {
+  top: 0;
+}
+
 nav {
   width: 100%;
   position: absolute;
-  z-index: 6;
+  z-index: 999;
 }
 
-nav.active {
+nav.active,
+nav.transition {
   background-color: #fff;
   position: fixed;
   top: 0;
   border-bottom: 1px solid #ededed;
 }
 
-nav.active img.fade {
+nav.active img.fade,
+nav.transition img.fade {
   display: none;
 }
 
-nav.active img.active {
+nav.active img.active,
+nav.transition img.active {
   display: block;
 }
 
-nav.active .nav-content {
+nav.active .nav-content,
+nav.transition .nav-content {
   padding: 10px 0;
 }
 
-nav.active .nav-content .nav-list .nav-item a {
+nav.active .nav-content .logo-box,
+nav.transition .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
+nav.active .nav-content .nav-list .nav-item a,
+nav.transition .nav-content .nav-list .nav-item a {
   color: #666666;
-  font-family: NotoSansHans-Regular;
   font-size: 14px;
 }
 
-nav.active .nav-content .login-box .tel-box {
-  width: 196px;
+nav.active .nav-content .nav-list .nav-item a:hover,
+nav.transition .nav-content .nav-list .nav-item a:hover {
+  color: #007bff;
+  opacity: 1;
 }
 
-nav.active .nav-content .login-box .user-login-box div.active-line {
+nav.active .nav-content .login-box .tel-box,
+nav.transition .nav-content .login-box .tel-box {
+  width: 196px;
+  height: 24px;
+}
+
+nav.active .nav-content .login-box .tel-box span,
+nav.transition .nav-content .login-box .tel-box span {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box div.active-line,
+nav.transition .nav-content .login-box .user-login-box div.active-line {
   display: block;
   float: left;
   width: 1px;
@@ -297,8 +332,8 @@ nav.active .nav-content .login-box .user-login-box div.active-line {
   margin-top: 8px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.register-a,
+nav.transition .nav-content .login-box .user-login-box a.register-a {
   font-size: 14px;
   color: #007bff;
   margin-right: 0;
@@ -307,18 +342,44 @@ nav.active .nav-content .login-box .user-login-box a.register-a {
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.register-a img {
+nav.active .nav-content .login-box .user-login-box a.register-a img,
+nav.transition .nav-content .login-box .user-login-box a.register-a img {
   margin-top: 8px;
   margin-right: 5px;
 }
 
-nav.active .nav-content .login-box .user-login-box a.login-a {
-  font-family: NotoSansHans-Light;
+nav.active .nav-content .login-box .user-login-box a.login-a,
+nav.transition .nav-content .login-box .user-login-box a.login-a {
   font-size: 14px;
   color: #959393;
   border: none;
   width: auto;
   margin-left: 5px;
+  line-height: 38px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a img,
+nav.transition .nav-content .login-box .user-login-box a.login-a img {
+  margin-top: 11px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a:hover,
+nav.transition .nav-content .login-box .user-login-box a.login-a:hover {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a::after,
+nav.transition .nav-content .login-box .user-login-box a.login-a::after {
+  width: 0 !important;
+}
+
+nav.transition {
+  top: -61px;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
 }
 
 nav img.fade {
@@ -339,9 +400,10 @@ nav .nav-content {
 
 nav .nav-content .logo-box {
   float: left;
+  display: block;
   margin-right: 60px;
-  width: 180px;
-  height: 40px;
+  width: 170px;
+  height: 24px;
 }
 
 nav .nav-content .logo-box img {
@@ -366,6 +428,10 @@ nav .nav-content .nav-list .nav-item a {
   font-size: 16px;
 }
 
+nav .nav-content .nav-list .nav-item a:hover {
+  opacity: 0.8;
+}
+
 nav .nav-content .login-box {
   float: right;
   height: 40px;
@@ -373,15 +439,24 @@ nav .nav-content .login-box {
 
 nav .nav-content .login-box .tel-box {
   float: left;
-  margin-top: 8px;
+  margin-top: 5px;
   margin-right: 30px;
-  width: 175px;
+  width: 200px;
   height: 25px;
 }
 
 nav .nav-content .login-box .tel-box img {
-  height: 100%;
   max-width: none;
+  float: left;
+  margin-top: 7px;
+  margin-right: 10px;
+}
+
+nav .nav-content .login-box .tel-box span {
+  float: left;
+  color: #fff;
+  font-family: Georgia;
+  font-size: 24px;
 }
 
 nav .nav-content .login-box .user-login-box {
@@ -412,7 +487,32 @@ nav .nav-content .login-box .user-login-box a.login-a {
   line-height: 32px;
   text-align: center;
   border-radius: 18px;
-  border: solid 1px #eeeded;
+  border: 1px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a::after {
+  content: "";
+  background: #007bff;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover {
+  border-color: #007bff;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover::after {
+  width: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 a {
@@ -521,7 +621,7 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_b
   width: 74px;
   height: 34px;
   border: none;
-  background-color: #03a2fb;
+  background-color: #007bff;
   border-radius: 0 25px 25px 0;
   outline: none;
   position: relative;
@@ -576,12 +676,37 @@ body .house_list_container .house_list_content .select_box .select_area ul::afte
   height: 0;
 }
 
+body .house_list_container .house_list_content .select_box .select_area .area ul.list a.js_area_sel {
+  position: relative;
+}
+
+body .house_list_container .house_list_content .select_box .select_area .area ul.list a.current::before {
+  bottom: -13px;
+  left: 8px;
+  position: absolute;
+  content: "";
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f5f5f5;
+}
+
+body .house_list_container .house_list_content .select_box .select_area .area ul.list a.current::after {
+  bottom: -14px;
+  left: 8px;
+  position: absolute;
+  content: "";
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f6fafe;
+}
+
 body .house_list_container .house_list_content .select_box .select_area .area .area_detail,
 body .house_list_container .house_list_content .select_box .select_area .acverge .area_detail,
 body .house_list_container .house_list_content .select_box .select_area .price .area_detail,
 body .house_list_container .house_list_content .select_box .select_area .decoration .area_detail,
 body .house_list_container .house_list_content .select_box .select_area .special .area_detail {
   background-color: rgba(238,246,255,0.5);
+  padding-left: 54px;
 }
 
 body .house_list_container .house_list_content .select_box .select_area .area .area_detail a,
@@ -644,11 +769,9 @@ body .house_list_container .house_list_content .select_box .select_area .special
 
 body .house_list_container .house_list_content .select_box .select_area .result {
   border-top: 1px solid #f5f5f5;
-  margin-top: 10px;
+  padding-top: 15px;
+  margin-bottom: 5px;
   width: 100%;
-  height: 20px;
-  line-height: 18px;
-  margin-bottom: 10px;
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .title {
@@ -659,6 +782,7 @@ body .house_list_container .house_list_content .select_box .select_area .result 
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .selected_box .selected {
+  margin-top: 2px;
   float: left;
   margin-right: 30px;
   font-size: 12px;
@@ -669,28 +793,35 @@ body .house_list_container .house_list_content .select_box .select_area .result 
   padding: 4px 10px;
   color: #b2b2b2;
   background-color: rgba(238,246,255,0.5);
-}
-
-body .house_list_container .house_list_content .select_box .select_area .result .selected_box .selected span {
   cursor: pointer;
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning {
   width: 40px;
   position: relative;
-  line-height: 30px;
+  line-height: 34px;
 }
 
-body .house_list_container .house_list_content .select_box .select_area .result .cleaning img {
-  width: 13px;
-  height: 12px;
+body .house_list_container .house_list_content .select_box .select_area .result .cleaning .icon_clean {
+  width: 14px;
+  height: 14px;
   left: -2px;
   top: 9px;
   position: absolute;
+  background: url(/home_img/rubish.svg);
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning a {
+  font-size: 12px;
   color: #333;
+}
+
+body .house_list_container .house_list_content .select_box .select_area .result .cleaning a:hover {
+  color: #007bff;
+}
+
+body .house_list_container .house_list_content .select_box .select_area .result .cleaning:hover .icon_clean {
+  background: url(/home_img/rubish1.svg);
 }
 
 body .house_list_container .house_list_content .house_list {
@@ -750,11 +881,15 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   border-right: 1px solid #ededed;
   border-left: 1px solid #ededed;
   min-width: 60px;
-  background-color: #007bff;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_default a {
-  color: #fff;
+  color: #878585;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sore_default:hover a,
+body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price:hover a {
+  color: #007bff;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price {
@@ -778,7 +913,7 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   font-size: 10px;
   position: absolute;
   left: 60px;
-  top: 2px;
+  top: 1px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .order_price .down {
@@ -799,10 +934,16 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  height: 199px;
+  height: 180px;
+  width: 240px;
   margin-right: 22px;
   background-color: #ccc;
   position: relative;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .img_box .house_img {
+  width: 100%;
+  height: 100%;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .img_box .first_select {
@@ -815,17 +956,21 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
-  height: 199px;
-  padding-top: 20px;
+  padding: 5px 0;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_name {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_name .name {
   font-size: 22px;
   color: #000;
+  cursor: pointer;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_name .name:hover {
+  color: #007bff;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_name .js_tao {
@@ -849,11 +994,11 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_acverge {
   font-size: 14px;
   color: #5d5c5c;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_acverge {
-  margin-bottom: 27px;
+  margin-bottom: 18px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .acverge_select {
@@ -990,15 +1135,47 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination {
   width: 100%;
-  height: 50px;
   background-color: #fff;
   margin-top: 20px;
-  padding-top: 5px;
-  padding-left: 354px;
+  padding: 25px 0;
+  border-radius: 0;
+  text-align: center;
 }
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination {
-  width: 300px;
+  display: inline-block;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li {
+  float: left;
+  width: 40px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: #fefefe;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li a {
+  color: #989898;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li span {
+  color: #989898;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.active {
+  background-color: #007bff;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.active a {
+  color: #fff;
+}
+
+body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li.disabled {
+  cursor: not-allowed;
 }
 
 body .house_list_container .house_list_content .house_list .rent_house {
@@ -1127,10 +1304,10 @@ body .house_list_container .house_list_content .house_list .rent_house .rent_des
 }
 
 .icon-tick {
-  background: url("/home_img/tick.svg");
+  background: url("/home_img/tick.svg") no-repeat;
 }
 
 .icon-untick {
-  background: url("/home_img/untick.svg");
+  background: url("/home_img/untick.svg") no-repeat;
 }
 

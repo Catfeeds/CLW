@@ -22,11 +22,17 @@ class OfficeBuildingHousesController extends Controller
         $rimHouse = $buildingHousesRepository->getShowOffice($service, $officeBuildingHouse->id)->take(4);
         //房源所属商圈
         $block = $house->buildingBlock->building->block;
-        $data[$block->area_id] = $block->area->name;
-        $data[$block->id] = $block->name;
         //房源所属楼盘
         $building = $house->buildingBlock->building;
-        $data[$building->id] = $building->name;
+        $data[0]['id'] = $block->area_id;
+        $data[0]['name'] = $block->area->name;
+        $data[1]['id'] = $block->id;
+        $data[1]['name'] = $block->name;
+        $data[2]['id'] = $building->id;
+        $data[2]['name'] = $building->name;
+        $data[3]['id'] = $building->id;
+        $data[3]['name'] = $building->name;
+        
         return view('home.house_detail', [
             'house' => $house,
             'rimHouse' => $rimHouse,
