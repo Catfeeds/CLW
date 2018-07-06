@@ -1,6 +1,6 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-//@include nav();
+@include nav();
 ul {
   list-style: none;
   margin: 0px;
