@@ -1,4 +1,5 @@
 require('./home_common');
+import './components/home/login'
 // 根据参数拼接url地址
 function createURL(url, param) {
     var link = '';

@@ -156,10 +156,25 @@ body {
           font-size: 24px;
           text-align: center;
           line-height: 57px;
-          border-radius: 4px;
-          text-decoration: none;
-          &:hover{
+          border-radius: 30px;
+          position: relative;
+          z-index: 3;
+          overflow: hidden;
+          &::after{
             background-color: $master-hoverBlue;
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            z-index: -1;
+            transition: all .5s ease;
+          }
+          &:hover{
+            &::after{
+              width: 100%;
+            }
           }
         }
       }
@@ -236,12 +251,33 @@ body {
             margin-top: 30px;
             width: 190px;
             height: 44px;
-            border-radius: 21px;
+            border-radius: 25px;
             border: solid 1px #ffffff;
             display: inline-block;
             font-family: PingFang-SC-Medium;
             font-size: 16px;
             line-height: 44px;
+            position: relative;
+            z-index: 3;
+            overflow: hidden;
+            transition: all .5s ease;
+            &::after{
+              background-color: $master-blue;
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              z-index: -1;
+              transition: all .5s ease;
+            }
+            &:hover{
+              border-color: $master-blue;
+              &::after{
+                width: 100%;
+              }
+            }
           }
         }
         .launchHouse-box{
@@ -696,6 +732,7 @@ body {
         }
       }
     }
+    // 查看更多按钮
     .more-info{
       width: 180px;
       height: 46px;
@@ -712,9 +749,26 @@ body {
       text-align: center;
       line-height: 46px;
       margin-top: 60px;
-      &:hover{
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+      transition: all .5s ease;
+      &::after{
         background-color: $master-blue;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        z-index: -1;
+        transition: all .5s ease;
+      }
+      &:hover{
         color: #ffffff;
+        &::after{
+          width: 100%;
+        }
       }
     }
   }

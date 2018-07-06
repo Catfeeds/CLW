@@ -78,6 +78,11 @@
                 margin-left: 5px;
                 line-height: 38px;
                 background-color: transparent;
+                border-radius: 0;
+                img{
+                  margin-top: 11px;
+                  margin-right: 5px;
+                }
                 &:hover{
                   color: $master-blue;
                 }
@@ -171,13 +176,14 @@
               line-height: 32px;
               text-align: center;
               border-radius: 18px;
-              background-color: $master-blue;
+              border: 1px solid #ffffff;
               position: relative;
               overflow: hidden;
               z-index: 3;
+              transition: all .5s ease;
               &::after{
                 content: "";
-                background: $master-hoverBlue;
+                background: $master-blue;
                 display: block;
                 position: absolute;
                 height: 100%;
@@ -187,10 +193,10 @@
                 width: 0;
               }
               &:hover{
-                transition: all .3s ease;
+                border-color: $master-blue;
                 &::after{
                   width: 100%;
-                  transition: all .3s ease;
+                  transition: all .5s ease;
                 }
               }
             }

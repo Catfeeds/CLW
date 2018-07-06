@@ -1,4 +1,5 @@
 require('./home_common')
+import './components/home/login'
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')

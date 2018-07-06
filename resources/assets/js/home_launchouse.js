@@ -1,5 +1,6 @@
 require('./home_common');
 require('jquery-validation');
+import './components/home/login'
 const url = process.env.homeHostUrl
 console.log('url', url)
 var type = $("#commentForm").validate({

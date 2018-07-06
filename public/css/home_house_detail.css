@@ -373,6 +373,13 @@ nav.transition .nav-content .login-box .user-login-box a.login-a {
   margin-left: 5px;
   line-height: 38px;
   background-color: transparent;
+  border-radius: 0;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a img,
+nav.transition .nav-content .login-box .user-login-box a.login-a img {
+  margin-top: 11px;
+  margin-right: 5px;
 }
 
 nav.active .nav-content .login-box .user-login-box a.login-a:hover,
@@ -487,15 +494,17 @@ nav .nav-content .login-box .user-login-box a.login-a {
   line-height: 32px;
   text-align: center;
   border-radius: 18px;
-  background-color: #007bff;
+  border: 1px solid #ffffff;
   position: relative;
   overflow: hidden;
   z-index: 3;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 nav .nav-content .login-box .user-login-box a.login-a::after {
   content: "";
-  background: #2b8df7;
+  background: #007bff;
   display: block;
   position: absolute;
   height: 100%;
@@ -506,14 +515,13 @@ nav .nav-content .login-box .user-login-box a.login-a::after {
 }
 
 nav .nav-content .login-box .user-login-box a.login-a:hover {
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  border-color: #007bff;
 }
 
 nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   width: 100%;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .content .head {

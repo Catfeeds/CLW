@@ -134,7 +134,7 @@ class BuildingsService
         return $this->getAveragePrice($area);
     }
 
-    // 获取商圈和区域下房子均价公共发放
+    // 获取商圈和区域下房子均价公共方法
     public function getAveragePrice(
         $res
     )

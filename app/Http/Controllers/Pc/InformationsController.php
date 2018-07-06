@@ -28,6 +28,13 @@ class InformationsController extends Controller
     )
     {
         $hot = $repository->hotInformation(); // 热点
-        return view('home.information_show', ['information' => $information, 'hots' => $hot]);
+        $previous = $repository->previous($information->id);
+        $next = $repository->next($information->id);
+        return view('home.information_show',[
+            'information' =>$information,
+            'hots'=>$hot,
+            'previous' => $previous,
+            'next' => $next
+        ]);
     }
 }

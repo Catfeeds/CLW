@@ -29,7 +29,7 @@
       <div class="user-login-box">
       {{-- <a href="{{url('/registers')}}" class="register-a"><img class="active" src="/home_img/login_user.png" alt="" />注册</a>
         <div class="active-line"></div> --}}
-      <a href="javascript:;" class="login-a js_login">登录</a>
+      <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a>
       </div>
     </div>
     <div class="clearfloat"></div>

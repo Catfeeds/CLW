@@ -322,7 +322,6 @@ body {
 }
 
 .continue .main .left .title {
-  height: 56px;
   font-family: SourceHanSansCN-Medium;
   font-size: 26px;
   font-weight: normal;
@@ -333,6 +332,7 @@ body {
 }
 
 .continue .main .left .explain {
+  margin-top: 10px;
   font-size: 14px;
   font-weight: normal;
   letter-spacing: 0px;
@@ -382,7 +382,7 @@ body {
           justify-content: center;
 }
 
-.continue .main .left .info-bottom .up-down div {
+.continue .main .left .info-bottom .up-down a div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -400,11 +400,11 @@ body {
   color: #999999;
 }
 
-.continue .main .left .info-bottom .up-down>div:nth-child(1) {
+.continue .main .left .info-bottom .up-down a>div:nth-child(1) {
   margin-right: 20px;
 }
 
-.continue .main .left .info-bottom .up-down>div:nth-child(2) {
+.continue .main .left .info-bottom .up-down a>div:nth-child(2) {
   margin-left: 20px;
 }
 
