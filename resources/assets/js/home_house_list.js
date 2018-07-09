@@ -1,5 +1,10 @@
 require('./home_common');
 import './components/home/login' // 登录组件
+var findHouse = require('./components/findHouse.vue')
+new Vue({
+    el: '#findHouse',
+    components: { findHouse }
+})
 // 根据参数拼接url地址
 function createURL(url, param) {
     var link = '';
