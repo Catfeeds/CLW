@@ -34,7 +34,9 @@ Route::resource('throw_ins', 'ThrowInsController');
 // 获取指定gps周边楼盘
 Route::post('get_periphery_buildings','MapsController@getPeripheryBuildings');
 // 获取区域地理位置信息
-Route::get('get_region_list','MapsController@getRegionList');
+Route::get('get_area_locations_list','MapsController@getAreaLocationsList');
+// 获取商圈地理位置信息
+Route::get('get_block_locations_list','MapsController@getBlockLocationsList');
 
 //收藏
 Route::resource('collections', 'CollectionsController');
