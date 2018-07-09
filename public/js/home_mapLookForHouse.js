@@ -2717,6 +2717,9 @@ exports.default = function (target) {
 /* harmony export (immutable) */ __webpack_exports__["i"] = login;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+
 
 
 // 获取区域地理位置信息
@@ -2735,9 +2738,10 @@ function getBlock() {
 }
 
 // 获取区域三级下拉列表
-function buildingsSelect() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/buildings_select',
+function buildingsSelect(params) {
+  return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
+    headers: { 'safeString': params },
+    url: 'http://192.168.0.142:9999/api/buildings_select',
     method: 'GET'
   });
 }
@@ -2797,11 +2801,11 @@ function login(data) {
   });
 }
 // 根据中心获取楼盘
-function getCoreBuildList(params) {
+function getCoreBuildList(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/get_periphery_buildings',
     method: 'POST',
-    params: params
+    params: data
   });
 }
 
@@ -9263,6 +9267,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
 //
 //
 //
@@ -9469,7 +9480,9 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         ElForm: ElForm
     },
     data: function data() {
-        return {
+        var _ref;
+
+        return _ref = {
             ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
             location: '武汉', // 检索区域
             zhongxin: { lng: 114.312161, lat: 30.598964 },
@@ -9489,60 +9502,128 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 strokeWeight: 2, // 折线宽度
                 massClear: false // 是否清楚区域上的覆盖物
             },
-            regionArray: [], // 区域数据
-            condition: {
-                content: '', // 搜索内容
-                region: [], // 区域
-                acreage: '', // 面积
-                price: '', // 价格
-                metro: '' // 地铁
-            }, // 条件
-            options: [{
-                label: '1号线',
-                value: 1
+            regionArray: [], // 区域下拉数据
+            acreageArray: [{
+                value: '',
+                label: '全部'
+            }, {
+                value: '0-100',
+                label: '0-100㎡'
+            }, {
+                value: '100-300',
+                label: '100-300㎡'
+            }, {
+                value: '300-500',
+                label: '300-500㎡'
+            }, {
+                value: '500-1000',
+                label: '5000-1000㎡'
+            }, {
+                value: '1000-10000',
+                label: '1000㎡以上'
+            }], // 面积数据
+            priceArray: [{
+                value: '单价',
+                label: '按单价',
+                children: [{
+                    value: '',
+                    label: '全部'
+                }, {
+                    value: '0-40',
+                    label: '0-40元/㎡·月'
+                }, {
+                    value: '40-60',
+                    label: '40-60元/㎡·月'
+                }, {
+                    value: '60-80',
+                    label: '60-80元/㎡·月'
+                }, {
+                    value: '80-120',
+                    label: '80-120元/㎡·月'
+                }, {
+                    value: '120-140',
+                    label: '120-140元/㎡·月'
+                }, {
+                    value: '140-1000',
+                    label: '1000元/㎡·月以上'
+                }]
+            }, {
+                value: '总价',
+                label: '按总价',
+                children: [{
+                    value: '',
+                    label: '全部'
+                }, {
+                    value: '0-5000',
+                    label: '0-0.5万元/月'
+                }, {
+                    value: '5000-15000',
+                    label: '0.5-1.5万元/月'
+                }, {
+                    value: '15000-30000',
+                    label: '1.5-3万元/㎡·月'
+                }, {
+                    value: '30000-50000',
+                    label: '3-5万元/㎡·月'
+                }, {
+                    value: '50000-100000',
+                    label: '5-10万元/㎡·月'
+                }, {
+                    value: '100000-1000000',
+                    label: '10万元以上'
+                }]
             }],
-            subwayOptions: [{
-                label: '1号线',
-                value: '1号线'
-            }, {
-                label: '2号线',
-                value: '2号线'
-            }, {
-                label: '3号线',
-                value: '3号线'
-            }, {
-                label: '4号线',
-                value: '4号线'
-            }, {
-                label: '6号线',
-                value: '6号线'
-            }, {
-                label: '8号线',
-                value: '8号线'
-            }, {
-                label: '阳逻线',
-                value: '阳逻线'
-            }],
-            siteList: [{
-                name: "汉口北",
-                num: 0,
-                x: "114.33608245849610000000",
-                y: "30.71769714355468800000",
-                station: "1"
-            }, {
-                name: "滠口新城",
-                num: 0,
-                x: "114.34879302978516000000",
-                y: "30.69034767150879000000",
-                station: "1"
-            }, {
-                name: "滕子岗站",
-                num: "3",
-                x: "114.34787750244140000000",
-                y: "30.68033409118652300000",
-                station: "1"
-            }] // 站点列表
-        };
+            regionTemp: [], // 区域临时保存
+            priceTemp: [] }, _defineProperty(_ref, 'keyword', ''), _defineProperty(_ref, 'condition', {
+            area_id: '', // 区域
+            block_id: '', // 商圈
+            unit_price: '', // 单价
+            total_price: '', // 总价
+            acreage: '', // 面积
+            metro: '' // 地铁
+        }), _defineProperty(_ref, 'options', [{
+            label: '1号线',
+            value: 1
+        }]), _defineProperty(_ref, 'subwayOptions', [{
+            label: '1号线',
+            value: '1号线'
+        }, {
+            label: '2号线',
+            value: '2号线'
+        }, {
+            label: '3号线',
+            value: '3号线'
+        }, {
+            label: '4号线',
+            value: '4号线'
+        }, {
+            label: '6号线',
+            value: '6号线'
+        }, {
+            label: '8号线',
+            value: '8号线'
+        }, {
+            label: '阳逻线',
+            value: '阳逻线'
+        }]), _defineProperty(_ref, 'siteList', [{
+            name: "汉口北",
+            num: 0,
+            x: "114.33608245849610000000",
+            y: "30.71769714355468800000",
+            station: "1"
+        }, {
+            name: "滠口新城",
+            num: 0,
+            x: "114.34879302978516000000",
+            y: "30.69034767150879000000",
+            station: "1"
+        }, {
+            name: "滕子岗站",
+            num: "3",
+            x: "114.34787750244140000000",
+            y: "30.68033409118652300000",
+            station: "1"
+        }]), _ref;
     },
 
     computed: {
@@ -9564,8 +9645,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         var _this = this;
 
         // 获取区域下拉数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["a" /* buildingsSelect */])().then(function (res) {
-            console.log('获取区域下拉数据', res);
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["a" /* buildingsSelect */])(document.getElementsByName('safeString')[0].content).then(function (res) {
+            _this.regionArray = res.data.data;
         });
         // 获取区域 数据
         Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["h" /* getRegionList */])().then(function (res) {
@@ -9577,10 +9658,19 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["e" /* getBlock */])().then(function (res) {
             _this.blockList = res.data;
         });
+        var ResultData = {
+            '_token': document.getElementsByName('csrf-token')[0].content,
+            gps: [{
+                x: this.zhongxin.lng,
+                y: this.zhongxin.lat
+            }],
+            distance: 100
+        };
+        this.getBuild(ResultData);
     },
 
     watch: {
-        'condition.metro': function conditionMetro(val) {
+        'condition.metro': function conditionMetro() {
             this.subwayKeyword = this.condition.metro;
             if (this.condition.metro === '') this.subwayKeyword = false;
         },
@@ -9609,6 +9699,14 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     // 请求楼盘数据
                 };this.getBuild(data);
             }
+        },
+        condition: {
+            handler: function handler(val, oldVal) {
+                console.log('val', val);
+                console.log('oldVal', oldVal);
+            },
+            deep: true,
+            immediate: true
         }
     },
     methods: {
@@ -9687,15 +9785,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         // 地铁线
         buslinehtml: function buslinehtml(el) {
             this.$nextTick(function () {
-                console.log('el', el);
-                console.log('el', el[0]);
                 setTimeout(function () {
                     document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
                 }, 50);
             });
         },
 
-        // 根据条件获取数据
+        // 根据条件获取楼盘数据
         getBuild: function getBuild(data) {
             var _this3 = this;
 
@@ -9710,9 +9806,46 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             });
         },
 
+        // 根据关键字获取楼盘数据
+        findKeyword: function findKeyword() {
+            var _this4 = this;
+
+            var resultData = {
+                '_token': document.getElementsByName('csrf-token')[0].content,
+                keyword: this.keyword
+            };
+            this.getBuild(resultData).then(function (res) {
+                if (res.success) {
+                    _this4.buildList = res.data;
+                    _this4.buildListNum = res.data.length;
+                }
+            });
+        },
+
         // 区域三级下拉获取值时改变
         regionChange: function regionChange(data) {
-            console.log('data', data);
+            // 只给商圈赋值
+            if (data.length === 3) {
+                this.condition.area_id = '';
+                this.condition.block_id = data[2];
+            } else if (data.length === 2) {
+                this.condition.area_id = data[1];
+                this.condition.block_id = '';
+            } else {
+                this.condition.area_id = '';
+                this.condition.block_id = '';
+            }
+        },
+
+        // 价格下拉获取值时改变
+        priceChange: function priceChange(data) {
+            if (data[0] === '单价') {
+                this.total_price = '';
+                this.unit_price = data[1];
+            } else {
+                this.unit_price = '';
+                this.total_price = data[1];
+            }
         }
     }
 });
@@ -20186,16 +20319,17 @@ var render = function() {
               staticClass: "input-with-select",
               attrs: { placeholder: "请输入内容" },
               model: {
-                value: _vm.condition.content,
+                value: _vm.keyword,
                 callback: function($$v) {
-                  _vm.$set(_vm.condition, "content", $$v)
+                  _vm.keyword = $$v
                 },
-                expression: "condition.content"
+                expression: "keyword"
               }
             },
             [
               _c("el-button", {
                 attrs: { slot: "append", icon: "el-icon-search" },
+                on: { click: _vm.findKeyword },
                 slot: "append"
               })
             ],
@@ -20216,15 +20350,81 @@ var render = function() {
                         size: "mini",
                         filterable: "",
                         placeholder: "区域",
-                        options: _vm.regionArray
+                        "change-on-select": true,
+                        options: _vm.regionArray,
+                        "show-all-levels": false,
+                        clearable: true
                       },
                       on: { change: _vm.regionChange },
                       model: {
-                        value: _vm.condition.region,
+                        value: _vm.regionTemp,
                         callback: function($$v) {
-                          _vm.$set(_vm.condition, "region", $$v)
+                          _vm.regionTemp = $$v
                         },
-                        expression: "condition.region"
+                        expression: "regionTemp"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 6 } }, [
+                _c(
+                  "div",
+                  { staticClass: "grid-content bg-purple" },
+                  [
+                    _c(
+                      "el-select",
+                      {
+                        attrs: {
+                          clearable: true,
+                          size: "mini",
+                          filterable: "",
+                          placeholder: "面积"
+                        },
+                        model: {
+                          value: _vm.condition.acreage,
+                          callback: function($$v) {
+                            _vm.$set(_vm.condition, "acreage", $$v)
+                          },
+                          expression: "condition.acreage"
+                        }
+                      },
+                      _vm._l(_vm.acreageArray, function(item) {
+                        return _c("el-option", {
+                          key: item.value,
+                          attrs: { label: item.label, value: item.value }
+                        })
+                      })
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 6 } }, [
+                _c(
+                  "div",
+                  { staticClass: "grid-content bg-purple" },
+                  [
+                    _c("el-cascader", {
+                      attrs: {
+                        size: "mini",
+                        filterable: "",
+                        placeholder: "价格",
+                        "expand-trigger": "hover",
+                        options: _vm.priceArray,
+                        clearable: true,
+                        "show-all-levels": false
+                      },
+                      on: { change: _vm.priceChange },
+                      model: {
+                        value: _vm.priceTemp,
+                        callback: function($$v) {
+                          _vm.priceTemp = $$v
+                        },
+                        expression: "priceTemp"
                       }
                     })
                   ],
@@ -20242,6 +20442,7 @@ var render = function() {
                       {
                         attrs: {
                           size: "mini",
+                          clearable: true,
                           filterable: "",
                           placeholder: "地铁"
                         },
@@ -20302,20 +20503,22 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("el-col", { attrs: { span: 15 } }, [
-                  _c("div", [_vm._v("博悦府")]),
+                  _c("div", [_vm._v(_vm._s(item.developer))]),
                   _vm._v(" "),
                   _c("div", [
-                    _c("span", [_vm._v("1900")]),
+                    _c("span", [_vm._v(_vm._s(item.developer))]),
                     _c("span", [_vm._v("元/㎡·月")])
                   ]),
                   _vm._v(" "),
                   _c("div", [
-                    _vm._v("地址: [江汉] - [其他] | 淮海路与云霞路交汇处向")
+                    _vm._v("地址: [江汉] - [其他] | " + _vm._s(item.address))
                   ]),
                   _vm._v(" "),
                   _c("div", [_vm._v("地铁：距离3号线武汉商务区站约491米 ")]),
                   _vm._v(" "),
-                  _c("div", [_vm._v("面积：面积： 57 - 700m²  ")])
+                  _c("div", [
+                    _vm._v("面积：面积： " + _vm._s(item.acreage) + "m²  ")
+                  ])
                 ])
               ],
               1

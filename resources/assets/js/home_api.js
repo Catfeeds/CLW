@@ -1,4 +1,5 @@
 import request from './home_request'
+import axios from 'axios'
 
 // 获取区域地理位置信息
 export function getRegionList() {
@@ -16,10 +17,11 @@ export function getBlock() {
 }
 
 // 获取区域三级下拉列表
-export function buildingsSelect() {
-    return request({
-        url: '/buildings_select',
-        method: 'GET'
+export function buildingsSelect(params) {
+    return axios({
+        headers: {'safeString': params},
+        url: 'http://192.168.0.142:9999/api/buildings_select',
+        method: 'GET',
     })
 }
 
@@ -78,11 +80,11 @@ export function login(data) {
   })
 }
 // 根据中心获取楼盘
-export function getCoreBuildList(params) {
+export function getCoreBuildList(data) {
   return request({
       url: '/get_periphery_buildings',
       method: 'POST',
-      params: params
+      params: data
   })
 }
 

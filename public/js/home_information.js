@@ -1898,6 +1898,9 @@ exports.default = function (target) {
 /* harmony export (immutable) */ __webpack_exports__["i"] = login;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+
 
 
 // 获取区域地理位置信息
@@ -1916,9 +1919,10 @@ function getBlock() {
 }
 
 // 获取区域三级下拉列表
-function buildingsSelect() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/buildings_select',
+function buildingsSelect(params) {
+  return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
+    headers: { 'safeString': params },
+    url: 'http://192.168.0.142:9999/api/buildings_select',
     method: 'GET'
   });
 }
@@ -1978,11 +1982,11 @@ function login(data) {
   });
 }
 // 根据中心获取楼盘
-function getCoreBuildList(params) {
+function getCoreBuildList(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/get_periphery_buildings',
     method: 'POST',
-    params: params
+    params: data
   });
 }
 
