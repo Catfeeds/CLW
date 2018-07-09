@@ -41,16 +41,24 @@ $(window).scroll(function(){
     }
   }
 })
-
 // 轮播
 var banner = new Swiper('#banner', {
+  simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
   pagination: '.swiper-pagination', // 添加分页器
-  paginationClickable: true, // 分页器可点击
+  paginationClickable: true,
   paginationBulletRender: function(banner, index, className){
-    return '<span class="'+ className +'"><img src="'+ Data.pic_url[index].url +'"></span>'
-  } // 自定义分页器
+    return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pic_url[index].url +'"></span>'
+  }
 })
-
+// 手动切换banner
+// $(document).on('click', 'span.js_bannerChange', function() {
+//   if (banner.animating) {
+//     return
+//   }
+//   var index = $(this).index();
+//   console.log(index)
+//   banner.slideTo(index, 300, false);//切换到第一个slide，速度为1秒
+// })
 // 点击查看地图
 $('.js_map').on('click', function() {
   $('html,body').animate({scrollTop: $('#second').offset().top - 60 + 'px'},500)
