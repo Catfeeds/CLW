@@ -323,6 +323,7 @@
     <div class="clearfloat"></div>
   </div>
 </div>
+@include('home.footer')
 @endsection
 @section('script')
 <script src="/js/home_index.js"></script>

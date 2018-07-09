@@ -248,6 +248,7 @@
         </div>
     </div>
 </div>
+@include('home.footer')
 @endsection
 @section('script')
 <script src="/js/home_house_detail.js"></script>

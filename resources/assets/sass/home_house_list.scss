@@ -1,7 +1,8 @@
 @import 'home_master';
-@include nav();
-@include footer();
-@include pagination();
+@include nav();// 导航样式
+@include footer(); // 底部样式
+@include right_tab(); // 侧边栏样式
+@include pagination(); // 分页样式
 a {
   text-decoration: none;
   color:#444;
@@ -457,7 +458,6 @@ body {
         }
         #findHouse {
           > div {
-            position: fixed;
             top: 70px;
             right: 110px;
           }
