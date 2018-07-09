@@ -2718,16 +2718,17 @@ exports.default = function (target) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 
 
+// 获取区域地理位置信息
 function getRegionList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/getRegionList',
+    url: '/get_area_locations_list',
     method: 'GET'
   });
 }
-
+// 获取商圈地理位置信息
 function getBlock() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/detailArea',
+    url: '/get_block_locations_list',
     method: 'GET'
   });
 }
@@ -9421,7 +9422,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
  // 悬浮窗容器
@@ -9649,16 +9649,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             });
         },
         seeMtro: function seeMtro(data) {},
+        getbuslinecomplete: function getbuslinecomplete(el) {
+            console.log('el111', el.DB);
+        },
 
         // 地铁线
         getbuslist: function getbuslist(el) {
-            console.log('NA', el.NA);
-            this.$nextTick(function () {
-                for (var key in el) {
-                    console.log(key);
-                    console.log(el[key]);
-                }
-            });
+            console.log('el.getBusListItem(0)');
             if (el.getBusListItem(0)) {
                 this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0));
             }
@@ -9667,6 +9664,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         // 地铁线
         buslinehtml: function buslinehtml(el) {
             this.$nextTick(function () {
+                console.log('el', el);
+                console.log('el', el[0]);
                 setTimeout(function () {
                     document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
                 }, 50);
@@ -19978,13 +19977,7 @@ var render = function() {
                       [
                         _c("span", [_vm._v(_vm._s(item.name))]),
                         _vm._v(" "),
-                        _c("span", [
-                          _vm._v(
-                            _vm._s((item.price / 10000).toFixed(1)) + "万元/㎡"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(item.tao) + "套")])
+                        _c("span", [_vm._v(_vm._s(item.building_num) + "套")])
                       ]
                     )
                   ]
@@ -20106,7 +20099,8 @@ var render = function() {
             attrs: { autoViewport: true, panel: false, selectFirstResult: "" },
             on: {
               buslinehtmlset: _vm.buslinehtml,
-              getbuslistcomplete: _vm.getbuslist
+              getbuslistcomplete: _vm.getbuslist,
+              getbuslinecomplete: _vm.getbuslinecomplete
             }
           })
         : _vm._e(),

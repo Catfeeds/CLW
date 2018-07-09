@@ -1,15 +1,16 @@
 import request from './home_request'
 
+// 获取区域地理位置信息
 export function getRegionList() {
   return request({
-    url: '/getRegionList',
+    url: '/get_area_locations_list',
     method: 'GET'
   })
 }
-
+// 获取商圈地理位置信息
 export function getBlock() {
  return request({
-  url: '/detailArea',
+  url: '/get_block_locations_list',
   method: 'GET'
  })
 }

@@ -21,8 +21,7 @@
                 <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
                     <span>{{item.name}}</span>
-                    <span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>
-                    <span>{{item.tao}}套</span>
+                    <span>{{item.building_num}}套</span>
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
@@ -56,7 +55,7 @@
             <!--商圈区块-->
             <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
-            <!--区域区块-->
+            <!--&lt;!&ndash;区域区块&ndash;&gt;-->
             <bm-boundary
                     v-if='Active !== ""'
                     :name="Active"
@@ -66,7 +65,7 @@
             </bm-boundary>
         </div>
         <!--线路-->
-        <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'
+        <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist' @getbuslinecomplete='getbuslinecomplete'
                 :autoViewport="true" :panel='false' selectFirstResult></bm-bus>
         <!--地铁线浮动矩形-->
         <site-cover v-if='subwayKeyword' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in siteList"
@@ -406,15 +405,12 @@
             seeMtro(data){
 
             },
+            getbuslinecomplete(el) {
+              console.log('el111', el.DB)
+            },
             // 地铁线
             getbuslist(el) {
-                console.log('NA', el.NA)
-                this.$nextTick(function () {
-                  for (var key in el) {
-                      console.log(key)
-                      console.log(el[key])
-                  }
-                })
+                console.log('el.getBusListItem(0)')
                 if (el.getBusListItem(0)) {
                     this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0))
                 }
@@ -422,6 +418,8 @@
             // 地铁线
             buslinehtml(el) {
                 this.$nextTick(function () {
+                    console.log('el', el)
+                    console.log('el', el[0])
                     setTimeout(function () {
                         document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000'
                     }, 50)

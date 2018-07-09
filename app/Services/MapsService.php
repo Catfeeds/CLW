@@ -54,7 +54,7 @@ class MapsService
             $datas[$k]['name'] = $v->name;
             $datas[$k]['x'] = $v->areaLocation->x;
             $datas[$k]['y'] = $v->areaLocation->y;
-            $datas[$k]['scope'] = $v->areaLocation->scope;
+            $datas[$k]['baidu_coord'] = $v->areaLocation->scope;
             $datas[$k]['building_num'] = $v->areaLocation->building_num;
         }
 

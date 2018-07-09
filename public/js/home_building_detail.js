@@ -2514,16 +2514,17 @@ exports.default = function (target) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 
 
+// 获取区域地理位置信息
 function getRegionList() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/getRegionList',
+    url: '/get_area_locations_list',
     method: 'GET'
   });
 }
-
+// 获取商圈地理位置信息
 function getBlock() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/detailArea',
+    url: '/get_block_locations_list',
     method: 'GET'
   });
 }
