@@ -799,13 +799,53 @@ body .right_tab .tab-content .launchHose-box,
 body .right_tab .tab-content .dimentional-box {
   background-color: #ffffff;
   text-align: center;
-  padding-top: 13px;
+  padding: 13px 0;
+  position: relative;
 }
 
 body .right_tab .tab-content .launchHose-box a,
 body .right_tab .tab-content .dimentional-box a {
   display: block;
   width: 100%;
+}
+
+body .right_tab .tab-content .launchHose-box::after,
+body .right_tab .tab-content .dimentional-box::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  height: 1px;
+  bottom: -1px;
+  background-color: #f5f5f5;
+  z-index: 10;
+}
+
+body .right_tab .bank-top {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+body .right_tab .bank-top::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  height: 1px;
+  top: -1px;
+  background-color: #f5f5f5;
+}
+
+body .right_tab .bank-top .text-box {
+  font-family: PingFang-SC-Medium;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #333333;
 }
 
 .el-popover.customer-popover {

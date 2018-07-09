@@ -8,3 +8,6 @@ new Vue({
     document.getElementById('popoper').style = ''
   }
 })
+$(document).on('click', '.js_bankTop', function() {
+  $('html, body').animate({scrollTop:0}, 'slow');
+})

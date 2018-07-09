@@ -24,6 +24,13 @@
       </a>
     </div>
   </div>
+  <el-tooltip effect="dark" content="点击放回顶部" placement="left">
+  <div class="bank-top js_bankTop">
+    <div class="text-box">
+        TOP
+    </div>
+  </div>
+  </el-tooltip>
   <div id="popoper" style="display:none">
       <el-popover
       ref="customer"
