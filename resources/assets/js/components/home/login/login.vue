@@ -139,6 +139,9 @@ export default {
 }
 </script>
 <style lang="scss">
+body.el-popup-parent--hidden{
+  padding-right: 15px !important;
+}
 .login-box{
  .el-dialog{
    margin-top: 26vh !important;
