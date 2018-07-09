@@ -216,17 +216,8 @@
                         @endif
                     @endif
                 </div>
-                <div class="rent_house">
-                    <div class="title">
-                        <div>免费委托找房</div>
-                        <div>一键委托,一分钟回复</div>
-                    </div>
-                    <div class="phone">
-                        <input type="text" placeholder="请输入手机号">
-                        <span></span>
-                        <div><a href="javascript:void(0);">立即委托</a></div>
-                    </div>
-                    <div class="rent_describe">已经有<span>15141</span>位客户委托找房</div>
+                <div id="findHouse">
+                    <find-house></find-house> 
                 </div>
             </div>
         </div>

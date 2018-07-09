@@ -1,6 +1,8 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-@include nav();
+@include nav();// 导航样式
+@include footer(); // 底部样式
+@include right_tab(); // 侧边栏样式
 .content{
     a{
       text-decoration: none;
