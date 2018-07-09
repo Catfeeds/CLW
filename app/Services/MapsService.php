@@ -39,11 +39,8 @@ class MapsService
                 }
             }
             if (!$has) $result[] = $value;
-
         }
 
         return $result;
-
     }
-
 }
