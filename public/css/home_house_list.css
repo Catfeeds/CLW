@@ -1321,6 +1321,9 @@ body .house_list_container .house_list_content .house_list .house_show div.pagin
 }
 
 body .house_list_container .house_list_content .house_list .house_show div.pagination ul.pagination li a {
+  display: block;
+  width: 100%;
+  height: 100%;
   color: #989898;
 }
 

@@ -782,6 +782,8 @@ body {
 
 .continue .main .right .img img {
   width: 356px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .continue .main .right .zixun {
