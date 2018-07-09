@@ -15,6 +15,13 @@ export function getBlock() {
  })
 }
 
+// 获取区域三级下拉列表
+export function buildingsSelect() {
+    return request({
+        url: '/buildings_select',
+        method: 'GET'
+    })
+}
 
 export function getBuildList() {
     return request({

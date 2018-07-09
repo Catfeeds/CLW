@@ -2705,16 +2705,17 @@ exports.default = function (target) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["g"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["d"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["e"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
 /* unused harmony export getSiteList */
-/* harmony export (immutable) */ __webpack_exports__["c"] = findHouse;
-/* harmony export (immutable) */ __webpack_exports__["b"] = collect;
-/* harmony export (immutable) */ __webpack_exports__["a"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["f"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["h"] = login;
-/* harmony export (immutable) */ __webpack_exports__["e"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["d"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["c"] = collect;
+/* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["i"] = login;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 
 
@@ -2729,6 +2730,14 @@ function getRegionList() {
 function getBlock() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/get_block_locations_list',
+    method: 'GET'
+  });
+}
+
+// 获取区域三级下拉列表
+function buildingsSelect() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/buildings_select',
     method: 'GET'
   });
 }
@@ -9420,8 +9429,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
  // 悬浮窗容器
@@ -9482,9 +9489,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 strokeWeight: 2, // 折线宽度
                 massClear: false // 是否清楚区域上的覆盖物
             },
+            regionArray: [], // 区域数据
             condition: {
                 content: '', // 搜索内容
-                region: '', // 区域
+                region: [], // 区域
                 acreage: '', // 面积
                 price: '', // 价格
                 metro: '' // 地铁
@@ -9555,14 +9563,18 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
     created: function created() {
         var _this = this;
 
+        // 获取区域下拉数据
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["a" /* buildingsSelect */])().then(function (res) {
+            console.log('获取区域下拉数据', res);
+        });
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["g" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["h" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
             }
         });
         // 获取商圈数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["d" /* getBlock */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["e" /* getBlock */])().then(function (res) {
             _this.blockList = res.data;
         });
     },
@@ -9605,13 +9617,15 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
         dragend: function dragend(val) {
             if (this.zoom >= 14) {
-                var data = [{
-                    x: this.zhongxin.lng,
-                    y: this.zhongxin.lat,
+                var data = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [{
+                        x: this.zhongxin.lng,
+                        y: this.zhongxin.lat
+                    }],
                     distance: 5
-                }];
-                // 请求楼盘数据
-                this.getBuild(data);
+                    // 请求楼盘数据
+                };this.getBuild(data);
             }
         },
         ready: function ready(val) {
@@ -9639,18 +9653,21 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         seeAreaDetail: function seeAreaDetail(data) {
             var _this2 = this;
 
-            var ResultData = [{
-                x: data.x,
-                y: data.y,
+            var ResultData = {
+                '_token': document.getElementsByName('csrf-token')[0].content,
+                gps: [{
+                    x: data.x,
+                    y: data.y
+                }],
                 distance: 5
-            }];
-            // 请求楼盘数据
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["e" /* getCoreBuildList */])(ResultData).then(function (res) {
+                // 请求楼盘数据
+            };Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(ResultData).then(function (res) {
                 if (res.success) {
                     _this2.zoom = 14;
                     _this2.buildList = res.data;
                     _this2.centerLocaion = { lng: data.x, lat: data.y };
                     _this2.locationType = true;
+                    _this2.buildListNum = res.data.length;
                 }
             });
         },
@@ -9682,14 +9699,20 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         getBuild: function getBuild(data) {
             var _this3 = this;
 
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["e" /* getCoreBuildList */])(data).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(data).then(function (res) {
                 if (res.success) {
+                    console.log('res.data.length', res.data.length);
                     _this3.buildList = res.data;
                     _this3.buildListNum = res.data.length;
                     console.log('res.data', res.data);
                     console.log('res.data.length', res.data.length);
                 }
             });
+        },
+
+        // 区域三级下拉获取值时改变
+        regionChange: function regionChange(data) {
+            console.log('data', data);
         }
     }
 });
@@ -20183,6 +20206,32 @@ var render = function() {
             "el-row",
             { staticStyle: { padding: "5px 0px" } },
             [
+              _c("el-col", { attrs: { span: 6 } }, [
+                _c(
+                  "div",
+                  { staticClass: "grid-content bg-purple" },
+                  [
+                    _c("el-cascader", {
+                      attrs: {
+                        size: "mini",
+                        filterable: "",
+                        placeholder: "区域",
+                        options: _vm.regionArray
+                      },
+                      on: { change: _vm.regionChange },
+                      model: {
+                        value: _vm.condition.region,
+                        callback: function($$v) {
+                          _vm.$set(_vm.condition, "region", $$v)
+                        },
+                        expression: "condition.region"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
               _c("el-col", { attrs: { span: 6 } }, [
                 _c(
                   "div",

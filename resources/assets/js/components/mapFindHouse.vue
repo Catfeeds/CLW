@@ -83,41 +83,39 @@
                 <el-button slot="append" icon="el-icon-search"></el-button>
             </el-input>
             <el-row style="padding: 5px 0px">
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <el-cascader size="mini" filterable
+                                     placeholder="区域"
+                                     :options="regionArray"
+                                     v-model="condition.region"
+                                     @change="regionChange">
+                        </el-cascader>
+                    </div>
+                </el-col>
                 <!--<el-col :span="6">-->
-                <!--<div class="grid-content bg-purple">-->
-                <!--<el-select v-model="condition.region" size="mini" filterable placeholder="区域">-->
-                <!--<el-option-->
-                <!--v-for="item in subwayOptions"-->
-                <!--:key="item.label"-->
-                <!--:label="item.label"-->
-                <!--:value="item.label">-->
-                <!--</el-option>-->
-                <!--</el-select>-->
-                <!--</div>-->
+                    <!--<div class="grid-content bg-purple">-->
+                        <!--<el-select v-model="condition.acreage" size="mini" filterable placeholder="面积">-->
+                            <!--<el-option-->
+                                    <!--v-for="item in subwayOptions"-->
+                                    <!--:key="item.label"-->
+                                    <!--:label="item.label"-->
+                                    <!--:value="item.label">-->
+                            <!--</el-option>-->
+                        <!--</el-select>-->
+                    <!--</div>-->
                 <!--</el-col>-->
                 <!--<el-col :span="6">-->
-                <!--<div class="grid-content bg-purple">-->
-                <!--<el-select v-model="condition.acreage" size="mini" filterable placeholder="面积">-->
-                <!--<el-option-->
-                <!--v-for="item in subwayOptions"-->
-                <!--:key="item.label"-->
-                <!--:label="item.label"-->
-                <!--:value="item.label">-->
-                <!--</el-option>-->
-                <!--</el-select>-->
-                <!--</div>-->
-                <!--</el-col>-->
-                <!--<el-col :span="6">-->
-                <!--<div class="grid-content bg-purple">-->
-                <!--<el-select v-model="condition.price" size="mini" filterable placeholder="价格">-->
-                <!--<el-option-->
-                <!--v-for="item in subwayOptions"-->
-                <!--:key="item.label"-->
-                <!--:label="item.label"-->
-                <!--:value="item.label">-->
-                <!--</el-option>-->
-                <!--</el-select>-->
-                <!--</div>-->
+                    <!--<div class="grid-content bg-purple">-->
+                        <!--<el-select v-model="condition.price" size="mini" filterable placeholder="价格">-->
+                            <!--<el-option-->
+                                    <!--v-for="item in subwayOptions"-->
+                                    <!--:key="item.label"-->
+                                    <!--:label="item.label"-->
+                                    <!--:value="item.label">-->
+                            <!--</el-option>-->
+                        <!--</el-select>-->
+                    <!--</div>-->
                 <!--</el-col>-->
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
@@ -188,7 +186,7 @@
         ElMain = Main,
         ElCascader = Cascader,
         ElInput = Input
-    import {getRegionList, getBlock, getBuildList, getSiteList, getCoreBuildList} from '../home_api'
+    import {getRegionList, getBlock, getBuildList, getSiteList, getCoreBuildList, buildingsSelect} from '../home_api'
     export default
     {
         components: {
@@ -232,9 +230,10 @@
                     strokeWeight: 2, // 折线宽度
                     massClear: false // 是否清楚区域上的覆盖物
                 },
+                regionArray: [],// 区域数据
                 condition: {
                     content: '', // 搜索内容
-                    region: '', // 区域
+                    region: [], // 区域
                     acreage: '', // 面积
                     price: '', // 价格
                     metro: '' // 地铁
@@ -309,6 +308,10 @@
             }
         },
         created() {
+            // 获取区域下拉数据
+            buildingsSelect().then(res => {
+                console.log('获取区域下拉数据', res)
+            })
             // 获取区域 数据
             getRegionList().then(res => {
                 if (res.success) {
@@ -363,11 +366,16 @@
             },
             dragend (val) {
                 if (this.zoom >= 14) {
-                    const data = [{
-                        x: this.zhongxin.lng,
-                        y: this.zhongxin.lat,
+                    const data = {
+                        '_token': document.getElementsByName('csrf-token')[0].content,
+                        gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
                         distance: 5
-                    }]
+                    }
                     // 请求楼盘数据
                     this.getBuild(data)
                 }
@@ -393,11 +401,16 @@
             },
             // 点击商圈详情
             seeAreaDetail(data) {
-                const ResultData = [{
-                    x: data.x,
-                    y: data.y,
+                const ResultData = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: data.x,
+                            y: data.y,
+                        }
+                    ],
                     distance: 5
-                }]
+                }
                 // 请求楼盘数据
                 getCoreBuildList(ResultData).then(res => {
                     if (res.success) {
@@ -405,6 +418,7 @@
                         this.buildList = res.data
                         this.centerLocaion = {lng: data.x, lat: data.y}
                         this.locationType = true
+                        this.buildListNum = res.data.length
                     }
                 })
             },
@@ -435,12 +449,17 @@
             getBuild(data) {
                 getCoreBuildList(data).then(res => {
                     if (res.success) {
+                        console.log('res.data.length', res.data.length)
                         this.buildList = res.data
                         this.buildListNum = res.data.length
                         console.log('res.data', res.data)
                         console.log('res.data.length', res.data.length)
                     }
                 })
+            },
+            // 区域三级下拉获取值时改变
+            regionChange(data){
+                console.log('data', data)
             }
         }
     }
