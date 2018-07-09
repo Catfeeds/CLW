@@ -16,12 +16,13 @@ class MapsService
             $gps = json_decode($gps);
             $y = $gps->y;
             $x = $gps->x;
+            $name = $gps->name;
 
             $count = \DB::select("select count(*) as count from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
-
-            $datas[$key]['count'] = $count[0]->count;
-            $datas[$key]['name'] = $request->name;
-            $datas[$key]['gps'] = $gps;
+            $datas[$key]['num'] = $count[0]->count;
+            $datas[$key]['name'] = $name;
+            $datas[$key]['x'] = $x;
+            $datas[$key]['y'] = $y;
         }
 
         return $datas;

@@ -73,55 +73,57 @@
             <div class="areaStyle" @click="seeMtro(item)" @mouseover='blockActive = item.baidu_coord'
                  @mouseleave='blockActive = ""'>
                 <span>{{item.name}}</span>
-                <span>{{item.num}}个</span>
+                <span v-if="zoom<15">{{item.num}}个</span>
                 <div class="triangle"></div>
             </div>
         </site-cover>
         <!--左侧列表-->
         <div class="screen">
-            <el-input v-model="condition.content" placeholder="请输入内容" class="input-with-select">
-                <el-button slot="append" icon="el-icon-search"></el-button>
+            <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
+                <el-button @click="findKeyword" slot="append" icon="el-icon-search"></el-button>
             </el-input>
             <el-row style="padding: 5px 0px">
-                <!--<el-col :span="6">-->
-                <!--<div class="grid-content bg-purple">-->
-                <!--<el-select v-model="condition.region" size="mini" filterable placeholder="区域">-->
-                <!--<el-option-->
-                <!--v-for="item in subwayOptions"-->
-                <!--:key="item.label"-->
-                <!--:label="item.label"-->
-                <!--:value="item.label">-->
-                <!--</el-option>-->
-                <!--</el-select>-->
-                <!--</div>-->
-                <!--</el-col>-->
-                <!--<el-col :span="6">-->
-                <!--<div class="grid-content bg-purple">-->
-                <!--<el-select v-model="condition.acreage" size="mini" filterable placeholder="面积">-->
-                <!--<el-option-->
-                <!--v-for="item in subwayOptions"-->
-                <!--:key="item.label"-->
-                <!--:label="item.label"-->
-                <!--:value="item.label">-->
-                <!--</el-option>-->
-                <!--</el-select>-->
-                <!--</div>-->
-                <!--</el-col>-->
-                <!--<el-col :span="6">-->
-                <!--<div class="grid-content bg-purple">-->
-                <!--<el-select v-model="condition.price" size="mini" filterable placeholder="价格">-->
-                <!--<el-option-->
-                <!--v-for="item in subwayOptions"-->
-                <!--:key="item.label"-->
-                <!--:label="item.label"-->
-                <!--:value="item.label">-->
-                <!--</el-option>-->
-                <!--</el-select>-->
-                <!--</div>-->
-                <!--</el-col>-->
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
-                        <el-select v-model="condition.metro" size="mini" filterable placeholder="地铁">
+                        <el-cascader size="mini" filterable
+                                     placeholder="区域"
+                                     :change-on-select="true"
+                                     :options="regionArray"
+                                     :show-all-levels="false"
+                                     :clearable="true"
+                                     v-model="regionTemp"
+                                     @change="regionChange">
+                        </el-cascader>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <el-select v-model="condition.acreage" :clearable="true" size="mini" filterable placeholder="面积">
+                            <el-option
+                                    v-for="item in acreageArray"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <el-cascader size="mini" filterable
+                                     placeholder="价格"
+                                     expand-trigger="hover"
+                                     :options="priceArray"
+                                     :clearable="true"
+                                     :show-all-levels="false"
+                                     v-model="priceTemp"
+                                     @change="priceChange">
+                        </el-cascader>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <el-select v-model="condition.metro" size="mini" :clearable="true" filterable placeholder="地铁">
                             <el-option
                                     v-for="item in subwayOptions"
                                     :key="item.label"
@@ -156,11 +158,11 @@
                          src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg">
                 </el-col>
                 <el-col :span="15">
-                    <div>博悦府</div>
-                    <div><span>1900</span><span>元/㎡·月</span></div>
-                    <div>地址: [江汉] - [其他] | 淮海路与云霞路交汇处向</div>
+                    <div>{{item.name}}</div>
+                    <div><span>{{item.developer}}</span><span>元/㎡·月</span></div>
+                    <div>地址: [江汉] - [其他] | {{item.address}}</div>
                     <div>地铁：距离3号线武汉商务区站约491米 </div>
-                    <div>面积：面积： 57 - 700m²  </div>
+                    <div>面积：面积： {{item.acreage}}m²  </div>
                 </el-col>
             </el-row>
         </div>
@@ -188,7 +190,7 @@
         ElMain = Main,
         ElCascader = Cascader,
         ElInput = Input
-    import {getRegionList, getBlock, getBuildList, getSiteList, getCoreBuildList} from '../home_api'
+    import {getRegionList, getBlock, getBuildList, getSiteList, getCoreBuildList, buildingsSelect, getSiteBuildNum} from '../home_api'
     export default
     {
         components: {
@@ -232,11 +234,104 @@
                     strokeWeight: 2, // 折线宽度
                     massClear: false // 是否清楚区域上的覆盖物
                 },
+                regionArray: [],// 区域下拉数据
+                acreageArray: [{
+                    value: '',
+                    label: '全部'
+                },
+                {
+                    value: '0-100',
+                    label: '0-100㎡'
+                },
+                {
+                    value: '100-300',
+                    label: '100-300㎡'
+                },
+                {
+                    value: '300-500',
+                    label: '300-500㎡'
+                },
+                {
+                    value: '500-1000',
+                    label: '5000-1000㎡'
+                },
+                {
+                    value: '1000-10000',
+                    label: '1000㎡以上'
+                }],// 面积数据
+                priceArray: [{
+                    value: '单价',
+                    label: '按单价',
+                    children: [{
+                        value: '',
+                        label: '全部',
+                    },
+                    {
+                        value: '0-40',
+                        label: '0-40元/㎡·月',
+                    },
+                    {
+                        value: '40-60',
+                        label: '40-60元/㎡·月',
+                    },
+                    {
+                        value: '60-80',
+                        label: '60-80元/㎡·月',
+                    },
+                    {
+                        value: '80-120',
+                        label: '80-120元/㎡·月',
+                    },
+                    {
+                        value: '120-140',
+                        label: '120-140元/㎡·月',
+                    },
+                    {
+                        value: '140-1000',
+                        label: '1000元/㎡·月以上',
+                    }]
+                },
+                {
+                    value: '总价',
+                    label: '按总价',
+                    children: [{
+                        value: '',
+                        label: '全部',
+                    },
+                    {
+                        value: '0-5000',
+                        label: '0-0.5万元/月',
+                    },
+                    {
+                        value: '5000-15000',
+                        label: '0.5-1.5万元/月',
+                    },
+                    {
+                        value: '15000-30000',
+                        label: '1.5-3万元/㎡·月',
+                    },
+                    {
+                        value: '30000-50000',
+                        label: '3-5万元/㎡·月',
+                    },
+                    {
+                        value: '50000-100000',
+                        label: '5-10万元/㎡·月',
+                    },
+                    {
+                        value: '100000-1000000',
+                        label: '10万元以上',
+                    }]
+                }],
+                regionTemp: [], // 区域临时保存
+                priceTemp: [], // 价格临时保存
+                keyword: '', // 搜索内容
                 condition: {
-                    content: '', // 搜索内容
-                    region: '', // 区域
+                    area_id: '', // 区域
+                    block_id: '', // 商圈
+                    unit_price: '', // 单价
+                    total_price: '', // 总价
                     acreage: '', // 面积
-                    price: '', // 价格
                     metro: '' // 地铁
                 }, // 条件
                 options: [{
@@ -247,50 +342,32 @@
                     label: '1号线',
                     value: '1号线'
                 },
-                    {
-                        label: '2号线',
-                        value: '2号线'
-                    },
-                    {
-                        label: '3号线',
-                        value: '3号线'
-                    },
-                    {
-                        label: '4号线',
-                        value: '4号线'
-                    },
-                    {
-                        label: '6号线',
-                        value: '6号线'
-                    },
-                    {
-                        label: '8号线',
-                        value: '8号线'
-                    },
-                    {
-                        label: '阳逻线',
-                        value: '阳逻线'
-                    }
+                {
+                    label: '2号线',
+                    value: '2号线'
+                },
+                {
+                    label: '3号线',
+                    value: '3号线'
+                },
+                {
+                    label: '4号线',
+                    value: '4号线'
+                },
+                {
+                    label: '6号线',
+                    value: '6号线'
+                },
+                {
+                    label: '8号线',
+                    value: '8号线'
+                },
+                {
+                    label: '阳逻线',
+                    value: '阳逻线'
+                }
                 ],
-                siteList: [{
-                    name: "汉口北",
-                    num: 0,
-                    x: "114.33608245849610000000",
-                    y: "30.71769714355468800000",
-                    station: "1"
-                }, {
-                    name: "滠口新城",
-                    num: 0,
-                    x: "114.34879302978516000000",
-                    y: "30.69034767150879000000",
-                    station: "1"
-                }, {
-                    name: "滕子岗站",
-                    num: "3",
-                    x: "114.34787750244140000000",
-                    y: "30.68033409118652300000",
-                    station: "1"
-                }], // 站点列表
+                siteList: [], // 站点列表
             }
         },
         computed: {
@@ -309,6 +386,10 @@
             }
         },
         created() {
+            // 获取区域下拉数据
+            buildingsSelect(document.getElementsByName('safeString')[0].content).then(res => {
+                this.regionArray = res.data.data
+            })
             // 获取区域 数据
             getRegionList().then(res => {
                 if (res.success) {
@@ -319,11 +400,25 @@
             getBlock().then(res => {
                 this.blockList = res.data
             })
+            const ResultData = {
+                '_token': document.getElementsByName('csrf-token')[0].content,
+                gps: [
+                    {
+                        x: this.zhongxin.lng,
+                        y: this.zhongxin.lat
+                    }
+                ],
+                distance: 100
+            }
+            this.getBuild(ResultData)
         },
         watch: {
-            'condition.metro': function (val) {
+            'condition.metro': function () {
                 this.subwayKeyword = this.condition.metro
                 if (this.condition.metro === '') this.subwayKeyword = false;
+//                if(this.condition.metro !== ''){
+//
+//                }
             },
             subwayKeyword: function (val) {
                 if (val) {
@@ -354,20 +449,33 @@
                     this.getBuild(data)
                 }
 
+            },
+            condition:{
+                handler: function (val, oldVal) {
+                   const data = this.condition
+                    data._token = document.getElementsByName('csrf-token')[0].content
+                    this.getBuild(data)
+                },
+                deep: true,
+                immediate: true
             }
         },
         methods: {
             dragging (e) {
                 this.zhongxin = e.target.getCenter()
-
             },
             dragend (val) {
                 if (this.zoom >= 14) {
-                    const data = [{
-                        x: this.zhongxin.lng,
-                        y: this.zhongxin.lat,
+                    const data = {
+                        '_token': document.getElementsByName('csrf-token')[0].content,
+                        gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
                         distance: 5
-                    }]
+                    }
                     // 请求楼盘数据
                     this.getBuild(data)
                 }
@@ -393,26 +501,52 @@
             },
             // 点击商圈详情
             seeAreaDetail(data) {
-                const ResultData = [{
-                    x: data.x,
-                    y: data.y,
+                const ResultData = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: data.x,
+                            y: data.y,
+                        }
+                    ],
                     distance: 5
-                }]
+                }
                 // 请求楼盘数据
                 getCoreBuildList(ResultData).then(res => {
                     if (res.success) {
                         this.zoom = 14
-                        this.buildList = res.data
+                        this.buildList = res.data.res
                         this.centerLocaion = {lng: data.x, lat: data.y}
                         this.locationType = true
+                        this.buildListNum = res.data.length
                     }
                 })
             },
             seeMtro(data){
 
             },
+            // 获取站点楼盘数量
             getbuslinecomplete(el) {
-              console.log('el111', el.DB)
+                var data = []
+                for(var key in el.DB) {
+                    console.log( el.DB[key])
+                    data.push({
+                        name: el.DB[key].name,
+                        x: el.DB[key].position.lng,
+                        y: el.DB[key].position.lat,
+                    })
+                }
+                getSiteBuildNum({gps: data, distance: 3}).then(res=>{
+                    console.log('getSiteBuildNum', res)
+                    if(res.success){
+                        this.siteList = res.data
+                        this.$nextTick(function () {
+                            this.zoom = 13
+                            this.centerLocaion = {lng: data.x, lat: data.y}
+                            this.locationType = true
+                        })
+                    }
+                })
             },
             // 地铁线
             getbuslist(el) {
@@ -424,23 +558,59 @@
             // 地铁线
             buslinehtml(el) {
                 this.$nextTick(function () {
-                    console.log('el', el)
-                    console.log('el', el[0])
                     setTimeout(function () {
                         document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000'
                     }, 50)
                 })
             },
-            // 根据条件获取数据
+            // 根据条件获取楼盘数据
             getBuild(data) {
                 getCoreBuildList(data).then(res => {
                     if (res.success) {
-                        this.buildList = res.data
-                        this.buildListNum = res.data.length
-                        console.log('res.data', res.data)
                         console.log('res.data.length', res.data.length)
+                        this.buildList = res.data.res
+                        this.buildListNum = res.data.res.length
+                        console.log('res.data', res.data)
+                        console.log('res.data.length', res.data.res.length)
                     }
                 })
+            },
+            // 根据关键字获取楼盘数据
+            findKeyword(){
+                const resultData = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    keyword: this.keyword
+                }
+                this.getBuild(resultData).then(res => {
+                    if (res.success) {
+                        this.buildList = res.data
+                        this.buildListNum = res.data.length
+                    }
+                })
+            },
+            // 区域三级下拉获取值时改变
+            regionChange(data){
+                // 只给商圈赋值
+                if(data.length===3) {
+                    this.condition.area_id = ''
+                    this.condition.block_id = data[2]
+                } else if (data.length===2){
+                    this.condition.area_id = data[1]
+                    this.condition.block_id = ''
+                } else {
+                    this.condition.area_id = ''
+                    this.condition.block_id = ''
+                }
+            },
+            // 价格下拉获取值时改变
+            priceChange(data){
+               if(data[0]==='单价') {
+                   this.total_price = ''
+                   this.unit_price = data[1]
+               } else {
+                   this.unit_price = ''
+                   this.total_price = data[1]
+               }
             }
         }
     }
