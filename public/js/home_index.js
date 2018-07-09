@@ -2516,8 +2516,9 @@ exports.default = function (target) {
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["i"] = login;
+/* harmony export (immutable) */ __webpack_exports__["j"] = login;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["i"] = getSiteBuildNum;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -2608,6 +2609,15 @@ function getCoreBuildList(data) {
     url: '/get_periphery_buildings',
     method: 'POST',
     params: data
+  });
+}
+
+// 获取站点楼盘数量
+function getSiteBuildNum(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/get_periphery_buildings',
+    method: 'POST',
+    data: data
   });
 }
 
@@ -4704,7 +4714,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
     // 登录
     login: function login() {
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["i" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["j" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',

@@ -158,7 +158,7 @@
                          src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg">
                 </el-col>
                 <el-col :span="15">
-                    <div>{{item.developer}}</div>
+                    <div>{{item.name}}</div>
                     <div><span>{{item.developer}}</span><span>元/㎡·月</span></div>
                     <div>地址: [江汉] - [其他] | {{item.address}}</div>
                     <div>地铁：距离3号线武汉商务区站约491米 </div>
@@ -190,7 +190,7 @@
         ElMain = Main,
         ElCascader = Cascader,
         ElInput = Input
-    import {getRegionList, getBlock, getBuildList, getSiteList, getCoreBuildList, buildingsSelect} from '../home_api'
+    import {getRegionList, getBlock, getBuildList, getSiteList, getCoreBuildList, buildingsSelect, getSiteBuildNum} from '../home_api'
     export default
     {
         components: {
@@ -467,8 +467,9 @@
             },
             condition:{
                 handler: function (val, oldVal) {
-                    console.log('val',val)
-                    console.log('oldVal',oldVal)
+                   const data = this.condition
+                    data._token = document.getElementsByName('csrf-token')[0].content
+                    this.getBuild(data)
                 },
                 deep: true,
                 immediate: true
@@ -477,7 +478,6 @@
         methods: {
             dragging (e) {
                 this.zhongxin = e.target.getCenter()
-
             },
             dragend (val) {
                 if (this.zoom >= 14) {
@@ -530,7 +530,7 @@
                 getCoreBuildList(ResultData).then(res => {
                     if (res.success) {
                         this.zoom = 14
-                        this.buildList = res.data
+                        this.buildList = res.data.res
                         this.centerLocaion = {lng: data.x, lat: data.y}
                         this.locationType = true
                         this.buildListNum = res.data.length
@@ -541,7 +541,21 @@
 
             },
             getbuslinecomplete(el) {
-              console.log('el111', el.DB)
+                var data = []
+                for(var key in el.DB) {
+                    console.log( el.DB[key])
+                    data.push({
+                        name: el.DB[key].name,
+                        gps: {
+                            x: el.DB[key].position.lng,
+                            y: el.DB[key].position.lat
+                        }
+                    })
+                }
+                console.log('array', array)
+                getSiteBuildNum(data).then(res=>{
+
+                })
             },
             // 地铁线
             getbuslist(el) {
@@ -563,10 +577,10 @@
                 getCoreBuildList(data).then(res => {
                     if (res.success) {
                         console.log('res.data.length', res.data.length)
-                        this.buildList = res.data
-                        this.buildListNum = res.data.length
+                        this.buildList = res.data.res
+                        this.buildListNum = res.data.res.length
                         console.log('res.data', res.data)
-                        console.log('res.data.length', res.data.length)
+                        console.log('res.data.length', res.data.res.length)
                     }
                 })
             },

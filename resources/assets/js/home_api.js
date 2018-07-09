@@ -88,6 +88,15 @@ export function getCoreBuildList(data) {
   })
 }
 
+// 获取站点楼盘数量
+export function getSiteBuildNum(data) {
+    return request({
+        url: '/get_periphery_buildings',
+        method: 'POST',
+        data
+    })
+}
+
 // // 根据中心获取楼盘
 // export function getCoreBuildLists(data) {
 //     return request({

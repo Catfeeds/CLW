@@ -2720,8 +2720,9 @@ exports.default = function (target) {
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["i"] = login;
+/* harmony export (immutable) */ __webpack_exports__["j"] = login;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["i"] = getSiteBuildNum;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -2812,6 +2813,15 @@ function getCoreBuildList(data) {
     url: '/get_periphery_buildings',
     method: 'POST',
     params: data
+  });
+}
+
+// 获取站点楼盘数量
+function getSiteBuildNum(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/get_periphery_buildings',
+    method: 'POST',
+    data: data
   });
 }
 
@@ -9702,8 +9712,9 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
         condition: {
             handler: function handler(val, oldVal) {
-                console.log('val', val);
-                console.log('oldVal', oldVal);
+                var data = this.condition;
+                data._token = document.getElementsByName('csrf-token')[0].content;
+                this.getBuild(data);
             },
             deep: true,
             immediate: true
@@ -9762,7 +9773,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             };Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(ResultData).then(function (res) {
                 if (res.success) {
                     _this2.zoom = 14;
-                    _this2.buildList = res.data;
+                    _this2.buildList = res.data.res;
                     _this2.centerLocaion = { lng: data.x, lat: data.y };
                     _this2.locationType = true;
                     _this2.buildListNum = res.data.length;
@@ -9771,7 +9782,19 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
         seeMtro: function seeMtro(data) {},
         getbuslinecomplete: function getbuslinecomplete(el) {
-            console.log('el111', el.DB);
+            var data = [];
+            for (var key in el.DB) {
+                console.log(el.DB[key]);
+                data.push({
+                    name: el.DB[key].name,
+                    gps: {
+                        x: el.DB[key].position.lng,
+                        y: el.DB[key].position.lat
+                    }
+                });
+            }
+            console.log('array', array);
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["i" /* getSiteBuildNum */])(data).then(function (res) {});
         },
 
         // 地铁线
@@ -9798,10 +9821,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(data).then(function (res) {
                 if (res.success) {
                     console.log('res.data.length', res.data.length);
-                    _this3.buildList = res.data;
-                    _this3.buildListNum = res.data.length;
+                    _this3.buildList = res.data.res;
+                    _this3.buildListNum = res.data.res.length;
                     console.log('res.data', res.data);
-                    console.log('res.data.length', res.data.length);
+                    console.log('res.data.length', res.data.res.length);
                 }
             });
         },
@@ -20503,7 +20526,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("el-col", { attrs: { span: 15 } }, [
-                  _c("div", [_vm._v(_vm._s(item.developer))]),
+                  _c("div", [_vm._v(_vm._s(item.name))]),
                   _vm._v(" "),
                   _c("div", [
                     _c("span", [_vm._v(_vm._s(item.developer))]),
