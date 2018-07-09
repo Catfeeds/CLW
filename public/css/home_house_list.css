@@ -554,10 +554,6 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   transition: all .5s ease;
 }
 
-body {
-  width: 100%;
-}
-
 body footer {
   width: 100%;
   min-width: 1200px;
@@ -638,7 +634,6 @@ body footer .container .about_us .link li a {
 
 body footer .container .serve {
   padding-top: 15px;
-  margin-right: 91px;
 }
 
 body footer .container .serve div {
@@ -716,12 +711,7 @@ ol {
   list-style: none;
 }
 
-body {
-  width: 100%;
-}
-
 body .house_list_container {
-  width: 100%;
   background-color: #f5f5f5;
 }
 

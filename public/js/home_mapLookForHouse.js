@@ -6125,16 +6125,6 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Vue.component('self-div', __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse___default.a);
-new Vue({
-  el: '#app'
-});
-=======
->>>>>>> origin/lkt
-=======
->>>>>>> origin/zxz
 
 /***/ }),
 
@@ -14846,15 +14836,6 @@ module.exports = __webpack_require__(81).Symbol;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* harmony export (immutable) */ __webpack_exports__["d"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["a"] = getBlock;
-/* harmony export (immutable) */ __webpack_exports__["b"] = getBuildList;
-/* unused harmony export getSiteList */
-/* harmony export (immutable) */ __webpack_exports__["c"] = getCoreBuildList;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(232);
-=======
 
 // ECMAScript 6 symbols shim
 var global = __webpack_require__(71);
@@ -14918,7 +14899,6 @@ var wrap = function (tag) {
   sym._k = tag;
   return sym;
 };
->>>>>>> origin/zxz
 
 var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
   return typeof it == 'symbol';
@@ -15009,48 +14989,9 @@ if (!USE_NATIVE) {
   __webpack_require__(96).f = $propertyIsEnumerable;
   __webpack_require__(109).f = $getOwnPropertySymbols;
 
-<<<<<<< HEAD
-function getSiteList() {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-        url: '/getSiteList',
-        method: 'GET'
-    });
-}
-=======
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_option_vue__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_option_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_option_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fbd6e75c_hasScoped_false_preserveWhitespace_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_option_vue__ = __webpack_require__(37);
-var normalizeComponent = __webpack_require__(0)
-/* script */
-
-/* template */
-
-/* template functional */
-  var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_option_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fbd6e75c_hasScoped_false_preserveWhitespace_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_option_vue__["a" /* default */],
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
-
->>>>>>> origin/lkt
-=======
   if (DESCRIPTORS && !__webpack_require__(94)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
   }
->>>>>>> origin/zxz
 
   wksExt.f = function (name) {
     return wrap(wks(name));
@@ -16192,19 +16133,8 @@ exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      position: relative;\n      color: #000000;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
-=======
-    this.debouncedOnInputChange = (0, _debounce2.default)(this.debounce, function () {
-      _this13.onInputChange();
-    });
->>>>>>> origin/lkt
-=======
 // module
 exports.push([module.i, ".el-form--inline .el-form-item,.el-form--inline .el-form-item__content{display:inline-block;vertical-align:top}.el-form-item::after,.el-form-item__content::after{clear:both}.el-form--label-left .el-form-item__label{text-align:left}.el-form--label-top .el-form-item__label{float:none;display:inline-block;text-align:left;padding:0 0 10px}.el-form--inline .el-form-item{margin-right:10px}.el-form--inline .el-form-item__label{float:none;display:inline-block}.el-form-item__content .el-input-group,.el-form-item__label{vertical-align:middle}.el-form--inline.el-form--label-top .el-form-item__content{display:block}.el-form-item{margin-bottom:22px}.el-form-item::after,.el-form-item::before{display:table;content:\"\"}.el-form-item .el-form-item{margin-bottom:0}.el-form-item--mini.el-form-item,.el-form-item--small.el-form-item{margin-bottom:18px}.el-form-item .el-input__validateIcon{display:none}.el-form-item--medium .el-form-item__content,.el-form-item--medium .el-form-item__label{line-height:36px}.el-form-item--small .el-form-item__content,.el-form-item--small .el-form-item__label{line-height:32px}.el-form-item--small .el-form-item__error{padding-top:2px}.el-form-item--mini .el-form-item__content,.el-form-item--mini .el-form-item__label{line-height:28px}.el-form-item--mini .el-form-item__error{padding-top:1px}.el-form-item__label{text-align:right;float:left;font-size:14px;color:#606266;line-height:40px;padding:0 12px 0 0;-webkit-box-sizing:border-box;box-sizing:border-box}.el-form-item__content{line-height:40px;position:relative;font-size:14px}.el-form-item__content::after,.el-form-item__content::before{display:table;content:\"\"}.el-form-item__error{color:#f56c6c;font-size:12px;line-height:1;padding-top:4px;position:absolute;top:100%;left:0}.el-form-item__error--inline{position:relative;top:auto;left:auto;display:inline-block;margin-left:10px}.el-form-item.is-required .el-form-item__label:before{content:'*';color:#f56c6c;margin-right:4px}.el-form-item.is-error .el-input__inner,.el-form-item.is-error .el-input__inner:focus,.el-form-item.is-error .el-textarea__inner,.el-form-item.is-error .el-textarea__inner:focus{border-color:#f56c6c}.el-form-item.is-error .el-input-group__append .el-input__inner,.el-form-item.is-error .el-input-group__prepend .el-input__inner{border-color:transparent}.el-form-item.is-error .el-input__validateIcon{color:#f56c6c}.el-form-item.is-success .el-input__inner,.el-form-item.is-success .el-input__inner:focus,.el-form-item.is-success .el-textarea__inner,.el-form-item.is-success .el-textarea__inner:focus{border-color:#67c23a}.el-form-item.is-success .el-input-group__append .el-input__inner,.el-form-item.is-success .el-input-group__prepend .el-input__inner{border-color:transparent}.el-form-item.is-success .el-input__validateIcon{color:#67c23a}.el-form-item--feedback .el-input__validateIcon{display:inline-block}", ""]);
->>>>>>> origin/zxz
 
 // exports
 
@@ -16616,123 +16546,6 @@ var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        BaiduMap: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BaiduMap"],
-        BmBus: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBus"],
-        BmPolygon: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmPolygon"],
-        BmBoundary: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBoundary"],
-        selfOverlay: __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default.a,
-        siteCover: __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default.a,
-        ElSelect: ElSelect,
-        ElOption: ElOption,
-        ElTabs: ElTabs,
-        ElTabPane: ElTabPane,
-        ElFormItem: ElFormItem,
-        ElInput: ElInput,
-        ElButton: ElButton,
-        ElRow: ElRow,
-        ElCol: ElCol,
-        ElMain: ElMain,
-        ElCascader: ElCascader,
-        ElForm: ElForm
-    },
-    data: function data() {
-        return {
-            ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
-            location: '武汉', // 检索区域
-            zhongxin: { lng: 114.312161, lat: 30.598964 },
-            zoom: 12, // 地图缩放级别
-            keyword: '地铁', // 检索词
-            regionList: [], // 区域数据
-            blockList: [], // 商圈列数据
-            buildList: [], // 楼盘数据
-            buildListNum: 0, // 楼盘数据
-            centerLocaion: '武汉', // 临时存放中心点
-            locationType: false, // zommed 结束后标识
-            Active: '', // 鼠标经过颜色变深标识
-            subwayKeyword: null,
-            blockActive: '', // 是否显示区块
-            boundaryStyle: { // 区块线设置
-                strokeColor: 'red', // 区域折线
-                strokeWeight: 2, // 折线宽度
-                massClear: false // 是否清楚区域上的覆盖物
-            },
-            condition: {
-                content: '', // 搜索内容
-                region: '', // 区域
-                acreage: '', // 面积
-                price: '', // 价格
-                metro: '' // 地铁
-            }, // 条件
-            options: [{
-                label: '1号线',
-                value: 1
-            }],
-            subwayOptions: [{
-                label: '1号线',
-                value: '1号线'
-            }, {
-                label: '2号线',
-                value: '2号线'
-            }, {
-                label: '3号线',
-                value: '3号线'
-            }, {
-                label: '4号线',
-                value: '4号线'
-            }, {
-                label: '6号线',
-                value: '6号线'
-            }, {
-                label: '8号线',
-                value: '8号线'
-            }, {
-                label: '阳逻线',
-                value: '阳逻线'
-            }],
-            siteList: [{
-                name: "汉口北",
-                num: 0,
-                x: "114.33608245849610000000",
-                y: "30.71769714355468800000",
-                station: "1"
-            }, {
-                name: "滠口新城",
-                num: 0,
-                x: "114.34879302978516000000",
-                y: "30.69034767150879000000",
-                station: "1"
-            }, {
-                name: "滕子岗站",
-                num: "3",
-                x: "114.34787750244140000000",
-                y: "30.68033409118652300000",
-                station: "1"
-            }] // 站点列表
-        };
-    },
-
-    computed: {
-        // 区块计算
-        polygonPath: function polygonPath() {
-            var copeData = this.blockActive.split(";");
-            var coord = [];
-            for (var numb in copeData) {
-                coord.push({ lng: null, lat: null });
-                var temp = copeData[numb].split(",");
-                coord[numb].lng = parseFloat(temp[0]);
-                coord[numb].lat = parseFloat(temp[1]);
-            }
-            console.log(coord);
-            return coord;
-        }
-    },
-    created: function created() {
-        var _this = this;
-=======
 /***/ }),
 
 /***/ 9:
@@ -16769,7 +16582,6 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
->>>>>>> origin/zxz
 
 /***/ }),
 /* 244 */
@@ -16778,34 +16590,6 @@ if(false) {
 exports = module.exports = __webpack_require__(1)(false);
 // imports
 
-<<<<<<< HEAD
-        zoomend: function zoomend(e) {
-            this.zoom = e.target.getZoom();
-            this.zhongxin = e.target.getCenter();
-            console.log('this.zoom', this.zoom);
-            // 修改中心点 点击后操作
-            if (this.locationType) {
-                this.location = this.centerLocaion;
-                this.locationType = false;
-            }
-        },
-        // 查看区域详情 -> 商圈列表
-        seeRegionDetail: function seeRegionDetail(data) {
-            this.zoom = 13;
-            this.centerLocaion = { lng: data.x, lat: data.y };
-            this.locationType = true;
-        },
-=======
-/***/ }),
-
-/***/ 144:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
->>>>>>> origin/lkt
-=======
->>>>>>> origin/zxz
 
 // module
 exports.push([module.i, ".el-select-dropdown__item{font-size:14px;padding:0 20px;position:relative;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#606266;height:34px;line-height:34px;-webkit-box-sizing:border-box;box-sizing:border-box;cursor:pointer}.el-select-dropdown__item.is-disabled{color:#c0c4cc;cursor:not-allowed}.el-select-dropdown__item.is-disabled:hover{background-color:#fff}.el-select-dropdown__item.hover,.el-select-dropdown__item:hover{background-color:#f5f7fa}.el-select-dropdown__item.selected{color:#409EFF;font-weight:700}.el-select-dropdown__item span{line-height:34px!important}", ""]);
@@ -16813,38 +16597,9 @@ exports.push([module.i, ".el-select-dropdown__item{font-size:14px;padding:0 20px
 // exports
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // 地铁线
-        buslinehtml: function buslinehtml(el) {
-            this.$nextTick(function () {
-                setTimeout(function () {
-                    document.querySelectorAll('path[fill-rule="evenodd"]')[0].attributes.stroke.nodeValue = '#ff0000';
-                }, 50);
-            });
-        },
-
-        // 根据条件获取数据
-        getBuild: function getBuild(data) {
-            var _this3 = this;
-
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["c" /* getCoreBuildList */])(data).then(function (res) {
-                if (res.success) {
-                    _this3.buildList = res.data;
-                    _this3.buildListNum = res.data.length;
-                    console.log('res.data', res.data);
-                    console.log('res.data.length', res.data.length);
-                }
-            });
-=======
-  watch: {
-    hoverIndex: function hoverIndex(val) {
-      var _this = this;
-=======
 /***/ }),
 /* 245 */
 /***/ (function(module, exports, __webpack_require__) {
->>>>>>> origin/zxz
 
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
@@ -16917,35 +16672,6 @@ module.exports =
 /***/ 0:
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
-      if (!this.visible) {
-        this.visible = true;
-        return;
-      }
-      if (this.options.length === 0 || this.filteredOptionsCount === 0) return;
-      if (!this.optionsAllDisabled) {
-        if (direction === 'next') {
-          this.hoverIndex++;
-          if (this.hoverIndex === this.options.length) {
-            this.hoverIndex = 0;
-          }
-        } else if (direction === 'prev') {
-          this.hoverIndex--;
-          if (this.hoverIndex < 0) {
-            this.hoverIndex = this.options.length - 1;
-          }
-        }
-        var option = this.options[this.hoverIndex];
-        if (option.disabled === true || option.groupDisabled === true || !option.visible) {
-          this.navigateOptions(direction);
->>>>>>> origin/lkt
-        }
-        this.$nextTick(function () {
-          return _this2.scrollToOption(_this2.hoverOption);
-        });
-      }
-    }
-=======
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file.
@@ -16968,7 +16694,6 @@ module.exports = function normalizeComponent (
   if (type === 'object' || type === 'function') {
     esModule = rawScriptExports
     scriptExports = rawScriptExports.default
->>>>>>> origin/zxz
   }
 
   // Vue.extend constructor export interop
@@ -16976,19 +16701,12 @@ module.exports = function normalizeComponent (
     ? scriptExports.options
     : scriptExports
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/***/ 145:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-=======
   // render functions
   if (compiledTemplate) {
     options.render = compiledTemplate.render
     options.staticRenderFns = compiledTemplate.staticRenderFns
     options._compiled = true
   }
->>>>>>> origin/zxz
 
   // functional template
   if (functionalTemplate) {
@@ -18914,377 +18632,6 @@ exports.default = {
     };
   },
 
-<<<<<<< HEAD
->>>>>>> origin/lkt
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "baidu-map",
-    {
-      ref: "map",
-      staticClass: "map",
-      attrs: {
-        center: _vm.location,
-        ak: _vm.ak,
-        zoom: _vm.zoom,
-        "min-zoom": 12,
-        "scroll-wheel-zoom": ""
-      },
-<<<<<<< HEAD
-      on: { zoomend: _vm.zoomend, dragging: _vm.dragging, dragend: _vm.dragend }
-=======
-      on: { zoomend: _vm.zoomend }
->>>>>>> origin/lkt
-    },
-    [
-      !_vm.subwayKeyword
-        ? _c(
-            "div",
-            [
-<<<<<<< HEAD
-              _c("self-overlay", { attrs: { position: _vm.zhongxin } }, [
-                _c("div", { staticStyle: { "font-size": "50px" } }, [
-                  _vm._v("⊙")
-                ])
-              ]),
-              _vm._v(" "),
-=======
->>>>>>> origin/lkt
-              _vm._l(_vm.regionList, function(item, index) {
-                return _c(
-                  "self-overlay",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.zoom < 13,
-                        expression: "zoom<13"
-                      }
-                    ],
-                    key: "areaBox" + index,
-                    attrs: { position: { lng: item.x, lat: item.y } }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "regionStyle",
-                        on: {
-                          click: function($event) {
-                            _vm.seeRegionDetail(item)
-                          },
-                          mouseover: function($event) {
-                            _vm.Active = item.name
-                          },
-                          mouseleave: function($event) {
-                            _vm.Active = ""
-                          }
-                        }
-                      },
-                      [
-                        _c("span", [_vm._v(_vm._s(item.name))]),
-                        _vm._v(" "),
-                        _c("span", [
-                          _vm._v(
-                            _vm._s((item.price / 10000).toFixed(1)) + "万元/㎡"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(item.tao) + "套")])
-                      ]
-                    )
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _vm._l(_vm.blockList, function(item, index) {
-                return _c(
-                  "self-overlay",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.zoom < 14 && _vm.zoom >= 13,
-                        expression: "zoom<14&&zoom>=13"
-                      }
-                    ],
-                    key: "blockBox" + index,
-                    attrs: { position: { lng: item.x, lat: item.y } }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "areaStyle",
-                        on: {
-                          click: function($event) {
-                            _vm.seeAreaDetail(item)
-                          },
-                          mouseover: function($event) {
-                            _vm.blockActive = item.baidu_coord
-                          },
-                          mouseleave: function($event) {
-                            _vm.blockActive = ""
-                          }
-                        }
-                      },
-                      [
-                        _c("span", [_vm._v(_vm._s(item.name))]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(item.tao) + "套")])
-                      ]
-                    )
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _vm._l(_vm.buildList, function(item, index) {
-                return _c(
-                  "site-cover",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.zoom >= 14,
-                        expression: "zoom>=14"
-                      }
-                    ],
-                    key: "buildBox" + index,
-                    attrs: {
-                      position: {
-                        lng: parseFloat(item.x),
-                        lat: parseFloat(item.y)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "areaStyle",
-                        on: {
-                          click: function($event) {
-                            _vm.seeBuildDetail(item)
-                          }
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "triangle" }),
-                        _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(item.name))])
-                      ]
-                    )
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _vm.blockActive !== ""
-                ? _c("bm-polygon", {
-                    attrs: {
-                      path: _vm.polygonPath,
-                      "stroke-color": "red",
-                      "stroke-opacity": 0.5,
-                      "stroke-weight": 2
-                    }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.Active !== ""
-                ? _c("bm-boundary", {
-                    attrs: {
-                      name: _vm.Active,
-                      massClear: _vm.boundaryStyle.massClear,
-                      strokeWeight: _vm.boundaryStyle.strokeWeight,
-                      strokeColor: _vm.boundaryStyle.strokeColor
-                    }
-                  })
-                : _vm._e()
-            ],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.subwayKeyword
-        ? _c("bm-bus", {
-            ref: "bus",
-            attrs: { autoViewport: true, panel: false, selectFirstResult: "" },
-            on: {
-              buslinehtmlset: _vm.buslinehtml,
-              getbuslistcomplete: _vm.getbuslist
-            }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.siteList, function(item, index) {
-        return _vm.subwayKeyword
-          ? _c(
-              "site-cover",
-              {
-                key: "subway" + index,
-                attrs: { position: { lng: item.x, lat: item.y } }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "areaStyle",
-                    on: {
-                      click: function($event) {
-                        _vm.seeMtro(item)
-                      },
-                      mouseover: function($event) {
-                        _vm.blockActive = item.baidu_coord
-                      },
-                      mouseleave: function($event) {
-                        _vm.blockActive = ""
-                      }
-                    }
-                  },
-                  [
-                    _c("span", [_vm._v(_vm._s(item.name))]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.num) + "个")]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "triangle" })
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "screen" },
-        [
-          _c(
-            "el-input",
-            {
-              staticClass: "input-with-select",
-              attrs: { placeholder: "请输入内容" },
-              model: {
-                value: _vm.condition.content,
-                callback: function($$v) {
-                  _vm.$set(_vm.condition, "content", $$v)
-                },
-                expression: "condition.content"
-              }
-            },
-            [
-              _c("el-button", {
-                attrs: { slot: "append", icon: "el-icon-search" },
-                slot: "append"
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { staticStyle: { padding: "5px 0px" } },
-            [
-              _c("el-col", { attrs: { span: 6 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c(
-                      "el-select",
-                      {
-                        attrs: {
-                          size: "mini",
-                          filterable: "",
-                          placeholder: "地铁"
-                        },
-                        model: {
-                          value: _vm.condition.metro,
-                          callback: function($$v) {
-                            _vm.$set(_vm.condition, "metro", $$v)
-                          },
-                          expression: "condition.metro"
-                        }
-                      },
-                      _vm._l(_vm.subwayOptions, function(item) {
-                        return _c("el-option", {
-                          key: item.label,
-                          attrs: { label: item.label, value: item.value }
-                        })
-                      })
-                    )
-                  ],
-                  1
-                )
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { staticStyle: { padding: "5px 0px" } },
-            [
-              _c("el-col", { attrs: { span: 15 } }, [
-                _c("img", { attrs: { src: "" } }),
-                _vm._v(
-                  "\n                武汉 为您找到" +
-                    _vm._s(_vm.buildListNum) +
-                    "个楼盘\n            "
-                )
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 9 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._l(_vm.buildList, function(item, index) {
-            return _c(
-              "el-row",
-              { key: "leftList" + index, staticStyle: { padding: "5px 0px" } },
-              [
-                _c("el-col", { attrs: { span: 8 } }, [
-                  _c("img", {
-                    staticStyle: { width: "130px", height: "130px" },
-                    attrs: {
-                      src:
-                        "http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("el-col", { attrs: { span: 15 } }, [
-                  _c("div", [_vm._v("博悦府")]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("span", [_vm._v("1900")]),
-                    _c("span", [_vm._v("元/㎡·月")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v("地址: [江汉] - [其他] | 淮海路与云霞路交汇处向")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [_vm._v("地铁：距离3号线武汉商务区站约491米 ")]),
-                  _vm._v(" "),
-                  _c("div", [_vm._v("面积：面积： 57 - 700m²  ")])
-                ])
-              ],
-              1
-            )
-          })
-        ],
-        2
-      )
-    ],
-    2
-  )
-}
-=======
 
   computed: {
     isObject: function isObject() {
@@ -19399,7 +18746,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     'is-disabled': _vm.disabled || _vm.groupDisabled || _vm.limitReached,
     'hover': _vm.hover
   },on:{"mouseenter":_vm.hoverItem,"click":function($event){$event.stopPropagation();_vm.selectOptionClick($event)}}},[_vm._t("default",[_c('span',[_vm._v(_vm._s(_vm.currentLabel))])])],2)}
->>>>>>> origin/zxz
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
