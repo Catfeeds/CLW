@@ -35,6 +35,13 @@ class MapsController extends Controller
 
             // 楼盘列表数据
             $res = $repository->buildingList($request, $buildingsService,null,true);
+
+            if (empty($request->area_id) && empty($request->block_id)) {
+                // 通过楼盘获取商圈
+                $areaLocations = $mapsService->getBuildingArea($res);
+
+            }
+
         }
 
         return $this->sendResponse($res,'地图找楼获取成功');

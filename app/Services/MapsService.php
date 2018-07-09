@@ -46,6 +46,29 @@ class MapsService
         return $result;
     }
 
+    // 通过楼盘获取商圈
+    public function getBuildingArea($buildings)
+    {
+        $temp = array();
+        foreach ($buildings as $k => $v) {
+            $temp[] = $v['area'];
+        }
+
+        $temp = $this->remove_duplicate($temp);
+
+        $result = array();
+        foreach ($temp as $key => $val) {
+            $result[$key]['name'] = $val['name'];
+            $result[$key]['x'] = $val['area_location']['x'];
+            $result[$key]['y'] = $val['area_location']['y'];
+            $result[$key]['baidu_coord'] = $val['area_location']['scope'];
+            $result[$key]['building_num'] = $val['area_location']['building_num'];
+        }
+
+        return $result;
+    }
+
+
     // 获取区域地理位置信息
     public function getAreaLocationsList()
     {

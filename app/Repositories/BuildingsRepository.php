@@ -27,7 +27,7 @@ class BuildingsRepository extends  Model
      * @return array
      * @author 罗振
      */
-public function buildingList(
+    public function buildingList(
         $request,
         $service,
         $building_id = null,
@@ -40,7 +40,7 @@ public function buildingList(
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
-        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
+        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
 
         // pc价格排序
         if (!empty($request->price_sort)) {
@@ -68,7 +68,7 @@ public function buildingList(
                 'data' => $data
             ];
         }  else {
-            return $data->toArray();
+            return $data->values()->toArray();
         }
     }
 
