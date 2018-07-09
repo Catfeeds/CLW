@@ -9592,9 +9592,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     gps: [{
                         x: this.zhongxin.lng,
                         y: this.zhongxin.lat
-                    }, {
-                        x: this.zhongxin.lng,
-                        y: this.zhongxin.lat
                     }],
                     distance: 5
                     // 请求楼盘数据

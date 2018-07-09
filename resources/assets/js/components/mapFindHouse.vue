@@ -347,10 +347,6 @@
                             {
                                 x: this.zhongxin.lng,
                                 y: this.zhongxin.lat
-                            },
-                            {
-                                x: this.zhongxin.lng,
-                                y: this.zhongxin.lat
                             }
                         ],
                         distance: 5
