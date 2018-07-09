@@ -38,4 +38,14 @@ class MapsController extends Controller
         return $this->sendResponse($res,'地图找楼获取成功');
     }
 
+    // 获取区域地理位子信息
+    public function getRegionList(
+        MapsService $mapsService
+    )
+    {
+        $res = $mapsService->getRegionList();
+        return $this->sendResponse($res,'获取区域地理位置信息成功');
+    }
+    
+    
 }
