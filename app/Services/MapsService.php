@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Handler\Common;
 use App\Models\Area;
+use App\Models\Block;
 
 class MapsService
 {
@@ -45,7 +46,8 @@ class MapsService
         return $result;
     }
 
-    public function getRegionList()
+    // 获取区域地理位置信息
+    public function getAreaLocationsList()
     {
         $areas = Area::with('areaLocation')->get();
 
@@ -54,10 +56,28 @@ class MapsService
             $datas[$k]['name'] = $v->name;
             $datas[$k]['x'] = $v->areaLocation->x;
             $datas[$k]['y'] = $v->areaLocation->y;
-            $datas[$k]['scope'] = $v->areaLocation->scope;
+            $datas[$k]['baidu_coord'] = $v->areaLocation->scope;
             $datas[$k]['building_num'] = $v->areaLocation->building_num;
         }
 
         return $datas;
     }
+
+    // 获取商圈地理位置信息
+    public function getBlockLocationsList()
+    {
+        $blocks = Block::with('blockLocation')->get();
+
+        $datas = array();
+        foreach ($blocks as $k => $v) {
+            $datas[$k]['name'] = $v->name;
+            $datas[$k]['x'] = empty($v->blockLocation)?'':$v->blockLocation->x;
+            $datas[$k]['y'] = empty($v->blockLocation)?'':$v->blockLocation->y;
+            $datas[$k]['baidu_coord'] = empty($v->blockLocation)?'':$v->blockLocation->scope;
+            $datas[$k]['building_num'] = empty($v->blockLocation)?'':$v->blockLocation->building_num;
+        }
+
+        return $datas;
+    }
+
 }
