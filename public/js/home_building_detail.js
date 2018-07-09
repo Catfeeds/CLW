@@ -14988,7 +14988,6 @@ $(window).scroll(function () {
 
 // 轮播
 var banner = new Swiper('#banner', {
-  direction: 'horizontal', // 横向滑动
   pagination: '.swiper-pagination', // 添加分页器
   paginationClickable: true, // 分页器可点击
   paginationBulletRender: function paginationBulletRender(banner, index, className) {

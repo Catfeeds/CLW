@@ -1,7 +1,8 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-@include nav();
-@include right_tab();
+@include nav();// 导航样式
+@include footer(); // 底部样式
+@include right_tab(); // 侧边栏样式
 img{
   max-width: 100%;
 }
@@ -291,7 +292,7 @@ body {
         }
       }
     }
-    &:nth-child(2n) {
+    &:nth-child(2n+1) {
       background-color: $master-white;
     }
     padding-top: 80px;
