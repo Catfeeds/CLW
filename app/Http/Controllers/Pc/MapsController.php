@@ -24,7 +24,7 @@ class MapsController extends Controller
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
-            $res = $repository->buildingList($request, $buildingsService, $buildingIds,true);
+            $res = $repository->buildingList($request, $buildingsService, $buildingIds,true,null, true);
         } elseif (!empty($request->distance) && !empty($request->gps)) {
             $res = $mapsService->getPeripheryBuildings($request);
         } else {
@@ -34,7 +34,7 @@ class MapsController extends Controller
             if (!empty($request->total_price)) $request->offsetSet('total_price', explode('-',$request->total_price));
 
             // 楼盘列表数据
-            $res = $repository->buildingList($request, $buildingsService,null,true);
+            $res = $repository->buildingList($request, $buildingsService,null,true,null, true);
 
             if (empty($request->area_id) && empty($request->block_id)) {
                 // 通过楼盘获取商圈

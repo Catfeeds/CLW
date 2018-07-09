@@ -24,6 +24,7 @@ class BuildingsRepository extends  Model
      * @param null $building_id
      * @param null $whetherPage
      * @param null $getCount
+     * @param null $mapRes  地图返回结果
      * @return array
      * @author 罗振
      */
@@ -32,7 +33,8 @@ class BuildingsRepository extends  Model
         $service,
         $building_id = null,
         $whetherPage = null,
-        $getCount = null
+        $getCount = null,
+        $mapRes = null
     )
     {
         // 取得符合条件房子
@@ -67,8 +69,10 @@ class BuildingsRepository extends  Model
                 'page' => $page,
                 'data' => $data
             ];
-        }  else {
+        } elseif ($mapRes) {
             return $data->values()->toArray();
+        } else {
+            return $data->toArray();
         }
     }
 
