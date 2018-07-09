@@ -1,6 +1,7 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
 @include nav();
+@include right_tab();
 img{
   max-width: 100%;
 }

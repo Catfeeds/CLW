@@ -568,6 +568,53 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   transition: all .5s ease;
 }
 
+body .right_tab {
+  position: fixed;
+  right: -50px;
+  bottom: 0;
+  top: 0;
+  width: 40px;
+  background: #ffffff;
+  z-index: 500;
+  -webkit-box-shadow: -5px 0px 5px #efefef;
+          box-shadow: -5px 0px 5px #efefef;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+body .right_tab.active,
+body nav.right_tab.transition {
+  right: 0;
+}
+
+body .right_tab .tab-content {
+  position: absolute;
+  top: 25vh;
+  width: 100%;
+}
+
+body .right_tab .tab-content .customer-service {
+  background-color: #007bff;
+  padding-top: 15px;
+  text-align: center;
+  position: relative;
+  height: 75px;
+  cursor: pointer;
+}
+
+body .right_tab .tab-content .customer-service img {
+  margin-bottom: 5px;
+}
+
+body .right_tab .tab-content .customer-service .text-box {
+  color: #ffffff;
+  font-family: PingFang-SC-Medium;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+}
+
 img {
   max-width: 100%;
 }
