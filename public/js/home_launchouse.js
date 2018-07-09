@@ -3581,7 +3581,7 @@ function login(data) {
 function getCoreBuildList(params) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: 'http://192.168.0.110/get_periphery_buildings',
-    method: 'GET',
+    method: 'POST',
     params: params
   });
 }

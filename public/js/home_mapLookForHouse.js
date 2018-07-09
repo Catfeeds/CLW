@@ -2790,7 +2790,7 @@ function login(data) {
 function getCoreBuildList(params) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: 'http://192.168.0.110/get_periphery_buildings',
-    method: 'GET',
+    method: 'POST',
     params: params
   });
 }
@@ -9587,8 +9587,16 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         zoom: function zoom(val) {
             if (val >= 14) {
                 var data = {
-                    x: this.zhongxin.lng,
-                    y: this.zhongxin.lat,
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [{
+                        x: this.zhongxin.lng,
+                        y: this.zhongxin.lat
+
+                    }, {
+                        x: this.zhongxin.lng,
+                        y: this.zhongxin.lat
+
+                    }],
                     distance: 5
                     // 请求楼盘数据
                 };this.getBuild(data);

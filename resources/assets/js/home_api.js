@@ -73,7 +73,7 @@ export function login(data) {
 export function getCoreBuildList(params) {
   return request({
       url: 'http://192.168.0.110/get_periphery_buildings',
-      method: 'GET',
+      method: 'POST',
       params: params
   })
 }

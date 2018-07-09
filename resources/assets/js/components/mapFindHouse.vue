@@ -341,8 +341,17 @@
             zoom:function (val) {
                 if(val>=14) {
                     const data = {
-                        x: this.zhongxin.lng,
-                        y: this.zhongxin.lat,
+                       '_token': document.getElementsByName('csrf-token')[0].content,
+                        gps:[{
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat
+
+                        },
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat
+
+                        }],
                         distance: 5
                     }
                     // 请求楼盘数据
