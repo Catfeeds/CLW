@@ -2501,16 +2501,16 @@ exports.default = function (target) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["h"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["d"] = getBlock;
-/* harmony export (immutable) */ __webpack_exports__["e"] = getBuildList;
+/* unused harmony export getBuildList */
 /* unused harmony export getSiteList */
 /* harmony export (immutable) */ __webpack_exports__["c"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["b"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["a"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["g"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["i"] = login;
-/* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["h"] = login;
+/* harmony export (immutable) */ __webpack_exports__["e"] = getCoreBuildList;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 
 
@@ -4673,7 +4673,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
 
       if (this.validateTel()) {
         this.secondNum = 60;
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["g" /* getLoginCode */])(this.tel).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["f" /* getLoginCode */])(this.tel).then(function (res) {
           __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
             message: '短信已发送请耐心等候',
             type: 'success'
@@ -4691,7 +4691,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
     // 登录
     login: function login() {
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["i" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["h" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',

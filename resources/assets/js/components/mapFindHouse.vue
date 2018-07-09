@@ -21,7 +21,7 @@
                 <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
                     <span>{{item.name}}</span>
-                    <span>{{item.building_num}}套</span>
+                    <span>{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
@@ -32,7 +32,7 @@
                      @mouseleave='blockActive = ""'>
                     <span>{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
-                    <span>{{item.tao}}套</span>
+                    <span>{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--楼盘浮动矩形-->
@@ -393,7 +393,13 @@
             },
             // 点击商圈详情
             seeAreaDetail(data) {
-                getBuildList().then(res => {
+                const ResultData = [{
+                    x: data.x,
+                    y: data.y,
+                    distance: 5
+                }]
+                // 请求楼盘数据
+                getCoreBuildList(ResultData).then(res => {
                     if (res.success) {
                         this.zoom = 14
                         this.buildList = res.data
