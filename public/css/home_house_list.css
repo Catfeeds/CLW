@@ -689,8 +689,8 @@ body .right_tab {
   width: 40px;
   background: #ffffff;
   z-index: 500;
-  -webkit-box-shadow: -5px 0px 5px #efefef;
-          box-shadow: -5px 0px 5px #efefef;
+  -webkit-box-shadow: -5px 0px 5px rgba(26,28,39,0.1);
+          box-shadow: -5px 0px 5px rgba(26,28,39,0.1);
   -webkit-transition: all .5s;
   transition: all .5s;
 }

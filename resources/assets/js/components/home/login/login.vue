@@ -7,10 +7,10 @@
     <div class="small-title">登录享受更多楚楼网服务</div>
     <form>
       <div class="input-box">
-        <input type="text" v-model="tel" placeholder="请输入手机号" @blur="validateTel()">
+        <input type="text" v-model="tel" placeholder="请输入手机号">
       </div>
       <div class="input-box">
-        <input type="text" v-model="code" placeholder="4位短信验证码" @blur="validateCode()">
+        <input type="text" v-model="code" placeholder="4位短信验证码">
         <div class="sms-btn-box">
           <button v-if="secondNum<=0" type="button" @click="getCode">获取验证码</button>
           <button type="button" v-else>{{secondNum}}s后重新发送</button>
@@ -121,6 +121,8 @@ export default {
     },
     // 登录
     login() {
+      this.isTel = true // 手机号验证状态 true: 通过 false: 不通过
+      this.isCode =  true // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
         login({ tel: this.tel, smsCode: this.code }).then(res => {
           if (res) {
@@ -182,6 +184,7 @@ body.el-popup-parent--hidden{
         width: 358px;
         overflow: hidden;
         &.error{
+          margin-top: 5px;
           border-color: #ff0000;
           z-index: 6;
         }
@@ -231,6 +234,10 @@ body.el-popup-parent--hidden{
       button{
         width: 360px;
         background-color: #007bff;
+        cursor: pointer;
+        &:hover{
+          background-color: #2b8df7;
+        }
       }
     }
     .route-box{

@@ -286,7 +286,7 @@
       <ul class="infamation-list">
         @for($j = 0; $j < 3; $j++)
           <li class="infamation-item">
-            <a href="javascript:void(0)" title="{{$information[$j]->title}}">
+            <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
               <div class="float-left">
               <img src="{{$information[$j]->banner_cn}}" alt="{{$information[$j]->title}}">
               </div>
@@ -309,7 +309,7 @@
         @for($j = 0; $j < 4; $j++)
           @if(!empty($hotInformation[$j]))
             <li class="hot-infomation-item">
-            <a href="javascript:void(0)" title="{{$hotInformation[$j]->title}}">
+            <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
                 <h4>{{$hotInformation[$j]->title}}</h4>
                 <p>
                     {{$hotInformation[$j]->brief}}

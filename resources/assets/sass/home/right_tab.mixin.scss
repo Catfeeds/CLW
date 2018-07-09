@@ -8,7 +8,7 @@
       width: 40px;
       background: #ffffff;
       z-index: 500;
-      box-shadow: -5px 0px 5px #efefef;
+      box-shadow: -5px 0px 5px rgba(26, 28, 39, 0.1);
       transition: all .5s;
       &.active{
         right: 0;
