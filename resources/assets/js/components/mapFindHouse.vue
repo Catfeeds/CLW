@@ -37,17 +37,18 @@
                 </div>
             </self-overlay>
             <!--楼盘浮动矩形-->
-            <site-cover v-show='zoom>=14' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}" v-for="(item, index) in buildList"
-                          :key="'buildBox'+ index">
+            <site-cover v-show='zoom>=14' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
+                        v-for="(item, index) in buildList"
+                        :key="'buildBox'+ index">
                 <div class="areaStyle" @click="seeBuildDetail(item)">
                     <div class="triangle"></div>
                     <!--<div class="detail">-->
-                        <!--<div>-->
-                            <!--<img src="" width="200px; height:200px">-->
-                            <!--<span>76.2元/㎡·月</span>-->
-                        <!--</div>-->
-                        <!--<div>{{item.title}}</div>-->
-                        <!--<div>面积: 57-700㎡</div>-->
+                    <!--<div>-->
+                    <!--<img src="" width="200px; height:200px">-->
+                    <!--<span>76.2元/㎡·月</span>-->
+                    <!--</div>-->
+                    <!--<div>{{item.title}}</div>-->
+                    <!--<div>面积: 57-700㎡</div>-->
                     <!--</div>-->
                     <span>{{item.name}}</span>
                 </div>
@@ -84,40 +85,40 @@
             </el-input>
             <el-row style="padding: 5px 0px">
                 <!--<el-col :span="6">-->
-                    <!--<div class="grid-content bg-purple">-->
-                        <!--<el-select v-model="condition.region" size="mini" filterable placeholder="区域">-->
-                            <!--<el-option-->
-                                    <!--v-for="item in subwayOptions"-->
-                                    <!--:key="item.label"-->
-                                    <!--:label="item.label"-->
-                                    <!--:value="item.label">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
-                    <!--</div>-->
+                <!--<div class="grid-content bg-purple">-->
+                <!--<el-select v-model="condition.region" size="mini" filterable placeholder="区域">-->
+                <!--<el-option-->
+                <!--v-for="item in subwayOptions"-->
+                <!--:key="item.label"-->
+                <!--:label="item.label"-->
+                <!--:value="item.label">-->
+                <!--</el-option>-->
+                <!--</el-select>-->
+                <!--</div>-->
                 <!--</el-col>-->
                 <!--<el-col :span="6">-->
-                    <!--<div class="grid-content bg-purple">-->
-                        <!--<el-select v-model="condition.acreage" size="mini" filterable placeholder="面积">-->
-                            <!--<el-option-->
-                                    <!--v-for="item in subwayOptions"-->
-                                    <!--:key="item.label"-->
-                                    <!--:label="item.label"-->
-                                    <!--:value="item.label">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
-                    <!--</div>-->
+                <!--<div class="grid-content bg-purple">-->
+                <!--<el-select v-model="condition.acreage" size="mini" filterable placeholder="面积">-->
+                <!--<el-option-->
+                <!--v-for="item in subwayOptions"-->
+                <!--:key="item.label"-->
+                <!--:label="item.label"-->
+                <!--:value="item.label">-->
+                <!--</el-option>-->
+                <!--</el-select>-->
+                <!--</div>-->
                 <!--</el-col>-->
                 <!--<el-col :span="6">-->
-                    <!--<div class="grid-content bg-purple">-->
-                        <!--<el-select v-model="condition.price" size="mini" filterable placeholder="价格">-->
-                            <!--<el-option-->
-                                    <!--v-for="item in subwayOptions"-->
-                                    <!--:key="item.label"-->
-                                    <!--:label="item.label"-->
-                                    <!--:value="item.label">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
-                    <!--</div>-->
+                <!--<div class="grid-content bg-purple">-->
+                <!--<el-select v-model="condition.price" size="mini" filterable placeholder="价格">-->
+                <!--<el-option-->
+                <!--v-for="item in subwayOptions"-->
+                <!--:key="item.label"-->
+                <!--:label="item.label"-->
+                <!--:value="item.label">-->
+                <!--</el-option>-->
+                <!--</el-select>-->
+                <!--</div>-->
                 <!--</el-col>-->
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
@@ -139,14 +140,14 @@
                 </el-col>
                 <el-col :span="9">
                     <!--<div class="grid-content bg-purple">-->
-                        <!--<el-select size="mini" filterable placeholder="价格排序">-->
-                            <!--<el-option-->
-                                    <!--v-for="item in subwayOptions"-->
-                                    <!--:key="item.value"-->
-                                    <!--:label="item.label"-->
-                                    <!--:value="item.value">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
+                    <!--<el-select size="mini" filterable placeholder="价格排序">-->
+                    <!--<el-option-->
+                    <!--v-for="item in subwayOptions"-->
+                    <!--:key="item.value"-->
+                    <!--:label="item.label"-->
+                    <!--:value="item.value">-->
+                    <!--</el-option>-->
+                    <!--</el-select>-->
                     <!--</div>-->
                 </el-col>
             </el-row>
@@ -215,7 +216,7 @@
             return {
                 ak: process.env.baiduAK, // 百度密钥
                 location: '武汉', // 检索区域
-                zhongxin:{lng: 114.312161, lat: 30.598964},
+                zhongxin: {lng: 114.312161, lat: 30.598964},
                 zoom: 12, // 地图缩放级别
                 keyword: '地铁', // 检索词
                 regionList: [], // 区域数据
@@ -244,9 +245,9 @@
                     value: 1
                 }],
                 subwayOptions: [{
-                        label: '1号线',
-                        value: '1号线'
-                    },
+                    label: '1号线',
+                    value: '1号线'
+                },
                     {
                         label: '2号线',
                         value: '2号线'
@@ -323,7 +324,7 @@
         watch: {
             'condition.metro': function (val) {
                 this.subwayKeyword = this.condition.metro
-                if(this.condition.metro === '') this.subwayKeyword = false;
+                if (this.condition.metro === '') this.subwayKeyword = false;
             },
             subwayKeyword: function (val) {
                 if (val) {
@@ -338,20 +339,20 @@
                     })
                 }
             },
-            zoom:function (val) {
-                if(val>=14) {
+            zoom: function (val) {
+                if (val >= 14) {
                     const data = {
-                       '_token': document.getElementsByName('csrf-token')[0].content,
-                        gps:[{
-                            x: this.zhongxin.lng,
-                            y: this.zhongxin.lat
-
-                        },
-                        {
-                            x: this.zhongxin.lng,
-                            y: this.zhongxin.lat
-
-                        }],
+                        '_token': document.getElementsByName('csrf-token')[0].content,
+                        gps: [
+                            {
+                                x: this.zhongxin.lng,
+                                y: this.zhongxin.lat
+                            },
+                            {
+                                x: this.zhongxin.lng,
+                                y: this.zhongxin.lat
+                            }
+                        ],
                         distance: 5
                     }
                     // 请求楼盘数据
@@ -366,7 +367,7 @@
 
             },
             dragend (val) {
-                if(this.zoom>=14) {
+                if (this.zoom >= 14) {
                     const data = [{
                         x: this.zhongxin.lng,
                         y: this.zhongxin.lat,
@@ -376,7 +377,7 @@
                     this.getBuild(data)
                 }
             },
-                ready(val) {
+            ready(val) {
                 this.BMap = val.BMap
             },
             zoomend: function (e) {
@@ -426,11 +427,11 @@
             // 根据条件获取数据
             getBuild(data) {
                 getCoreBuildList(data).then(res => {
-                    if(res.success){
+                    if (res.success) {
                         this.buildList = res.data
                         this.buildListNum = res.data.length
-                        console.log('res.data',res.data)
-                        console.log('res.data.length',res.data.length)
+                        console.log('res.data', res.data)
+                        console.log('res.data.length', res.data.length)
                     }
                 })
             }
@@ -470,7 +471,7 @@
             color: #ffffff;
             text-align: center;
             line-height: 30px;
-            .detail{
+            .detail {
                 position: relative;
                 color: #000000;
             }
@@ -491,7 +492,7 @@
         .areaStyle:hover {
             background: #1e99e0;
             border-color: #1e99e0 transparent transparent transparent;
-            .detail{
+            .detail {
                 display: block;
             }
         }
