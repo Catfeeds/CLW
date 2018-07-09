@@ -63,5 +63,15 @@ class MapsController extends Controller
         $res = $mapsService->getBlockLocationsList();
         return $this->sendResponse($res,'获取商圈地理位置信息成功');
     }
+
+    // 获取地铁站点楼盘数量
+    public function getPeripheryBuildingsCount(
+        Request $request,
+        MapsService $mapsService
+    )
+    {
+        $res = $mapsService->getPeripheryBuildingsCount($request);
+        return $this->sendResponse($res,'获取地铁站点楼盘数量成功');
+    }
     
 }

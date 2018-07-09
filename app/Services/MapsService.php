@@ -8,6 +8,25 @@ use App\Models\Block;
 
 class MapsService
 {
+    // 获取地铁站点楼盘数量
+    public function getPeripheryBuildingsCount($request)
+    {
+        $datas = array();
+        foreach ($request->gps as $key => $gps) {
+            $gps = json_decode($gps);
+            $y = $gps->y;
+            $x = $gps->x;
+
+            $count = \DB::select("select count(*) as count from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
+
+            $datas[$key]['count'] = $count[0]->count;
+            $datas[$key]['name'] = $request->name;
+            $datas[$key]['gps'] = $gps;
+        }
+
+        return $datas;
+    }
+    
     // 根据当前gps指定距离获取周边楼盘
     public function getPeripheryBuildings($request)
     {
