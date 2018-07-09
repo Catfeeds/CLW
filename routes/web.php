@@ -15,7 +15,7 @@
 Route::get('/user_agreement', 'HomeController@agreement');
 // TODO zxz地图功能开发路由
 Route:: get('map_test', function () {
-    return view('test.mapDemo');
+    return view('test.mapDemo', ['safeString' => \Illuminate\Support\Facades\Hash::make('chulouwang'.date('Y-m-d',time()))]);
 });
 //首页
 Route::get('index',function(){
