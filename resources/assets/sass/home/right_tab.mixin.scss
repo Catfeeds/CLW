@@ -17,6 +17,7 @@
         position: absolute;
         top: 25vh;
         width: 100%;
+        // 客服
         .customer-service{
           background-color: $master-blue;
           padding-top: 15px;
@@ -26,17 +27,107 @@
           cursor: pointer;
           img{
             margin-bottom: 5px;
+            margin-left: -3px;
           }
-          .text-box{
-            color: #ffffff;
-            font-family: PingFang-SC-Medium;
-            font-size: 14px;
-            font-weight: normal;
-            font-stretch: normal;
-            letter-spacing: 0px;
+          &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background-color: $master-blue;
+            left: -5px;
           }
         }
+        .text-box{
+          text-align: center;
+          color: #ffffff;
+          font-family: PingFang-SC-Medium;
+          font-size: 14px;
+          font-weight: normal;
+          font-stretch: normal;
+          letter-spacing: 0px;
+          margin-left: -3px;
+        }
+        // 委托找房
+        .lookForHouse-box{
+          display: block;
+          background-color: #40464d;
+          padding: 20px 0;
+          position: relative;
+          &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background-color: #40464d;
+            left: -5px;
+          }
+          &:before{
+            content: '';
+            position: absolute;
+            left: -5px;
+            right: 0;
+            height: 0;
+            border-width: 12px;
+            border-style: solid;
+            border-color: #40464d transparent transparent transparent;
+            bottom: -24px;
+            z-index: -1;
+          }
+          a{
+            display: block;
+            width: 100%;
+          }
+        }
+        // 投放房源
+        .launchHose-box{
+          background-color: #ffffff;
+          text-align: center;
+          padding-top: 13px;
+          a{
+            display: block;
+            width: 100%;
+          }
+        }
+        // 二维码
+        .dimentional-box{
+          @extend .launchHose-box;
+        }
       }
+    }
+  }
+  .el-popover.customer-popover{
+    background-color: $master-blue;
+    border-color: $master-blue!important;
+    .popper__arrow{
+      border-left-color: $master-blue!important;
+      &::after{
+        border-left-color: $master-blue !important;
+      }
+    }
+    *{
+      color: #ffffff;
+    }
+    .text-box{
+      font-size: 12px;
+      font-family: NotoSansHans-Light;
+      font-weight: normal;
+	    font-stretch: normal;
+    }
+    .title-box{
+      text-align: center;
+      margin: 12px 0 23px;
+      font-size: 24px;
+      font-family: NotoSansHans-Regular;
+    }
+    .brife-box{
+      text-align: center;
+      font-family: NotoSansHans-Regular;
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
     }
   }
 }
