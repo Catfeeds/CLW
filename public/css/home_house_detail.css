@@ -627,8 +627,16 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   margin-bottom: 25px;
 }
 
+.content .banner .swiper .littelSwiper .swiperPic {
+  display: block;
+}
+
 .content .banner .swiper .littelSwiper .swiperPic:hover {
   cursor: pointer;
+}
+
+.content .banner .swiper .littelSwiper .js_swiper {
+  display: none;
 }
 
 .content .banner .swiper .littelSwiper #smallImg {

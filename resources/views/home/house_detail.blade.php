@@ -20,7 +20,14 @@
                     </div>
                 </div>
                 <div class="littelSwiper">
-                    <div class="swiperPic" id="prev"><img src="/home_img/house_detail_left.jpg"></div>
+                    <div id="prev">
+                        <div class="swiperPic">
+                            <img src="/home_img/house_detail_left.jpg">
+                        </div>
+                        <div class="swiperPic js_swiper">
+                            <img src="/home_img/house_detail_left_before.jpg">
+                        </div>
+                    </div>
                     <div class="swiper-container" id="smallImg">
                         <div class="swiper-wrapper">
                             @foreach($house->pic_url as $houses)
@@ -28,7 +35,14 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="swiperPic" id="next"><img src="/home_img/house_detail_right.jpg"></div>
+                    <div id="next">
+                        <div class="swiperPic @if($house->pic_url->count()>5)js_swiper @endif">
+                            <img src="/home_img/house_detail_right.jpg">
+                        </div>
+                        <div class="swiperPic @if($house->pic_url->count()>5)active @else js_swiper @endif">
+                            <img src="/home_img/house_detail_right_before.jpg">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="infor">

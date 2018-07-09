@@ -40,8 +40,14 @@
         justify-content: space-between;
         margin-top: 12px;
         margin-bottom: 25px;
-        .swiperPic:hover{
-          cursor: pointer;
+        .swiperPic{
+          display: block;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .js_swiper{
+          display: none;
         }
         #smallImg{
           width: 622px;

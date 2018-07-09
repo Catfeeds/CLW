@@ -39,11 +39,15 @@ for(var j=0;j<smallImg.slides.length;j++){
   }
 }
 // 点击上一页和下一页
-$('#prev').on('click', function() {
-  smallImg.slidePrev()
-})
-$('#next').on('click', function() {
+$(document).on('click', '#next .active', function() {
   smallImg.slideNext()
+  $('#next').children('.active').removeClass('active').addClass('js_swiper').siblings().removeClass('js_swiper')
+  $('#prev').children('.js_swiper').removeClass('js_swiper').addClass('active').siblings().addClass('js_swiper')
+})
+$(document).on('click', '#prev .active', function() {
+  smallImg.slidePrev()
+  $('#prev').children('.active').removeClass('active').addClass('js_swiper').siblings().removeClass('js_swiper')
+  $('#next').children('.js_swiper').removeClass('js_swiper').addClass('active').siblings().addClass('js_swiper')
 })
 
 // 企业服务
