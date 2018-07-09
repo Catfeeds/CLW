@@ -169,12 +169,26 @@
                     <div class='server'>
                         <div class="head">企业服务</div>
                         <div class="serverPic">
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_plant.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_finance.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_computer.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_furniture.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_car.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_move.png"></a>
+                            <div class="serverImg" id="serverPrev"></div>
+                            <div class="swiper-container" id="service">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/plant.png"><div>绿植摆租</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/furniture.png"><div>办公家具</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/clean.png"><div>保洁服务</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/decoration.png"><div>企业装修</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/water.png"><div>桶装水</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/computer.png"><div>办公设备</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/move.png"><div>搬家服务</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/agency.png"><div>工商代办</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/car.png"><div>豪车租赁</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/support.png"><div>金融支持</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/green.png"><div>绿化环保</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/advertisement.png"><div>图文广告</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/pds.png"><div>综合布线</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="/home_img/services/finance.png"><div>财务财税</div></a></div>
+                                </div>
+                            </div>
+                            <div class="serverImg" id="serverNext"></div>
                         </div>
                     </div>
                 </div>

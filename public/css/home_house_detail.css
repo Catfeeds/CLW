@@ -268,7 +268,7 @@ a[href] {
 .content .nav span,
 .content .banner .infor .tel .agent .name div,
 .content .banner .infor .tel .consult div,
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress {
   font-size: 12px;
 }
 
@@ -278,7 +278,7 @@ a[href] {
 }
 
 .font-level3,
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyTitle {
   font-size: 16px;
 }
 
@@ -627,6 +627,10 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   margin-bottom: 25px;
 }
 
+.content .banner .swiper .littelSwiper .swiperPic:hover {
+  cursor: pointer;
+}
+
 .content .banner .swiper .littelSwiper #smallImg {
   width: 622px;
   margin-top: 2px;
@@ -946,7 +950,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic {
-  padding: 30px 84px 25px 65px;
+  padding: 43px 24px;
   background: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -954,6 +958,40 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.content .second .houseInfor .houseDetail .left .server .serverPic .swiper-container .swiper-slide {
+  text-align: center;
+}
+
+.content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev {
+  width: 46px;
+  height: 48px;
+  margin-top: 3px;
+  background: url(/home_img/house_detail_left.png) no-repeat;
+}
+
+.content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev:hover {
+  width: 46px;
+  height: 48px;
+  margin-top: 3px;
+  background: url(/home_img/house_detail_left_before.png) no-repeat;
+  cursor: pointer;
+}
+
+.content .second .houseInfor .houseDetail .left .server .serverPic #serverNext {
+  width: 46px;
+  height: 48px;
+  margin-top: 3px;
+  background: url(/home_img/house_detail_right.png) no-repeat;
+}
+
+.content .second .houseInfor .houseDetail .left .server .serverPic #serverNext:hover {
+  width: 46px;
+  height: 48px;
+  margin-top: 3px;
+  background: url(/home_img/house_detail_right_before.png) no-repeat;
+  cursor: pointer;
 }
 
 .content .second .houseInfor .houseDetail .findHouse {
@@ -1006,29 +1044,34 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
           justify-content: space-between;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyPic {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail:hover {
+  -webkit-box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+          box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+}
+
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyPic {
   width: 265px;
   height: 210px;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyPic img {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyPic img {
   width: 100%;
   height: 210px;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor {
   width: 239px;
   border: 1px solid #e6e6e6;
   border-top: none;
   padding: 20px 12px 10px 12px;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyTitle {
   color: #444545;
   margin-bottom: 8px;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1038,7 +1081,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   line-height: 25px;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress {
   color: #999;
   width: 140px;
   overflow: hidden;
@@ -1046,17 +1089,16 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   white-space: nowrap;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress img {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress img {
   vertical-align: text-bottom;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyPrice {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyPrice {
   color: #49494a;
 }
 
-.content .second .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyPrice span {
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyPrice span {
   font-size: 22px;
-  font-weight: 600;
   color: #007bff;
 }
 
