@@ -2748,7 +2748,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.142:9999/api/buildings_select',
+    url: 'http://192.168.0.142:9999/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -2819,9 +2819,9 @@ function getCoreBuildList(data) {
 // 获取站点楼盘数量
 function getSiteBuildNum(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/get_periphery_buildings',
+    url: '/get_periphery_buildings_count',
     method: 'POST',
-    data: data
+    params: data
   });
 }
 
@@ -9615,25 +9615,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         }, {
             label: '阳逻线',
             value: '阳逻线'
-        }]), _defineProperty(_ref, 'siteList', [{
-            name: "汉口北",
-            num: 0,
-            x: "114.33608245849610000000",
-            y: "30.71769714355468800000",
-            station: "1"
-        }, {
-            name: "滠口新城",
-            num: 0,
-            x: "114.34879302978516000000",
-            y: "30.69034767150879000000",
-            station: "1"
-        }, {
-            name: "滕子岗站",
-            num: "3",
-            x: "114.34787750244140000000",
-            y: "30.68033409118652300000",
-            station: "1"
-        }]), _ref;
+        }]), _defineProperty(_ref, 'siteList', []), _ref;
     },
 
     computed: {
@@ -9683,6 +9665,9 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         'condition.metro': function conditionMetro() {
             this.subwayKeyword = this.condition.metro;
             if (this.condition.metro === '') this.subwayKeyword = false;
+            //                if(this.condition.metro !== ''){
+            //
+            //                }
         },
         subwayKeyword: function subwayKeyword(val) {
             if (val) {
@@ -9781,20 +9766,31 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             });
         },
         seeMtro: function seeMtro(data) {},
+
+        // 获取站点楼盘数量
         getbuslinecomplete: function getbuslinecomplete(el) {
+            var _this3 = this;
+
             var data = [];
             for (var key in el.DB) {
                 console.log(el.DB[key]);
                 data.push({
                     name: el.DB[key].name,
-                    gps: {
-                        x: el.DB[key].position.lng,
-                        y: el.DB[key].position.lat
-                    }
+                    x: el.DB[key].position.lng,
+                    y: el.DB[key].position.lat
                 });
             }
-            console.log('array', array);
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["i" /* getSiteBuildNum */])(data).then(function (res) {});
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["i" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
+                console.log('getSiteBuildNum', res);
+                if (res.success) {
+                    _this3.siteList = res.data;
+                    _this3.$nextTick(function () {
+                        this.zoom = 13;
+                        this.centerLocaion = { lng: data.x, lat: data.y };
+                        this.locationType = true;
+                    });
+                }
+            });
         },
 
         // 地铁线
@@ -9816,13 +9812,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 根据条件获取楼盘数据
         getBuild: function getBuild(data) {
-            var _this3 = this;
+            var _this4 = this;
 
             Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(data).then(function (res) {
                 if (res.success) {
                     console.log('res.data.length', res.data.length);
-                    _this3.buildList = res.data.res;
-                    _this3.buildListNum = res.data.res.length;
+                    _this4.buildList = res.data.res;
+                    _this4.buildListNum = res.data.res.length;
                     console.log('res.data', res.data);
                     console.log('res.data.length', res.data.res.length);
                 }
@@ -9831,7 +9827,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 根据关键字获取楼盘数据
         findKeyword: function findKeyword() {
-            var _this4 = this;
+            var _this5 = this;
 
             var resultData = {
                 '_token': document.getElementsByName('csrf-token')[0].content,
@@ -9839,8 +9835,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             };
             this.getBuild(resultData).then(function (res) {
                 if (res.success) {
-                    _this4.buildList = res.data;
-                    _this4.buildListNum = res.data.length;
+                    _this5.buildList = res.data;
+                    _this5.buildListNum = res.data.length;
                 }
             });
         },
@@ -20322,7 +20318,9 @@ var render = function() {
                   [
                     _c("span", [_vm._v(_vm._s(item.name))]),
                     _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.num) + "个")]),
+                    _vm.zoom < 15
+                      ? _c("span", [_vm._v(_vm._s(item.num) + "个")])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "triangle" })
                   ]

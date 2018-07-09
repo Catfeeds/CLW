@@ -23,6 +23,7 @@ class VerifyCsrfToken extends Middleware
         'bespeaks',
         'quick_login',
         'collections',
-        'add_employee'
+        'add_employee',
+        'get_periphery_buildings_count'
     ];
 }

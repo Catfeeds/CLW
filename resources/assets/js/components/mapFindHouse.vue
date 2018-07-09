@@ -73,7 +73,7 @@
             <div class="areaStyle" @click="seeMtro(item)" @mouseover='blockActive = item.baidu_coord'
                  @mouseleave='blockActive = ""'>
                 <span>{{item.name}}</span>
-                <span>{{item.num}}个</span>
+                <span v-if="zoom<15">{{item.num}}个</span>
                 <div class="triangle"></div>
             </div>
         </site-cover>
@@ -367,25 +367,7 @@
                     value: '阳逻线'
                 }
                 ],
-                siteList: [{
-                    name: "汉口北",
-                    num: 0,
-                    x: "114.33608245849610000000",
-                    y: "30.71769714355468800000",
-                    station: "1"
-                }, {
-                    name: "滠口新城",
-                    num: 0,
-                    x: "114.34879302978516000000",
-                    y: "30.69034767150879000000",
-                    station: "1"
-                }, {
-                    name: "滕子岗站",
-                    num: "3",
-                    x: "114.34787750244140000000",
-                    y: "30.68033409118652300000",
-                    station: "1"
-                }], // 站点列表
+                siteList: [], // 站点列表
             }
         },
         computed: {
@@ -434,6 +416,9 @@
             'condition.metro': function () {
                 this.subwayKeyword = this.condition.metro
                 if (this.condition.metro === '') this.subwayKeyword = false;
+//                if(this.condition.metro !== ''){
+//
+//                }
             },
             subwayKeyword: function (val) {
                 if (val) {
@@ -540,21 +525,27 @@
             seeMtro(data){
 
             },
+            // 获取站点楼盘数量
             getbuslinecomplete(el) {
                 var data = []
                 for(var key in el.DB) {
                     console.log( el.DB[key])
                     data.push({
                         name: el.DB[key].name,
-                        gps: {
-                            x: el.DB[key].position.lng,
-                            y: el.DB[key].position.lat
-                        }
+                        x: el.DB[key].position.lng,
+                        y: el.DB[key].position.lat,
                     })
                 }
-                console.log('array', array)
-                getSiteBuildNum(data).then(res=>{
-
+                getSiteBuildNum({gps: data, distance: 3}).then(res=>{
+                    console.log('getSiteBuildNum', res)
+                    if(res.success){
+                        this.siteList = res.data
+                        this.$nextTick(function () {
+                            this.zoom = 13
+                            this.centerLocaion = {lng: data.x, lat: data.y}
+                            this.locationType = true
+                        })
+                    }
                 })
             },
             // 地铁线

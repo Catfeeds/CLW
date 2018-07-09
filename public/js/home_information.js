@@ -1942,7 +1942,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.142:9999/api/buildings_select',
+    url: 'http://192.168.0.142:9999/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -2013,9 +2013,9 @@ function getCoreBuildList(data) {
 // 获取站点楼盘数量
 function getSiteBuildNum(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/get_periphery_buildings',
+    url: '/get_periphery_buildings_count',
     method: 'POST',
-    data: data
+    params: data
   });
 }
 

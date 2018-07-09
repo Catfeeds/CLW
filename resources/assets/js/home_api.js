@@ -20,7 +20,7 @@ export function getBlock() {
 export function buildingsSelect(params) {
     return axios({
         headers: {'safeString': params},
-        url: 'http://192.168.0.142:9999/api/buildings_select',
+        url: 'http://192.168.0.142:9999/api/cities_areas_blocks_select',
         method: 'GET',
     })
 }
@@ -91,9 +91,9 @@ export function getCoreBuildList(data) {
 // 获取站点楼盘数量
 export function getSiteBuildNum(data) {
     return request({
-        url: '/get_periphery_buildings',
+        url: '/get_periphery_buildings_count',
         method: 'POST',
-        data
+        params: data
     })
 }
 
