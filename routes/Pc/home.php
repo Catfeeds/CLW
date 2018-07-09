@@ -31,8 +31,10 @@ Route::resource('bespeaks', 'BespeaksController');
 //PC端房源投放
 Route::resource('throw_ins', 'ThrowInsController');
 
-
+// 获取指定gps周边楼盘
 Route::post('get_periphery_buildings','MapsController@getPeripheryBuildings');
+// 获取区域地理位置信息
+Route::get('get_region_list','MapsController@getRegionList');
 
 //收藏
 Route::resource('collections', 'CollectionsController');

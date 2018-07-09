@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Handler\Common;
+use App\Models\Area;
 
 class MapsService
 {
@@ -15,7 +16,6 @@ class MapsService
             $y = $gps->y;
             $x = $gps->x;
 
-            // 此查询无排序
             $res = \DB::select("select * from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
 
             $buildings[] = Common::objectToArray(collect($res)->toArray());
@@ -43,5 +43,21 @@ class MapsService
         }
 
         return $result;
+    }
+
+    public function getRegionList()
+    {
+        $areas = Area::with('areaLocation')->get();
+
+        $datas = array();
+        foreach ($areas as $k => $v) {
+            $datas[$k]['name'] = $v->name;
+            $datas[$k]['x'] = $v->areaLocation->x;
+            $datas[$k]['y'] = $v->areaLocation->y;
+            $datas[$k]['scope'] = $v->areaLocation->scope;
+            $datas[$k]['building_num'] = $v->areaLocation->building_num;
+        }
+
+        return $datas;
     }
 }
