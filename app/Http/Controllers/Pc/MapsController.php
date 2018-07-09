@@ -39,12 +39,11 @@ class MapsController extends Controller
             if (empty($request->area_id) && empty($request->block_id)) {
                 // 通过楼盘获取商圈
                 $areaLocations = $mapsService->getBuildingArea($res);
-
+                return $this->sendResponse(['res' => $res, 'areaLocations' => $areaLocations],'地图找楼获取成功');
             }
-
         }
 
-        return $this->sendResponse($res,'地图找楼获取成功');
+        return $this->sendResponse(['res' => $res],'地图找楼获取成功');
     }
 
     // 获取区域地理位置信息
