@@ -20,21 +20,30 @@ class MapsService
             $buildings[] = Common::objectToArray(collect($res)->toArray());
         }
 
+        // 将结果的多维数组转换为一维数组
         $buildings = collect($buildings)->collapse()->all();
 
-        array_unique($buildings);
+        return $this->remove_duplicate($buildings);
+    }
 
-        dump($buildings);
+    // 楼盘去重
+    public function remove_duplicate($datas)
+    {
+        $result = array();
+        foreach ($datas as $key => $value) {
+            $has = false;
+            foreach ($result as $val) {
+                if ($val['id'] == $value['id']) {
+                    $has = true;
+                    break;
+                }
+            }
+            if (!$has) $result[] = $value;
 
+        }
 
-//        $y =  $request->y; //当前坐标y
-//        $x = $request->x; //当前坐标x
-//        $distance = $request->distance; //5公里以内的信息，这里的5公里为半径。
-//
-//        // 此查询无排序
-//        $sql = "select * from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$distance;
-//
-//        return \DB::select($sql);
+        return $result;
+
     }
 
 }
