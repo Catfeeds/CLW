@@ -265,7 +265,7 @@ a[href] {
 }
 
 .font-level1,
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress {
   font-size: 12px;
 }
 
@@ -276,7 +276,7 @@ a[href] {
 
 .font-level3,
 .content .build .first .right .agent .free,
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyTitle {
   font-size: 16px;
 }
 
@@ -805,6 +805,10 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   text-align: center;
 }
 
+.content .build .first .left .filter:hover {
+  cursor: pointer;
+}
+
 .content .build .first .left .filter div {
   width: 186px;
   color: #666;
@@ -896,6 +900,10 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.content .build .first .left .buildList .listNav .listArea:hover {
+  cursor: pointer;
 }
 
 .content .build .first .left .buildList .listNav .listArea span {
@@ -1199,29 +1207,34 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
           justify-content: space-between;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyPic {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail:hover {
+  -webkit-box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+          box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+}
+
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyPic {
   width: 265px;
   height: 210px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyPic img {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyPic img {
   width: 265px;
   height: 210px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor {
   width: 239px;
   border: 1px solid #e6e6e6;
   border-top: none;
   padding: 20px 12px 10px 12px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyTitle {
   color: #444545;
   margin-bottom: 8px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1231,19 +1244,19 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   line-height: 25px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress {
   color: #999;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress img {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress img {
   vertical-align: text-bottom;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyPrice {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyPrice {
   color: #49494a;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyPrice span {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyPrice span {
   font-size: 22px;
   font-weight: 600;
   color: #007bff;
