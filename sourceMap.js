@@ -88,7 +88,8 @@ module.exports = {
       'home_paging',
       'home_sellhouse',
       'home_information_show',
-      'home_launchouse'
+      'home_launchouse',
+      'home_topic'
     ],
     js: [
       'home_index',

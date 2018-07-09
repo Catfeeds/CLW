@@ -2046,15 +2046,38 @@ exports.push([module.i, ".el-fade-in-enter,.el-fade-in-leave-active,.el-fade-in-
 
 /***/ }),
 
-/***/ 278:
+/***/ 279:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(279);
+module.exports = __webpack_require__(280);
 
 
 /***/ }),
 
-/***/ 279:
+/***/ 28:
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
+}
+
+
+/***/ }),
+
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2079,29 +2102,12 @@ var mySwiper2 = new Swiper('.swiper-container1', {
         crossFade: true
     }
 });
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, exports) {
-
-module.exports = function escape(url) {
-    if (typeof url !== 'string') {
-        return url
+$(".list-body-content").each(function () {
+    var words = $(this).text().trim().length;
+    if (words > 90) {
+        $(this).text($(this).text().trim().slice(0, 90) + "......");
     }
-    // If url is already wrapped in quotes, remove them
-    if (/^['"].*['"]$/.test(url)) {
-        url = url.slice(1, -1);
-    }
-    // Should url be wrapped?
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (/["'() \t\n]/.test(url)) {
-        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
-    }
-
-    return url
-}
-
+});
 
 /***/ }),
 
@@ -11376,4 +11382,4 @@ var valueEquals = exports.valueEquals = function valueEquals(a, b) {
 
 /***/ })
 
-},[278]);
+},[279]);
