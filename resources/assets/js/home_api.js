@@ -72,7 +72,7 @@ export function login(data) {
 // 根据中心获取楼盘
 export function getCoreBuildList(params) {
   return request({
-      url: 'http://192.168.0.110/get_periphery_buildings',
+      url: '/get_periphery_buildings',
       method: 'POST',
       params: params
   })

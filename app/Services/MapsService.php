@@ -11,8 +11,9 @@ class MapsService
     {
         $buildings = array();
         foreach ($request->gps as $gps) {
-            $y = $gps['y'];
-            $x = $gps['x'];
+            $gps = json_decode($gps);
+            $y = $gps->y;
+            $x = $gps->x;
 
             // 此查询无排序
             $res = \DB::select("select * from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);

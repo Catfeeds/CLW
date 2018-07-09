@@ -19,7 +19,6 @@ class MapsController extends Controller
         BuildingsService $buildingsService
     )
     {
-        dd($request->all());
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
