@@ -28,9 +28,11 @@ class MapsController extends Controller
         } elseif (!empty($request->distance) && !empty($request->gps)) {
             $res = $mapsService->getPeripheryBuildings($request);
         } else {
-            // 处理价格,面积,特色
+            // 处理单价,总价,面积
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
+            if (!empty($request->total_price)) $request->offsetSet('total_price', explode('-',$request->total_price));
+
             // 楼盘列表数据
             $res = $repository->buildingList($request, $buildingsService,null,true);
         }
