@@ -27,7 +27,7 @@ class BuildingsRepository extends  Model
      * @return array
      * @author 罗振
      */
-    public function buildingList(
+public function buildingList(
         $request,
         $service,
         $building_id = null,
