@@ -408,6 +408,13 @@
             },
             // 地铁线
             getbuslist(el) {
+                console.log('NA', el.NA)
+                this.$nextTick(function () {
+                  for (var key in el) {
+                      console.log(key)
+                      console.log(el[key])
+                  }
+                })
                 if (el.getBusListItem(0)) {
                     this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0))
                 }

@@ -9652,6 +9652,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 地铁线
         getbuslist: function getbuslist(el) {
+            console.log('NA', el.NA);
+            this.$nextTick(function () {
+                for (var key in el) {
+                    console.log(key);
+                    console.log(el[key]);
+                }
+            });
             if (el.getBusListItem(0)) {
                 this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0));
             }
