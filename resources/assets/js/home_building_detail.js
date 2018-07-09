@@ -43,12 +43,11 @@ $(window).scroll(function(){
 
 // 轮播
 var banner = new Swiper('#banner', {
-  direction: 'horizontal', // 横向滑动
   pagination: '.swiper-pagination', // 添加分页器
   paginationClickable: true, // 分页器可点击
   paginationBulletRender: function(banner, index, className){
     return '<span class="'+ className +'"><img src="'+ Data.pic_url[index].url +'"></span>'
-  }, // 自定义分页器
+  } // 自定义分页器
 })
 
 // 点击查看地图

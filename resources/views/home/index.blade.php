@@ -5,6 +5,7 @@
 @endsection
 @section('body')
 @include('home.nav' , ['fixed' => 1])
+@include('home.right_tab', ['fixed' => 1])
 <header class="index-header-box js_headerHeight">
   <div class="banner-content-box">
     <div class="banner-search-box">
@@ -322,6 +323,7 @@
     <div class="clearfloat"></div>
   </div>
 </div>
+@include('home.footer')
 @endsection
 @section('script')
 <script src="/js/home_index.js"></script>

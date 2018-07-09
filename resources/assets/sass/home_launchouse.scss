@@ -1,13 +1,16 @@
 @import 'home_master';
 @include nav();
 @import 'home_sellhouse';
-.area{
-  margin-bottom: 19px;
-  select{
-    width: 155px;
-    height: 44px;
-  }
-  select:nth-child(2){
-    margin-left: 10px;
+body {
+  .area{
+    margin-bottom: 19px;
+    select{
+      width: 155px;
+      height: 44px;
+      border: 1px solid #ccc;
+    }
+    select:nth-child(2){
+      margin-left: 10px;
+    }
   }
 }
