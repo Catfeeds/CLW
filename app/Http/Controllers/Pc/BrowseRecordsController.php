@@ -22,12 +22,12 @@ class BrowseRecordsController extends Controller
         return $this->sendResponse($res,'获取浏览记录列表');
     }
 
-
-   //删除浏览记录
-    public function destroy()
+    //删除浏览记录
+    public function destroy(
+        BrowseRecord $browseRecord
+    )
     {
-        dd(123);
-//         $res = $browseRecord->delete();
-//         return $this->sendResponse($res,'删除浏览记录成功');
+         $res = $browseRecord->delete();
+         return $this->sendResponse($res,'删除浏览记录成功');
     }
 }

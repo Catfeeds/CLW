@@ -52,3 +52,16 @@ Route::get('topic',function(){
 Route::resource('browse_records','BrowseRecordsController');
 
 
+//精选楼盘
+Route::resource('recommends', 'RecommendsController');
+
+/*
+|--------------------------------------------------------------------------
+| 个人中心
+|--------------------------------------------------------------------------
+*/
+// 我的预约
+Route::get('get_user_bespeaks', 'BespeaksController@getUserBespeaks');
+
+
+

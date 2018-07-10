@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Handler\Common;
 use App\Models\Area;
 use App\Models\Block;
-use App\Models\Building;
+use App\Repositories\BuildingsRepository;
 
 class MapsService
 {
@@ -29,8 +29,12 @@ class MapsService
         return $datas;
     }
     
-    // 根据当前gps指定距离获取周边楼盘  TODO
-    public function getPeripheryBuildings($request)
+    // 根据当前gps指定距离获取周边楼盘
+    public function getPeripheryBuildings(
+        $request,
+        BuildingsRepository $repository,
+        BuildingsService $buildingsService
+    )
     {
         $buildings = array();
         foreach ($request->gps as $gps) {
@@ -38,6 +42,7 @@ class MapsService
             $y = $gps->y;
             $x = $gps->x;
 
+            // 获取gps范围里面所有楼盘id
             $res = \DB::select("select id from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
 
             $buildings[] = Common::objectToArray(collect($res)->toArray());
@@ -46,21 +51,7 @@ class MapsService
         // 获取去重之后的所有楼盘id
         $buildingsId = array_column($this->remove_duplicate(collect($buildings)->collapse()->all()),'id');
 
-        $buildings = Building::whereIn('id',$buildingsId)->with('house', 'block', 'area')->get();
-
-        $service = new BuildingsService();
-        foreach ($buildings as $building) {
-            $service->getAddress($building);
-            // 楼盘下所有房源
-            $houses = $building->house;
-            if (!empty($houses->count())) {
-                $building->buildingAverage = $service->getBuildingAveragePrice($houses);
-            } else {
-                $building->buildingAverage = '';
-            }
-        }
-
-        return $buildings->toArray();
+        return $repository->buildingList($request, $buildingsService, $buildingsId,true,null, true);
     }
 
     // 数组去重
