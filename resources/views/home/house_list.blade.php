@@ -4,6 +4,7 @@
 @section('header')
 @section('body')
 @include('home.nav')
+@include('home.right_tab')
     <input type="hidden" id="search"
            data-area_id="{{ $request['area_id']??'' }}"
            data-block_id="{{ $request['block_id']??'' }}"
