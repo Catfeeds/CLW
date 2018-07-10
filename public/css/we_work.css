@@ -221,7 +221,6 @@ body {
 }
 
 .list-bottom {
-  position: relative;
   font-size: 14px;
   color: #666;
   background-color: #FFFFFF;
@@ -244,19 +243,31 @@ body {
 }
 
 .list-bottom .text {
-  padding: 7px 0px;
-}
-
-.list-bottom span {
-  padding: 9px;
+  position: relative;
+  margin-right: 0px;
 }
 
 .list-bottom img {
-  position: absolute;
-  top: 10px;
-  left: 276px;
   width: 24px !important;
   height: 24px !important;
+}
+
+.unfeedback {
+  height: 26px !important;
+  border-radius: 13px !important;
+  color: #26a2ff;
+  border: 1px solid #26a2ff;
+  background-color: #fff;
+}
+
+.feedback {
+  color: #26a2ff;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .f-1 {
@@ -268,10 +279,35 @@ body {
           flex: 1;
 }
 
+.f-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.f-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+.p-5 {
+  padding: 5px;
+}
+
 .jus-start {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .jus-center {
@@ -284,5 +320,8 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
