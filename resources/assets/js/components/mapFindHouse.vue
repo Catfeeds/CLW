@@ -157,14 +157,13 @@
             <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index">
                 <el-col :span="8">
                     <img style="width: 130px;height: 130px"
-                         src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg">
+                         :src="item.img_cn">
                 </el-col>
                 <el-col :span="15">
                     <div>{{item.name}}</div>
-                    <div><span>{{item.developer}}</span><span>元/㎡·月</span></div>
-                    <div>地址: [江汉] - [其他] | {{item.address}}</div>
-                    <div>地铁：距离3号线武汉商务区站约491米 </div>
-                    <div>面积：面积： {{item.acreage}}m²  </div>
+                    <div><span>{{item.buildingAverage}}</span><span>元/㎡·月</span></div>
+                    <div>地址: [{{item.address_cn}}] {{item.address}}</div>
+                    <div>面积：{{item.acreage_cn}}m²  </div>
                 </el-col>
             </el-row>
         </div>
@@ -466,6 +465,7 @@
                     data._token = document.getElementsByName('csrf-token')[0].content
                     console.log('data', data)
                     this.getBuild(data)
+                    console.log('asdsada', val)
                 },
                 deep: true,
                 immediate: true

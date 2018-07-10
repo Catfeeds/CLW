@@ -19,6 +19,7 @@ class MapsController extends Controller
         BuildingsService $buildingsService
     )
     {
+        $request = collect($request->except('_token'));
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
@@ -35,9 +36,8 @@ class MapsController extends Controller
 
             // 楼盘列表数据
             $res = $repository->buildingList($request, $buildingsService,null,true,null, true);
-
-            if (empty($request->area_id) && empty($request->block_id)) {
-                // 通过楼盘获取商圈
+            if ((empty($request->area_id) && empty($request->block_id))&& (!empty($request->acreage)||!empty($request->unit_price)||!empty($request->total_price))) {
+                // 通过楼盘获取区域
                 $areaLocations = $mapsService->getBuildingArea($res);
                 return $this->sendResponse(['res' => $res, 'areaLocations' => $areaLocations],'地图找楼获取成功');
             }
