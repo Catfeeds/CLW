@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Handler\Common;
 use App\Models\Area;
 use App\Models\Block;
-use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 
 class MapsService
@@ -30,7 +29,7 @@ class MapsService
         return $datas;
     }
     
-    // 根据当前gps指定距离获取周边楼盘  TODO
+    // 根据当前gps指定距离获取周边楼盘
     public function getPeripheryBuildings(
         $request,
         BuildingsRepository $repository,
@@ -43,6 +42,7 @@ class MapsService
             $y = $gps->y;
             $x = $gps->x;
 
+            // 获取gps范围里面所有楼盘id
             $res = \DB::select("select id from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
 
             $buildings[] = Common::objectToArray(collect($res)->toArray());

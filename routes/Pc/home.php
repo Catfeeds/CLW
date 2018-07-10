@@ -50,4 +50,13 @@ Route::get('topic',function(){
   return view('home.home_topic');
 });
 
+/*
+|--------------------------------------------------------------------------
+| 个人中心
+|--------------------------------------------------------------------------
+*/
+// 我的预约
+Route::get('get_user_bespeaks', 'BespeaksController@getUserBespeaks');
+
+
 
