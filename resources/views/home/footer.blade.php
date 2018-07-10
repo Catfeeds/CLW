@@ -9,9 +9,9 @@
             <img src="/home_img/footer_logo.png" alt="" class="logo">
             <div class="info">
                 &#169;2017<br/>
-                楚楼(武汉)信息科技有限公司&nbsb;版权所有<br />
+                楚楼(武汉)信息科技有限公司&nbsp;版权所有<br />
                 鄂ICP备18001084号<br />
-                鄂公网安备&nbsb;42018502001214号
+                鄂公网安备&nbsp;42018502001214号
             </div>
             <div class="friend_link">友情链接:
                 <a href="javascript:void(0);">奇立英雄会</a>

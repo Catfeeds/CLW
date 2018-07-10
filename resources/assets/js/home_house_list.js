@@ -1,6 +1,7 @@
 require('./home_common');
 import './components/home/login' // 登录组件
 var findHouse = require('./components/findHouse.vue')
+var rightTop = $("#findHouse").offset().top
 new Vue({
     el: '#findHouse',
     components: { findHouse }
@@ -14,6 +15,18 @@ function createURL(url, param) {
     var result = url + "?" + link.substr(1);
     return result;
 }
+// 页面滚动
+$(window).scroll(function(){
+    var scrollTop = $(window).scrollTop()
+    if(scrollTop >= rightTop){
+        $('#findHouse').addClass("location")
+        $('#findHouse').css('margin-top','30px')
+    }
+    else if(scrollTop <= rightTop){
+        $('#findHouse').removeClass("location")
+        $("#findHouse").css('margin-top',0)
+    }
+  })
 // 拿到所有条件值
 var data = {
     area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
