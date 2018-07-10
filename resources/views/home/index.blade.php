@@ -267,13 +267,13 @@
       <img src="/home_img/index_lookForHouse.png" alt="">
       <h3>委托找房</h3>
       <p>专业、可靠、免费优办提供一对一全程找房服务</p>
-      <a href="{{url('/sellhouse')}}">委托找房>></a>
+      <a href="{{url('/bespeaks')}}">委托找房>></a>
     </div>
     <div class="launchHouse-box">
       <img src="/home_img/index_launchHouse.png" alt="">
       <h3>投放房源</h3>
       <p>专业、可靠、免费优办提供一对一全程服务</p>
-      <a href="{{url('/launchouse')}}">投放房源>></a>
+      <a href="{{url('/throw_ins')}}">投放房源>></a>
     </div>
     <div class="clearfloat"></div>
   </div>
@@ -286,7 +286,7 @@
       <ul class="infamation-list">
         @for($j = 0; $j < 3; $j++)
           <li class="infamation-item">
-            <a href="javascript:void(0)" title="{{$information[$j]->title}}">
+            <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
               <div class="float-left">
               <img src="{{$information[$j]->banner_cn}}" alt="{{$information[$j]->title}}">
               </div>
@@ -309,7 +309,7 @@
         @for($j = 0; $j < 4; $j++)
           @if(!empty($hotInformation[$j]))
             <li class="hot-infomation-item">
-            <a href="javascript:void(0)" title="{{$hotInformation[$j]->title}}">
+            <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
                 <h4>{{$hotInformation[$j]->title}}</h4>
                 <p>
                     {{$hotInformation[$j]->brief}}

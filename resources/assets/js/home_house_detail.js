@@ -1,6 +1,7 @@
 require('./home_common')
 import { collect, cancelCollet } from './home_api'
 import './components/home/login' // 登录组件
+import './components/home/right_tab' // 侧边栏组件
 const Swiper = require('swiper')
 var detailMap = require('./components/detailMap.vue')
 var findHouse = require('./components/findHouse.vue')

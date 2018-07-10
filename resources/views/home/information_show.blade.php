@@ -1,5 +1,5 @@
 @extends('home.layouts.layout')
-@section('title', '咨询列表')
+@section('title', '资讯详情')
 @section('header')
     <link rel="stylesheet" href="{{res('/css/home_information_show.css')}}">
 @endsection
@@ -7,7 +7,17 @@
     @include('home.nav')
     <div class="continue">
         <!--  -->
-        <div class="nav"><a href="{{url('/')}}"><span>首页 </span></a><span>> 资讯详情 </span></div>
+        <div class="nav">
+            <a href="{{url('/')}}">
+                <span>首页 </span>
+            </a>
+            <span>> </span>
+            <a href="{{url('/information')}}">
+                <span>资讯中心</span>
+            </a> 
+            <span>> </span>
+            <span>资讯详情</span>
+        </div>
         <div class="main">
             <div class="left">
                 <div class="title">{{$information->title}}</div>
@@ -45,6 +55,7 @@
             </div>
         </div>
     </div>
+    @include('home.footer')
 @endsection
 @section('script')
     <script src="{{res('/js/home_information.js')}}"></script>

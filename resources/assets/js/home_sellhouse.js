@@ -1,7 +1,6 @@
 require('./home_common');
 require('jquery-validation');
 const url = process.env.homeHostUrl
-console.log('url', url)
 var type = $("#commentForm").validate({
     rules: {
         tel: {

@@ -11,8 +11,8 @@
     <title>地图demo</title>
 </head>
 <body>
+@include('home.nav')
 <div id="app">
-     {{--<map-look-for></map-look-for>--}}
     <self-div a1='ss1' a2='ss2' a3='ss3'> </self-div>
 </div>
 <script src="{{res('/js/home_manifest.js')}}"></script>

@@ -17,38 +17,6 @@ Route::get('/user_agreement', 'HomeController@agreement');
 Route:: get('map_test', function () {
     return view('test.mapDemo', ['safeString' => \Illuminate\Support\Facades\Hash::make('chulouwang'.date('Y-m-d',time()))]);
 });
-//首页
-Route::get('index',function(){
-    return view('home.index');
-});
-//登录页面
-Route::get('login',function(){
-    return view('home.login');
-});
-//注册界面
-Route::get('register',function(){
-    return view('home.register');
-});
-//app下载页面
-Route::get('download',function(){
-    return view('home.download');
-});
-//个人中心页面
-Route::get('personal',function(){
-    return view('home.personal');
-});
-//房源列表页面
-Route::get('house_list',function(){
-    return view('home.house_list');
-});
-//委托找房页面
-Route::get('sellhouse',function(){
-    return view('home.sellhouse');
-});
-//投放房源页面
-Route::get('launchouse',function(){
-    return view('home.launchouse');
-});
 /*
  * 微信端路由
  */

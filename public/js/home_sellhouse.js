@@ -1624,7 +1624,6 @@ module.exports = __webpack_require__(282);
 __webpack_require__(68);
 __webpack_require__(128);
 var url = 'http://www.clw.com';
-console.log('url', url);
 var type = $("#commentForm").validate({
     rules: {
         tel: {

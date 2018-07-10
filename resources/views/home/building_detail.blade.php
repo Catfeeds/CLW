@@ -5,6 +5,7 @@
 @endsection
 @section('body')
 @include('home.nav')
+@include('home.right_tab')
 <div class="content">
     @include('home.layouts.nav', ['arrs'=>$data])
         <!-- 轮播 -->
