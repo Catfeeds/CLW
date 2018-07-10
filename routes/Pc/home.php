@@ -45,5 +45,9 @@ Route::get('get_block_locations_list','MapsController@getBlockLocationsList');
 Route::resource('collections', 'CollectionsController');
 //房源详情取消收藏
 Route::get('del/{id}', 'CollectionsController@del');
+//精选专题
+Route::get('topic',function(){
+  return view('home.home_topic');
+});
 
 

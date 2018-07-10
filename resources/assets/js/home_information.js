@@ -17,3 +17,9 @@ var mySwiper2 = new Swiper('.swiper-container1',{
         crossFade: true,
     }
 })
+$(".list-body-content").each(function(){
+    var words = $(this).text().trim().length;
+    if(words > 90){
+        $(this).text($(this).text().trim().slice(0,90)+"......");
+    }
+})

@@ -1,6 +1,8 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-@include nav();
+@include nav();// 导航样式
+@include footer(); // 底部样式
+@include right_tab(); // 侧边栏样式
 .content{
     a{
       text-decoration: none;
@@ -171,6 +173,9 @@
             display: flex;
             justify-content: space-between;
             text-align: center;
+            &:hover{
+              cursor: pointer;
+            }
             div{
               width: 186px;
               color: #666;
@@ -237,6 +242,9 @@
                 width: 176px;
                 display: flex;
                 justify-content: flex-start;
+                &:hover{
+                  cursor: pointer;
+                }
                 span{
                   color: #666;
                 }
@@ -460,42 +468,47 @@
             padding: 25px;
             display: flex;
             justify-content: space-between;
-            .enjoyPic{
-              width: 265px;
-              height: 210px;
-              img{
+            .enjoyDetail{
+              &:hover{
+                box-shadow: 0 5px 8px rgba(0,0,0,.1);
+              }
+              .enjoyPic{
                 width: 265px;
                 height: 210px;
-              }
-            }
-            .enjoyInfor{
-              width: 239px;
-              border: 1px solid #e6e6e6;
-              border-top: none;
-              padding: 20px 12px 10px 12px;
-              .enjoyTitle{
-                @extend .font-level3;
-                color: #444545;
-                margin-bottom: 8px;
-                // font-weight: 600;
-              }
-              .enjoyIntro{
-                display: flex;
-                justify-content: space-between;
-                line-height: 25px;
-                .enjoyAddress{
-                  @extend .font-level1;
-                  color: #999;
-                  img{
-                    vertical-align: text-bottom;
-                  }
+                img{
+                  width: 265px;
+                  height: 210px;
                 }
-                .enjoyPrice{
-                  color: #49494a;
-                  span{
-                    font-size: 22px;
-                    font-weight: 600;
-                    color: $master-blue;
+              }
+              .enjoyInfor{
+                width: 239px;
+                border: 1px solid #e6e6e6;
+                border-top: none;
+                padding: 20px 12px 10px 12px;
+                .enjoyTitle{
+                  @extend .font-level3;
+                  color: #444545;
+                  margin-bottom: 8px;
+                  // font-weight: 600;
+                }
+                .enjoyIntro{
+                  display: flex;
+                  justify-content: space-between;
+                  line-height: 25px;
+                  .enjoyAddress{
+                    @extend .font-level1;
+                    color: #999;
+                    img{
+                      vertical-align: text-bottom;
+                    }
+                  }
+                  .enjoyPrice{
+                    color: #49494a;
+                    span{
+                      font-size: 22px;
+                      font-weight: 600;
+                      color: $master-blue;
+                    }
                   }
                 }
               }

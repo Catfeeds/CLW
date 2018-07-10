@@ -556,9 +556,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 
 html,
 body {
-  background: url(/home_img/sellhouse_back.jpg);
-  background-position: center;
-  background-size: cover;
+  height: 100vh;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
@@ -673,6 +671,13 @@ body .container .form_container form input {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+html .container .form_container form input:focus,
+html .container .form_container form textarea:focus,
+body .container .form_container form input:focus,
+body .container .form_container form textarea:focus {
+  border: 1px solid #007bff;
+}
+
 html .container .form_container form textarea::-webkit-input-placeholder,
 html .container .form_container form input::-webkit-input-placeholder,
 body .container .form_container form textarea::-webkit-input-placeholder,
@@ -754,8 +759,9 @@ body .container .detail ul li {
 
 html .container .detail ul li div,
 body .container .detail ul li div {
-  color: rgba(255,255,255,0.62);
+  color: rgba(255,255,255,0.56);
   margin-top: 19px;
+  font-size: 14px;
 }
 
 html .container .detail ul li .arrow,

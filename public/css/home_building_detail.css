@@ -265,7 +265,7 @@ a[href] {
 }
 
 .font-level1,
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress {
   font-size: 12px;
 }
 
@@ -276,7 +276,7 @@ a[href] {
 
 .font-level3,
 .content .build .first .right .agent .free,
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyTitle {
   font-size: 16px;
 }
 
@@ -573,6 +573,280 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   transition: all .5s ease;
 }
 
+body footer {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #202020;
+}
+
+body footer .title_box {
+  width: 100%;
+  border-bottom: 1px solid #303030;
+}
+
+body footer .title_box .title {
+  width: 1200px;
+  font-size: 34px;
+  color: #f5f5f5;
+  opacity: 0.7;
+  height: 81px;
+  line-height: 81px;
+  margin: 0 auto;
+  padding-left: 13px;
+}
+
+body footer .container {
+  height: 253px;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 25px 0 25px 13px;
+}
+
+body footer .container .left_info {
+  margin-right: 192px;
+}
+
+body footer .container .left_info img {
+  margin-bottom: 32px;
+}
+
+body footer .container .left_info .info {
+  color: #f5f5f5;
+  opacity: 0.5;
+  font-size: 12px;
+  line-height: 26px;
+  margin-bottom: 11px;
+}
+
+body footer .container .left_info .friend_link {
+  opacity: 0.5;
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .left_info .friend_link a {
+  color: #f5f5f5;
+}
+
+body footer .container .about_us {
+  padding-top: 15px;
+  margin-right: 120px;
+}
+
+body footer .container .about_us .abou_us_title {
+  font-size: 14px;
+  opacity: 0.6;
+  color: #f5f5f5;
+  margin-bottom: 30px;
+}
+
+body footer .container .about_us .link li {
+  margin-bottom: 17px;
+  text-align: center;
+}
+
+body footer .container .about_us .link li a {
+  opacity: 0.5;
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .serve {
+  padding-top: 15px;
+}
+
+body footer .container .serve div {
+  opacity: 0.5;
+  color: #f5f5f5;
+}
+
+body footer .container .serve_title {
+  opacity: 0.6 !important;
+  padding-left: 5px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+body footer .container .serve .phone {
+  font-size: 31px;
+  margin-bottom: 22px;
+}
+
+body footer .container .serve .time,
+body footer .container .serve .day {
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+body footer .container .code_download {
+  padding-top: 15px;
+}
+
+body footer .container .code_download .code_title {
+  opacity: 0.6;
+  font-size: 14px;
+  color: #f5f5f5;
+  margin-bottom: 35px;
+}
+
+body footer .container .code_download .wx_code {
+  width: 110px;
+}
+
+body footer .container .code_download .wx_code div {
+  margin-top: 17px;
+  font-size: 12px;
+  color: #f5f5f5;
+  opacity: 0.5;
+}
+
+body .right_tab {
+  position: fixed;
+  right: -50px;
+  bottom: 0;
+  top: 0;
+  width: 40px;
+  background: #ffffff;
+  z-index: 500;
+  -webkit-box-shadow: -5px 0px 5px #efefef;
+          box-shadow: -5px 0px 5px #efefef;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+body .right_tab.active,
+body nav.right_tab.transition {
+  right: 0;
+}
+
+body .right_tab .tab-content {
+  position: absolute;
+  top: 25vh;
+  width: 100%;
+}
+
+body .right_tab .tab-content .customer-service {
+  background-color: #007bff;
+  padding-top: 15px;
+  text-align: center;
+  position: relative;
+  height: 75px;
+  cursor: pointer;
+}
+
+body .right_tab .tab-content .customer-service img {
+  margin-bottom: 5px;
+  margin-left: -3px;
+}
+
+body .right_tab .tab-content .customer-service:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #007bff;
+  left: -5px;
+}
+
+body .right_tab .tab-content .text-box {
+  text-align: center;
+  color: #ffffff;
+  font-family: PingFang-SC-Medium;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  margin-left: -3px;
+}
+
+body .right_tab .tab-content .lookForHouse-box {
+  display: block;
+  background-color: #40464d;
+  padding: 20px 0;
+  position: relative;
+}
+
+body .right_tab .tab-content .lookForHouse-box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #40464d;
+  left: -5px;
+}
+
+body .right_tab .tab-content .lookForHouse-box:before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  right: 0;
+  height: 0;
+  border-width: 12px;
+  border-style: solid;
+  border-color: #40464d transparent transparent transparent;
+  bottom: -24px;
+  z-index: -1;
+}
+
+body .right_tab .tab-content .lookForHouse-box a {
+  display: block;
+  width: 100%;
+}
+
+body .right_tab .tab-content .launchHose-box,
+body .right_tab .tab-content .dimentional-box {
+  background-color: #ffffff;
+  text-align: center;
+  padding-top: 13px;
+}
+
+body .right_tab .tab-content .launchHose-box a,
+body .right_tab .tab-content .dimentional-box a {
+  display: block;
+  width: 100%;
+}
+
+.el-popover.customer-popover {
+  background-color: #007bff;
+  border-color: #007bff !important;
+}
+
+.el-popover.customer-popover .popper__arrow {
+  border-left-color: #007bff !important;
+}
+
+.el-popover.customer-popover .popper__arrow::after {
+  border-left-color: #007bff !important;
+}
+
+.el-popover.customer-popover * {
+  color: #ffffff;
+}
+
+.el-popover.customer-popover .text-box {
+  font-size: 12px;
+  font-family: NotoSansHans-Light;
+  font-weight: normal;
+  font-stretch: normal;
+}
+
+.el-popover.customer-popover .title-box {
+  text-align: center;
+  margin: 12px 0 23px;
+  font-size: 24px;
+  font-family: NotoSansHans-Regular;
+}
+
+.el-popover.customer-popover .brife-box {
+  text-align: center;
+  font-family: NotoSansHans-Regular;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+}
+
 .content {
   background: #f5f5f5;
 }
@@ -805,6 +1079,10 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   text-align: center;
 }
 
+.content .build .first .left .filter:hover {
+  cursor: pointer;
+}
+
 .content .build .first .left .filter div {
   width: 186px;
   color: #666;
@@ -896,6 +1174,10 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.content .build .first .left .buildList .listNav .listArea:hover {
+  cursor: pointer;
 }
 
 .content .build .first .left .buildList .listNav .listArea span {
@@ -1199,29 +1481,34 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
           justify-content: space-between;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyPic {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail:hover {
+  -webkit-box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+          box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+}
+
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyPic {
   width: 265px;
   height: 210px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyPic img {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyPic img {
   width: 265px;
   height: 210px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor {
   width: 239px;
   border: 1px solid #e6e6e6;
   border-top: none;
   padding: 20px 12px 10px 12px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyTitle {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyTitle {
   color: #444545;
   margin-bottom: 8px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1231,19 +1518,19 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   line-height: 25px;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress {
   color: #999;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyAddress img {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress img {
   vertical-align: text-bottom;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyPrice {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyPrice {
   color: #49494a;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyInfor .enjoyIntro .enjoyPrice span {
+.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyPrice span {
   font-size: 22px;
   font-weight: 600;
   color: #007bff;
