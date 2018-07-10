@@ -36,7 +36,7 @@
                   <option id="area_id{{$area_item['area_id']}}" value="{{$area_item['area_id']}}">{{$area_item['area_name']}}</option>
                 @endforeach
               </select>
-              <select id="block_select" name='block_id'>
+              <select id="block_select" name='block_id' v-model='block_id'>
                   <option :value="null">选择商圈</option>
                   <option v-if='area_id' v-for='(item, index) in blockOption["area_"+area_id]' :value="item.id">
                     @{{item['name']}}

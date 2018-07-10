@@ -12,10 +12,12 @@ const arae = new Vue({
     data:{
         blockOption: blockData,
         area_id: null,
-        area_name: null
+        area_name: null,
+        block_id: null
     },
     watch: {
         area_id: function(val) {
+            this.block_id = null
             this.area_name = $('#area_id' + val).html()
         }
     }
