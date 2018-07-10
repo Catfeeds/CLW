@@ -198,15 +198,16 @@ export default {
       .freePic{
         font-size: 16px;
         margin-bottom: 8px;
+        color: #666;
         img{
           vertical-align: middle;
           margin-right: 6px;
         }
       }
       .freeNum{
-        padding-left: 25px;
+        padding-left: 20px;
         .freeTel{
-          font-family: Georgia;
+          // font-family: Georgia;
           font-size: 23px;
           color: #007bff;
           margin-bottom: 8px;
