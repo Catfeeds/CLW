@@ -133,7 +133,7 @@
   <div class="topic-content">
     <ul class="sever-list">
       <li class="sever-item">
-        <a href="javascript:void(0)">
+        <a href="http://shop.chulouwang.com/plants" target="_blank">
           <img src="/home_img/index_topic1_plant.jpg" alt="绿植服务">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
@@ -142,8 +142,8 @@
         </a>
       </li>
       <li class="sever-item">
-        <a href="javascript:void(0)">
-          <img src="/home_img/index_topic1_clear.jpg" alt="绿植服务">
+        <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
+          <img src="/home_img/index_topic1_clear.jpg" alt="保洁服务">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">保洁服务</div>
@@ -151,8 +151,8 @@
         </a>
       </li>
       <li class="sever-item">
-        <a href="javascript:void(0)">
-          <img src="/home_img/index_topic1_jiaju.jpg" alt="绿植服务">
+        <a href="http://shop.chulouwang.com/furniture" target="_blank">
+          <img src="/home_img/index_topic1_jiaju.jpg" alt="办公家具">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">办公家具</div>
@@ -160,8 +160,8 @@
         </a>
       </li>
       <li class="sever-item">
-        <a href="javascript:void(0)">
-          <img src="/home_img/index_topic1_gongshang.jpg" alt="绿植服务">
+        <a href="http://shop.chulouwang.com/business_taxes" target="_blank">
+          <img src="/home_img/index_topic1_gongshang.jpg" alt="工商代办">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">工商代办</div>
@@ -169,8 +169,8 @@
         </a>
       </li>
       <li class="sever-item">
-        <a href="javascript:void(0)">
-          <img src="/home_img/index_topic1_moveHome.jpg" alt="绿植服务">
+        <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
+          <img src="/home_img/index_topic1_moveHome.jpg" alt="搬家服务">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">搬家服务</div>
@@ -180,7 +180,7 @@
       <li class="clearfloat"></li>
     </ul>
   </div>
-  <a href="javascript:void(0)" class="more-info">查看更多</a>
+  <a href="http://shop.chulouwang.com/" target="_blank" class="more-info">查看更多</a>
 </div>
 <div class="topic-box">
     <h2 class="topic-title">核心商圈</h2>
@@ -205,7 +205,7 @@
     <ul class="careful-select-list">
       @foreach ( $recommends as $recommends_item )
         <li class="careful-select-item">
-        <a href="javascript:void(0)" title="{{$recommends_item->title}}">
+        <a href="{{url('/recommends/'.$recommends_item->id)}}" title="{{$recommends_item->title}}">
             <img src="{{$recommends_item->pc_pic}}" alt="{{$recommends_item->title}}">
           </a>
         </li>
@@ -249,9 +249,12 @@
   <div class="elaborate-title">让办公更舒心</div>
   <div class="topic-content">
     <ul class="cite-server-list">
+      <?php
+            $service = ['plants','business_taxes','housekeeping','housekeeping']
+        ?>
       @for($i = 1; $i < 5; $i++) 
         <li class="cite-server-item">
-          <a href="javascript:void(0)">
+          <a href="http://shop.chulouwang.com/{{$service[$i-1]}}" target="_blank">
             <img src="/home_img/tempss_{{$i}}.jpg" alt="">
           </a>
         </li>
@@ -259,7 +262,7 @@
       <li class="clearfloat"></li>
     </ul>
   </div>
-  <a href="javascript:void(0)" class="more-info">查看更多</a>
+  <a href="http://shop.chulouwang.com/" target="_blank" class="more-info">查看更多</a>
 </div>
 <div class="topic-box special-style" style="background-image: url('/home_img/index_factor_bg.jpg')">
   <div class="set-house-box">

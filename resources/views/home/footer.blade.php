@@ -19,7 +19,7 @@
                 关于我们
             </div>
             <ul class="link">
-                <li><a href="javascript:void(0);">网站首页</a></li>
+                <li><a href="{{url('/')}}">网站首页</a></li>
                 <li><a href="javascript:void(0);">关于楚楼</a></li>
                 <li><a href="javascript:void(0);">联系我们</a></li>
                 <li><a href="javascript:void(0);">使用协议</a></li>
