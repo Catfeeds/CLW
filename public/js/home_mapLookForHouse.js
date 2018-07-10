@@ -10827,6 +10827,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
  // 悬浮窗容器
@@ -11087,7 +11089,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
     },
     methods: {
         seeBuildDetail: function seeBuildDetail(item) {
-            console.log('item', item);
+            window.location.href = '/buildings/' + item.id;
         },
 
         // 清空条件
@@ -20549,36 +20551,48 @@ var render = function() {
               "el-row",
               { key: "leftList" + index, staticStyle: { padding: "5px 0px" } },
               [
-                _c("el-col", { attrs: { span: 8 } }, [
-                  _c("img", {
-                    staticStyle: { width: "130px", height: "130px" },
-                    attrs: { src: item.img_cn }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("el-col", { attrs: { span: 15 } }, [
-                  _c("div", [_vm._v(_vm._s(item.name))]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("span", [_vm._v(_vm._s(item.buildingAverage))]),
-                    _c("span", [_vm._v("元/㎡·月")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(
-                      "地址: [" +
-                        _vm._s(item.address_cn) +
-                        "] " +
-                        _vm._s(item.address)
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v("面积：" + _vm._s(item.acreage_cn) + "m²  ")
-                  ])
-                ])
-              ],
-              1
+                _c(
+                  "span",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.seeBuildDetail(item)
+                      }
+                    }
+                  },
+                  [
+                    _c("el-col", { attrs: { span: 8 } }, [
+                      _c("img", {
+                        staticStyle: { width: "130px", height: "130px" },
+                        attrs: { src: item.img_cn }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 15 } }, [
+                      _c("div", [_vm._v(_vm._s(item.name))]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("span", [_vm._v(_vm._s(item.buildingAverage))]),
+                        _c("span", [_vm._v("元/㎡·月")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._v(
+                          "地址: [" +
+                            _vm._s(item.address_cn) +
+                            "] " +
+                            _vm._s(item.address)
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._v("面积：" + _vm._s(item.acreage_cn) + "m²  ")
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]
             )
           })
         ],
