@@ -9173,7 +9173,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      position: relative;\n      color: #000000;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      z-index: 99999;\n      position: relative;\n      background-color: #FFFFFF;\n      color: #000000;\n      display: none;\n      bottom: 0px;\n      right: 41px;\n      width: 200px;\n      text-align: center;\n}\n.map .areaStyle .detail img {\n        width: 200px;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
 
 // exports
 
@@ -9280,6 +9280,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -9697,8 +9699,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
         condition: {
             handler: function handler(val, oldVal) {
+                if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword !== '') return;
                 var data = this.condition;
                 data._token = document.getElementsByName('csrf-token')[0].content;
+                console.log('data', data);
                 this.getBuild(data);
             },
             deep: true,
@@ -9706,6 +9710,23 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         }
     },
     methods: {
+        seeBuildDetail: function seeBuildDetail(item) {
+            console.log('item', item);
+        },
+
+        // 清空条件
+        emptyCondition: function emptyCondition() {
+            this.condition = {
+                area_id: '', // 区域
+                block_id: '', // 商圈
+                unit_price: '', // 单价
+                total_price: '', // 总价
+                acreage: '', // 面积
+                metro: '' // 地铁
+            };
+            this.regionTemp = [];
+            this.priceTemp = [];
+        },
         dragging: function dragging(e) {
             this.zhongxin = e.target.getCenter();
         },
@@ -9728,12 +9749,14 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         zoomend: function zoomend(e) {
             this.zoom = e.target.getZoom();
-            this.zhongxin = e.target.getCenter();
             console.log('this.zoom', this.zoom);
             // 修改中心点 点击后操作
             if (this.locationType) {
+                this.zhongxin = this.centerLocaion;
                 this.location = this.centerLocaion;
                 this.locationType = false;
+            } else {
+                this.zhongxin = e.target.getCenter();
             }
         },
         // 查看区域详情 -> 商圈列表
@@ -9745,31 +9768,16 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 点击商圈详情
         seeAreaDetail: function seeAreaDetail(data) {
-            var _this2 = this;
-
-            var ResultData = {
-                '_token': document.getElementsByName('csrf-token')[0].content,
-                gps: [{
-                    x: data.x,
-                    y: data.y
-                }],
-                distance: 5
-                // 请求楼盘数据
-            };Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(ResultData).then(function (res) {
-                if (res.success) {
-                    _this2.zoom = 14;
-                    _this2.buildList = res.data.res;
-                    _this2.centerLocaion = { lng: data.x, lat: data.y };
-                    _this2.locationType = true;
-                    _this2.buildListNum = res.data.length;
-                }
-            });
+            this.buildList = [];
+            this.centerLocaion = { lng: data.x, lat: data.y };
+            this.zoom = 14;
+            this.locationType = true;
         },
         seeMtro: function seeMtro(data) {},
 
         // 获取站点楼盘数量
         getbuslinecomplete: function getbuslinecomplete(el) {
-            var _this3 = this;
+            var _this2 = this;
 
             var data = [];
             for (var key in el.DB) {
@@ -9783,8 +9791,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["i" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
                 console.log('getSiteBuildNum', res);
                 if (res.success) {
-                    _this3.siteList = res.data;
-                    _this3.$nextTick(function () {
+                    _this2.siteList = res.data;
+                    _this2.$nextTick(function () {
                         this.zoom = 13;
                         this.centerLocaion = { lng: data.x, lat: data.y };
                         this.locationType = true;
@@ -9812,13 +9820,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 根据条件获取楼盘数据
         getBuild: function getBuild(data) {
-            var _this4 = this;
+            var _this3 = this;
 
             Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(data).then(function (res) {
                 if (res.success) {
                     console.log('res.data.length', res.data.length);
-                    _this4.buildList = res.data.res;
-                    _this4.buildListNum = res.data.res.length;
+                    _this3.buildList = res.data.res;
+                    _this3.buildListNum = res.data.res.length;
                     console.log('res.data', res.data);
                     console.log('res.data.length', res.data.res.length);
                 }
@@ -9827,16 +9835,17 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 根据关键字获取楼盘数据
         findKeyword: function findKeyword() {
-            var _this5 = this;
+            var _this4 = this;
 
             var resultData = {
                 '_token': document.getElementsByName('csrf-token')[0].content,
                 keyword: this.keyword
-            };
-            this.getBuild(resultData).then(function (res) {
+                // 清空其他条件
+            };this.emptyCondition();
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(resultData).then(function (res) {
                 if (res.success) {
-                    _this5.buildList = res.data;
-                    _this5.buildListNum = res.data.length;
+                    _this4.buildList = res.data.res;
+                    _this4.buildListNum = res.data.res.length;
                 }
             });
         },
@@ -9858,12 +9867,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 价格下拉获取值时改变
         priceChange: function priceChange(data) {
+            console.log('priceChange', data);
             if (data[0] === '单价') {
-                this.total_price = '';
-                this.unit_price = data[1];
+                this.condition.total_price = '';
+                this.condition.unit_price = data[1];
             } else {
-                this.unit_price = '';
-                this.total_price = data[1];
+                this.condition.unit_price = '';
+                this.condition.total_price = data[1];
             }
         }
     }
@@ -20245,7 +20255,25 @@ var render = function() {
                       [
                         _c("div", { staticClass: "triangle" }),
                         _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(item.name))])
+                        _c("span", [_vm._v(_vm._s(item.name))]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "detail" }, [
+                          _c("div", [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg",
+                                width: "200px; height:200px"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", [_vm._v("76.2元/㎡·月")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [_vm._v(_vm._s(item.title))]),
+                          _vm._v(" "),
+                          _c("div", [_vm._v("面积: 57-700㎡")])
+                        ])
                       ]
                     )
                   ]
