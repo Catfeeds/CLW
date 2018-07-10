@@ -39,8 +39,8 @@
                             </div>
                         </div>
                         <div class="list-bottom">
-                            <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                            <button class="button" @click="sheet(item.id, index)">分配</button>
+                            <div class="f-1 jus-start p-5"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
+                            <button class="button p-5" @click="sheet(item.id, index)">分配</button>
                         </div>
                     </div>
                 </div>
@@ -70,16 +70,16 @@
                         </div>
                     </div>
                     <div class="list-bottom">
-                        <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                        <div v-if="item.determine === 2">
+                        <div class="f-2 jus-start p-5"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
+                        <div class="f-1 jus-end p-5" v-if="item.determine === 2">
                             <img style="left: 305px" src="/we_img/work_confirm.png">
                             <div class="text">已确定</div>
                         </div>
-                        <div v-if="item.determine === 1">
+                        <div class="f-1 jus-end p-5" v-if="item.determine === 1">
                             <img style="left: 305px" src="/we_img/work_unknow.png">
                             <div class="text">未确定</div>
                         </div>
-                        <div v-if="item.determine === 3">
+                        <div class="f-1 jus-end p-5" v-if="item.determine === 3">
                             <img style="left: 305px" src="/we_img/work_confirm.png">
                             <div class="text">已反馈</div>
                         </div>

@@ -3,15 +3,14 @@
     footer {
       width: 100%;
       min-width: $master-width;
-      background-color: #202020;
+      background-color: #303030;
       .title_box {
         width: 100%;
-        border-bottom: 1px solid #303030;
+        border-bottom: 1px solid rgba(238, 237, 237, 0.08);
         .title {
           width: $master-width;
           font-size: 34px;
-          color:#f5f5f5;
-          opacity: 0.7;
+          color:rgba(245, 245, 245, 0.68);
           height: 81px;
           line-height: 81px;
           margin: 0 auto;
@@ -19,21 +18,20 @@
         }
       }
       .container {
-        height: 253px;
+        height: 212px;
         width: $master-width;
         margin: 0 auto;
-        padding:25px 0 25px 13px;
+        padding-left:13px;
         .left_info {
-          margin-right: 192px;
+          margin-top: 29px;
+          margin-right: 280px;
           img {
-            margin-bottom: 32px;
+            margin-bottom: 30px;
           }
           .info {
-            color:#f5f5f5;
-            opacity: 0.5;
+            color:rgba(245, 245, 245, 0.4);  
             font-size: 12px;
-            line-height: 26px;
-            margin-bottom: 11px;
+            line-height: 22px;
           }
           .friend_link {
             opacity: 0.5;
@@ -41,67 +39,85 @@
             font-size: 12px;
             a {
               color:#f5f5f5;
+              font-size: 12px;
             }
           }
         }
         .about_us {
-          padding-top: 15px;
-          margin-right: 120px;
+          margin-top: 41px;
+          margin-right: 90px;
           .abou_us_title {
             font-size: 14px;
-            opacity: 0.6;
-            color:#f5f5f5;
-            margin-bottom: 30px;
+            color:rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
           }
           .link {
             li {
-              margin-bottom: 17px;
-              text-align: center;
+              margin-bottom: 5px;
               a {
-                opacity: 0.5;
-                color:#f5f5f5;
+                color:rgba(255, 255, 255, 0.4);
                 font-size: 12px;
               }
             }
           }
         }
         .serve {
-          padding-top: 15px;
+          margin-top:40px;
+          margin-right: 70px;
           div {
-            opacity: 0.5;
-            color:#f5f5f5;
+            color:rgba(245, 245, 245, 0.4);
           }
           &_title{
-            opacity: 0.6 !important;
-            padding-left:5px;
+            color:rgba(255, 255, 255, 0.8) !important;
             font-size: 14px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
           }
           .phone {
             font-size: 31px;
-            margin-bottom: 22px;
+            margin-bottom: 8px;
           }
           .time,.day {
             font-size: 14px;
-            margin-bottom: 22px;
+            margin-bottom: 8px;
+          }
+          .day {
+            margin-bottom: 20px;
           }
         }
         .code_download {
-          padding-top: 15px;
+          margin-top: 40px;
           .code_title {
-            opacity: 0.6;
             font-size: 14px;
-            color:#f5f5f5;
-            margin-bottom: 35px;
+            color:rgba(255,255,255,0.8);
+            margin-bottom: 15px;
           }
           .wx_code {
-            width: 110px;
+            width: 90px;
             div {
               margin-top: 17px;
               font-size: 12px;
               color: #f5f5f5;
               opacity: 0.5;
+              text-align: center;
             }
+          }
+        }
+      
+      
+      }
+      .bottom {
+        border-top: 1px solid rgba(238, 237, 237, 0.08);
+        width: 100%;
+        .friend_link {
+          padding: 20px 13px;
+          width: $master-width;
+          margin: 0 auto;
+          color:#f5f5f5;
+          opacity: 0.5;
+          font-size: 14px;
+          a {
+            color:#f5f5f5;
+
           }
         }
       }

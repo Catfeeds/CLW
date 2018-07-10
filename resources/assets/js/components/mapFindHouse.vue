@@ -411,17 +411,17 @@
             getBlock().then(res => {
                 this.blockList = res.data
             })
-            const ResultData = {
-                '_token': document.getElementsByName('csrf-token')[0].content,
-                gps: [
-                    {
-                        x: this.zhongxin.lng,
-                        y: this.zhongxin.lat
-                    }
-                ],
-                distance: 100
-            }
-            this.getBuild(ResultData)
+//            const ResultData = {
+//                '_token': document.getElementsByName('csrf-token')[0].content,
+//                gps: [
+//                    {
+//                        x: this.zhongxin.lng,
+//                        y: this.zhongxin.lat
+//                    }
+//                ],
+//                distance: 100
+//            }
+//            this.getBuild(ResultData)
         },
         watch: {
             'condition.metro': function () {

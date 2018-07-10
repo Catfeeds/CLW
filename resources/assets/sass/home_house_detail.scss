@@ -220,6 +220,9 @@
           }
         }
       }
+      .button:hover{
+        cursor: pointer;
+      }
     }
   }
   .second{
@@ -241,7 +244,7 @@
             padding-bottom: 25px;
             margin-bottom: 1px;
             .houseTitle{
-              margin-top: 25px;
+              margin-top: 28px;
               color: #999;
             }
             .housePay{
@@ -253,7 +256,7 @@
                 width: 350px;
                 .houseBox{
                   width: 85px;
-                  color: #bab8ba;
+                  color: #999;
                 }
                 span{
                   color: #666;
@@ -268,7 +271,7 @@
                 line-height: 28px;
                 .houseBox1{
                   width: 55px;
-                  color: #bab8ba;
+                  color: #999;
                 }
                 span{
                   color: #666;
@@ -290,17 +293,23 @@
               .swiper-container{
                 .swiper-slide{
                   text-align: center;
+                  img{
+                    margin-bottom: 10px;
+                  }
+                  div{
+                    color: #666;
+                  }
                 }
               }
               #serverPrev{
                 width: 46px;
                 height: 48px;
-                margin-top: 3px;
+                margin-top: 8px;
                 background: url(/home_img/house_detail_left.png) no-repeat;
                 &:hover{
                   width: 46px;
                   height: 48px;
-                  margin-top: 3px;
+                  margin-top: 8px;
                   background: url(/home_img/house_detail_left_before.png) no-repeat;
                   cursor: pointer;
                 }
@@ -308,12 +317,12 @@
               #serverNext{
                 width: 46px;
                 height: 48px;
-                margin-top: 3px;
+                margin-top: 8px;
                 background: url(/home_img/house_detail_right.png) no-repeat;
                 &:hover{
                   width: 46px;
                   height: 48px;
-                  margin-top: 3px;
+                  margin-top: 8px;
                   background: url(/home_img/house_detail_right_before.png) no-repeat;
                   cursor: pointer;
                 }

@@ -8,7 +8,7 @@
         <div class="phone">
             <div class="phoneBox">
                 <input v-model="value" type="text" placeholder="请输入手机号">
-                <div class="phoneTitle" v-if="isShow"><img src="/home_img/alert.svg"> {{title}}</div>
+                <div class="phoneTitle" v-if="isShow"><img src="/home_img/alert.svg"><div>{{title}}</div></div>
                 <span></span>
             </div>
             <div class="button" @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
@@ -103,20 +103,23 @@ export default {
                 border-radius: 20px;
                 border: solid 1px #e2e3e4;
                 padding-left: 33px;
-                margin-bottom: 5px;
+                margin-bottom: 6px;
                 box-sizing: border-box;
               }
               input::placeholder{
                 font-size: 14px;
               }
              .phoneTitle{
-                color: #fe7a85;
-                padding-bottom: 8px;
                 text-align: left;
-                font-size: 12px;
-                margin-left: 20px;
+                margin-left: 32px;
+                display: flex;
+                justify-content: flex-start;
+                div{
+                  color: #fe7a85;
+                  font-size: 12px;
+                  margin-left: 3px;
+                }
                 img{
-                    vertical-align: middle;
                     width: 12px;
                 }
               }
@@ -139,6 +142,9 @@ export default {
               line-height: 41px;
               margin-bottom: 51px;
               box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);
+              &:hover{
+                cursor: pointer;
+              }
               a{
                 font-size: 18px;
                 color:#fff;
@@ -158,7 +164,7 @@ export default {
     .renSuccess{
       padding: 28px;
       width: 240px;
-      height: 279px;
+      height: 335px;
       box-sizing: border-box;
       background: #fff;
       .renSuccess_tel{
@@ -167,20 +173,20 @@ export default {
       }
       .rent_success{
         text-align: center;
-        margin-top: 36px;
+        margin-top: 42px;
         .sucessTitle{
-          margin-top: 19px;
+          margin-top: 20px;
           font-size: 18px;
         }
         .contact{
           font-size: 12px;
           color: #999;
-          margin-top: 7px;
+          margin-top: 10px;
         }
       }
       .rentBorder{
         border-top: 1px solid #eeeded;
-        margin-top: 22px;
+        margin-top: 60px;
       }
     }
     .freeConsult{
@@ -192,15 +198,16 @@ export default {
       .freePic{
         font-size: 16px;
         margin-bottom: 8px;
+        color: #666;
         img{
           vertical-align: middle;
           margin-right: 6px;
         }
       }
       .freeNum{
-        padding-left: 25px;
+        padding-left: 20px;
         .freeTel{
-          font-family: Georgia;
+          // font-family: Georgia;
           font-size: 23px;
           color: #007bff;
           margin-bottom: 8px;
