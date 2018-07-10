@@ -234,6 +234,7 @@ body {
         display: flex;
         .house_show {
           flex: 4;
+          max-width: 940px;
           margin-right: 20px; 
           .house_show_title {
             width: 100%;
@@ -326,6 +327,10 @@ body {
                     font-size: 22px;
                     color:#000;
                     cursor: pointer;
+                    .highlight {
+                      color:$master-blue;
+                      font-size: 22px;
+                    }
                   }
                   .name:hover {
                     color:$master-blue;
@@ -456,11 +461,19 @@ body {
             }
           }
         }
-        #findHouse {
+        .findHouse {
+          width: 240px;
+          position: relative;
           > div {
-            top: 70px;
-            right: 110px;
+            position: absolute;
+            top: 0;
+            left: 0;
           }
+        }
+        .location{
+          position: fixed;
+          top: 40px;
+          margin-left: 960px;
         }
         .freeConsult {
           box-sizing: content-box;

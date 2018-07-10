@@ -113,7 +113,7 @@
                             ?>
                             <li class="item js_features" @if($type)data-type="true" @endif data-content="{{$key}}">
                                 @if($type)
-                                    <a class="js_addCurrent current all features" data-dom="features" data-content="{{$features}}"><em class="icon icon-tick"></em>{{$features}}</a>
+                                    <a class="js_addCurrent current all features" data-key="{{$key}}" data-dom="features" data-content="{{$features}}"><em class="icon icon-tick"></em>{{$features}}</a>
                                 @else
                                     <a class="js_addCurrent all"><em class="icon icon-untick "></em>{{$features}}</a>
                                 @endif
@@ -218,7 +218,7 @@
                     @endif
                 </div>
                 <div id="findHouse">
-                    <find-house></find-house> 
+                    <find-house class="find_house"></find-house> 
                 </div>
             </div>
         </div>
