@@ -1,5 +1,5 @@
 @extends('home.layouts.layout')
-@section('title', '资讯中心')
+@section('title', '资讯详情')
 @section('header')
     <link rel="stylesheet" href="{{res('/css/home_information_show.css')}}">
 @endsection
