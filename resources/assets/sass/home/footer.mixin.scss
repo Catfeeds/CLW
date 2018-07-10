@@ -25,9 +25,9 @@
         padding-left:13px;
         .left_info {
           margin-top: 29px;
-          margin-right: 245px;
+          margin-right: 285px;
           img {
-            margin-bottom: 36px;
+            margin-bottom: 30px;
           }
           .info {
             color:rgba(245, 245, 245, 0.4);  
@@ -46,7 +46,7 @@
         }
         .about_us {
           margin-top: 41px;
-          margin-right: 120px;
+          margin-right: 90px;
           .abou_us_title {
             font-size: 14px;
             color:rgba(255, 255, 255, 0.8);
@@ -54,7 +54,7 @@
           }
           .link {
             li {
-              margin-bottom: 10px;
+              margin-bottom: 5px;
               text-align: center;
               a {
                 color:rgba(255, 255, 255, 0.4);
@@ -65,7 +65,7 @@
         }
         .serve {
           margin-top:40px;
-          margin-right: 72px;
+          margin-right: 70px;
           div {
             color:rgba(245, 245, 245, 0.4);
           }
@@ -77,22 +77,22 @@
           }
           .phone {
             font-size: 31px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
           }
           .time,.day {
             font-size: 14px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
           }
           .day {
-            margin-bottom: 29px;
+            margin-bottom: 20px;
           }
         }
         .code_download {
-          margin-top: 43px;
+          margin-top: 40px;
           .code_title {
             font-size: 14px;
             color:#f5f5f5;
-            margin-bottom: 35px;
+            margin-bottom: 15px;
           }
           .wx_code {
             width: 110px;
@@ -101,6 +101,7 @@
               font-size: 12px;
               color: #f5f5f5;
               opacity: 0.5;
+              text-align: center;
             }
           }
         }

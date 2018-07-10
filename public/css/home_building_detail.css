@@ -604,11 +604,11 @@ body footer .container {
 
 body footer .container .left_info {
   margin-top: 29px;
-  margin-right: 245px;
+  margin-right: 285px;
 }
 
 body footer .container .left_info img {
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 body footer .container .left_info .info {
@@ -630,7 +630,7 @@ body footer .container .left_info .friend_link a {
 
 body footer .container .about_us {
   margin-top: 41px;
-  margin-right: 120px;
+  margin-right: 90px;
 }
 
 body footer .container .about_us .abou_us_title {
@@ -640,7 +640,7 @@ body footer .container .about_us .abou_us_title {
 }
 
 body footer .container .about_us .link li {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-align: center;
 }
 
@@ -651,7 +651,7 @@ body footer .container .about_us .link li a {
 
 body footer .container .serve {
   margin-top: 40px;
-  margin-right: 72px;
+  margin-right: 70px;
 }
 
 body footer .container .serve div {
@@ -667,27 +667,27 @@ body footer .container .serve_title {
 
 body footer .container .serve .phone {
   font-size: 31px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 body footer .container .serve .time,
 body footer .container .serve .day {
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 body footer .container .serve .day {
-  margin-bottom: 29px;
+  margin-bottom: 20px;
 }
 
 body footer .container .code_download {
-  margin-top: 43px;
+  margin-top: 40px;
 }
 
 body footer .container .code_download .code_title {
   font-size: 14px;
   color: #f5f5f5;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 body footer .container .code_download .wx_code {
@@ -699,6 +699,7 @@ body footer .container .code_download .wx_code div {
   font-size: 12px;
   color: #f5f5f5;
   opacity: 0.5;
+  text-align: center;
 }
 
 body footer .bottom {
