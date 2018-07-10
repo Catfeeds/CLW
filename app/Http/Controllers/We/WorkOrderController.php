@@ -21,12 +21,12 @@ class WorkOrderController extends Controller
         $string = 'chulouwang'.date('Y-m-d',time());
         $safeString = Hash::make($string);
 
-        // $openid = $request->openid;
-        // if (!$openid) return response('缺少参数','404');
+         $openid = $request->openid;
+         if (!$openid) return response('缺少参数','404');
         //通过openid查询电话
-        // $tel = $this->getTel($openid);
-        // if (!$tel) return response('缺少参数','404');
-        return view('we.work_order_salesman', ['tel'=>15807290654, 'safeString'=>$safeString]);
+         $tel = $this->getTel($openid);
+         if (!$tel) return response('缺少参数','404');
+        return view('we.work_order_salesman', ['tel'=>$tel, 'safeString'=>$safeString]);
     }
 
     /**

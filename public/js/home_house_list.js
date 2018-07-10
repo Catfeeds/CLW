@@ -9160,6 +9160,8 @@ __webpack_require__(69);
  // 登录组件
  // 侧边栏组件
 var findHouse = __webpack_require__(102);
+var rightTop = $("#findHouse").offset().top;
+
 new Vue({
     el: '#findHouse',
     components: { findHouse: findHouse }
@@ -9173,6 +9175,18 @@ function createURL(url, param) {
     var result = url + "?" + link.substr(1);
     return result;
 }
+// 页面滚动
+$(window).scroll(function () {
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop >= rightTop) {
+        $('#findHouse').addClass("location");
+        $('#findHouse').css('margin-top', '30px');
+        console.log(bottom + "===" + scrollTop);
+    } else if (scrollTop <= rightTop) {
+        $('#findHouse').removeClass("location");
+        $("#findHouse").css('margin-top', 0);
+    }
+});
 // 拿到所有条件值
 var data = {
     area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
@@ -9187,7 +9201,6 @@ var data = {
 };var condition = false;
 // 如果区域为空 商圈也要变为空
 if (data.area_id == '') data.block_id = '';
-
 // 检查当前已选
 for (var key in data) {
     if (data[key] !== '') {
@@ -9197,10 +9210,10 @@ for (var key in data) {
         var html = '';
         if ($(dom).length !== 1) {
             $(dom).each(function () {
-                html += '<div class="selected js_special">' + $(this).data('content') + '<span data-dom="' + $(this).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
+                html += '<div class="selected js_special">' + $(this).data('content') + '<span data-key="' + $(this).data('key') + '" data-dom="' + $(this).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
             });
         } else {
-            html = '<div class="selected js_special">' + $(dom).data('content') + '<span data-dom="' + $(dom).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
+            html = '<div class="selected js_special">' + $(dom).data('content') + '<span data-key="' + $(this).data('key') + '" data-dom="' + $(dom).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
         }
         $('.selected_box').append(html);
     }
@@ -9217,8 +9230,22 @@ $('.js_cleaning').click(function () {
 });
 // 监听删除 某项已选的信息
 $(document).on('click', '.js_close', function () {
-    // $(this).parent().remove()
-    data[$(this).data('dom')] = '';
+    if ($(this).data('dom') === 'features') {
+        if (data.features.toString().length !== 1) {
+            var dates = data.features.split('-');
+            var string = '';
+            for (var key in dates) {
+                if (dates[key] != $(this).data('key')) {
+                    string += dates[key] + '-';
+                }
+            }
+            data.features = string.substr(0, string.length - 1);
+        } else {
+            data.features = '';
+        }
+    } else {
+        data[$(this).data('dom')] = '';
+    }
     window.location.href = createURL('building_list', data);
 });
 // 监听点击 条件处理

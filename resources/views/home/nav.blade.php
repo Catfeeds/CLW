@@ -12,13 +12,13 @@
         <a href="{{url('/building_list')}}">写字楼出租</a>
       </li>
       <li class="nav-item">
-        <a href="javascript:void(0)">企业服务</a>
+        <a href="http://shop.chulouwang.com" target="_blank">企业服务</a>
       </li>
       <li class="nav-item">
       <a href="{{url('/information')}}">资讯中心</a>
       </li>
       <li class="nav-item">
-        <a href="javascript:void(0)">楚楼云管家</a>
+        <a href="http://agent.chulouwang.com/" target="_blank">楚楼云管家</a>
       </li>
     </ul>
     <div class="login-box">

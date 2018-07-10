@@ -50,6 +50,10 @@ Route::get('topic',function(){
   return view('home.home_topic');
 });
 
+
+//精选楼盘
+Route::resource('recommends', 'RecommendsController');
+
 /*
 |--------------------------------------------------------------------------
 | 个人中心
