@@ -71,13 +71,17 @@
                     </div>
                     <div class="list-bottom">
                         <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                        <div v-if="item.determine">
+                        <div v-if="item.determine === 2">
                             <img style="left: 305px" src="/we_img/work_confirm.png">
                             <div class="text">已确定</div>
                         </div>
-                        <div v-else>
-                            <img style="left: 305px" src="/we_img/work_unconfirm.png">
+                        <div v-if="item.determine === 1">
+                            <img style="left: 305px" src="/we_img/work_unknow.png">
                             <div class="text">未确定</div>
+                        </div>
+                        <div v-if="item.determine === 3">
+                            <img style="left: 305px" src="/we_img/work_confirm.png">
+                            <div class="text">已反馈</div>
                         </div>
                     </div>
                 </div>
