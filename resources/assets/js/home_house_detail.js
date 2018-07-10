@@ -102,14 +102,14 @@ $('.pircePic').on('click', function() {
     obj.css('background', 'url(/home_img/house_detail_collect_before.png)')
     obj.removeClass('.active')
     cancelCollet(Data.id).then(res => {
-      console.log('取消收藏', res)
+      $('.collectTitle').css('color', '#666')
     })
   } else {
     console.log(11111)
     obj.css('background', 'url(/home_img/house_detail_collect_after.png)')
     obj.addClass('.active')
     collect({ house_id: Data.id }).then(res => {
-      console.log('添加收藏', res)
+      $('.collectTitle').css('color', '#007bff')
     })
   }
 })

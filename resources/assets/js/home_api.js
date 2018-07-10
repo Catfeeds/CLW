@@ -1,19 +1,29 @@
 import request from './home_request'
+import axios from 'axios'
 
+// 获取区域地理位置信息
 export function getRegionList() {
   return request({
-    url: '/getRegionList',
+    url: '/get_area_locations_list',
     method: 'GET'
   })
 }
-
+// 获取商圈地理位置信息
 export function getBlock() {
  return request({
-  url: '/detailArea',
+  url: '/get_block_locations_list',
   method: 'GET'
  })
 }
 
+// 获取区域三级下拉列表
+export function buildingsSelect(params) {
+    return axios({
+        headers: {'safeString': params},
+        url: 'http://192.168.0.142:9999/api/cities_areas_blocks_select',
+        method: 'GET',
+    })
+}
 
 export function getBuildList() {
     return request({
@@ -41,7 +51,7 @@ export function findHouse(data) {
 // 收藏房源
 export function collect(data) {
   return request({
-    url: 'collections',
+    url: '/collections',
     method: 'POST',
     data
   })
@@ -70,12 +80,21 @@ export function login(data) {
   })
 }
 // 根据中心获取楼盘
-export function getCoreBuildList(params) {
+export function getCoreBuildList(data) {
   return request({
-      url: 'http://192.168.0.110/get_periphery_buildings',
-      method: 'GET',
-      params: params
+      url: '/get_periphery_buildings',
+      method: 'POST',
+      params: data
   })
+}
+
+// 获取站点楼盘数量
+export function getSiteBuildNum(data) {
+    return request({
+        url: '/get_periphery_buildings_count',
+        method: 'POST',
+        params: data
+    })
 }
 
 // // 根据中心获取楼盘

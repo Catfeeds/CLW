@@ -31,12 +31,32 @@ Route::resource('bespeaks', 'BespeaksController');
 //PC端房源投放
 Route::resource('throw_ins', 'ThrowInsController');
 
-
+// 获取指定gps周边楼盘
 Route::post('get_periphery_buildings','MapsController@getPeripheryBuildings');
+// 获取地铁站点楼盘数量
+Route::post('get_periphery_buildings_count','MapsController@getPeripheryBuildingsCount');
+
+// 获取区域地理位置信息
+Route::get('get_area_locations_list','MapsController@getAreaLocationsList');
+// 获取商圈地理位置信息
+Route::get('get_block_locations_list','MapsController@getBlockLocationsList');
 
 //收藏
 Route::resource('collections', 'CollectionsController');
 //房源详情取消收藏
 Route::get('del/{id}', 'CollectionsController@del');
+//精选专题
+Route::get('topic',function(){
+  return view('home.home_topic');
+});
+
+/*
+|--------------------------------------------------------------------------
+| 个人中心
+|--------------------------------------------------------------------------
+*/
+// 我的预约
+Route::get('get_user_bespeaks', 'BespeaksController@getUserBespeaks');
+
 
 

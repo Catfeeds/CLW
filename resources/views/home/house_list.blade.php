@@ -18,7 +18,7 @@
         <div class="house_list_title">
             <div class="title_content clearfix">
                 <div class="link f_l">
-                    <a href="javscript:void(0)" class="homepage">首页 </a>&nbsp;>&nbsp;
+                    <a href="{{url('/')}}" class="homepage">首页 </a>&nbsp;>&nbsp;
                     <a href="javscript:void(0)">写字楼出租</a>
                 </div>
                 <div class="serch_area f_r ">
@@ -136,12 +136,20 @@
                             出租写字楼共&nbsp;<span>{{$count??0}}</span>&nbsp;套
                         </div>
                         <div class="title_right">
-                            <div class="sort_default js_price_default" @if(empty($request['price_sort'])) @endif><a href="javascript:void(0);">默认</a></div>
+                            <div class="sort_default js_price_default"><a href="javascript:void(0);" @if(empty($request['price_sort'])) class="current" @endif>默认</a></div>
                             <div class="sort_price">
                                 <a href="javascript:void(0);" class="order_price js_price_sort js_up" data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
-                                    <img src="/home_img/build_detail_up_before.png" class="up js_up @if(!empty($request['price_sort'])&& $request['price_sort']=='asc') @endif" />
-                                    <img src="/home_img/down.png" class="down js_down @if(!empty($request['price_sort'])&& $request['price_sort']=='desc') @endif" />
+                                    @if(empty($request['price_sort']))
+                                    <img src="/home_img/build_detail_up_before.png" class="up js_up" />   
+                                    <img src="/home_img/down.png" class="down js_down" /> 
+                                    @elseif($request['price_sort']=='asc')
+                                    <img src="/home_img/build_detail_up_after.png" class="up js_up" />   
+                                    <img src="/home_img/down.png" class="down js_down" /> 
+                                    @elseif($request['price_sort']=='desc')
+                                    <img src="/home_img/build_detail_up_before.png" class="up js_up" />   
+                                    <img src="/home_img/build_detail_down_after.png" class="down js_down" />
+                                    @endif
                                 </a>
                             </div>
                         </div>
@@ -208,17 +216,8 @@
                         @endif
                     @endif
                 </div>
-                <div class="rent_house">
-                    <div class="title">
-                        <div>免费委托找房</div>
-                        <div>一键委托,一分钟回复</div>
-                    </div>
-                    <div class="phone">
-                        <input type="text" placeholder="请输入手机号">
-                        <span></span>
-                        <div><a href="javascript:void(0);">立即委托</a></div>
-                    </div>
-                    <div class="rent_describe">已经有<span>15141</span>位客户委托找房</div>
+                <div id="findHouse">
+                    <find-house></find-house> 
                 </div>
             </div>
         </div>

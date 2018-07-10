@@ -31,7 +31,7 @@
                     <div class="swiper-container" id="smallImg">
                         <div class="swiper-wrapper">
                             @foreach($house->pic_url as $houses)
-                            <div class="swiper-slide"><img src="{{$houses['url']}}"></div>
+                            <div class="swiper-slide stop-swiping"><img src="{{$houses['url']}}"></div>
                             @endforeach
                         </div>
                     </div>
@@ -248,6 +248,7 @@
         </div>
     </div>
 </div>
+@include('home.footer')
 @endsection
 @section('script')
 <script src="/js/home_house_detail.js"></script>

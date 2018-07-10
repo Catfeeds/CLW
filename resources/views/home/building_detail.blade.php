@@ -45,6 +45,7 @@
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
                             @foreach($building->feature_name_pic as $feature)
+                            
                             <div class="betterDetail">
                                 <img src="{{$feature['pic']}}">
                                 <span>{{$feature['name']}}</span>
@@ -242,6 +243,7 @@
         </div>
         </div>
     </div>
+    @include('home.footer')
 @endsection
 @section('script')
 <script src="/js/home_building_detail.js"></script>

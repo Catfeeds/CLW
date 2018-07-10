@@ -1,6 +1,5 @@
 @mixin  footer() {
   body {
-    width: 100%;
     footer {
       width: 100%;
       min-width: $master-width;
@@ -68,7 +67,6 @@
         }
         .serve {
           padding-top: 15px;
-          margin-right: 91px;
           div {
             opacity: 0.5;
             color:#f5f5f5;
