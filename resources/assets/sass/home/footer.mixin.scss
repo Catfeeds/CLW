@@ -10,8 +10,7 @@
         .title {
           width: $master-width;
           font-size: 34px;
-          color:#f5f5f5;
-          opacity: 0.7;
+          color:rgba(245, 245, 245, 0.68);
           height: 81px;
           line-height: 81px;
           margin: 0 auto;
@@ -25,9 +24,9 @@
         padding-left:13px;
         .left_info {
           margin-top: 29px;
-          margin-right: 245px;
+          margin-right: 280px;
           img {
-            margin-bottom: 36px;
+            margin-bottom: 30px;
           }
           .info {
             color:rgba(245, 245, 245, 0.4);  
@@ -46,7 +45,7 @@
         }
         .about_us {
           margin-top: 41px;
-          margin-right: 120px;
+          margin-right: 90px;
           .abou_us_title {
             font-size: 14px;
             color:rgba(255, 255, 255, 0.8);
@@ -54,8 +53,7 @@
           }
           .link {
             li {
-              margin-bottom: 10px;
-              text-align: center;
+              margin-bottom: 5px;
               a {
                 color:rgba(255, 255, 255, 0.4);
                 font-size: 12px;
@@ -65,42 +63,42 @@
         }
         .serve {
           margin-top:40px;
-          margin-right: 72px;
+          margin-right: 70px;
           div {
             color:rgba(245, 245, 245, 0.4);
           }
           &_title{
             color:rgba(255, 255, 255, 0.8) !important;
-            padding-left:5px;
             font-size: 14px;
             margin-bottom: 20px;
           }
           .phone {
             font-size: 31px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
           }
           .time,.day {
             font-size: 14px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
           }
           .day {
-            margin-bottom: 29px;
+            margin-bottom: 20px;
           }
         }
         .code_download {
-          margin-top: 43px;
+          margin-top: 40px;
           .code_title {
             font-size: 14px;
-            color:#f5f5f5;
-            margin-bottom: 35px;
+            color:rgba(255,255,255,0.8);
+            margin-bottom: 15px;
           }
           .wx_code {
-            width: 110px;
+            width: 90px;
             div {
               margin-top: 17px;
               font-size: 12px;
               color: #f5f5f5;
               opacity: 0.5;
+              text-align: center;
             }
           }
         }
@@ -109,10 +107,9 @@
       }
       .bottom {
         border-top: 1px solid rgba(238, 237, 237, 0.08);
-        height: 110px;
         width: 100%;
         .friend_link {
-          padding: 23px 13px;
+          padding: 20px 13px;
           width: $master-width;
           margin: 0 auto;
           color:#f5f5f5;

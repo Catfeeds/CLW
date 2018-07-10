@@ -113,7 +113,7 @@
                             ?>
                             <li class="item js_features" @if($type)data-type="true" @endif data-content="{{$key}}">
                                 @if($type)
-                                    <a class="js_addCurrent current all features" data-key="{{$key}}" data-dom="features" data-content="{{$features}}"><em class="icon icon-tick"></em>{{$features}}</a>
+                                    <a class="js_addCurrent current all features" data-dom="features" data-content="{{$features}}"><em class="icon icon-tick"></em>{{$features}}</a>
                                 @else
                                     <a class="js_addCurrent all"><em class="icon icon-untick "></em>{{$features}}</a>
                                 @endif
@@ -155,14 +155,16 @@
                             </div>
                         </div>
                     </div>
-                    @if(!empty($Results))
+                    @if(!empty($Results)&&$Results->count())
                         <div class="js_content">
                             @foreach($Results as $key => $data)
                                 <a href="{{url('/buildings').'/'.$data->id}}">
                                     <div class="detail">
                                     <div class="img_box">
                                         <img src="{{$data->img_cn}}" alt="" class="house_img"/>
-                                        <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                        @if($data->label_cn)
+                                            <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                        @endif
                                     </div>
                                     <div class="detail_title">
                                         <div class="house_name clearfix">
@@ -215,6 +217,16 @@
                                 {!! $page !!}
                             </div>
                         @endif
+                    @else 
+                        <div class="empty">
+                            <div class="title">Sorry,暂时无法满足您筛选条件的房源!</div>
+                            <div class="callme">请直接拨打<span>4000-580-888</span></div>
+                        </div>
+                        <div class="related">
+                            <div class="related_title">
+                                <span></span>相关推荐
+                            </div>
+                        </div>
                     @endif
                 </div>
                 <div id="findHouse">
