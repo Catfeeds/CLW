@@ -48,11 +48,7 @@ Route::get('del/{id}', 'CollectionsController@del');
 Route::get('topic',function(){
   return view('home.home_topic');
 });
-//浏览记录管理
-Route::resource('browse_records','BrowseRecordsController');
-
-
-//精选楼盘
+// 精选楼盘
 Route::resource('recommends', 'RecommendsController');
 
 /*
@@ -62,6 +58,8 @@ Route::resource('recommends', 'RecommendsController');
 */
 // 我的预约
 Route::get('get_user_bespeaks', 'BespeaksController@getUserBespeaks');
+// 浏览记录
+Route::resource('browse_records','BrowseRecordsController');
 
 
 
