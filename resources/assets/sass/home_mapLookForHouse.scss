@@ -1,4 +1,5 @@
 @import "home_master";
+@include nav();
 html{
   min-height: 100%;
   display: flex;

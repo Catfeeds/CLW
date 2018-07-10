@@ -8,7 +8,7 @@
       width: 40px;
       background: #ffffff;
       z-index: 500;
-      box-shadow: -5px 0px 5px #efefef;
+      box-shadow: -5px 0px 5px rgba(26, 28, 39, 0.1);
       transition: all .5s;
       &.active{
         right: 0;
@@ -85,15 +85,50 @@
         .launchHose-box{
           background-color: #ffffff;
           text-align: center;
-          padding-top: 13px;
+          padding: 13px 0;
+          position: relative;
           a{
             display: block;
             width: 100%;
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            height: 1px;
+            bottom: -1px;
+            background-color: #f5f5f5;
+            z-index: 10;
           }
         }
         // 二维码
         .dimentional-box{
           @extend .launchHose-box;
+        }
+      }
+      .bank-top{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 20px 0;
+        cursor: pointer;
+        &::before{
+          content: '';
+          position: absolute;
+          left: 5px;
+          right: 5px;
+          height: 1px;
+          top: -1px;
+          background-color: #f5f5f5;
+        }
+        .text-box{
+          font-family: PingFang-SC-Medium;
+          font-size: 12px;
+          font-weight: normal;
+          font-stretch: normal;
+          text-align: center;
+          color: #333333;
         }
       }
     }

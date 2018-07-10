@@ -5,6 +5,7 @@
 @endsection
 @section('body')
 @include('home.nav')
+@include('home.right_tab')
 <div class="content">
     <div style="background: #fff">
     <!-- 导航条 -->

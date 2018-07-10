@@ -155,16 +155,18 @@
                 </el-col>
             </el-row>
             <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index">
-                <el-col :span="8">
-                    <img style="width: 130px;height: 130px"
-                         :src="item.img_cn">
-                </el-col>
-                <el-col :span="15">
-                    <div>{{item.name}}</div>
-                    <div><span>{{item.buildingAverage}}</span><span>元/㎡·月</span></div>
-                    <div>地址: [{{item.address_cn}}] {{item.address}}</div>
-                    <div>面积：{{item.acreage_cn}}m²  </div>
-                </el-col>
+                <span @click="seeBuildDetail(item)">
+                    <el-col :span="8">
+                        <img style="width: 130px;height: 130px"
+                             :src="item.img_cn">
+                    </el-col>
+                    <el-col :span="15">
+                        <div>{{item.name}}</div>
+                        <div><span>{{item.buildingAverage}}</span><span>元/㎡·月</span></div>
+                        <div>地址: [{{item.address_cn}}] {{item.address}}</div>
+                        <div>面积：{{item.acreage_cn}}m²  </div>
+                    </el-col>
+                </span>
             </el-row>
         </div>
     </baidu-map>
@@ -409,17 +411,17 @@
             getBlock().then(res => {
                 this.blockList = res.data
             })
-            const ResultData = {
-                '_token': document.getElementsByName('csrf-token')[0].content,
-                gps: [
-                    {
-                        x: this.zhongxin.lng,
-                        y: this.zhongxin.lat
-                    }
-                ],
-                distance: 100
-            }
-            this.getBuild(ResultData)
+//            const ResultData = {
+//                '_token': document.getElementsByName('csrf-token')[0].content,
+//                gps: [
+//                    {
+//                        x: this.zhongxin.lng,
+//                        y: this.zhongxin.lat
+//                    }
+//                ],
+//                distance: 100
+//            }
+//            this.getBuild(ResultData)
         },
         watch: {
             'condition.metro': function () {
@@ -473,7 +475,7 @@
         },
         methods: {
             seeBuildDetail(item){
-                console.log('item', item)
+                window.location.href='/buildings/' + item.id
             },
             // 清空条件
             emptyCondition(){

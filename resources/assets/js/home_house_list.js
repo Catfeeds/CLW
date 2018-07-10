@@ -1,5 +1,6 @@
 require('./home_common');
 import './components/home/login' // 登录组件
+import './components/home/right_tab' // 侧边栏组件
 var findHouse = require('./components/findHouse.vue')
 new Vue({
     el: '#findHouse',
