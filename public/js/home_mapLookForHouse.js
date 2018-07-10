@@ -2710,18 +2710,19 @@ function getFirstComponentChild(children) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["h"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["e"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["i"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
 /* unused harmony export getSiteList */
-/* harmony export (immutable) */ __webpack_exports__["d"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["g"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["j"] = login;
-/* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["k"] = login;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -2747,7 +2748,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.142:9999/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.199/' + '/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -2832,6 +2833,15 @@ function getSiteBuildNum(data) {
 //         data: data
 //     })
 // }
+
+// 委托找房表单
+function factorFindHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/bespeaks',
+    method: 'POST',
+    data: data
+  });
+}
 
 /***/ }),
 /* 23 */
@@ -11020,13 +11030,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             _this.regionArray = res.data.data;
         });
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["h" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["i" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
             }
         });
         // 获取商圈数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["e" /* getBlock */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getBlock */])().then(function (res) {
             _this.blockList = res.data;
         });
         //            const ResultData = {
@@ -11168,7 +11178,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     y: el.DB[key].position.lat
                 });
             }
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["i" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["j" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
                 console.log('getSiteBuildNum', res);
                 if (res.success) {
                     _this2.siteList = res.data;
@@ -11202,7 +11212,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         getBuild: function getBuild(data) {
             var _this3 = this;
 
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(data).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["g" /* getCoreBuildList */])(data).then(function (res) {
                 if (res.success) {
                     console.log('res.data.length', res.data.length);
                     _this3.buildList = res.data.res;
@@ -11222,7 +11232,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 keyword: this.keyword
                 // 清空其他条件
             };this.emptyCondition();
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getCoreBuildList */])(resultData).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["g" /* getCoreBuildList */])(resultData).then(function (res) {
                 if (res.success) {
                     _this4.buildList = res.data.res;
                     _this4.buildListNum = res.data.res.length;

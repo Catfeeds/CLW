@@ -20,7 +20,7 @@ export function getBlock() {
 export function buildingsSelect(params) {
     return axios({
         headers: {'safeString': params},
-        url: 'http://192.168.0.142:9999/api/cities_areas_blocks_select',
+        url: process.env.agencyHostURL + '/api/cities_areas_blocks_select',
         method: 'GET',
     })
 }
@@ -105,3 +105,12 @@ export function getSiteBuildNum(data) {
 //         data: data
 //     })
 // }
+
+// 委托找房表单
+export function factorFindHouse(data) {
+  return request({
+    url: '/bespeaks',
+    method: 'POST',
+    data
+  })
+}
