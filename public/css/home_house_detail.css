@@ -863,6 +863,10 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   line-height: 30px;
 }
 
+.content .banner .infor .button:hover {
+  cursor: pointer;
+}
+
 .content .second {
   background: #f5f5f5;
 }
@@ -897,7 +901,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseTitle {
-  margin-top: 25px;
+  margin-top: 28px;
   color: #999;
 }
 
@@ -918,7 +922,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 
 .content .second .houseInfor .houseDetail .left .house .housePay div .houseBox {
   width: 85px;
-  color: #bab8ba;
+  color: #999;
 }
 
 .content .second .houseInfor .houseDetail .left .house .housePay div span {
@@ -941,7 +945,7 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 
 .content .second .houseInfor .houseDetail .left .house .houseType div .houseBox1 {
   width: 55px;
-  color: #bab8ba;
+  color: #999;
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseType div span {
@@ -972,17 +976,25 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   text-align: center;
 }
 
+.content .second .houseInfor .houseDetail .left .server .serverPic .swiper-container .swiper-slide img {
+  margin-bottom: 10px;
+}
+
+.content .second .houseInfor .houseDetail .left .server .serverPic .swiper-container .swiper-slide div {
+  color: #666;
+}
+
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_left.png) no-repeat;
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev:hover {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_left_before.png) no-repeat;
   cursor: pointer;
 }
@@ -990,14 +1002,14 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverNext {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_right.png) no-repeat;
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverNext:hover {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_right_before.png) no-repeat;
   cursor: pointer;
 }

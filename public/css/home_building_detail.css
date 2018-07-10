@@ -1034,6 +1034,10 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   color: #666;
 }
 
+.content .build .first .left .all:hover {
+  cursor: pointer;
+}
+
 .content .build .first .left .buildInfor {
   margin: 20px 0;
 }
@@ -1258,7 +1262,6 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
 
 .content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyPrice span {
   font-size: 22px;
-  font-weight: 600;
   color: #007bff;
 }
 

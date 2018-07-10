@@ -191,11 +191,6 @@
                             <div class="buildPrice"><div>洪山均价（区域）</div><div>{{$building->areaAverage}}</div></div>
                         </div>
                     </div>
-                    <!-- 企业服务 -->
-                    <div class="serve">
-                        <div class="serve_title">企业服务</div>
-                        <div class="swiper-container"></div>
-                    </div>
                 </div>
                 <!-- 右边 -->
                 <div class="right">
@@ -213,7 +208,7 @@
                     </div>
                     <!-- 委托找房 -->
                     <div class="findHouse">
-                        <find-house></find-house> 
+                        <find-house></find-house>
                     </div>
                 </div>
             </div>
