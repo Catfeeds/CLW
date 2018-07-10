@@ -1,8 +1,25 @@
 require('./home_common');
 import './components/home/login'
+import Vue from 'vue';
 require('jquery-validation');
+import { launchHouse } from './home_api'
+import { Message } from 'element-ui';
 const url = process.env.homeHostUrl
-console.log('url', url)
+const blockData = JSON.parse($('#blockData').val())
+$('#blockData')[0].remove()
+const arae = new Vue({
+    el: '#areaVue',
+    data:{
+        blockOption: blockData,
+        area_id: null,
+        area_name: null
+    },
+    watch: {
+        area_id: function(val) {
+            this.area_name = $('#area_id' + val).html()
+        }
+    }
+})
 var type = $("#commentForm").validate({
     rules: {
         tel: {
@@ -25,17 +42,15 @@ var type = $("#commentForm").validate({
         }
     },
     submitHandler: function(form) {
-       $.ajax({
-           type: 'post',
-           url: url+'/bespeaks',
-           data: $('#commentForm').serialize(),
-           success: function (data) {
-               alert(data.message)
-           },
-           error: function (data) {
-               alert(data.responseJSON.message)
-               console.log('erro', data)
-           }
-       })
+        var data = new FormData(form)
+        launchHouse(data).then(res => {
+            if (res.success) {
+                Message({
+                    message: '投放成功，楚楼网10分钟内联系您',
+                    type: 'success'
+                })
+                form.reset()
+            }
+        })
     }
 })

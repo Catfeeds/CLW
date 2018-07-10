@@ -114,3 +114,11 @@ export function factorFindHouse(data) {
     data
   })
 }
+// 投放房源
+export function launchHouse(data) {
+  return request({
+    url: '/throw_ins',
+    method: 'POST',
+    data
+  })
+}

@@ -3432,10 +3432,11 @@ function getFirstComponentChild(children) {
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
 /* harmony export (immutable) */ __webpack_exports__["h"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["k"] = login;
+/* harmony export (immutable) */ __webpack_exports__["l"] = login;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
 /* harmony export (immutable) */ __webpack_exports__["j"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
+/* harmony export (immutable) */ __webpack_exports__["k"] = launchHouse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -3551,6 +3552,14 @@ function getSiteBuildNum(data) {
 function factorFindHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/bespeaks',
+    method: 'POST',
+    data: data
+  });
+}
+// 投放房源
+function launchHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/throw_ins',
     method: 'POST',
     data: data
   });
@@ -3694,12 +3703,41 @@ module.exports = __webpack_require__(284);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_login__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_login__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_api__ = __webpack_require__(22);
+
+
+
 __webpack_require__(69);
 
+
 __webpack_require__(135);
+
+
 var url = 'http://www.clw.com';
-console.log('url', url);
+var blockData = JSON.parse($('#blockData').val());
+$('#blockData')[0].remove();
+var arae = new __WEBPACK_IMPORTED_MODULE_4_vue___default.a({
+    el: '#areaVue',
+    data: {
+        blockOption: blockData,
+        area_id: null,
+        area_name: null
+    },
+    watch: {
+        area_id: function area_id(val) {
+            this.area_name = $('#area_id' + val).html();
+        }
+    }
+});
 var type = $("#commentForm").validate({
     rules: {
         tel: {
@@ -3722,16 +3760,14 @@ var type = $("#commentForm").validate({
         }
     },
     submitHandler: function submitHandler(form) {
-        $.ajax({
-            type: 'post',
-            url: url + '/bespeaks',
-            data: $('#commentForm').serialize(),
-            success: function success(data) {
-                alert(data.message);
-            },
-            error: function error(data) {
-                alert(data.responseJSON.message);
-                console.log('erro', data);
+        var data = new FormData(form);
+        Object(__WEBPACK_IMPORTED_MODULE_5__home_api__["k" /* launchHouse */])(data).then(function (res) {
+            if (res.success) {
+                __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
+                    message: '投放成功，楚楼网10分钟内联系您',
+                    type: 'success'
+                });
+                form.reset();
             }
         });
     }
@@ -6057,7 +6093,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
       this.isTel = true; // 手机号验证状态 true: 通过 false: 不通过
       this.isCode = true; // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["k" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["l" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',
