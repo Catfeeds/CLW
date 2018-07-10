@@ -19,8 +19,6 @@ class MapsController extends Controller
         BuildingsService $buildingsService
     )
     {
-        $request = $request->offsetUnset('_token');
-
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
@@ -29,7 +27,7 @@ class MapsController extends Controller
             $res = $repository->buildingList($request, $buildingsService, $buildingIds,true,null, true);
         } elseif (!empty($request->distance) && !empty($request->gps)) {
             $res = $mapsService->getPeripheryBuildings($request);
-        } else {
+        } elseif(!empty($request->area_id) || !empty($request->block_id) || !empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price)) {
             // 处理单价,总价,面积
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
@@ -38,11 +36,14 @@ class MapsController extends Controller
             // 楼盘列表数据
             $res = $repository->buildingList($request, $buildingsService,null,true,null, true);
 
-            if ((empty($request->area_id) && empty($request->block_id))&& (!empty($request->acreage)||!empty($request->unit_price)||!empty($request->total_price))) {
+            if ((empty($request->area_id) && empty($request->block_id)) && (!empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price))) {
                 // 通过楼盘获取区域
                 $areaLocations = $mapsService->getBuildingArea($res);
                 return $this->sendResponse(['res' => $res, 'areaLocations' => $areaLocations],'地图找楼获取成功');
             }
+        } else {
+            // 楼盘列表数据
+            $res = $repository->buildingList($request, $buildingsService,null,true,null, true);
         }
 
         return $this->sendResponse(['res' => $res],'地图找楼获取成功');
