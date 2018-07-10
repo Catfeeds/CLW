@@ -2,17 +2,16 @@
 @section('title', '咨询列表')
 @section('header')
     <link rel="stylesheet" href="{{res('/css/home_information.css')}}">
-    <link rel="stylesheet" href="{{res('/css/home_paging.css')}}">
 @endsection
 @section('body')
     @include('home.nav')
     <div class="continue">
         <!--  -->
-        <div class="nav"><a href="{{url('/')}}"><span>首页 </span></a><span>> 资讯 </span><span>> 全部资讯</span></div>
+        <div class="nav"><a href="{{url('/')}}"><span>首页 </span></a><span>> 资讯中心</span></div>
         <div class="main">
             <div class="left">
                 <ul>
-                    <li>
+                    <li style="overflow:hidden">
                         <div class="common">
                             <!-- 轮播图 -->
                             <div class="swiper">
@@ -73,7 +72,9 @@
                         </li>
                     @endforeach
                 </ul>
-                
+                <div class="pagination">
+                    {{ $contents->links() }}
+                </div>
             </div>
             <div class="right">
                 <div class="img">
@@ -92,10 +93,7 @@
             </div>
         </div>
     </div>
-
-    <div style="padding-left:500px; background-color: #fff">
-        {{ $contents->links() }}
-    </div>
+    @include('home.footer')
 @endsection
 @section('script')
     <script src="{{res('/js/home_information.js')}}"></script>

@@ -266,6 +266,294 @@ a[href] {
   font-size: 18px;
 }
 
+body {
+  padding-top: 61px;
+}
+
+body.el-popup-parent--hidden nav .nav-content {
+  padding-right: 15px;
+}
+
+nav.active.transition,
+nav.transition {
+  top: 0;
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+}
+
+nav.active,
+nav.transition {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #ededed;
+}
+
+nav.active img.fade,
+nav.transition img.fade {
+  display: none;
+}
+
+nav.active img.active,
+nav.transition img.active {
+  display: block;
+}
+
+nav.active .nav-content,
+nav.transition .nav-content {
+  padding: 10px 0;
+}
+
+nav.active .nav-content .logo-box,
+nav.transition .nav-content .logo-box {
+  width: 132px;
+  height: 30px;
+  padding-top: 3px;
+}
+
+nav.active .nav-content .nav-list .nav-item a,
+nav.transition .nav-content .nav-list .nav-item a {
+  color: #666666;
+  font-size: 14px;
+}
+
+nav.active .nav-content .nav-list .nav-item a:hover,
+nav.transition .nav-content .nav-list .nav-item a:hover {
+  color: #007bff;
+  opacity: 1;
+}
+
+nav.active .nav-content .login-box .tel-box,
+nav.transition .nav-content .login-box .tel-box {
+  width: 196px;
+  height: 24px;
+}
+
+nav.active .nav-content .login-box .tel-box span,
+nav.transition .nav-content .login-box .tel-box span {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box div.active-line,
+nav.transition .nav-content .login-box .user-login-box div.active-line {
+  display: block;
+  float: left;
+  width: 1px;
+  height: 15px;
+  background-color: #959393;
+  margin-top: 10px;
+}
+
+nav.active .nav-content .login-box .user-login-box a,
+nav.transition .nav-content .login-box .user-login-box a {
+  font-size: 14px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.register-a,
+nav.transition .nav-content .login-box .user-login-box a.register-a {
+  color: #007bff;
+  margin-right: 0;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.register-a img,
+nav.transition .nav-content .login-box .user-login-box a.register-a img {
+  margin-top: 8px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.logout-a,
+nav.transition .nav-content .login-box .user-login-box a.logout-a {
+  padding-top: 2px;
+  height: 32px;
+  line-height: 32px;
+  color: #007bff;
+  margin-left: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a,
+nav.transition .nav-content .login-box .user-login-box a.login-a {
+  color: #959393;
+  border: none;
+  width: auto;
+  margin-left: 5px;
+  line-height: 38px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a img,
+nav.transition .nav-content .login-box .user-login-box a.login-a img {
+  margin-top: 11px;
+  margin-right: 5px;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a:hover,
+nav.transition .nav-content .login-box .user-login-box a.login-a:hover {
+  color: #007bff;
+}
+
+nav.active .nav-content .login-box .user-login-box a.login-a::after,
+nav.transition .nav-content .login-box .user-login-box a.login-a::after {
+  width: 0 !important;
+}
+
+nav.transition {
+  top: -61px;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+nav img.fade {
+  display: block;
+  float: left;
+}
+
+nav img.active {
+  display: none;
+  float: left;
+}
+
+nav .nav-content {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+nav .nav-content .logo-box {
+  float: left;
+  display: block;
+  margin-right: 60px;
+  width: 170px;
+  height: 24px;
+}
+
+nav .nav-content .logo-box img {
+  width: 100%;
+}
+
+nav .nav-content .nav-list {
+  float: left;
+  margin: 0;
+  height: 40px;
+  line-height: 40px;
+}
+
+nav .nav-content .nav-list .nav-item {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+nav .nav-content .nav-list .nav-item a {
+  color: #fff;
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+}
+
+nav .nav-content .nav-list .nav-item a:hover {
+  opacity: 0.8;
+}
+
+nav .nav-content .login-box {
+  float: right;
+  height: 40px;
+}
+
+nav .nav-content .login-box .tel-box {
+  float: left;
+  margin-top: 5px;
+  margin-right: 30px;
+  width: 200px;
+  height: 25px;
+}
+
+nav .nav-content .login-box .tel-box img {
+  max-width: none;
+  float: left;
+  margin-top: 7px;
+  margin-right: 10px;
+}
+
+nav .nav-content .login-box .tel-box span {
+  float: left;
+  color: #fff;
+  font-family: Georgia;
+  font-size: 24px;
+}
+
+nav .nav-content .login-box .user-login-box {
+  float: right;
+}
+
+nav .nav-content .login-box .user-login-box div.active-line {
+  display: none;
+}
+
+nav .nav-content .login-box .user-login-box a {
+  display: block;
+  float: left;
+  color: #fff;
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+}
+
+nav .nav-content .login-box .user-login-box a.register-a {
+  margin-right: 20px;
+  height: 34px;
+  line-height: 34px;
+}
+
+nav .nav-content .login-box .user-login-box a.register-a img {
+  position: relative;
+  top: 1px;
+  left: -5px;
+}
+
+nav .nav-content .login-box .user-login-box a.logout-a {
+  height: 34px;
+  line-height: 34px;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a {
+  width: 80px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a::after {
+  content: "";
+  background: #007bff;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover {
+  border-color: #007bff;
+}
+
+nav .nav-content .login-box .user-login-box a.login-a:hover::after {
+  width: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
 html {
   min-height: 100%;
   display: -webkit-box;

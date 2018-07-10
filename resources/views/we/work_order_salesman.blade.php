@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="safeString" content="{{ $safeString }}"/>
     <meta name="tel" content="{{ $tel }}"/>
-    <meta name="tel" content="15807290654"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="{{res('/css/we_work.css')}}">
     <script src="{{res('/js/we_manifest.js')}}"></script>
@@ -30,7 +29,7 @@
                     <div v-for="(item, index) in unsalesman" :key="index">
                         <div class="main">
                             <div class="list-header">
-                                <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
+                                <div class="f-2 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
                             </div>
                             <div class="list-body">
                                 <div class="one"><span>需求:</span><span> @{{item.demand_cn}}</span></div>
@@ -41,8 +40,8 @@
                             </div>
                         </div>
                         <div class="list-bottom">
-                            <div class="f-1 jus-start"><span>分配时间: </span><span>@{{item.created_at}}</span></div>
-                            <button class="button" @click="sheet(item.id,index)">确定</button>
+                            <div class="f-1 jus-start p-5"><span>分配时间: </span><span>@{{item.created_at}}</span></div>
+                            <button class="button p-5" @click="sheet(item.id,index)">确定</button>
                         </div>
                     </div>
                 </div>
@@ -60,7 +59,11 @@
                     <div v-for="(item,index) in salesman" :key="index">
                         <div class="main">
                             <div class="list-header">
-                                <div class="f-1 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
+                                <div class="f-2 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
+                                <div class="f-1 jus-end">
+                                    <button v-if="!item.feedback" class="unfeedback" @click="addFeedback(item.id)">未反馈</button>
+                                    <span v-else class="feedback" style="">已反馈</span>
+                                </div>
                             </div>
                             <div class="list-body">
                                 <div class="one"><span>需求:</span><span> @{{item.demand_cn}}</span></div>
@@ -71,14 +74,14 @@
                             </div>
                         </div>
                         <div class="list-bottom">
-                            <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                            <div v-if="item.entry">
+                            <div class="f-2 jus-start p-5">录入时间: @{{item.created_at}}</div>
+                            <div class="f-1 jus-end p-5" v-if="item.entry">
                                 <img src="/we_img/work_confirm.png">
-                                <div class="text">已录入系统</div>
+                                <span class="text">已录入系统</span>
                             </div>
-                            <div v-else>
-                                <img src="/we_img/work_unconfirm.png">
-                                <div class="text">未录入系统</div>
+                            <div class="f-1 jus-end p-5" v-else>
+                                <img src="/we_img/work_unknow.png">
+                                <span class="text">未录入系统</span>
                             </div>
                         </div>
                     </div>

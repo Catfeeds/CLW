@@ -24,21 +24,30 @@
       </a>
     </div>
   </div>
-  <el-popover
-  ref="customer"
-  placement="left-start"
-  width="184"
-  trigger="hover" popper-class="customer-popover">
-    <div class="text-box">免费客服：</div>
-    <h3 class="title-box">400-580-888</h3>
-    <div class="brife-box">周一至周日 8:00-20:00</div>
-  </el-popover>
-  <el-popover
-ref="dimentional"
-placement="left"
-trigger="hover">
-<div style="text-align:center">
-    <img src="/home_img/footer_code.png" alt="楚楼网微信公众号">
-</div>
-</el-popover>
+  <el-tooltip effect="dark" content="点击放回顶部" placement="left">
+  <div class="bank-top js_bankTop">
+    <div class="text-box">
+        TOP
+    </div>
+  </div>
+  </el-tooltip>
+  <div id="popoper" style="display:none">
+      <el-popover
+      ref="customer"
+      placement="left-start"
+      width="184"
+      trigger="hover" popper-class="customer-popover">
+        <div class="text-box">免费客服：</div>
+        <h3 class="title-box">400-580-888</h3>
+        <div class="brife-box">周一至周日 8:00-20:00</div>
+      </el-popover>
+      <el-popover
+    ref="dimentional"
+    placement="left"
+    trigger="hover">
+    <div style="text-align:center">
+        <img src="/home_img/footer_code.png" alt="楚楼网微信公众号">
+    </div>
+    </el-popover>
+  </div>
 </div>
