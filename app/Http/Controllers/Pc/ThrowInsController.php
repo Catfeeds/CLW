@@ -13,9 +13,17 @@ class ThrowInsController extends Controller
      *
      * @author 刘坤涛
      */
-    public function index()
+    public function index
+    (
+        ThrowInsRepository $repository
+    )
     {
-        return view('home.launch_house');
+        $area = $repository->getAreaData();
+        $block = $repository->getBlockData();
+        return view('home.launch_house', [
+            'area' => $area,
+            'block' => $block
+        ]);
     }
 
     /**
