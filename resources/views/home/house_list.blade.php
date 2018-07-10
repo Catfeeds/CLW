@@ -155,7 +155,7 @@
                             </div>
                         </div>
                     </div>
-                    @if(!empty($Results))
+                    @if(!empty($Results)&&$Results->count())
                         <div class="js_content">
                             @foreach($Results as $key => $data)
                                 <a href="{{url('/buildings').'/'.$data->id}}">
@@ -217,6 +217,16 @@
                                 {!! $page !!}
                             </div>
                         @endif
+                    @else 
+                        <div class="empty">
+                            <div class="title">Sorry,暂时无法满足您筛选条件的房源!</div>
+                            <div class="callme">请直接拨打<span>4000-580-888</span></div>
+                        </div>
+                        <div class="related">
+                            <div class="related_title">
+                                <span></span>相关推荐
+                            </div>
+                        </div>
                     @endif
                 </div>
                 <div id="findHouse">

@@ -743,6 +743,10 @@ body {
   line-height: 50px;
 }
 
+.continue .nav a:hover span {
+  color: #007bff;
+}
+
 .continue .nav span {
   color: #999;
 }
@@ -913,6 +917,10 @@ body {
 .continue .main .right .zixun ul li a {
   font-size: 12px;
   color: #444;
+}
+
+.continue .main .right .zixun ul li a:hover span {
+  color: #007bff;
 }
 
 div ul.pagination li.active {

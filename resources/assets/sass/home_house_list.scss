@@ -236,6 +236,37 @@ body {
           flex: 4;
           max-width: 940px;
           margin-right: 20px; 
+          .empty {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+            height: 170px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            .title {
+              font-size: 18px;
+              color:#999;
+              text-align: center;
+              margin-bottom: 20px;
+            }
+            .callme {
+              color:#999;
+              font-size: 18px;
+              text-align: center;
+              span {
+                color:$master-blue;
+                font-size: 18px;
+                cursor: pointer;
+              }
+            }
+          }
+          .related {
+            width: 100%;
+            .related_title {
+              width: 100%;
+              height: 56px;
+            }
+          }
           .house_show_title {
             width: 100%;
             height: 51px;
@@ -378,6 +409,9 @@ body {
                         color:#5e5b5b;
                         font-size: 14px;
                       }
+                      .acreage-detail:hover div{
+                        color: $master-blue;
+                      }
                       .acreage-detail{
                         position: absolute;
                         background-color: #fff;
@@ -385,6 +419,9 @@ body {
                         border: 1px solid #f3f3f3;
                         box-shadow: 0 1px 3px rgba(233,236,247,0.7);
                         z-index: 22;
+                        img {
+                          cursor: pointer;
+                        }
                         .zx{
                           position: absolute;
                           bottom:0px;
@@ -393,9 +430,6 @@ body {
                           padding: 0 10px;
                           font-size: 12px;
                           background-color: rgba(0, 0, 0, 0.32);
-                        }
-                        .zx_acverge:hover,.zx_price:hover {
-                          color:$master-blue;
                         }
                         .zx_acverge,.zx_price {
                           font-size: 12px;
@@ -433,7 +467,7 @@ body {
                       margin-right: 7px;
                       text-align: center;
                       line-height: 34px;
-                      border-radius: 5px;
+                      border-radius: 2px;
                       color:#71726f;
                       font-size: 14px;
                       min-width: 100px;
