@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Handler\Common;
 use App\Models\Area;
 use App\Models\Block;
+use App\Models\Building;
 
 class MapsService
 {
@@ -37,18 +38,32 @@ class MapsService
             $y = $gps->y;
             $x = $gps->x;
 
-            $res = \DB::select("select * from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
+            $res = \DB::select("select id from media.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
 
             $buildings[] = Common::objectToArray(collect($res)->toArray());
         }
 
-        // 将结果的多维数组转换为一维数组
-        $buildings = collect($buildings)->collapse()->all();
+        // 获取去重之后的所有楼盘id
+        $buildingsId = array_column($this->remove_duplicate(collect($buildings)->collapse()->all()),'id');
 
-        return $this->remove_duplicate($buildings);
+        $buildings = Building::whereIn('id',$buildingsId)->with('house', 'block', 'area')->get();
+
+        $service = new BuildingsService();
+        foreach ($buildings as $building) {
+            $service->getAddress($building);
+            // 楼盘下所有房源
+            $houses = $building->house;
+            if (!empty($houses->count())) {
+                $building->buildingAverage = $service->getBuildingAveragePrice($houses);
+            } else {
+                $building->buildingAverage = '';
+            }
+        }
+
+        return $buildings->toArray();
     }
 
-    // 楼盘去重
+    // 数组去重
     public function remove_duplicate($datas)
     {
         $result = array();
