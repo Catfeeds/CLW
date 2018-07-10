@@ -26,7 +26,7 @@ class MapsController extends Controller
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
             $res = $repository->buildingList($request, $buildingsService, $buildingIds,true,null, true);
         } elseif (!empty($request->distance) && !empty($request->gps)) {
-            $res = $mapsService->getPeripheryBuildings($request);
+            $res = $mapsService->getPeripheryBuildings($request, $repository, $buildingsService);
         } elseif(!empty($request->area_id) || !empty($request->block_id) || !empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price)) {
             // 处理单价,总价,面积
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
