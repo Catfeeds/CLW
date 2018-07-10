@@ -188,9 +188,9 @@
                     <div class="quotation" id="quotation">
                         <div class="h1">市场行情</div>
                         <div class="average">
-                            <div class="buildPrice"><div>现代光谷世贸中心均价（楼盘）</div><div>{{$building->buildingAverage}}</div></div>
-                            <div class="buildPrice"><div>光谷均价（商圈）</div><div>{{$building->blockAverage}}</div></div>
-                            <div class="buildPrice"><div>洪山均价（区域）</div><div>{{$building->areaAverage}}</div></div>
+                            <div class="buildPrice"><div>现代光谷世贸中心均价(楼盘)</div><div>{{$building->buildingAverage}}</div></div>
+                            <div class="buildPrice"><div>光谷均价(商圈)</div><div>{{$building->blockAverage}}</div></div>
+                            <div class="buildPrice"><div>洪山均价(区域)</div><div>{{$building->areaAverage}}</div></div>
                         </div>
                     </div>
                 </div>
