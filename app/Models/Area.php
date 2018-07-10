@@ -29,6 +29,11 @@ class Area extends Model
         return $this->hasMany('App\Models\Block')->withCount('building');
     }
 
+    public function areaLocation()
+    {
+        return $this->belongsTo('App\Models\AreaLocation','id', 'area_id');
+    }
+    
     /**
      * 说明: 街道下所属楼盘
      *

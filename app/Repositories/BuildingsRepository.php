@@ -24,6 +24,7 @@ class BuildingsRepository extends  Model
      * @param null $building_id
      * @param null $whetherPage
      * @param null $getCount
+     * @param null $mapRes  地图返回结果
      * @return array
      * @author 罗振
      */
@@ -32,7 +33,8 @@ class BuildingsRepository extends  Model
         $service,
         $building_id = null,
         $whetherPage = null,
-        $getCount = null
+        $getCount = null,
+        $mapRes = null
     )
     {
         // 取得符合条件房子
@@ -40,7 +42,7 @@ class BuildingsRepository extends  Model
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
-        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
+        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
 
         // pc价格排序
         if (!empty($request->price_sort)) {
@@ -67,7 +69,9 @@ class BuildingsRepository extends  Model
                 'page' => $page,
                 'data' => $data
             ];
-        }  else {
+        } elseif ($mapRes) {
+            return $data->values()->toArray();
+        } else {
             return $data->toArray();
         }
     }
