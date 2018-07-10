@@ -11029,15 +11029,17 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["e" /* getBlock */])().then(function (res) {
             _this.blockList = res.data;
         });
-        var ResultData = {
-            '_token': document.getElementsByName('csrf-token')[0].content,
-            gps: [{
-                x: this.zhongxin.lng,
-                y: this.zhongxin.lat
-            }],
-            distance: 100
-        };
-        this.getBuild(ResultData);
+        //            const ResultData = {
+        //                '_token': document.getElementsByName('csrf-token')[0].content,
+        //                gps: [
+        //                    {
+        //                        x: this.zhongxin.lng,
+        //                        y: this.zhongxin.lat
+        //                    }
+        //                ],
+        //                distance: 100
+        //            }
+        //            this.getBuild(ResultData)
     },
 
     watch: {
