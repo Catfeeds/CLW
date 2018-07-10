@@ -8,7 +8,6 @@ Route::resource('buildings', 'BuildingsController');
 //房源详情
 Route::resource('office_building_houses', 'OfficeBuildingHousesController');
 
-
 //资讯
 Route::resource('information','InformationsController');
 
@@ -49,6 +48,8 @@ Route::get('del/{id}', 'CollectionsController@del');
 Route::get('topic',function(){
   return view('home.home_topic');
 });
+//浏览记录管理
+Route::resource('browse_records','BrowseRecordsController');
 
 
 //精选楼盘
