@@ -33,7 +33,7 @@
             <div class="day">周一至周日</div>
             <div class="address">www.chulouwang.com</div>
         </div>
-        <div class="code_download f_r">
+        <div class="code_download f_l">
             <div class="code_title">扫码下载</div>
             <div class="code_area clearfix">
                 <div class="wx_code f_l" style="margin-right:25px">

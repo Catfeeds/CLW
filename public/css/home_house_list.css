@@ -584,7 +584,7 @@ body footer .container {
 
 body footer .container .left_info {
   margin-top: 29px;
-  margin-right: 340px;
+  margin-right: 280px;
 }
 
 body footer .container .left_info img {
@@ -1369,7 +1369,6 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
           flex: 1;
   height: 180px;
   width: 240px;
-  margin-right: 22px;
   background-color: #ccc;
   position: relative;
 }
@@ -1386,6 +1385,7 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title {
+  margin-left: 22px;
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;

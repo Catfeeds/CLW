@@ -4,7 +4,6 @@
 @section('header')
 @section('body')
 @include('home.nav')
-@include('home.right_tab')
     <input type="hidden" id="search"
            data-area_id="{{ $request['area_id']??'' }}"
            data-block_id="{{ $request['block_id']??'' }}"
@@ -113,7 +112,7 @@
                             ?>
                             <li class="item js_features" @if($type)data-type="true" @endif data-content="{{$key}}">
                                 @if($type)
-                                    <a class="js_addCurrent current all features" data-key="{{$key}}" data-dom="features" data-content="{{$features}}"><em class="icon icon-tick"></em>{{$features}}</a>
+                                    <a class="js_addCurrent current all features" data-dom="features" data-content="{{$features}}"><em class="icon icon-tick"></em>{{$features}}</a>
                                 @else
                                     <a class="js_addCurrent all"><em class="icon icon-untick "></em>{{$features}}</a>
                                 @endif
@@ -162,7 +161,9 @@
                                     <div class="detail">
                                     <div class="img_box">
                                         <img src="{{$data->img_cn}}" alt="" class="house_img"/>
-                                        <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                        @if($data->label_cn)
+                                            <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                        @endif
                                     </div>
                                     <div class="detail_title">
                                         <div class="house_name clearfix">

@@ -22,11 +22,9 @@ function createURL(url, param) {
 // 页面滚动
 $(window).scroll(function(){
     var scrollTop = $(window).scrollTop()
-    console.log(scrollTop + "===" +rightTop)
     if(scrollTop >= 335){
         $('#findHouse').addClass("location")
-        $('#findHouse').css('margin-top','30px')
-        
+        $('#findHouse').css('margin-top','30px')      
     }
     else if(scrollTop <= rightTop){
         $('#findHouse').removeClass("location")
