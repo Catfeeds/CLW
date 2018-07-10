@@ -137,8 +137,8 @@
           <img src="/home_img/index_topic1_plant.jpg" alt="绿植服务">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">绿洲租摆</div>
-          <div class="server-title-active">绿洲租摆</div>
+          <div class="server-title">绿植租摆</div>
+          <div class="server-title-active">绿植租摆</div>
         </a>
       </li>
       <li class="sever-item">

@@ -23,7 +23,7 @@ class CollectionsController extends Controller
     )
     {
         $res = $repository->collectionList($request, $service);
-        return '收藏列表';
+        return $this->sendResponse($res, '列表获取成功');
     }
 
     public function store

@@ -9,7 +9,7 @@
 @endsection
 @section('body')
   @include('home.nav')
-  <div class="box" style="background-image:url('/home_img/sellhouse_background.jpg');background-position:center;background-size:cover;width:100%">
+  <div class="box" style="background-image:url('/home_img/sellhouse_background.jpg');background-position:center;background-size:cover;width:100%;height:100%;">
     <div class="container">
       <div class="title">楚楼网帮您找房!</div>
       <div class="min_title">一键委托,轻松快捷</div>

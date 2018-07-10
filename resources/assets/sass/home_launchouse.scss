@@ -1,6 +1,5 @@
-@import 'home_master';
-@include nav();
 @import 'home_sellhouse';
+@include nav();
 body {
   .area{
     margin-bottom: 19px;

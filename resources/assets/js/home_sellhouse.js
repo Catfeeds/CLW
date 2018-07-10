@@ -1,5 +1,8 @@
 require('./home_common');
+import './components/home/login'
 require('jquery-validation');
+import { factorFindHouse } from './home_api'
+import { Message } from 'element-ui';
 const url = process.env.homeHostUrl
 var type = $("#commentForm").validate({
     rules: {
@@ -23,17 +26,16 @@ var type = $("#commentForm").validate({
         }
     },
     submitHandler: function(form) {
-       $.ajax({
-           type: 'post',
-           url: url+'/bespeaks',
-           data: $('#commentForm').serialize(),
-           success: function (data) {
-               alert(data.message)
-           },
-           error: function (data) {
-               alert(data.responseJSON.message)
-               console.log('erro', data)
-           }
-       })
+        console.log(form)
+        var data = new FormData(form)
+        factorFindHouse(data).then(res => {
+            if (res.success) {
+                Message({
+                    message: '委托成功，楚楼网10分钟内联系您',
+                    type: 'success'
+                })
+                form.reset()
+            }
+        })
     }
 })

@@ -2506,18 +2506,19 @@ function getFirstComponentChild(children) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["h"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["e"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["i"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
 /* unused harmony export getSiteList */
-/* harmony export (immutable) */ __webpack_exports__["d"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["g"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["j"] = login;
-/* harmony export (immutable) */ __webpack_exports__["f"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["k"] = login;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -2543,7 +2544,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.142:9999/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.199/' + '/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -2628,6 +2629,15 @@ function getSiteBuildNum(data) {
 //         data: data
 //     })
 // }
+
+// 委托找房表单
+function factorFindHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/bespeaks',
+    method: 'POST',
+    data: data
+  });
+}
 
 /***/ }),
 /* 23 */
@@ -4906,7 +4916,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
 
       if (this.validateTel()) {
         this.secondNum = 60;
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["g" /* getLoginCode */])(this.tel).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["h" /* getLoginCode */])(this.tel).then(function (res) {
           __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
             message: '短信已发送请耐心等候',
             type: 'success'
@@ -4926,7 +4936,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
       this.isTel = true; // 手机号验证状态 true: 通过 false: 不通过
       this.isCode = true; // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["j" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["k" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',
@@ -8796,7 +8806,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (tel.test(this.value)) {
         if (this.value) {
           this.isShow = false;
-          Object(__WEBPACK_IMPORTED_MODULE_0__home_api__["d" /* findHouse */])({ tel: this.value }).then(function (res) {
+          Object(__WEBPACK_IMPORTED_MODULE_0__home_api__["e" /* findHouse */])({ tel: this.value }).then(function (res) {
             _this.showAfter = false;
             _this.showBefore = true;
           });
