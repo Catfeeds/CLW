@@ -6490,10 +6490,10 @@ function createURL(url, param) {
 // 页面滚动
 $(window).scroll(function () {
     var scrollTop = $(window).scrollTop();
-    if (scrollTop >= rightTop) {
+    console.log(scrollTop + "===" + rightTop);
+    if (scrollTop >= 335) {
         $('#findHouse').addClass("location");
         $('#findHouse').css('margin-top', '30px');
-        console.log(bottom + "===" + scrollTop);
     } else if (scrollTop <= rightTop) {
         $('#findHouse').removeClass("location");
         $("#findHouse").css('margin-top', 0);

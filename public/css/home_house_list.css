@@ -568,8 +568,7 @@ body footer .title_box {
 body footer .title_box .title {
   width: 1200px;
   font-size: 34px;
-  color: #f5f5f5;
-  opacity: 0.7;
+  color: rgba(245,245,245,0.68);
   height: 81px;
   line-height: 81px;
   margin: 0 auto;
@@ -585,7 +584,7 @@ body footer .container {
 
 body footer .container .left_info {
   margin-top: 29px;
-  margin-right: 285px;
+  margin-right: 340px;
 }
 
 body footer .container .left_info img {
@@ -622,7 +621,6 @@ body footer .container .about_us .abou_us_title {
 
 body footer .container .about_us .link li {
   margin-bottom: 5px;
-  text-align: center;
 }
 
 body footer .container .about_us .link li a {
@@ -641,7 +639,6 @@ body footer .container .serve div {
 
 body footer .container .serve_title {
   color: rgba(255,255,255,0.8) !important;
-  padding-left: 5px;
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -667,12 +664,12 @@ body footer .container .code_download {
 
 body footer .container .code_download .code_title {
   font-size: 14px;
-  color: #f5f5f5;
+  color: rgba(255,255,255,0.8);
   margin-bottom: 15px;
 }
 
 body footer .container .code_download .wx_code {
-  width: 110px;
+  width: 90px;
 }
 
 body footer .container .code_download .wx_code div {
@@ -685,12 +682,11 @@ body footer .container .code_download .wx_code div {
 
 body footer .bottom {
   border-top: 1px solid rgba(238,237,237,0.08);
-  height: 110px;
   width: 100%;
 }
 
 body footer .bottom .friend_link {
-  padding: 23px 13px;
+  padding: 20px 13px;
   width: 1200px;
   margin: 0 auto;
   color: #f5f5f5;
