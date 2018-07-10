@@ -9,6 +9,15 @@ use App\Services\BespeaksService;
 class BespeaksController extends Controller
 {
     /**
+     * 说明: 委托找房视图
+     *
+     * @author 刘坤涛
+     */
+    public function index()
+    {
+        return view('home.bespeaks_house');
+    }
+    /**
      * 说明: 预约
      *
      * @param BespeaksRequest $request

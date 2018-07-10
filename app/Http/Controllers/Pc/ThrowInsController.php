@@ -8,6 +8,15 @@ use App\Repositories\ThrowInsRepository;
 
 class ThrowInsController extends Controller
 {
+    /**
+     * 说明: 房源投放视图
+     *
+     * @author 刘坤涛
+     */
+    public function index()
+    {
+        return view('home.launch_house');
+    }
 
     /**
      * 说明: 房源投放
