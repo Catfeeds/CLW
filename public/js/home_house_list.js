@@ -6449,6 +6449,7 @@ __webpack_require__(68);
  // 登录组件
 var findHouse = __webpack_require__(92);
 var rightTop = $("#findHouse").offset().top;
+
 new Vue({
     el: '#findHouse',
     components: { findHouse: findHouse }
@@ -6468,6 +6469,7 @@ $(window).scroll(function () {
     if (scrollTop >= rightTop) {
         $('#findHouse').addClass("location");
         $('#findHouse').css('margin-top', '30px');
+        console.log(bottom + "===" + scrollTop);
     } else if (scrollTop <= rightTop) {
         $('#findHouse').removeClass("location");
         $("#findHouse").css('margin-top', 0);

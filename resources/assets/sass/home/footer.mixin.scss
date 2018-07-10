@@ -3,10 +3,10 @@
     footer {
       width: 100%;
       min-width: $master-width;
-      background-color: #202020;
+      background-color: #303030;
       .title_box {
         width: 100%;
-        border-bottom: 1px solid #303030;
+        border-bottom: 1px solid rgba(238, 237, 237, 0.08);
         .title {
           width: $master-width;
           font-size: 34px;
@@ -19,21 +19,20 @@
         }
       }
       .container {
-        height: 253px;
+        height: 212px;
         width: $master-width;
         margin: 0 auto;
-        padding:25px 0 25px 13px;
+        padding-left:13px;
         .left_info {
-          margin-right: 192px;
+          margin-top: 29px;
+          margin-right: 245px;
           img {
-            margin-bottom: 32px;
+            margin-bottom: 36px;
           }
           .info {
-            color:#f5f5f5;
-            opacity: 0.5;
+            color:rgba(245, 245, 245, 0.4);  
             font-size: 12px;
-            line-height: 26px;
-            margin-bottom: 11px;
+            line-height: 22px;
           }
           .friend_link {
             opacity: 0.5;
@@ -46,51 +45,51 @@
           }
         }
         .about_us {
-          padding-top: 15px;
+          margin-top: 41px;
           margin-right: 120px;
           .abou_us_title {
             font-size: 14px;
-            opacity: 0.6;
-            color:#f5f5f5;
-            margin-bottom: 30px;
+            color:rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
           }
           .link {
             li {
-              margin-bottom: 17px;
+              margin-bottom: 10px;
               text-align: center;
               a {
-                opacity: 0.5;
-                color:#f5f5f5;
+                color:rgba(255, 255, 255, 0.4);
                 font-size: 12px;
               }
             }
           }
         }
         .serve {
-          padding-top: 15px;
+          margin-top:40px;
+          margin-right: 72px;
           div {
-            opacity: 0.5;
-            color:#f5f5f5;
+            color:rgba(245, 245, 245, 0.4);
           }
           &_title{
-            opacity: 0.6 !important;
+            color:rgba(255, 255, 255, 0.8) !important;
             padding-left:5px;
             font-size: 14px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
           }
           .phone {
             font-size: 31px;
-            margin-bottom: 22px;
+            margin-bottom: 10px;
           }
           .time,.day {
             font-size: 14px;
-            margin-bottom: 22px;
+            margin-bottom: 10px;
+          }
+          .day {
+            margin-bottom: 29px;
           }
         }
         .code_download {
-          padding-top: 15px;
+          margin-top: 43px;
           .code_title {
-            opacity: 0.6;
             font-size: 14px;
             color:#f5f5f5;
             margin-bottom: 35px;
@@ -103,6 +102,25 @@
               color: #f5f5f5;
               opacity: 0.5;
             }
+          }
+        }
+      
+      
+      }
+      .bottom {
+        border-top: 1px solid rgba(238, 237, 237, 0.08);
+        height: 110px;
+        width: 100%;
+        .friend_link {
+          padding: 23px 13px;
+          width: $master-width;
+          margin: 0 auto;
+          color:#f5f5f5;
+          opacity: 0.5;
+          font-size: 14px;
+          a {
+            color:#f5f5f5;
+
           }
         }
       }

@@ -2,6 +2,9 @@ require('./home_common');
 import './components/home/login' // 登录组件
 var findHouse = require('./components/findHouse.vue')
 var rightTop = $("#findHouse").offset().top
+
+
+
 new Vue({
     el: '#findHouse',
     components: { findHouse }
@@ -21,6 +24,7 @@ $(window).scroll(function(){
     if(scrollTop >= rightTop){
         $('#findHouse').addClass("location")
         $('#findHouse').css('margin-top','30px')
+        console.log(bottom+"==="+scrollTop)
     }
     else if(scrollTop <= rightTop){
         $('#findHouse').removeClass("location")
