@@ -48,5 +48,7 @@ Route::get('del/{id}', 'CollectionsController@del');
 Route::get('topic',function(){
   return view('home.home_topic');
 });
+//浏览记录管理
+Route::resource('browse_records','BrowseRecordsController');
 
 
