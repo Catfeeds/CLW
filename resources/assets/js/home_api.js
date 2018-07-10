@@ -51,7 +51,7 @@ export function findHouse(data) {
 // 收藏房源
 export function collect(data) {
   return request({
-    url: 'collections',
+    url: '/collections',
     method: 'POST',
     data
   })

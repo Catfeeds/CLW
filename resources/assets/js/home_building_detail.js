@@ -34,7 +34,7 @@ $(window).scroll(function(){
     $('.right').css('margin-top', '0')
   } else if((scrollTop <= rightTop) || ((scrollTop + 923) >= secondTop)) {
     if((scrollTop + 923) >= secondTop) {
-      $('.right').css('margin-top', secondTop-rightTop-866)
+      $('.right').css('margin-top', secondTop-rightTop-870)
       $('.right').removeClass('location')
     } else {
       $('.right').removeClass('location')
@@ -263,8 +263,8 @@ function selectTerm(current) {
       var max1 = active.eq(0).attr('data-max') || null
       var min2 = active.eq(1).attr('data-min') || null
       var max2 = active.eq(1).attr('data-max') || null
-      temp1 = select(min1, max1, 'area', initHouseData)
-      temp2 = select(min2, max2, 'price', temp1)
+      var temp1 = select(min1, max1, 'area', initHouseData)
+      var temp2 = select(min2, max2, 'price', temp1)
       createVal(temp2)
     }
   } else {

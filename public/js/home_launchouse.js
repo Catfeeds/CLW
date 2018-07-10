@@ -3493,7 +3493,7 @@ function findHouse(data) {
 // 收藏房源
 function collect(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: 'collections',
+    url: '/collections',
     method: 'POST',
     data: data
   });
