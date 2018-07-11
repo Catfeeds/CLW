@@ -109,7 +109,7 @@ class BuildingsController extends Controller
         // 相关推荐
         if (empty($res['data']->count())) {
             $recommend = $buildingsRepository->buildingList(collect(),$service,null,true,null);
-            $recommends = collect($recommend)->take(10);
+            $recommends = collect(Common::arrayToObject($recommend))->take(10);
         }
 
         return view('home.house_list', [
