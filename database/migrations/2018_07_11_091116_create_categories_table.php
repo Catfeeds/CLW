@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name','32')->nullable()->comment('类名');
-            $table->tinyInteger('parent_id')->nullable()->comment('父级id');
+            $table->string('route','32')->nullable()->comment('路由');
             $table->timestamps();
             $table->softDeletes();
         });
