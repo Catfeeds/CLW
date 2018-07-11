@@ -65,6 +65,8 @@ class IndexController extends Controller
         // 获取所有楼盘id
         $buildingIds = array_column(Common::objectToArray($res), 'building_id');
 
-        return Building::whereIn('id', $buildingIds)->pluck('name')->toArray();
+        $res = Building::whereIn('id', $buildingIds)->pluck('name')->toArray();
+
+        return $this->sendResponse($res,'通过关键字获取楼盘名成功');
     }
 }
