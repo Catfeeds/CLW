@@ -16445,10 +16445,11 @@ exports.default = function (ref) {
 function init(selector) {
   $(selector).addClass('js_vueSearch'); // 添加vue启动钩子
   var placeholder = $(selector).attr('placeholder');
+  var value = $(selector).val();
   new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '.js_vueSearch',
     components: { App: __WEBPACK_IMPORTED_MODULE_1__inputSearch___default.a },
-    template: '<app placeholder="' + placeholder + '"></app>'
+    template: '<app placeholder="' + placeholder + '" value="' + value + '"></app>'
   });
 }
 
@@ -16526,10 +16527,18 @@ var ElAutocomplete = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_autocomplete___d
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['placeholder'],
+  props: ['placeholder', 'value'],
+  data: function data() {
+    var keyword = this.value;
+    return {
+      keyword: this.value
+    };
+  },
+
   components: { ElAutocomplete: ElAutocomplete },
   methods: {
     querySearchAsync: function querySearchAsync(queryString, cb) {
@@ -17357,7 +17366,14 @@ var render = function() {
       "fetch-suggestions": _vm.querySearchAsync,
       "trigger-on-focus": false
     },
-    on: { select: _vm.handleSelect }
+    on: { select: _vm.handleSelect },
+    model: {
+      value: _vm.keyword,
+      callback: function($$v) {
+        _vm.keyword = $$v
+      },
+      expression: "keyword"
+    }
   })
 }
 var staticRenderFns = []

@@ -286,6 +286,10 @@ a[href] {
   font-size: 18px;
 }
 
+.highlight {
+  color: #007bff !important;
+}
+
 body {
   padding-top: 61px;
 }

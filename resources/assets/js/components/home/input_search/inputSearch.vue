@@ -1,6 +1,7 @@
 <template>
   <el-autocomplete 
   name='keyword'
+  v-model="keyword"
   placement="bottom-end"
   :placeholder='placeholder'
   :fetch-suggestions="querySearchAsync"
@@ -13,7 +14,13 @@ import { Autocomplete } from 'element-ui'
 const ElAutocomplete = Autocomplete
 import { getSelectInfo } from '../../../home_api'
 export default {
-  props: ['placeholder'],
+  props: ['placeholder', 'value'],
+  data() {
+    const keyword = this.value
+    return {
+      keyword: this.value
+    }
+  },
   components: { ElAutocomplete },
   methods: {
     querySearchAsync(queryString, cb) {
