@@ -230,7 +230,7 @@
                     @endif
                 </div>
                 <div id="findHouse">
-                    <find-house class="find_house"></find-house> 
+                    <!-- <find-house class="find_house"></find-house>  -->
                 </div>
             </div>
         </div>

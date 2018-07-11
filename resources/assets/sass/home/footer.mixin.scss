@@ -1,27 +1,16 @@
 @mixin  footer() {
   body {
+    div,a,span {
+      font-weight: 400;
+    }
     footer {
       width: 100%;
       min-width: $master-width;
       background-color: #303030;
-      .title_box {
-        width: 100%;
-        border-bottom: 1px solid rgba(238, 237, 237, 0.08);
-        .title {
-          width: $master-width;
-          font-size: 34px;
-          color:rgba(245, 245, 245, 0.68);
-          height: 81px;
-          line-height: 81px;
-          margin: 0 auto;
-          padding-left: 13px;
-        }
-      }
       .container {
-        height: 212px;
+        height: 220px;
         width: $master-width;
         margin: 0 auto;
-        padding-left:13px;
         .left_info {
           margin-top: 29px;
           margin-right: 280px;
@@ -31,7 +20,7 @@
           .info {
             color:rgba(245, 245, 245, 0.4);  
             font-size: 12px;
-            line-height: 22px;
+            line-height: 26px;
           }
           .friend_link {
             opacity: 0.5;
@@ -45,7 +34,7 @@
         }
         .about_us {
           margin-top: 41px;
-          margin-right: 90px;
+          margin-right: 100px;
           .abou_us_title {
             font-size: 14px;
             color:rgba(255, 255, 255, 0.8);
@@ -53,7 +42,7 @@
           }
           .link {
             li {
-              margin-bottom: 5px;
+              margin-bottom: 8px;
               a {
                 color:rgba(255, 255, 255, 0.4);
                 font-size: 12px;
@@ -63,7 +52,7 @@
         }
         .serve {
           margin-top:40px;
-          margin-right: 70px;
+          margin-right: 100px;
           div {
             color:rgba(245, 245, 245, 0.4);
           }
@@ -73,12 +62,15 @@
             margin-bottom: 20px;
           }
           .phone {
+            text-align: left;
+            box-sizing: border-box;
             font-size: 31px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 300;
           }
           .time,.day {
-            font-size: 14px;
-            margin-bottom: 8px;
+            font-size: 12px;
+            margin-bottom: 10px;
           }
           .day {
             margin-bottom: 20px;
@@ -92,12 +84,12 @@
             margin-bottom: 15px;
           }
           .wx_code {
-            width: 90px;
+            width: 94px;
             div {
               margin-top: 17px;
               font-size: 12px;
               color: #f5f5f5;
-              opacity: 0.5;
+              opacity: 0.8;
               text-align: center;
             }
           }
@@ -109,15 +101,18 @@
         border-top: 1px solid rgba(238, 237, 237, 0.08);
         width: 100%;
         .friend_link {
-          padding: 20px 13px;
+          box-sizing: border-box;
+          padding: 20px 0;
           width: $master-width;
           margin: 0 auto;
           color:#f5f5f5;
           opacity: 0.5;
-          font-size: 14px;
+          font-weight: 300;
+          font-size: 12px;
           a {
+            font-size: 12px;
             color:#f5f5f5;
-
+            font-weight: 300;
           }
         }
       }
