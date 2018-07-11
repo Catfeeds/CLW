@@ -105,7 +105,13 @@ class BuildingsController extends Controller
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
-        // return $res['data'];
+
+        // 相关推荐
+        if (empty($res['data']->count())) {
+            $recommend = $buildingsRepository->buildingList(collect(),$service,null,true,null);
+            $recommends = collect($recommend)->take(10);
+        }
+
         return view('home.house_list', [
             'house_count' => $res['house_count'],
             'areas' => $areas,
@@ -114,7 +120,8 @@ class BuildingsController extends Controller
             'Results'=>$res['data'],
             'page' => $res['page'],
             'request' => $data,
-            'count' => $res['house_count']
+            'count' => $res['house_count'],
+            'recommend' => $recommends??collect()
         ]);
     }
 }
