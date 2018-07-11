@@ -48,9 +48,14 @@ class BuildingsController extends Controller
         $data[1]['name'] = $block->name;
         $data[2]['id'] = $building->id;
         $data[2]['name'] = $building->name;
-        
-        // return $data;
-        return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block, 'data' => $data]);
+
+        return view('home.building_detail', [
+            'building' => $building,
+            'likeBuilding' => $likeBuilding,
+            'houses' => $houses,
+            'block' => $block,
+            'data' => $data
+        ]);
     }
 
     // 楼盘列表
@@ -101,6 +106,12 @@ class BuildingsController extends Controller
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
 
+        // 相关推荐
+        if (empty($res['data']->count())) {
+            $recommend = $buildingsRepository->buildingList(collect(),$service,null,true,null,null);
+            $recommends = collect($recommend)->take(10);
+        }
+
         return view('home.house_list', [
             'house_count' => $res['house_count'],
             'areas' => $areas,
@@ -109,7 +120,8 @@ class BuildingsController extends Controller
             'Results'=>$res['data'],
             'page' => $res['page'],
             'request' => $data,
-            'count' => $res['house_count']
+            'count' => $res['house_count'],
+            'recommend' => $recommends??collect()
         ]);
     }
 }

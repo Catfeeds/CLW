@@ -73,13 +73,6 @@ $('.js_map').on('click', function() {
   $('html,body').animate({scrollTop: $('.facilitiesMap').offset().top - 60 + 'px'},500)
 })
 
-// 点击委托找房
-$('.order').on('click', function(){
-  var val = $('#entrust').val()
-  console.log('this is a test', val)
-})
-
-
 // 页面滚动
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop()
@@ -106,7 +99,6 @@ $('.pircePic').on('click', function() {
       $('.collectTitle').css('color', '#666')
     })
   } else {
-    console.log(11111)
     obj.css('background', 'url(/home_img/house_detail_collect_after.png)')
     obj.addClass('.active')
     collect({ house_id: Data.id }).then(res => {

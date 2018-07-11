@@ -54,9 +54,11 @@ class BuildingsService
         //商圈名称 - 链接
         $res->address_cn = $res->area->name . '-';
         $res->address_type = $res->area->name . '/';
+        $res->pc_address_cn = $res->area->name;
         if (!empty($res->block)) $res->address_cn .= $res->block->name;
         //商圈名称 / 链接
         if (!empty($res->block)) $res->address_type .= $res->block->name;
+        if (!empty($res->block)) $res->pc_address_cn  = $res->pc_address_cn . ' - ' . $res->block->name;
     }
 
     /**
@@ -111,7 +113,7 @@ class BuildingsService
         $high_price = $res->house->max('total_price') / 10000;
         $res->total_price= (is_int($low_price) ? $low_price : round($low_price, 1)) . '-' . (is_int($high_price) ? $high_price : round($high_price, 1));
         //楼盘面积区间
-        $res->constru_acreage = intval($res->house->min('constru_acreage')) . '-' . intval($res->house->max('constru_acreage'));
+        $res->constru_acreage = intval($res->house->min('constru_acreage')) . ' - ' . intval($res->house->max('constru_acreage'));
     }
 
     // 获取楼盘下房子均价
@@ -165,8 +167,8 @@ class BuildingsService
                 $v->address = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address);
             }
 
-            if (strpos($v->address_cn, $keyword) !==false) {
-                $v->address_cn = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address_cn);
+            if (strpos($v->pc_address_cn, $keyword) !==false) {
+                $v->pc_address_cn = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->pc_address_cn);
             }
         }
 
