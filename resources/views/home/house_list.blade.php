@@ -188,8 +188,7 @@
                                                             class="js_acvergePrice">{{$data->avg_price}}</span>元/m²月
                                                 </div>
                                             </div>
-                                            <div class="house_location">地址: [{!!$data->pc_address_cn!!}
-                                                ] {!!$data->address!!}</div>
+                                            <div class="house_location">地址: [{!!$data->pc_address_cn!!}] {!!$data->address!!}</div>
                                             <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                             <div class="acverge_select">
                                                 <ul class="clearfix">
