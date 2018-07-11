@@ -10,11 +10,15 @@
 <script>
 import { Autocomplete } from 'element-ui'
 const ElAutocomplete = Autocomplete
+import { getSelectInfo } from '../../../home_api'
 export default {
   props: ['placeholder'],
   components: { ElAutocomplete },
   methods: {
     querySearchAsync(queryString, cb) {
+      getSelectInfo({ selectInfo: queryString }).then(res => {
+        console.log(res)
+      })
     }
   }
 }
