@@ -261,6 +261,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         //pc端企业服务
         Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
+
+        //商城大类管理
+        Route::resource('categories','CategoriesController');
     });
 
 });
