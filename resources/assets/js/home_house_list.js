@@ -3,6 +3,7 @@ import './components/home/login' // 登录组件
 import './components/home/right_tab' // 侧边栏组件
 var findHouse = require('./components/findHouse.vue')
 var rightTop = $("#findHouse").offset().top
+var bottom = $('div.pagination').offset().top
 new Vue({
     el: '#findHouse',
     components: { findHouse }
@@ -21,7 +22,11 @@ $(window).scroll(function(){
     var scrollTop = $(window).scrollTop()
     if(scrollTop >= 335){
         $('#findHouse').addClass("location")
-        $('#findHouse').css('margin-top','30px')      
+        $('#findHouse').css('margin-top','30px')  
+        if(scrollTop >= 2300){
+            $('#findHouse').removeClass('location')
+            $('#findHouse').css('margin-top','1974px')
+        }    
     }
     else if(scrollTop <= rightTop){
         $('#findHouse').removeClass("location")

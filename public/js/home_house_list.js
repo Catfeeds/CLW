@@ -9161,6 +9161,7 @@ __webpack_require__(69);
  // 侧边栏组件
 var findHouse = __webpack_require__(102);
 var rightTop = $("#findHouse").offset().top;
+var bottom = $('div.pagination').offset().top;
 new Vue({
     el: '#findHouse',
     components: { findHouse: findHouse }
@@ -9180,6 +9181,10 @@ $(window).scroll(function () {
     if (scrollTop >= 335) {
         $('#findHouse').addClass("location");
         $('#findHouse').css('margin-top', '30px');
+        if (scrollTop >= 2300) {
+            $('#findHouse').removeClass('location');
+            $('#findHouse').css('margin-top', '1974px');
+        }
     } else if (scrollTop <= rightTop) {
         $('#findHouse').removeClass("location");
         $("#findHouse").css('margin-top', 0);
