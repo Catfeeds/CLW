@@ -12,7 +12,7 @@
       <div class="input-box">
         <input type="text" v-model="code" placeholder="4位短信验证码">
         <div class="sms-btn-box">
-          <button v-if="secondNum<=0" type="button" @click="getCode">获取验证码</button>
+          <button v-if="secondNum<=0" class="pointer" type="button" @click="getCode">获取验证码</button>
           <button type="button" v-else>{{secondNum}}s后重新发送</button>
         </div>
       </div>
@@ -145,6 +145,9 @@ body.el-popup-parent--hidden{
   padding-right: 15px !important;
 }
 .login-box{
+  .pointer{
+    cursor: pointer;
+  }
  .el-dialog{
    margin-top: 26vh !important;
  }

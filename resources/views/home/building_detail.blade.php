@@ -27,16 +27,16 @@
                         <div class="introBox">
                             <div class="introTitle">{{$building->name}}</div>
                             <div class="introBuild">
-                                <div class="introNum">{{$building->house_count}}</div>
-                                <div>在租房源/套</div>
+                                <div class="introNum">{{$building->house_count}}<span style="font-size: 14px;color:#666;">套</span></div>
+                                <div>在租房源</div>
                             </div>
                             <div class="introArea">
-                                <div class="areaNum">{{$building->constru_acreage}}</div>
-                                <div>可租面积/m²</div>
+                                <div class="areaNum">{{$building->constru_acreage}}<span style="font-size: 14px;color:#666;">m²</span></div>
+                                <div>可租面积</div>
                             </div>
                             <div class="introRental">
-                                <div class="introPrice">{{$building->unit_price}}</div>
-                                <div>月度租金 元/m²</div> 
+                                <div class="introPrice">{{$building->unit_price}}<span style="font-size: 14px;color:#666;">元/m²</span></div>
+                                <div>月度租金</div> 
                             </div>
                         </div>
                         <div class="introAddress">
@@ -188,9 +188,9 @@
                     <div class="quotation" id="quotation">
                         <div class="h1">市场行情</div>
                         <div class="average">
-                            <div class="buildPrice"><div>现代光谷世贸中心均价(楼盘)</div><div>{{$building->buildingAverage}}</div></div>
-                            <div class="buildPrice"><div>光谷均价(商圈)</div><div>{{$building->blockAverage}}</div></div>
-                            <div class="buildPrice"><div>洪山均价(区域)</div><div>{{$building->areaAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['2']['name']}}均价(楼盘)</div><div>{{$building->buildingAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['1']['name']}}均价(商圈)</div><div>{{$building->blockAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['0']['name']}}均价(区域)</div><div>{{$building->areaAverage}}</div></div>
                         </div>
                     </div>
                 </div>

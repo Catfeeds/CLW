@@ -48,14 +48,9 @@ class BuildingsController extends Controller
         $data[1]['name'] = $block->name;
         $data[2]['id'] = $building->id;
         $data[2]['name'] = $building->name;
-
-        return view('home.building_detail', [
-            'building' => $building,
-            'likeBuilding' => $likeBuilding,
-            'houses' => $houses,
-            'block' => $block,
-            'data' => $data
-        ]);
+        
+        // return $data;
+        return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block, 'data' => $data]);
     }
 
     // 楼盘列表

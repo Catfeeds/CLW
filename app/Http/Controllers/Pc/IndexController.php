@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Pc;
 
+use App\Handler\Common;
 use App\Http\Controllers\Controller;
+use App\Models\Building;
 use App\Repositories\AreasRepository;
 use App\Repositories\BuildingsRepository;
 use App\Repositories\HotBlocksRepository;
@@ -10,6 +12,7 @@ use App\Repositories\InformationRepository;
 use App\Repositories\PcEnterpriseServicesRepository;
 use App\Repositories\PcServiceRecommendsRepository;
 use App\Repositories\RecommendsRepository;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -50,5 +53,24 @@ class IndexController extends Controller
             'service' => $service,
             'recommendService' => $recommendService
         ]);
+    }
+
+    // 通过关键字获取楼盘名
+    public function getSelectInfo(
+        Request $request
+    )
+    {
+        $string = "'". $request['selectInfo'] . "'";
+        $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
+        // 获取所有楼盘id
+        $buildingIds = array_column(Common::objectToArray($res), 'building_id');
+
+        $res = Building::whereIn('id', $buildingIds)->pluck('name')->toArray();
+
+        return $this->sendResponse(collect($res)->map(function ($v) {
+            return [
+                'value' => $v
+            ];
+        }),'通过关键字获取楼盘名成功');
     }
 }

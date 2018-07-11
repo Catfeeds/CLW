@@ -64,3 +64,8 @@ $master-white: #ffffff;
 
 // 主题宽度
 $master-width: 1200px;
+
+// 全局字体高亮样式
+.highlight{
+  color: $master-blue !important; 
+}

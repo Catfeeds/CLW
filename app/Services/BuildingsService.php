@@ -125,6 +125,7 @@ class BuildingsService
     // 获取商圈下房子均价
     public function getBlockAveragePrice($blockId)
     {
+
         $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
         return $this->getAveragePrice($block);
     }

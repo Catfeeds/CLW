@@ -122,3 +122,12 @@ export function launchHouse(data) {
     data
   })
 }
+
+// 搜索框提示信息
+export function getSelectInfo(params) {
+  return request({
+    url: '/get_select_info',
+    method: 'GET',
+    params
+  })
+}

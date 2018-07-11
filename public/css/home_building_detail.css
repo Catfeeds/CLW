@@ -285,6 +285,10 @@ a[href] {
   font-size: 18px;
 }
 
+.highlight {
+  color: #007bff !important;
+}
+
 body {
   padding-top: 61px;
 }
@@ -815,7 +819,7 @@ body .right_tab .tab-content .launchHose-box,
 body .right_tab .tab-content .dimentional-box {
   background-color: #ffffff;
   text-align: center;
-  padding: 13px 0;
+  padding: 15px 0;
   position: relative;
 }
 
@@ -901,6 +905,10 @@ body .right_tab .bank-top .text-box {
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
+}
+
+.el-popover.dimentionalCode-popover {
+  min-width: 120px !important;
 }
 
 .content {
@@ -1149,6 +1157,11 @@ body .right_tab .bank-top .text-box {
   border-left: 1px solid #ededed;
 }
 
+.content .build .first .left .filter div:hover {
+  background: #007bff;
+  color: #fff;
+}
+
 .content .build .first .left .filter .filterActive {
   background: #007bff;
   color: #fff;
@@ -1241,6 +1254,10 @@ body .right_tab .bank-top .text-box {
   color: #666;
 }
 
+.content .build .first .left .buildList .listNav .listArea span:hover {
+  color: #007bff;
+}
+
 .content .build .first .left .buildList .listNav .listArea .listSort {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1280,6 +1297,10 @@ body .right_tab .bank-top .text-box {
       -ms-flex-pack: start;
           justify-content: flex-start;
   border-top: 1px solid #ededed;
+}
+
+.content .build .first .left .buildList .listDetail:hover {
+  background: rgba(238,246,255,0.5);
 }
 
 .content .build .first .left .buildList .listDetail .listPic {
@@ -1505,6 +1526,10 @@ body .right_tab .bank-top .text-box {
 
 .content .build .first .right .agent .service {
   margin-top: 15px;
+}
+
+.content .build .first .right .agent .service:hover {
+  cursor: pointer;
 }
 
 .content .build .first .right .findHouse {

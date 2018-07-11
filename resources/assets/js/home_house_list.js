@@ -1,6 +1,7 @@
 require('./home_common');
 import './components/home/login' // 登录组件
 import './components/home/right_tab' // 侧边栏组件
+import { init } from './components/home/input_search' // 搜索组件
 var findHouse = require('./components/findHouse.vue')
 var rightTop = $("#findHouse").offset().top
 var bottom = $('div.pagination').offset().top
@@ -136,10 +137,10 @@ $('.js_features').click(function () {
     }
     window.location.href = createURL('building_list', data)
 })
-// 搜索关键词
-$('.serch_btn').click(function () {
-    window.location.href = createURL('building_list', {keyword: $('.serch_inp').val()})
-})
+// // 搜索关键词
+// $('.serch_btn').click(function () {
+//     window.location.href = createURL('building_list', {keyword: $('.serch_inp').val()})
+// })
 
 // 价格排序
 $('.js_price_sort').click(function () {
@@ -169,3 +170,4 @@ function removeData() {
         price_sort: ''
     }
 }
+init('#searchInput') // 启动搜索组件
