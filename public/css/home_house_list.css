@@ -1395,6 +1395,10 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
   color: #878585;
 }
 
+body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price_before {
+  color: #007bff;
+}
+
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .order_price {
   position: relative;
 }

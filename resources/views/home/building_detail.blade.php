@@ -222,26 +222,26 @@
                 <div id="props" data-data='{{$building->toJson()}}' style="display:none"></div>
             </div>
             <div class="enjoy" id="enjoy">
-            <div class="enjoyBox">
-                <div class="h1">猜你喜欢</div>
-                <div class="enjoyList">
-                    @foreach($likeBuilding as $like)
-                    <a href="{{url('/buildings').'/'.$like['id']}}">
-                    <div class="enjoyDetail">
-                        <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
-                        <div class='enjoyInfor'>
-                            <div class="enjoyTitle">{{$like['name']}}</div>
-                            <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$like['address_cn']}}</div>
-                                <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
+                <div class="enjoyBox">
+                    <div class="h1">猜你喜欢</div>
+                    <div class="enjoyList">
+                        @foreach($likeBuilding as $like)
+                        <a href="{{url('/buildings').'/'.$like['id']}}">
+                        <div class="enjoyDetail">
+                            <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
+                            <div class='enjoyInfor'>
+                                <div class="enjoyTitle">{{$like['name']}}</div>
+                                <div class="enjoyIntro">
+                                    <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$like['address_cn']}}</div>
+                                    <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
+                                </div>
                             </div>
                         </div>
+                        </a>
+                        @endforeach
                     </div>
-                    </a>
-                    @endforeach
                 </div>
             </div>
-        </div>
         </div>
     </div>
     @include('home.footer')

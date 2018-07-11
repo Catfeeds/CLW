@@ -17055,9 +17055,9 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
           lng: this.coordinate[0],
           lat: this.coordinate[1]
         },
-        radius: 1000
+        radius: 4000
       }, // 检索中心点
-      keyword: '地铁', // 检索词 
+      keyword: '公交', // 检索词 
       center: { // 当前地图中心点
         lng: 114.419095,
         lat: 30.561904
@@ -17115,8 +17115,20 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
           }
         }
       }
+      for (var i = 0; i < arr.length; i++) {
+        var distance = this.getDistance(arr[i].point);
+        arr[i].distance = distance;
+      }
+      for (var j = 0; j < arr.length; j++) {
+        for (var k = 0; k < arr.length - 1; k++) {
+          if (parseInt(arr[j].distance) < parseInt(arr[k].distance)) {
+            var data = arr[j];
+            arr[j] = arr[k];
+            arr[k] = data;
+          }
+        }
+      }
       this.list = arr;
-      // console.log('bbbbbb', this.list)
     },
 
     // 选择交通详情
@@ -17127,7 +17139,7 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
     // 选择周边环境
     handleClick: function handleClick(tab, event) {
       if (tab.label == '交通') {
-        this.keyword = '地铁';
+        this.keyword = '公交';
       } else {
         this.keyword = tab.label;
         this.activeName = 'first';
@@ -17251,7 +17263,7 @@ var render = function() {
                 [
                   _c(
                     "el-tab-pane",
-                    { attrs: { label: "地铁", name: "first" } },
+                    { attrs: { label: "公交", name: "first" } },
                     [
                       _c(
                         "div",
@@ -17271,11 +17283,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: { src: "/home_img/map.png" }
                                     }),
-                                    _vm._v(
-                                      "距离" +
-                                        _vm._s(_vm.getDistance(item.point)) +
-                                        "m"
-                                    )
+                                    _vm._v("距离" + _vm._s(item.distance) + "m")
                                   ])
                                 ]),
                                 _vm._v(" "),
@@ -17292,7 +17300,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-tab-pane",
-                    { attrs: { label: "公交", name: "second" } },
+                    { attrs: { label: "地铁", name: "second" } },
                     [
                       _c(
                         "div",
@@ -17312,11 +17320,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: { src: "/home_img/map.png" }
                                     }),
-                                    _vm._v(
-                                      "距离" +
-                                        _vm._s(_vm.getDistance(item.point)) +
-                                        "m"
-                                    )
+                                    _vm._v("距离" + _vm._s(item.distance) + "m")
                                   ])
                                 ]),
                                 _vm._v(" "),
@@ -17351,9 +17355,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17380,9 +17382,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17409,9 +17409,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17438,9 +17436,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17467,9 +17463,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
