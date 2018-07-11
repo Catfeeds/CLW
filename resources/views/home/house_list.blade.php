@@ -22,11 +22,11 @@
                     <a href="{{url('/')}}" class="homepage">首页 </a>&nbsp;>&nbsp;
                     <a href="javscript:void(0)">写字楼出租</a>
                 </div>
-                <div class="serch_area f_r ">
-                    <input type="text" class="serch_inp" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
-                    <button class="serch_btn"><span></span></button>
+                <form class="serch_area f_r " action="{{url('/building_list')}}">
+                        <input name="keyword" type="text" id="searchInput" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
+                        <button type="submit" class="serch_btn"><span></span></button>
                     <!-- <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div> -->
-                </div>
+                </form>
             </div>
         </div>
         <div class="house_list_content">

@@ -818,7 +818,7 @@ body .right_tab .tab-content .launchHose-box,
 body .right_tab .tab-content .dimentional-box {
   background-color: #ffffff;
   text-align: center;
-  padding: 13px 0;
+  padding: 15px 0;
   position: relative;
 }
 
@@ -906,6 +906,10 @@ body .right_tab .bank-top .text-box {
   font-stretch: normal;
 }
 
+.el-popover.dimentionalCode-popover {
+  min-width: 120px !important;
+}
+
 img {
   max-width: 100%;
 }
@@ -976,10 +980,14 @@ body .index-header-box .banner-content-box .banner-search-box .form-box .input-b
   border-radius: 4px 0px 0px 4px;
   display: block;
   font-size: 16px;
-  width: 260px;
+  width: 100%;
   height: 44px;
   line-height: 44px;
   padding-left: 19px;
+}
+
+body .index-header-box .banner-content-box .banner-search-box .form-box .input-box .el-input input {
+  width: 279px;
 }
 
 body .index-header-box .banner-content-box .banner-search-box .form-box button {
@@ -1646,23 +1654,23 @@ body .topic-box .topic-content .infamation-left .infamation-list .infamation-ite
   color: #007bff !important;
 }
 
-body .topic-box .topic-content .infamation-left .infamation-list .infamation-item a>div.float-left {
+body .topic-box .topic-content .infamation-left .infamation-list .infamation-item>div.float-left {
   width: 206px;
   height: 152px;
   overflow: hidden;
 }
 
-body .topic-box .topic-content .infamation-left .infamation-list .infamation-item a>div.float-left img {
+body .topic-box .topic-content .infamation-left .infamation-list .infamation-item>div.float-left img {
   width: 100%;
   display: block;
 }
 
-body .topic-box .topic-content .infamation-left .infamation-list .infamation-item a>div.float-right {
+body .topic-box .topic-content .infamation-left .infamation-list .infamation-item>div.float-right {
   width: 580px;
   padding: 15px 40px;
 }
 
-body .topic-box .topic-content .infamation-left .infamation-list .infamation-item a>div.float-right h3 {
+body .topic-box .topic-content .infamation-left .infamation-list .infamation-item>div.float-right h3 {
   margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1676,7 +1684,7 @@ body .topic-box .topic-content .infamation-left .infamation-list .infamation-ite
   line-height: 28px;
 }
 
-body .topic-box .topic-content .infamation-left .infamation-list .infamation-item a>div.float-right p {
+body .topic-box .topic-content .infamation-left .infamation-list .infamation-item>div.float-right p {
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -1689,7 +1697,7 @@ body .topic-box .topic-content .infamation-left .infamation-list .infamation-ite
   font-family: PingFang-SC-Regular;
 }
 
-body .topic-box .topic-content .infamation-left .infamation-list .infamation-item a>div.float-right .time-box {
+body .topic-box .topic-content .infamation-left .infamation-list .infamation-item>div.float-right .time-box {
   margin-top: 15px;
   font-size: 14px;
   font-weight: normal;
@@ -1723,7 +1731,6 @@ body .topic-box .topic-content .infamation-right .hot-infomation-list {
 }
 
 body .topic-box .topic-content .infamation-right .hot-infomation-list .hot-infomation-item a {
-  padding-bottom: 15px;
   display: block;
 }
 
@@ -1745,8 +1752,8 @@ body .topic-box .topic-content .infamation-right .hot-infomation-list .hot-infom
   width: 100%;
 }
 
-body .topic-box .topic-content .infamation-right .hot-infomation-list .hot-infomation-item a p {
-  margin: 10px 0;
+body .topic-box .topic-content .infamation-right .hot-infomation-list .hot-infomation-item p {
+  margin: 10px 0 15px;
   overflow: hidden;
   width: 100%;
   height: 53px;
