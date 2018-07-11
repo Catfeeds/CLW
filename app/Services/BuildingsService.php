@@ -167,8 +167,8 @@ class BuildingsService
                 $v->address = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address);
             }
 
-            if (strpos($v->address_cn, $keyword) !==false) {
-                $v->address_cn = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address_cn);
+            if (strpos($v->pc_address_cn, $keyword) !==false) {
+                $v->pc_address_cn = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->pc_address_cn);
             }
         }
 

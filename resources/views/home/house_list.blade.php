@@ -197,20 +197,20 @@
                                                 <ul class="clearfix">
                                                     @foreach($data->pc_house as $pchouse)
                                                         <li style="position: relative" class="f_l">
-                                                            <a href="javascript:void(0);">{{$pchouse->constru_acreage}}
+                                                            <a href="javascript:void(0);">{{$pchouse['constru_acreage']}}
                                                                 ㎡</a>
-                                                            <a href="{{url('/office_building_houses'.'/'.$pchouse->id)}}">
+                                                            <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}">
                                                                 <div class="acreage-detail">
                                                                     <div style="position: relative">
-                                                                        <img src="{{$pchouse->indoor_img_cn}}" alt=""
+                                                                        <img src="{{$pchouse['indoor_img_cn']}}" alt=""
                                                                              style="width:200px;height: 160px">
-                                                                        <span class="zx">{{$pchouse->renovation_cn}}</span>
+                                                                        <span class="zx">{{$pchouse['renovation_cn']}}</span>
                                                                     </div>
-                                                                    <div class="zx_acverge f_l">{{$pchouse->constru_acreage}}
+                                                                    <div class="zx_acverge f_l">{{$pchouse['constru_acreage']}}
                                                                         ㎡ |
                                                                     </div>
                                                                     <div class="zx_price f_l">
-                                                                        &nbsp;{{$pchouse->unit_price}}元/㎡
+                                                                        &nbsp;{{$pchouse['unit_price']}}元/㎡
                                                                     </div>
                                                                 </div>
                                                             </a>
@@ -255,59 +255,59 @@
                         @if(!empty($recommend)&&$recommend->count())
                             <div class="js_content">
                                 @foreach($recommend as $key => $data)
-                                    <a href="{{url('/buildings').'/'.$data->id}}">
+                                    <a href="{{url('/buildings').'/'.$data['id']}}">
                                         <div class="detail">
                                             <div class="img_box">
-                                                <img src="{{$data->img_cn}}" alt="" class="house_img"/>
-                                                @if($data->label_cn)
+                                                <img src="{{$data['img_cn']}}" alt="" class="house_img"/>
+                                                @if($data['label_cn'])
                                                     <img src="/home_img/perfect_sel.png" alt="" class="first_select">
                                                 @endif
                                             </div>
                                             <div class="detail_title">
                                                 <div class="house_name clearfix">
-                                                    <div class="name f_l">{!!$data->name!!}</div>
-                                                    <span class='js_tao'>{{$data->house_count}}套</span>
+                                                    <div class="name f_l">{!!$data['name']!!}</div>
+                                                    <span class='js_tao'>{{$data['house_count']}}套</span>
                                                     <div class="price f_r"><span
-                                                                class="js_acvergePrice">{{$data->avg_price}}</span>元/m²月
+                                                                class="js_acvergePrice">{{$data['avg_price']}}</span>元/m²月
                                                     </div>
                                                 </div>
-                                                <div class="house_location">地址: [{!!$data->pc_address_cn!!}
-                                                    ] {!!$data->address!!}</div>
-                                                <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
+                                                <div class="house_location">地址: [{!!$data['pc_address_cn']!!}
+                                                    ] {!!$data['address']!!}</div>
+                                                <div class="house_acverge">面积: {{$data['constru_acreage']}}m²</div>
                                                 <div class="acverge_select">
                                                     <ul class="clearfix">
-                                                        @foreach($data->pc_house as $pchouse)
+                                                        @foreach($data['pc_house'] as $pchouse)
                                                             <li style="position: relative" class="f_l">
-                                                                <a href="javascript:void(0);">{{$pchouse->constru_acreage}}
+                                                                <a href="javascript:void(0);">{{$pchouse['constru_acreage']}}
                                                                     ㎡</a>
-                                                                <a href="{{url('/office_building_houses'.'/'.$pchouse->id)}}">
+                                                                <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}">
                                                                     <div class="acreage-detail">
                                                                         <div style="position: relative">
-                                                                            <img src="{{$pchouse->indoor_img_cn}}"
+                                                                            <img src="{{$pchouse['indoor_img_cn']}}"
                                                                                  alt=""
                                                                                  style="width:200px;height: 160px">
-                                                                            <span class="zx">{{$pchouse->renovation_cn}}</span>
+                                                                            <span class="zx">{{$pchouse['renovation_cn']}}</span>
                                                                         </div>
-                                                                        <div class="zx_acverge f_l">{{$pchouse->constru_acreage}}
+                                                                        <div class="zx_acverge f_l">{{$pchouse['constru_acreage']}}
                                                                             ㎡ |
                                                                         </div>
                                                                         <div class="zx_price f_l">
-                                                                            &nbsp;{{$pchouse->unit_price}}元/㎡
+                                                                            &nbsp;{{$pchouse['unit_price']}}元/㎡
                                                                         </div>
                                                                     </div>
                                                                 </a>
                                                             </li>
                                                         @endforeach
-                                                        <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}">更多...</a>
+                                                        <li class="f_l"><a href="{{url('/buildings').'/'.$data['id']}}}">更多...</a>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                @if(!empty($data->features))
+                                                @if(!empty($data['features']))
                                                     <div class="house_special">
                                                         <ul>
-                                                            @foreach($data->features as $features)
+                                                            @foreach($data['features'] as $features)
                                                                 <li>
-                                                                    {{$features->name}}
+                                                                    {{$features['name']}}
                                                                 </li>
                                                             @endforeach
                                                         </ul>

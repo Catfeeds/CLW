@@ -37,8 +37,8 @@ class BuildingsRepository extends  Model
         $mapRes = null
     )
     {
-        // 取得符合条件房子
         $houses = $this->houseList($request, $building_id);
+
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
@@ -94,7 +94,7 @@ class BuildingsRepository extends  Model
     )
     {
         foreach ($buildingData as $index => $v) {
-            $buildingData[$index]->pc_house = $v->house->take(5);
+            $buildingData[$index]->pc_house = $v->house->take(5)->toArray();
 
             // 价格及面积区间
             $service->priceAndAcreageSection($v);
@@ -136,7 +136,7 @@ class BuildingsRepository extends  Model
                 });
             }
         }
-        
+
         return collect($res);
     }
 
@@ -148,9 +148,13 @@ class BuildingsRepository extends  Model
      * @return mixed
      * @author jacklin
      */
-    public function houseList($request, $building_id)
+    public function houseList(
+        $request,
+        $building_id
+    )
     {
         $buildings = Building::make();
+
         // 如果有商圈id 查商圈
         if (!empty($request->block_id)) {
             $buildings = $buildings->where('block_id', $request->block_id);
