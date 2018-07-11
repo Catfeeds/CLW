@@ -289,19 +289,21 @@
       <ul class="infamation-list">
         @for($j = 0; $j < 3; $j++)
           <li class="infamation-item">
-            <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
-              <div class="float-left">
-              <img src="{{$information[$j]->banner_cn}}" alt="{{$information[$j]->title}}">
-              </div>
-              <div class="float-right">
-                <h3>{{$information[$j]->title}}</h3>
-                <p>
-                    {{$information[$j]->brief}}
-                </p>
-                <div class="time-box">{{$information[$j]->created_at}}</div>
-              </div>
-              <div class="clearfloat"></div>
-            </a>
+            <div class="float-left">
+              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
+                <img src="{{$information[$j]->banner_cn}}" alt="{{$information[$j]->title}}">
+              </a>
+            </div>
+            <div class="float-right">
+                <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
+                  <h3>{{$information[$j]->title}}</h3>
+                </a>
+              <p>
+                  {{$information[$j]->brief}}
+              </p>
+              <div class="time-box">{{$information[$j]->created_at}}</div>
+            </div>
+            <div class="clearfloat"></div>
           </li>
         @endfor
       </ul>
@@ -312,12 +314,12 @@
         @for($j = 0; $j < 4; $j++)
           @if(!empty($hotInformation[$j]))
             <li class="hot-infomation-item">
-            <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
+              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
                 <h4>{{$hotInformation[$j]->title}}</h4>
-                <p>
-                    {{$hotInformation[$j]->brief}}
-                </p>
               </a>
+              <p>
+                  {{$hotInformation[$j]->brief}}
+              </p>
             </li>
           @endif
         @endfor
@@ -325,6 +327,7 @@
     </div>
     <div class="clearfloat"></div>
   </div>
+  <a href="{{url('/information')}}" target="_blank" class="more-info">查看更多</a>
 </div>
 @include('home.footer')
 @endsection
