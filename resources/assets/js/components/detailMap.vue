@@ -15,26 +15,26 @@
       <el-tabs type="border-card" @tab-click="handleClick" class="screen">
           <el-tab-pane label="交通">
             <el-tabs @tab-click="chioce" v-model="activeName">
-              <el-tab-pane label="地铁" name="first">
+              <el-tab-pane label="公交" name="first">
                 <div class="screenList">
                   <div v-for="(item, index) in list" :key='index' class="screenDetail">
                     <div class="screenDist">
                       <div class="screenBox">
                         <div class="screenTitle">{{item.title}}</div>
-                        <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                        <div class="distance"><img src="/home_img/map.png">距离{{item.distance}}m</div>
                       </div>
                       <div class="screenAddress">{{item.address}}</div>
                     </div>
                   </div>
                 </div>
               </el-tab-pane>
-              <el-tab-pane label="公交" name="second">
+              <el-tab-pane label="地铁" name="second">
                 <div class="screenList">
                   <div v-for="(item, index) in list" :key='index' class="screenDetail">
                     <div class="screenDist">
                       <div class="screenBox">
                         <div class="screenTitle">{{item.title}}</div>
-                        <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                        <div class="distance"><img src="/home_img/map.png">距离{{item.distance}}m</div>
                       </div>
                       <div class="screenAddress">{{item.address}}</div>
                     </div>
@@ -49,7 +49,7 @@
                 <div class="screenDist">
                   <div class="screenBox">
                     <div class="screenTitle">{{item.title}}</div>
-                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{item.distance}}m</div>
                   </div>
                   <div class="screenAddress">{{item.address}}</div>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="screenDist">
                   <div class="screenBox">
                     <div class="screenTitle">{{item.title}}</div>
-                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{item.distance}}m</div>
                   </div>
                   <div class="screenAddress">{{item.address}}</div>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="screenDist">
                   <div class="screenBox">
                     <div class="screenTitle">{{item.title}}</div>
-                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{item.distance}}m</div>
                   </div>
                   <div class="screenAddress">{{item.address}}</div>
                 </div>
@@ -88,7 +88,7 @@
                 <div class="screenDist">
                   <div class="screenBox">
                     <div class="screenTitle">{{item.title}}</div>
-                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{item.distance}}m</div>
                   </div>
                   <div class="screenAddress">{{item.address}}</div>
                 </div>
@@ -101,7 +101,7 @@
                 <div class="screenDist">
                   <div class="screenBox">
                     <div class="screenTitle">{{item.title}}</div>
-                    <div class="distance"><img src="/home_img/map.png">距离{{getDistance(item.point)}}m</div>
+                    <div class="distance"><img src="/home_img/map.png">距离{{item.distance}}m</div>
                   </div>
                   <div class="screenAddress">{{item.address}}</div>
                 </div>
@@ -134,9 +134,9 @@ export default {
           lng: this.coordinate[0],
           lat: this.coordinate[1]
         }, 
-        radius: 1000
+        radius: 4000
       }, // 检索中心点
-      keyword: '地铁', // 检索词 
+      keyword: '公交', // 检索词 
       center: { // 当前地图中心点
         lng: 114.419095,
         lat: 30.561904
@@ -171,8 +171,20 @@ export default {
           arr.push({title: p.title, address: p.address, point: p.point})
         }
       }
+      for(var i=0; i<arr.length; i++) {
+        var distance = this.getDistance(arr[i].point)
+        arr[i].distance = distance
+      }
+      for(var j=0; j<arr.length; j++) {
+        for(var k=0; k<arr.length-1; k++) {
+          if(parseInt(arr[j].distance) < parseInt(arr[k].distance)) {
+            var data = arr[j]
+            arr[j] = arr[k]
+            arr[k] = data
+          }
+        }
+      }
       this.list = arr
-      // console.log('bbbbbb', this.list)
     },
     // 选择交通详情
     chioce(tab, event) {
@@ -181,7 +193,7 @@ export default {
     // 选择周边环境
     handleClick(tab, event) {
       if(tab.label == '交通'){
-        this.keyword = '地铁'
+        this.keyword = '公交'
       } else {
         this.keyword = tab.label
         this.activeName = 'first'

@@ -560,26 +560,16 @@ body footer {
   background-color: #303030;
 }
 
-body footer .title_box {
-  width: 100%;
-  border-bottom: 1px solid rgba(238,237,237,0.08);
-}
-
-body footer .title_box .title {
-  width: 1200px;
-  font-size: 34px;
-  color: rgba(245,245,245,0.68);
-  height: 81px;
-  line-height: 81px;
-  margin: 0 auto;
-  padding-left: 13px;
+body footer div,
+body footer a,
+body footer span {
+  font-weight: 300;
 }
 
 body footer .container {
-  height: 212px;
+  height: 220px;
   width: 1200px;
   margin: 0 auto;
-  padding-left: 13px;
 }
 
 body footer .container .left_info {
@@ -594,7 +584,7 @@ body footer .container .left_info img {
 body footer .container .left_info .info {
   color: rgba(245,245,245,0.4);
   font-size: 12px;
-  line-height: 22px;
+  line-height: 24px;
 }
 
 body footer .container .left_info .friend_link {
@@ -610,7 +600,7 @@ body footer .container .left_info .friend_link a {
 
 body footer .container .about_us {
   margin-top: 41px;
-  margin-right: 90px;
+  margin-right: 100px;
 }
 
 body footer .container .about_us .abou_us_title {
@@ -620,7 +610,7 @@ body footer .container .about_us .abou_us_title {
 }
 
 body footer .container .about_us .link li {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 body footer .container .about_us .link li a {
@@ -630,7 +620,7 @@ body footer .container .about_us .link li a {
 
 body footer .container .serve {
   margin-top: 40px;
-  margin-right: 70px;
+  margin-right: 100px;
 }
 
 body footer .container .serve div {
@@ -644,14 +634,18 @@ body footer .container .serve_title {
 }
 
 body footer .container .serve .phone {
+  text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 31px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-weight: 300;
 }
 
 body footer .container .serve .time,
 body footer .container .serve .day {
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 body footer .container .serve .day {
@@ -669,14 +663,14 @@ body footer .container .code_download .code_title {
 }
 
 body footer .container .code_download .wx_code {
-  width: 90px;
+  width: 94px;
 }
 
 body footer .container .code_download .wx_code div {
-  margin-top: 17px;
+  margin-top: 10px;
   font-size: 12px;
   color: #f5f5f5;
-  opacity: 0.5;
+  opacity: 0.8;
   text-align: center;
 }
 
@@ -686,16 +680,21 @@ body footer .bottom {
 }
 
 body footer .bottom .friend_link {
-  padding: 20px 13px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 16px 0;
   width: 1200px;
   margin: 0 auto;
   color: #f5f5f5;
   opacity: 0.5;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 12px;
 }
 
 body footer .bottom .friend_link a {
+  font-size: 12px;
   color: #f5f5f5;
+  font-weight: 300;
 }
 
 body .right_tab {
@@ -932,6 +931,10 @@ div.pagination ul.pagination li.active a {
   color: #fff;
 }
 
+div.pagination ul.pagination li.active span {
+  color: #fff;
+}
+
 div.pagination ul.pagination li.disabled {
   cursor: not-allowed;
 }
@@ -976,6 +979,10 @@ select {
 ul,
 ol {
   list-style: none;
+}
+
+body {
+  background-color: #f5f5f5;
 }
 
 body .house_list_container {
@@ -1262,6 +1269,7 @@ body .house_list_container .house_list_content .house_list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 80px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show {
@@ -1302,6 +1310,8 @@ body .house_list_container .house_list_content .house_list .house_show .empty .c
 
 body .house_list_container .house_list_content .house_list .house_show .related {
   width: 100%;
+  border-bottom: 1px solid #f5f5f5;
+  position: relative;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .related .related_title {
@@ -1315,6 +1325,9 @@ body .house_list_container .house_list_content .house_list .house_show .related 
 }
 
 body .house_list_container .house_list_content .house_list .house_show .related .related_title span {
+  position: absolute;
+  left: 22px;
+  top: 20px;
   display: inline-block;
   width: 2px;
   height: 16px;
@@ -1384,6 +1397,10 @@ body .house_list_container .house_list_content .house_list .house_show .house_sh
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price a {
   color: #878585;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .sort_price_before {
+  color: #007bff;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .house_show_title .title_right .order_price {
@@ -1482,6 +1499,11 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   font-size: 14px;
   color: #5d5c5c;
   margin-bottom: 10px;
+}
+
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_location .highlight,
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_acverge .highlight {
+  color: #007bff;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_acverge {

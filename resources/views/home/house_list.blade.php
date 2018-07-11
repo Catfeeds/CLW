@@ -147,6 +147,7 @@
                         <div class="house_num">
                             出租写字楼共&nbsp;<span>{{$count??0}}</span>&nbsp;套
                         </div>
+                        @if(!empty($Results)&&$Results->count())
                         <div class="title_right">
                             <div class="sort_default js_price_default"><a href="javascript:void(0);"
                                                                           @if(empty($request['price_sort'])) class="current" @endif>默认</a>
@@ -168,6 +169,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endif
                     </div>
                     @if(!empty($Results)&&$Results->count())
                         <div class="js_content">
@@ -247,7 +249,7 @@
                         </div>
                         <div class="related">
                             <div class="related_title">
-                                <span></span>相关推荐
+                                <span></span>&nbsp;相关推荐
                             </div>
                         </div>
                         @if(!empty($recommend)&&$recommend->count())

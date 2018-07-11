@@ -4713,7 +4713,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/home/login/login.vue"
+Component.options.__file = "resources\\assets\\js\\components\\home\\login\\login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -4722,9 +4722,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1639a0aa", Component.options)
+    hotAPI.createRecord("data-v-3608f090", Component.options)
   } else {
-    hotAPI.reload("data-v-1639a0aa", Component.options)
+    hotAPI.reload("data-v-3608f090", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -4745,13 +4745,13 @@ var content = __webpack_require__(60);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(18)("36072488", content, false, {});
+var update = __webpack_require__(18)("4006e374", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
-     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -6160,7 +6160,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1639a0aa", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3608f090", module.exports)
   }
 }
 
@@ -16498,7 +16498,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/findHouse.vue"
+Component.options.__file = "resources\\assets\\js\\components\\findHouse.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16507,9 +16507,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-65885160", Component.options)
+    hotAPI.createRecord("data-v-824b67c0", Component.options)
   } else {
-    hotAPI.reload("data-v-65885160", Component.options)
+    hotAPI.reload("data-v-824b67c0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16530,13 +16530,13 @@ var content = __webpack_require__(104);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(18)("64bb1035", content, false, {});
+var update = __webpack_require__(18)("0fd16034", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -16776,7 +16776,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-65885160", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-824b67c0", module.exports)
   }
 }
 
@@ -16833,7 +16833,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/detailMap.vue"
+Component.options.__file = "resources\\assets\\js\\components\\detailMap.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16842,9 +16842,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e5564c78", Component.options)
+    hotAPI.createRecord("data-v-32b256f8", Component.options)
   } else {
-    hotAPI.reload("data-v-e5564c78", Component.options)
+    hotAPI.reload("data-v-32b256f8", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16865,13 +16865,13 @@ var content = __webpack_require__(132);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(18)("709d1aae", content, false, {});
+var update = __webpack_require__(18)("1d552c30", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5564c78\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e5564c78\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-32b256f8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-32b256f8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./detailMap.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -17055,9 +17055,9 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
           lng: this.coordinate[0],
           lat: this.coordinate[1]
         },
-        radius: 1000
+        radius: 4000
       }, // 检索中心点
-      keyword: '地铁', // 检索词 
+      keyword: '公交', // 检索词 
       center: { // 当前地图中心点
         lng: 114.419095,
         lat: 30.561904
@@ -17115,8 +17115,20 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
           }
         }
       }
+      for (var i = 0; i < arr.length; i++) {
+        var distance = this.getDistance(arr[i].point);
+        arr[i].distance = distance;
+      }
+      for (var j = 0; j < arr.length; j++) {
+        for (var k = 0; k < arr.length - 1; k++) {
+          if (parseInt(arr[j].distance) < parseInt(arr[k].distance)) {
+            var data = arr[j];
+            arr[j] = arr[k];
+            arr[k] = data;
+          }
+        }
+      }
       this.list = arr;
-      // console.log('bbbbbb', this.list)
     },
 
     // 选择交通详情
@@ -17127,7 +17139,7 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
     // 选择周边环境
     handleClick: function handleClick(tab, event) {
       if (tab.label == '交通') {
-        this.keyword = '地铁';
+        this.keyword = '公交';
       } else {
         this.keyword = tab.label;
         this.activeName = 'first';
@@ -17251,7 +17263,7 @@ var render = function() {
                 [
                   _c(
                     "el-tab-pane",
-                    { attrs: { label: "地铁", name: "first" } },
+                    { attrs: { label: "公交", name: "first" } },
                     [
                       _c(
                         "div",
@@ -17271,11 +17283,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: { src: "/home_img/map.png" }
                                     }),
-                                    _vm._v(
-                                      "距离" +
-                                        _vm._s(_vm.getDistance(item.point)) +
-                                        "m"
-                                    )
+                                    _vm._v("距离" + _vm._s(item.distance) + "m")
                                   ])
                                 ]),
                                 _vm._v(" "),
@@ -17292,7 +17300,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-tab-pane",
-                    { attrs: { label: "公交", name: "second" } },
+                    { attrs: { label: "地铁", name: "second" } },
                     [
                       _c(
                         "div",
@@ -17312,11 +17320,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: { src: "/home_img/map.png" }
                                     }),
-                                    _vm._v(
-                                      "距离" +
-                                        _vm._s(_vm.getDistance(item.point)) +
-                                        "m"
-                                    )
+                                    _vm._v("距离" + _vm._s(item.distance) + "m")
                                   ])
                                 ]),
                                 _vm._v(" "),
@@ -17351,9 +17355,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17380,9 +17382,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17409,9 +17409,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17438,9 +17436,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17467,9 +17463,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17494,7 +17488,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e5564c78", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-32b256f8", module.exports)
   }
 }
 

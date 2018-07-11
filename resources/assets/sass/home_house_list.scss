@@ -16,6 +16,7 @@ ul,ol {
   list-style: none;
 }
 body {
+  background-color: #f5f5f5;
   .house_list_container {
     background-color: #f5f5f5;
     .house_list_title {
@@ -232,6 +233,7 @@ body {
         width: $master-width;
         margin: 0 auto;
         display: flex;
+        margin-bottom: 80px;
         .house_show {
           flex: 4;
           max-width: 940px;
@@ -262,6 +264,8 @@ body {
           }
           .related {
             width: 100%;
+            border-bottom: 1px solid #f5f5f5;
+            position: relative;
             .related_title {
               width: 100%;
               height: 56px;
@@ -271,6 +275,9 @@ body {
               line-height: 56px;
               padding-left: 24px;
               span {
+                position: absolute;
+                left: 22px;
+                top: 20px;
                 display: inline-block;
                 width: 2px;
                 height: 16px;
@@ -321,6 +328,9 @@ body {
                 a {
                   color:#878585;
                 }
+              }
+              .sort_price_before{
+                color: #007bff;
               }
               .order_price {
                 position: relative;
@@ -400,6 +410,9 @@ body {
                   font-size: 14px;
                   color:#5d5c5c;
                   margin-bottom: 10px;
+                  .highlight {
+                    color:$master-blue;
+                  }
                 }
                 .house_acverge {
                   margin-bottom: 18px;                

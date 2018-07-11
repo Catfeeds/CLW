@@ -52,9 +52,20 @@
       </div>
       <div class="detail">
         <ul>
-          <li><img src="/home_img/sellhouse_submit.png" /><div>提交委托</div><img src="/home_img/sell_arrow.png" alt="" class="arrow"></li>
-          <li><img src="/home_img/collect_info.png" style="padding-top:6px"/><div>采集房源信息</div><img src="/home_img/sell_arrow.png" alt="" class="arrow"></li>
-          <li><img src="/home_img/vistor_home.png" style="padding-top:1px"/><div>上门实勘</div><img src="/home_img/sell_arrow.png" alt="" class="arrow"></li>
+          <li>
+            <img src="/home_img/sellhouse_submit.png" />
+            <div>提交委托</div>
+            <img src="/home_img/sell_arrow.png" alt="" class="arrow">
+          </li>
+          <li>
+            <img src="/home_img/collect_info.png" style="padding-top:6px"/>
+            <div>采集房源信息</div><img src="/home_img/sell_arrow.png" alt="" class="arrow">
+          </li>
+          <li>
+            <img src="/home_img/vistor_home.png" style="padding-top:1px"/>
+            <div>上门实勘</div>
+            <img src="/home_img/sell_arrow.png" alt="" class="arrow">
+          </li>
           <li><img src="/home_img/spread.png" /><div>线上推广</div></li>
         </ul>
       </div>
