@@ -951,6 +951,7 @@ body .right_tab .bank-top .text-box {
   background: none;
   width: 90px;
   height: 50px;
+  opacity: 0.8;
 }
 
 .content #banner .swiper-pagination .swiper-pagination-bullet img {
