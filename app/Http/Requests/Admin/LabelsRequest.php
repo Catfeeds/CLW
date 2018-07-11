@@ -27,15 +27,16 @@ class LabelsRequest extends FormRequest
             case 'store':
                 return [
                     'category_id' => 'required|exists:categories,id',
-                    'parent_id' => 'required|integer',
+                    'parent_id' => 'nullable|integer',
                     'name' => 'required|unique:labels,name|max:32',
                     'stage' => 'required|integer'
                 ];
             case 'update':
                 return [
                     'category_id' => 'required|exists:categories,id',
-                    'parent_id' => 'required|integer',
+                    'parent_id' => 'nullable|integer',
                     'name' => 'required|max:32|unique:labels,name,'. $this->route('label')->id,
+                    'stage' => 'required|integer'
                 ];
             default;
                 return [
