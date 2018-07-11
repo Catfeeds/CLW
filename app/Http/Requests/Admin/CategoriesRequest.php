@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PcServiceRecommendsRequest extends FormRequest
+class CategoriesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,25 +16,23 @@ class PcServiceRecommendsRequest extends FormRequest
         return true;
     }
 
-    /**
-     * 说明：验证规则
+    /**说明：验证规则
      * Get the validation rules that apply to the request.
      *
      * @return array
-     * @author 郑宇
      */
     public function rules()
     {
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'pic' => 'required|max:32',
-                    'url' => 'required|max:32'
+                    'name' => 'required|max:32|unique:categories',
+                    'route' => 'required|max:32|unique:categories'
                 ];
             case 'update':
                 return [
-                    'pic' => 'required|max:32',
-                    'url' => 'required|max:32'
+                    'name' => 'required|max:32|unique:categories,name,'.$this->route('category')->id,
+                    'route' => 'required|max:32|unique:categories,route,'.$this->route('category')->id
                 ];
             default;
                 return [
