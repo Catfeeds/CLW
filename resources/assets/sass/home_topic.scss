@@ -1,6 +1,6 @@
 @import "home_master";
 @include nav();
-
+@include footer();
 body {
   .container {
     width: 100%;
@@ -12,8 +12,7 @@ body {
     .content {
       //内容简介区块
       box-sizing: border-box;
-      width: $master-width; 
-      height: 1315px;
+      width: $master-width;
       background-color: #fff;
       margin: 0 auto;
       margin-top:-203px;
