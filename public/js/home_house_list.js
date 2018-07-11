@@ -12555,7 +12555,7 @@ for (var key in data) {
 }
 // 展示 已选信息
 if (condition) {
-    $('.js_result').show();
+    $('.js_result').show(700);
 }
 // 清空处理
 $('.js_cleaning').click(function () {
@@ -12624,10 +12624,10 @@ $('.js_features').click(function () {
     }
     window.location.href = createURL('building_list', data);
 });
-// 搜索关键词
-$('.serch_btn').click(function () {
-    window.location.href = createURL('building_list', { keyword: $('.serch_inp').val() });
-});
+// // 搜索关键词
+// $('.serch_btn').click(function () {
+//     window.location.href = createURL('building_list', {keyword: $('.serch_inp').val()})
+// })
 
 // 价格排序
 $('.js_price_sort').click(function () {

@@ -574,26 +574,16 @@ body footer {
   background-color: #303030;
 }
 
-body footer .title_box {
-  width: 100%;
-  border-bottom: 1px solid rgba(238,237,237,0.08);
-}
-
-body footer .title_box .title {
-  width: 1200px;
-  font-size: 34px;
-  color: rgba(245,245,245,0.68);
-  height: 81px;
-  line-height: 81px;
-  margin: 0 auto;
-  padding-left: 13px;
+body footer div,
+body footer a,
+body footer span {
+  font-weight: 300;
 }
 
 body footer .container {
-  height: 212px;
+  height: 220px;
   width: 1200px;
   margin: 0 auto;
-  padding-left: 13px;
 }
 
 body footer .container .left_info {
@@ -608,7 +598,7 @@ body footer .container .left_info img {
 body footer .container .left_info .info {
   color: rgba(245,245,245,0.4);
   font-size: 12px;
-  line-height: 22px;
+  line-height: 24px;
 }
 
 body footer .container .left_info .friend_link {
@@ -624,7 +614,7 @@ body footer .container .left_info .friend_link a {
 
 body footer .container .about_us {
   margin-top: 41px;
-  margin-right: 90px;
+  margin-right: 100px;
 }
 
 body footer .container .about_us .abou_us_title {
@@ -634,7 +624,7 @@ body footer .container .about_us .abou_us_title {
 }
 
 body footer .container .about_us .link li {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 body footer .container .about_us .link li a {
@@ -644,7 +634,7 @@ body footer .container .about_us .link li a {
 
 body footer .container .serve {
   margin-top: 40px;
-  margin-right: 70px;
+  margin-right: 100px;
 }
 
 body footer .container .serve div {
@@ -658,14 +648,18 @@ body footer .container .serve_title {
 }
 
 body footer .container .serve .phone {
+  text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 31px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-weight: 300;
 }
 
 body footer .container .serve .time,
 body footer .container .serve .day {
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 body footer .container .serve .day {
@@ -683,14 +677,14 @@ body footer .container .code_download .code_title {
 }
 
 body footer .container .code_download .wx_code {
-  width: 90px;
+  width: 94px;
 }
 
 body footer .container .code_download .wx_code div {
-  margin-top: 17px;
+  margin-top: 10px;
   font-size: 12px;
   color: #f5f5f5;
-  opacity: 0.5;
+  opacity: 0.8;
   text-align: center;
 }
 
@@ -700,16 +694,21 @@ body footer .bottom {
 }
 
 body footer .bottom .friend_link {
-  padding: 20px 13px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 16px 0;
   width: 1200px;
   margin: 0 auto;
   color: #f5f5f5;
   opacity: 0.5;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 12px;
 }
 
 body footer .bottom .friend_link a {
+  font-size: 12px;
   color: #f5f5f5;
+  font-weight: 300;
 }
 
 body .right_tab {
