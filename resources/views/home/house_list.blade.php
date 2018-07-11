@@ -19,7 +19,7 @@
         <div class="house_list_title">
             <div class="title_content clearfix">
                 <div class="link f_l">
-                    <a href="{{url('/')}}" class="homepage">首页 </a>&nbsp;>&nbsp;
+                    <a href="{{url('/')}}" class="homepage" target="_blank">首页 </a>&nbsp;>&nbsp;
                     <a href="javscript:void(0)">写字楼出租</a>
                 </div>
                 <div class="serch_area f_r ">
@@ -135,8 +135,7 @@
                         <div class="selected_box f_l clearfix">
                         </div>
                         <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
-                        <div class="cleaning f_l clearfix"><span class="icon_clean"></span><a href="javascript:void(0)"
-                                                                                              class="js_cleaning f_r">清空</a>
+                        <div class="cleaning f_l clearfix"><a href="javascript:void(0)"class="js_cleaning f_r"><span class="icon_clean"></span>清空</a>
                         </div>
                     </div>
                 </div>
@@ -174,7 +173,7 @@
                     @if(!empty($Results)&&$Results->count())
                         <div class="js_content">
                             @foreach($Results as $key => $data)
-                                <a href="{{url('/buildings').'/'.$data->id}}">
+                                <a href="{{url('/buildings').'/'.$data->id}}" target="_blank">
                                     <div class="detail">
                                         <div class="img_box">
                                             <img src="{{$data->img_cn}}" alt="" class="house_img"/>
@@ -199,7 +198,7 @@
                                                         <li style="position: relative" class="f_l">
                                                             <a href="javascript:void(0);">{{$pchouse['constru_acreage']}}
                                                                 ㎡</a>
-                                                            <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}">
+                                                            <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}" target="_blank">
                                                                 <div class="acreage-detail">
                                                                     <div style="position: relative">
                                                                         <img src="{{$pchouse['indoor_img_cn']}}" alt=""
@@ -216,8 +215,7 @@
                                                             </a>
                                                         </li>
                                                     @endforeach
-                                                    <li class="f_l"><a
-                                                                href="{{url('/buildings').'/'.$data->id}}}">更多...</a>
+                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}" target="_blank">更多...</a>
                                                     </li>
                                                 </ul>
                                             </div>

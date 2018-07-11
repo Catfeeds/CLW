@@ -985,10 +985,6 @@ body {
   background-color: #f5f5f5;
 }
 
-body .house_list_container {
-  background-color: #f5f5f5;
-}
-
 body .house_list_container .house_list_title {
   background-color: #fff;
   padding: 5px 0;
@@ -1429,13 +1425,16 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   display: flex;
 }
 
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail:hover {
+  background-color: rgba(238,246,255,0.5);
+}
+
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .img_box {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   height: 180px;
   width: 240px;
-  background-color: #ccc;
   position: relative;
 }
 

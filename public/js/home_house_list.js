@@ -9218,7 +9218,7 @@ for (var key in data) {
 }
 // 展示 已选信息
 if (condition) {
-    $('.js_result').show();
+    $('.js_result').show(700);
 }
 // 清空处理
 $('.js_cleaning').click(function () {
