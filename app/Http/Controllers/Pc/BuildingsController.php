@@ -100,9 +100,6 @@ class BuildingsController extends Controller
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
-<<<<<<< HEAD
-        // return $data;
-=======
 
         // 相关推荐
         if (empty($res['data']->count())) {
@@ -110,7 +107,6 @@ class BuildingsController extends Controller
             $recommends = collect($recommend)->take(10);
         }
 
->>>>>>> origin/lz
         return view('home.house_list', [
             'house_count' => $res['house_count'],
             'areas' => $areas,
