@@ -2,8 +2,8 @@ require('./home_common');
 import './components/home/login' // 登录组件
 import './components/home/right_tab' // 侧边栏组件
 const Swiper = require('swiper');
-var detailMap = require('./components/detailMap.vue')
-var findHouse = require('./components/findHouse.vue')
+var detailMap = require('./components/detailMap.vue') // 地图组件
+var findHouse = require('./components/findHouse.vue') // 委托找房组件
 var Data = $('#props').data('data') // 获取blade模板渲染出来的$building里的数据
 var initHouseData = getVal() // 房源数据
 // console.log('初始化数据', initHouseData)
@@ -28,7 +28,7 @@ new Vue({
 })
 // 页面滚动事件
 $(window).scroll(function(){
-  var scrollTop = $(window).scrollTop()
+  var scrollTop = $(window).scrollTop() // 页面滚动距离
   if(((scrollTop + 60) >= rightTop) && ((scrollTop + 923) < secondTop)) {
     $('.right').addClass('location')
     $('.right').css('margin-top', '0')
@@ -66,8 +66,6 @@ $('.js_map').on('click', function() {
 
 // 点击导航
 $('.filter div').on('click', function(){
-  $(this).addClass('filterActive')
-  $(this).siblings().removeClass('filterActive')
   var val = $(this).html()
   if(val == '出租房源') {
     navigation('#rent')
@@ -78,7 +76,7 @@ $('.filter div').on('click', function(){
   } else if(val == '周边配套') {
     navigation('#second')
   } else if(val == '猜你喜欢') {
-    navigation('#third')
+    navigation('#enjoy')
   }
 })
 function navigation(obj) {
@@ -88,7 +86,6 @@ function navigation(obj) {
 
 // 出租房源面积筛选
 $('#rentAcreage span').on('click', function(){
-  var acreage = $(this).html()
   changePic()
   $(this).addClass('current')
   $(this).siblings().removeClass('current')
@@ -97,7 +94,6 @@ $('#rentAcreage span').on('click', function(){
 
 // 价格筛选
 $('#rentPrice span').on('click', function(){
-  var price = $(this).html()
   changePic()
   $(this).addClass('current')
   $(this).siblings().removeClass('current')
@@ -132,7 +128,7 @@ $('.js_listTotal').on('click', function() {
   createVal(html)
 })
 
-// 重置图标
+// 重置排序图标
 function changePic() {
   $('#buildList').find('.js_price_up_after').css('display', 'block')
   $('#buildList').find('.js_price_up_before').css('display', 'none')
