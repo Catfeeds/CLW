@@ -232,6 +232,7 @@ body {
         width: $master-width;
         margin: 0 auto;
         display: flex;
+        margin-bottom: 80px;
         .house_show {
           flex: 4;
           max-width: 940px;
@@ -262,6 +263,8 @@ body {
           }
           .related {
             width: 100%;
+            border-bottom: 1px solid #f5f5f5;
+            position: relative;
             .related_title {
               width: 100%;
               height: 56px;
@@ -271,6 +274,9 @@ body {
               line-height: 56px;
               padding-left: 24px;
               span {
+                position: absolute;
+                left: 22px;
+                top: 20px;
                 display: inline-block;
                 width: 2px;
                 height: 16px;
@@ -400,6 +406,9 @@ body {
                   font-size: 14px;
                   color:#5d5c5c;
                   margin-bottom: 10px;
+                  .highlight {
+                    color:$master-blue;
+                  }
                 }
                 .house_acverge {
                   margin-bottom: 18px;                
@@ -420,34 +429,34 @@ body {
                         color:#5e5b5b;
                         font-size: 14px;
                       }
-                      .acreage-detail:hover div{
-                        color: $master-blue;
-                      }
-                      .acreage-detail{
-                        position: absolute;
-                        background-color: #fff;
-                        padding: 2px;
-                        border: 1px solid #f3f3f3;
-                        box-shadow: 0 1px 3px rgba(233,236,247,0.7);
-                        z-index: 22;
-                        img {
-                          cursor: pointer;
+                        .acreage-detail:hover div{
+                          color: $master-blue;
                         }
-                        .zx{
+                        .acreage-detail{
                           position: absolute;
-                          bottom:0px;
-                          left:0px;
-                          color: #fff;
-                          padding: 0 10px;
-                          font-size: 12px;
-                          background-color: rgba(0, 0, 0, 0.32);
+                          background-color: #fff;
+                          padding: 2px;
+                          border: 1px solid #f3f3f3;
+                          box-shadow: 0 1px 3px rgba(233,236,247,0.7);
+                          z-index: 22;
+                          img {
+                            cursor: pointer;
+                          }
+                          .zx{
+                            position: absolute;
+                            bottom:0px;
+                            left:0px;
+                            color: #fff;
+                            padding: 0 10px;
+                            font-size: 12px;
+                            background-color: rgba(0, 0, 0, 0.32);
+                          }
+                          .zx_acverge,.zx_price {
+                            font-size: 12px;
+                            color:#878585;
+                            cursor: pointer;
+                          }
                         }
-                        .zx_acverge,.zx_price {
-                          font-size: 12px;
-                          color:#878585;
-                          cursor: pointer;
-                        }
-                      }
                       div{
                         display: none;
                       }

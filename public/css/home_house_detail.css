@@ -574,16 +574,16 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   transition: all .5s ease;
 }
 
-body div,
-body a,
-body span {
-  font-weight: 400;
-}
-
 body footer {
   width: 100%;
   min-width: 1200px;
   background-color: #303030;
+}
+
+body footer div,
+body footer a,
+body footer span {
+  font-weight: 300;
 }
 
 body footer .container {
@@ -604,7 +604,7 @@ body footer .container .left_info img {
 body footer .container .left_info .info {
   color: rgba(245,245,245,0.4);
   font-size: 12px;
-  line-height: 26px;
+  line-height: 24px;
 }
 
 body footer .container .left_info .friend_link {
@@ -687,7 +687,7 @@ body footer .container .code_download .wx_code {
 }
 
 body footer .container .code_download .wx_code div {
-  margin-top: 17px;
+  margin-top: 10px;
   font-size: 12px;
   color: #f5f5f5;
   opacity: 0.8;
@@ -702,7 +702,7 @@ body footer .bottom {
 body footer .bottom .friend_link {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 20px 0;
+  padding: 16px 0;
   width: 1200px;
   margin: 0 auto;
   color: #f5f5f5;
@@ -1193,6 +1193,10 @@ body .right_tab .bank-top .text-box {
   line-height: 30px;
 }
 
+.content .banner .infor .button:hover {
+  cursor: pointer;
+}
+
 .content .second {
   background: #f5f5f5;
 }
@@ -1227,7 +1231,7 @@ body .right_tab .bank-top .text-box {
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseTitle {
-  margin-top: 25px;
+  margin-top: 28px;
   color: #999;
 }
 
@@ -1248,7 +1252,7 @@ body .right_tab .bank-top .text-box {
 
 .content .second .houseInfor .houseDetail .left .house .housePay div .houseBox {
   width: 85px;
-  color: #bab8ba;
+  color: #999;
 }
 
 .content .second .houseInfor .houseDetail .left .house .housePay div span {
@@ -1271,7 +1275,7 @@ body .right_tab .bank-top .text-box {
 
 .content .second .houseInfor .houseDetail .left .house .houseType div .houseBox1 {
   width: 55px;
-  color: #bab8ba;
+  color: #999;
 }
 
 .content .second .houseInfor .houseDetail .left .house .houseType div span {
@@ -1302,17 +1306,25 @@ body .right_tab .bank-top .text-box {
   text-align: center;
 }
 
+.content .second .houseInfor .houseDetail .left .server .serverPic .swiper-container .swiper-slide img {
+  margin-bottom: 10px;
+}
+
+.content .second .houseInfor .houseDetail .left .server .serverPic .swiper-container .swiper-slide div {
+  color: #666;
+}
+
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_left.png) no-repeat;
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev:hover {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_left_before.png) no-repeat;
   cursor: pointer;
 }
@@ -1320,14 +1332,14 @@ body .right_tab .bank-top .text-box {
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverNext {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_right.png) no-repeat;
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverNext:hover {
   width: 46px;
   height: 48px;
-  margin-top: 3px;
+  margin-top: 8px;
   background: url(/home_img/house_detail_right_before.png) no-repeat;
   cursor: pointer;
 }

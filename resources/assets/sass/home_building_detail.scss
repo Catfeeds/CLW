@@ -335,6 +335,9 @@
             margin-bottom: 20px;
             margin-top: 1px;
             color: #666;
+            &:hover{
+              cursor: pointer;
+            }
           }
           .buildInfor{
             margin: 20px 0;
@@ -506,7 +509,7 @@
                     color: #49494a;
                     span{
                       font-size: 22px;
-                      font-weight: 600;
+                      // font-weight: 600;
                       color: $master-blue;
                     }
                   }

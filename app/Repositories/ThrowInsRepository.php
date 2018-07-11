@@ -39,6 +39,7 @@ class ThrowInsRepository extends Model
                 'area_id' => $request->area_id,
                 'area_name' => $request->area_name,
                 'acreage' => $request->acreage,
+                'block_id' => $request->block_id,
                 'building_name' => $request->building_name,
                 'source' => $source,
                 'page_source' => $request->page_source

@@ -188,15 +188,10 @@
                     <div class="quotation" id="quotation">
                         <div class="h1">市场行情</div>
                         <div class="average">
-                            <div class="buildPrice"><div>现代光谷世贸中心均价（楼盘）</div><div>{{$building->buildingAverage}}</div></div>
-                            <div class="buildPrice"><div>光谷均价（商圈）</div><div>{{$building->blockAverage}}</div></div>
-                            <div class="buildPrice"><div>洪山均价（区域）</div><div>{{$building->areaAverage}}</div></div>
+                            <div class="buildPrice"><div>现代光谷世贸中心均价(楼盘)</div><div>{{$building->buildingAverage}}</div></div>
+                            <div class="buildPrice"><div>光谷均价(商圈)</div><div>{{$building->blockAverage}}</div></div>
+                            <div class="buildPrice"><div>洪山均价(区域)</div><div>{{$building->areaAverage}}</div></div>
                         </div>
-                    </div>
-                    <!-- 企业服务 -->
-                    <div class="serve">
-                        <div class="serve_title">企业服务</div>
-                        <div class="swiper-container"></div>
                     </div>
                 </div>
                 <!-- 右边 -->
@@ -215,7 +210,7 @@
                     </div>
                     <!-- 委托找房 -->
                     <div class="findHouse">
-                        <find-house></find-house> 
+                        <find-house></find-house>
                     </div>
                 </div>
             </div>

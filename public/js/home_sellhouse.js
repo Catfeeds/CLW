@@ -3405,10 +3405,11 @@ function updateLink(linkElement, obj) {
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
 /* harmony export (immutable) */ __webpack_exports__["h"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["k"] = login;
+/* harmony export (immutable) */ __webpack_exports__["l"] = login;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
 /* harmony export (immutable) */ __webpack_exports__["j"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
+/* harmony export (immutable) */ __webpack_exports__["k"] = launchHouse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -3465,7 +3466,7 @@ function findHouse(data) {
 // 收藏房源
 function collect(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: 'collections',
+    url: '/collections',
     method: 'POST',
     data: data
   });
@@ -3524,6 +3525,14 @@ function getSiteBuildNum(data) {
 function factorFindHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/bespeaks',
+    method: 'POST',
+    data: data
+  });
+}
+// 投放房源
+function launchHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/throw_ins',
     method: 'POST',
     data: data
   });
@@ -6070,7 +6079,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
       this.isTel = true; // 手机号验证状态 true: 通过 false: 不通过
       this.isCode = true; // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["k" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["l" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',

@@ -8,7 +8,6 @@ Route::resource('buildings', 'BuildingsController');
 //房源详情
 Route::resource('office_building_houses', 'OfficeBuildingHousesController');
 
-
 //资讯
 Route::resource('information','InformationsController');
 
@@ -49,9 +48,7 @@ Route::get('del/{id}', 'CollectionsController@del');
 Route::get('topic',function(){
   return view('home.home_topic');
 });
-
-
-//精选楼盘
+// 精选楼盘
 Route::resource('recommends', 'RecommendsController');
 
 /*
@@ -61,6 +58,8 @@ Route::resource('recommends', 'RecommendsController');
 */
 // 我的预约
 Route::get('get_user_bespeaks', 'BespeaksController@getUserBespeaks');
+// 浏览记录
+Route::resource('browse_records','BrowseRecordsController');
 
 
 

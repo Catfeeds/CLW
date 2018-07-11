@@ -26,7 +26,7 @@
             <div class="phone">4000-580-888</div>
             <div class="time">( 早9:00-晚10:00 )</div>
             <div class="day">周一至周日</div>
-            <div class="address">www.chulouwang.com</div>
+            <div class="address">service@chulouwang.com</div>
         </div>
         <div class="code_download f_l">
             <div class="code_title">扫码下载</div>

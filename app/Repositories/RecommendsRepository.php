@@ -43,7 +43,10 @@ class RecommendsRepository extends Model
             'pic' => $request->pic,
             'building_id' => $request->building_id,
             'building_info' => $request->building_info,
-            'pc_pic' => $request->pc_pic
+            'pc_pic' => $request->pc_pic,
+            'pc_big_details_pic' => $request->pc_big_details_pic,
+            'pc_small_details_pic' => $request->pc_small_details_pic,
+            'details_introduce' => $request->details_introduce
         ]);
     }
 
@@ -63,6 +66,9 @@ class RecommendsRepository extends Model
         $recommend->building_id = $request->building_id;
         $recommend->building_info = $request->building_info;
         $recommend->pc_pic = $request->pc_pic;
+        $recommend->pc_big_details_pic = $request->pc_big_details_pic;
+        $recommend->pc_small_details_pic = $request->pc_small_details_pic;
+        $recommend->details_introduce = $request->details_introduce;
         if (!$recommend->save()) return false;
         return true;
     }
