@@ -116,7 +116,7 @@ class BuildingsController extends Controller
             'page' => $res['page'],
             'request' => $data,
             'count' => $res['house_count'],
-            'recommend' => $recommends
+            'recommend' => $recommends??collect()
         ]);
     }
 }
