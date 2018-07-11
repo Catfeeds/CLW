@@ -16538,7 +16538,7 @@ var ElAutocomplete = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_autocomplete___d
       });
     },
     handleSelect: function handleSelect(item) {
-      window.location.href = '/building_list?keyword=' + item;
+      window.location.href = '/building_list?keyword=' + item.value;
     }
   }
 });
