@@ -9245,6 +9245,8 @@ $(document).on('click', '.js_close', function () {
             data.features = '';
         }
     } else {
+        // 如果条件切换的的 是区域 则要清空商圈
+        if ($(this).data('dom') == 'area_id') data.block_id = '';
         data[$(this).data('dom')] = '';
     }
     window.location.href = createURL('building_list', data);
