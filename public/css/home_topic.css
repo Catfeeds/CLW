@@ -639,6 +639,11 @@ body .container .content .other_build .enjoyList a {
   margin-bottom: 20px;
 }
 
+body .container .content .other_build .enjoyList a .enjoyDetail:hover {
+  -webkit-box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+          box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+}
+
 body .container .content .other_build .enjoyList a .enjoyDetail .enjoyPic {
   width: 265px;
   height: 210px;
