@@ -352,9 +352,6 @@ body {
               background-color: #fff;
               margin-bottom: 2px;
               display: flex;
-              &:hover {
-                background-color: rgba(238,246,255,0.5);
-              }
               .img_box {
                 flex:1;
                 height: 180px;
@@ -513,6 +510,19 @@ body {
                     >li:nth-child(4) {
                       color:#849aae;
                       background-image: linear-gradient(#f4f7f9,#f4f7f9);
+                    }
+                  }
+                }
+              }
+              &:hover {
+                background-color: #f6fafe;
+                .detail_title {
+                  .acverge_select {
+                    ul {
+                      background-color: #fff;
+                      li:hover {
+                        background-color: #f6fafe;
+                      }
                     }
                   }
                 }
