@@ -184,6 +184,10 @@
               &:not(:first-child){
                 border-left: 1px solid #ededed;
               }
+              &:hover{
+                background: $master-blue;
+                color: #fff;
+              }
             }
             .filterActive{
               background: $master-blue;
@@ -249,6 +253,9 @@
                 }
                 span{
                   color: #666;
+                  &:hover{
+                    color: $master-blue;
+                  }
                 }
                 .listSort{
                   display: flex;
@@ -276,6 +283,9 @@
               display: flex;
               justify-content: flex-start;
               border-top: 1px solid #ededed;
+              &:hover{
+                background: rgba(238,246,255,0.5);
+              }
               .listPic{
                 height: 100px;
                 img{
@@ -447,6 +457,9 @@
             }
             .service{
               margin-top: 15px;
+              &:hover{
+                cursor: pointer;
+              }
             }
           }
           .findHouse{

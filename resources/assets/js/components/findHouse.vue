@@ -144,6 +144,7 @@ export default {
               box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);
               &:hover{
                 cursor: pointer;
+                box-shadow: 0px 15px 12px 0px rgba(53, 53, 53, 0.19);
               }
               a{
                 font-size: 18px;

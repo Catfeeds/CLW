@@ -16554,7 +16554,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.rent_house {\n  width: 240px;\n  height: 335px;\n  background: url(/home_img/rent_background.jpg) no-repeat center;\n}\n.rent_house .title {\n    padding-top: 36px;\n    padding-bottom: 39px;\n}\n.rent_house .title div {\n      text-align: center;\n      color: #fff;\n      text-shadow: 0 4px 1px rgba(53, 53, 53, 0.78);\n      font-size: 14px;\n}\n.rent_house .title div:first-child {\n      font-size: 28px;\n      font-weight: 600;\n      margin-bottom: 15px;\n}\n.rent_house .phone {\n    width: 100%;\n    text-align: center;\n    position: relative;\n}\n.rent_house .phone .phoneBox {\n      height: 65px;\n}\n.rent_house .phone .phoneBox input {\n        width: 212px;\n        height: 40px;\n        background-color: #ffffff;\n        border-radius: 20px;\n        border: solid 1px #e2e3e4;\n        padding-left: 33px;\n        margin-bottom: 6px;\n        -webkit-box-sizing: border-box;\n                box-sizing: border-box;\n}\n.rent_house .phone .phoneBox input::-webkit-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input:-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox .phoneTitle {\n        text-align: left;\n        margin-left: 32px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.rent_house .phone .phoneBox .phoneTitle div {\n          color: #fe7a85;\n          font-size: 12px;\n          margin-left: 3px;\n}\n.rent_house .phone .phoneBox .phoneTitle img {\n          width: 12px;\n}\n.rent_house .phone .phoneBox span {\n        display: block;\n        background: url(/home_img/phone.png) no-repeat;\n        width: 9px;\n        height: 16px;\n        position: absolute;\n        left: 33px;\n        top: 12px;\n}\n.rent_house .phone .button {\n      margin: 0 auto;\n      width: 214px;\n      height: 41px;\n      background-image: -webkit-gradient(linear, right top, left top, from(#2a59db), to(#5c85f6)), -webkit-gradient(linear, left top, left bottom, from(#fff200), to(#fff200));\n      background-image: linear-gradient(-90deg, #2a59db 0%, #5c85f6 100%), linear-gradient(#fff200, #fff200);\n      border-radius: 20px;\n      line-height: 41px;\n      margin-bottom: 51px;\n      -webkit-box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n              box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n}\n.rent_house .phone .button:hover {\n        cursor: pointer;\n}\n.rent_house .phone .button a {\n        font-size: 18px;\n        color: #fff;\n}\n.rent_house .rent_describe {\n    font-family: NotoSansHans-Light;\n    color: #fff;\n    font-size: 14px;\n    text-align: center;\n}\n.rent_house .rent_describe span {\n      color: #f6e71e;\n}\n.renSuccess {\n  padding: 28px;\n  width: 240px;\n  height: 335px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background: #fff;\n}\n.renSuccess .renSuccess_tel {\n    color: #999;\n    margin-top: 7px;\n}\n.renSuccess .rent_success {\n    text-align: center;\n    margin-top: 42px;\n}\n.renSuccess .rent_success .sucessTitle {\n      margin-top: 20px;\n      font-size: 18px;\n}\n.renSuccess .rent_success .contact {\n      font-size: 12px;\n      color: #999;\n      margin-top: 10px;\n}\n.renSuccess .rentBorder {\n    border-top: 1px solid #eeeded;\n    margin-top: 60px;\n}\n.freeConsult {\n  margin-top: 16px;\n  width: 200px;\n  height: 100px;\n  background: #fff;\n  padding: 30px 20px 37px 20px;\n}\n.freeConsult .freePic {\n    font-size: 16px;\n    margin-bottom: 8px;\n    color: #666;\n}\n.freeConsult .freePic img {\n      vertical-align: middle;\n      margin-right: 6px;\n}\n.freeConsult .freeNum {\n    padding-left: 20px;\n}\n.freeConsult .freeNum .freeTel {\n      font-size: 23px;\n      color: #007bff;\n      margin-bottom: 8px;\n}\n.freeConsult .freeNum .freeTime {\n      font-size: 12px;\n      color: #999;\n}\n.freeConsult .border {\n    width: 202px;\n    height: 1px;\n    background: #eeeded;\n    margin-top: 22px;\n}\n", ""]);
+exports.push([module.i, "\n.rent_house {\n  width: 240px;\n  height: 335px;\n  background: url(/home_img/rent_background.jpg) no-repeat center;\n}\n.rent_house .title {\n    padding-top: 36px;\n    padding-bottom: 39px;\n}\n.rent_house .title div {\n      text-align: center;\n      color: #fff;\n      text-shadow: 0 4px 1px rgba(53, 53, 53, 0.78);\n      font-size: 14px;\n}\n.rent_house .title div:first-child {\n      font-size: 28px;\n      font-weight: 600;\n      margin-bottom: 15px;\n}\n.rent_house .phone {\n    width: 100%;\n    text-align: center;\n    position: relative;\n}\n.rent_house .phone .phoneBox {\n      height: 65px;\n}\n.rent_house .phone .phoneBox input {\n        width: 212px;\n        height: 40px;\n        background-color: #ffffff;\n        border-radius: 20px;\n        border: solid 1px #e2e3e4;\n        padding-left: 33px;\n        margin-bottom: 6px;\n        -webkit-box-sizing: border-box;\n                box-sizing: border-box;\n}\n.rent_house .phone .phoneBox input::-webkit-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input:-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox .phoneTitle {\n        text-align: left;\n        margin-left: 32px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.rent_house .phone .phoneBox .phoneTitle div {\n          color: #fe7a85;\n          font-size: 12px;\n          margin-left: 3px;\n}\n.rent_house .phone .phoneBox .phoneTitle img {\n          width: 12px;\n}\n.rent_house .phone .phoneBox span {\n        display: block;\n        background: url(/home_img/phone.png) no-repeat;\n        width: 9px;\n        height: 16px;\n        position: absolute;\n        left: 33px;\n        top: 12px;\n}\n.rent_house .phone .button {\n      margin: 0 auto;\n      width: 214px;\n      height: 41px;\n      background-image: -webkit-gradient(linear, right top, left top, from(#2a59db), to(#5c85f6)), -webkit-gradient(linear, left top, left bottom, from(#fff200), to(#fff200));\n      background-image: linear-gradient(-90deg, #2a59db 0%, #5c85f6 100%), linear-gradient(#fff200, #fff200);\n      border-radius: 20px;\n      line-height: 41px;\n      margin-bottom: 51px;\n      -webkit-box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n              box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n}\n.rent_house .phone .button:hover {\n        cursor: pointer;\n        -webkit-box-shadow: 0px 15px 12px 0px rgba(53, 53, 53, 0.19);\n                box-shadow: 0px 15px 12px 0px rgba(53, 53, 53, 0.19);\n}\n.rent_house .phone .button a {\n        font-size: 18px;\n        color: #fff;\n}\n.rent_house .rent_describe {\n    font-family: NotoSansHans-Light;\n    color: #fff;\n    font-size: 14px;\n    text-align: center;\n}\n.rent_house .rent_describe span {\n      color: #f6e71e;\n}\n.renSuccess {\n  padding: 28px;\n  width: 240px;\n  height: 335px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background: #fff;\n}\n.renSuccess .renSuccess_tel {\n    color: #999;\n    margin-top: 7px;\n}\n.renSuccess .rent_success {\n    text-align: center;\n    margin-top: 42px;\n}\n.renSuccess .rent_success .sucessTitle {\n      margin-top: 20px;\n      font-size: 18px;\n}\n.renSuccess .rent_success .contact {\n      font-size: 12px;\n      color: #999;\n      margin-top: 10px;\n}\n.renSuccess .rentBorder {\n    border-top: 1px solid #eeeded;\n    margin-top: 60px;\n}\n.freeConsult {\n  margin-top: 16px;\n  width: 200px;\n  height: 100px;\n  background: #fff;\n  padding: 30px 20px 37px 20px;\n}\n.freeConsult .freePic {\n    font-size: 16px;\n    margin-bottom: 8px;\n    color: #666;\n}\n.freeConsult .freePic img {\n      vertical-align: middle;\n      margin-right: 6px;\n}\n.freeConsult .freeNum {\n    padding-left: 20px;\n}\n.freeConsult .freeNum .freeTel {\n      font-size: 23px;\n      color: #007bff;\n      margin-bottom: 8px;\n}\n.freeConsult .freeNum .freeTime {\n      font-size: 12px;\n      color: #999;\n}\n.freeConsult .border {\n    width: 202px;\n    height: 1px;\n    background: #eeeded;\n    margin-top: 22px;\n}\n", ""]);
 
 // exports
 
@@ -17652,8 +17652,8 @@ __webpack_require__(69);
  // 登录组件
  // 侧边栏组件
 var Swiper = __webpack_require__(83);
-var detailMap = __webpack_require__(130);
-var findHouse = __webpack_require__(102);
+var detailMap = __webpack_require__(130); // 地图组件
+var findHouse = __webpack_require__(102); // 委托找房组件
 var Data = $('#props').data('data'); // 获取blade模板渲染出来的$building里的数据
 var initHouseData = getVal(); // 房源数据
 // console.log('初始化数据', initHouseData)
@@ -17678,7 +17678,7 @@ new Vue({
 });
 // 页面滚动事件
 $(window).scroll(function () {
-  var scrollTop = $(window).scrollTop();
+  var scrollTop = $(window).scrollTop(); // 页面滚动距离
   if (scrollTop + 60 >= rightTop && scrollTop + 923 < secondTop) {
     $('.right').addClass('location');
     $('.right').css('margin-top', '0');
@@ -17716,8 +17716,6 @@ $('.js_map').on('click', function () {
 
 // 点击导航
 $('.filter div').on('click', function () {
-  $(this).addClass('filterActive');
-  $(this).siblings().removeClass('filterActive');
   var val = $(this).html();
   if (val == '出租房源') {
     navigation('#rent');
@@ -17728,7 +17726,7 @@ $('.filter div').on('click', function () {
   } else if (val == '周边配套') {
     navigation('#second');
   } else if (val == '猜你喜欢') {
-    navigation('#third');
+    navigation('#enjoy');
   }
 });
 function navigation(obj) {
@@ -17738,7 +17736,6 @@ function navigation(obj) {
 
 // 出租房源面积筛选
 $('#rentAcreage span').on('click', function () {
-  var acreage = $(this).html();
   changePic();
   $(this).addClass('current');
   $(this).siblings().removeClass('current');
@@ -17747,7 +17744,6 @@ $('#rentAcreage span').on('click', function () {
 
 // 价格筛选
 $('#rentPrice span').on('click', function () {
-  var price = $(this).html();
   changePic();
   $(this).addClass('current');
   $(this).siblings().removeClass('current');
@@ -17782,7 +17778,7 @@ $('.js_listTotal').on('click', function () {
   createVal(html);
 });
 
-// 重置图标
+// 重置排序图标
 function changePic() {
   $('#buildList').find('.js_price_up_after').css('display', 'block');
   $('#buildList').find('.js_price_up_before').css('display', 'none');

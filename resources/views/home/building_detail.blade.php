@@ -27,16 +27,16 @@
                         <div class="introBox">
                             <div class="introTitle">{{$building->name}}</div>
                             <div class="introBuild">
-                                <div class="introNum">{{$building->house_count}}</div>
-                                <div>在租房源/套</div>
+                                <div class="introNum">{{$building->house_count}}<span style="font-size: 14px;color:#666;">套</span></div>
+                                <div>在租房源</div>
                             </div>
                             <div class="introArea">
-                                <div class="areaNum">{{$building->constru_acreage}}</div>
-                                <div>可租面积/m²</div>
+                                <div class="areaNum">{{$building->constru_acreage}}<span style="font-size: 14px;color:#666;">m²</span></div>
+                                <div>可租面积</div>
                             </div>
                             <div class="introRental">
-                                <div class="introPrice">{{$building->unit_price}}</div>
-                                <div>月度租金 元/m²</div> 
+                                <div class="introPrice">{{$building->unit_price}}<span style="font-size: 14px;color:#666;">元/m²</span></div>
+                                <div>月度租金</div> 
                             </div>
                         </div>
                         <div class="introAddress">
