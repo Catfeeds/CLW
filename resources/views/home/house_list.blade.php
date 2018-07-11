@@ -182,6 +182,7 @@
                                                 @foreach($data->pc_house as $pchouse)
                                                 <li style="position: relative" class="f_l">
                                                     <a href="javascript:void(0);">{{$pchouse->constru_acreage}}㎡</a>
+                                                    <a href="{{url('/office_building_houses'.'/'.$pchouse->id)}}">
                                                     <div class="acreage-detail">
                                                         <div style="position: relative">
                                                             <img src="{{$pchouse->indoor_img_cn}}" alt=""
@@ -191,9 +192,10 @@
                                                         <div class="zx_acverge f_l">{{$pchouse->constru_acreage}}㎡ |</div>
                                                         <div class="zx_price f_l">&nbsp;{{$pchouse->unit_price}}元/㎡</div>
                                                     </div>
+                                                    </a>
                                                 </li>
                                                 @endforeach
-                                                <li class="f_l"><a href="javascript:void(0);">更多...</a></li>
+                                                <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}">更多...</a></li>
                                             </ul>
                                         </div>
                                         @if(!empty($data->features))
