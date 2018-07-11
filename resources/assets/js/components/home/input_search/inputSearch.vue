@@ -22,7 +22,7 @@ export default {
       })
     },
     handleSelect(item) {
-      window.location.href ='/building_list?keyword=' + item
+      window.location.href ='/building_list?keyword=' + item.value
     }
   }
 }

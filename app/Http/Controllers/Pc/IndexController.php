@@ -67,6 +67,10 @@ class IndexController extends Controller
 
         $res = Building::whereIn('id', $buildingIds)->pluck('name')->toArray();
 
-        return $this->sendResponse($res,'通过关键字获取楼盘名成功');
+        return $this->sendResponse(collect($res)->map(function ($v) {
+            return [
+                'value' => $v
+            ];
+        }),'通过关键字获取楼盘名成功');
     }
 }
