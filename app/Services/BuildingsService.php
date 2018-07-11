@@ -125,6 +125,7 @@ class BuildingsService
     // 获取商圈下房子均价
     public function getBlockAveragePrice($blockId)
     {
+
         $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
         return $this->getAveragePrice($block);
     }
@@ -167,8 +168,8 @@ class BuildingsService
                 $v->address = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address);
             }
 
-            if (strpos($v->address_cn, $keyword) !==false) {
-                $v->address_cn = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->address_cn);
+            if (strpos($v->pc_address_cn, $keyword) !==false) {
+                $v->pc_address_cn = str_replace($keyword, '<span class="highlight">'.$keyword.'</span>', $v->pc_address_cn);
             }
         }
 

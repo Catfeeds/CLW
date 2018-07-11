@@ -797,7 +797,7 @@ body .right_tab .tab-content .launchHose-box,
 body .right_tab .tab-content .dimentional-box {
   background-color: #ffffff;
   text-align: center;
-  padding: 13px 0;
+  padding: 15px 0;
   position: relative;
 }
 
@@ -883,6 +883,10 @@ body .right_tab .bank-top .text-box {
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
+}
+
+.el-popover.dimentionalCode-popover {
+  min-width: 120px !important;
 }
 
 div.pagination {
@@ -1018,7 +1022,7 @@ body .house_list_container .house_list_title .title_content .serch_area {
   display: flex;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp {
+body .house_list_container .house_list_title .title_content .serch_area input {
   width: 348px;
   height: 34px;
   border: none;
@@ -1029,19 +1033,19 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_i
   outline: none;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp::-webkit-input-placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp:-ms-input-placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input:-ms-input-placeholder {
   font-size: 14px;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp::-ms-input-placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input::-ms-input-placeholder {
   font-size: 14px;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp::placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input::placeholder {
   font-size: 14px;
 }
 

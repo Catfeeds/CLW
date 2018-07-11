@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        DB::statement("alter table `categories` comment'类表'");
+        DB::statement("alter table `categories` comment'商城类表'");
     }
 
     /**
