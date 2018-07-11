@@ -265,6 +265,17 @@ body {
             .related_title {
               width: 100%;
               height: 56px;
+              background-color: #fff;
+              color:#333;
+              font-size: 15px;
+              line-height: 56px;
+              padding-left: 24px;
+              span {
+                display: inline-block;
+                width: 2px;
+                height: 16px;
+                background-color: $master-blue;
+              }
             }
           }
           .house_show_title {
