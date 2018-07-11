@@ -23,7 +23,7 @@
                     <a href="javscript:void(0)">写字楼出租</a>
                 </div>
                 <div class="serch_area f_r ">
-                    <input type="text" class="serch_inp" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
+                    <input type="text" id="searchInput" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
                     <button class="serch_btn"><span></span></button>
                     <!-- <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div> -->
                 </div>

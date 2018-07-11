@@ -1022,7 +1022,7 @@ body .house_list_container .house_list_title .title_content .serch_area {
   display: flex;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp {
+body .house_list_container .house_list_title .title_content .serch_area input {
   width: 348px;
   height: 34px;
   border: none;
@@ -1033,19 +1033,19 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_i
   outline: none;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp::-webkit-input-placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp:-ms-input-placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input:-ms-input-placeholder {
   font-size: 14px;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp::-ms-input-placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input::-ms-input-placeholder {
   font-size: 14px;
 }
 
-body .house_list_container .house_list_title .title_content .serch_area .serch_inp::placeholder {
+body .house_list_container .house_list_title .title_content .serch_area input::placeholder {
   font-size: 14px;
 }
 

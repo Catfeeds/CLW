@@ -9,9 +9,9 @@
 <header class="index-header-box js_headerHeight">
   <div class="banner-content-box">
     <div class="banner-search-box">
-      <form class="form-box">
+    <form class="form-box" action="{{url('/building_list')}}">
         <div class="input-box">
-          <input type="text" placeholder="输入搜索关键词">
+          <input name='keyword' id="searchInput" type="text" placeholder="输入搜索关键词">
         </div>
         <button type="submit"><img src="/home_img/index_search_btn.png" alt=""></button>
         <div class="clearfloat"></div>
