@@ -1,6 +1,6 @@
 @import "home_master";
 @include nav();
-
+@include footer();
 body {
   .container {
     width: 100%;
@@ -12,8 +12,7 @@ body {
     .content {
       //内容简介区块
       box-sizing: border-box;
-      width: $master-width; 
-      height: 1315px;
+      width: $master-width;
       background-color: #fff;
       margin: 0 auto;
       margin-top:-203px;
@@ -66,6 +65,9 @@ body {
             margin-right: 24px;
             margin-bottom: 20px;
             .enjoyDetail {
+              &:hover {
+                box-shadow: 0 5px 8px rgba(0,0,0,.1);
+              }
               .enjoyPic{
                 width: 265px;
                 height: 210px;
