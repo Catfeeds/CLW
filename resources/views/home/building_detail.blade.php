@@ -27,16 +27,16 @@
                         <div class="introBox">
                             <div class="introTitle">{{$building->name}}</div>
                             <div class="introBuild">
-                                <div class="introNum">{{$building->house_count}}</div>
-                                <div>在租房源/套</div>
+                                <div class="introNum">{{$building->house_count}}<span style="font-size: 14px;color:#666;">套</span></div>
+                                <div>在租房源</div>
                             </div>
                             <div class="introArea">
-                                <div class="areaNum">{{$building->constru_acreage}}</div>
-                                <div>可租面积/m²</div>
+                                <div class="areaNum">{{$building->constru_acreage}}<span style="font-size: 14px;color:#666;">m²</span></div>
+                                <div>可租面积</div>
                             </div>
                             <div class="introRental">
-                                <div class="introPrice">{{$building->unit_price}}</div>
-                                <div>月度租金 元/m²</div> 
+                                <div class="introPrice">{{$building->unit_price}}<span style="font-size: 14px;color:#666;">元/m²</span></div>
+                                <div>月度租金</div> 
                             </div>
                         </div>
                         <div class="introAddress">
@@ -188,9 +188,9 @@
                     <div class="quotation" id="quotation">
                         <div class="h1">市场行情</div>
                         <div class="average">
-                            <div class="buildPrice"><div>现代光谷世贸中心均价(楼盘)</div><div>{{$building->buildingAverage}}</div></div>
-                            <div class="buildPrice"><div>光谷均价(商圈)</div><div>{{$building->blockAverage}}</div></div>
-                            <div class="buildPrice"><div>洪山均价(区域)</div><div>{{$building->areaAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['2']['name']}}均价(楼盘)</div><div>{{$building->buildingAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['1']['name']}}均价(商圈)</div><div>{{$building->blockAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['0']['name']}}均价(区域)</div><div>{{$building->areaAverage}}</div></div>
                         </div>
                     </div>
                 </div>
@@ -222,26 +222,26 @@
                 <div id="props" data-data='{{$building->toJson()}}' style="display:none"></div>
             </div>
             <div class="enjoy" id="enjoy">
-            <div class="enjoyBox">
-                <div class="h1">猜你喜欢</div>
-                <div class="enjoyList">
-                    @foreach($likeBuilding as $like)
-                    <a href="{{url('/buildings').'/'.$like['id']}}">
-                    <div class="enjoyDetail">
-                        <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
-                        <div class='enjoyInfor'>
-                            <div class="enjoyTitle">{{$like['name']}}</div>
-                            <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$like['address_cn']}}</div>
-                                <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
+                <div class="enjoyBox">
+                    <div class="h1">猜你喜欢</div>
+                    <div class="enjoyList">
+                        @foreach($likeBuilding as $like)
+                        <a href="{{url('/buildings').'/'.$like['id']}}">
+                        <div class="enjoyDetail">
+                            <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
+                            <div class='enjoyInfor'>
+                                <div class="enjoyTitle">{{$like['name']}}</div>
+                                <div class="enjoyIntro">
+                                    <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$like['address_cn']}}</div>
+                                    <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
+                                </div>
                             </div>
                         </div>
+                        </a>
+                        @endforeach
                     </div>
-                    </a>
-                    @endforeach
                 </div>
             </div>
-        </div>
         </div>
     </div>
     @include('home.footer')

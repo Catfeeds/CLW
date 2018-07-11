@@ -1,9 +1,4 @@
 <footer>
-   <div class="title_box">
-       <div class="title">
-           找写字楼,就找楚楼网!
-       </div>
-   </div>
    <div class="container clearfix">
         <div class="left_info f_l">
             <img src="/home_img/logo-.png" alt="" class="logo">
@@ -29,9 +24,9 @@
         <div class="serve f_l">
             <div class="serve_title">客服服务</div>
             <div class="phone">4000-580-888</div>
-            <div class="time">(早9:00-晚10:00)</div>
+            <div class="time">( 早9:00-晚10:00 )</div>
             <div class="day">周一至周日</div>
-            <div class="address">www.chulouwang.com</div>
+            <div class="address">service@chulouwang.com</div>
         </div>
         <div class="code_download f_l">
             <div class="code_title">扫码下载</div>

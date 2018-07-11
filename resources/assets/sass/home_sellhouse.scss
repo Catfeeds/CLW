@@ -3,14 +3,18 @@
 
 html,body {
   height: 100vh;
+  // min-height: 910px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   padding-top: 0 !important;
+  position: relative;
   .container {
     width: 100%;
-    height: 100%;
-    padding-top: 98px;
+    // min-height: 910px;
+    // padding-top: 98px;
+    position: absolute;
+    bottom: 0;
     .title {
       text-align: center;
       color:#fff;
@@ -211,7 +215,47 @@ div,span,li,ul,ol,p,input,textarea {
   }
 }
 @media screen and (max-width:320px) {
-.arrow {
-  left: 78px;
+html,body {
+  padding: 0;
+  min-height: 650px;
+  nav,.title,.min_title{
+    display: none;  
+  }
+  .container {
+    width: 320px;
+    padding-top:30px;
+    .form_container {
+      max-width: 410px;
+      width:81.33333%;
+      min-width: 300px;
+      margin: 0 auto; 
+      form {
+        // width: 100%;
+        button {
+          width: 50%;
+        }
+      }
+    }
+    .detail {
+      width: 100%;
+      max-width: 473px;
+      min-width: 320px;
+      height: 92px;
+      // height: 60px;
+      padding: 10px 5px 0 5px;
+      ul {
+        li {
+          // height: 50px;
+          div {
+            margin-top: 5px;
+          }
+          .arrow {
+            left: 78px;
+          }
+        }
+      }
+    }
+  }
 }
 }
+

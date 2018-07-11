@@ -266,6 +266,10 @@ a[href] {
   font-size: 18px;
 }
 
+.highlight {
+  color: #007bff !important;
+}
+
 body {
   padding-top: 61px;
 }
@@ -561,13 +565,14 @@ body {
   box-sizing: border-box;
   width: 100%;
   padding-top: 0 !important;
+  position: relative;
 }
 
 html .container,
 body .container {
   width: 100%;
-  height: 100%;
-  padding-top: 98px;
+  position: absolute;
+  bottom: 0;
 }
 
 html .container .title,
@@ -867,7 +872,56 @@ textarea {
 }
 
 @media screen and (max-width: 320px) {
-  .arrow {
+  html,
+  body {
+    padding: 0;
+    min-height: 650px;
+  }
+
+  html nav,
+  html .title,
+  html .min_title,
+  body nav,
+  body .title,
+  body .min_title {
+    display: none;
+  }
+
+  html .container,
+  body .container {
+    width: 320px;
+    padding-top: 30px;
+  }
+
+  html .container .form_container,
+  body .container .form_container {
+    max-width: 410px;
+    width: 81.33333%;
+    min-width: 300px;
+    margin: 0 auto;
+  }
+
+  html .container .form_container form button,
+  body .container .form_container form button {
+    width: 50%;
+  }
+
+  html .container .detail,
+  body .container .detail {
+    width: 100%;
+    max-width: 473px;
+    min-width: 320px;
+    height: 92px;
+    padding: 10px 5px 0 5px;
+  }
+
+  html .container .detail ul li div,
+  body .container .detail ul li div {
+    margin-top: 5px;
+  }
+
+  html .container .detail ul li .arrow,
+  body .container .detail ul li .arrow {
     left: 78px;
   }
 }

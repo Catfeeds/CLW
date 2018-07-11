@@ -16570,7 +16570,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.rent_house {\n  width: 240px;\n  height: 335px;\n  background: url(/home_img/rent_background.jpg) no-repeat center;\n}\n.rent_house .title {\n    padding-top: 36px;\n    padding-bottom: 39px;\n}\n.rent_house .title div {\n      text-align: center;\n      color: #fff;\n      text-shadow: 0 4px 1px rgba(53, 53, 53, 0.78);\n      font-size: 14px;\n}\n.rent_house .title div:first-child {\n      font-size: 28px;\n      font-weight: 600;\n      margin-bottom: 15px;\n}\n.rent_house .phone {\n    width: 100%;\n    text-align: center;\n    position: relative;\n}\n.rent_house .phone .phoneBox {\n      height: 65px;\n}\n.rent_house .phone .phoneBox input {\n        width: 212px;\n        height: 40px;\n        background-color: #ffffff;\n        border-radius: 20px;\n        border: solid 1px #e2e3e4;\n        padding-left: 33px;\n        margin-bottom: 6px;\n        -webkit-box-sizing: border-box;\n                box-sizing: border-box;\n}\n.rent_house .phone .phoneBox input::-webkit-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input:-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox .phoneTitle {\n        text-align: left;\n        margin-left: 32px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.rent_house .phone .phoneBox .phoneTitle div {\n          color: #fe7a85;\n          font-size: 12px;\n          margin-left: 3px;\n}\n.rent_house .phone .phoneBox .phoneTitle img {\n          width: 12px;\n}\n.rent_house .phone .phoneBox span {\n        display: block;\n        background: url(/home_img/phone.png) no-repeat;\n        width: 9px;\n        height: 16px;\n        position: absolute;\n        left: 33px;\n        top: 12px;\n}\n.rent_house .phone .button {\n      margin: 0 auto;\n      width: 214px;\n      height: 41px;\n      background-image: -webkit-gradient(linear, right top, left top, from(#2a59db), to(#5c85f6)), -webkit-gradient(linear, left top, left bottom, from(#fff200), to(#fff200));\n      background-image: linear-gradient(-90deg, #2a59db 0%, #5c85f6 100%), linear-gradient(#fff200, #fff200);\n      border-radius: 20px;\n      line-height: 41px;\n      margin-bottom: 51px;\n      -webkit-box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n              box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n}\n.rent_house .phone .button:hover {\n        cursor: pointer;\n}\n.rent_house .phone .button a {\n        font-size: 18px;\n        color: #fff;\n}\n.rent_house .rent_describe {\n    font-family: NotoSansHans-Light;\n    color: #fff;\n    font-size: 14px;\n    text-align: center;\n}\n.rent_house .rent_describe span {\n      color: #f6e71e;\n}\n.renSuccess {\n  padding: 28px;\n  width: 240px;\n  height: 335px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background: #fff;\n}\n.renSuccess .renSuccess_tel {\n    color: #999;\n    margin-top: 7px;\n}\n.renSuccess .rent_success {\n    text-align: center;\n    margin-top: 42px;\n}\n.renSuccess .rent_success .sucessTitle {\n      margin-top: 20px;\n      font-size: 18px;\n}\n.renSuccess .rent_success .contact {\n      font-size: 12px;\n      color: #999;\n      margin-top: 10px;\n}\n.renSuccess .rentBorder {\n    border-top: 1px solid #eeeded;\n    margin-top: 60px;\n}\n.freeConsult {\n  margin-top: 16px;\n  width: 200px;\n  height: 100px;\n  background: #fff;\n  padding: 30px 20px 37px 20px;\n}\n.freeConsult .freePic {\n    font-size: 16px;\n    margin-bottom: 8px;\n    color: #666;\n}\n.freeConsult .freePic img {\n      vertical-align: middle;\n      margin-right: 6px;\n}\n.freeConsult .freeNum {\n    padding-left: 20px;\n}\n.freeConsult .freeNum .freeTel {\n      font-size: 23px;\n      color: #007bff;\n      margin-bottom: 8px;\n}\n.freeConsult .freeNum .freeTime {\n      font-size: 12px;\n      color: #999;\n}\n.freeConsult .border {\n    width: 202px;\n    height: 1px;\n    background: #eeeded;\n    margin-top: 22px;\n}\n", ""]);
+exports.push([module.i, "\n.rent_house {\n  width: 240px;\n  height: 335px;\n  background: url(/home_img/rent_background.jpg) no-repeat center;\n}\n.rent_house .title {\n    padding-top: 36px;\n    padding-bottom: 39px;\n}\n.rent_house .title div {\n      text-align: center;\n      color: #fff;\n      text-shadow: 0 4px 1px rgba(53, 53, 53, 0.78);\n      font-size: 14px;\n}\n.rent_house .title div:first-child {\n      font-size: 28px;\n      font-weight: 600;\n      margin-bottom: 15px;\n}\n.rent_house .phone {\n    width: 100%;\n    text-align: center;\n    position: relative;\n}\n.rent_house .phone .phoneBox {\n      height: 65px;\n}\n.rent_house .phone .phoneBox input {\n        width: 212px;\n        height: 40px;\n        background-color: #ffffff;\n        border-radius: 20px;\n        border: solid 1px #e2e3e4;\n        padding-left: 33px;\n        margin-bottom: 6px;\n        -webkit-box-sizing: border-box;\n                box-sizing: border-box;\n}\n.rent_house .phone .phoneBox input::-webkit-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input:-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::-ms-input-placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox input::placeholder {\n        font-size: 14px;\n}\n.rent_house .phone .phoneBox .phoneTitle {\n        text-align: left;\n        margin-left: 32px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.rent_house .phone .phoneBox .phoneTitle div {\n          color: #fe7a85;\n          font-size: 12px;\n          margin-left: 3px;\n}\n.rent_house .phone .phoneBox .phoneTitle img {\n          width: 12px;\n}\n.rent_house .phone .phoneBox span {\n        display: block;\n        background: url(/home_img/phone.png) no-repeat;\n        width: 9px;\n        height: 16px;\n        position: absolute;\n        left: 33px;\n        top: 12px;\n}\n.rent_house .phone .button {\n      margin: 0 auto;\n      width: 214px;\n      height: 41px;\n      background-image: -webkit-gradient(linear, right top, left top, from(#2a59db), to(#5c85f6)), -webkit-gradient(linear, left top, left bottom, from(#fff200), to(#fff200));\n      background-image: linear-gradient(-90deg, #2a59db 0%, #5c85f6 100%), linear-gradient(#fff200, #fff200);\n      border-radius: 20px;\n      line-height: 41px;\n      margin-bottom: 51px;\n      -webkit-box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n              box-shadow: 0px 7px 6px 0px rgba(53, 53, 53, 0.19);\n}\n.rent_house .phone .button:hover {\n        cursor: pointer;\n        -webkit-box-shadow: 0px 15px 12px 0px rgba(53, 53, 53, 0.19);\n                box-shadow: 0px 15px 12px 0px rgba(53, 53, 53, 0.19);\n}\n.rent_house .phone .button a {\n        font-size: 18px;\n        color: #fff;\n}\n.rent_house .rent_describe {\n    font-family: NotoSansHans-Light;\n    color: #fff;\n    font-size: 14px;\n    text-align: center;\n}\n.rent_house .rent_describe span {\n      color: #f6e71e;\n}\n.renSuccess {\n  padding: 28px;\n  width: 240px;\n  height: 335px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background: #fff;\n}\n.renSuccess .renSuccess_tel {\n    color: #999;\n    margin-top: 7px;\n}\n.renSuccess .rent_success {\n    text-align: center;\n    margin-top: 42px;\n}\n.renSuccess .rent_success .sucessTitle {\n      margin-top: 20px;\n      font-size: 18px;\n}\n.renSuccess .rent_success .contact {\n      font-size: 12px;\n      color: #999;\n      margin-top: 10px;\n}\n.renSuccess .rentBorder {\n    border-top: 1px solid #eeeded;\n    margin-top: 60px;\n}\n.freeConsult {\n  margin-top: 16px;\n  width: 200px;\n  height: 100px;\n  background: #fff;\n  padding: 30px 20px 37px 20px;\n}\n.freeConsult .freePic {\n    font-size: 16px;\n    margin-bottom: 8px;\n    color: #666;\n}\n.freeConsult .freePic img {\n      vertical-align: middle;\n      margin-right: 6px;\n}\n.freeConsult .freeNum {\n    padding-left: 20px;\n}\n.freeConsult .freeNum .freeTel {\n      font-size: 23px;\n      color: #007bff;\n      margin-bottom: 8px;\n}\n.freeConsult .freeNum .freeTime {\n      font-size: 12px;\n      color: #999;\n}\n.freeConsult .border {\n    width: 202px;\n    height: 1px;\n    background: #eeeded;\n    margin-top: 22px;\n}\n", ""]);
 
 // exports
 
@@ -17076,9 +17076,9 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
           lng: this.coordinate[0],
           lat: this.coordinate[1]
         },
-        radius: 1000
+        radius: 4000
       }, // 检索中心点
-      keyword: '地铁', // 检索词 
+      keyword: '公交', // 检索词 
       center: { // 当前地图中心点
         lng: 114.419095,
         lat: 30.561904
@@ -17136,8 +17136,20 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
           }
         }
       }
+      for (var i = 0; i < arr.length; i++) {
+        var distance = this.getDistance(arr[i].point);
+        arr[i].distance = distance;
+      }
+      for (var j = 0; j < arr.length; j++) {
+        for (var k = 0; k < arr.length - 1; k++) {
+          if (parseInt(arr[j].distance) < parseInt(arr[k].distance)) {
+            var data = arr[j];
+            arr[j] = arr[k];
+            arr[k] = data;
+          }
+        }
+      }
       this.list = arr;
-      // console.log('bbbbbb', this.list)
     },
 
     // 选择交通详情
@@ -17148,7 +17160,7 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
     // 选择周边环境
     handleClick: function handleClick(tab, event) {
       if (tab.label == '交通') {
-        this.keyword = '地铁';
+        this.keyword = '公交';
       } else {
         this.keyword = tab.label;
         this.activeName = 'first';
@@ -17272,7 +17284,7 @@ var render = function() {
                 [
                   _c(
                     "el-tab-pane",
-                    { attrs: { label: "地铁", name: "first" } },
+                    { attrs: { label: "公交", name: "first" } },
                     [
                       _c(
                         "div",
@@ -17292,11 +17304,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: { src: "/home_img/map.png" }
                                     }),
-                                    _vm._v(
-                                      "距离" +
-                                        _vm._s(_vm.getDistance(item.point)) +
-                                        "m"
-                                    )
+                                    _vm._v("距离" + _vm._s(item.distance) + "m")
                                   ])
                                 ]),
                                 _vm._v(" "),
@@ -17313,7 +17321,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-tab-pane",
-                    { attrs: { label: "公交", name: "second" } },
+                    { attrs: { label: "地铁", name: "second" } },
                     [
                       _c(
                         "div",
@@ -17333,11 +17341,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: { src: "/home_img/map.png" }
                                     }),
-                                    _vm._v(
-                                      "距离" +
-                                        _vm._s(_vm.getDistance(item.point)) +
-                                        "m"
-                                    )
+                                    _vm._v("距离" + _vm._s(item.distance) + "m")
                                   ])
                                 ]),
                                 _vm._v(" "),
@@ -17372,9 +17376,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17401,9 +17403,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17430,9 +17430,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17459,9 +17457,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
@@ -17488,9 +17484,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "distance" }, [
                         _c("img", { attrs: { src: "/home_img/map.png" } }),
-                        _vm._v(
-                          "距离" + _vm._s(_vm.getDistance(item.point)) + "m"
-                        )
+                        _vm._v("距离" + _vm._s(item.distance) + "m")
                       ])
                     ]),
                     _vm._v(" "),
