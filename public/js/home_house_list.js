@@ -392,6 +392,32 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(27);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(3)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../css-loader/index.js!./base.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./base.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 /*
@@ -641,32 +667,6 @@ function updateLink(linkElement, obj) {
 		URL.revokeObjectURL(oldSrc);
 }
 
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(27);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./base.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./base.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
 
 /***/ }),
 /* 4 */,
@@ -1359,7 +1359,7 @@ exports.default = {
 var content = __webpack_require__(26);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -2488,10 +2488,11 @@ module.exports = function normalizeComponent (
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
 /* harmony export (immutable) */ __webpack_exports__["h"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["k"] = login;
+/* harmony export (immutable) */ __webpack_exports__["l"] = login;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
 /* harmony export (immutable) */ __webpack_exports__["j"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
+/* harmony export (immutable) */ __webpack_exports__["k"] = launchHouse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -2607,6 +2608,14 @@ function getSiteBuildNum(data) {
 function factorFindHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/bespeaks',
+    method: 'POST',
+    data: data
+  });
+}
+// 投放房源
+function launchHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/throw_ins',
     method: 'POST',
     data: data
   });
@@ -3028,7 +3037,7 @@ exports.default = PopupManager;
 var content = __webpack_require__(33);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -3485,7 +3494,7 @@ exports.default = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__);
@@ -4704,7 +4713,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\home\\login\\login.vue"
+Component.options.__file = "resources/assets/js/components/home/login/login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -4713,9 +4722,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3608f090", Component.options)
+    hotAPI.createRecord("data-v-1639a0aa", Component.options)
   } else {
-    hotAPI.reload("data-v-3608f090", Component.options)
+    hotAPI.reload("data-v-1639a0aa", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -4736,13 +4745,13 @@ var content = __webpack_require__(60);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(18)("4006e374", content, false, {});
+var update = __webpack_require__(18)("36072488", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
-     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -4773,7 +4782,7 @@ exports.push([module.i, "\nbody.el-popup-parent--hidden {\n  padding-right: 15px
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__);
@@ -4936,7 +4945,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
       this.isTel = true; // 手机号验证状态 true: 通过 false: 不通过
       this.isCode = true; // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["k" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["l" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',
@@ -4962,7 +4971,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
 var content = __webpack_require__(63);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -5484,7 +5493,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 var content = __webpack_require__(66);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -6151,7 +6160,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3608f090", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-1639a0aa", module.exports)
   }
 }
 
@@ -7560,13 +7569,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _Tooltip2 = _interopRequireDefault(__webpack_require__(77)).default;
 
-__webpack_require__(3);
+__webpack_require__(2);
 
 var _Tooltip = _interopRequireDefault(__webpack_require__(79)).default;
 
 var _Popover2 = _interopRequireDefault(__webpack_require__(80)).default;
 
-__webpack_require__(3);
+__webpack_require__(2);
 
 var _Popover = _interopRequireDefault(__webpack_require__(82)).default;
 
@@ -7595,7 +7604,7 @@ $(document).on('click', '.js_bankTop', function () {
 var content = __webpack_require__(78);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -8037,7 +8046,7 @@ module.exports = __webpack_require__(55);
 var content = __webpack_require__(81);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -8679,7 +8688,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\findHouse.vue"
+Component.options.__file = "resources/assets/js/components/findHouse.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -8688,9 +8697,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-824b67c0", Component.options)
+    hotAPI.createRecord("data-v-65885160", Component.options)
   } else {
-    hotAPI.reload("data-v-824b67c0", Component.options)
+    hotAPI.reload("data-v-65885160", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -8711,13 +8720,13 @@ var content = __webpack_require__(104);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(18)("0fd16034", content, false, {});
+var update = __webpack_require__(18)("64bb1035", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-824b67c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-65885160\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./findHouse.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -8957,7 +8966,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-824b67c0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-65885160", module.exports)
   }
 }
 
@@ -9151,6 +9160,7 @@ __webpack_require__(69);
  // 登录组件
  // 侧边栏组件
 var findHouse = __webpack_require__(102);
+var rightTop = $("#findHouse").offset().top;
 new Vue({
     el: '#findHouse',
     components: { findHouse: findHouse }
@@ -9164,6 +9174,17 @@ function createURL(url, param) {
     var result = url + "?" + link.substr(1);
     return result;
 }
+// 页面滚动
+$(window).scroll(function () {
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop >= 335) {
+        $('#findHouse').addClass("location");
+        $('#findHouse').css('margin-top', '30px');
+    } else if (scrollTop <= rightTop) {
+        $('#findHouse').removeClass("location");
+        $("#findHouse").css('margin-top', 0);
+    }
+});
 // 拿到所有条件值
 var data = {
     area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
@@ -9178,7 +9199,6 @@ var data = {
 };var condition = false;
 // 如果区域为空 商圈也要变为空
 if (data.area_id == '') data.block_id = '';
-
 // 检查当前已选
 for (var key in data) {
     if (data[key] !== '') {
@@ -9188,10 +9208,10 @@ for (var key in data) {
         var html = '';
         if ($(dom).length !== 1) {
             $(dom).each(function () {
-                html += '<div class="selected js_special">' + $(this).data('content') + '<span data-dom="' + $(this).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
+                html += '<div class="selected js_special">' + $(this).data('content') + '<span data-key="' + $(this).data('key') + '" data-dom="' + $(this).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
             });
         } else {
-            html = '<div class="selected js_special">' + $(dom).data('content') + '<span data-dom="' + $(dom).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
+            html = '<div class="selected js_special">' + $(dom).data('content') + '<span data-key="' + $(this).data('key') + '" data-dom="' + $(dom).data('dom') + '" class="close js_close"> &nbsp;x</span></div>';
         }
         $('.selected_box').append(html);
     }
@@ -9208,8 +9228,25 @@ $('.js_cleaning').click(function () {
 });
 // 监听删除 某项已选的信息
 $(document).on('click', '.js_close', function () {
-    // $(this).parent().remove()
-    data[$(this).data('dom')] = '';
+    if ($(this).data('dom') === 'features') {
+        console.log('123123');
+        if (data.features.toString().length !== 1) {
+            var dates = data.features.split('-');
+            var string = '';
+            for (var key in dates) {
+                if (dates[key] != $(this).data('key')) {
+                    string += dates[key] + '-';
+                }
+            }
+            data.features = string.substr(0, string.length - 1);
+            console.log('dates[key]', dates[key]);
+            console.log('this.data.key', $(this).data('key'));
+        } else {
+            data.features = '';
+        }
+    } else {
+        data[$(this).data('dom')] = '';
+    }
     window.location.href = createURL('building_list', data);
 });
 // 监听点击 条件处理

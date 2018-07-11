@@ -32,7 +32,6 @@ body{
   padding: 7px;
 }
 .list-bottom{
-  position: relative;
   font-size: 14px;
   color: #666;
   background-color: #FFFFFF;
@@ -50,29 +49,50 @@ body{
     background-color: #fff;
   }
   .text{
-    padding: 7px 0px;
-  }
-  span{
-    padding: 9px;
+    position: relative;
+    margin-right: 0px;
   }
   img {
-    position: absolute;
-    top: 10px;
-    left: 276px;
     width: 24px !important;
     height: 24px !important;
   }
+}
+.unfeedback{
+  height: 26px !important;
+  border-radius: 13px !important;
+  color: #26a2ff;
+  border: 1px solid #26a2ff;
+  background-color: #fff;
+}
+.feedback{
+  color: #26a2ff;
+}
+.flex{
+  display: flex;
 }
 .f-1{
   display: flex;
   flex: 1;
 }
+.f-2{
+  display: flex;
+  flex: 2;
+}
+.f-3{
+  display: flex;
+  flex: 3;
+}
+.p-5{
+  padding: 5px;
+}
 .jus-start {
   justify-content: start;
+　align-items:center;
 }
 .jus-center {
   justify-content: center;
 }
 .jus-end {
   justify-content: flex-end;
+　align-items:center;
 }

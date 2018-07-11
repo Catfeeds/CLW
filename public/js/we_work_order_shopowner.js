@@ -70,7 +70,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
         // 上拉加载更多 !待处理!
         getUnList: function getUnList() {
-            if (!pulldown1) {
+            if (!this.pulldown1) {
                 __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
                     text: '加载中...',
                     spinnerType: 'fading-circle'
@@ -98,7 +98,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
         // 上拉加载更多 !已处理!
         getList: function getList() {
-            if (!pulldown2) {
+            if (!this.pulldown2) {
                 __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
                     text: '加载中...',
                     spinnerType: 'fading-circle'
@@ -165,6 +165,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     }
 });
 // 获取 工单列表
+// status为1 获取待处理处理工单 status为2 获取已处理工单
 function getShopkeeperList(status, page) {
     var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
@@ -183,26 +184,30 @@ function getShopkeeperList(status, page) {
         },
         success: function success(data) {
             if (data.success) {
+                // status为1 时 是
                 if (status === 1) {
-                    // 判断是否为下拉加载
+                    // type为true 是加载更多
                     if (type) {
                         app.pulldown1 = false;
                         app.unshopkowner = data.data.data;
                         setTimeout(function () {
                             app.$refs.unloadmore.onTopLoaded();
                         }, 1000);
+                        // type为false 是下拉刷新 数据到第一页数据
                     } else {
                         app.unshopkowner = app.unshopkowner.concat(data.data.data);
                     }
                     if (data.data.last_page === app.page1) app.pulldown1 = true;
                     app.page1++;
                 } else if (status === 2) {
+                    // type为true 是加载更多
                     if (type) {
                         app.pulldown2 = false;
                         app.shopkowner = data.data.data;
                         setTimeout(function () {
                             app.$refs.loadmore.onTopLoaded();
                         }, 1000);
+                        // type为false 是下拉刷新 数据到第一页数据
                     } else {
                         app.shopkowner = app.shopkowner.concat(data.data.data);
                     }
@@ -241,8 +246,11 @@ function distribution(FormData) {
                     position: 'center',
                     duration: 1000
                 });
+                // 删除当期 确定的那一条工单
                 app.unshopkowner.splice(app.index, 1);
-                getShopkeeperList(1, this.page1, true);
+                // 添加完 要更新 已分配列表 下拉刷新  防止之前已加载到最后一页数据 看不到最新数据
+                app.loadTop();
+                app.pulldown2 = false;
             }
         },
         error: function error(res) {

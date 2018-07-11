@@ -28,6 +28,9 @@ body {
     font-size: 12px;
     height: 50px;
     line-height: 50px;
+    a:hover span{
+      color:$master-blue;
+    }
     span{
       color: #999;
     }
@@ -160,6 +163,9 @@ body {
             a{
               font-size: 12px;
               color:#444;
+            }
+            a:hover span{
+              color:$master-blue;
             }
           }
         }

@@ -62,7 +62,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
         // 上拉加载更多 !待确定!
         getUnList: function getUnList() {
-            if (!pulldown1) {
+            if (!this.pulldown1) {
                 __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
                     text: '加载中...',
                     spinnerType: 'fading-circle'
@@ -89,7 +89,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
         // 上拉加载更多 !已确定!
         getList: function getList() {
-            if (!pulldown2) {
+            if (!this.pulldown2) {
                 __WEBPACK_IMPORTED_MODULE_1_mint_ui__["Indicator"].open({
                     text: '加载中...',
                     spinnerType: 'fading-circle'
@@ -113,6 +113,52 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         },
         handleTopChange: function handleTopChange(status) {
             this.untopStatus = status;
+        },
+
+        // 添加反馈
+        addFeedback: function addFeedback(id) {
+            __WEBPACK_IMPORTED_MODULE_1_mint_ui__["MessageBox"].prompt('请输入反馈信息', '').then(function (_ref) {
+                var value = _ref.value,
+                    action = _ref.action;
+
+                if (!value) {
+                    Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                        message: '反馈信息不能为空',
+                        position: 'center',
+                        duration: 1000
+                    });
+                    return;
+                }
+                var FormData = {
+                    id: id,
+                    feedback: value
+                };
+                $.ajax({
+                    headers: {
+                        'safeString': $('meta[name="safeString"]').attr('content')
+                    },
+                    url: url + "/api/feedback",
+                    type: 'post',
+                    data: FormData,
+                    success: function success(data) {
+                        if (data.success) {
+                            Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                                message: data.message,
+                                position: 'center',
+                                duration: 1000
+                            });
+                            getSaiesmanList(2, 1, true);
+                        }
+                    },
+                    error: function error(res) {
+                        Object(__WEBPACK_IMPORTED_MODULE_1_mint_ui__["Toast"])({
+                            message: res.responseJSON.message,
+                            position: 'center',
+                            duration: 5000
+                        });
+                    }
+                });
+            });
         }
     },
     created: function created() {
@@ -125,6 +171,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     }
 });
 // 获取 工单列表
+// status为1 获取未确定工单 status为2 获取已未确定工单
 function getSaiesmanList(status, page) {
     var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
@@ -198,7 +245,8 @@ function distribution(FormData, index) {
                     duration: 1000
                 });
                 app.unsalesman.splice(index, 1);
-                getSaiesmanList(2, 1, true);
+                app.loadTop();
+                app.pulldown2 = false;
             }
         },
         error: function error(res) {
