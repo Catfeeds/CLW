@@ -178,7 +178,6 @@
                                         <div class="house_acverge">面积: {{$data->constru_acreage}}m²</div>
                                         <div class="acverge_select">
                                             <ul class="clearfix">
-                                                {{--{{dd($data->pc_house->toArray())}}--}}
                                                 @foreach($data->pc_house as $pchouse)
                                                 <li style="position: relative" class="f_l">
                                                     <a href="javascript:void(0);">{{$pchouse->constru_acreage}}㎡</a>
