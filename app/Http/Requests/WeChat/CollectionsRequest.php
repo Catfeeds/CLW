@@ -43,8 +43,7 @@ class CollectionsRequest extends FormRequest
                     'house_id' => [
                         'required',
                         'exists:media.office_building_houses,id',
-//                        Rule::unique('collections')->where('user_id', Session::get('user')->id)
-                        Rule::unique('collections')->where('user_id', 1)
+                        Rule::unique('collections')->where('user_id', Session::get('user')->id)
                     ]
                 ];
             case 'update':
