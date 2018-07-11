@@ -82,7 +82,7 @@
     </div>
     <div class="banner-commercial-box">
       <img src="/home_img/index_banner_commercial_text.png" alt="">
-      <a class="velocity-factor" href="{{url('/sellhouse')}}">
+      <a class="velocity-factor" href="{{url('/bespeaks')}}">
         立即委托
       </a>
     </div>

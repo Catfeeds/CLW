@@ -72,6 +72,7 @@ $('.js_cleaning').click(function () {
 // 监听删除 某项已选的信息
 $(document).on('click', '.js_close', function () {
     if($(this).data('dom')==='features'){
+        console.log('123123')
         if(data.features.toString().length!==1){
             var dates = data.features.split('-')
             var string = ''
@@ -81,6 +82,8 @@ $(document).on('click', '.js_close', function () {
                 }
             }
             data.features = string.substr(0,string.length-1)
+            console.log('dates[key]', dates[key])
+            console.log('this.data.key', $(this).data('key'))
 
         }else{
             data.features = ''
