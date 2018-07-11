@@ -111,7 +111,7 @@ class BuildingsService
         $high_price = $res->house->max('total_price') / 10000;
         $res->total_price= (is_int($low_price) ? $low_price : round($low_price, 1)) . '-' . (is_int($high_price) ? $high_price : round($high_price, 1));
         //楼盘面积区间
-        $res->constru_acreage = intval($res->house->min('constru_acreage')) . '-' . intval($res->house->max('constru_acreage'));
+        $res->constru_acreage = intval($res->house->min('constru_acreage')) . ' - ' . intval($res->house->max('constru_acreage'));
     }
 
     // 获取楼盘下房子均价
