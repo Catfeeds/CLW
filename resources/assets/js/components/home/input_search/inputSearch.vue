@@ -4,7 +4,8 @@
   placement="bottom-end"
   :placeholder='placeholder'
   :fetch-suggestions="querySearchAsync"
-  :trigger-on-focus="false">
+  :trigger-on-focus="false"
+  @select="handleSelect">
   </el-autocomplete>
 </template>
 <script>
@@ -17,8 +18,11 @@ export default {
   methods: {
     querySearchAsync(queryString, cb) {
       getSelectInfo({ selectInfo: queryString }).then(res => {
-        console.log(res)
+        cb(res.data)
       })
+    },
+    handleSelect(item) {
+      window.location.href ='/building_list?keyword=' + item
     }
   }
 }
