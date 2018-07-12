@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '精选专题')
 @section('header')
-    <link rel="stylesheet" href="/css/home_topic.css">
+    <link rel="stylesheet" href="{{homeRes('/css/home_topic.css')}}">
 @endsection
 @section('body')
     @include('home.nav')
@@ -26,12 +26,13 @@
                     @foreach($res as  $index => $data)
                         <a href="{{url('/buildings/'.$data['id'])}}">
                             <div class="enjoyDetail">
-                                <div class="enjoyPic"><img src="https://upload.chulouwang.com/Fjsddr6EErO8kpu80drru6Y5Quq7"
-                                                           alt=""></div>
+                                <div class="enjoyPic">
+                                    <img src="https://upload.chulouwang.com/Fjsddr6EErO8kpu80drru6Y5Quq7" alt="">
+                                </div>
                                 <div class='enjoyInfor'>
                                     <div class="enjoyTitle">{{$data['name']}}</div>
                                     <div class="enjoyIntro">
-                                        <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png">{{$data['address_cn']}}</div>
+                                        <div class="enjoyAddress"><img src="{{homeRes('/home_img/house_detail_map1.png')}}">{{$data['address_cn']}}</div>
                                         <div class="enjoyPrice"><span>{{$data['avg_price']}}</span> 元/m²月</div>
                                     </div>
                                 </div>

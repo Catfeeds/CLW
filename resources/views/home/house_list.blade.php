@@ -1,6 +1,6 @@
 @extends('home.layouts.layout')
 @section('title', '楼盘列表页')
-<link rel="stylesheet" href="/css/home_house_list.css">
+<link rel="stylesheet" href="{{homeRes('/css/home_house_list.css')}}">
 @section('header')
 @section('body')
     @include('home.nav')
@@ -156,14 +156,14 @@
                                    data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
                                     @if(empty($request['price_sort']))
-                                        <img src="/home_img/build_detail_up_before.png" class="up js_up"/>
-                                        <img src="/home_img/down.png" class="down js_down"/>
+                                        <img src="{{homeRes('/home_img/build_detail_up_before.png')}}" class="up js_up"/>
+                                        <img src="{{homeRes('/home_img/down.png')}}" class="down js_down"/>
                                     @elseif($request['price_sort']=='asc')
-                                        <img src="/home_img/build_detail_up_after.png" class="up js_up"/>
-                                        <img src="/home_img/down.png" class="down js_down"/>
+                                        <img src="{{homeRes('/home_img/build_detail_up_after.png')}}" class="up js_up"/>
+                                        <img src="{{homeRes('/home_img/down.png')}}" class="down js_down"/>
                                     @elseif($request['price_sort']=='desc')
-                                        <img src="/home_img/build_detail_up_before.png" class="up js_up"/>
-                                        <img src="/home_img/build_detail_down_after.png" class="down js_down"/>
+                                        <img src="{{homeRes('/home_img/build_detail_up_before.png')}}" class="up js_up"/>
+                                        <img src="{{homeRes('/home_img/build_detail_down_after.png')}}" class="down js_down"/>
                                     @endif
                                 </a>
                             </div>
@@ -178,7 +178,7 @@
                                         <div class="img_box">
                                             <img src="{{$data->img_cn}}" alt="" class="house_img"/>
                                             @if($data->label_cn)
-                                                <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                                <img src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select">
                                             @endif
                                         </div>
                                         <div class="detail_title">
@@ -258,7 +258,7 @@
                                             <div class="img_box">
                                                 <img src="{{$data['img_cn']}}" alt="" class="house_img"/>
                                                 @if($data['label_cn'])
-                                                    <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                                    <img src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select">
                                                 @endif
                                             </div>
                                             <div class="detail_title">
@@ -328,5 +328,5 @@
     @include('home.footer')
 @endsection
 @section('script')
-    <script src="/js/home_house_list.js"></script>
+    <script src="{{homeRes('/js/home_house_list.js')}}"></script>
 @endsection
