@@ -159,8 +159,18 @@ body {
           background-color: #fff;
           li{
             padding: 10px 0px;
-            line-height: 22px;
+            position: relative;
+            line-height: 30px;
+            border-bottom: 1px dashed #ededed;
+            .el-icon-caret-right {
+              color:#ff4949 !important;
+              position: absolute;
+              left: -5px;
+              top: 18px;
+            }
             a{
+              display: block;
+              margin-left: 15px;
               font-size: 12px;
               color:#444;
             }
