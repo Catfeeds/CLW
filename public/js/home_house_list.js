@@ -4779,7 +4779,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nbody.el-popup-parent--hidden {\n  padding-right: 15px !important;\n}\n.login-box .pointer {\n  cursor: pointer;\n}\n.login-box .el-dialog {\n  margin-top: 26vh !important;\n}\n.login-box .el-dialog__body {\n  padding-top: 0px;\n  padding-left: 30px;\n  padding-right: 30px;\n  padding-bottom: 40px;\n}\n.login-box .el-dialog__body .title {\n    font-family: SourceHanSansCN-Bold;\n    font-size: 22px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #333333;\n}\n.login-box .el-dialog__body .small-title {\n    margin-top: 12px;\n    font-family: SourceHanSansCN-Regular;\n    font-size: 14px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #999999;\n}\n.login-box .el-dialog__body form {\n    display: block;\n    margin-top: 35px;\n    width: 360px;\n}\n.login-box .el-dialog__body form .input-box {\n      position: relative;\n      z-index: 1;\n      border: solid 1px #dddddd;\n      height: 48px;\n      width: 358px;\n      overflow: hidden;\n}\n.login-box .el-dialog__body form .input-box.error {\n        margin-top: 5px;\n        border-color: #ff0000;\n        z-index: 6;\n}\n.login-box .el-dialog__body form .input-box:nth-child(2) {\n        top: -1px;\n}\n.login-box .el-dialog__body form .input-box input {\n        border: none;\n        width: 100%;\n        height: 100%;\n        padding-left: 11px;\n        position: absolute;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box {\n        width: 110px;\n        top: 0;\n        bottom: 0;\n        padding-top: 10px;\n        z-index: 3;\n        position: absolute;\n        right: 0;\n        background-color: #ffffff;\n        text-align: center;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box button {\n          width: 100%;\n          padding: 5px 0;\n          border-right: none;\n          border-top: none;\n          border-bottom: none;\n          border-left: 1px solid #dddddd !important;\n}\n.login-box .el-dialog__body .el-checkbox__input.is-checked + .el-checkbox__label {\n    color: #333333;\n}\n.login-box .el-dialog__body .btn-box {\n    margin-top: 25px;\n    width: 300px;\n    text-align: center;\n}\n.login-box .el-dialog__body .btn-box * {\n      color: #ffffff;\n}\n.login-box .el-dialog__body .btn-box button {\n      width: 360px;\n      background-color: #007bff;\n      cursor: pointer;\n}\n.login-box .el-dialog__body .btn-box button:hover {\n        background-color: #2b8df7;\n}\n.login-box .el-dialog__body .route-box {\n    margin-top: 20px;\n}\n.login-box .el-dialog__body .route-box a {\n      color: #007bff;\n}\n", ""]);
+exports.push([module.i, "\nbody.el-popup-parent--hidden {\n  padding-right: 15px !important;\n}\n.login-box .pointer {\n  cursor: pointer;\n}\n.login-box .el-dialog {\n  margin-top: 26vh !important;\n}\n.login-box .el-dialog__body {\n  padding-top: 0px;\n  padding-left: 30px;\n  padding-right: 30px;\n  padding-bottom: 40px;\n}\n.login-box .el-dialog__body .title {\n    font-family: SourceHanSansCN-Bold;\n    font-size: 22px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #333333;\n}\n.login-box .el-dialog__body .small-title {\n    margin-top: 12px;\n    font-family: SourceHanSansCN-Regular;\n    font-size: 14px;\n    font-weight: normal;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #999999;\n}\n.login-box .el-dialog__body form {\n    display: block;\n    margin-top: 35px;\n    width: 360px;\n}\n.login-box .el-dialog__body form .input-box {\n      position: relative;\n      z-index: 1;\n      border: solid 1px #dddddd;\n      height: 48px;\n      width: 358px;\n      overflow: hidden;\n}\n.login-box .el-dialog__body form .input-box.error {\n        margin-top: 5px;\n        border-color: #ff0000;\n        z-index: 6;\n}\n.login-box .el-dialog__body form .input-box:nth-child(2) {\n        top: -1px;\n}\n.login-box .el-dialog__body form .input-box input {\n        border: none;\n        width: 100%;\n        height: 100%;\n        padding-left: 11px;\n        position: absolute;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box {\n        width: 110px;\n        top: 0;\n        bottom: 0;\n        padding-top: 10px;\n        z-index: 3;\n        position: absolute;\n        right: 0;\n        background-color: #ffffff;\n        text-align: center;\n}\n.login-box .el-dialog__body form .input-box .sms-btn-box button {\n          width: 100%;\n          padding: 5px 0;\n          border-right: none;\n          border-top: none;\n          border-bottom: none;\n          border-left: 1px solid #dddddd !important;\n}\n.login-box .el-dialog__body .el-checkbox__input.is-checked + .el-checkbox__label {\n    color: #333333;\n}\n.login-box .el-dialog__body .btn-box {\n    margin-top: 25px;\n    width: 300px;\n    text-align: center;\n}\n.login-box .el-dialog__body .btn-box * {\n      color: #ffffff;\n}\n.login-box .el-dialog__body .btn-box button {\n      width: 360px;\n      background-color: #007bff;\n      cursor: pointer;\n      position: relative;\n      overflow: hidden;\n      z-index: 3;\n}\n.login-box .el-dialog__body .btn-box button::after {\n        content: \"\";\n        background: #2b8df7;\n        display: block;\n        position: absolute;\n        height: 100%;\n        top: 0;\n        left: 0;\n        z-index: -1;\n        width: 0;\n        -webkit-transition: all .5s ease;\n        transition: all .5s ease;\n}\n.login-box .el-dialog__body .btn-box button:hover::after {\n        width: 100%;\n}\n.login-box .el-dialog__body .route-box {\n    margin-top: 20px;\n}\n.login-box .el-dialog__body .route-box a {\n      color: #007bff;\n}\n", ""]);
 
 // exports
 
@@ -11476,6 +11476,7 @@ var ElAutocomplete = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_autocomplete___d
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -11490,6 +11491,7 @@ var ElAutocomplete = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_autocomplete___d
   components: { ElAutocomplete: ElAutocomplete },
   methods: {
     querySearchAsync: function querySearchAsync(queryString, cb) {
+      cb([]);
       Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["j" /* getSelectInfo */])({ selectInfo: queryString }).then(function (res) {
         cb(res.data);
       });
@@ -12310,6 +12312,7 @@ var render = function() {
     attrs: {
       name: "keyword",
       placement: "bottom-end",
+      "hide-loading": true,
       placeholder: _vm.placeholder,
       "fetch-suggestions": _vm.querySearchAsync,
       "trigger-on-focus": false
@@ -12533,6 +12536,10 @@ $(window).scroll(function () {
     if (scrollTop >= 335) {
         $('#findHouse').addClass("location");
         $('#findHouse').css('margin-top', '30px');
+        if (scrollTop >= 2300) {
+            $('#findHouse').removeClass('location');
+            $('#findHouse').css('margin-top', '1974px');
+        }
     } else if (scrollTop <= rightTop) {
         $('#findHouse').removeClass("location");
         $("#findHouse").css('margin-top', 0);

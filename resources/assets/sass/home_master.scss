@@ -42,7 +42,7 @@ html,body{
 a[href] {
   text-decoration: none;
 }
-
+a:focus{outline:none;}
 // 颜色配置
 $master-blue: #007bff;
 $master-hoverBlue: #2b8df7;

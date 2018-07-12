@@ -1,7 +1,7 @@
 <footer>
    <div class="container clearfix">
         <div class="left_info f_l">
-            <img src="/home_img/logo-.png" alt="" class="logo">
+            <img src="{{homeRes('/home_img/logo-.png')}}" alt="" class="logo">
             <div class="info">
                 &#169;2017<br/>
                 楚楼(武汉)信息科技有限公司&nbsp;版权所有<br />
@@ -32,11 +32,11 @@
             <div class="code_title">扫码下载</div>
             <div class="code_area clearfix">
                 <div class="wx_code f_l" style="margin-right:25px">
-                    <img src="/home_img/foot_code.png" alt="">
+                    <img src="{{homeRes('/home_img/foot_code.png')}}" alt="">
                     <div>扫码关注公众号</div>
                 </div>
                 <div class="wx_code f_r">
-                    <img src="/home_img/foot_code.png" alt="">
+                    <img src="{{homeRes('/home_img/appDownloadCode.png')}}" alt="">
                     <div>APP下载</div>
                 </div>
             </div>

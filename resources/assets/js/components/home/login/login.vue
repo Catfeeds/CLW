@@ -238,8 +238,25 @@ body.el-popup-parent--hidden{
         width: 360px;
         background-color: #007bff;
         cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 3;
+        &::after{
+          content: "";
+          background: #2b8df7;
+          display: block;
+          position: absolute;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          width: 0;
+          transition: all .5s ease;
+        }
         &:hover{
-          background-color: #2b8df7;
+          &::after{
+            width: 100%;
+          }
         }
       }
     }

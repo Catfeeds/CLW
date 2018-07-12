@@ -180,22 +180,6 @@ template {
   display: none;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  line-height: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-.f_l {
-  float: left;
-}
-
-.f_r {
-  float: right;
-}
-
 .clearfloat {
   display: block;
   clear: both;
@@ -248,6 +232,10 @@ body {
 
 a[href] {
   text-decoration: none;
+}
+
+a:focus {
+  outline: none;
 }
 
 .font-level1 {
@@ -558,6 +546,44 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   transition: all .5s ease;
 }
 
+nav .nav-content .login-box .user-login-box .hover-down-app {
+  float: right;
+  padding-top: 5px;
+  margin-left: 10px;
+  position: relative;
+}
+
+nav .nav-content .login-box .user-login-box .hover-down-app:hover .down-app-box {
+  display: block;
+  opacity: 1;
+}
+
+nav .nav-content .login-box .user-login-box .hover-down-app .down-app-box {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  display: none;
+  background: #ffffff;
+  opacity: 0;
+  width: 107px;
+  height: 107px;
+  text-align: center;
+  position: absolute;
+  top: 40px;
+  left: -40px;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+          box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+}
+
+nav .nav-content .login-box .user-login-box .hover-down-app .down-app-box::after {
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 42px;
+}
+
 body footer {
   width: 100%;
   min-width: 1200px;
@@ -620,6 +646,10 @@ body footer .container .about_us .link li {
 body footer .container .about_us .link li a {
   color: rgba(255,255,255,0.4);
   font-size: 12px;
+}
+
+body footer .container .about_us .link li a:hover {
+  color: #fff;
 }
 
 body footer .container .serve {
@@ -889,7 +919,9 @@ body .right_tab .bank-top .text-box {
 }
 
 .el-popover.dimentionalCode-popover {
-  min-width: 120px !important;
+  min-width: 107px !important;
+  height: 107px !important;
+  padding: 0 !important;
 }
 
 div.pagination {
@@ -1647,7 +1679,7 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   background-color: #f6fafe;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail:hover .detail_title .acverge_select ul {
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail:hover .detail_title .acverge_select ul li {
   background-color: #fff;
 }
 
