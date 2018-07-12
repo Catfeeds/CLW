@@ -47,7 +47,7 @@ var banner = new Swiper('#banner', {
   pagination: '.swiper-pagination', // 添加分页器
   paginationClickable: true,
   paginationBulletRender: function(banner, index, className){
-    return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pic_url[index].url +'"></span>'
+    return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
   }
 })
 // 手动切换banner

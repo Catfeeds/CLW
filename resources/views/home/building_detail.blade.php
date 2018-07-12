@@ -11,7 +11,7 @@
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
-                @foreach($building->pic_url as $pic)
+                @foreach($building->pc_pic_url as $pic)
                 <div class="swiper-slide"><img src="{{$pic['url']}}" alt=""></div>
                 @endforeach
             </div>

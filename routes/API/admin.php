@@ -253,8 +253,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 爬取安居客资讯信息
         Route::post('pick_information', 'InformationController@pickInformation');
 
-
-
         /*
         |--------------------------------------------------------------------------
         | pc端推荐服务管理
@@ -274,6 +272,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('categories','CategoriesController');
         // 标签
         Route::resource('labels', 'LabelsController');
+
+
+        // 通过大类获取一级标签
+        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
+
     });
 
 });

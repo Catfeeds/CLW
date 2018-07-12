@@ -9,8 +9,7 @@ use App\Repositories\CategoriesRepository;
 
 class CategoriesController extends APIBaseController
 {
-   //商城大类列表
-
+    // 商城大类列表
     public function index
     (
         CategoriesRepository $categoriesRepository
@@ -20,9 +19,7 @@ class CategoriesController extends APIBaseController
         return $this->sendResponse($res,'商城大类列表获取成功');
     }
 
-
-    //商城大类添加
-
+    // 商城大类添加
     public function store
     (
         CategoriesRepository $categoriesRepository,
@@ -33,7 +30,7 @@ class CategoriesController extends APIBaseController
         return $this->sendResponse($res,'商城大类添加成功');
     }
 
-    //商城大类原始数据
+    // 商城大类原始数据
     public function edit
     (
         Category $category
@@ -42,7 +39,7 @@ class CategoriesController extends APIBaseController
         return $this->sendResponse($category,'获取原始数据成功');
     }
 
-    //商城大类修改
+    // 商城大类修改
     public function update
     (
         CategoriesRepository $categoriesRepository,
@@ -54,9 +51,12 @@ class CategoriesController extends APIBaseController
         return $this->sendResponse($res,'商城大类修改成功');
     }
 
-    //商城大类删除
-    public function destroy($id)
+    // 商城大类删除
+    public function destroy(
+        Category $category
+    )
     {
-        //
+        if (empty($res = $category->delete())) return $this->sendError('删除大类标签失败');
+        return $this->sendResponse($res,'大类删除成功');
     }
 }
