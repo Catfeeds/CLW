@@ -17,12 +17,16 @@
           </div>
           <div class="content">
             <input name="appellation" type="text" placeholder="联系人姓名"/>
+            <div class="errorTitle js_appellation" data-container="body" data-toggle="popover" data-placement="right" data-content="请输入联系人"></div>
+            <div class="errorTitle appellation_length" data-container="body" data-toggle="popover" data-placement="right" data-content="联系人最长不能超过32"></div>
           </div>
           <div class="phone">
             <span>*</span>联系电话
           </div>
           <div class="content">
             <input name="tel" type="text" placeholder="联系人手机号">
+            <div class="errorTitle js_tel" data-container="body" data-toggle="popover" data-placement="right" data-content="请输入电话"></div>
+            <div class="errorTitle tel_length" data-container="body" data-toggle="popover" data-placement="right" data-content="电话长度格式错误"></div>
           </div>
           <div class="connect">
             <span></span>投放写字楼

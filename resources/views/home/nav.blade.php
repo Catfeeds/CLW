@@ -41,7 +41,7 @@
           <img class="fade" v-popover:hoverdownapp src="{{homeRes('/home_img/nav_app_white.png')}}" alt="">
           <img class="active" v-popover:hoverdownapp1 src="{{homeRes('/home_img/nav_app.png')}}" alt="">
           <div class="down-app-box">
-            <img src="{{homeRes('/home_img/footer_code.png')}}" alt="楚楼网APP下载">
+            <img src="{{homeRes('/home_img/nav_appDownloadCode.jpg')}}" alt="楚楼网APP下载">
           </div>
        </div>
       </div>

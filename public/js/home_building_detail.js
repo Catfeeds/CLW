@@ -16746,9 +16746,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "rent_describe" }, [
-      _vm._v("已经有"),
+      _vm._v("已经有 "),
       _c("span", [_vm._v("15141")]),
-      _vm._v("位客户委托找房")
+      _vm._v(" 位客户委托找房")
     ])
   },
   function() {
@@ -17651,14 +17651,16 @@ if (false) {
 /* 279 */,
 /* 280 */,
 /* 281 */,
-/* 282 */
+/* 282 */,
+/* 283 */,
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(283);
+module.exports = __webpack_require__(285);
 
 
 /***/ }),
-/* 283 */
+/* 285 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17972,4 +17974,4 @@ $('.all').on('click', function () {
 });
 
 /***/ })
-],[282]);
+],[284]);

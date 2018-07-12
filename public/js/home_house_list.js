@@ -11319,9 +11319,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "rent_describe" }, [
-      _vm._v("已经有"),
+      _vm._v("已经有 "),
       _c("span", [_vm._v("15141")]),
-      _vm._v("位客户委托找房")
+      _vm._v(" 位客户委托找房")
     ])
   },
   function() {
@@ -12495,14 +12495,16 @@ if (false) {
 /* 281 */,
 /* 282 */,
 /* 283 */,
-/* 284 */
+/* 284 */,
+/* 285 */,
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(285);
+module.exports = __webpack_require__(287);
 
 
 /***/ }),
-/* 285 */
+/* 287 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12683,4 +12685,4 @@ function removeData() {
 Object(__WEBPACK_IMPORTED_MODULE_2__components_home_input_search__["a" /* init */])('#searchInput'); // 启动搜索组件
 
 /***/ })
-],[284]);
+],[286]);

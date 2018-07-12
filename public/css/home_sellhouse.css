@@ -460,7 +460,7 @@ nav .nav-content .login-box {
 nav .nav-content .login-box .tel-box {
   float: left;
   margin-top: 5px;
-  margin-right: 30px;
+  margin-right: 0px;
   width: 200px;
   height: 25px;
 }
@@ -788,14 +788,14 @@ body .container .form_container form .content {
   position: relative;
 }
 
-html .container .form_container form .content .popover,
-body .container .form_container form .content .popover {
-  top: 124px !important;
+html .container .form_container form .content .errorTitle,
+body .container .form_container form .content .errorTitle {
+  position: relative;
+  top: -24px;
 }
 
 html .container .form_container form .content label.error,
 body .container .form_container form .content label.error {
-  display: block;
   left: 0;
   bottom: -17px;
   color: Red;
@@ -911,11 +911,28 @@ body .container .form_container form button {
   line-height: 44px;
   margin: 0 auto;
   cursor: pointer;
+  z-index: 3;
+  position: relative;
+  overflow: hidden;
 }
 
-html .container .form_container form button:hover,
-body .container .form_container form button:hover {
+html .container .form_container form button::after,
+body .container .form_container form button::after {
   background-color: #2b8df7;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  z-index: -1;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+html .container .form_container form button:hover::after,
+body .container .form_container form button:hover::after {
+  width: 100%;
 }
 
 html .container .detail,
@@ -973,6 +990,22 @@ body .container .detail::before {
   left: 50%;
   margin-left: -20px;
   top: -20px;
+}
+
+html .popover,
+body .popover {
+  background: #40464d;
+  border: none;
+}
+
+html .popover .arrow:after,
+body .popover .arrow:after {
+  border-right-color: #40464d !important;
+}
+
+html .popover .popover-content,
+body .popover .popover-content {
+  color: #fff;
 }
 
 div,

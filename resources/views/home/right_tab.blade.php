@@ -47,7 +47,7 @@
     popper-class="dimentionalCode-popover"
     trigger="hover">
     <div style="text-align:center">
-    <img src="{{homeRes('/home_img/footer_code.png')}}" alt="楚楼网微信公众号">
+    <img src="{{homeRes('/home_img/right_wechat_code.png')}}" alt="楚楼网微信公众号">
     </div>
     </el-popover>
   </div>
