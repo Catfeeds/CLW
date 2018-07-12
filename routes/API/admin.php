@@ -267,9 +267,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         | 商城标签管理
         |--------------------------------------------------------------------------
         */
-
+        //商城大类管理
+        Route::resource('categories','CategoriesController');
+        // 标签
         Route::resource('labels', 'LabelsController');
-
     });
 
 });
