@@ -3581,7 +3581,6 @@ __webpack_require__(145);
  // 引入bootstrap提示工具对应js文件
  // 引入bootstrap弹出框对应js文件
 var url = '';
-// $("[data-toggle='popover']").popover()
 $('.submit').on('click', function () {});
 var type = $("#commentForm").validate({
   rules: {
@@ -3605,8 +3604,9 @@ var type = $("#commentForm").validate({
     }
   },
   showErrors: function showErrors(errorMap, errorList) {
-    var appellation = $("input[name='appellation']").val();
-    var tel = $("input[name='tel']").val();
+    // 获取到总共有多少个未通过验证的元素
+    var appellation = $("input[name='appellation']").val(); // 获取联系人
+    var tel = $("input[name='tel']").val(); // 获取电话
     if (errorMap.appellation == '请输入联系人' && errorMap.tel == '请输入电话') {
       $(".js_appellation").popover('show');
       $(".js_tel").popover('show');

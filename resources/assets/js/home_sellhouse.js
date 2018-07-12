@@ -6,7 +6,6 @@ import { Message } from 'element-ui';
 import 'bootstrap-sass/assets/javascripts/bootstrap/tooltip.js' // 引入bootstrap提示工具对应js文件
 import 'bootstrap-sass/assets/javascripts/bootstrap/popover.js' // 引入bootstrap弹出框对应js文件
 const url = process.env.homeHostUrl
-// $("[data-toggle='popover']").popover()
 $('.submit').on('click', function() {
 })
 var type = $("#commentForm").validate({
@@ -30,9 +29,9 @@ var type = $("#commentForm").validate({
             maxlength: "联系人最长不能超过32"
         }
     },
-    showErrors: function(errorMap, errorList) {
-      var appellation = $("input[name='appellation']").val()
-      var tel = $("input[name='tel']").val()
+    showErrors: function(errorMap, errorList) { // 获取到总共有多少个未通过验证的元素
+      var appellation = $("input[name='appellation']").val() // 获取联系人
+      var tel = $("input[name='tel']").val() // 获取电话
       if(errorMap.appellation == '请输入联系人' && errorMap.tel == '请输入电话') {
         $(".js_appellation").popover('show')
         $(".js_tel").popover('show')
