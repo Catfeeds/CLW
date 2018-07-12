@@ -74,7 +74,7 @@ $('.filter div').on('click', function(){
   } else if(val == '市场行情') {
     navigation('#quotation')
   } else if(val == '周边配套') {
-    navigation('#second')
+    navigation('#second') 
   } else if(val == '猜你喜欢') {
     navigation('#enjoy')
   }

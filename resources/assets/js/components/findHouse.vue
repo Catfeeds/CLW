@@ -13,7 +13,7 @@
             </div>
             <div class="button" @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
         </div>
-        <div class="rent_describe">已经有<span>15141</span>位客户委托找房</div>
+        <div class="rent_describe">已经有 <span>15141</span> 位客户委托找房</div>
     </div>
     <div class="renSuccess" v-if="showBefore">
       <div>立即预约</div>

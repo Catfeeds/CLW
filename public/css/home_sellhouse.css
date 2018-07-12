@@ -885,11 +885,28 @@ body .container .form_container form button {
   line-height: 44px;
   margin: 0 auto;
   cursor: pointer;
+  z-index: 3;
+  position: relative;
+  overflow: hidden;
 }
 
-html .container .form_container form button:hover,
-body .container .form_container form button:hover {
+html .container .form_container form button::after,
+body .container .form_container form button::after {
   background-color: #2b8df7;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  z-index: -1;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+html .container .form_container form button:hover::after,
+body .container .form_container form button:hover::after {
+  width: 100%;
 }
 
 html .container .detail,
@@ -952,6 +969,7 @@ body .container .detail::before {
 html .popover,
 body .popover {
   background: #40464d;
+  border: none;
 }
 
 html .popover .arrow:after,

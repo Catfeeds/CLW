@@ -16746,9 +16746,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "rent_describe" }, [
-      _vm._v("已经有"),
+      _vm._v("已经有 "),
       _c("span", [_vm._v("15141")]),
-      _vm._v("位客户委托找房")
+      _vm._v(" 位客户委托找房")
     ])
   },
   function() {

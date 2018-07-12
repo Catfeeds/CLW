@@ -119,8 +119,24 @@ html,body {
           line-height: 44px;
           margin: 0 auto;
           cursor: pointer;
-          &:hover{
+          z-index: 3;
+          position: relative;
+          overflow: hidden;
+          &::after{
             background-color: $master-hoverBlue;
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            z-index: -1;
+            transition: all .5s ease;
+          }
+          &:hover{
+            &::after{
+              width: 100%;
+            }
           }
         }
       }
@@ -168,6 +184,7 @@ html,body {
   }
   .popover{
     background: #40464d;
+    border: none;
     .arrow:after{
       // border-color: #000;
       border-right-color: #40464d !important;
