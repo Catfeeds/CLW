@@ -68,7 +68,7 @@ class HotBlock extends BaseModel
     }
 
     // pc端热门商圈图片
-    public function getPcPicCnAttribute()
+    public function getPcImgCnAttribute()
     {
         return config('setting.qiniu_url').$this->pc_img;
     }

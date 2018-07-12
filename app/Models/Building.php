@@ -19,7 +19,7 @@ class Building extends Model
     protected $connection = 'media';
 
     protected $appends = ['pic_url_cn',  'img_cn', 'type_label', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
-        'parking_num_cn','parking_fee_cn', 'pc_pic_url'];
+        'parking_num_cn','parking_fee_cn', 'pc_pic_url', 'pc_pic_cn'];
 
     // 楼座
     public function buildingBlock()
@@ -137,7 +137,7 @@ class Building extends Model
     }
 
     // pc端图片url
-    public function getPcPicUrlCnAttribute()
+    public function getPcPicUrlAttribute()
     {
         return collect($this->big_album)->map(function($img) {
             return [
@@ -145,6 +145,16 @@ class Building extends Model
                 'url' => config('setting.qiniu_url') . $img
             ];
         });
+    }
+
+    // pc端图片
+    public function getPcPicCnAttribute()
+    {
+        if (empty($this->big_album)) {
+            return config('setting.building_default_img');
+        } else {
+            return config('setting.qiniu_url').$this->big_album[0];
+        }
     }
 
     /**

@@ -10,7 +10,7 @@ class Recommend extends BaseModel
     ];
 
     protected $appends = [
-        'pic_cn', 'pic_url', 'pc_pic_cn', 'pc_pic_url', 'pc_big_details_cn', 'pc_big_details_pic_url', 'pc_small_details_pic_cn', 'pc_small_details_pic_url'
+        'pic_cn', 'pic_url', 'pc_pic_cn', 'pc_pic_url', 'pc_big_details_pic_cn', 'pc_big_details_pic_url', 'pc_small_details_pic_cn', 'pc_small_details_pic_url'
     ];
 
     public function building()
