@@ -622,6 +622,10 @@ body footer .container .about_us .link li a {
   font-size: 12px;
 }
 
+body footer .container .about_us .link li a:hover {
+  color: #fff;
+}
+
 body footer .container .serve {
   margin-top: 40px;
   margin-right: 100px;
@@ -1647,7 +1651,7 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   background-color: #f6fafe;
 }
 
-body .house_list_container .house_list_content .house_list .house_show .js_content .detail:hover .detail_title .acverge_select ul {
+body .house_list_container .house_list_content .house_list .house_show .js_content .detail:hover .detail_title .acverge_select ul li {
   background-color: #fff;
 }
 
