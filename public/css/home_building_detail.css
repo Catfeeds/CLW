@@ -264,6 +264,10 @@ a[href] {
   text-decoration: none;
 }
 
+a:focus {
+  outline: none;
+}
+
 .font-level1,
 .content .build .enjoy .enjoyBox .enjoyList .enjoyDetail .enjoyInfor .enjoyIntro .enjoyAddress {
   font-size: 12px;

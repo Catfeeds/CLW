@@ -264,6 +264,10 @@ a[href] {
   text-decoration: none;
 }
 
+a:focus {
+  outline: none;
+}
+
 .font-level1,
 .content .nav span,
 .content .banner .infor .tel .agent .name div,

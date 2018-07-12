@@ -1,8 +1,8 @@
 <nav class="@if(empty($fixed)) active  @endif js_navChange">
   <div class="nav-content">
     <a href="{{url('/')}}" class="logo-box">
-      <img class="fade" src="/home_img/nav_logo_white.png" alt="">
-      <img class="active" src="/home_img/nav_logo.png" alt="">
+      <img class="fade" src="{{homeRes('/home_img/nav_logo_white.png')}}" alt="">
+      <img class="active" src="{{homeRes('/home_img/nav_logo.png')}}" alt="">
     </a>
     <ul class="nav-list">
       <li class="nav-item">
