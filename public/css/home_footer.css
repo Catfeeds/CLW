@@ -266,6 +266,10 @@ a[href] {
   font-size: 18px;
 }
 
+.highlight {
+  color: #007bff !important;
+}
+
 body footer {
   width: 100%;
   background: #3b3b3c;

@@ -19,14 +19,14 @@
         <div class="house_list_title">
             <div class="title_content clearfix">
                 <div class="link f_l">
-                    <a href="{{url('/')}}" class="homepage">首页 </a>&nbsp;>&nbsp;
+                    <a href="{{url('/')}}" class="homepage" target="_blank">首页 </a>&nbsp;>&nbsp;
                     <a href="javscript:void(0)">写字楼出租</a>
                 </div>
-                <div class="serch_area f_r ">
-                    <input type="text" class="serch_inp" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
-                    <button class="serch_btn"><span></span></button>
+                <form class="serch_area f_r " action="{{url('/building_list')}}">
+                        <input name="keyword" type="text" id="searchInput" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
+                        <button type="submit" class="serch_btn"><span></span></button>
                     <!-- <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div> -->
-                </div>
+                </form>
             </div>
         </div>
         <div class="house_list_content">
@@ -135,8 +135,7 @@
                         <div class="selected_box f_l clearfix">
                         </div>
                         <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
-                        <div class="cleaning f_l clearfix"><span class="icon_clean"></span><a href="javascript:void(0)"
-                                                                                              class="js_cleaning f_r">清空</a>
+                        <div class="cleaning f_l clearfix"><a href="javascript:void(0)"class="js_cleaning f_r"><span class="icon_clean"></span>清空</a>
                         </div>
                     </div>
                 </div>
@@ -147,6 +146,7 @@
                         <div class="house_num">
                             出租写字楼共&nbsp;<span>{{$count??0}}</span>&nbsp;套
                         </div>
+                        @if(!empty($Results)&&$Results->count())
                         <div class="title_right">
                             <div class="sort_default js_price_default"><a href="javascript:void(0);"
                                                                           @if(empty($request['price_sort'])) class="current" @endif>默认</a>
@@ -168,11 +168,12 @@
                                 </a>
                             </div>
                         </div>
+                        @endif
                     </div>
                     @if(!empty($Results)&&$Results->count())
                         <div class="js_content">
                             @foreach($Results as $key => $data)
-                                <a href="{{url('/buildings').'/'.$data->id}}">
+                                <a href="{{url('/buildings').'/'.$data->id}}" target="_blank">
                                     <div class="detail">
                                         <div class="img_box">
                                             <img src="{{$data->img_cn}}" alt="" class="house_img"/>
@@ -197,7 +198,7 @@
                                                         <li style="position: relative" class="f_l">
                                                             <a href="javascript:void(0);">{{$pchouse['constru_acreage']}}
                                                                 ㎡</a>
-                                                            <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}">
+                                                            <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}" target="_blank">
                                                                 <div class="acreage-detail">
                                                                     <div style="position: relative">
                                                                         <img src="{{$pchouse['indoor_img_cn']}}" alt=""
@@ -214,8 +215,7 @@
                                                             </a>
                                                         </li>
                                                     @endforeach
-                                                    <li class="f_l"><a
-                                                                href="{{url('/buildings').'/'.$data->id}}}">更多...</a>
+                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}" target="_blank">更多...</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -247,7 +247,7 @@
                         </div>
                         <div class="related">
                             <div class="related_title">
-                                <span></span>相关推荐
+                                <span></span>&nbsp;相关推荐
                             </div>
                         </div>
                         @if(!empty($recommend)&&$recommend->count())
@@ -269,8 +269,7 @@
                                                                 class="js_acvergePrice">{{$data['avg_price']}}</span>元/m²月
                                                     </div>
                                                 </div>
-                                                <div class="house_location">地址: [{!!$data['pc_address_cn']!!}
-                                                    ] {!!$data['address']!!}</div>
+                                                <div class="house_location">地址: [{!!$data['pc_address_cn']!!}] {!!$data['address']!!}</div>
                                                 <div class="house_acverge">面积: {{$data['constru_acreage']}}m²</div>
                                                 <div class="acverge_select">
                                                     <ul class="clearfix">
