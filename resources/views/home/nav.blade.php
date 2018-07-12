@@ -23,20 +23,27 @@
     </ul>
     <div class="login-box">
       <div class="tel-box">
-          <img class="fade" src="/home_img/nav_tel_white.png" alt="">
-          <img class="active" src="/home_img/nav_tel.png" alt="">
+      <img class="fade" src="{{homeRes('/home_img/nav_tel_white.png')}}" alt="">
+      <img class="active" src="{{homeRes('/home_img/nav_tel.png')}}" alt="">
           <span>4000-580-888</span>
       </div>
       <div class="user-login-box">
       {{-- <a href="{{url('/registers')}}" class="register-a"><img class="active" src="/home_img/login_user.png" alt="" />注册</a>
         <div class="active-line"></div> --}}
       @if (!empty(session('user')))
-        <a href="javascript:;" class="register-a"><img src="/home_img/login_user.png" alt="" />我的</a>
+      <a href="javascript:;" class="register-a"><img src="{{homeRes('/home_img/login_user.png')}}" alt="" />我的</a>
         <div class="active-line"></div>
         <a href="{{url('/logout')}}" class="logout-a">退出</a>
       @else
         {{-- <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a> --}}
       @endif
+       <div class="hover-down-app">
+          <img class="fade" v-popover:hoverdownapp src="{{homeRes('/home_img/nav_app_white.png')}}" alt="">
+          <img class="active" v-popover:hoverdownapp1 src="{{homeRes('/home_img/nav_app.png')}}" alt="">
+          <div class="down-app-box">
+            <img src="{{homeRes('/home_img/footer_code.png')}}" alt="楚楼网APP下载">
+          </div>
+       </div>
       </div>
     </div>
     <div class="clearfloat"></div>

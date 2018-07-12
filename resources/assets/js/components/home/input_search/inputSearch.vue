@@ -3,6 +3,7 @@
   name='keyword'
   v-model="keyword"
   placement="bottom-end"
+  :hide-loading='true'
   :placeholder='placeholder'
   :fetch-suggestions="querySearchAsync"
   :trigger-on-focus="false"
@@ -24,6 +25,7 @@ export default {
   components: { ElAutocomplete },
   methods: {
     querySearchAsync(queryString, cb) {
+      cb([])
       getSelectInfo({ selectInfo: queryString }).then(res => {
         cb(res.data)
       })

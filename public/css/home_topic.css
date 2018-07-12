@@ -180,22 +180,6 @@ template {
   display: none;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  line-height: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-.f_l {
-  float: left;
-}
-
-.f_r {
-  float: right;
-}
-
 .clearfloat {
   display: block;
   clear: both;
@@ -562,6 +546,44 @@ nav .nav-content .login-box .user-login-box a.login-a:hover::after {
   width: 100%;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
+}
+
+nav .nav-content .login-box .user-login-box .hover-down-app {
+  float: right;
+  padding-top: 5px;
+  margin-left: 10px;
+  position: relative;
+}
+
+nav .nav-content .login-box .user-login-box .hover-down-app:hover .down-app-box {
+  display: block;
+  opacity: 1;
+}
+
+nav .nav-content .login-box .user-login-box .hover-down-app .down-app-box {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  display: none;
+  background: #ffffff;
+  opacity: 0;
+  width: 107px;
+  height: 107px;
+  text-align: center;
+  position: absolute;
+  top: 40px;
+  left: -40px;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+          box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+}
+
+nav .nav-content .login-box .user-login-box .hover-down-app .down-app-box::after {
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 42px;
 }
 
 body footer {
