@@ -646,6 +646,10 @@ body footer .container .about_us .link li a {
   font-size: 12px;
 }
 
+body footer .container .about_us .link li a:hover {
+  color: #fff;
+}
+
 body footer .container .serve {
   margin-top: 40px;
   margin-right: 100px;

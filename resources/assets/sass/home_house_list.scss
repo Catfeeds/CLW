@@ -519,7 +519,9 @@ body {
                 .detail_title {
                   .acverge_select {
                     ul {
-                      background-color: #fff;
+                      li {
+                        background-color: #fff;
+                      }
                       li:hover {
                         background-color: #f6fafe;
                       }
