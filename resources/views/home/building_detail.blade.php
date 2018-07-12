@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '楼盘详情')
 @section('header')
-<link rel="stylesheet" href="/css/home_building_detail.css">
+<link rel="stylesheet" href="{{homeRes('/css/home_building_detail.css')}}">
 @endsection
 @section('body')
 @include('home.nav')
@@ -40,8 +40,8 @@
                             </div>
                         </div>
                         <div class="introAddress">
-                            <div><img src="/home_img/build_detail_address.png"> 地址：{{$building->address}}</div>
-                            <span class="js_map"><div class="introMap"><img src="/home_img/house_detail_map.png"> 查看地图</div></span>
+                            <div><img src="{{homeRes('/home_img/build_detail_address.png')}}"> 地址：{{$building->address}}</div>
+                            <span class="js_map"><div class="introMap"><img src="{{homeRes('/home_img/house_detail_map.png')}}"> 查看地图</div></span>
                         </div>
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
@@ -93,33 +93,33 @@
                             <div class="js_listArea listArea">
                                 <span>面积</span>
                                 <div class="listSort">
-                                    <span class='rise'><img class="js_price_up_after" src="/home_img/build_detail_up_before.png">
-                                    <img class="js_price_up_before" style="display:none" src="/home_img/build_detail_up_after.png">
+                                    <span class='rise'><img class="js_price_up_after" src="{{homeRes('/home_img/build_detail_up_before.png')}}">
+                                    <img class="js_price_up_before" style="display:none" src="{{homeRes('/home_img/build_detail_up_after.png')}}">
                                     </span>
-                                    <span class='drop'><img class="js_price_down_after" src="/home_img/build_detail_down_defore.png">
-                                    <img style="display:none" class="js_price_down_before" src="/home_img/build_detail_down_after.png">
+                                    <span class='drop'><img class="js_price_down_after" src="{{homeRes('/home_img/build_detail_down_defore.png')}}">
+                                    <img style="display:none" class="js_price_down_before" src="{{homeRes('/home_img/build_detail_down_after.png')}}">
                                     </span>
                                 </div>   
                             </div>
                             <div class="js_listPrice listArea">
                                 <span>单价</span>
                                 <div class="listSort">
-                                    <span class='rise'><img class="js_price_up_after" src="/home_img/build_detail_up_before.png">
-                                    <img class="js_price_up_before" style="display:none" src="/home_img/build_detail_up_after.png">
+                                    <span class='rise'><img class="js_price_up_after" src="{{homeRes('/home_img/build_detail_up_before.png')}}">
+                                    <img class="js_price_up_before" style="display:none" src="{{homeRes('/home_img/build_detail_up_after.png')}}">
                                     </span>
-                                    <span class='drop'><img class="js_price_down_after" src="/home_img/build_detail_down_defore.png">
-                                    <img class="js_price_down_before" style="display:none" src="/home_img/build_detail_down_after.png">
+                                    <span class='drop'><img class="js_price_down_after" src="{{homeRes('/home_img/build_detail_down_defore.png')}}">
+                                    <img class="js_price_down_before" style="display:none" src="{{homeRes('/home_img/build_detail_down_after.png')}}">
                                     </span>
                                 </div>  
                             </div>
                             <div class="js_listTotal listArea">
                                 <span>总价</span>
                                 <div class="listSort">
-                                    <span class='js_rise rise'><img class="js_price_up_after" src="/home_img/build_detail_up_before.png">
-                                    <img class="js_price_up_before" style="display:none" src="/home_img/build_detail_up_after.png">
+                                    <span class='js_rise rise'><img class="js_price_up_after" src="{{homeRes('/home_img/build_detail_up_before.png')}}">
+                                    <img class="js_price_up_before" style="display:none" src="{{homeRes('/home_img/build_detail_up_after.png')}}">
                                     </span>
-                                    <span class='js_drop drop'><img class="js_price_down_after" src="/home_img/build_detail_down_defore.png">
-                                    <img class="js_price_down_before" style="display:none" src="/home_img/build_detail_down_after.png">
+                                    <span class='js_drop drop'><img class="js_price_down_after" src="{{homeRes('/home_img/build_detail_down_defore.png')}}">
+                                    <img class="js_price_down_before" style="display:none" src="{{homeRes('/home_img/build_detail_down_after.png')}}">
                                     </span>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                         </div>
                         <div class="free">免费咨询</div>
                         <div class="service">
-                            <img src="/home_img/build_detail_button.png">
+                            <img src="{{homeRes('/home_img/build_detail_button.png')}}">
                         </div>
                     </div>
                     <!-- 委托找房 -->
@@ -232,7 +232,7 @@
                             <div class='enjoyInfor'>
                                 <div class="enjoyTitle">{{$like['name']}}</div>
                                 <div class="enjoyIntro">
-                                    <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$like['address_cn']}}</div>
+                                    <div class="enjoyAddress"><img src="{{homeRes('/home_img/house_detail_map1.png')}}"> {{$like['address_cn']}}</div>
                                     <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
                                 </div>
                             </div>
@@ -247,5 +247,5 @@
     @include('home.footer')
 @endsection
 @section('script')
-<script src="/js/home_building_detail.js"></script>
+<script src="{{homeRes('/js/home_building_detail.js')}}"></script>
 @endsection
