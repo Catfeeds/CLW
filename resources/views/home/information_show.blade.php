@@ -47,7 +47,7 @@
                     <div>
                         <ul>
                             @foreach($hots as $hot)
-                                <li><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
+                                <li><span class="el-icon-caret-right"></span><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
                             @endforeach
                         </ul>
                     </div>
