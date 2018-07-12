@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 class PcServiceRecommend extends BaseModel
 {
     protected $appends = [
