@@ -331,6 +331,7 @@ class BuildingsRepository extends  Model
 
                 'company' => $request->company,
                 'album' => $request->album,
+                'big_album' => $request->big_album,
 
                 'describe' => $request->describe
             ]);
@@ -411,6 +412,7 @@ class BuildingsRepository extends  Model
              $building->greening_rate = $request->greening_rate;
              $building->company = $request->company;
              $building->album = $request->album;
+             $building->big_album = $request->big_album;
              $building->describe = $request->describe;
             if (!$building->save()) throw new \Exception('楼盘修改失败');
             // 查询查该楼盘已经有的特色
