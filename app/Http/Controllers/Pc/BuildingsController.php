@@ -89,7 +89,7 @@ class BuildingsController extends Controller
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
 
-            $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true);
+            $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true,null,true);
         } else {
             // 处理价格,面积,特色
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));

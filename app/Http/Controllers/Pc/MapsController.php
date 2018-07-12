@@ -24,7 +24,7 @@ class MapsController extends Controller
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
-            $res = $repository->buildingList($request, $buildingsService, $buildingIds,true,null, true);
+            $res = $repository->buildingList($request, $buildingsService, $buildingIds,true,null, true,true);
         } elseif (!empty($request->distance) && !empty($request->gps)) {
             $res = $mapsService->getPeripheryBuildings($request, $repository, $buildingsService);
         } elseif(!empty($request->area_id) || !empty($request->block_id) || !empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price)) {

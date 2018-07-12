@@ -25,6 +25,7 @@ class BuildingsRepository extends  Model
      * @param null $whetherPage
      * @param null $getCount
      * @param null $mapRes  地图返回结果
+     * @param null $pcBuildingListAndMap  地图返回结果
      * @return array
      * @author 罗振
      */
@@ -34,10 +35,11 @@ class BuildingsRepository extends  Model
         $building_id = null,
         $whetherPage = null,
         $getCount = null,
-        $mapRes = null
+        $mapRes = null,
+        $pcBuildingListAndMap = null
     )
     {
-        $houses = $this->houseList($request, $building_id);
+        $houses = $this->houseList($request, $building_id, $pcBuildingListAndMap);
 
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
@@ -145,12 +147,14 @@ class BuildingsRepository extends  Model
      *
      * @param $request
      * @param $building_id
+     * @param null $pcBuildingList
      * @return mixed
      * @author jacklin
      */
     public function houseList(
         $request,
-        $building_id
+        $building_id,
+        $pcBuildingList = null
     )
     {
         $buildings = Building::make();
@@ -163,7 +167,7 @@ class BuildingsRepository extends  Model
         }
 
         // 如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
-        if (!empty($building_id)) {
+        if (!empty($building_id) || (empty($building_id) && $pcBuildingList)) {
             $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
         } else {
             $buildings = $buildings->get()->pluck('id')->toArray();
