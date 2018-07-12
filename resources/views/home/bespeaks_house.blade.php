@@ -20,15 +20,20 @@
           </div>
           <div class="content">
             <input name="appellation" type="text" placeholder="联系人姓名"/>
+            <div class="errorTitle js_appellation" data-container="body" data-toggle="popover" data-placement="right" data-content="请输入联系人"></div>
+            <div class="errorTitle appellation_length" data-container="body" data-toggle="popover" data-placement="right" data-content="联系人最长不能超过32"></div>
           </div>
           <div class="phone">
             <span>*</span>联系电话
           </div>
           <div class="content">
             <input name="tel" type="text" placeholder="联系人手机号">
+            <div class="errorTitle js_tel" data-container="body" data-toggle="popover" data-placement="right" data-content="请输入电话"></div>
+            <div class="errorTitle tel_length" data-container="body" data-toggle="popover" data-placement="right" data-content="电话长度格式错误"></div>
           </div>
           <div class="need">需求描述</div>
           <textarea name="demand" id="need" cols="20" placeholder="如:大智路附近,200平米的写字楼,简装带办公家具,租金50元左右/平米每月,有地铁最好..."></textarea>
+          
           <button type="submit">立即委托</button>
         </form>
       </div>

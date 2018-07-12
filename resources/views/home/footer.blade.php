@@ -36,7 +36,7 @@
                     <div>扫码关注公众号</div>
                 </div>
                 <div class="wx_code f_r">
-                    <img src="{{homeRes('/home_img/foot_code.png')}}" alt="">
+                    <img src="{{homeRes('/home_img/appDownloadCode.png')}}" alt="">
                     <div>APP下载</div>
                 </div>
             </div>

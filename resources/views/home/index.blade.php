@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '楚楼网首页')
 @section('header')
-<link rel="stylesheet" href="/css/home_index.css">
+<link rel="stylesheet" href="{{homeRes('/css/home_index.css')}}">
 @endsection
 @section('body')
 @include('home.nav' , ['fixed' => 1])
@@ -13,7 +13,7 @@
         <div class="input-box">
           <input name='keyword' id="searchInput" type="text" placeholder="输入搜索关键词">
         </div>
-        <button type="submit"><img src="/home_img/index_search_btn.png" alt=""></button>
+      <button type="submit"><img src="{{homeRes('/home_img/index_search_btn.png')}}" alt=""></button>
         <div class="clearfloat"></div>
       </form>
       <div class="condition-box">
@@ -81,7 +81,7 @@
       </div>
     </div>
     <div class="banner-commercial-box">
-      <img src="/home_img/index_banner_commercial_text.png" alt="">
+    <img src="{{homeRes('/home_img/index_banner_commercial_text.png')}}" alt="">
       <a class="velocity-factor" href="{{url('/bespeaks')}}">
         立即委托
       </a>
@@ -101,25 +101,25 @@
     <div class="banner-png-list">
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png1.png" alt="">
+        <img src="{{homeRes('/home_img/index_banner_png1.png')}}" alt="">
         </div>
         <div class="banner-png-text">100%真实房源</div>
       </div>
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png2.png" alt="">
+          <img src="{{homeRes('/home_img/index_banner_png2.png')}}" alt="">
         </div>
         <div class="banner-png-text">细化筛选</div>
       </div>
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png3.png" alt="">
+          <img src="{{homeRes('/home_img/index_banner_png3.png')}}" alt="">
         </div>
         <div class="banner-png-text">贵宾服务</div>
       </div>
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png4.png" alt="">
+          <img src="{{homeRes('/home_img/index_banner_png4.png')}}" alt="">
         </div>
         <div class="banner-png-text">增值服务</div>
       </div>
@@ -134,7 +134,7 @@
     <ul class="sever-list">
       <li class="sever-item">
         <a href="http://shop.chulouwang.com/plants" target="_blank">
-          <img src="/home_img/index_topic1_plant.jpg" alt="绿植服务">
+        <img src="{{homeRes('/home_img/index_topic1_plant.jpg')}}" alt="绿植服务">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">绿植租摆</div>
@@ -143,7 +143,7 @@
       </li>
       <li class="sever-item">
         <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
-          <img src="/home_img/index_topic1_clear.jpg" alt="保洁服务">
+        <img src="{{homeRes('/home_img/index_topic1_clear.jpg')}}" alt="保洁服务">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">保洁服务</div>
@@ -152,7 +152,7 @@
       </li>
       <li class="sever-item">
         <a href="http://shop.chulouwang.com/furniture" target="_blank">
-          <img src="/home_img/index_topic1_jiaju.jpg" alt="办公家具">
+        <img src="{{homeRes('/home_img/index_topic1_jiaju.jpg')}}" alt="办公家具">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">办公家具</div>
@@ -161,7 +161,7 @@
       </li>
       <li class="sever-item">
         <a href="http://shop.chulouwang.com/business_taxes" target="_blank">
-          <img src="/home_img/index_topic1_gongshang.jpg" alt="工商代办">
+        <img src="{{homeRes('/home_img/index_topic1_gongshang.jpg')}}" alt="工商代办">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">工商代办</div>
@@ -170,7 +170,7 @@
       </li>
       <li class="sever-item">
         <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
-          <img src="/home_img/index_topic1_moveHome.jpg" alt="搬家服务">
+        <img src="{{homeRes('/home_img/index_topic1_moveHome.jpg')}}" alt="搬家服务">
           <div class="bg-box"></div>
           <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
           <div class="server-title">搬家服务</div>
@@ -264,16 +264,16 @@
   </div>
   <a href="http://shop.chulouwang.com/" target="_blank" class="more-info">查看更多</a>
 </div>
-<div class="topic-box special-style" style="background-image: url('/home_img/index_factor_bg.jpg')">
+<div class="topic-box special-style" style="background-image: url('{{homeRes('/home_img/index_factor_bg.jpg')}}')">
   <div class="set-house-box">
     <div class="lookForHouse-box">
-      <img src="/home_img/index_lookForHouse.png" alt="">
+    <img src="{{homeRes('/home_img/index_lookForHouse.png')}}" alt="">
       <h3>委托找房</h3>
       <p>专业、可靠、免费优办提供一对一全程找房服务</p>
       <a href="{{url('/bespeaks')}}">委托找房>></a>
     </div>
     <div class="launchHouse-box">
-      <img src="/home_img/index_launchHouse.png" alt="">
+    <img src="{{homeRes('/home_img/index_launchHouse.png')}}" alt="">
       <h3>投放房源</h3>
       <p>专业、可靠、免费优办提供一对一全程服务</p>
       <a href="{{url('/throw_ins')}}">投放房源>></a>
@@ -295,13 +295,14 @@
               </a>
             </div>
             <div class="float-right">
-                <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
-                  <h3>{{$information[$j]->title}}</h3>
-                </a>
-              <p>
-                  {{$information[$j]->brief}}
-              </p>
+              <div class="icon-text"><img src="{{homeRes('/home_img/hangye_logo.png')}}" alt=""><span style="position:relative;left:5px;top:-3px;font-size:12px;">行业新闻</span></div>
+              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
+                <h3>{{$information[$j]->title}}</h3>
+              </a>
               <div class="time-box">{{$information[$j]->created_at}}</div>
+              <p>
+                {{$information[$j]->brief}}
+              </p>
             </div>
             <div class="clearfloat"></div>
           </li>
@@ -309,21 +310,26 @@
       </ul>
     </div>
     <div class="infamation-right">
-      <h3>热点资讯</h3>
-      <ul class="hot-infomation-list">
-        @for($j = 0; $j < 4; $j++)
-          @if(!empty($hotInformation[$j]))
-            <li class="hot-infomation-item">
-              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
-                <h4>{{$hotInformation[$j]->title}}</h4>
-              </a>
-              <p>
+      <div class="img">
+      <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
+      </div>
+      <div class="line-box">
+        <h3>热点资讯</h3>
+        <ul class="hot-infomation-list">
+          @for($j = 0; $j < 4; $j++)
+            @if(!empty($hotInformation[$j]))
+              <li class="hot-infomation-item">
+                <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
+                  <h4>{{$hotInformation[$j]->title}}</h4>
+                </a>
+                <p>
                   {{$hotInformation[$j]->brief}}
-              </p>
-            </li>
-          @endif
-        @endfor
-      </ul>
+                </p>
+              </li>
+            @endif
+          @endfor
+        </ul>
+      </div>
     </div>
     <div class="clearfloat"></div>
   </div>
@@ -332,5 +338,5 @@
 @include('home.footer')
 @endsection
 @section('script')
-<script src="/js/home_index.js"></script>
+<script src="{{homeRes('/js/home_index.js')}}"></script>
 @endsection

@@ -250,7 +250,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('information', 'InformationController');
         Route::get('set_top/{id}', 'InformationController@setTop');
         Route::get('del_top/{id}', 'InformationController@delTop');
-
+        // 爬取安居客资讯信息
+        Route::post('pick_information', 'InformationController@pickInformation');
 
         /*
         |--------------------------------------------------------------------------
@@ -271,6 +272,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('categories','CategoriesController');
         // 标签
         Route::resource('labels', 'LabelsController');
+
+
+        // 通过大类获取一级标签
+        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
+
     });
 
 });

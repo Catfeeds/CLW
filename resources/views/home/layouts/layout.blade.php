@@ -17,8 +17,8 @@
 </head>
 <body>
 @yield('body')
-<script src="{{res('/js/home_manifest.js')}}"></script>
-<script src="{{res('/js/home_vendor.js')}}"></script>
+<script src="{{homeRes('/js/home_manifest.js')}}"></script>
+<script src="{{homeRes('/js/home_vendor.js')}}"></script>
 @yield('script')
 </body>
 </html>

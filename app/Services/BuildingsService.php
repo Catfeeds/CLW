@@ -80,7 +80,6 @@ class BuildingsService
      */
     public function getArrId($res)
     {
-
         $data[] =  $res->building->area->city->id;
         $data[] = $res->building->area->id;
         $data[] = $res->building->id;

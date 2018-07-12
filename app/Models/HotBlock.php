@@ -5,7 +5,7 @@ namespace App\Models;
 class HotBlock extends BaseModel
 {
     protected $appends = [
-      'img_cn', 'block_name_cn', 'img_url'
+      'img_cn', 'block_name_cn', 'img_url', 'pc_img_url', 'pc_img_cn'
     ];
 
     public function block()
@@ -56,4 +56,20 @@ class HotBlock extends BaseModel
         ]];
     }
 
+    // pc端热门商圈图片
+    public function getPcImgUrlAttribute()
+    {
+        return collect($this->pc_img)->map(function($img) {
+            return [
+                'name' => $img,
+                'url'  => config('setting.qiniu_url') . $img
+            ];
+        });
+    }
+
+    // pc端热门商圈图片
+    public function getPcImgCnAttribute()
+    {
+        return config('setting.qiniu_url').$this->pc_img;
+    }
 }

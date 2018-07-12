@@ -51,7 +51,7 @@ class MapsService
         // 获取去重之后的所有楼盘id
         $buildingsId = array_column($this->remove_duplicate(collect($buildings)->collapse()->all()),'id');
 
-        return $repository->buildingList($request, $buildingsService, $buildingsId,true,null, true);
+        return $repository->buildingList($request, $buildingsService, $buildingsId,true,null, true,true);
     }
 
     // 数组去重
