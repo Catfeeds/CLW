@@ -8,7 +8,8 @@ class Building extends Model
     protected $casts = [
         'album' => 'array',
         'gps' => 'array',
-        'company' => 'array'
+        'company' => 'array',
+        'big_album' => 'array'
     ];
 
     protected $table = 'buildings';
@@ -18,7 +19,7 @@ class Building extends Model
     protected $connection = 'media';
 
     protected $appends = ['pic_url_cn',  'img_cn', 'type_label', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
-        'parking_num_cn','parking_fee_cn'];
+        'parking_num_cn','parking_fee_cn', 'pc_pic_url'];
 
     // 楼座
     public function buildingBlock()
@@ -128,6 +129,17 @@ class Building extends Model
     public function getPicUrlCnAttribute()
     {
         return collect($this->album)->map(function($img) {
+            return [
+                'name' => $img,
+                'url' => config('setting.qiniu_url') . $img
+            ];
+        });
+    }
+
+    // pc端图片url
+    public function getPcPicUrlCnAttribute()
+    {
+        return collect($this->big_album)->map(function($img) {
             return [
                 'name' => $img,
                 'url' => config('setting.qiniu_url') . $img
