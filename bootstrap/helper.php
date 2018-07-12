@@ -12,6 +12,17 @@ if (! function_exists('res'))
     }
 }
 
+// pc端静态资源
+if (! function_exists('homeRes'))
+{
+    function homeRes($path)
+    {
+        $cdn_path = config('setting.home_cdn_path');
+        $path = $cdn_path . $path;
+        return $path.config('setting.version');
+    }
+}
+
 /**
  * 全局辅助函数 放置处
  */
