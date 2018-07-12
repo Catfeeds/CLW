@@ -788,14 +788,14 @@ body .container .form_container form .content {
   position: relative;
 }
 
-html .container .form_container form .content .popover,
-body .container .form_container form .content .popover {
-  top: 124px !important;
+html .container .form_container form .content .errorTitle,
+body .container .form_container form .content .errorTitle {
+  position: relative;
+  top: -24px;
 }
 
 html .container .form_container form .content label.error,
 body .container .form_container form .content label.error {
-  display: block;
   left: 0;
   bottom: -17px;
   color: Red;
@@ -973,6 +973,21 @@ body .container .detail::before {
   left: 50%;
   margin-left: -20px;
   top: -20px;
+}
+
+html .popover,
+body .popover {
+  background: #40464d;
+}
+
+html .popover .arrow:after,
+body .popover .arrow:after {
+  border-right-color: #40464d !important;
+}
+
+html .popover .popover-content,
+body .popover .popover-content {
+  color: #fff;
 }
 
 div,
