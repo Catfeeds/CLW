@@ -20,6 +20,8 @@
           </div>
           <div class="content">
             <input name="appellation" type="text" placeholder="联系人姓名"/>
+            <div data-container="body" data-toggle="popover" data-placement="right" data-content="请输入联系人">
+            </div>
           </div>
           <div class="phone">
             <span>*</span>联系电话
@@ -29,7 +31,8 @@
           </div>
           <div class="need">需求描述</div>
           <textarea name="demand" id="need" cols="20" placeholder="如:大智路附近,200平米的写字楼,简装带办公家具,租金50元左右/平米每月,有地铁最好..."></textarea>
-          <button type="submit">立即委托</button>
+          
+          <button type="submit" class="submit">立即委托</button>
         </form>
       </div>
       <div class="detail">
