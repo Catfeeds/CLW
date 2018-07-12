@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '投放房源')
 @section('header')
-  <link rel="stylesheet" href="/css/home_launchouse.css">
+  <link rel="stylesheet" href="{{homeRes('/css/home_launchouse.css')}}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 @endsection
 @section('body')
@@ -53,20 +53,20 @@
       <div class="detail">
         <ul>
           <li>
-            <img src="/home_img/sellhouse_submit.png" />
+            <img src="{{homeRes('/home_img/sellhouse_submit.png')}}" />
             <div>提交委托</div>
-            <img src="/home_img/sell_arrow.png" alt="" class="arrow">
+            <img src="{{homeRes('/home_img/sell_arrow.png')}}" alt="" class="arrow">
           </li>
           <li>
-            <img src="/home_img/collect_info.png" style="padding-top:6px"/>
-            <div>采集房源信息</div><img src="/home_img/sell_arrow.png" alt="" class="arrow">
+            <img src="{{homeRes('/home_img/collect_info.png')}}" style="padding-top:6px"/>
+            <div>采集房源信息</div><img src="{{homeRes('/home_img/sell_arrow.png')}}" alt="" class="arrow">
           </li>
           <li>
-            <img src="/home_img/vistor_home.png" style="padding-top:1px"/>
+            <img src="{{homeRes('/home_img/vistor_home.png')}}" style="padding-top:1px"/>
             <div>上门实勘</div>
-            <img src="/home_img/sell_arrow.png" alt="" class="arrow">
+            <img src="{{homeRes('/home_img/sell_arrow.png')}}" alt="" class="arrow">
           </li>
-          <li><img src="/home_img/spread.png" /><div>线上推广</div></li>
+          <li><img src="{{homeRes('/home_img/spread.png')}}" /><div>线上推广</div></li>
         </ul>
       </div>
     </div>
@@ -74,5 +74,5 @@
   </div>
 @endsection
 @section('script')
-  <script src="/js/home_launchouse.js"></script>
+  <script src="{{homeRes('/js/home_launchouse.js')}}"></script>
 @endsection
