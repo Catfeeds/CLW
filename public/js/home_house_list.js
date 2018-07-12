@@ -12514,7 +12514,6 @@ __webpack_require__(71);
  // 搜索组件
 var findHouse = __webpack_require__(107);
 var rightTop = $("#findHouse").offset().top;
-var bottom = $('div.pagination').offset().top;
 new Vue({
     el: '#findHouse',
     components: { findHouse: findHouse }

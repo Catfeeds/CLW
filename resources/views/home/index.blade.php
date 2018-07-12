@@ -295,13 +295,14 @@
               </a>
             </div>
             <div class="float-right">
-                <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
-                  <h3>{{$information[$j]->title}}</h3>
-                </a>
-              <p>
-                  {{$information[$j]->brief}}
-              </p>
+              <div class="icon-text"><img src="{{homeRes('/home_img/hangye_logo.png')}}" alt=""><span style="position:relative;left:5px;top:-3px;font-size:12px;">行业新闻</span></div>
+              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
+                <h3>{{$information[$j]->title}}</h3>
+              </a>
               <div class="time-box">{{$information[$j]->created_at}}</div>
+              <p>
+                {{$information[$j]->brief}}
+              </p>
             </div>
             <div class="clearfloat"></div>
           </li>
@@ -309,21 +310,26 @@
       </ul>
     </div>
     <div class="infamation-right">
-      <h3>热点资讯</h3>
-      <ul class="hot-infomation-list">
-        @for($j = 0; $j < 4; $j++)
-          @if(!empty($hotInformation[$j]))
-            <li class="hot-infomation-item">
-              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
-                <h4>{{$hotInformation[$j]->title}}</h4>
-              </a>
-              <p>
+      <div class="img">
+        <img src="/home_img/infomation_right.jpg" alt="">
+      </div>
+      <div class="line-box">
+        <h3>热点资讯</h3>
+        <ul class="hot-infomation-list">
+          @for($j = 0; $j < 4; $j++)
+            @if(!empty($hotInformation[$j]))
+              <li class="hot-infomation-item">
+                <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
+                  <h4>{{$hotInformation[$j]->title}}</h4>
+                </a>
+                <p>
                   {{$hotInformation[$j]->brief}}
-              </p>
-            </li>
-          @endif
-        @endfor
-      </ul>
+                </p>
+              </li>
+            @endif
+          @endfor
+        </ul>
+      </div>
     </div>
     <div class="clearfloat"></div>
   </div>

@@ -35,7 +35,7 @@
         <div class="active-line"></div>
         <a href="{{url('/logout')}}" class="logout-a">退出</a>
       @else
-        <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a>
+        {{-- <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a> --}}
       @endif
       </div>
     </div>
