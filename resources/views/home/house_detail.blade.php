@@ -54,12 +54,12 @@
                     <div>
                         <span>{{$house->total_price}}</span>元/月（单价：{{$house->unit_price_cn}}）
                     </div>
-                    <div class="collect">
+                    <!-- <div class="collect">
                         <div class="pircePic">
                             <div></div>
                         </div>
                         <div class="collectTitle">收藏</div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- 面积 -->
                 <div class="acreage">
