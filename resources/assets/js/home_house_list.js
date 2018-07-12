@@ -4,7 +4,6 @@ import './components/home/right_tab' // 侧边栏组件
 import { init } from './components/home/input_search' // 搜索组件
 var findHouse = require('./components/findHouse.vue')
 var rightTop = $("#findHouse").offset().top
-var bottom = $('div.pagination').offset().top
 new Vue({
     el: '#findHouse',
     components: { findHouse }
