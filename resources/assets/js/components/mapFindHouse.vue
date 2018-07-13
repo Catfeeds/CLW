@@ -4,19 +4,22 @@
                :ak='ak'
                :zoom="zoom"
                :min-zoom="12"
+               :map-click="false"
                scroll-wheel-zoom
                @zoomend='zoomend'
                @dragging='dragging'
                @dragend='dragend'
     >
+        <bm-scale anchor="BMAP_ANCHOR_BOTTOM_RIGHT"></bm-scale>
         <div v-if='!subwayKeyword'>
             <!--中心点测试-->
             <self-overlay :position="zhongxin">
                 <div style="font-size: 50px">⊙</div>
             </self-overlay>
-
+            <!--zoom 比例尺说明 5公里: 12 、2公里：13、  1公里：14、 500米：15、 200米 16、 100米 17-->
+            <!--zoom 比例尺说明 5公里显示区域（12）  1公里显示商圈（14）    200米显示楼盘（16）   显示地铁1两公里（14） -->
             <!--区域数据 浮动圆-->
-            <self-overlay v-show='zoom<13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
+            <self-overlay v-show='zoom<=13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
                           :key="'areaBox'+ index">
                 <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
@@ -25,7 +28,7 @@
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
-            <self-overlay v-show='zoom<14&&zoom>=13' :position="{lng: item.x, lat: item.y}"
+            <self-overlay v-show='zoom<=14&&zoom>13' :position="{lng: item.x, lat: item.y}"
                           v-for="(item, index) in blockList"
                           :key="'blockBox'+ index">
                 <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
@@ -36,7 +39,7 @@
                 </div>
             </self-overlay>
             <!--楼盘浮动矩形-->
-            <site-cover v-show='zoom>=14' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
+            <site-cover v-show='zoom>15' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
                         v-for="(item, index) in buildList"
                         :key="'buildBox'+ index">
                 <div class="areaStyle" @click="seeBuildDetail(item)">
@@ -176,6 +179,7 @@
         BaiduMap,
         BmPolygon,
         BmBoundary, // 区块
+        BmScale, // 比例尺
         BmBus
     } from 'vue-baidu-map'
     import selfOverlay from './map/selfOverlay' // 悬浮窗容器
@@ -209,6 +213,7 @@
             BmBus,
             BmPolygon,
             BmBoundary,
+            BmScale,
             selfOverlay,
             siteCover,
             ElSelect,
@@ -426,10 +431,11 @@
         watch: {
             'condition.metro': function () {
                 this.subwayKeyword = this.condition.metro
-                if (this.condition.metro === '') this.subwayKeyword = false;
-//                if(this.condition.metro !== ''){
-//
-//                }
+                if (this.condition.metro === '') {
+                    this.subwayKeyword = false;
+                } else{
+                    this.zoom = 14
+                }
             },
             subwayKeyword: function (val) {
                 if (val) {
@@ -445,7 +451,7 @@
                 }
             },
             zoom: function (val) {
-                if (val >= 14) {
+                if (val >= 16) {
                     const data = {
                         '_token': document.getElementsByName('csrf-token')[0].content,
                         gps: [
@@ -454,7 +460,7 @@
                                 y: this.zhongxin.lat
                             }
                         ],
-                        distance: 5
+                        distance: 2.7
                     }
                     // 请求楼盘数据
                     this.getBuild(data)
@@ -503,7 +509,7 @@
                                 y: this.zhongxin.lat,
                             }
                         ],
-                        distance: 5
+                        distance: 2.7
                     }
                     // 请求楼盘数据
                     this.getBuild(data)
@@ -514,31 +520,37 @@
             },
             zoomend: function (e) {
                 this.zoom = e.target.getZoom()
-                console.log('this.zoom', this.zoom)
                 // 修改中心点 点击后操作
                 if (this.locationType) {
                     this.zhongxin = this.centerLocaion
                     this.location = this.centerLocaion
+
                     this.locationType = false
                 } else {
                     this.zhongxin = e.target.getCenter()
                 }
+                    this.$refs.map.reset()
             },
             // 查看区域详情 -> 商圈列表
             seeRegionDetail(data){
-                this.zoom = 13
-                this.centerLocaion = {lng: data.x, lat: data.y}
                 this.locationType = true
+                this.centerLocaion = {lng: data.x, lat: data.y}
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
+                this.zoom = 14
+//                this.$refs.map.reset()
             },
             // 点击商圈详情
             seeAreaDetail(data) {
+                this.zoom = 16
+                this.locationType = true
                 this.buildList = []
                 this.centerLocaion = {lng: data.x, lat: data.y}
-                this.zoom = 14
-                this.locationType = true
             },
             seeMtro(data){
-
+                this.zoom = 16
+                this.locationType = true
+                this.centerLocaion = {lng: data.x, lat: data.y}
             },
             // 获取站点楼盘数量
             getbuslinecomplete(el) {

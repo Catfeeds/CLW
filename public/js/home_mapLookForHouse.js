@@ -11333,6 +11333,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
  // 悬浮窗容器
@@ -11357,6 +11360,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         BmBus: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBus"],
         BmPolygon: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmPolygon"],
         BmBoundary: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmBoundary"],
+        BmScale: __WEBPACK_IMPORTED_MODULE_25_vue_baidu_map__["BmScale"],
         selfOverlay: __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default.a,
         siteCover: __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default.a,
         ElSelect: ElSelect,
@@ -11549,10 +11553,11 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
     watch: {
         'condition.metro': function conditionMetro() {
             this.subwayKeyword = this.condition.metro;
-            if (this.condition.metro === '') this.subwayKeyword = false;
-            //                if(this.condition.metro !== ''){
-            //
-            //                }
+            if (this.condition.metro === '') {
+                this.subwayKeyword = false;
+            } else {
+                this.zoom = 14;
+            }
         },
         subwayKeyword: function subwayKeyword(val) {
             if (val) {
@@ -11568,14 +11573,14 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             }
         },
         zoom: function zoom(val) {
-            if (val >= 14) {
+            if (val >= 16) {
                 var data = {
                     '_token': document.getElementsByName('csrf-token')[0].content,
                     gps: [{
                         x: this.zhongxin.lng,
                         y: this.zhongxin.lat
                     }],
-                    distance: 5
+                    distance: 2.7
                     // 请求楼盘数据
                 };this.getBuild(data);
             }
@@ -11622,7 +11627,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                         x: this.zhongxin.lng,
                         y: this.zhongxin.lat
                     }],
-                    distance: 5
+                    distance: 2.7
                     // 请求楼盘数据
                 };this.getBuild(data);
             }
@@ -11633,31 +11638,39 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         zoomend: function zoomend(e) {
             this.zoom = e.target.getZoom();
-            console.log('this.zoom', this.zoom);
             // 修改中心点 点击后操作
             if (this.locationType) {
                 this.zhongxin = this.centerLocaion;
                 this.location = this.centerLocaion;
+
                 this.locationType = false;
             } else {
                 this.zhongxin = e.target.getCenter();
             }
+            this.$refs.map.reset();
         },
         // 查看区域详情 -> 商圈列表
         seeRegionDetail: function seeRegionDetail(data) {
-            this.zoom = 13;
-            this.centerLocaion = { lng: data.x, lat: data.y };
             this.locationType = true;
+            this.centerLocaion = { lng: data.x, lat: data.y };
+            this.location = this.centerLocaion;
+            this.zhongxin = this.centerLocaion;
+            this.zoom = 14;
+            //                this.$refs.map.reset()
         },
 
         // 点击商圈详情
         seeAreaDetail: function seeAreaDetail(data) {
+            this.zoom = 16;
+            this.locationType = true;
             this.buildList = [];
             this.centerLocaion = { lng: data.x, lat: data.y };
-            this.zoom = 14;
-            this.locationType = true;
         },
-        seeMtro: function seeMtro(data) {},
+        seeMtro: function seeMtro(data) {
+            this.zoom = 16;
+            this.locationType = true;
+            this.centerLocaion = { lng: data.x, lat: data.y };
+        },
 
         // 获取站点楼盘数量
         getbuslinecomplete: function getbuslinecomplete(el) {
@@ -20182,11 +20195,14 @@ var render = function() {
         ak: _vm.ak,
         zoom: _vm.zoom,
         "min-zoom": 12,
+        "map-click": false,
         "scroll-wheel-zoom": ""
       },
       on: { zoomend: _vm.zoomend, dragging: _vm.dragging, dragend: _vm.dragend }
     },
     [
+      _c("bm-scale", { attrs: { anchor: "BMAP_ANCHOR_BOTTOM_RIGHT" } }),
+      _vm._v(" "),
       !_vm.subwayKeyword
         ? _c(
             "div",
@@ -20205,8 +20221,8 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.zoom < 13,
-                        expression: "zoom<13"
+                        value: _vm.zoom <= 13,
+                        expression: "zoom<=13"
                       }
                     ],
                     key: "areaBox" + index,
@@ -20251,8 +20267,8 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.zoom < 14 && _vm.zoom >= 13,
-                        expression: "zoom<14&&zoom>=13"
+                        value: _vm.zoom <= 14 && _vm.zoom > 13,
+                        expression: "zoom<=14&&zoom>13"
                       }
                     ],
                     key: "blockBox" + index,
@@ -20297,8 +20313,8 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.zoom >= 14,
-                        expression: "zoom>=14"
+                        value: _vm.zoom > 15,
+                        expression: "zoom>15"
                       }
                     ],
                     key: "buildBox" + index,
