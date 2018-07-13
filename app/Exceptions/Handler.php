@@ -52,21 +52,19 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //错误类型
+        // NotFoundHttpException 404
+        // AuthenticationException 401
+        // ValidationException 字段验证错误
+        $temp = explode('\\', get_class($exception));
+        $type = end($temp);
         if (empty(config('app.debug', false))) {
-            if (!empty(method_exists($exception, 'getStatusCode'))) {
-                if ($exception->getStatusCode() != 404) {
-                    $errorInfo = $this->errorMessage($exception, $request);
-                } else {
-                    //如果报错为404,直接结束,不发送消息
-                    return parent::render($request, $exception);
-                }
+            if ($type == 'NotFoundHttpException' || $type == 'AuthenticationException' || $type == 'ValidationException') {
+                //如果报错为以上错误类型,直接结束,不发送消息
+                return parent::render($request, $exception);
             } else {
                 $errorInfo = $this->errorMessage($exception, $request);
             }
-
-            // 获取错误类型
-            $temp = explode('\\', get_class($exception));
-            $type = end($temp);
             $class = new AcceptMessagesController(new AcceptMessagesRepository(),new AcceptMessagesRequest());
             $openid = $class->getOpenid(3);
             $data['type'] = $type;
