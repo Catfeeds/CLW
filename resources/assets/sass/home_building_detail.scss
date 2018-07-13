@@ -27,7 +27,7 @@
     #banner{
       width: 100%;
       .swiper-slide{
-        height: 563px;
+        height: 560px;
         img{
           width: 100%;
           height: 100%;
@@ -349,6 +349,7 @@
             color: #666;
             &:hover{
               cursor: pointer;
+              color: $master-blue;
             }
           }
           .buildInfor{

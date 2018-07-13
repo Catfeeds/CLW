@@ -736,6 +736,7 @@ nav .nav-content .login-box .user-login-box .hover-down-app .down-app-box::after
 html,
 body {
   height: 100vh;
+  min-height: 950px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
@@ -743,59 +744,66 @@ body {
   position: relative;
 }
 
-html .container,
-body .container {
+html .box,
+body .box {
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
 
-html .container .title,
-body .container .title {
+html .box .container,
+body .box .container {
+  width: 480px;
+  padding-top: 130px;
+  margin: 0 auto;
+}
+
+html .box .container .title,
+body .box .container .title {
   text-align: center;
   color: #fff;
   font-size: 46px;
-  margin: 0 auto;
   margin-bottom: 18px;
 }
 
-html .container .min_title,
-body .container .min_title {
+html .box .container .min_title,
+body .box .container .min_title {
   text-align: center;
   color: #fff;
-  margin: 0 auto;
   font-size: 20px;
   margin-bottom: 38px;
 }
 
-html .container .form_container,
-body .container .form_container {
+html .box .container .form_container,
+body .box .container .form_container {
   width: 410px;
   margin: 0 auto;
 }
 
-html .container .form_container form,
-body .container .form_container form {
+html .box .container .form_container form,
+body .box .container .form_container form {
   padding: 30px 45px 38px 40px;
   border-radius: 11px;
   background-color: #fff;
   margin-bottom: 50px;
 }
 
-html .container .form_container form .content,
-body .container .form_container form .content {
+html .box .container .form_container form .content,
+body .box .container .form_container form .content {
   margin-bottom: 20px;
   position: relative;
 }
 
-html .container .form_container form .content .errorTitle,
-body .container .form_container form .content .errorTitle {
+html .box .container .form_container form .content .errorTitle,
+body .box .container .form_container form .content .errorTitle {
   position: relative;
   top: -24px;
 }
 
-html .container .form_container form .content label.error,
-body .container .form_container form .content label.error {
+html .box .container .form_container form .content label.error,
+body .box .container .form_container form .content label.error {
   left: 0;
   bottom: -17px;
   color: Red;
@@ -803,10 +811,10 @@ body .container .form_container form .content label.error {
   position: absolute;
 }
 
-html .container .form_container form .connect,
-html .container .form_container form .phone,
-body .container .form_container form .connect,
-body .container .form_container form .phone {
+html .box .container .form_container form .connect,
+html .box .container .form_container form .phone,
+body .box .container .form_container form .connect,
+body .box .container .form_container form .phone {
   position: relative;
   padding-left: 10px;
   font-size: 16px;
@@ -814,10 +822,10 @@ body .container .form_container form .phone {
   margin-bottom: 13px;
 }
 
-html .container .form_container form .connect span,
-html .container .form_container form .phone span,
-body .container .form_container form .connect span,
-body .container .form_container form .phone span {
+html .box .container .form_container form .connect span,
+html .box .container .form_container form .phone span,
+body .box .container .form_container form .connect span,
+body .box .container .form_container form .phone span {
   color: #dc5217;
   padding-right: 5px;
   font-size: 22px;
@@ -826,15 +834,15 @@ body .container .form_container form .phone span {
   left: 0;
 }
 
-html .container .form_container form .need,
-body .container .form_container form .need {
+html .box .container .form_container form .need,
+body .box .container .form_container form .need {
   font-size: 16px;
   color: #333;
   margin-bottom: 10px;
 }
 
-html .container .form_container form textarea,
-body .container .form_container form textarea {
+html .box .container .form_container form textarea,
+body .box .container .form_container form textarea {
   width: 100%;
   height: 120px;
   resize: none;
@@ -846,8 +854,8 @@ body .container .form_container form textarea {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-html .container .form_container form input,
-body .container .form_container form input {
+html .box .container .form_container form input,
+body .box .container .form_container form input {
   width: 100%;
   border: 1px solid #ccc;
   height: 44px;
@@ -857,47 +865,47 @@ body .container .form_container form input {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-html .container .form_container form input:focus,
-html .container .form_container form textarea:focus,
-body .container .form_container form input:focus,
-body .container .form_container form textarea:focus {
+html .box .container .form_container form input:focus,
+html .box .container .form_container form textarea:focus,
+body .box .container .form_container form input:focus,
+body .box .container .form_container form textarea:focus {
   border: 1px solid #007bff;
 }
 
-html .container .form_container form textarea::-webkit-input-placeholder,
-html .container .form_container form input::-webkit-input-placeholder,
-body .container .form_container form textarea::-webkit-input-placeholder,
-body .container .form_container form input::-webkit-input-placeholder {
+html .box .container .form_container form textarea::-webkit-input-placeholder,
+html .box .container .form_container form input::-webkit-input-placeholder,
+body .box .container .form_container form textarea::-webkit-input-placeholder,
+body .box .container .form_container form input::-webkit-input-placeholder {
   font-size: 14px;
   line-height: 18px;
 }
 
-html .container .form_container form textarea:-ms-input-placeholder,
-html .container .form_container form input:-ms-input-placeholder,
-body .container .form_container form textarea:-ms-input-placeholder,
-body .container .form_container form input:-ms-input-placeholder {
+html .box .container .form_container form textarea:-ms-input-placeholder,
+html .box .container .form_container form input:-ms-input-placeholder,
+body .box .container .form_container form textarea:-ms-input-placeholder,
+body .box .container .form_container form input:-ms-input-placeholder {
   font-size: 14px;
   line-height: 18px;
 }
 
-html .container .form_container form textarea::-ms-input-placeholder,
-html .container .form_container form input::-ms-input-placeholder,
-body .container .form_container form textarea::-ms-input-placeholder,
-body .container .form_container form input::-ms-input-placeholder {
+html .box .container .form_container form textarea::-ms-input-placeholder,
+html .box .container .form_container form input::-ms-input-placeholder,
+body .box .container .form_container form textarea::-ms-input-placeholder,
+body .box .container .form_container form input::-ms-input-placeholder {
   font-size: 14px;
   line-height: 18px;
 }
 
-html .container .form_container form textarea::placeholder,
-html .container .form_container form input::placeholder,
-body .container .form_container form textarea::placeholder,
-body .container .form_container form input::placeholder {
+html .box .container .form_container form textarea::placeholder,
+html .box .container .form_container form input::placeholder,
+body .box .container .form_container form textarea::placeholder,
+body .box .container .form_container form input::placeholder {
   font-size: 14px;
   line-height: 18px;
 }
 
-html .container .form_container form button,
-body .container .form_container form button {
+html .box .container .form_container form button,
+body .box .container .form_container form button {
   display: block;
   outline: none;
   border: none;
@@ -916,8 +924,8 @@ body .container .form_container form button {
   overflow: hidden;
 }
 
-html .container .form_container form button::after,
-body .container .form_container form button::after {
+html .box .container .form_container form button::after,
+body .box .container .form_container form button::after {
   background-color: #2b8df7;
   content: '';
   position: absolute;
@@ -930,24 +938,25 @@ body .container .form_container form button::after {
   transition: all .5s ease;
 }
 
-html .container .form_container form button:hover::after,
-body .container .form_container form button:hover::after {
+html .box .container .form_container form button:hover::after,
+body .box .container .form_container form button:hover::after {
   width: 100%;
 }
 
-html .container .detail,
-body .container .detail {
+html .box .container .detail,
+body .box .container .detail {
   width: 473px;
   height: 145px;
   background-color: rgba(0,0,0,0.32);
   border-radius: 11px;
-  position: relative;
+  position: absolute;
+  bottom: 0;
   padding: 25px 34px 37px;
   margin: 0 auto;
 }
 
-html .container .detail ul,
-body .container .detail ul {
+html .box .container .detail ul,
+body .box .container .detail ul {
   width: 100%;
   height: 70%;
   display: -webkit-box;
@@ -959,29 +968,29 @@ body .container .detail ul {
           flex-direction: row;
 }
 
-html .container .detail ul li,
-body .container .detail ul li {
+html .box .container .detail ul li,
+body .box .container .detail ul li {
   width: 100%;
   text-align: center;
   position: relative;
 }
 
-html .container .detail ul li div,
-body .container .detail ul li div {
+html .box .container .detail ul li div,
+body .box .container .detail ul li div {
   color: rgba(255,255,255,0.56);
   margin-top: 19px;
   font-size: 14px;
 }
 
-html .container .detail ul li .arrow,
-body .container .detail ul li .arrow {
+html .box .container .detail ul li .arrow,
+body .box .container .detail ul li .arrow {
   position: absolute;
   left: 98px;
   top: 11px;
 }
 
-html .container .detail::before,
-body .container .detail::before {
+html .box .container .detail::before,
+body .box .container .detail::before {
   content: "";
   position: absolute;
   border-left: 20px solid transparent;

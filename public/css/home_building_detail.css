@@ -915,6 +915,8 @@ body .right_tab .bank-top .text-box {
 }
 
 .el-popover.customer-popover {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   background-color: #007bff;
   border-color: #007bff !important;
 }
@@ -954,6 +956,8 @@ body .right_tab .bank-top .text-box {
 }
 
 .el-popover.dimentionalCode-popover {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   min-width: 107px !important;
   height: 107px !important;
   padding: 0 !important;
@@ -990,7 +994,7 @@ body .right_tab .bank-top .text-box {
 }
 
 .content #banner .swiper-slide {
-  height: 563px;
+  height: 560px;
 }
 
 .content #banner .swiper-slide img {
@@ -1436,6 +1440,7 @@ body .right_tab .bank-top .text-box {
 
 .content .build .first .left .all:hover {
   cursor: pointer;
+  color: #007bff;
 }
 
 .content .build .first .left .buildInfor {

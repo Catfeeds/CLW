@@ -15,10 +15,10 @@
             </div>
             <ul class="link">
                 <li><a href="{{url('/')}}">网站首页</a></li>
-                <li><a href="javascript:void(0);">关于楚楼</a></li>
-                <li><a href="javascript:void(0);">联系我们</a></li>
-                <li><a href="javascript:void(0);">使用协议</a></li>
-                <li><a href="javascript:void(0);">隐私政策</a></li>
+                <li><a href="{{url('/about/we')}}">关于楚楼</a></li>
+                <li><a href="{{url('/about/telme')}}">联系我们</a></li>
+                <li><a href="{{url('/about/statute')}}">使用协议</a></li>
+                <li><a href="{{url('/about/privacy')}}">隐私政策</a></li>
             </ul>
         </div>
         <div class="serve f_l">
@@ -44,7 +44,7 @@
    </div>
    <div class="bottom">
     <div class="friend_link">友情链接:
-        <a href="javascript:void(0);">奇立英雄会</a>
+        <a href="https://www.iyxh.com/">奇立英雄会</a>
     </div>
    </div>
 </footer>
