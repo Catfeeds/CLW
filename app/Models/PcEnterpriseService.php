@@ -16,7 +16,7 @@ class PcEnterpriseService extends Model
     // pc端图片
     public function getPcImgCnAttribute()
     {
-        return config('setting.qiniu_url').$this->img;
+        return config('setting.qiniu_url'). $this->img;
     }
 
     // pc端图片
