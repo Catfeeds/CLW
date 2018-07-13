@@ -43,6 +43,7 @@ class IndexController extends Controller
         $recommendService = $pcServiceRecommendsRepository->PcServiceRecommendList()->take(4);
         //企业服务
         $service = $pcEnterpriseServicesRepository->getList()->take(5);
+        // return $recommendService;
         return view('home.index', [
             'area' => $area,
             'information' => $information,
