@@ -154,7 +154,7 @@
                     <!--</div>-->
                 </el-col>
             </el-row>
-            <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index">
+            <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20">
                 <span @click="seeBuildDetail(item)">
                     <el-col :span="8">
                         <img style="width: 130px;height: 130px"
@@ -164,7 +164,7 @@
                         <div>{{item.name}}</div>
                         <div><span>{{item.buildingAverage}}</span><span>元/㎡·月</span></div>
                         <div>地址: [{{item.address_cn}}] {{item.address}}</div>
-                        <div>面积：{{item.acreage_cn}}m²  </div>
+                        <div>面积：{{item.acreage_cn}}  </div>
                     </el-col>
                 </span>
             </el-row>
