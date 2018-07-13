@@ -69,16 +69,8 @@ class LabelsController extends APIBaseController
     //删除标签
     public function destroy(Label $label)
     {
-        $label->delete();
-
-
-//        //如果等级为1,判断下面有没有子类
-//        if ($label->stage == 1) {
-//            $item = Label::where('parent_id', $label->id)->get();
-//            if (!$item->isEmpty()) return $this->sendError('该标签下还有子类,无法删除');
-//        }
-//        $res = $label->delete();
-//        return $this->sendResponse($res, '删除成功');
+        if (empty($res = $label->delete())) return $this->sendError('删除标签失败');
+        return $this->sendResponse($res,'标签删除成功');
     }
 
     // 通过大类获取一级标签
