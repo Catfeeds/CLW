@@ -991,7 +991,10 @@ body .right_tab .bank-top .text-box {
 
 .content #banner {
   width: 100%;
+<<<<<<< HEAD
   min-width: 1200px;
+=======
+>>>>>>> origin/zc
 }
 
 .content #banner .swiper-slide {

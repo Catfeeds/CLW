@@ -1094,12 +1094,23 @@ body .right_tab .bank-top .text-box {
   margin: 5px;
   width: 16px;
   height: 15px;
+<<<<<<< HEAD
+=======
+  background: url(/home_img/house_detail_collect_before.png) no-repeat;
+>>>>>>> origin/zc
 }
 
 .content .banner .infor .price .collect .pircePic:hover {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+=======
+.content .banner .infor .price .collect .pircePic:hover div {
+  background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
+}
+
+>>>>>>> origin/zc
 .content .banner .infor .price .collect .collectTitle {
   height: 15px;
   margin-top: 11px;
@@ -1373,12 +1384,20 @@ body .right_tab .bank-top .text-box {
   width: 46px;
   height: 48px;
   margin-top: 8px;
+<<<<<<< HEAD
+=======
+  background: url(/home_img/house_detail_left.png) no-repeat;
+>>>>>>> origin/zc
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev:hover {
   width: 46px;
   height: 48px;
   margin-top: 8px;
+<<<<<<< HEAD
+=======
+  background: url(/home_img/house_detail_left_before.png) no-repeat;
+>>>>>>> origin/zc
   cursor: pointer;
 }
 
@@ -1386,12 +1405,20 @@ body .right_tab .bank-top .text-box {
   width: 46px;
   height: 48px;
   margin-top: 8px;
+<<<<<<< HEAD
+=======
+  background: url(/home_img/house_detail_right.png) no-repeat;
+>>>>>>> origin/zc
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverNext:hover {
   width: 46px;
   height: 48px;
   margin-top: 8px;
+<<<<<<< HEAD
+=======
+  background: url(/home_img/house_detail_right_before.png) no-repeat;
+>>>>>>> origin/zc
   cursor: pointer;
 }
 
