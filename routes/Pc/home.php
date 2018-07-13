@@ -52,7 +52,8 @@ Route::get('topic',function(){
 });
 // 精选楼盘
 Route::resource('recommends', 'RecommendsController');
-
+// 关于我们
+Route::get('about/{info}', 'AboutWeController@about');
 /*
 |--------------------------------------------------------------------------
 | 个人中心
