@@ -4,9 +4,10 @@ namespace App\Models;
 
 class Label extends BaseModel
 {
-    use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
-
-    protected $softCascade = ['nextLabel'];
+    public function goodsHasLabel()
+    {
+        return $this->hasMany('App\Models\GoodsHasLabel','label_id','id');
+    }
 
     // 通过大类名称获取标签
     public static function getLabelByCategoryName(
@@ -24,13 +25,32 @@ class Label extends BaseModel
         return $this->hasMany('App\Models\Label', 'parent_id', 'id')->where('stage', 2);
     }
 
-    public function nextLabel()
+    // 删除标签及商品标签关联数据
+    public function delete()
     {
-        if ($this->stage == 1) {
-            return $this->hasMany('App\Models\Label', 'parent_id', 'id')->where('stage', 2);
-        } elseif ($this->stage == 2) {
-            return self::find($this->id);
+        \DB::beginTransaction();
+        try {
+            parent::delete();
+            // 获取二级标签id
+            if ($this->stage == 1) {
+                $labelId = self::where('parent_id', $this->id)->pluck('id')->toArray();
+            } else {
+                $labelId[] = $this->id;
+            }
+
+            // 删除二级标签
+            self::whereIn('id',$labelId)->delete();
+
+            // 删除商品标签关联数据
+            GoodsHasLabel::whereIn('label_id', $labelId)->delete();
+            \DB::commit();
+        } catch (\Exception $e) {
+            \DB::rollback();
+            Log::debug('删除小类失败：', $this->all());
+            return false;
         }
+        return true;
     }
-    
+
+
 }
