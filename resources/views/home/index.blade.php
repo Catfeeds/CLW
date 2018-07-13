@@ -132,16 +132,18 @@
   <div class="elaborate-title">让办公更舒心</div>
   <div class="topic-content">
     <ul class="sever-list">
+      @foreach($service as $service_item)
       <li class="sever-item">
-        <a href="http://shop.chulouwang.com/plants" target="_blank">
-        <img src="{{homeRes('/home_img/index_topic1_plant.jpg')}}" alt="绿植服务">
+        <a href="{{$service_item->url}}" target="_blank">
+        <img src="{{$service_item->img}}" alt="{{$service_item->master_title}}">
           <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">绿植租摆</div>
-          <div class="server-title-active">绿植租摆</div>
+          <div class="text-box">{{$service_item->vice_title}}</div>
+          <div class="server-title">{{$service_item->master_title}}</div>
+          <div class="server-title-active">{{$service_item->master_title}}</div>
         </a>
       </li>
-      <li class="sever-item">
+      @endforeach
+      <!-- <li class="sever-item">
         <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
         <img src="{{homeRes('/home_img/index_topic1_clear.jpg')}}" alt="保洁服务">
           <div class="bg-box"></div>
@@ -176,7 +178,7 @@
           <div class="server-title">搬家服务</div>
           <div class="server-title-active">搬家服务</div>
         </a>
-      </li>
+      </li> -->
       <li class="clearfloat"></li>
     </ul>
   </div>
