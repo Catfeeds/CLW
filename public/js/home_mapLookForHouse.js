@@ -20231,9 +20231,11 @@ var render = function() {
                         }
                       },
                       [
-                        _c("span", [_vm._v(_vm._s(item.name))]),
+                        _c("span", { staticStyle: { color: "#fff" } }, [
+                          _vm._v(_vm._s(item.name))
+                        ]),
                         _vm._v(" "),
-                        _c("span", [
+                        _c("span", { staticStyle: { color: "#fff" } }, [
                           _vm._v(_vm._s(item.building_num) + "个楼盘")
                         ])
                       ]
@@ -20275,9 +20277,11 @@ var render = function() {
                         }
                       },
                       [
-                        _c("span", [_vm._v(_vm._s(item.name))]),
+                        _c("span", { staticStyle: { color: "#fff" } }, [
+                          _vm._v(_vm._s(item.name))
+                        ]),
                         _vm._v(" "),
-                        _c("span", [
+                        _c("span", { staticStyle: { color: "#fff" } }, [
                           _vm._v(_vm._s(item.building_num) + "个楼盘")
                         ])
                       ]
@@ -20320,7 +20324,9 @@ var render = function() {
                       [
                         _c("div", { staticClass: "triangle" }),
                         _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(item.name))]),
+                        _c("span", { staticStyle: { color: "#fff" } }, [
+                          _vm._v(_vm._s(item.name))
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "detail" }, [
                           _c("div", [
@@ -20409,10 +20415,14 @@ var render = function() {
                     }
                   },
                   [
-                    _c("span", [_vm._v(_vm._s(item.name))]),
+                    _c("span", { staticStyle: { color: "#fff" } }, [
+                      _vm._v(_vm._s(item.name))
+                    ]),
                     _vm._v(" "),
                     _vm.zoom < 15
-                      ? _c("span", [_vm._v(_vm._s(item.num) + "个")])
+                      ? _c("span", { staticStyle: { color: "#fff" } }, [
+                          _vm._v(_vm._s(item.num) + "个")
+                        ])
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "triangle" })
