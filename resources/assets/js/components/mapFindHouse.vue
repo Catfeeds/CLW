@@ -20,8 +20,8 @@
                           :key="'areaBox'+ index">
                 <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
-                    <span>{{item.name}}</span>
-                    <span>{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{item.name}}</span>
+                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
@@ -30,9 +30,9 @@
                           :key="'blockBox'+ index">
                 <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
                      @mouseleave='blockActive = ""'>
-                    <span>{{item.name}}</span>
+                    <span style="color:#fff;">{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
-                    <span>{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--楼盘浮动矩形-->
@@ -41,7 +41,7 @@
                         :key="'buildBox'+ index">
                 <div class="areaStyle" @click="seeBuildDetail(item)">
                     <div class="triangle"></div>
-                    <span>{{item.name}}</span>
+                    <span style="color:#fff;">{{item.name}}</span>
                     <div class="detail">
                         <div>
                             <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
@@ -73,8 +73,8 @@
                     :key="'subway'+ index">
             <div class="areaStyle" @click="seeMtro(item)" @mouseover='blockActive = item.baidu_coord'
                  @mouseleave='blockActive = ""'>
-                <span>{{item.name}}</span>
-                <span v-if="zoom<15">{{item.num}}个</span>
+                <span style="color:#fff;">{{item.name}}</span>
+                <span v-if="zoom<15" style="color:#fff;">{{item.num}}个</span>
                 <div class="triangle"></div>
             </div>
         </site-cover>
@@ -136,10 +136,10 @@
                     </div>
                 </el-col>
             </el-row>
-            <el-row style="padding: 5px 0px">
+            <el-row style="padding: 10px 0px; margin-left:30px;">
                 <el-col :span="15">
                     <img src=""/>
-                    武汉 为您找到{{buildListNum}}个楼盘
+                    <span>武汉</span> 为您找到 <span style="color:#007bff">{{buildListNum}}</span> 个楼盘
                 </el-col>
                 <el-col :span="9">
                     <!--<div class="grid-content bg-purple">-->
@@ -154,19 +154,19 @@
                     <!--</div>-->
                 </el-col>
             </el-row>
-            <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index">
-                <span @click="seeBuildDetail(item)">
-                    <el-col :span="8">
-                        <img style="width: 130px;height: 130px"
+            <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
+                <div @click="seeBuildDetail(item)" class="mapBox">
+                    <el-col :span="8" style="padding:0;margin-left: 40px;">
+                        <img style="width: 140px;height: 140px"
                              :src="item.img_cn">
                     </el-col>
-                    <el-col :span="15">
-                        <div>{{item.name}}</div>
-                        <div><span>{{item.buildingAverage}}</span><span>元/㎡·月</span></div>
-                        <div>地址: [{{item.address_cn}}] {{item.address}}</div>
-                        <div>面积：{{item.acreage_cn}}m²  </div>
+                    <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
+                        <div class="mapTitle">{{item.name}}</div>
+                        <div class="mapPrice"><span>{{item.avg_price}}</span><span>元/㎡·月</span></div>
+                        <div class="mapAddress" >地址: [{{item.address_cn}}] {{item.address}}</div>
+                        <div class="mapArea">面积：{{item.acreage_cn}}  </div>
                     </el-col>
-                </span>
+                </div>
             </el-row>
         </div>
     </baidu-map>
@@ -705,10 +705,41 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 400px;
+            width: 480px;
             height: 98vh;
             background: #fff;
             overflow: scroll;
+            .mapList{
+                padding: 20px 0;
+                border-bottom: 1px solid #f5f5f5;
+                .mapBox{
+                    .mapDetail{
+                        height: 140px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .mapTitle{
+                            font-size: 20px;
+                            font-weight: 600;
+                        }
+                        .mapPrice{
+                            span{
+                                font-size: 16px;
+                                color: #007bff;
+                            }
+                        }
+                        .mapAddress{
+                            font-size: 12px;
+                            line-height: 22px;
+                            color: #666;
+                        }
+                        .mapArea{
+                            color: #666;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
             .screenList {
                 width: 320px;
                 height: 270px;

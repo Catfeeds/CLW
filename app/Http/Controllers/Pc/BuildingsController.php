@@ -48,7 +48,8 @@ class BuildingsController extends Controller
         $data[1]['name'] = $block->name;
         $data[2]['id'] = $building->id;
         $data[2]['name'] = $building->name;
-
+        
+        // return $data;
         return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block, 'data' => $data]);
     }
 
@@ -89,7 +90,7 @@ class BuildingsController extends Controller
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
 
-            $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true,null,true);
+            $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true);
         } else {
             // 处理价格,面积,特色
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
