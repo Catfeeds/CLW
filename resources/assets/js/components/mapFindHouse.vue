@@ -136,10 +136,10 @@
                     </div>
                 </el-col>
             </el-row>
-            <el-row style="padding: 5px 0px">
+            <el-row style="padding: 10px 0px; margin-left:30px;">
                 <el-col :span="15">
                     <img src=""/>
-                    武汉 为您找到{{buildListNum}}个楼盘
+                    <span>武汉</span> 为您找到 <span style="color:#007bff">{{buildListNum}}</span> 个楼盘
                 </el-col>
                 <el-col :span="9">
                     <!--<div class="grid-content bg-purple">-->
@@ -154,19 +154,19 @@
                     <!--</div>-->
                 </el-col>
             </el-row>
-            <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20">
-                <span @click="seeBuildDetail(item)">
-                    <el-col :span="8">
-                        <img style="width: 130px;height: 130px"
+            <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
+                <div @click="seeBuildDetail(item)" class="mapBox">
+                    <el-col :span="8" style="padding:0;margin-left: 40px;">
+                        <img style="width: 140px;height: 140px"
                              :src="item.img_cn">
                     </el-col>
-                    <el-col :span="15">
-                        <div>{{item.name}}</div>
-                        <div><span>{{item.buildingAverage}}</span><span>元/㎡·月</span></div>
-                        <div>地址: [{{item.address_cn}}] {{item.address}}</div>
-                        <div>面积：{{item.acreage_cn}}  </div>
+                    <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
+                        <div class="mapTitle">{{item.name}}</div>
+                        <div class="mapPrice"><span>{{item.avg_price}}</span><span>元/㎡·月</span></div>
+                        <div class="mapAddress" >地址: [{{item.address_cn}}] {{item.address}}</div>
+                        <div class="mapArea">面积：{{item.acreage_cn}}  </div>
                     </el-col>
-                </span>
+                </div>
             </el-row>
         </div>
     </baidu-map>
@@ -705,10 +705,41 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 400px;
+            width: 480px;
             height: 98vh;
             background: #fff;
             overflow: scroll;
+            .mapList{
+                padding: 20px 0;
+                border-bottom: 1px solid #f5f5f5;
+                .mapBox{
+                    .mapDetail{
+                        height: 140px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .mapTitle{
+                            font-size: 20px;
+                            font-weight: 600;
+                        }
+                        .mapPrice{
+                            span{
+                                font-size: 16px;
+                                color: #007bff;
+                            }
+                        }
+                        .mapAddress{
+                            font-size: 12px;
+                            line-height: 22px;
+                            color: #666;
+                        }
+                        .mapArea{
+                            color: #666;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
             .screenList {
                 width: 320px;
                 height: 270px;

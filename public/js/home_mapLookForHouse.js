@@ -11054,7 +11054,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      z-index: 99999;\n      position: relative;\n      background-color: #FFFFFF;\n      color: #000000;\n      display: none;\n      bottom: 0px;\n      right: 41px;\n      width: 200px;\n      text-align: center;\n}\n.map .areaStyle .detail img {\n        width: 200px;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 400px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      z-index: 99999;\n      position: relative;\n      background-color: #FFFFFF;\n      color: #000000;\n      display: none;\n      bottom: 0px;\n      right: 41px;\n      width: 200px;\n      text-align: center;\n}\n.map .areaStyle .detail img {\n        width: 200px;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    width: 480px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .mapList {\n      padding: 20px 0;\n      border-bottom: 1px solid #f5f5f5;\n}\n.map .screen .mapList .mapBox .mapDetail {\n        height: 140px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .mapList .mapBox .mapDetail .mapTitle {\n          font-size: 20px;\n          font-weight: 600;\n}\n.map .screen .mapList .mapBox .mapDetail .mapPrice span {\n          font-size: 16px;\n          color: #007bff;\n}\n.map .screen .mapList .mapBox .mapDetail .mapAddress {\n          font-size: 12px;\n          line-height: 22px;\n          color: #666;\n}\n.map .screen .mapList .mapBox .mapDetail .mapArea {\n          color: #666;\n          font-size: 12px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
 
 // exports
 
@@ -20585,15 +20585,17 @@ var render = function() {
           _vm._v(" "),
           _c(
             "el-row",
-            { staticStyle: { padding: "5px 0px" } },
+            { staticStyle: { padding: "10px 0px", "margin-left": "30px" } },
             [
               _c("el-col", { attrs: { span: 15 } }, [
                 _c("img", { attrs: { src: "" } }),
-                _vm._v(
-                  "\n                武汉 为您找到" +
-                    _vm._s(_vm.buildListNum) +
-                    "个楼盘\n            "
-                )
+                _vm._v(" "),
+                _c("span", [_vm._v("武汉")]),
+                _vm._v(" 为您找到 "),
+                _c("span", { staticStyle: { color: "#007bff" } }, [
+                  _vm._v(_vm._s(_vm.buildListNum))
+                ]),
+                _vm._v(" 个楼盘\n            ")
               ]),
               _vm._v(" "),
               _c("el-col", { attrs: { span: 9 } })
@@ -20606,13 +20608,14 @@ var render = function() {
               "el-row",
               {
                 key: "leftList" + index,
-                staticStyle: { padding: "5px 0px" },
+                staticClass: "mapList",
                 attrs: { gutter: 20 }
               },
               [
                 _c(
-                  "span",
+                  "div",
                   {
+                    staticClass: "mapBox",
                     on: {
                       click: function($event) {
                         _vm.seeBuildDetail(item)
@@ -20620,34 +20623,51 @@ var render = function() {
                     }
                   },
                   [
-                    _c("el-col", { attrs: { span: 8 } }, [
-                      _c("img", {
-                        staticStyle: { width: "130px", height: "130px" },
-                        attrs: { src: item.img_cn }
-                      })
-                    ]),
+                    _c(
+                      "el-col",
+                      {
+                        staticStyle: { padding: "0", "margin-left": "40px" },
+                        attrs: { span: 8 }
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "140px", height: "140px" },
+                          attrs: { src: item.img_cn }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("el-col", { attrs: { span: 15 } }, [
-                      _c("div", [_vm._v(_vm._s(item.name))]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("span", [_vm._v(_vm._s(item.buildingAverage))]),
-                        _c("span", [_vm._v("元/㎡·月")])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._v(
-                          "地址: [" +
-                            _vm._s(item.address_cn) +
-                            "] " +
-                            _vm._s(item.address)
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._v("面积：" + _vm._s(item.acreage_cn) + "  ")
-                      ])
-                    ])
+                    _c(
+                      "el-col",
+                      {
+                        staticClass: "mapDetail",
+                        staticStyle: { padding: "5px 0" },
+                        attrs: { span: 13 }
+                      },
+                      [
+                        _c("div", { staticClass: "mapTitle" }, [
+                          _vm._v(_vm._s(item.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mapPrice" }, [
+                          _c("span", [_vm._v(_vm._s(item.avg_price))]),
+                          _c("span", [_vm._v("元/㎡·月")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mapAddress" }, [
+                          _vm._v(
+                            "地址: [" +
+                              _vm._s(item.address_cn) +
+                              "] " +
+                              _vm._s(item.address)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mapArea" }, [
+                          _vm._v("面积：" + _vm._s(item.acreage_cn) + "  ")
+                        ])
+                      ]
+                    )
                   ],
                   1
                 )
