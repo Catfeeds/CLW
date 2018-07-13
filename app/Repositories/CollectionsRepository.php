@@ -34,7 +34,7 @@ class CollectionsRepository extends Model
      */
     public function collectionList($request, $service)
     {
-        $collection =  Collection::with('officeBuildingHouse', 'officeBuildingHouse.houseLabel', 'officeBuildingHouse.buildingBlock.building')->where('user_id', 1)->paginate($request->per_page??10);
+        $collection =  Collection::with('officeBuildingHouse', 'officeBuildingHouse.houseLabel', 'officeBuildingHouse.buildingBlock.building')->where('user_id', $this->user()->id)->paginate($request->per_page??10);
         foreach($collection as $v) {
             $service->HouseInfo($v);
         }
@@ -51,7 +51,7 @@ class CollectionsRepository extends Model
     public function addCollection($request)
     {
         return Collection::create([
-            'user_id' => 1,
+            'user_id' => $this->user()->id,
             'house_id' => $request->house_id
         ]);
     }
