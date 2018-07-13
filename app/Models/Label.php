@@ -52,5 +52,4 @@ class Label extends BaseModel
         return true;
     }
 
-
 }

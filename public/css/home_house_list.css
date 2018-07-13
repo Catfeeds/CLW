@@ -896,6 +896,8 @@ body .right_tab .bank-top .text-box {
 }
 
 .el-popover.customer-popover {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   background-color: #007bff;
   border-color: #007bff !important;
 }
@@ -935,6 +937,8 @@ body .right_tab .bank-top .text-box {
 }
 
 .el-popover.dimentionalCode-popover {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   min-width: 107px !important;
   height: 107px !important;
   padding: 0 !important;
@@ -1122,7 +1126,6 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_b
   left: 22px;
   top: 7px;
   height: 20px;
-  background: url("/home_img/index_search_btn.png") no-repeat center/20px 20px;
 }
 
 body .house_list_container .house_list_title .title_content .serch_area .serch_btn:hover {
@@ -1299,7 +1302,6 @@ body .house_list_container .house_list_content .select_box .select_area .result 
   left: -2px;
   top: 9px;
   position: absolute;
-  background: url(/home_img/rubish.svg);
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning a {
@@ -1309,10 +1311,6 @@ body .house_list_container .house_list_content .select_box .select_area .result 
 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning a:hover {
   color: #007bff;
-}
-
-body .house_list_container .house_list_content .select_box .select_area .result .cleaning:hover .icon_clean {
-  background: url(/home_img/rubish1.svg);
 }
 
 body .house_list_container .house_list_content .house_list {
@@ -1753,13 +1751,5 @@ body .house_list_container .house_list_content .house_list .freeConsult {
   background-position: left -66px;
   margin-right: 6px;
   vertical-align: -3px;
-}
-
-.icon-tick {
-  background: url("/home_img/tick.svg") no-repeat;
-}
-
-.icon-untick {
-  background: url("/home_img/untick.svg") no-repeat;
 }
 
