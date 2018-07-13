@@ -2,6 +2,17 @@
 @section('title', '房源详情')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_house_detail.css')}}">
+<style>
+    #serverNext:hover{
+        background: url({{homeRes("/home_img/house_detail_right_before.png")}}) no-repeat !important;
+    }
+    #serverPrev:hover{
+        background: url({{homeRes("/home_img/house_detail_left_before.png")}}) no-repeat !important;
+    }
+    .pircePic:hover div{
+        background: url({{homeRes("/home_img/house_detail_collect_after.png")}}) no-repeat !important;
+    }
+</style>
 @endsection
 @section('body')
 @include('home.nav')
@@ -56,7 +67,7 @@
                     </div>
                     <!-- <div class="collect">
                         <div class="pircePic">
-                            <div></div>
+                            <div style="background: url({{homeRes('/home_img/house_detail_collect_before.png')}} no-repeat;"></div>
                         </div>
                         <div class="collectTitle">收藏</div>
                     </div> -->
@@ -184,7 +195,7 @@
                     <div class='server'>
                         <div class="head">企业服务</div>
                         <div class="serverPic">
-                            <div class="serverImg" id="serverPrev"></div>
+                            <div class="serverImg" id="serverPrev" style="background: url({{homeRes('/home_img/house_detail_left.png')}}) no-repeat;"></div>
                             <div class="swiper-container" id="service">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/plant.png')}}"><div>绿植摆租</div></a></div>
@@ -203,7 +214,7 @@
                                     <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/finance.png')}}"><div>财务财税</div></a></div>
                                 </div>
                             </div>
-                            <div class="serverImg" id="serverNext"></div>
+                            <div class="serverImg" id="serverNext" style="background: url({{homeRes('/home_img/house_detail_right.png')}}) no-repeat;"></div>
                         </div>
                     </div>
                 </div>

@@ -1094,15 +1094,10 @@ body .right_tab .bank-top .text-box {
   margin: 5px;
   width: 16px;
   height: 15px;
-  background: url(/home_img/house_detail_collect_before.png) no-repeat;
 }
 
 .content .banner .infor .price .collect .pircePic:hover {
   cursor: pointer;
-}
-
-.content .banner .infor .price .collect .pircePic:hover div {
-  background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
 }
 
 .content .banner .infor .price .collect .collectTitle {
@@ -1378,14 +1373,12 @@ body .right_tab .bank-top .text-box {
   width: 46px;
   height: 48px;
   margin-top: 8px;
-  background: url(/home_img/house_detail_left.png) no-repeat;
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverPrev:hover {
   width: 46px;
   height: 48px;
   margin-top: 8px;
-  background: url(/home_img/house_detail_left_before.png) no-repeat;
   cursor: pointer;
 }
 
@@ -1393,14 +1386,12 @@ body .right_tab .bank-top .text-box {
   width: 46px;
   height: 48px;
   margin-top: 8px;
-  background: url(/home_img/house_detail_right.png) no-repeat;
 }
 
 .content .second .houseInfor .houseDetail .left .server .serverPic #serverNext:hover {
   width: 46px;
   height: 48px;
   margin-top: 8px;
-  background: url(/home_img/house_detail_right_before.png) no-repeat;
   cursor: pointer;
 }
 

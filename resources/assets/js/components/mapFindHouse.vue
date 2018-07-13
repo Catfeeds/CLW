@@ -14,7 +14,7 @@
         <div v-if='!subwayKeyword'>
             <!--中心点测试-->
             <self-overlay :position="zhongxin">
-                <div style="font-size: 50px">⊙</div>
+                <!-- <div style="font-size: 50px">⊙</div> -->
             </self-overlay>
             <!--zoom 比例尺说明 5公里: 12 、2公里：13、  1公里：14、 500米：15、 200米 16、 100米 17-->
             <!--zoom 比例尺说明 5公里显示区域（12）  1公里显示商圈（14）    200米显示楼盘（16）   显示地铁1两公里（14） -->
@@ -86,7 +86,7 @@
             <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
                 <el-button @click="findKeyword" slot="append" icon="el-icon-search"></el-button>
             </el-input>
-            <el-row style="padding: 5px 0px">
+            <el-row style="padding: 10px 10px" :gutter="10">
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
                         <el-cascader size="mini" filterable
@@ -715,8 +715,8 @@
         }
         .screen {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 0px;
+            left: 0px;
             width: 480px;
             height: 98vh;
             background: #fff;

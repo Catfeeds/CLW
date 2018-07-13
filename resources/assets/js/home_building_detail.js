@@ -29,12 +29,12 @@ new Vue({
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop() // 页面滚动距离
-  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 923) < secondTop)) {
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 1076) < secondTop)) {
     $('.right').addClass('location')
     $('.right').css('margin-top', '0')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 923) >= secondTop)) {
-    if((scrollTop + 923) >= secondTop) {
-      $('.right').css('margin-top', secondTop-rightTop-870)
+  } else if((scrollTop <= rightTop) || ((scrollTop + 1076) >= secondTop)) {
+    if((scrollTop + 1076) >= secondTop) {
+      $('.right').css('margin-top', secondTop-rightTop-1023)
       $('.right').removeClass('location')
     } else {
       $('.right').removeClass('location')
