@@ -38,8 +38,8 @@
         {{-- <a href="javascript:;" class="login-a js_login"><img class="active" src="/home_img/login_user.png" alt="" />登录</a> --}}
       @endif
        <div class="hover-down-app">
-          <img class="fade" v-popover:hoverdownapp src="{{homeRes('/home_img/nav_app_white.png')}}" alt="">
-          <img class="active" v-popover:hoverdownapp1 src="{{homeRes('/home_img/nav_app.png')}}" alt="">
+          <img class="fade" src="{{homeRes('/home_img/nav_app_white.png')}}" alt="">
+          <img class="active" src="{{homeRes('/home_img/nav_app.png')}}" alt="">
           <div class="down-app-box">
             <img src="{{homeRes('/home_img/nav_appDownloadCode.jpg')}}" alt="楚楼网APP下载">
           </div>
