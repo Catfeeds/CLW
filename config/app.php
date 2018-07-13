@@ -183,9 +183,6 @@ return [
 
         // 权限
         Spatie\Permission\PermissionServiceProvider::class,
-
-        // 软删
-        Askedio\SoftCascade\Providers\GenericServiceProvider::class,
     ],
 
     /*

@@ -4,9 +4,10 @@ namespace App\Models;
 
 class Label extends BaseModel
 {
-    use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
-
-    protected $softCascade = ['nextLabel'];
+    public function goodsHasLabel()
+    {
+        return $this->hasMany('App\Models\GoodsHasLabel','label_id','id');
+    }
 
     // 通过大类名称获取标签
     public static function getLabelByCategoryName(
@@ -24,13 +25,6 @@ class Label extends BaseModel
         return $this->hasMany('App\Models\Label', 'parent_id', 'id')->where('stage', 2);
     }
 
-    public function nextLabel()
-    {
-        if ($this->stage == 1) {
-            return $this->hasMany('App\Models\Label', 'parent_id', 'id')->where('stage', 2);
-        } elseif ($this->stage == 2) {
-            return self::find($this->id);
-        }
-    }
-    
+
+
 }
