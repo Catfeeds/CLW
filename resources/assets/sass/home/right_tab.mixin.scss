@@ -134,6 +134,7 @@
     }
   }
   .el-popover.customer-popover{
+    box-sizing: content-box;
     background-color: $master-blue;
     border-color: $master-blue!important;
     .popper__arrow{
@@ -166,6 +167,7 @@
     }
   }
   .el-popover.dimentionalCode-popover{
+    box-sizing: content-box;
     min-width: 107px !important;
     height: 107px !important;
     padding: 0 !important;

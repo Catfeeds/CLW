@@ -918,6 +918,8 @@ body .right_tab .bank-top .text-box {
 }
 
 .el-popover.customer-popover {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   background-color: #007bff;
   border-color: #007bff !important;
 }
@@ -957,6 +959,8 @@ body .right_tab .bank-top .text-box {
 }
 
 .el-popover.dimentionalCode-popover {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   min-width: 107px !important;
   height: 107px !important;
   padding: 0 !important;
