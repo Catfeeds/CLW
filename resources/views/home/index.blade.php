@@ -249,16 +249,13 @@
   <div class="elaborate-title">让办公更舒心</div>
   <div class="topic-content">
     <ul class="cite-server-list">
-      <?php
-            $service = ['plants','business_taxes','housekeeping','housekeeping']
-        ?>
-      @for($i = 1; $i < 5; $i++) 
+      @foreach( $recommendService as $reService_item )
         <li class="cite-server-item">
-          <a href="http://shop.chulouwang.com/{{$service[$i-1]}}" target="_blank">
-            <img src="/home_img/tempss_{{$i}}.jpg" alt="">
+          <a href="{{'http://shop.chulouwang.com/'.$reService_item->url}}" target="_blank">
+            <img src="{{$reService_item->pic_cn}}" alt="">
           </a>
         </li>
-      @endfor
+      @endforeach
       <li class="clearfloat"></li>
     </ul>
   </div>
