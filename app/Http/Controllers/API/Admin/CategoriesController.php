@@ -51,7 +51,7 @@ class CategoriesController extends APIBaseController
         return $this->sendResponse($res,'商城大类修改成功');
     }
 
-    // 商城大类删除
+    // 商城大类删除(删除下级所有标签)
     public function destroy(
         Category $category
     )

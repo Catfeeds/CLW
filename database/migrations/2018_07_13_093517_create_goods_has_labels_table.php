@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePcServiceRecommendsTable extends Migration
+class CreateGoodsHasLabelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreatePcServiceRecommendsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pc_service_recommends', function (Blueprint $table) {
+        Schema::create('goods_has_labels', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pic','128')->nullable()->comment('图片');
-            $table->string('url','64')->nullable()->comment('推荐服务商品url');
+            $table->string('goods_type')->comment('商品model');
+            $table->char('goods_id',32)->comment('商品id');
+            $table->integer('label_id')->unsigned()->comment('标签id');
             $table->timestamps();
             $table->softDeletes();
         });
-        DB::statement("alter table `pc_service_recommends` comment'pc端推荐服务商铺管理'");
+        DB::statement("alter table `goods_has_labels` comment'标签商品关联表'");
     }
 
     /**
@@ -30,6 +31,6 @@ class CreatePcServiceRecommendsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pc_service_recommends');
+        Schema::dropIfExists('goods_has_labels');
     }
 }
