@@ -100,13 +100,10 @@
               margin: 5px;
               width: 16px;
               height: 15px;
-              background: url(/home_img/house_detail_collect_before.png) no-repeat;
+              
             }
             &:hover{
               cursor: pointer;
-              div{
-                background: url(/home_img/house_detail_collect_after.png) no-repeat !important;
-              }
             }
           }
           .collectTitle{
@@ -305,12 +302,11 @@
                 width: 46px;
                 height: 48px;
                 margin-top: 8px;
-                background: url(/home_img/house_detail_left.png) no-repeat;
+                
                 &:hover{
                   width: 46px;
                   height: 48px;
                   margin-top: 8px;
-                  background: url(/home_img/house_detail_left_before.png) no-repeat;
                   cursor: pointer;
                 }
               }
@@ -318,12 +314,10 @@
                 width: 46px;
                 height: 48px;
                 margin-top: 8px;
-                background: url(/home_img/house_detail_right.png) no-repeat;
                 &:hover{
                   width: 46px;
                   height: 48px;
                   margin-top: 8px;
-                  background: url(/home_img/house_detail_right_before.png) no-repeat;
                   cursor: pointer;
                 }
               }
