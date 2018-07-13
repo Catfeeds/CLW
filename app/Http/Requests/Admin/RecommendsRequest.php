@@ -65,7 +65,10 @@ class RecommendsRequest extends FormRequest
                             Recommend::all()->pluck('introduce')->toArray()
                         )
                     ],
-                    'pic' => 'required|max:128',
+                    'pic' => 'required',
+                    'pc_pic' => 'required',
+                    'pc_big_details_pic' => 'required',
+                    'pc_small_details_pic' => 'required',
                     'building_id' => [
                         'required',
                         'array',
@@ -82,7 +85,10 @@ class RecommendsRequest extends FormRequest
                     'required',
                     'max:32',
                 ],
-                'pic' => 'required|max:128',
+                'pic' => 'required',
+                'pc_pic' => 'required',
+                'pc_big_details_pic' => 'required',
+                'pc_small_details_pic' => 'required',
                 'building_id' => [
                     'required',
                     'array',
