@@ -74,20 +74,20 @@ $('.js_map').on('click', function() {
 })
 
 // 页面滚动
-$(window).scroll(function(){
-  var scrollTop = $(window).scrollTop()
-  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 595) < secondTop)) {
-    $('.findHouse').addClass('location')
-    $('.findHouse').css('margin-top', '20px')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 595) >= secondTop)) {
-    if((scrollTop + 595) >= secondTop) {
-      $('.findHouse').css('margin-top', secondTop-rightTop-518)
-      $('.findHouse').removeClass('location')
-    } else {
-      $('.findHouse').removeClass('location')
-    }
-  }
-})
+// $(window).scroll(function(){
+//   var scrollTop = $(window).scrollTop()
+//   if(((scrollTop + 60) >= rightTop) && ((scrollTop + 595) < secondTop)) {
+//     $('.findHouse').addClass('location')
+//     $('.findHouse').css('margin-top', '20px')
+//   } else if((scrollTop <= rightTop) || ((scrollTop + 595) >= secondTop)) {
+//     if((scrollTop + 595) >= secondTop) {
+//       $('.findHouse').css('margin-top', secondTop-rightTop-518)
+//       $('.findHouse').removeClass('location')
+//     } else {
+//       $('.findHouse').removeClass('location')
+//     }
+//   }
+// })
 
 // 点击收藏
 $('.pircePic').on('click', function() {
