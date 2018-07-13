@@ -20,8 +20,8 @@
                           :key="'areaBox'+ index">
                 <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
-                    <span>{{item.name}}</span>
-                    <span>{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{item.name}}</span>
+                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
@@ -30,9 +30,9 @@
                           :key="'blockBox'+ index">
                 <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
                      @mouseleave='blockActive = ""'>
-                    <span>{{item.name}}</span>
+                    <span style="color:#fff;">{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
-                    <span>{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--楼盘浮动矩形-->
@@ -41,7 +41,7 @@
                         :key="'buildBox'+ index">
                 <div class="areaStyle" @click="seeBuildDetail(item)">
                     <div class="triangle"></div>
-                    <span>{{item.name}}</span>
+                    <span style="color:#fff;">{{item.name}}</span>
                     <div class="detail">
                         <div>
                             <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
@@ -73,8 +73,8 @@
                     :key="'subway'+ index">
             <div class="areaStyle" @click="seeMtro(item)" @mouseover='blockActive = item.baidu_coord'
                  @mouseleave='blockActive = ""'>
-                <span>{{item.name}}</span>
-                <span v-if="zoom<15">{{item.num}}个</span>
+                <span style="color:#fff;">{{item.name}}</span>
+                <span v-if="zoom<15" style="color:#fff;">{{item.num}}个</span>
                 <div class="triangle"></div>
             </div>
         </site-cover>
