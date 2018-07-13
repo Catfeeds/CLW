@@ -132,51 +132,17 @@
   <div class="elaborate-title">让办公更舒心</div>
   <div class="topic-content">
     <ul class="sever-list">
+      @foreach($service as $service_item)
       <li class="sever-item">
-        <a href="http://shop.chulouwang.com/plants" target="_blank">
-        <img src="{{homeRes('/home_img/index_topic1_plant.jpg')}}" alt="绿植服务">
+        <a href="{{$service_item->url}}" target="_blank">
+        <img src="{{$service_item->pc_img_cn}}" alt="{{$service_item->master_title}}">
           <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">绿植租摆</div>
-          <div class="server-title-active">绿植租摆</div>
+          <div class="text-box">{{$service_item->vice_title}}</div>
+          <div class="server-title">{{$service_item->master_title}}</div>
+          <div class="server-title-active">{{$service_item->master_title}}</div>
         </a>
       </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
-        <img src="{{homeRes('/home_img/index_topic1_clear.jpg')}}" alt="保洁服务">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">保洁服务</div>
-          <div class="server-title-active">保洁服务</div>
-        </a>
-      </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/furniture" target="_blank">
-        <img src="{{homeRes('/home_img/index_topic1_jiaju.jpg')}}" alt="办公家具">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">办公家具</div>
-          <div class="server-title-active">办公家具</div>
-        </a>
-      </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/business_taxes" target="_blank">
-        <img src="{{homeRes('/home_img/index_topic1_gongshang.jpg')}}" alt="工商代办">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">工商代办</div>
-          <div class="server-title-active">工商代办</div>
-        </a>
-      </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
-        <img src="{{homeRes('/home_img/index_topic1_moveHome.jpg')}}" alt="搬家服务">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">搬家服务</div>
-          <div class="server-title-active">搬家服务</div>
-        </a>
-      </li>
+      @endforeach
       <li class="clearfloat"></li>
     </ul>
   </div>
@@ -190,7 +156,7 @@
         @foreach ( $coreBlock as $coreBlock_item )
           <li class="commercial-center-item">
             <a href="{{url('/building_list?area_id='.$coreBlock_item->area_id.'&block_id='.$coreBlock_item->block_id)}}">
-              <img src="{{$coreBlock_item->pc_img}}">
+              <img src="{{$coreBlock_item->pc_img_cn}}">
             </a>
           </li>
         @endforeach
@@ -206,7 +172,7 @@
       @foreach ( $recommends as $recommends_item )
         <li class="careful-select-item">
         <a href="{{url('/recommends/'.$recommends_item->id)}}" title="{{$recommends_item->title}}">
-            <img src="{{$recommends_item->pc_pic}}" alt="{{$recommends_item->title}}">
+            <img src="{{$recommends_item->pc_pic_cn}}" alt="{{$recommends_item->title}}">
           </a>
         </li>
       @endforeach
