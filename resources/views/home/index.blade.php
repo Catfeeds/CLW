@@ -251,7 +251,7 @@
     <ul class="cite-server-list">
       @foreach( $recommendService as $reService_item )
         <li class="cite-server-item">
-          <a href="{{$reService_item->url}}" target="_blank">
+          <a href="{{'http://shop.chulouwang.com/'.$reService_item->url}}" target="_blank">
             <img src="{{$reService_item->pic_cn}}" alt="">
           </a>
         </li>
