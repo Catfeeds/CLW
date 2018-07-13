@@ -736,6 +736,7 @@ nav .nav-content .login-box .user-login-box .hover-down-app .down-app-box::after
 html,
 body {
   height: 100vh;
+  min-height: 950px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
@@ -745,7 +746,11 @@ body {
 
 html .box,
 body .box {
-  min-height: 910px;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
 
 html .box .container,
@@ -753,7 +758,6 @@ body .box .container {
   width: 480px;
   padding-top: 130px;
   margin: 0 auto;
-  position: relative;
 }
 
 html .box .container .title,
@@ -946,7 +950,7 @@ body .box .container .detail {
   background-color: rgba(0,0,0,0.32);
   border-radius: 11px;
   position: absolute;
-  bottom: -200px;
+  bottom: 0;
   padding: 25px 34px 37px;
   margin: 0 auto;
 }

@@ -13,13 +13,13 @@ class PcEnterpriseService extends Model
         'pc_img_cn', 'pc_img_url'
     ];
 
-    // pc端图片
+    // pc端企业服务图片
     public function getPcImgCnAttribute()
     {
-        return config('setting.qiniu_url').$this->img;
+        return config('setting.qiniu_url'). $this->img;
     }
 
-    // pc端图片
+    // pc端企业服务图片
     public function getPcImgUrlAttribute()
     {
         return collect($this->img)->map(function ($img) {

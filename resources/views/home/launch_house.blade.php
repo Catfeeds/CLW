@@ -6,7 +6,7 @@
 @endsection
 @section('body')
   @include('home.nav')
-  <div class="box" style="width:100%;height:100%;background-image:url('/home_img/sellhouse_back.jpg');background-position:center;background-size:cover">
+  <div class="box" style="background-image:url('/home_img/sellhouse_back.jpg');">
     <div class="container">
       <div class="title">楚楼网帮您出租!</div>
       <div class="min_title">海量客源,快速成交</div>
