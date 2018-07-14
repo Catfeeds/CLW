@@ -1031,7 +1031,6 @@ body .right_tab .bank-top .text-box {
 
 .content .banner .swiper .littelSwiper #smallImg {
   width: 622px;
-  margin-top: 2px;
   height: 70px;
 }
 
@@ -1041,7 +1040,7 @@ body .right_tab .bank-top .text-box {
 
 .content .banner .swiper .littelSwiper #smallImg .swiper-slide img {
   width: 118px;
-  height: 67px;
+  height: 70px;
 }
 
 .content .banner .infor .title {
