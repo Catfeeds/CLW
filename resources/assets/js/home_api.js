@@ -131,3 +131,19 @@ export function getSelectInfo(params) {
     params
   })
 }
+
+// 获取楼盘详情市场行情
+export function getMarketPrice(params) {
+  return request({
+    url: '/market_price/' + params,
+    method: 'GET'
+  })
+}
+
+// 获取楼盘详情猜你喜欢
+export function getLikeBuild() {
+  return request({
+    url: '/like_building',
+    method: 'GET'
+  })
+}
