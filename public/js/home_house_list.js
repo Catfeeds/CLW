@@ -12546,12 +12546,14 @@ function createURL(url, param) {
 // 页面滚动
 $(window).scroll(function () {
     var scrollTop = $(window).scrollTop();
+    var bottom = $('div.pagination').offset().top;
+    console.log(bottom + "===" + scrollTop);
     if (scrollTop >= 335) {
         $('#findHouse').addClass("location");
         $('#findHouse').css('margin-top', '30px');
-        if (scrollTop >= 2300) {
+        if (scrollTop >= 2145) {
             $('#findHouse').removeClass('location');
-            $('#findHouse').css('margin-top', '1974px');
+            $('#findHouse').css('margin-top', '1820px');
         }
     } else if (scrollTop <= rightTop) {
         $('#findHouse').removeClass("location");

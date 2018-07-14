@@ -1322,10 +1322,16 @@ body .house_list_container .house_list_content .house_list {
   margin-bottom: 80px;
 }
 
+body .house_list_container .house_list_content .house_list #findHouse .find_house .freeConsult {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body .house_list_container .house_list_content .house_list .house_show {
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
+  min-width: 940px;
   max-width: 940px;
   margin-right: 20px;
 }

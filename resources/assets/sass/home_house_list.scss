@@ -226,8 +226,16 @@ body {
         margin: 0 auto;
         display: flex;
         margin-bottom: 80px;
+        #findHouse {
+          .find_house {
+            .freeConsult {
+              box-sizing: border-box;
+            }
+          }
+        }
         .house_show {
           flex: 4;
+          min-width: 940px;
           max-width: 940px;
           margin-right: 20px; 
           .empty {
