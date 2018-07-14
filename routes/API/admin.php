@@ -116,7 +116,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('service_labels', 'ServiceLabelsController');
         Route::get('all_service_labels', 'ServiceLabelsController@allServiceLabels');
 
-
         /*
         |--------------------------------------------------------------------------
         | 精品推荐管理
@@ -125,6 +124,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('recommends', 'RecommendsController');
         //获取楼盘下拉数据
         Route::get('buildings_select', 'RecommendsController@buildingsSelect');
+
+        /*
+        |--------------------------------------------------------------------------
+        | pc端精品推荐管理
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('pc_recommends', 'PcRecommendsController');
 
         /*
         |--------------------------------------------------------------------------
