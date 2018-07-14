@@ -47,7 +47,6 @@
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
                             @foreach($building->feature_name_pic as $feature)
-                            
                             <div class="betterDetail">
                                 <img src="{{$feature['pic']}}">
                                 <span>{{$feature['name']}}</span>
