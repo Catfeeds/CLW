@@ -1,6 +1,7 @@
 require('./home_common');
 import './components/home/login' // 登录组件
 import './components/home/right_tab' // 侧边栏组件
+import { getMarketPrice, getLikeBuild } from './home_api'
 const Swiper = require('swiper');
 var detailMap = require('./components/detailMap.vue') // 地图组件
 var findHouse = require('./components/findHouse.vue') // 委托找房组件
@@ -42,14 +43,14 @@ $(window).scroll(function(){
   }
 })
 // 轮播
-var banner = new Swiper('#banner', {
-  simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
-  pagination: '.swiper-pagination', // 添加分页器
-  paginationClickable: true,
-  paginationBulletRender: function(banner, index, className){
-    return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
-  }
-})
+// var banner = new Swiper('#banner', {
+//   simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
+//   pagination: '.swiper-pagination', // 添加分页器
+//   paginationClickable: true,
+//   paginationBulletRender: function(banner, index, className){
+//     return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
+//   }
+// })
 
 
 // 手动切换banner

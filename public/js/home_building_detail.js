@@ -2266,6 +2266,8 @@ module.exports = Cancel;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
 /* harmony export (immutable) */ __webpack_exports__["l"] = launchHouse;
 /* harmony export (immutable) */ __webpack_exports__["j"] = getSelectInfo;
+/* unused harmony export getMarketPrice */
+/* unused harmony export getLikeBuild */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -2400,6 +2402,23 @@ function getSelectInfo(params) {
     url: '/get_select_info',
     method: 'GET',
     params: params
+  });
+}
+
+// 获取楼盘详情市场行情
+function getMarketPrice(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/market_price',
+    method: 'GET',
+    params: params
+  });
+}
+
+// 获取楼盘详情猜你喜欢
+function getLikeBuild() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/like_building',
+    method: 'GET'
   });
 }
 
@@ -17679,9 +17698,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_login__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_home_right_tab__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_home_right_tab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_home_right_tab__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_api__ = __webpack_require__(19);
 __webpack_require__(70);
  // 登录组件
  // 侧边栏组件
+
 var Swiper = __webpack_require__(87);
 var detailMap = __webpack_require__(140); // 地图组件
 var findHouse = __webpack_require__(107); // 委托找房组件
@@ -17723,14 +17744,15 @@ $(window).scroll(function () {
   }
 });
 // 轮播
-var banner = new Swiper('#banner', {
-  simulateTouch: true, // 开启可能导致快速切换页面时跳到其它页面
-  pagination: '.swiper-pagination', // 添加分页器
-  paginationClickable: true,
-  paginationBulletRender: function paginationBulletRender(banner, index, className) {
-    return '<span style="cursor:pointer" class="js_bannerChange ' + className + '"><img src="' + Data.pc_pic_url[index].url + '"></span>';
-  }
-});
+// var banner = new Swiper('#banner', {
+//   simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
+//   pagination: '.swiper-pagination', // 添加分页器
+//   paginationClickable: true,
+//   paginationBulletRender: function(banner, index, className){
+//     return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
+//   }
+// })
+
 
 // 手动切换banner
 // $(document).on('click', 'span.js_bannerChange', function() {
