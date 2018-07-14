@@ -59,12 +59,21 @@ class OfficeBuildingHouse extends BaseModel
                 ];
             });
         } else {
-            return collect([
-                [
-                    'name' => '',
-                    'url' => config('setting.house_default_img')
-                ]
-            ]);
+            if ($_SERVER["HTTP_HOST"] === config('hosts.home')) {
+                return collect([
+                    [
+                        'name' => '',
+                        'url' => config('setting.pc_building_house_default_img')
+                    ]
+                ]);
+            } else {
+                return collect([
+                    [
+                        'name' => '',
+                        'url' => config('setting.house_default_img')
+                    ]
+                ]);
+            }
         }
     }
 
