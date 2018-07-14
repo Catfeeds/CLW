@@ -51,7 +51,7 @@ Route::get('topic',function(){
   return view('home.home_topic');
 });
 // 精选楼盘
-Route::resource('recommends', 'RecommendsController');
+Route::resource('pc_recommends', 'PcRecommendsController');
 // 关于我们
 Route::get('about/{info}', 'AboutWeController@about');
 /*
