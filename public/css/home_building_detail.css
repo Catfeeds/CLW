@@ -995,12 +995,15 @@ body .right_tab .bank-top .text-box {
 }
 
 .content #banner .swiper-slide {
+  width: 100% !important;
   height: 560px;
 }
 
-.content #banner .swiper-slide img {
-  width: 100%;
+.content #banner .swiper-slide div {
   height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 .content #banner .swiper-pagination {

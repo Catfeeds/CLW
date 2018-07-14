@@ -11,8 +11,9 @@
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="swiperPic" style="background-image:url(http://osibaji20.bkt.clouddn.com/FjEr7aTT2dJvrExlP75CQhCdVdil)"></div></div>
                 @foreach($building->pc_pic_url as $pic)
-                <div class="swiper-slide"><img src="{{$pic['url']}}" alt=""></div>
+                <div class="swiper-slide"><div style="background-image:url({{$pic['url']}})"></div></div>
                 @endforeach
             </div>
             <div class="swiper-pagination"></div>
