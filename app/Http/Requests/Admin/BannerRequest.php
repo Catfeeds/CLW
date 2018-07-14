@@ -19,6 +19,7 @@ class BannerRequest extends FormRequest
     /**
      * 说明: 验证规则
      *
+     *
      * @return array
      * @author 罗振
      */
