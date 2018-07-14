@@ -21,40 +21,23 @@
             <!--区域数据 浮动圆-->
             <self-overlay v-show='zoom<=13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
                           :key="'areaBox'+ index">
-                <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
+                <div class="regionStyle" :id="getId(1,item.id)" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
                     <span style="color:#fff;">{{item.name}}</span>
                     <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
-            <self-overlay v-show='zoom<=14&&zoom>13' :position="{lng: item.x, lat: item.y}"
+            <self-overlay v-show='zoom<=15&&zoom>13' :position="{lng: item.x, lat: item.y}"
                           v-for="(item, index) in blockList"
                           :key="'blockBox'+ index">
-                <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                <div class="areaStyle" :id="getId(2,item.id)" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
                      @mouseleave='blockActive = ""'>
                     <span style="color:#fff;">{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
                     <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
-            <!--楼盘浮动矩形-->
-            <site-cover v-show='zoom>15' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
-                        v-for="(item, index) in buildList"
-                        :key="'buildBox'+ index">
-                <div class="areaStyle" @click="seeBuildDetail(item)">
-                    <div class="triangle"></div>
-                    <span style="color:#fff;">{{item.name}}</span>
-                    <div class="detail">
-                        <div>
-                            <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
-                            <span>76.2元/㎡·月</span>
-                        </div>
-                        <div>{{item.title}}</div>
-                        <div>面积: 57-700㎡</div>
-                    </div>
-                </div>
-            </site-cover>
             <!--商圈区块-->
             <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
@@ -67,6 +50,23 @@
                     :strokeColor="boundaryStyle.strokeColor">
             </bm-boundary>
         </div>
+        <!--楼盘浮动矩形-->
+        <site-cover v-show='zoom>15' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
+                    v-for="(item, index) in buildList"
+                    :key="'buildBox'+ index">
+            <div class="areaStyle" @click="seeBuildDetail(item)">
+                <div class="triangle"></div>
+                <span style="color:#fff;">{{item.name}}</span>
+                <div class="detail">
+                    <div>
+                        <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
+                        <span>76.2元/㎡·月</span>
+                    </div>
+                    <div>{{item.title}}</div>
+                    <div>面积: 57-700㎡</div>
+                </div>
+            </div>
+        </site-cover>
         <!--线路-->
         <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'
                 @getbuslinecomplete='getbuslinecomplete'
@@ -184,6 +184,7 @@
     } from 'vue-baidu-map'
     import selfOverlay from './map/selfOverlay' // 悬浮窗容器
     import siteCover from './map/siteCover.vue' // 地铁悬浮窗容器
+    import $ from 'jquery' // 地铁悬浮窗容器
     import {Select, Option, Tabs, TabPane, Form, FormItem, Input, Button, Main, Row, Col, Cascader} from 'element-ui';
     var ElSelect = Select,
         ElOption = Option,
@@ -237,6 +238,7 @@
                 zoom: 12, // 地图缩放级别
                 keyword: '地铁', // 检索词
                 regionList: [], // 区域数据
+                regionListAll: [], // 区域数据
                 blockList: [], // 商圈列数据
                 buildList: [], // 楼盘数据
                 buildListNum: 0, // 楼盘数据
@@ -252,10 +254,6 @@
                 },
                 regionArray: [],// 区域下拉数据
                 acreageArray: [{
-                    value: '',
-                    label: '全部'
-                },
-                    {
                         value: '0-100',
                         label: '0-100㎡'
                     },
@@ -410,6 +408,7 @@
             getRegionList().then(res => {
                 if (res.success) {
                     this.regionList = res.data
+                    this.regionListAll = res.data
                 }
             })
             // 获取商圈数据
@@ -430,6 +429,7 @@
         },
         watch: {
             'condition.metro': function () {
+                this.siteList = []
                 this.subwayKeyword = this.condition.metro
                 if (this.condition.metro === '') {
                     this.subwayKeyword = false;
@@ -468,12 +468,28 @@
             },
             condition: {
                 handler: function (val, oldVal) {
-                    if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') return;
+                    if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') {
+                        if( this.regionList.length == 0) {
+                            // 获取区域 数据
+                            getRegionList().then(res => {
+                                if (res.success) {
+                                    this.regionList = res.data
+                                }
+                            })
+                        }
+                        return
+                    }
+                    console.log('val.acreage', val.acreage)
+                    console.log('val.total_price', val.total_price)
+                    console.log('val.unit_price', val.unit_price)
                     const data = this.condition
                     data._token = document.getElementsByName('csrf-token')[0].content
-                    console.log('data', data)
-                    this.getBuild(data)
-                    console.log('asdsada', val)
+                    if(val.acreage !== '' || (val.total_price !== '' && val.total_price !== undefined )|| val.unit_price !== '' && val.unit_price !== undefined ){
+                        this.getBuild(data, true)
+                    }else {
+                        this.getBuild(data)
+                        this.regionList = this.regionListAll
+                    }
                 },
                 deep: true,
                 immediate: true
@@ -529,7 +545,6 @@
                 } else {
                     this.zhongxin = e.target.getCenter()
                 }
-                    this.$refs.map.reset()
             },
             // 查看区域详情 -> 商圈列表
             seeRegionDetail(data){
@@ -538,7 +553,7 @@
                 this.location = this.centerLocaion
                 this.zhongxin = this.centerLocaion
                 this.zoom = 14
-//                this.$refs.map.reset()
+                this.$refs.map.reset()
             },
             // 点击商圈详情
             seeAreaDetail(data) {
@@ -546,17 +561,48 @@
                 this.locationType = true
                 this.buildList = []
                 this.centerLocaion = {lng: data.x, lat: data.y}
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
+                this.$refs.map.reset()
+                const datas = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
+                    distance: 5
+                }
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
+            // 地铁详情
             seeMtro(data){
-                this.zoom = 16
+                this.buildList = []
                 this.locationType = true
                 this.centerLocaion = {lng: data.x, lat: data.y}
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
+                this.zoom = 16
+                this.$refs.map.reset()
+                const datas = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
+                    distance: 2.7
+                }
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
             // 获取站点楼盘数量
             getbuslinecomplete(el) {
                 var data = []
                 for (var key in el.DB) {
-                    console.log(el.DB[key])
                     data.push({
                         name: el.DB[key].name,
                         x: el.DB[key].position.lng,
@@ -591,14 +637,14 @@
                 })
             },
             // 根据条件获取楼盘数据
-            getBuild(data) {
+            getBuild(data, type = false) {
                 getCoreBuildList(data).then(res => {
                     if (res.success) {
-                        console.log('res.data.length', res.data.length)
                         this.buildList = res.data.res
                         this.buildListNum = res.data.res.length
-                        console.log('res.data', res.data)
-                        console.log('res.data.length', res.data.res.length)
+                        if(type) {
+                            this.regionList = res.data.areaLocations
+                        }
                     }
                 })
             },
@@ -623,8 +669,10 @@
                 if (data.length === 3) {
                     this.condition.area_id = ''
                     this.condition.block_id = data[2]
+                    $('#sq'+ data[2]).trigger('click')
                 } else if (data.length === 2) {
                     this.condition.area_id = data[1]
+                    $('#qy'+ data[1]).trigger('click')
                     this.condition.block_id = ''
                 } else {
                     this.condition.area_id = ''
@@ -640,6 +688,14 @@
                 } else {
                     this.condition.unit_price = ''
                     this.condition.total_price = data[1]
+                }
+            },
+            getId(type,id) {
+                if (type ==1 ){
+                    return 'qy' + id
+                } else{
+                    return 'sq' + id
+
                 }
             }
         }

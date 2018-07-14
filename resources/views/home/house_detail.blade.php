@@ -102,7 +102,7 @@
                 <!-- 电话咨询 -->
                 <div class="tel">
                     <div class="agent">
-                        <img src="{{$agentInfo->agent_pic}}">
+                        <img src="{{$agentInfo->agent_pic_cn}}">
                         <div class="name">
                             <div class="nameDet">{{$agentInfo->agent_name}}</div>
                             <div>{{$agentInfo->name}}商圈经纪</div>

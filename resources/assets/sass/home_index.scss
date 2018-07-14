@@ -527,7 +527,7 @@ body {
             width: 100%;
             &:hover{
               .img-box{
-                img{
+                img.main-img{
                   transform: scale(1.2);
                 }
               }
@@ -536,10 +536,17 @@ body {
               width: 100%;
               height: 240px;
               overflow: hidden;
-              img{
+              position: relative;
+              img.main-img{
                 width: 100%;
                 display: block;
                 transition: all 1s;
+              }
+              img.min-img{
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                z-index: 1;
               }
             }
             .text-box{

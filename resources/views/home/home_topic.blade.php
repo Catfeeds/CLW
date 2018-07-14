@@ -7,17 +7,17 @@
     @include('home.nav')
     <div class="container">
         <!-- 头部展示图  -->
-        <div class="header" style="background:url({{$recommend->pc_big_details_pic_cn}}) no-repeat center;">
+        <div class="header" style="background:url({{$pcRecommend->big_details_pic_cn}}) no-repeat center;">
         </div>
         <!-- 内容展示区 -->
         <div class="content">
             <!-- 内容简介区块 -->
             <div class="content_title clearfix">
                 <div class="title f_l">
-                    <div class="name">{{$recommend->title}}</div>
-                    <div class="describe">{{$recommend->introduce}}</div>
+                    <div class="name">{{$pcRecommend->title}}</div>
+                    <div class="describe">{{$pcRecommend->introduce}}</div>
                 </div>
-                <img src="{{$recommend->pc_small_details_pic_cn}}" alt="" class="f_r">
+                <img src="{{$pcRecommend->small_details_pic_cn}}" alt="" class="f_r">
             </div>
             <!-- 相关楼盘 -->
             <div class="other_build">

@@ -26,6 +26,12 @@ class BuildingsService
                 'pic' => config('setting.qiniu_url') . $v->pic
             ];
         });
+        $res->pc_feature_name_pic = $res->features->map(function($v) {
+            return [
+                'name' => $v->name,
+                'pic' => config('setting.qiniu_url') . $v->pc_pic
+            ];
+        });
     }
 
     /**
@@ -122,7 +128,11 @@ class BuildingsService
     // 获取楼盘下房子均价
     public function getBuildingAveragePrice($houses)
     {
-        return round($houses->sum('total_price') / $houses->sum('constru_acreage'),2).'元/㎡.月';
+        if (!empty($houses->sum('total_price')) && !empty($houses->sum('constru_acreage'))) {
+            return round($houses->sum('total_price') / $houses->sum('constru_acreage'),2).'元/㎡.月';
+        } else {
+            return '';
+        }
     }
 
     // 获取商圈下房子均价
@@ -152,6 +162,9 @@ class BuildingsService
                 $datas[] = $val->house->toArray();
             }
         }
+
+
+
         // 计算商圈和区域下面所有房源的均价
         return round(collect($datas)->collapse()->sum('total_price') / collect($datas)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
     }
