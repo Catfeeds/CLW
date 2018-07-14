@@ -67,7 +67,9 @@ class BuildingsController extends Controller
         BuildingsService $service
     )
     {
-        return $likeBuilding = array_slice($repository->buildingList(collect(), $service, null, true),0,4);
+        $likeBuilding = array_slice($repository->buildingList(collect(), $service, null, true),0,4);
+
+        return $this->sendResponse($likeBuilding,'楼盘详情猜你喜欢数据获取成功');
     }
 
     // 楼盘列表
