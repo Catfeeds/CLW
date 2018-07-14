@@ -26,12 +26,15 @@
     }
     #banner{
       width: 100%;
-      min-width: 1200px;
+      min-width: $master-width;
       .swiper-slide{
+        width: 100% !important;
         height: 560px;
-        img{
-          width: 100%;
+        div{
           height: 100%;
+          width: 100%;
+          background-position: center;
+          background-size: cover;
         }
       }
       .swiper-pagination{

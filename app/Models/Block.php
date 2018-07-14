@@ -33,7 +33,7 @@ class Block extends Model
 
     public function getAgentPicCnAttribute()
     {
-        if (empty($this->agent_cn)) return '';
-        return config('setting.qiniu_url').$this->agent_cn;
+        if (empty($this->agent_pic)) return '';
+        return config('setting.qiniu_url').$this->agent_pic;
     }
 }
