@@ -188,9 +188,9 @@
                     <div class="quotation" id="quotation">
                         <div class="h1">市场行情</div>
                         <div class="average">
-                            <div class="buildPrice"><div>{{$data['2']['name']}}均价(楼盘)</div><div>{{$building->buildingAverage}}</div></div>
-                            <div class="buildPrice"><div>{{$data['1']['name']}}均价(商圈)</div><div>{{$building->blockAverage}}</div></div>
-                            <div class="buildPrice"><div>{{$data['0']['name']}}均价(区域)</div><div>{{$building->areaAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['2']['name']}}均价(楼盘)</div><div>@{{list.buildingAveragePrice}}</div></div>
+                            <div class="buildPrice"><div>{{$data['1']['name']}}均价(商圈)</div><div>@{{list.blockAveragePrice}}</div></div>
+                            <div class="buildPrice"><div>{{$data['0']['name']}}均价(区域)</div><div>@{{list.areaAveragePrice}}</div></div>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                         <img class="agentPic" src="{{$block->agent_pic_cn}}">
                         <div class="name">
                             <div class="nameFirst">{{$block->agent_name}}</div>
-                            <div>{{$block->name}}楼盘经纪人</div>
+                            <div>{{$block->name}}楼盘专属顾问</div>
                         </div>
                         <div class="free">免费咨询</div>
                         <div class="service">
@@ -225,20 +225,18 @@
                 <div class="enjoyBox">
                     <div class="h1">猜你喜欢</div>
                     <div class="enjoyList">
-                        @foreach($likeBuilding as $like)
-                        <a href="{{url('/buildings').'/'.$like['id']}}">
+                        <a v-for="(item, index) in list" @click="toBuilding(item.id)">
                         <div class="enjoyDetail">
-                            <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
+                            <div class="enjoyPic"><img :src="item.img_cn"></div>
                             <div class='enjoyInfor'>
-                                <div class="enjoyTitle">{{$like['name']}}</div>
+                                <div class="enjoyTitle">@{{item.name}}</div>
                                 <div class="enjoyIntro">
-                                    <div class="enjoyAddress"><img src="{{homeRes('/home_img/house_detail_map1.png')}}"> {{$like['address_cn']}}</div>
-                                    <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
+                                    <div class="enjoyAddress"><img src="{{homeRes('/home_img/house_detail_map1.png')}}"> @{{item.address_cn}}</div>
+                                    <div class="enjoyPrice"><span>@{{item.avg_price}}</span> 元/m²月</div>
                                 </div>
                             </div>
                         </div>
                         </a>
-                        @endforeach
                     </div>
                 </div>
             </div>

@@ -135,9 +135,8 @@ export function getSelectInfo(params) {
 // 获取楼盘详情市场行情
 export function getMarketPrice(params) {
   return request({
-    url: '/market_price',
-    method: 'GET',
-    params
+    url: '/market_price/' + params,
+    method: 'GET'
   })
 }
 

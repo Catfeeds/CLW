@@ -13,7 +13,7 @@ var houseCount = parseInt($('.js_listCount span').html()) // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML') // 房源列表模板
 var rightTop = $('.right').offset().top // 右侧边栏至顶部的距离
 var secondTop = $('#second').offset().top // 周边配套至顶部的距离
-// console.log('sssss', Data.gps)
+console.log('sssss', Data.id)
 new Vue({
   el: '#second',
   components: {detailMap},
@@ -27,6 +27,41 @@ new Vue({
   el: '.findHouse',
   components: { findHouse }
 })
+
+// 猜你喜欢
+new Vue({
+  el: '#enjoy',
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    getLikeBuild().then(res => {
+      this.list = res.data
+    })
+  },
+  methods: {
+    toBuilding(val) {
+      window.location.href = '/buildings/'+ val
+    }
+  }
+})
+
+new Vue({
+  el: '#quotation',
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    getMarketPrice(Data.id).then(res => {
+      this.list = res.data
+    }) 
+  }
+})
+
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop() // 页面滚动距离

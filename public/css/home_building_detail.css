@@ -1574,10 +1574,11 @@ body .right_tab .bank-top .text-box {
 .content .build .first .right .agent .name .nameFirst {
   font-weight: 600;
   line-height: 25px;
+  margin-bottom: 5px;
 }
 
 .content .build .first .right .agent .free {
-  padding-top: 30px;
+  padding-top: 20px;
   color: #858686;
 }
 
