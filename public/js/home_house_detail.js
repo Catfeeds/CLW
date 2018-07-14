@@ -17085,6 +17085,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -17138,9 +17140,13 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
     ready: function ready(val) {
       this.BMap = val.BMap;
     },
+    pop: function pop(val) {
+      console.log('sssss', val);
+    },
 
     // 检索完成后的回调函数
     result: function result(val) {
+      console.log('asfdsfg', val);
       var result = val.Br;
       var arr = [];
       if (result) {
@@ -17263,6 +17269,7 @@ var render = function() {
         attrs: {
           "page-capacity": 100,
           "auto-viewport": true,
+          infohtmlset: _vm.pop,
           nearby: _vm.point,
           keyword: _vm.keyword,
           "select-first-result": true

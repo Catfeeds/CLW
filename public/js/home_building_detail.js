@@ -17085,6 +17085,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -17138,9 +17140,13 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
     ready: function ready(val) {
       this.BMap = val.BMap;
     },
+    pop: function pop(val) {
+      console.log('sssss', val);
+    },
 
     // 检索完成后的回调函数
     result: function result(val) {
+      console.log('asfdsfg', val);
       var result = val.Br;
       var arr = [];
       if (result) {
@@ -17263,6 +17269,7 @@ var render = function() {
         attrs: {
           "page-capacity": 100,
           "auto-viewport": true,
+          infohtmlset: _vm.pop,
           nearby: _vm.point,
           keyword: _vm.keyword,
           "select-first-result": true
@@ -17786,15 +17793,14 @@ $(window).scroll(function () {
   }
 });
 // 轮播
-// var banner = new Swiper('#banner', {
-//   simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
-//   pagination: '.swiper-pagination', // 添加分页器
-//   paginationClickable: true,
-//   paginationBulletRender: function(banner, index, className){
-//     return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
-//   }
-// })
-
+var banner = new Swiper('#banner', {
+  simulateTouch: true, // 开启可能导致快速切换页面时跳到其它页面
+  pagination: '.swiper-pagination', // 添加分页器
+  paginationClickable: true,
+  paginationBulletRender: function paginationBulletRender(banner, index, className) {
+    return '<span style="cursor:pointer" class="js_bannerChange ' + className + '"><img src="' + Data.pc_pic_url[index].url + '"></span>';
+  }
+});
 
 // 手动切换banner
 // $(document).on('click', 'span.js_bannerChange', function() {
