@@ -94,7 +94,11 @@ class BuildingsService
      */
     public function getBuildingAddress($res)
     {
-        $res->address_cn = $res->building->area->name . '-' . $res->building->block->name;
+        if (!empty($res->building->block)) {
+            $res->address_cn = $res->building->area->name . '-' . $res->building->block->name;
+        } else {
+            $res->address_cn = $res->building->area->name;
+        }
     }
 
     /**

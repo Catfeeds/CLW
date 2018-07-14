@@ -56,7 +56,7 @@
                                         <!--图片-->
                                         <div class="list-body-left"><img src="{{$cont->banner_cn}}"></div>
                                         <div class="list-body-right">
-                                            <div class="class"><span class="icon"></span><span>行业新闻</span></div>
+                                            <div class="class"><span class="icon" style="background: url({{homeRes('/home_img/hangye_logo.png')}}) no-repeat;"></span><span>行业新闻</span></div>
                                             <!--标题-->
                                             <div class="title">{{$cont->title}}</div>
                                             <!--时间-->
