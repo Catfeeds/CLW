@@ -169,10 +169,10 @@
   <div class="elaborate-title">优质写字楼 聚你所需</div>
   <div class="topic-content">
     <ul class="careful-select-list">
-      @foreach ( $recommends as $recommends_item )
+      @foreach ( $pcRecommends as $recommends_item )
         <li class="careful-select-item">
-        <a href="{{url('/recommends/'.$recommends_item->id)}}" title="{{$recommends_item->title}}">
-            <img src="{{$recommends_item->pc_pic_cn}}" alt="{{$recommends_item->title}}">
+        <a href="{{url('/pc_recommends/'.$recommends_item->id)}}" title="{{$recommends_item->title}}">
+            <img src="{{$recommends_item->pic_cn}}" alt="{{$recommends_item->title}}">
           </a>
         </li>
       @endforeach

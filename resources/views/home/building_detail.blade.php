@@ -11,8 +11,9 @@
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide"><div class="swiperPic" style="background-image:url(http://osibaji20.bkt.clouddn.com/FjEr7aTT2dJvrExlP75CQhCdVdil)"></div></div> -->
                 @foreach($building->pc_pic_url as $pic)
-                <div class="swiper-slide"><img src="{{$pic['url']}}" alt=""></div>
+                <div class="swiper-slide"><div class="swiperPic" style="background-image:url({{$pic['url']}})"></div></div>
                 @endforeach
             </div>
             <div class="swiper-pagination"></div>
@@ -39,7 +40,7 @@
                                 <div>月度租金</div> 
                             </div>
                         </div>
-                        <div class="introAddress">
+                        <div class="introAddress"> 
                             <div><img src="{{homeRes('/home_img/build_detail_address.png')}}"> 地址：{{$building->address}}</div>
                             <span class="js_map"><div class="introMap"><img src="{{homeRes('/home_img/house_detail_map.png')}}"> 查看地图</div></span>
                         </div>
