@@ -72,7 +72,6 @@ body {
               left: 22px;
               top:7px;
               height: 20px;
-              background: url('/home_img/index_search_btn.png') no-repeat center/20px 20px;
             }
           }
           .serch_btn:hover {
@@ -210,7 +209,6 @@ body {
                 left: -2px;
                 top: 9px;
                 position: absolute;
-                background: url(/home_img/rubish.svg);
               }
               a {
                 font-size: 12px;
@@ -218,11 +216,6 @@ body {
               }
               a:hover {
                 color:$master-blue;
-              }
-            }
-            .cleaning:hover {
-              .icon_clean {
-                background: url(/home_img/rubish1.svg);
               }
             }
           }
@@ -578,10 +571,4 @@ body {
   background-position: left -66px;
   margin-right: 6px;
   vertical-align: -3px;
-}
-.icon-tick{
-  background: url('/home_img/tick.svg') no-repeat;
-}
-.icon-untick{
-  background: url('/home_img/untick.svg') no-repeat;
 }
