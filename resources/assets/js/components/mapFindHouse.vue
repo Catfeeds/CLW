@@ -21,7 +21,7 @@
             <!--区域数据 浮动圆-->
             <self-overlay v-show='zoom<=13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
                           :key="'areaBox'+ index">
-                <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
+                <div class="regionStyle" :id="getId(item.name)" data-content="123" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
                     <span style="color:#fff;">{{item.name}}</span>
                     <span style="color:#fff;">{{item.building_num}}个楼盘</span>
@@ -184,6 +184,7 @@
     } from 'vue-baidu-map'
     import selfOverlay from './map/selfOverlay' // 悬浮窗容器
     import siteCover from './map/siteCover.vue' // 地铁悬浮窗容器
+    import $ from 'jquery' // 地铁悬浮窗容器
     import {Select, Option, Tabs, TabPane, Form, FormItem, Input, Button, Main, Row, Col, Cascader} from 'element-ui';
     var ElSelect = Select,
         ElOption = Option,
@@ -237,6 +238,7 @@
                 zoom: 12, // 地图缩放级别
                 keyword: '地铁', // 检索词
                 regionList: [], // 区域数据
+                regionListAll: [], // 区域数据
                 blockList: [], // 商圈列数据
                 buildList: [], // 楼盘数据
                 buildListNum: 0, // 楼盘数据
@@ -406,6 +408,7 @@
             getRegionList().then(res => {
                 if (res.success) {
                     this.regionList = res.data
+                    this.regionListAll = res.data
                 }
             })
             // 获取商圈数据
@@ -465,12 +468,28 @@
             },
             condition: {
                 handler: function (val, oldVal) {
-                    if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') return;
+                    if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') {
+                        if( this.regionList.length == 0) {
+                            // 获取区域 数据
+                            getRegionList().then(res => {
+                                if (res.success) {
+                                    this.regionList = res.data
+                                }
+                            })
+                        }
+                        return
+                    }
+                    console.log('val.acreage', val.acreage)
+                    console.log('val.total_price', val.total_price)
+                    console.log('val.unit_price', val.unit_price)
                     const data = this.condition
                     data._token = document.getElementsByName('csrf-token')[0].content
-                    console.log('data', data)
-                    this.getBuild(data)
-                    console.log('asdsada', val)
+                    if(val.acreage !== '' || (val.total_price !== '' && val.total_price !== undefined )|| val.unit_price !== '' && val.unit_price !== undefined ){
+                        this.getBuild(data, true)
+                    }else {
+                        this.getBuild(data)
+                        this.regionList = this.regionListAll
+                    }
                 },
                 deep: true,
                 immediate: true
@@ -604,14 +623,14 @@
                 })
             },
             // 根据条件获取楼盘数据
-            getBuild(data) {
+            getBuild(data, type = false) {
                 getCoreBuildList(data).then(res => {
                     if (res.success) {
-                        console.log('res.data.length', res.data.length)
                         this.buildList = res.data.res
                         this.buildListNum = res.data.res.length
-                        console.log('res.data', res.data)
-                        console.log('res.data.length', res.data.res.length)
+                        if(type) {
+                            this.regionList = res.data.areaLocations
+                        }
                     }
                 })
             },
@@ -637,6 +656,7 @@
                     this.condition.area_id = ''
                     this.condition.block_id = data[2]
                 } else if (data.length === 2) {
+                    console.log('jquery', $('#qy'+ data[1]).data('content'))
                     this.condition.area_id = data[1]
                     this.condition.block_id = ''
                 } else {
@@ -654,6 +674,9 @@
                     this.condition.unit_price = ''
                     this.condition.total_price = data[1]
                 }
+            },
+            getId(id) {
+                return 'qy' + id
             }
         }
     }
