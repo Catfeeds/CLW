@@ -275,7 +275,9 @@
     </div>
     <div class="infamation-right">
       <div class="img">
-      <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
+        <a href="{{url('/about/we')}}">
+          <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
+        </a>
       </div>
       <div class="line-box">
         <h3>热点资讯</h3>
