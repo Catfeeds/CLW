@@ -26,6 +26,12 @@ class BuildingsService
                 'pic' => config('setting.qiniu_url') . $v->pic
             ];
         });
+        $res->pc_feature_name_pic = $res->features->map(function($v) {
+            return [
+                'name' => $v->name,
+                'pic' => config('setting.qiniu_url') . $v->pc_pic
+            ];
+        });
     }
 
     /**
