@@ -126,7 +126,4 @@ class OfficeBuildingHousesRepository extends Model
         $block_id = $house->buildingBlock->building->block_id;
         return Block::find($block_id);
     }
-    
-    
-
 }
