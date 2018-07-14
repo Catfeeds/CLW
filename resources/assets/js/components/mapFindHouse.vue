@@ -21,17 +21,17 @@
             <!--区域数据 浮动圆-->
             <self-overlay v-show='zoom<=13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
                           :key="'areaBox'+ index">
-                <div class="regionStyle" :id="getId(item.name)" data-content="123" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
+                <div class="regionStyle" :id="getId(1,item.id)" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
                     <span style="color:#fff;">{{item.name}}</span>
                     <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
-            <self-overlay v-show='zoom<=14&&zoom>13' :position="{lng: item.x, lat: item.y}"
+            <self-overlay v-show='zoom<=15&&zoom>13' :position="{lng: item.x, lat: item.y}"
                           v-for="(item, index) in blockList"
                           :key="'blockBox'+ index">
-                <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                <div class="areaStyle" :id="getId(2,item.id)" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
                      @mouseleave='blockActive = ""'>
                     <span style="color:#fff;">{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
@@ -561,7 +561,21 @@
                 this.locationType = true
                 this.buildList = []
                 this.centerLocaion = {lng: data.x, lat: data.y}
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
                 this.$refs.map.reset()
+                const datas = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
+                    distance: 5
+                }
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
             // 地铁详情
             seeMtro(data){
@@ -580,7 +594,7 @@
                             y: this.zhongxin.lat,
                         }
                     ],
-                    distance: 2
+                    distance: 2.7
                 }
                 // 请求楼盘数据
                 this.getBuild(datas)
@@ -655,9 +669,10 @@
                 if (data.length === 3) {
                     this.condition.area_id = ''
                     this.condition.block_id = data[2]
+                    $('#sq'+ data[2]).trigger('click')
                 } else if (data.length === 2) {
-                    console.log('jquery', $('#qy'+ data[1]).data('content'))
                     this.condition.area_id = data[1]
+                    $('#qy'+ data[1]).trigger('click')
                     this.condition.block_id = ''
                 } else {
                     this.condition.area_id = ''
@@ -675,8 +690,13 @@
                     this.condition.total_price = data[1]
                 }
             },
-            getId(id) {
-                return 'qy' + id
+            getId(type,id) {
+                if (type ==1 ){
+                    return 'qy' + id
+                } else{
+                    return 'sq' + id
+
+                }
             }
         }
     }

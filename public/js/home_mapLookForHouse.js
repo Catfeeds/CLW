@@ -11685,7 +11685,18 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             this.locationType = true;
             this.buildList = [];
             this.centerLocaion = { lng: data.x, lat: data.y };
+            this.location = this.centerLocaion;
+            this.zhongxin = this.centerLocaion;
             this.$refs.map.reset();
+            var datas = {
+                '_token': document.getElementsByName('csrf-token')[0].content,
+                gps: [{
+                    x: this.zhongxin.lng,
+                    y: this.zhongxin.lat
+                }],
+                distance: 5
+                // 请求楼盘数据
+            };this.getBuild(datas);
         },
 
         // 地铁详情
@@ -11703,7 +11714,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     x: this.zhongxin.lng,
                     y: this.zhongxin.lat
                 }],
-                distance: 2
+                distance: 2.7
                 // 请求楼盘数据
             };this.getBuild(datas);
         },
@@ -11790,9 +11801,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             if (data.length === 3) {
                 this.condition.area_id = '';
                 this.condition.block_id = data[2];
+                __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#sq' + data[2]).trigger('click');
             } else if (data.length === 2) {
-                console.log('jquery', __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#qy' + data[1]).data('content'));
                 this.condition.area_id = data[1];
+                __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#qy' + data[1]).trigger('click');
                 this.condition.block_id = '';
             } else {
                 this.condition.area_id = '';
@@ -11811,8 +11823,12 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 this.condition.total_price = data[1];
             }
         },
-        getId: function getId(id) {
-            return 'qy' + id;
+        getId: function getId(type, id) {
+            if (type == 1) {
+                return 'qy' + id;
+            } else {
+                return 'sq' + id;
+            }
         }
     }
 });
@@ -20255,10 +20271,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "regionStyle",
-                        attrs: {
-                          id: _vm.getId(item.name),
-                          "data-content": "123"
-                        },
+                        attrs: { id: _vm.getId(1, item.id) },
                         on: {
                           click: function($event) {
                             _vm.seeRegionDetail(item)
@@ -20293,8 +20306,8 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.zoom <= 14 && _vm.zoom > 13,
-                        expression: "zoom<=14&&zoom>13"
+                        value: _vm.zoom <= 15 && _vm.zoom > 13,
+                        expression: "zoom<=15&&zoom>13"
                       }
                     ],
                     key: "blockBox" + index,
@@ -20305,6 +20318,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "areaStyle",
+                        attrs: { id: _vm.getId(2, item.id) },
                         on: {
                           click: function($event) {
                             _vm.seeAreaDetail(item)
