@@ -89,9 +89,6 @@ html,body {
             -webkit-appearance:none;
             -webkit-tap-highlight-color:rgba(0,0,0,0)
           }
-          :-moz-placeholder {
-            line-height: 44px;
-          }
           input {
             width: 100%;
             border: 1px solid #ccc;
@@ -106,6 +103,8 @@ html,body {
           }
           textarea::placeholder,input::placeholder {
             font-size: 14px;
+          }
+          textarea::placeholder{
             line-height: 18px;
           }
           button {
