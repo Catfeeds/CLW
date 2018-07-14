@@ -17731,6 +17731,7 @@ var banner = new Swiper('#banner', {
     return '<span style="cursor:pointer" class="js_bannerChange ' + className + '"><img src="' + Data.pc_pic_url[index].url + '"></span>';
   }
 });
+
 // 手动切换banner
 // $(document).on('click', 'span.js_bannerChange', function() {
 //   if (banner.animating) {
