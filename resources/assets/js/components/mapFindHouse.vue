@@ -38,23 +38,6 @@
                     <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
-            <!--楼盘浮动矩形-->
-            <site-cover v-show='zoom>15' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
-                        v-for="(item, index) in buildList"
-                        :key="'buildBox'+ index">
-                <div class="areaStyle" @click="seeBuildDetail(item)">
-                    <div class="triangle"></div>
-                    <span style="color:#fff;">{{item.name}}</span>
-                    <div class="detail">
-                        <div>
-                            <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
-                            <span>76.2元/㎡·月</span>
-                        </div>
-                        <div>{{item.title}}</div>
-                        <div>面积: 57-700㎡</div>
-                    </div>
-                </div>
-            </site-cover>
             <!--商圈区块-->
             <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
@@ -67,6 +50,23 @@
                     :strokeColor="boundaryStyle.strokeColor">
             </bm-boundary>
         </div>
+        <!--楼盘浮动矩形-->
+        <site-cover v-show='zoom>15' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
+                    v-for="(item, index) in buildList"
+                    :key="'buildBox'+ index">
+            <div class="areaStyle" @click="seeBuildDetail(item)">
+                <div class="triangle"></div>
+                <span style="color:#fff;">{{item.name}}</span>
+                <div class="detail">
+                    <div>
+                        <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
+                        <span>76.2元/㎡·月</span>
+                    </div>
+                    <div>{{item.title}}</div>
+                    <div>面积: 57-700㎡</div>
+                </div>
+            </div>
+        </site-cover>
         <!--线路-->
         <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'
                 @getbuslinecomplete='getbuslinecomplete'
@@ -252,10 +252,6 @@
                 },
                 regionArray: [],// 区域下拉数据
                 acreageArray: [{
-                    value: '',
-                    label: '全部'
-                },
-                    {
                         value: '0-100',
                         label: '0-100㎡'
                     },
@@ -430,6 +426,7 @@
         },
         watch: {
             'condition.metro': function () {
+                this.siteList = []
                 this.subwayKeyword = this.condition.metro
                 if (this.condition.metro === '') {
                     this.subwayKeyword = false;
@@ -529,7 +526,6 @@
                 } else {
                     this.zhongxin = e.target.getCenter()
                 }
-                    this.$refs.map.reset()
             },
             // 查看区域详情 -> 商圈列表
             seeRegionDetail(data){
@@ -538,7 +534,7 @@
                 this.location = this.centerLocaion
                 this.zhongxin = this.centerLocaion
                 this.zoom = 14
-//                this.$refs.map.reset()
+                this.$refs.map.reset()
             },
             // 点击商圈详情
             seeAreaDetail(data) {
@@ -546,17 +542,34 @@
                 this.locationType = true
                 this.buildList = []
                 this.centerLocaion = {lng: data.x, lat: data.y}
+                this.$refs.map.reset()
             },
+            // 地铁详情
             seeMtro(data){
-                this.zoom = 16
+                this.buildList = []
                 this.locationType = true
                 this.centerLocaion = {lng: data.x, lat: data.y}
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
+                this.zoom = 16
+                this.$refs.map.reset()
+                const datas = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
+                    distance: 2
+                }
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
             // 获取站点楼盘数量
             getbuslinecomplete(el) {
                 var data = []
                 for (var key in el.DB) {
-                    console.log(el.DB[key])
                     data.push({
                         name: el.DB[key].name,
                         x: el.DB[key].position.lng,
