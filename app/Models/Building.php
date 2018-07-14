@@ -232,5 +232,4 @@ class Building extends Model
 //    {
 //        return $this->area->name . '-' . $this->block->name;;
 //    }
-
 }
