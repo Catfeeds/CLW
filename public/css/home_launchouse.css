@@ -854,6 +854,11 @@ body .box .container .form_container form textarea {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+html .box .container .form_container form :-moz-placeholder,
+body .box .container .form_container form :-moz-placeholder {
+  line-height: 44px;
+}
+
 html .box .container .form_container form input,
 body .box .container .form_container form input {
   width: 100%;

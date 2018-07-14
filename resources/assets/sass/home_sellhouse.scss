@@ -89,6 +89,9 @@ html,body {
             -webkit-appearance:none;
             -webkit-tap-highlight-color:rgba(0,0,0,0)
           }
+          :-moz-placeholder {
+            line-height: 44px;
+          }
           input {
             width: 100%;
             border: 1px solid #ccc;
