@@ -781,21 +781,12 @@ body .container .content .content_title .title {
 
 body .container .content .content_title .title .name {
   font-size: 32px;
-<<<<<<< HEAD
-  color: #666;
-  font-weight: 600;
-=======
   color: #333;
->>>>>>> origin/zc
   margin-bottom: 38px;
 }
 
 body .container .content .content_title .title .describe {
-<<<<<<< HEAD
-  width: 651px;
-=======
   width: 740px;
->>>>>>> origin/zc
   color: #666;
   line-height: 26px;
 }

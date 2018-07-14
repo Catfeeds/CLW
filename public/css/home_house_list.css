@@ -1126,10 +1126,6 @@ body .house_list_container .house_list_title .title_content .serch_area .serch_b
   left: 22px;
   top: 7px;
   height: 20px;
-<<<<<<< HEAD
-  background: url("/home_img/index_search_btn.png") no-repeat center/20px 20px;
-=======
->>>>>>> origin/zc
 }
 
 body .house_list_container .house_list_title .title_content .serch_area .serch_btn:hover {
@@ -1306,10 +1302,6 @@ body .house_list_container .house_list_content .select_box .select_area .result 
   left: -2px;
   top: 9px;
   position: absolute;
-<<<<<<< HEAD
-  background: url(/home_img/rubish.svg);
-=======
->>>>>>> origin/zc
 }
 
 body .house_list_container .house_list_content .select_box .select_area .result .cleaning a {
@@ -1321,13 +1313,6 @@ body .house_list_container .house_list_content .select_box .select_area .result 
   color: #007bff;
 }
 
-<<<<<<< HEAD
-body .house_list_container .house_list_content .select_box .select_area .result .cleaning:hover .icon_clean {
-  background: url(/home_img/rubish1.svg);
-}
-
-=======
->>>>>>> origin/zc
 body .house_list_container .house_list_content .house_list {
   width: 1200px;
   margin: 0 auto;
@@ -1768,14 +1753,3 @@ body .house_list_container .house_list_content .house_list .freeConsult {
   vertical-align: -3px;
 }
 
-<<<<<<< HEAD
-.icon-tick {
-  background: url("/home_img/tick.svg") no-repeat;
-}
-
-.icon-untick {
-  background: url("/home_img/untick.svg") no-repeat;
-}
-
-=======
->>>>>>> origin/zc
