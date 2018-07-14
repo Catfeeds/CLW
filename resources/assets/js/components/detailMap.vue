@@ -9,7 +9,9 @@
   @ready="ready"
   >
       <bm-local-search
-      :page-capacity="100" :auto-viewport="true" style="display:none" :nearby="point" :keyword="keyword" @searchcomplete="result" :select-first-result="true"></bm-local-search>
+      :page-capacity="100" :auto-viewport="true" style="display:none" 
+      :infohtmlset="pop"
+      :nearby="point" :keyword="keyword" @searchcomplete="result" :select-first-result="true"></bm-local-search>
       <bm-circle :center="point.center" :location="location" :radius="point.radius" :stroke-weight="1" :stroke-opacity="0.1" fill-color="blue" :fill-opacity="0.4"></bm-circle>
       <bm-marker :position="this.point.center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker> 
       <el-tabs type="border-card" @tab-click="handleClick" class="screen">
@@ -162,8 +164,12 @@ export default {
     ready(val) {
       this.BMap = val.BMap
     },
+    pop(val) {
+      console.log('sssss', val)
+    },
     // 检索完成后的回调函数
     result(val) {
+      console.log('asfdsfg', val)
       var result = val.Br
       var arr = [] 
       if(result) {
