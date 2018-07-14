@@ -453,10 +453,11 @@
                 @extend .font-level4;
                 font-weight: 600;
                 line-height: 25px;
+                margin-bottom: 5px;
               }
             }
             .free{
-              padding-top: 30px;
+              padding-top: 20px;
               @extend .font-level3;
               color: #858686;
             }

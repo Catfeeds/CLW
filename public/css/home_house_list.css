@@ -939,8 +939,8 @@ body .right_tab .bank-top .text-box {
 .el-popover.dimentionalCode-popover {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  min-width: 107px !important;
-  height: 107px !important;
+  min-width: 127px !important;
+  height: 137px !important;
   padding: 0 !important;
 }
 
@@ -951,7 +951,6 @@ div.pagination {
   padding: 25px 0;
   border-radius: 0;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 div.pagination ul.pagination {

@@ -15,9 +15,10 @@
         </div>
         <div class="rent_describe">已经有 <span>15141</span> 位客户委托找房</div>
     </div>
-    <div class="renSuccess" v-if="showBefore">
+    <div class="renSuccess"  v-if="showBefore">
       <div>立即预约</div>
-      <div class="renSuccess_tel">预约手机号：{{value}}</div>
+      <div class="renSuccess_tel">预约手机号：{{value}}15265892365</div>
+      <div class="telBorder"></div>
       <div class="rent_success">
         <div><img src="/home_img/find_house_success.png"></div>
         <div class="sucessTitle">预约成功</div>
@@ -176,6 +177,10 @@ export default {
         color: #999;
         margin-top: 7px;
       }
+      .telBorder{
+        border-top: 1px solid #eeeded;
+        margin-top: 20px;
+      }
       .rent_success{
         text-align: center;
         margin-top: 42px;
@@ -191,7 +196,7 @@ export default {
       }
       .rentBorder{
         border-top: 1px solid #eeeded;
-        margin-top: 60px;
+        margin-top: 45px;
       }
     }
     .freeConsult{

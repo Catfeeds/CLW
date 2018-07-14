@@ -220,8 +220,9 @@
                                                             </a>
                                                         </li>
                                                     @endforeach
-                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}" target="_blank">更多...</a>
-                                                    </li>
+                                                    @if(count($data->pc_house)>2)
+                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}" target="_blank">更多...</a></li>
+                                                    @endif    
                                                 </ul>
                                             </div>
                                             @if(!empty($data->features))

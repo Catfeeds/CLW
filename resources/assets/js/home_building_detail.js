@@ -1,6 +1,7 @@
 require('./home_common');
 import './components/home/login' // 登录组件
 import './components/home/right_tab' // 侧边栏组件
+import { getMarketPrice, getLikeBuild } from './home_api'
 const Swiper = require('swiper');
 var detailMap = require('./components/detailMap.vue') // 地图组件
 var findHouse = require('./components/findHouse.vue') // 委托找房组件
@@ -12,7 +13,7 @@ var houseCount = parseInt($('.js_listCount span').html()) // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML') // 房源列表模板
 var rightTop = $('.right').offset().top // 右侧边栏至顶部的距离
 var secondTop = $('#second').offset().top // 周边配套至顶部的距离
-// console.log('sssss', Data.gps)
+console.log('sssss', Data.id)
 new Vue({
   el: '#second',
   components: {detailMap},
@@ -26,6 +27,41 @@ new Vue({
   el: '.findHouse',
   components: { findHouse }
 })
+
+// 猜你喜欢
+new Vue({
+  el: '#enjoy',
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    getLikeBuild().then(res => {
+      this.list = res.data
+    })
+  },
+  methods: {
+    toBuilding(val) {
+      window.location.href = '/buildings/'+ val
+    }
+  }
+})
+
+new Vue({
+  el: '#quotation',
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    getMarketPrice(Data.id).then(res => {
+      this.list = res.data
+    }) 
+  }
+})
+
 // 页面滚动事件
 $(window).scroll(function(){
   var scrollTop = $(window).scrollTop() // 页面滚动距离
@@ -42,14 +78,16 @@ $(window).scroll(function(){
   }
 })
 // 轮播
-var banner = new Swiper('#banner', {
-  simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
-  pagination: '.swiper-pagination', // 添加分页器
-  paginationClickable: true,
-  paginationBulletRender: function(banner, index, className){
-    return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
-  }
-})
+// var banner = new Swiper('#banner', {
+//   simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
+//   pagination: '.swiper-pagination', // 添加分页器
+//   paginationClickable: true,
+//   paginationBulletRender: function(banner, index, className){
+//     return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
+//   }
+// })
+
+
 // 手动切换banner
 // $(document).on('click', 'span.js_bannerChange', function() {
 //   if (banner.animating) {
