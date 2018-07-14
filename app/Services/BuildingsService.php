@@ -138,7 +138,6 @@ class BuildingsService
     // 获取商圈下房子均价
     public function getBlockAveragePrice($blockId)
     {
-
         $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
         return $this->getAveragePrice($block);
     }
@@ -162,8 +161,6 @@ class BuildingsService
                 $datas[] = $val->house->toArray();
             }
         }
-
-
 
         // 计算商圈和区域下面所有房源的均价
         return round(collect($datas)->collapse()->sum('total_price') / collect($datas)->collapse()->sum('constru_acreage'),2).'元/㎡.月';
