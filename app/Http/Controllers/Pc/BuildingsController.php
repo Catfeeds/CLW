@@ -31,13 +31,13 @@ class BuildingsController extends Controller
         // 房源数量
         $building->house_count = $houses->count();
         // 获取楼盘下房源均价(楼盘下房源总价格/楼盘下房源总面积)
-        $building->buildingAverage = $service->getBuildingAveragePrice($houses);
+//        $building->buildingAverage = $service->getBuildingAveragePrice($houses);
         // 商圈下房源均价
-        $building->blockAverage = $service->getBlockAveragePrice($block->id);
+//        $building->blockAverage = $service->getBlockAveragePrice($block->id);
         // 楼盘所属区域
         $areaId = $block->area->id;
         // 区域下房源均价
-        $building->areaAverage = $service->getAreaAveragePrice($areaId);
+//        $building->areaAverage = $service->getAreaAveragePrice($areaId);
         // 猜你喜欢
         $request->area_id = $areaId;   // 区域id
         $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
