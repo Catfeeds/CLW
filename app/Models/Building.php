@@ -139,19 +139,28 @@ class Building extends Model
     // pc端图片url
     public function getPcPicUrlAttribute()
     {
-        return collect($this->big_album)->map(function($img) {
-            return [
-                'name' => $img,
-                'url' => config('setting.qiniu_url') . $img
-            ];
-        });
+        if (!empty($this->big_album)) {
+            return collect($this->big_album)->map(function($img) {
+                return [
+                    'name' => $img,
+                    'url' => config('setting.qiniu_url') . $img
+                ];
+            });
+        } else {
+            return collect([
+                [
+                    'name' => '',
+                    'url' => config('setting.pc_building_default_big_img')
+                ]
+            ]);
+        }
     }
 
     // pc端图片
     public function getPcPicCnAttribute()
     {
         if (empty($this->big_album)) {
-            return config('setting.building_default_img');
+            return config('setting.pc_building_default_big_img');
         } else {
             return config('setting.qiniu_url').$this->big_album[0];
         }
@@ -166,7 +175,11 @@ class Building extends Model
     public function getImgCnAttribute()
     {
         if (empty($this->album)) {
-            return config('setting.building_default_img');
+            if ($_SERVER["HTTP_HOST"] === config('hosts.home')) {
+                return config('setting.pc_building_house_default_img');
+            } else {
+                return config('setting.building_default_img');
+            }
         } else {
             return config('setting.qiniu_url').$this->album[0];
         }

@@ -36,7 +36,11 @@ class OfficeBuildingHouse extends BaseModel
      */
     public function getIndoorImgCnAttribute()
     {
-        return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('setting.house_default_img');
+        if ($_SERVER["HTTP_HOST"] === config('hosts.home')) {
+            return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('setting.pc_building_house_default_img');
+        } else {
+            return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('setting.house_default_img');
+        }
     }
 
     /**
