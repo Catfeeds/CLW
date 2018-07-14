@@ -1144,12 +1144,25 @@ body .right_tab .bank-top .text-box {
 }
 
 .content .build .first .left .intro .introAddress .introMap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin-left: 53px;
   color: #007bff;
 }
 
 .content .build .first .left .intro .introAddress .introMap img {
-  vertical-align: middle;
+  height: 18px;
+  margin-top: 15px;
+  margin-right: 5px;
+}
+
+.content .build .first .left .intro .introAddress .introMap div {
+  display: inline-block;
+  color: #007bff;
 }
 
 .content .build .first .left .intro .introAddress .introMap:hover {

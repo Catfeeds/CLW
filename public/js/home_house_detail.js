@@ -16741,7 +16741,7 @@ var render = function() {
           _c("div", [_vm._v("立即预约")]),
           _vm._v(" "),
           _c("div", { staticClass: "renSuccess_tel" }, [
-            _vm._v("预约手机号：" + _vm._s(_vm.value) + "15265892365")
+            _vm._v("预约手机号：" + _vm._s(_vm.value))
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "telBorder" }),
@@ -17100,7 +17100,8 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
     ElTabPane: ElTabPane,
     BmLocalSearch: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmLocalSearch"],
     BmCircle: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmCircle"],
-    BmMarker: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmMarker"]
+    BmMarker: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmMarker"],
+    BmView: __WEBPACK_IMPORTED_MODULE_5_vue_baidu_map__["BmView"]
   },
   data: function data() {
     return {
@@ -17139,9 +17140,6 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
   methods: {
     ready: function ready(val) {
       this.BMap = val.BMap;
-    },
-    pop: function pop(val) {
-      console.log('sssss', val);
     },
 
     // 检索完成后的回调函数
@@ -17264,15 +17262,16 @@ var render = function() {
       on: { zoomend: _vm.zoomend, click: _vm.getPoint, ready: _vm.ready }
     },
     [
+      _c("bm-view", { staticClass: "map" }),
+      _vm._v(" "),
       _c("bm-local-search", {
         staticStyle: { display: "none" },
         attrs: {
           "page-capacity": 100,
           "auto-viewport": true,
-          infohtmlset: _vm.pop,
           nearby: _vm.point,
           keyword: _vm.keyword,
-          "select-first-result": true
+          panel: true
         },
         on: { searchcomplete: _vm.result }
       }),

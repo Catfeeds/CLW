@@ -11314,7 +11314,7 @@ var render = function() {
           _c("div", [_vm._v("立即预约")]),
           _vm._v(" "),
           _c("div", { staticClass: "renSuccess_tel" }, [
-            _vm._v("预约手机号：" + _vm._s(_vm.value) + "15265892365")
+            _vm._v("预约手机号：" + _vm._s(_vm.value))
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "telBorder" }),
