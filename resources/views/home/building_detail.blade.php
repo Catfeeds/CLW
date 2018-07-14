@@ -201,7 +201,7 @@
                         <img class="agentPic" src="{{$block->agent_pic_cn}}">
                         <div class="name">
                             <div class="nameFirst">{{$block->agent_name}}</div>
-                            <div>{{$block->name}}楼盘经纪</div>
+                            <div>{{$block->name}}楼盘经纪人</div>
                         </div>
                         <div class="free">免费咨询</div>
                         <div class="service">
