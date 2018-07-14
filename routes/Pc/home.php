@@ -6,6 +6,10 @@ Route::get('get_select_info', 'IndexController@getSelectInfo');
 
 // 楼盘
 Route::resource('buildings', 'BuildingsController');
+// 楼盘详情市场行情
+Route::get('market_price/{buildingId}', 'BuildingsController@marketPrice');
+// 楼盘详情猜你喜欢
+Route::get('like_building', 'BuildingsController@likeBuilding');
 
 //房源详情
 Route::resource('office_building_houses', 'OfficeBuildingHousesController');
