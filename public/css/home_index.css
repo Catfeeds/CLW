@@ -1571,7 +1571,7 @@ body .topic-box .topic-content .fine-quality-list .fine-quality-item a {
   width: 100%;
 }
 
-body .topic-box .topic-content .fine-quality-list .fine-quality-item a:hover .img-box img {
+body .topic-box .topic-content .fine-quality-list .fine-quality-item a:hover .img-box img.main-img {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
@@ -1580,13 +1580,21 @@ body .topic-box .topic-content .fine-quality-list .fine-quality-item a .img-box 
   width: 100%;
   height: 240px;
   overflow: hidden;
+  position: relative;
 }
 
-body .topic-box .topic-content .fine-quality-list .fine-quality-item a .img-box img {
+body .topic-box .topic-content .fine-quality-list .fine-quality-item a .img-box img.main-img {
   width: 100%;
   display: block;
   -webkit-transition: all 1s;
   transition: all 1s;
+}
+
+body .topic-box .topic-content .fine-quality-list .fine-quality-item a .img-box img.min-img {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 1;
 }
 
 body .topic-box .topic-content .fine-quality-list .fine-quality-item a .text-box {
