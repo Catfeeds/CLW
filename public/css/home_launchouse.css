@@ -1039,18 +1039,11 @@ textarea {
   }
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 960px) {
   html,
   body {
     padding: 0;
     min-height: 736px;
-=======
-@media screen and (max-width: 960px) and (max-height: 766px) {
-  html,
-  body {
-    padding: 0;
->>>>>>> origin/zc
   }
 
   html nav,
@@ -1062,18 +1055,12 @@ textarea {
     display: none;
   }
 
-<<<<<<< HEAD
   html .box .container,
   body .box .container {
-=======
-  html .container,
-  body .container {
->>>>>>> origin/zc
     width: 100%;
     padding-top: 30px;
   }
 
-<<<<<<< HEAD
   html .box .container .form_container,
   body .box .container .form_container {
     max-width: 410px;
@@ -1199,23 +1186,6 @@ textarea {
 
   html .box .container .detail,
   body .box .container .detail {
-=======
-  html .container .form_container,
-  body .container .form_container {
-    max-width: 410px;
-    width: 81.33333%;
-    min-width: 320px;
-    margin: 0 auto;
-  }
-
-  html .container .form_container form button,
-  body .container .form_container form button {
-    width: 50%;
-  }
-
-  html .container .detail,
-  body .container .detail {
->>>>>>> origin/zc
     width: 100%;
     max-width: 473px;
     min-width: 320px;
@@ -1223,7 +1193,6 @@ textarea {
     padding: 10px 5px 0 5px;
   }
 
-<<<<<<< HEAD
   html .box .container .detail ul li div,
   body .box .container .detail ul li div {
     margin-top: 5px;
@@ -1231,15 +1200,6 @@ textarea {
 
   html .box .container .detail ul li .arrow,
   body .box .container .detail ul li .arrow {
-=======
-  html .container .detail ul li div,
-  body .container .detail ul li div {
-    margin-top: 5px;
-  }
-
-  html .container .detail ul li .arrow,
-  body .container .detail ul li .arrow {
->>>>>>> origin/zc
     left: 90px;
   }
 }
@@ -1268,15 +1228,9 @@ textarea {
 
   html .container .form_container,
   body .container .form_container {
-<<<<<<< HEAD
     max-width: 320px;
     width: 81.33333%;
     min-width: 290px;
-=======
-    max-width: 410px;
-    width: 81.33333%;
-    min-width: 300px;
->>>>>>> origin/zc
     margin: 0 auto;
   }
 
