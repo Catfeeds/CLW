@@ -2813,7 +2813,7 @@ var scrollBarWidth = void 0;
 /* harmony export (immutable) */ __webpack_exports__["c"] = deepMerge;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof__);
 
 
@@ -8280,7 +8280,7 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(92);
-var createDesc = __webpack_require__(113);
+var createDesc = __webpack_require__(114);
 module.exports = __webpack_require__(93) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
@@ -8293,7 +8293,7 @@ module.exports = __webpack_require__(93) ? function (object, key, value) {
 /* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(112);
+var anObject = __webpack_require__(113);
 var IE8_DOM_DEFINE = __webpack_require__(151);
 var toPrimitive = __webpack_require__(129);
 var dP = Object.defineProperty;
@@ -8338,7 +8338,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var store = __webpack_require__(133)('wks');
-var uid = __webpack_require__(116);
+var uid = __webpack_require__(117);
 var Symbol = __webpack_require__(77).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
@@ -10211,7 +10211,8 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* 109 */,
 /* 110 */,
 /* 111 */,
-/* 112 */
+/* 112 */,
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(99);
@@ -10222,7 +10223,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -10236,7 +10237,7 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
@@ -10249,14 +10250,14 @@ module.exports = Object.keys || function keys(O) {
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports) {
 
 var id = 0;
@@ -10267,14 +10268,14 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports) {
 
 exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10301,7 +10302,6 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 };
 
 /***/ }),
-/* 119 */,
 /* 120 */,
 /* 121 */,
 /* 122 */,
@@ -10491,7 +10491,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var shared = __webpack_require__(133)('keys');
-var uid = __webpack_require__(116);
+var uid = __webpack_require__(117);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
@@ -10510,7 +10510,7 @@ var store = global[SHARED] || (global[SHARED] = {});
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
   version: core.version,
-  mode: __webpack_require__(115) ? 'pure' : 'global',
+  mode: __webpack_require__(116) ? 'pure' : 'global',
   copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
 });
 
@@ -10565,7 +10565,7 @@ exports.f = __webpack_require__(95);
 
 var global = __webpack_require__(77);
 var core = __webpack_require__(98);
-var LIBRARY = __webpack_require__(115);
+var LIBRARY = __webpack_require__(116);
 var wksExt = __webpack_require__(138);
 var defineProperty = __webpack_require__(92).f;
 module.exports = function (name) {
@@ -10763,7 +10763,7 @@ module.exports = function (it) {
 
 "use strict";
 
-var LIBRARY = __webpack_require__(115);
+var LIBRARY = __webpack_require__(116);
 var $export = __webpack_require__(128);
 var redefine = __webpack_require__(158);
 var hide = __webpack_require__(91);
@@ -10845,7 +10845,7 @@ module.exports = __webpack_require__(91);
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-var anObject = __webpack_require__(112);
+var anObject = __webpack_require__(113);
 var dPs = __webpack_require__(219);
 var enumBugKeys = __webpack_require__(134);
 var IE_PROTO = __webpack_require__(132)('IE_PROTO');
@@ -11120,7 +11120,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_selfOverlay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__map_selfOverlay__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__map_siteCover_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__home_api__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_jquery__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__home_api__ = __webpack_require__(19);
 
 
 
@@ -11340,6 +11342,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  // 悬浮窗容器
  // 地铁悬浮窗容器
+ // 地铁悬浮窗容器
 
 var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
     ElOption = __WEBPACK_IMPORTED_MODULE_22_element_ui_lib_option___default.a,
@@ -11386,6 +11389,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             zoom: 12, // 地图缩放级别
             keyword: '地铁', // 检索词
             regionList: [], // 区域数据
+            regionListAll: [], // 区域数据
             blockList: [], // 商圈列数据
             buildList: [], // 楼盘数据
             buildListNum: 0, // 楼盘数据
@@ -11401,9 +11405,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             },
             regionArray: [], // 区域下拉数据
             acreageArray: [{
-                value: '',
-                label: '全部'
-            }, {
                 value: '0-100',
                 label: '0-100㎡'
             }, {
@@ -11524,17 +11525,18 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         var _this = this;
 
         // 获取区域下拉数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["a" /* buildingsSelect */])(document.getElementsByName('safeString')[0].content).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["a" /* buildingsSelect */])(document.getElementsByName('safeString')[0].content).then(function (res) {
             _this.regionArray = res.data.data;
         });
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["i" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["i" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
+                _this.regionListAll = res.data;
             }
         });
         // 获取商圈数据
-        Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["f" /* getBlock */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["f" /* getBlock */])().then(function (res) {
             _this.blockList = res.data;
         });
         //            const ResultData = {
@@ -11552,6 +11554,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
     watch: {
         'condition.metro': function conditionMetro() {
+            this.siteList = [];
             this.subwayKeyword = this.condition.metro;
             if (this.condition.metro === '') {
                 this.subwayKeyword = false;
@@ -11587,12 +11590,30 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
         condition: {
             handler: function handler(val, oldVal) {
-                if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword !== '') return;
+                var _this2 = this;
+
+                if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword !== '') {
+                    if (this.regionList.length == 0) {
+                        // 获取区域 数据
+                        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["i" /* getRegionList */])().then(function (res) {
+                            if (res.success) {
+                                _this2.regionList = res.data;
+                            }
+                        });
+                    }
+                    return;
+                }
+                console.log('val.acreage', val.acreage);
+                console.log('val.total_price', val.total_price);
+                console.log('val.unit_price', val.unit_price);
                 var data = this.condition;
                 data._token = document.getElementsByName('csrf-token')[0].content;
-                console.log('data', data);
-                this.getBuild(data);
-                console.log('asdsada', val);
+                if (val.acreage !== '' || val.total_price !== '' && val.total_price !== undefined || val.unit_price !== '' && val.unit_price !== undefined) {
+                    this.getBuild(data, true);
+                } else {
+                    this.getBuild(data);
+                    this.regionList = this.regionListAll;
+                }
             },
             deep: true,
             immediate: true
@@ -11647,7 +11668,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             } else {
                 this.zhongxin = e.target.getCenter();
             }
-            this.$refs.map.reset();
         },
         // 查看区域详情 -> 商圈列表
         seeRegionDetail: function seeRegionDetail(data) {
@@ -11656,7 +11676,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             this.location = this.centerLocaion;
             this.zhongxin = this.centerLocaion;
             this.zoom = 14;
-            //                this.$refs.map.reset()
+            this.$refs.map.reset();
         },
 
         // 点击商圈详情
@@ -11665,31 +11685,57 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             this.locationType = true;
             this.buildList = [];
             this.centerLocaion = { lng: data.x, lat: data.y };
+            this.location = this.centerLocaion;
+            this.zhongxin = this.centerLocaion;
+            this.$refs.map.reset();
+            var datas = {
+                '_token': document.getElementsByName('csrf-token')[0].content,
+                gps: [{
+                    x: this.zhongxin.lng,
+                    y: this.zhongxin.lat
+                }],
+                distance: 5
+                // 请求楼盘数据
+            };this.getBuild(datas);
         },
+
+        // 地铁详情
         seeMtro: function seeMtro(data) {
-            this.zoom = 16;
+            this.buildList = [];
             this.locationType = true;
             this.centerLocaion = { lng: data.x, lat: data.y };
+            this.location = this.centerLocaion;
+            this.zhongxin = this.centerLocaion;
+            this.zoom = 16;
+            this.$refs.map.reset();
+            var datas = {
+                '_token': document.getElementsByName('csrf-token')[0].content,
+                gps: [{
+                    x: this.zhongxin.lng,
+                    y: this.zhongxin.lat
+                }],
+                distance: 2.7
+                // 请求楼盘数据
+            };this.getBuild(datas);
         },
 
         // 获取站点楼盘数量
         getbuslinecomplete: function getbuslinecomplete(el) {
-            var _this2 = this;
+            var _this3 = this;
 
             var data = [];
             for (var key in el.DB) {
-                console.log(el.DB[key]);
                 data.push({
                     name: el.DB[key].name,
                     x: el.DB[key].position.lng,
                     y: el.DB[key].position.lat
                 });
             }
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["k" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["k" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
                 console.log('getSiteBuildNum', res);
                 if (res.success) {
-                    _this2.siteList = res.data;
-                    _this2.$nextTick(function () {
+                    _this3.siteList = res.data;
+                    _this3.$nextTick(function () {
                         this.zoom = 13;
                         this.centerLocaion = { lng: data.x, lat: data.y };
                         this.locationType = true;
@@ -11717,32 +11763,34 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 根据条件获取楼盘数据
         getBuild: function getBuild(data) {
-            var _this3 = this;
+            var _this4 = this;
 
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["g" /* getCoreBuildList */])(data).then(function (res) {
+            var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["g" /* getCoreBuildList */])(data).then(function (res) {
                 if (res.success) {
-                    console.log('res.data.length', res.data.length);
-                    _this3.buildList = res.data.res;
-                    _this3.buildListNum = res.data.res.length;
-                    console.log('res.data', res.data);
-                    console.log('res.data.length', res.data.res.length);
+                    _this4.buildList = res.data.res;
+                    _this4.buildListNum = res.data.res.length;
+                    if (type) {
+                        _this4.regionList = res.data.areaLocations;
+                    }
                 }
             });
         },
 
         // 根据关键字获取楼盘数据
         findKeyword: function findKeyword() {
-            var _this4 = this;
+            var _this5 = this;
 
             var resultData = {
                 '_token': document.getElementsByName('csrf-token')[0].content,
                 keyword: this.keyword
                 // 清空其他条件
             };this.emptyCondition();
-            Object(__WEBPACK_IMPORTED_MODULE_28__home_api__["g" /* getCoreBuildList */])(resultData).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["g" /* getCoreBuildList */])(resultData).then(function (res) {
                 if (res.success) {
-                    _this4.buildList = res.data.res;
-                    _this4.buildListNum = res.data.res.length;
+                    _this5.buildList = res.data.res;
+                    _this5.buildListNum = res.data.res.length;
                 }
             });
         },
@@ -11753,8 +11801,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             if (data.length === 3) {
                 this.condition.area_id = '';
                 this.condition.block_id = data[2];
+                __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#sq' + data[2]).trigger('click');
             } else if (data.length === 2) {
                 this.condition.area_id = data[1];
+                __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#qy' + data[1]).trigger('click');
                 this.condition.block_id = '';
             } else {
                 this.condition.area_id = '';
@@ -11771,6 +11821,13 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             } else {
                 this.condition.unit_price = '';
                 this.condition.total_price = data[1];
+            }
+        },
+        getId: function getId(type, id) {
+            if (type == 1) {
+                return 'qy' + id;
+            } else {
+                return 'sq' + id;
             }
         }
     }
@@ -14911,7 +14968,7 @@ module.exports = __webpack_require__(21);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_typeof__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__validator___ = __webpack_require__(237);
@@ -15246,9 +15303,9 @@ module.exports = function (it) {
 "use strict";
 
 // 19.1.2.1 Object.assign(target, source, ...)
-var getKeys = __webpack_require__(114);
+var getKeys = __webpack_require__(115);
 var gOPS = __webpack_require__(135);
-var pIE = __webpack_require__(117);
+var pIE = __webpack_require__(118);
 var toObject = __webpack_require__(156);
 var IObject = __webpack_require__(154);
 var $assign = Object.assign;
@@ -15403,7 +15460,7 @@ module.exports = function (TO_STRING) {
 "use strict";
 
 var create = __webpack_require__(159);
-var descriptor = __webpack_require__(113);
+var descriptor = __webpack_require__(114);
 var setToStringTag = __webpack_require__(137);
 var IteratorPrototype = {};
 
@@ -15421,8 +15478,8 @@ module.exports = function (Constructor, NAME, next) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(92);
-var anObject = __webpack_require__(112);
-var getKeys = __webpack_require__(114);
+var anObject = __webpack_require__(113);
+var getKeys = __webpack_require__(115);
 
 module.exports = __webpack_require__(93) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
@@ -15577,22 +15634,22 @@ var META = __webpack_require__(229).KEY;
 var $fails = __webpack_require__(100);
 var shared = __webpack_require__(133);
 var setToStringTag = __webpack_require__(137);
-var uid = __webpack_require__(116);
+var uid = __webpack_require__(117);
 var wks = __webpack_require__(95);
 var wksExt = __webpack_require__(138);
 var wksDefine = __webpack_require__(139);
 var enumKeys = __webpack_require__(230);
 var isArray = __webpack_require__(231);
-var anObject = __webpack_require__(112);
+var anObject = __webpack_require__(113);
 var isObject = __webpack_require__(99);
 var toIObject = __webpack_require__(94);
 var toPrimitive = __webpack_require__(129);
-var createDesc = __webpack_require__(113);
+var createDesc = __webpack_require__(114);
 var _create = __webpack_require__(159);
 var gOPNExt = __webpack_require__(232);
 var $GOPD = __webpack_require__(233);
 var $DP = __webpack_require__(92);
-var $keys = __webpack_require__(114);
+var $keys = __webpack_require__(115);
 var gOPD = $GOPD.f;
 var dP = $DP.f;
 var gOPN = gOPNExt.f;
@@ -15716,10 +15773,10 @@ if (!USE_NATIVE) {
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
   __webpack_require__(160).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(117).f = $propertyIsEnumerable;
+  __webpack_require__(118).f = $propertyIsEnumerable;
   __webpack_require__(135).f = $getOwnPropertySymbols;
 
-  if (DESCRIPTORS && !__webpack_require__(115)) {
+  if (DESCRIPTORS && !__webpack_require__(116)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
   }
 
@@ -15806,7 +15863,7 @@ setToStringTag(global.JSON, 'JSON', true);
 /* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var META = __webpack_require__(116)('meta');
+var META = __webpack_require__(117)('meta');
 var isObject = __webpack_require__(99);
 var has = __webpack_require__(88);
 var setDesc = __webpack_require__(92).f;
@@ -15866,9 +15923,9 @@ var meta = module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
-var getKeys = __webpack_require__(114);
+var getKeys = __webpack_require__(115);
 var gOPS = __webpack_require__(135);
-var pIE = __webpack_require__(117);
+var pIE = __webpack_require__(118);
 module.exports = function (it) {
   var result = getKeys(it);
   var getSymbols = gOPS.f;
@@ -15922,8 +15979,8 @@ module.exports.f = function getOwnPropertyNames(it) {
 /* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pIE = __webpack_require__(117);
-var createDesc = __webpack_require__(113);
+var pIE = __webpack_require__(118);
+var createDesc = __webpack_require__(114);
 var toIObject = __webpack_require__(94);
 var toPrimitive = __webpack_require__(129);
 var has = __webpack_require__(88);
@@ -16087,7 +16144,7 @@ function whitespace(rule, value, source, errors, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__required__ = __webpack_require__(161);
@@ -16722,7 +16779,7 @@ function date(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rule___ = __webpack_require__(68);
 
@@ -20214,6 +20271,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "regionStyle",
+                        attrs: { id: _vm.getId(1, item.id) },
                         on: {
                           click: function($event) {
                             _vm.seeRegionDetail(item)
@@ -20248,8 +20306,8 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.zoom <= 14 && _vm.zoom > 13,
-                        expression: "zoom<=14&&zoom>13"
+                        value: _vm.zoom <= 15 && _vm.zoom > 13,
+                        expression: "zoom<=15&&zoom>13"
                       }
                     ],
                     key: "blockBox" + index,
@@ -20260,6 +20318,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "areaStyle",
+                        attrs: { id: _vm.getId(2, item.id) },
                         on: {
                           click: function($event) {
                             _vm.seeAreaDetail(item)
@@ -20279,67 +20338,6 @@ var render = function() {
                         _vm._v(" "),
                         _c("span", { staticStyle: { color: "#fff" } }, [
                           _vm._v(_vm._s(item.building_num) + "个楼盘")
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _vm._l(_vm.buildList, function(item, index) {
-                return _c(
-                  "site-cover",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.zoom > 15,
-                        expression: "zoom>15"
-                      }
-                    ],
-                    key: "buildBox" + index,
-                    attrs: {
-                      position: {
-                        lng: parseFloat(item.x),
-                        lat: parseFloat(item.y)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "areaStyle",
-                        on: {
-                          click: function($event) {
-                            _vm.seeBuildDetail(item)
-                          }
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "triangle" }),
-                        _vm._v(" "),
-                        _c("span", { staticStyle: { color: "#fff" } }, [
-                          _vm._v(_vm._s(item.name))
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "detail" }, [
-                          _c("div", [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  "http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg",
-                                width: "200px; height:200px"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("76.2元/㎡·月")])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [_vm._v(_vm._s(item.title))]),
-                          _vm._v(" "),
-                          _c("div", [_vm._v("面积: 57-700㎡")])
                         ])
                       ]
                     )
@@ -20372,6 +20370,64 @@ var render = function() {
             2
           )
         : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.buildList, function(item, index) {
+        return _c(
+          "site-cover",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.zoom > 15,
+                expression: "zoom>15"
+              }
+            ],
+            key: "buildBox" + index,
+            attrs: {
+              position: { lng: parseFloat(item.x), lat: parseFloat(item.y) }
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "areaStyle",
+                on: {
+                  click: function($event) {
+                    _vm.seeBuildDetail(item)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "triangle" }),
+                _vm._v(" "),
+                _c("span", { staticStyle: { color: "#fff" } }, [
+                  _vm._v(_vm._s(item.name))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "detail" }, [
+                  _c("div", [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg",
+                        width: "200px; height:200px"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("76.2元/㎡·月")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s(item.title))]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v("面积: 57-700㎡")])
+                ])
+              ]
+            )
+          ]
+        )
+      }),
       _vm._v(" "),
       _vm.subwayKeyword
         ? _c("bm-bus", {

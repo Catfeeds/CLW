@@ -32,6 +32,8 @@ return [
     //浮动面积
     'float_acreage' => 10,
 
+    // 商圈经纪人默认图
+    'block_agent_default_img' => 'https://upload.chulouwang.com/pc/static/agent_pic_default.png',
     // 楼盘默认图片
     'building_default_img' => 'https://cdn.chulouwang.com/app/imgs/building_none.jpg',
     // 房源默认图片
