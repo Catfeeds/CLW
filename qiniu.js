@@ -213,5 +213,23 @@ function uploadFile() {
     });
   }
 }
+
+const pushQiniu = function(token, index, srcIndex, extra) {
+  return new Promise(function (resolve, reject) {
+    formUploader.putFile(token, index, srcIndex, extra, function(respErr, respBody, respInfo) {
+      if (respErr) {
+        reject(respErr)
+        return
+      }
+      if (respInfo.statusCode === 200) {
+        console.log(('远程文件：'+respBody.key+'部署成功。').info);
+        resolve(respBody.key);
+      } else {
+          console.log('error')
+          return reject(respInfo)
+      }
+    });
+  });
+}
 // 上传请打开他
 getQiniuFileList();
