@@ -3,7 +3,7 @@ import './components/home/login' // 登录组件
 import './components/home/right_tab' // 侧边栏组件
 import { init } from './components/home/input_search' // 搜索组件
 var findHouse = require('./components/findHouse.vue')
-var rightTop = $("#findHouse").offset().top - 60
+var rightTop = $("#findHouse").offset().top
 new Vue({
     el: '#findHouse',
     components: { findHouse }
@@ -20,38 +20,52 @@ function createURL(url, param) {
 // 页面滚动
 $(window).scroll(function(){
     var scrollTop = $(window).scrollTop()
-    var marginTop = $('.house_show').height() - $('.find_house').height()
-    var height = $('.house_show').height() - 350
-    if($('.house_show').height() <= 2492){
-        if(scrollTop >= rightTop){
-            $('#findHouse').addClass("location")
-            $('#findHouse').css('margin-top','30px')  
-            if(scrollTop >= height){
-                $('#findHouse').removeClass('location')
-                $('#findHouse').css('margin-top',marginTop)
-            }    
-        }
-        else if(scrollTop <= rightTop){
-            $('#findHouse').removeClass("location")
-            $("#findHouse").css('margin-top',0)
-        }
+    if(scrollTop >= 335){
+        $('#findHouse').addClass("location")
+        $('#findHouse').css('margin-top','30px')  
+        if(scrollTop >= 2300){
+            $('#findHouse').removeClass('location')
+            $('#findHouse').css('margin-top','1974px')
+        }    
     }
-    else {
-        height = height + 100
-        if(scrollTop >= rightTop){
-            $('#findHouse').addClass("location")
-            $('#findHouse').css('margin-top','30px')  
-            if(scrollTop >= height){
-                $('#findHouse').removeClass('location')
-                $('#findHouse').css('margin-top',marginTop)
-            }    
-        }
-        else if(scrollTop <= rightTop){
-            $('#findHouse').removeClass("location")
-            $("#findHouse").css('margin-top',0)
-        }
+    else if(scrollTop <= rightTop){
+        $('#findHouse').removeClass("location")
+        $("#findHouse").css('margin-top',0)
     }
   })
+  //
+//   var scrollTop = $(window).scrollTop()
+//     var marginTop = $('.house_show').height() - $('.find_house').height()
+//     var height = $('.house_show').height() - 350
+//     if($('.house_show').height() <= 2492){
+//         if(scrollTop >= rightTop){
+//             $('#findHouse').addClass("location")
+//             $('#findHouse').css('margin-top','30px')  
+//             if(scrollTop >= height){
+//                 $('#findHouse').removeClass('location')
+//                 $('#findHouse').css('margin-top',marginTop)
+//             }    
+//         }
+//         else if(scrollTop <= rightTop){
+//             $('#findHouse').removeClass("location")
+//             $("#findHouse").css('margin-top',0)
+//         }
+//     }
+//     else {
+//         height = height + 100
+//         if(scrollTop >= rightTop){
+//             $('#findHouse').addClass("location")
+//             $('#findHouse').css('margin-top','30px')  
+//             if(scrollTop >= height){
+//                 $('#findHouse').removeClass('location')
+//                 $('#findHouse').css('margin-top',marginTop)
+//             }    
+//         }
+//         else if(scrollTop <= rightTop){
+//             $('#findHouse').removeClass("location")
+//             $("#findHouse").css('margin-top',0)
+//         }
+//     }
 // 拿到所有条件值
 var data = {
     area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
