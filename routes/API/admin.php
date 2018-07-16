@@ -7,8 +7,11 @@
  */
 header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization,safeString');
 
+Route::get('test',function(){
+    dd(520);
+});
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    // 安全验证码
+    // 安全验证码 b33
     Route::get('get_safe_string', 'BannerController@safeString');
 
     // 登录
