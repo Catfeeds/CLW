@@ -25,7 +25,7 @@ class OfficeBuildingHouse extends BaseModel
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'house_type_cn','payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
         'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'floor_cn', 'show_cn',
-        'station_number_cn'
+        'station_number_cn', 'img_url'
     ];
 
     /**
@@ -458,10 +458,17 @@ class OfficeBuildingHouse extends BaseModel
             'unit_price' => $house->unit_price,
             'pay_type' => '押一付一',
             'address' => $house->buildingBlock->building->address,
-            'img_url' => $house->pic_url,
+            'img_url' => $house->img_url,
             'degree' => 100,
             'house_type_hall' => true,
             'house_type_room' => true
         ];
+    }
+
+    public function getImgUrlAttribute()
+    {
+        return collect($this->indoor_img)->map(function ($img) {
+            return config('setting.qiniu_url') . $img;
+        })->values()->toArray();
     }
 }
