@@ -42,7 +42,7 @@
                         </div>
                         <div class="introAddress"> 
                             <div><img src="{{homeRes('/home_img/build_detail_address.png')}}"> 地址：{{$building->address}}</div>
-                            <span class="js_map"><div class="introMap"><img src="{{homeRes('/home_img/house_detail_map.png')}}"> 查看地图</div></span>
+                            <span class="js_map"><div class="introMap"><img src="{{homeRes('/home_img/house_detail_map.png')}}"><div> 查看地图</div></div></span>
                         </div>
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>

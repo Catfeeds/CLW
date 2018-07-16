@@ -53,7 +53,7 @@ class PcRecommendsRequest extends FormRequest
                     ],
                     'introduce' => [
                         'required',
-                        'max:128',
+                        'max:512',
                         Rule::notIn(
                             PcRecommend::all()->pluck('introduce')->toArray()
                         )
@@ -66,7 +66,7 @@ class PcRecommendsRequest extends FormRequest
             case 'update':
                 return [
                     'title' => 'required|max:32|unique:pc_recommends,title,'.$this->route('pc_recommend')->id,
-                    'introduce' => 'required|max:128|unique:pc_recommends,introduce,'.$this->route('pc_recommend')->id,
+                    'introduce' => 'required|max:512|unique:pc_recommends,introduce,'.$this->route('pc_recommend')->id,
                     'pic' => 'required',
                     'big_details_pic' => 'required',
                     'small_details_pic' => 'required',
