@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="safeString" content="{{ $safeString }}">
-    <link rel="stylesheet" href="{{res('/css/home_mapLookForHouse.css')}}">
+    <link rel="stylesheet" href="{{homeRes('/css/home_mapLookForHouse.css')}}">
     <title>地图demo</title>
 </head>
 <body>
@@ -15,8 +15,8 @@
 <div id="app">
     <self-div a1='ss1' a2='ss2' a3='ss3'> </self-div>
 </div>
-<script src="{{res('/js/home_manifest.js')}}"></script>
-<script src="{{res('/js/home_vendor.js')}}"></script>
-<script src="{{res('/js/home_mapLookForHouse.js')}}"></script>
+<script src="{{homeRes('/js/home_manifest.js')}}"></script>
+<script src="{{homeRes('/js/home_vendor.js')}}"></script>
+<script src="{{homeRes('/js/home_mapLookForHouse.js')}}"></script>
 </body>
 </html>
