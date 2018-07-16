@@ -1,0 +1,1 @@
+webpackJsonp([22],{139:function(n,e,i){n.exports=i(140)},140:function(n,e,i){i(0);var o=void 0!==window.innerHeight?window.innerHeight:document.documentElement.clientHeight;$("#weixinTip").css({height:o}),$("a.js_down-btn").on("click",function(){if("micromessenger"==navigator.userAgent.toLowerCase().match(/MicroMessenger/i))return $("#weixinTip").show(),!1})}},[139]);

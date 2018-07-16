@@ -4,8 +4,10 @@ namespace App\Services;
 
 use App\Models\Area;
 use App\Models\Block;
+use App\Models\Building;
 use App\Models\BuildingFeature;
 use App\Models\Collection;
+use App\Models\OfficeBuildingHouse;
 use Illuminate\Support\Facades\Auth;
 
 class OfficeBuildingHousesService
@@ -263,5 +265,62 @@ class OfficeBuildingHousesService
         $res->officeBuildingHouse = $this->getShow($res->officeBuildingHouse);
 
         return $res;
+    }
+
+    public function getMiniHouse($request)
+    {
+        $houses = OfficeBuildingHouse::make();
+
+        // 处理条件
+        $data = $request->all();
+        if (!empty($data)) {
+            // 有搜索条件的
+            $data['region'] = json_decode($data['region'] ?? '{}', true) ?? [];
+            $data['acreage'] = json_decode($data['acreage'] ?? '{}', true) ?? [];
+            $data['price'] = json_decode($data['price'] ?? '{}', true) ?? [];
+            $data['houseType'] = json_decode($data['houseType'] ?? '{}', true) ?? [];
+            $data['payType'] = json_decode($data['payType'] ?? '{}', true) ?? [];
+
+            // 楼盘筛选
+            if (!empty($data['region']['building_name'])) {
+                // 获取楼盘id
+                $buildingId = Building::where('name', $data['region']['building_name'])->pluck('id');
+                $houses = OfficeBuildingHouse::where('building_id', $buildingId);
+            } elseif (!empty($data['region']['block'])) {
+                // 获取楼盘id
+                $buildingId = Building::where('name', $data['region']['block'])->pluck('id');
+                $houses = OfficeBuildingHouse::where('building_id', $buildingId);
+            } elseif (!empty($data['region']['area'])) {
+                // 区域id
+                $areaId = Area::where('name', $data['region']['area'])->pluck('id');
+                // 楼盘id
+                $buildingId = Building::where('area_id', $areaId)->pluck('id');
+                $houses = OfficeBuildingHouse::where('building_id', $buildingId);
+            }
+
+            if (!empty($data['acreage'])) {
+                $houses = $houses->whereBetween('constru_acreage', $data['acreage']);
+            }
+
+            if (!empty($data['price'])) {
+                $houses = $houses->whereBetween('unit_price', $data['price']);
+            }
+
+            // 付款方式筛选
+            if (!empty($data['payType']['bond_month']) || !empty($data['payType']['pay_month'])) {
+                $houses = $houses->where('payment_type', 3);
+            }
+        }
+
+        $houses = $houses->paginate(10);
+
+        $housesData = $houses->map(function ($house) {
+            return OfficeBuildingHouse::miniHouseItems($house);
+        });
+
+        $resHouses = $houses->toArray();
+        $resHouses['data'] = $housesData;
+
+        return $resHouses;
     }
 }
