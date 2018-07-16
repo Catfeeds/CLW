@@ -8,6 +8,23 @@ use App\Repositories\ThrowInsRepository;
 
 class ThrowInsController extends Controller
 {
+    /**
+     * 说明: 房源投放视图
+     *
+     * @author 刘坤涛
+     */
+    public function index
+    (
+        ThrowInsRepository $repository
+    )
+    {
+        $area = $repository->getAreaData();
+        $block = $repository->getBlockData();
+        return view('home.launch_house', [
+            'area' => $area,
+            'block' => $block
+        ]);
+    }
 
     /**
      * 说明: 房源投放

@@ -1,23 +1,6 @@
 <?php
 // we.clw.com
 
-// 测试底部
-Route::get('/test', function(){
-  return view('home.footer');
-});
-// 测试头部
-Route::get('/header', function(){
-    return view('home.header');
-});
-//测试副页面头部
-Route::get('/head', function(){
-    return view('home.head');
-});
-
-// 测试楼盘详情页
-// Route::get('/building_detail', function(){
-//     return view('home.building_detail');
-// });
 // 首页
 Route::get('/', 'IndexController@index');
 

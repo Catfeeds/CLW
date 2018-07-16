@@ -5,6 +5,8 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\InformationRequest;
 use App\Models\Information;
 use App\Repositories\InformationRepository;
+use App\Services\InformationService;
+use Illuminate\Http\Request;
 
 class InformationController extends APIBaseController
 {
@@ -66,5 +68,15 @@ class InformationController extends APIBaseController
     {
         $res = $repository->delTop($id);
         return $this->sendResponse($res, '取消置顶成功');
+    }
+
+    public function pickInformation(
+        Request $request,
+        InformationService $service
+    )
+    {
+        $res = $service->pickInformation($request);
+        if (empty($res['status'])) return $this->sendError($res['message']);
+        return $this->sendResponse($res, '数据爬取成功');
     }
 }

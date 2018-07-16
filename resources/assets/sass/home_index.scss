@@ -1,6 +1,8 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-@include nav();
+@include nav();// 导航样式
+@include footer(); // 底部样式
+@include right_tab(); // 侧边栏样式
 img{
   max-width: 100%;
 }
@@ -62,10 +64,15 @@ body {
               border-radius: 4px 0px 0px 4px;
               display: block;
               font-size: 16px;
-              width: 260px;
+              width: 100%;
               height: 44px;
               line-height: 44px;
               padding-left: 19px;
+            }
+            .el-input{
+              input{
+                width: 279px;
+              }
             }
           }
           button{
@@ -76,6 +83,9 @@ body {
             width: 60px;
             cursor: pointer;
             border-radius: 0px 4px 4px 0px;
+            &:hover{
+              background-color: $master-hoverBlue;
+            }
           }
         }
         .condition-box{
@@ -96,6 +106,9 @@ body {
               a{
                 font-size: 14px;
                 color: #666666;
+                &:hover{
+                  color: $master-blue;
+                }
               }
             }
           }
@@ -140,21 +153,39 @@ body {
         }
       }
       .banner-commercial-box{
-        width: 700px;
+        width: 716px;
         float: right;
         margin-top: 75px;
         .velocity-factor{
           margin-top: 50px;
           display: inline-block;
           width: 178px;
-          height: 57px;
+          height: 50px;
           background-color: $master-blue;
           color: $master-white;
-          font-size: 24px;
+          font-size: 18px;
           text-align: center;
-          line-height: 57px;
-          border-radius: 4px;
-          text-decoration: none;
+          line-height: 50px;
+          border-radius: 30px;
+          position: relative;
+          z-index: 3;
+          overflow: hidden;
+          &::after{
+            background-color: $master-hoverBlue;
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            z-index: -1;
+            transition: all .5s ease;
+          }
+          &:hover{
+            &::after{
+              width: 100%;
+            }
+          }
         }
       }
     }
@@ -200,6 +231,7 @@ body {
   }
   // 内容样式
   .topic-box{
+    min-width: $master-width;
     // 委托投放
     &.special-style{
       background-position: center;
@@ -230,12 +262,33 @@ body {
             margin-top: 30px;
             width: 190px;
             height: 44px;
-            border-radius: 21px;
+            border-radius: 25px;
             border: solid 1px #ffffff;
             display: inline-block;
             font-family: PingFang-SC-Medium;
             font-size: 16px;
             line-height: 44px;
+            position: relative;
+            z-index: 3;
+            overflow: hidden;
+            transition: all .5s ease;
+            &::after{
+              background-color: $master-blue;
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              z-index: -1;
+              transition: all .5s ease;
+            }
+            &:hover{
+              border-color: $master-blue;
+              &::after{
+                width: 100%;
+              }
+            }
           }
         }
         .launchHouse-box{
@@ -248,14 +301,14 @@ body {
       background-color: $master-white;
     }
     padding-top: 80px;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
     .topic-title{
       font-size: 36px;
       text-align: center;
       margin-top: 0;
       margin-bottom: 0;
       height: 36px;
-      font-family: PingFang-SC-Medium;
+      font-weight: 500;
     }
     .elaborate-title {
       margin-top: 18px;
@@ -263,10 +316,11 @@ body {
       color: #a0a0a0;
       text-align: center;
       font-family: PingFang-SC-Light;
+      font-weight: 200;
     }
     .topic-content{
       width: $master-width;
-      margin: 70px auto 0;
+      margin: 50px auto 0;
       // 企业服务
       .sever-list{
         margin: 0;
@@ -276,9 +330,9 @@ body {
           width: 240px;
           height: 406px;
           position: relative;
-          transition: all 1s;
+          transition: all 0.5s;
           *{
-            transition: all 1s;
+            transition: all 0.5s;
           }
           &:hover{
             .server-title-active{
@@ -372,6 +426,13 @@ body {
           width: 386px;
           a{
             display: block;
+            &:hover{
+              img{
+                box-shadow: 0 15px 20px rgba(0,0,0,.1);
+                transform: translate3d(0,-2px,0);
+                transition: all .2s ease-in 0s;
+              }
+            }
           }
           img{
             display: block;
@@ -410,6 +471,13 @@ body {
           position: absolute;
           a{
             display: block;
+            &:hover{
+              img{
+                box-shadow: 0 15px 20px rgba(0,0,0,.1);
+                transform: translate3d(0,-2px,0);
+                transition: all .2s ease-in 0s;
+              }
+            }
           }
           img{
             display: block;
@@ -457,13 +525,28 @@ body {
           a{
             display: block;
             width: 100%;
+            &:hover{
+              .img-box{
+                img.main-img{
+                  transform: scale(1.2);
+                }
+              }
+            }
             .img-box{
               width: 100%;
               height: 240px;
               overflow: hidden;
-              img{
+              position: relative;
+              img.main-img{
                 width: 100%;
                 display: block;
+                transition: all 1s;
+              }
+              img.min-img{
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                z-index: 1;
               }
             }
             .text-box{
@@ -536,6 +619,13 @@ body {
           a{
             display: block;
             widows: 100%;
+            &:hover{
+              img{
+                box-shadow: 0 15px 20px rgba(0,0,0,.1);
+                transform: translate3d(0,-2px,0);
+                transition: all .2s ease-in 0s;
+              }
+            }
             img{
               display: block;
               widows: 100%;
@@ -557,53 +647,60 @@ body {
             a{
               display: block;
               width: 100%;
-              >div.float-left{
-                width: 206px;
-                height: 152px;
-                overflow: hidden;
-                img{
-                  width: 100%;
-                  display: block;
+              &:hover{
+                h3{
+                  color: $master-blue !important;
                 }
               }
-              >div.float-right{
-                width: 580px;
-                padding: 15px 40px;
-                h3{
-                  margin: 0;
-                  text-overflow: ellipsis;
-                  overflow: hidden;
-                  white-space: nowrap;
-                  width: 100%;
-                  font-size: 24px;
-                  color: #464444;
-                  font-weight: normal;
-                  font-stretch: normal;
-                  height: 25px;
-                  line-height: 28px;
-                }
-                p{
-                  font-size: 14px;
-                  font-weight: normal;
-                  font-stretch: normal;
-                  line-height: 18px;
-                  letter-spacing: 0px;
-                  color: #aaa9a9;
-                  height: 54px;
-                  word-break: break-all;
-                  word-wrap: break-word;
-                  font-family: PingFang-SC-Regular;
-                }
-                .time-box{
-                  margin-top: 15px;
-                  font-size: 14px;
-                  font-weight: normal;
-                  font-stretch: normal;
-                  line-height: 18px;
-                  letter-spacing: 0px;
-                  color: #aaa9a9;
-                  font-family: PingFang-SC-Regular;
-                }
+            }
+            >div.float-left{
+              width: 260px;
+              height: 160px;
+              overflow: hidden;
+              img{
+                width: 100%;
+                display: block;
+              }
+            }
+            >div.float-right{
+              width: 570px;
+              padding: 10px 0px;
+              h3{
+                margin: 10px 0 0;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                width: 100%;
+                font-size: 20px;
+                color: #464444;
+                font-weight: normal;
+                font-stretch: normal;
+                height: 25px;
+                line-height: 28px;
+              }
+              p{
+                font-size: 12px;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 22px;
+                letter-spacing: 0px;
+                color: #aaa9a9;
+                height: 45px;
+                word-break: break-all;
+                word-wrap: break-word;
+                overflow: hidden;
+                font-family: PingFang-SC-Regular;
+                margin: 15px 0 0;
+              }
+              .time-box{
+                margin-top: 15px;
+                font-size: 12px;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 18px;
+                letter-spacing: 0px;
+                color: #aaa9a9;
+                font-family: PingFang-SC-Regular;
               }
             }
           }
@@ -613,27 +710,48 @@ body {
         float: right;
         padding-top: 20px;
         width: 255px;
-        h3{
-          margin: 0;
-          width: 100%;
-          height: 23px;
-          font-size: 24px;
-          font-weight: normal;
-          font-stretch: normal;
-          letter-spacing: 0px;
-          color: #464444;
+        .line-box{
+          margin-top: 15px;
+          $line-box-line: 1px solid #efefef;
+          border: {
+            top: 2px solid $master-blue;
+            bottom: $line-box-line;
+            left: $line-box-line;
+            right: $line-box-line;
+          }
+          padding: {
+            left: 10px;
+            right: 10px;
+          }
+          h3{
+            margin: 15px 0 0;
+            width: 100%;
+            height: 23px;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #464444;
+            border-bottom: 1px dashed #efefef;
+            padding-bottom: 10px;
+          }
         }
+       
         .hot-infomation-list{
           margin: 18px 0 0;
           width: 100%;
           .hot-infomation-item{
             a{
-              padding-bottom: 15px;
               display: block;
+              &:hover{
+                h4{
+                  color: $master-blue;
+                }
+              }
               h4{
                 margin: 0;
                 height: 16px;
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: normal;
                 font-stretch: normal;
                 letter-spacing: 0px;
@@ -643,31 +761,32 @@ body {
                 white-space: nowrap;
                 width: 100%;
               }
-              p{
-                margin: 10px 0;
-                overflow: hidden;
-                width: 100%;
-                height: 53px;
-                font-family: PingFang-SC-Regular;
-                font-size: 14px;
-                font-weight: normal;
-                font-stretch: normal;
-                line-height: 18px;
-                letter-spacing: 0px;
-                color: #aaa9a9;
-              }
+            }
+            p{
+              margin: 10px 0 15px;
+              overflow: hidden;
+              width: 100%;
+              height: 40px;
+              font-family: PingFang-SC-Regular;
+              font-size: 11px;
+              font-weight: normal;
+              font-stretch: normal;
+              line-height: 20px;
+              letter-spacing: 0px;
+              color: #aaa9a9;
             }
           }
         }
       }
     }
+    // 查看更多按钮
     .more-info{
       width: 180px;
-      height: 46px;
+      height: 44px;
       border-radius: 23px;
       border: solid 1px $master-blue;
       font-family: PingFang-SC-Medium;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: normal;
       font-stretch: normal;
       letter-spacing: 0px;
@@ -675,8 +794,29 @@ body {
       display: block;
       margin: 0 auto;
       text-align: center;
-      line-height: 46px;
+      line-height: 44px;
       margin-top: 60px;
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+      transition: all .5s ease;
+      &::after{
+        background-color: $master-blue;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        z-index: -1;
+        transition: all .5s ease;
+      }
+      &:hover{
+        color: #ffffff;
+        &::after{
+          width: 100%;
+        }
+      }
     }
   }
 }

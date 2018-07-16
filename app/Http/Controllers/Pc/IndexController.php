@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Pc;
 
+use App\Handler\Common;
 use App\Http\Controllers\Controller;
+use App\Models\Building;
 use App\Repositories\AreasRepository;
 use App\Repositories\BuildingsRepository;
 use App\Repositories\HotBlocksRepository;
 use App\Repositories\InformationRepository;
 use App\Repositories\PcEnterpriseServicesRepository;
+use App\Repositories\PcRecommendsRepository;
 use App\Repositories\PcServiceRecommendsRepository;
-use App\Repositories\RecommendsRepository;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -18,7 +21,7 @@ class IndexController extends Controller
         AreasRepository $areasRepository,
         InformationRepository $informationRepository,
         BuildingsRepository $buildingsRepository,
-        RecommendsRepository $recommendsRepository,
+        PcRecommendsRepository $pcRecommendsRepository,
         HotBlocksRepository $hotBlocksRepository,
         PcEnterpriseServicesRepository $pcEnterpriseServicesRepository,
         PcServiceRecommendsRepository $pcServiceRecommendsRepository
@@ -33,22 +36,42 @@ class IndexController extends Controller
         //精品写字楼
         $eliteBuilding = $buildingsRepository->getEliteBuilding();
         //精选专题
-        $recommends = $recommendsRepository->getList();
+        $pcRecommends = $pcRecommendsRepository->getList();
         //核心商圈
         $coreBlock = $hotBlocksRepository->getList();
         //推荐服务
         $recommendService = $pcServiceRecommendsRepository->PcServiceRecommendList()->take(4);
         //企业服务
         $service = $pcEnterpriseServicesRepository->getList()->take(5);
+
         return view('home.index', [
             'area' => $area,
             'information' => $information,
             'hotInformation' => $hotInformation,
             'eliteBuilding' => $eliteBuilding,
-            'recommends' => $recommends,
+            'pcRecommends' => $pcRecommends,
             'coreBlock' => $coreBlock,
             'service' => $service,
             'recommendService' => $recommendService
         ]);
+    }
+
+    // 通过关键字获取楼盘名
+    public function getSelectInfo(
+        Request $request
+    )
+    {
+        $string = "'". $request['selectInfo'] . "'";
+        $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
+        // 获取所有楼盘id
+        $buildingIds = array_column(Common::objectToArray($res), 'building_id');
+
+        $res = Building::whereIn('id', $buildingIds)->pluck('name')->toArray();
+
+        return $this->sendResponse(collect($res)->map(function ($v) {
+            return [
+                'value' => $v
+            ];
+        }),'通过关键字获取楼盘名成功');
     }
 }

@@ -43,7 +43,6 @@ class RecommendsRepository extends Model
             'pic' => $request->pic,
             'building_id' => $request->building_id,
             'building_info' => $request->building_info,
-            'pc_pic' => $request->pc_pic
         ]);
     }
 
@@ -62,7 +61,6 @@ class RecommendsRepository extends Model
         $recommend->pic = $request->pic;
         $recommend->building_id = $request->building_id;
         $recommend->building_info = $request->building_info;
-        $recommend->pc_pic = $request->pc_pic;
         if (!$recommend->save()) return false;
         return true;
     }

@@ -48,19 +48,6 @@ export default {
     }
   },
   methods: {
-    tobuildingDetail: function(item) {
-      var webview_building = plus.webview.create( 'building_detail.html', 'building_detail.html', {}, {item: item} )
-      setTimeout(function () {
-        webview_building.show("slide-in-right", 300)
-      }, 150)
-      // const webView = plus.webview.getWebviewById('building_detail.html')
-      // mui.fire(webView, 'get_building', {
-      //   item: item,
-      // })
-      // setTimeout(function () {
-      //   webView.show("slide-in-right", 300)
-      // }, 150)
-    }
   }
 }
 </script>

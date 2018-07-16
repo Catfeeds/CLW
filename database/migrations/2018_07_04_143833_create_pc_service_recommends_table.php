@@ -16,7 +16,7 @@ class CreatePcServiceRecommendsTable extends Migration
         Schema::create('pc_service_recommends', function (Blueprint $table) {
             $table->increments('id');
             $table->string('pic','128')->nullable()->comment('图片');
-            $table->string('url','32')->nullable()->comment('推荐服务商品url');
+            $table->string('url','64')->nullable()->comment('推荐服务商品url');
             $table->timestamps();
             $table->softDeletes();
         });

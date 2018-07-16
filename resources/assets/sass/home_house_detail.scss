@@ -1,6 +1,8 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
-@include nav();
+@include nav();// 导航样式
+@include footer(); // 底部样式
+@include right_tab(); // 侧边栏样式
 .content{
   .head{
     height: 50px;
@@ -39,15 +41,24 @@
         display: flex;
         justify-content: space-between;
         margin-top: 12px;
+        margin-bottom: 25px;
+        .swiperPic{
+          display: block;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .js_swiper{
+          display: none;
+        }
         #smallImg{
-          width: 615px;
-          margin-top: 2px;
+          width: 622px;
           height: 70px;
           .swiper-slide{
             width: 118px !important;
             img{
               width: 118px;
-              height: 67px;
+              height: 70px;
             }
           }
         }
@@ -58,7 +69,7 @@
         font-size: 22px;
         font-weight: 600;
         line-height: 32px;
-        color: #444;
+        color: #666;
       }
       .price{
         padding: 20px 0 25px 0;
@@ -66,26 +77,46 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #dbdbdb;
-        span{
-          color: $master-blue;
-          font-weight: 600;
-          font-size: 30px;
+        div{
+          color: #666;
+          span{
+            color: $master-blue;
+            font-weight: 600;
+            font-size: 30px;
+          }
         }
-        .pircePic{
-          margin-top: 6px;
-          width: 26px;
-          height: 26px;
-          border: solid 1px #eeeded;
-          border-radius: 50%;
-          line-height: 28px;
-          text-align: center;
+        .collect{
+          display: flex;
+          justify-content: flex-start;
+          margin-right: 30px;
+          .pircePic{
+            margin-top: 6px;
+            width: 26px;
+            height: 26px;
+            border: solid 1px #eeeded;
+            border-radius: 50%;
+            div{
+              margin: 5px;
+              width: 16px;
+              height: 15px;
+              
+            }
+            &:hover{
+              cursor: pointer;
+            }
+          }
+          .collectTitle{
+            height: 15px;
+            margin-top: 11px;
+            margin-left: 5px;
+          }
         }
       }
       .acreage{
         padding: 25px 0;
         border-bottom: 1px solid #eeeded;
         div{
-          color: #464545;
+          color: #666;
           margin-bottom: 16px;
           span{
             display: inline-block;
@@ -97,14 +128,24 @@
           display: flex;
           justify-content: space-between;
           margin-bottom: 0;
-          a{
-            text-decoration: none;
+          div{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0;
+            .addressInfor{
+              width: 220px;
+            }
+          }
+          .js_map{
             color: $master-blue;
-            @extend .font-level2;
+            width: 84px;
             img{
               width: 20px;
               height: 18px;
               vertical-align: text-bottom;
+            }
+            &:hover{
+              cursor: pointer;
             }
           }
         }
@@ -114,6 +155,7 @@
           margin-bottom: 0;
           div{
             margin-bottom: 0;
+            margin-top: 16px;
             width: 76px;
             height: 24px;
             text-align: center;
@@ -154,10 +196,11 @@
              margin-top: 15px;
              div{
                @extend .font-level1;
+               color: #666;
              }
              .nameDet{
                font-size: 24px;
-               color: #4c4d4d;
+               color: #666;
                margin-bottom: 13px;
              }
            }
@@ -174,8 +217,8 @@
           }
         }
       }
-      .button{
-
+      .button:hover{
+        cursor: pointer;
       }
     }
   }
@@ -198,7 +241,7 @@
             padding-bottom: 25px;
             margin-bottom: 1px;
             .houseTitle{
-              margin-top: 25px;
+              margin-top: 28px;
               color: #999;
             }
             .housePay{
@@ -206,24 +249,29 @@
               div{
                 display: flex;
                 justify-content: flex-start;
-                color: #444545;
                 line-height: 28px;
+                width: 350px;
                 .houseBox{
                   width: 85px;
-                  color: #bab8ba;
+                  color: #999;
+                }
+                span{
+                  color: #666;
                 }
               }
             }
             .houseType{
-              margin: 23px 0 0 130px;
+              margin-top: 23px;
               div{
                 display: flex;
                 justify-content: flex-start;
-                color: #444545;
                 line-height: 28px;
                 .houseBox1{
                   width: 55px;
-                  color: #bab8ba;
+                  color: #999;
+                }
+                span{
+                  color: #666;
                 }
               }
             }
@@ -235,39 +283,56 @@
           .server{
             margin-top: 20px;
             .serverPic{
-              padding: 30px 84px 25px 65px;
+              padding: 43px 24px;
               background: #fff;
               display: flex;
               justify-content: space-between;
+              .swiper-container{
+                .swiper-slide{
+                  text-align: center;
+                  img{
+                    margin-bottom: 10px;
+                  }
+                  div{
+                    color: #666;
+                  }
+                }
+              }
+              #serverPrev{
+                width: 46px;
+                height: 48px;
+                margin-top: 8px;
+                
+                &:hover{
+                  width: 46px;
+                  height: 48px;
+                  margin-top: 8px;
+                  cursor: pointer;
+                }
+              }
+              #serverNext{
+                width: 46px;
+                height: 48px;
+                margin-top: 8px;
+                &:hover{
+                  width: 46px;
+                  height: 48px;
+                  margin-top: 8px;
+                  cursor: pointer;
+                }
+              }
             }
           }
         }
         .findHouse{
           margin-top: 20px;
-          position: relative;
-          .entrust{
-            width: 86%;
-            position: absolute;
-            top: 225px;
-            left: 6%;
-            input{
-              width: 100%;
-            }
-            .order{
-              margin: 0 auto;
-              margin-top: 40px;
-              height: 40px;
-              border-radius: 20px;
-              width: 53%;
-              background: #03a2fb;
-              text-align: center;
-              line-height: 40px;
-              color: #fff;
-            }
-            .order:hover{
-              cursor: pointer;
-            }
-          }
+          width: 240px;
+          height: 335px;
+        }
+        .location{
+          position: fixed;
+          top: 40px;
+          margin-left: 960px;
         }
       }
     }
@@ -287,6 +352,7 @@
     }
     .enjoy{
       margin-top: 20px;
+      padding-bottom: 80px;
       .enjoyBox{
         width: $master-width;
         margin: 0 auto;
@@ -295,46 +361,51 @@
           padding: 25px;
           display: flex;
           justify-content: space-between;
-          .enjoyPic{
-            width: 265px;
-            height: 210px;
-            img{
-              width: 100%;
+          .enjoyDetail{
+            &:hover{
+              box-shadow: 0 5px 8px rgba(0,0,0,.1);
+            }
+            .enjoyPic{
+              width: 265px;
               height: 210px;
-            }
-          }
-          .enjoyInfor{
-            width: 239px;
-            border: 1px solid #e6e6e6;
-            border-top: none;
-            padding: 15px 12px;
-            .enjoyTitle{
-              @extend .font-level3;
-              color: #444545;
-              margin-bottom: 16px;
-              font-weight: 600;
-            }
-            .enjoyIntro{
-              display: flex;
-              justify-content: space-between;
-              line-height: 25px;
-              .enjoyAddress{
-                @extend .font-level1;
-                color: #999;
-                width: 140px;
-                overflow: hidden;
-                text-overflow:ellipsis;
-                white-space: nowrap;  
-                img{
-                  vertical-align: text-bottom;
-                }
+              img{
+                width: 100%;
+                height: 210px;
               }
-              .enjoyPrice{
-                color: #49494a;
-                span{
-                  font-size: 22px;
-                  font-weight: 600;
-                  color: $master-blue;
+            }
+            .enjoyInfor{
+              width: 239px;
+              border: 1px solid #e6e6e6;
+              border-top: none;
+              padding: 20px 12px 10px 12px;
+              .enjoyTitle{
+                @extend .font-level3;
+                color: #444545;
+                margin-bottom: 8px;
+                // font-weight: 600;
+              }
+              .enjoyIntro{
+                display: flex;
+                justify-content: space-between;
+                line-height: 25px;
+                .enjoyAddress{
+                  @extend .font-level1;
+                  color: #999;
+                  width: 140px;
+                  overflow: hidden;
+                  text-overflow:ellipsis;
+                  white-space: nowrap;  
+                  img{
+                    vertical-align: text-bottom;
+                  }
+                }
+                .enjoyPrice{
+                  color: #49494a;
+                  span{
+                    font-size: 22px;
+                    // font-weight: 600;
+                    color: $master-blue;
+                  }
                 }
               }
             }

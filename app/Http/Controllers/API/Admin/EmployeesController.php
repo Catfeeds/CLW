@@ -97,10 +97,8 @@ class EmployeesController extends APIBaseController
     //通过电话获取openid
     public function getOpenidByTel(EmployeesRequest $request)
     {
-
         $res = Employee::where('tel', $request->tel)->value('openid');
         return $this->sendResponse($res,'获取成功');
-
     }
     
 }

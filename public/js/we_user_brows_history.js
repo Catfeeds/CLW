@@ -1,26 +1,17 @@
 <<<<<<< HEAD
+webpackJsonp([14],{143:function(e,t,a){e.exports=a(144)},144:function(e,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s=a(3),n=(a.n(s),a(4)),o=a.n(n),i=a(13),r=a.n(i),u=a(5);a.n(u);a(2);var g=JSON.parse($("#pageOne").val()),p=new Vue({el:"#houseList",data:{list:[],page:2,getData:!1,status:!1,prompt:!1},components:{houseList:r.a}});if(g.data.length){for(var c in g.data)p.list.push(g.data[c].office_building_house);1!==Math.ceil(g.total/g.per_page)&&(p.getData=!0,p.status=!0)}else p.getData=!1,p.status=!1;$(document).on("click",".more button",function(e){p.getData=!1;var t="/ajax_browse_records?page="+p.page;$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:t,type:"get",success:function(e){if(p.status=!1,e.success){for(var t in e.data.data)p.list.push(e.data.data[t].office_building_house);Math.ceil(e.data.total/e.data.per_page)===p.page?(p.getData=!1,p.status=!1,p.prompt=!0):p.getData=!0}else o()({message:e.message,position:"center",duration:1e3});p.page=p.page+1},error:function(e){o()({message:e.responseJSON.message,position:"center",duration:2e3})}})}),0!==p.list.length?$("#nothing").hide():0==p.list.length&&$("#nothing").show()}},[143]);
+=======
 webpackJsonp([14],{
 
-<<<<<<< HEAD
-/***/ 144:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(145);
-=======
 /***/ 118:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(119);
->>>>>>> origin/wanghao
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 145:
-=======
 /***/ 119:
->>>>>>> origin/wanghao
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -110,11 +101,5 @@ if (app.list.length !== 0) {
 
 /***/ })
 
-<<<<<<< HEAD
-},[144]);
-=======
 },[118]);
->>>>>>> origin/wanghao
-=======
-webpackJsonp([14],{117:function(t,e,a){t.exports=a(118)},118:function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s=a(10),n=a.n(s),o=a(2),i=(a.n(o),a(1));a.n(i);a(0);var r=JSON.parse($("#pageOne").val()),u=new Vue({el:"#houseList",data:{list:[],page:2,getData:!1,status:!1,prompt:!1},components:{houseList:n.a}});if(r.data.length){for(var c in r.data)u.list.push(r.data[c].office_building_house);1!==Math.ceil(r.total/r.per_page)&&(u.getData=!0,u.status=!0)}else u.getData=!1,u.status=!1;$(document).on("click",".more button",function(t){u.getData=!1;var e="/ajax_browse_records?page="+u.page;$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:e,type:"get",success:function(t){if(u.status=!1,t.success){for(var e in t.data.data)u.list.push(t.data.data[e].office_building_house);Math.ceil(t.data.total/t.data.per_page)===u.page?(u.getData=!1,u.status=!1,u.prompt=!0):u.getData=!0}else Object(i.Toast)({message:t.message,position:"center",duration:1e3});u.page=u.page+1},error:function(t){Object(i.Toast)({message:t.responseJSON.message,position:"center",duration:2e3})}})}),0!==u.list.length?$("#nothing").hide():0==u.list.length&&$("#nothing").show()}},[117]);
->>>>>>> origin/zxz
+>>>>>>> zxz

@@ -1,7 +1,10 @@
 require('./home_common');
+import './components/home/login' // 登录组件
+import './components/home/right_tab' // 侧边栏组件
+import { getMarketPrice, getLikeBuild } from './home_api'
 const Swiper = require('swiper');
-var detailMap = require('./components/detailMap.vue')
-var findHouse = require('./components/findHouse.vue')
+var detailMap = require('./components/detailMap.vue') // 地图组件
+var findHouse = require('./components/findHouse.vue') // 委托找房组件
 var Data = $('#props').data('data') // 获取blade模板渲染出来的$building里的数据
 var initHouseData = getVal() // 房源数据
 // console.log('初始化数据', initHouseData)
@@ -10,7 +13,7 @@ var houseCount = parseInt($('.js_listCount span').html()) // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML') // 房源列表模板
 var rightTop = $('.right').offset().top // 右侧边栏至顶部的距离
 var secondTop = $('#second').offset().top // 周边配套至顶部的距离
-// console.log('sssss', Data.gps)
+console.log('sssss', Data.id)
 new Vue({
   el: '#second',
   components: {detailMap},
@@ -24,36 +27,83 @@ new Vue({
   el: '.findHouse',
   components: { findHouse }
 })
+
+// 猜你喜欢
+new Vue({
+  el: '#enjoy',
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    getLikeBuild().then(res => {
+      this.list = res.data
+    })
+  },
+  methods: {
+    toBuilding(val) {
+      window.location.href = '/buildings/'+ val
+    }
+  }
+})
+
+new Vue({
+  el: '#quotation',
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    getMarketPrice(Data.id).then(res => {
+      this.list = res.data
+    }) 
+  }
+})
+
 // 页面滚动事件
 $(window).scroll(function(){
-  var scrollTop = $(window).scrollTop()
-  if((scrollTop >= rightTop) && ((scrollTop + 690) < secondTop)) {
+  var scrollTop = $(window).scrollTop() // 页面滚动距离
+  if(((scrollTop + 60) >= rightTop) && ((scrollTop + 1076) < secondTop)) {
     $('.right').addClass('location')
     $('.right').css('margin-top', '0')
-  } else if((scrollTop <= rightTop) || ((scrollTop + 690) >= secondTop)) {
-    if((scrollTop + 690) >= secondTop) {
-      $('.right').css('margin-top', secondTop-rightTop-697)
+  } else if((scrollTop <= rightTop) || ((scrollTop + 1076) >= secondTop)) {
+    if((scrollTop + 1076) >= secondTop) {
+      $('.right').css('margin-top', secondTop-rightTop-1023)
       $('.right').removeClass('location')
     } else {
       $('.right').removeClass('location')
     }
   }
 })
-
 // 轮播
 var banner = new Swiper('#banner', {
-  direction: 'horizontal', // 横向滑动
+  simulateTouch : true, // 开启可能导致快速切换页面时跳到其它页面
   pagination: '.swiper-pagination', // 添加分页器
-  paginationClickable: true, // 分页器可点击
+  paginationClickable: true,
   paginationBulletRender: function(banner, index, className){
-    return '<span class="'+ className +'"><img src="'+ Data.pic_url[index].url +'"></span>'
-  }, // 自定义分页器
+    return '<span style="cursor:pointer" class="js_bannerChange '+ className +'"><img src="'+ Data.pc_pic_url[index].url +'"></span>'
+  }
+})
+
+
+// 手动切换banner
+// $(document).on('click', 'span.js_bannerChange', function() {
+//   if (banner.animating) {
+//     return
+//   }
+//   var index = $(this).index();
+//   console.log(index)
+//   banner.slideTo(index, 300, false);//切换到第一个slide，速度为1秒
+// })
+// 点击查看地图
+$('.js_map').on('click', function() {
+  $('html,body').animate({scrollTop: $('#second').offset().top - 60 + 'px'},500)
 })
 
 // 点击导航
 $('.filter div').on('click', function(){
-  $(this).addClass('filterActive')
-  $(this).siblings().removeClass('filterActive')
   var val = $(this).html()
   if(val == '出租房源') {
     navigation('#rent')
@@ -62,19 +112,18 @@ $('.filter div').on('click', function(){
   } else if(val == '市场行情') {
     navigation('#quotation')
   } else if(val == '周边配套') {
-    navigation('#second')
+    navigation('#second') 
   } else if(val == '猜你喜欢') {
-    navigation('#third')
+    navigation('#enjoy')
   }
 })
 function navigation(obj) {
-  $('html,body').animate({scrollTop: $(obj).offset().top + 'px'},500)
+  $('html,body').animate({scrollTop: $(obj).offset().top - 60 + 'px'},500)
   // document.getElementById('second').scrollIntoView(true)
 }
 
 // 出租房源面积筛选
 $('#rentAcreage span').on('click', function(){
-  var acreage = $(this).html()
   changePic()
   $(this).addClass('current')
   $(this).siblings().removeClass('current')
@@ -83,7 +132,6 @@ $('#rentAcreage span').on('click', function(){
 
 // 价格筛选
 $('#rentPrice span').on('click', function(){
-  var price = $(this).html()
   changePic()
   $(this).addClass('current')
   $(this).siblings().removeClass('current')
@@ -118,7 +166,7 @@ $('.js_listTotal').on('click', function() {
   createVal(html)
 })
 
-// 重置图标
+// 重置排序图标
 function changePic() {
   $('#buildList').find('.js_price_up_after').css('display', 'block')
   $('#buildList').find('.js_price_up_before').css('display', 'none')
@@ -190,9 +238,9 @@ function getVal() {
   for(var i = 0; i < list.length; i++) {
     var item = {} // 定义对象存放每一个房源的数据
     item.img = list.eq(i).find('img').attr('src') // 获取图片路径
-    item.area = list.eq(i).find('.listNum>#listArea').html() // 获取面积
-    item.price = list.eq(i).find('.listNum>#listPrice').html() // 获取单价
-    item.total = list.eq(i).find('.listNum>#listTotal').html() // 获取总价
+    item.area = list.eq(i).find('.listNum #listArea').html() // 获取面积
+    item.price = list.eq(i).find('.listNum #listPrice').html() // 获取单价
+    item.total = list.eq(i).find('.listNum #listTotal').html() // 获取总价
     item.feature = list.eq(i).find('#listSpecial').html() // 获取房源特色
     data.push(item)
     // 最多只显示10条数据，其他的隐藏
@@ -210,9 +258,9 @@ function createVal(data) {
   for(var p in data) {
     var list = $(listTemplate).appendTo('.js_listDetail')
     list.find('img').attr('src', data[p].img)
-    list.find('.listNum>#listArea').html(data[p].area)
-    list.find('.listNum>#listPrice').html(data[p].price)
-    list.find('.listNum>#listTotal').html(data[p].total)
+    list.find('.listNum #listArea').html(data[p].area)
+    list.find('.listNum #listPrice').html(data[p].price)
+    list.find('.listNum #listTotal').html(data[p].total)
     list.find('#listSpecial').html(data[p].feature)
     // 最多只显示10条数据，其他的隐藏
     if(p >= 10) {
@@ -224,6 +272,8 @@ function createVal(data) {
   // 房源数量大于10条显示查看更多
   if(data.length > 10) {
     $('.all').css('display', 'block')
+  } else {
+    $('.all').css('display', 'none')
   }
   houseDetail = data
   secondTop = $('#second').offset().top // 获取周边配套至顶部的高度
@@ -247,8 +297,8 @@ function selectTerm(current) {
       var max1 = active.eq(0).attr('data-max') || null
       var min2 = active.eq(1).attr('data-min') || null
       var max2 = active.eq(1).attr('data-max') || null
-      temp1 = select(min1, max1, 'area', initHouseData)
-      temp2 = select(min2, max2, 'price', temp1)
+      var temp1 = select(min1, max1, 'area', initHouseData)
+      var temp2 = select(min2, max2, 'price', temp1)
       createVal(temp2)
     }
   } else {

@@ -78,36 +78,29 @@ module.exports = {
   // pc端资源
   home: {
     scss: [
-      'home_index',
-      'home_mapLookForHouse',
-      'home_footer',
-      'home_header',
-      'home_head',
-      'home_house_detail',
-      'home_download',
-      'home_page',
-      'home_building_detail',
-      'home_personal',
-      'home_house_list',
-      'home_information',
-      'home_paging',
-      'home_login',
-      'home_register',
-      'home_sellhouse'
+      'home_index', // 首页
+      'home_mapLookForHouse', // 地图找房
+      'home_house_detail', // 房源详情
+      'home_building_detail', // 楼盘详情
+      'home_house_list', // 楼盘列表
+      'home_information', // 资讯中心
+      'home_sellhouse', // 委托找房
+      'home_information_show', // 资讯详情
+      'home_launchouse', // 投放房源
+      'home_topic', // 精选专题
+      'home_about_we' // 关于我们
     ],
     js: [
       'home_index',
       'home_mapLookForHouse',
       'home_footer',
-      'home_header',
-      'home_head',
       'home_house_detail',
       'home_building_detail',
-      'home_page',
-      'home_personal',
       'home_house_list',
       'home_information',
-      'home_login'
+      'home_sellhouse',
+      'home_launchouse',
+      'home_about_we' // 关于我们
     ],
     vendorName: 'home_vendor',
     manifestName: 'home_manifest',

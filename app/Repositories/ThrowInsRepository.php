@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Models\Area;
+use App\Models\Block;
 use App\Models\MessageRecord;
 use App\Models\ThrowIn;
 use App\Models\User;
@@ -37,6 +39,7 @@ class ThrowInsRepository extends Model
                 'area_id' => $request->area_id,
                 'area_name' => $request->area_name,
                 'acreage' => $request->acreage,
+                'block_id' => $request->block_id,
                 'building_name' => $request->building_name,
                 'source' => $source,
                 'page_source' => $request->page_source
@@ -56,5 +59,27 @@ class ThrowInsRepository extends Model
             \Log::error($e->getMessage());
             return false;
         }
+    }
+
+    public function getAreaData()
+    {
+        $data = [];
+        //获取全部区域
+        $area = Area::with('block')->get();
+        foreach ($area as $k => $v) {
+            $data[$k]['area_id'] = $v->id;
+            $data[$k]['area_name'] = $v->name;
+        }
+        return $data;
+    }
+
+    public function getBlockData()
+    {
+        $data = [];
+        $area_id = Area::all()->pluck('id')->toArray();
+        foreach ($area_id as $k => $v) {
+            $data['area_'.$v] = Block::where('area_id', $v)->get()->toArray();
+        }
+        return $data;
     }
 }

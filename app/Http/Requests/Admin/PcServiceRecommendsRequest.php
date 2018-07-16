@@ -41,6 +41,5 @@ class PcServiceRecommendsRequest extends FormRequest
 
                 ];
         }
-
     }
 }

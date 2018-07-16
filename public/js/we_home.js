@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+webpackJsonp([4],{53:function(t,n,e){e(54),e(65),e(66),e(67),e(68),e(69),e(70),e(71),e(72),e(73),e(74),e(75),e(76),e(77),e(78),e(79),e(80),e(81),e(82),e(83),e(84),e(85),e(86),t.exports=e(87)},54:function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o=e(3),a=(e.n(o),e(4)),u=e.n(a),c=e(5);e.n(c);e(2);var i=e(45);Vue.component("building-list",e(10));var s=JSON.parse($("#listAppData").val());new Vue({el:"#listApp",data:{list:s.data,page:2,getData:!0,status:!0,prompt:!1},methods:{getMore:function(){var t=this;t.getData=!1,$.ajax({url:"/buildings/create",type:"GET",data:{page:t.page},success:function(n){if(0===n.data.length)return t.status=!1,void(t.prompt=!0);t.page++,n.data.data.map(function(n){t.list.push(n)}),n.data.data.length>=n.data.per_page?t.getData=!0:(t.prompt=!0,t.status=!1)}})}}}),new i("#swiperBroadcast",{loop:!0,autoplay:3e3,effect:"slide",direction:"vertical",autoplayDisableOnInteraction:!1,paginationClickable:!0});$(document).on("click","#addBook",function(){var t=$("#telInput").val();if($("#telInput").blur(),!/^[1][0-9]{10}$/.test(t))return u()({message:"请输入11位手机号",position:"center",duration:3e3}),!1;$("#backdrop").fadeIn(300)}),$(document).on("touchend || tap","#backdrop",function(){$("#backdrop").fadeOut(300)}),$(document).on("touchend || tap","#popover",function(){return!1}),$(document).on("touchend || tap","#lookForHouse",function(){var t=whatBrowser();$.ajax({url:"/bespeaks",type:"POST",headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},data:{tel:$("#telInput").val(),page_source:t+"首页",source:t.substring(0,t.length-1)},success:function(t){$("#backdrop").fadeOut(300),$("#telInput").val(""),t.success?u()({message:"信息提交成功，楚楼网30分钟内联系您",position:"center",duration:3e3}):u()({message:"预约失败",position:"center",duration:3e3})},error:function(){$("#backdrop").fadeOut(300),u()({message:"服务器繁忙,请联系客服处理",position:"center",duration:3e3})}})}),$(document).on("touchend || tap","#peltHouse",function(){var t=whatBrowser();$.ajax({url:"/throw_ins",type:"POST",headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},data:{tel:$("#telInput").val(),page_source:t+"首页",source:t.substring(0,t.length-1)},success:function(t){$("#backdrop").fadeOut(300),$("#telInput").val(""),t.success?u()({message:"信息提交成功，楚楼网30分钟内联系您",position:"center",duration:3e3}):u()({message:"投放失败",position:"center",duration:3e3})},error:function(){$("#backdrop").fadeOut(300),u()({message:"服务器繁忙,请联系客服处理",position:"center",duration:3e3})}})})},65:function(t,n){},66:function(t,n){},67:function(t,n){},68:function(t,n){},69:function(t,n){},70:function(t,n){},71:function(t,n){},72:function(t,n){},73:function(t,n){},74:function(t,n){},75:function(t,n){},76:function(t,n){},77:function(t,n){},78:function(t,n){},79:function(t,n){},80:function(t,n){},81:function(t,n){},82:function(t,n){},83:function(t,n){},84:function(t,n){},85:function(t,n){},86:function(t,n){},87:function(t,n){}},[53]);
+=======
 webpackJsonp([2],Array(24).concat([
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -20,31 +22,6 @@ __webpack_require__(51);
 __webpack_require__(52);
 __webpack_require__(53);
 __webpack_require__(54);
-<<<<<<< HEAD
-__webpack_require__(65);
-__webpack_require__(66);
-__webpack_require__(67);
-__webpack_require__(68);
-__webpack_require__(69);
-__webpack_require__(70);
-__webpack_require__(71);
-__webpack_require__(72);
-__webpack_require__(73);
-__webpack_require__(74);
-__webpack_require__(75);
-__webpack_require__(76);
-__webpack_require__(77);
-__webpack_require__(78);
-__webpack_require__(79);
-__webpack_require__(80);
-__webpack_require__(81);
-__webpack_require__(82);
-__webpack_require__(83);
-__webpack_require__(84);
-__webpack_require__(85);
-__webpack_require__(86);
-module.exports = __webpack_require__(87);
-=======
 __webpack_require__(55);
 __webpack_require__(56);
 __webpack_require__(57);
@@ -52,7 +29,6 @@ __webpack_require__(58);
 __webpack_require__(59);
 __webpack_require__(60);
 module.exports = __webpack_require__(61);
->>>>>>> origin/wanghao
 
 
 /***/ }),
@@ -381,6 +357,4 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 /***/ })
 ]),[24]);
-=======
-webpackJsonp([2],Array(24).concat([function(t,n,e){e(25),e(39),e(40),e(41),e(42),e(43),e(44),e(45),e(46),e(47),e(48),e(49),e(50),e(51),e(52),e(53),e(54),e(55),e(56),e(57),e(58),e(59),e(60),t.exports=e(61)},function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o=e(1),a=(e.n(o),e(2));e.n(a);e(0);var c=e(17);Vue.component("building-list",e(7));var u=JSON.parse($("#listAppData").val());new Vue({el:"#listApp",data:{list:u.data,page:2,getData:!0,status:!0,prompt:!1},methods:{getMore:function(){var t=this;t.getData=!1,$.ajax({url:"/buildings/create",type:"GET",data:{page:t.page},success:function(n){if(0===n.data.length)return t.status=!1,void(t.prompt=!0);t.page++,n.data.data.map(function(n){t.list.push(n)}),n.data.data.length>=n.data.per_page?t.getData=!0:(t.prompt=!0,t.status=!1)}})}}}),new c("#swiperBroadcast",{loop:!0,autoplay:3e3,effect:"slide",direction:"vertical",autoplayDisableOnInteraction:!1,paginationClickable:!0});$(document).on("click","#addBook",function(){var t=$("#telInput").val();if($("#telInput").blur(),!/^[1][0-9]{10}$/.test(t))return Object(o.Toast)({message:"请输入11位手机号",position:"center",duration:3e3}),!1;$("#backdrop").fadeIn(300)}),$(document).on("touchend || tap","#backdrop",function(){$("#backdrop").fadeOut(300)}),$(document).on("touchend || tap","#popover",function(){return!1}),$(document).on("touchend || tap","#lookForHouse",function(){var t=whatBrowser();$.ajax({url:"/bespeaks",type:"POST",headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},data:{tel:$("#telInput").val(),page_source:t+"首页",source:t.substring(0,t.length-1)},success:function(t){$("#backdrop").fadeOut(300),$("#telInput").val(""),t.success?Object(o.Toast)({message:"信息提交成功，楚楼网30分钟内联系您",position:"center",duration:3e3}):Object(o.Toast)({message:"预约失败",position:"center",duration:3e3})},error:function(){$("#backdrop").fadeOut(300),Object(o.Toast)({message:"服务器繁忙,请联系客服处理",position:"center",duration:3e3})}})}),$(document).on("touchend || tap","#peltHouse",function(){var t=whatBrowser();$.ajax({url:"/throw_ins",type:"POST",headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},data:{tel:$("#telInput").val(),page_source:t+"首页",source:t.substring(0,t.length-1)},success:function(t){$("#backdrop").fadeOut(300),$("#telInput").val(""),t.success?Object(o.Toast)({message:"信息提交成功，楚楼网30分钟内联系您",position:"center",duration:3e3}):Object(o.Toast)({message:"投放失败",position:"center",duration:3e3})},error:function(){$("#backdrop").fadeOut(300),Object(o.Toast)({message:"服务器繁忙,请联系客服处理",position:"center",duration:3e3})}})})},,,,,,,,,,,,,,function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){},function(t,n){}]),[24]);
->>>>>>> origin/zxz
+>>>>>>> zxz

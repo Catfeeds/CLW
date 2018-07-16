@@ -1,19 +1,19 @@
 @extends('home.layouts.layout')
 @section('title', '楼盘详情')
 @section('header')
-<link rel="stylesheet" href="/css/home_building_detail.css">
+<link rel="stylesheet" href="{{homeRes('/css/home_building_detail.css')}}">
 @endsection
 @section('body')
+@include('home.nav')
+@include('home.right_tab')
 <div class="content">
-    <?php 
-        $arrs=array('首页','洪山区','光谷','慧谷时空')
-    ?>
-    @include('home.layouts.nav', ['arrs'=>$arrs])
+    @include('home.layouts.nav', ['arrs'=>$data])
         <!-- 轮播 -->
         <div class="swiper-container" id="banner">
             <div class="swiper-wrapper">
-                @foreach($building->pic_url as $pic)
-                <div class="swiper-slide"><img src="{{$pic['url']}}" alt=""></div>
+            <!-- <div class="swiper-slide"><div class="swiperPic" style="background-image:url(http://osibaji20.bkt.clouddn.com/FjEr7aTT2dJvrExlP75CQhCdVdil)"></div></div> -->
+                @foreach($building->pc_pic_url as $pic)
+                <div class="swiper-slide"><div class="swiperPic" style="background-image:url({{$pic['url']}})"></div></div>
                 @endforeach
             </div>
             <div class="swiper-pagination"></div>
@@ -28,44 +28,28 @@
                         <div class="introBox">
                             <div class="introTitle">{{$building->name}}</div>
                             <div class="introBuild">
-                                <div class="introNum">{{$building->house_count}}</div>
-                                <div>在租房源/套</div>
+                                <div class="introNum">{{$building->house_count}}<span style="font-size: 14px;color:#666;">套</span></div>
+                                <div>在租房源</div>
                             </div>
                             <div class="introArea">
-                                <div class="areaNum">{{$building->constru_acreage}}</div>
-                                <div>可租面积/平米</div>
+                                <div class="areaNum">{{$building->constru_acreage}}<span style="font-size: 14px;color:#666;">m²</span></div>
+                                <div>可租面积</div>
                             </div>
                             <div class="introRental">
-                                <div class="introPrice">{{$building->unit_price}}</div>
-                                <div>月度租金/元每平方米</div> 
+                                <div class="introPrice">{{$building->unit_price}}<span style="font-size: 14px;color:#666;">元/m²</span></div>
+                                <div>月度租金</div> 
                             </div>
                         </div>
-                        <div class="introAddress">
-                            <div><img src="/home_img/build_detail_address.png"> 地址：{{$building->address}}</div>
-                            <a href="#"><div class="introMap"><img src="/home_img/house_detail_map.png"> 查看地图</div></a>
+                        <div class="introAddress"> 
+                            <div><img src="{{homeRes('/home_img/build_detail_address.png')}}"> 地址：{{$building->address}}</div>
+                            <span class="js_map"><div class="introMap"><img src="{{homeRes('/home_img/house_detail_map.png')}}"><div> 查看地图</div></div></span>
                         </div>
                         <div class="introBetter">
                             <div class="betterTitle">楼盘特色: </div>
-                            <!-- <div class="betterDetail">
-                                <img src="/home_img/build_detail_subway.png">
-                                <span>地铁10分钟</span>
-                            </div>
+                            @foreach($building->pc_feature_name_pic as $feature)
                             <div class="betterDetail">
-                                <img src="/home_img/build_detail_landmark.png">
-                                <span>地标建筑</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_pioneer_park .png">
-                                <span>创业园</span>
-                            </div>
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_register.png">
-                                <span>可注册</span>
-                            </div> -->
-                            @foreach($building->feature_name_pic as $feature)
-                            <div class="betterDetail">
-                                <img src="/home_img/build_detail_subway.png">
-                                <span>地铁10分钟</span>
+                                <img src="{{$feature['pic']}}">
+                                <span>{{$feature['name']}}</span>
                             </div>
                             @endforeach
                         </div>
@@ -109,33 +93,33 @@
                             <div class="js_listArea listArea">
                                 <span>面积</span>
                                 <div class="listSort">
-                                    <span class='rise'><img class="js_price_up_after" src="/home_img/build_detail_up_before.png">
-                                    <img class="js_price_up_before" style="display:none" src="/home_img/build_detail_up_after.png">
+                                    <span class='rise'><img class="js_price_up_after" src="{{homeRes('/home_img/build_detail_up_before.png')}}">
+                                    <img class="js_price_up_before" style="display:none" src="{{homeRes('/home_img/build_detail_up_after.png')}}">
                                     </span>
-                                    <span class='drop'><img class="js_price_down_after" src="/home_img/build_detail_down_defore.png">
-                                    <img style="display:none" class="js_price_down_before" src="/home_img/build_detail_down_after.png">
+                                    <span class='drop'><img class="js_price_down_after" src="{{homeRes('/home_img/build_detail_down_defore.png')}}">
+                                    <img style="display:none" class="js_price_down_before" src="{{homeRes('/home_img/build_detail_down_after.png')}}">
                                     </span>
                                 </div>   
                             </div>
                             <div class="js_listPrice listArea">
                                 <span>单价</span>
                                 <div class="listSort">
-                                    <span class='rise'><img class="js_price_up_after" src="/home_img/build_detail_up_before.png">
-                                    <img class="js_price_up_before" style="display:none" src="/home_img/build_detail_up_after.png">
+                                    <span class='rise'><img class="js_price_up_after" src="{{homeRes('/home_img/build_detail_up_before.png')}}">
+                                    <img class="js_price_up_before" style="display:none" src="{{homeRes('/home_img/build_detail_up_after.png')}}">
                                     </span>
-                                    <span class='drop'><img class="js_price_down_after" src="/home_img/build_detail_down_defore.png">
-                                    <img class="js_price_down_before" style="display:none" src="/home_img/build_detail_down_after.png">
+                                    <span class='drop'><img class="js_price_down_after" src="{{homeRes('/home_img/build_detail_down_defore.png')}}">
+                                    <img class="js_price_down_before" style="display:none" src="{{homeRes('/home_img/build_detail_down_after.png')}}">
                                     </span>
                                 </div>  
                             </div>
                             <div class="js_listTotal listArea">
                                 <span>总价</span>
                                 <div class="listSort">
-                                    <span class='js_rise rise'><img class="js_price_up_after" src="/home_img/build_detail_up_before.png">
-                                    <img class="js_price_up_before" style="display:none" src="/home_img/build_detail_up_after.png">
+                                    <span class='js_rise rise'><img class="js_price_up_after" src="{{homeRes('/home_img/build_detail_up_before.png')}}">
+                                    <img class="js_price_up_before" style="display:none" src="{{homeRes('/home_img/build_detail_up_after.png')}}">
                                     </span>
-                                    <span class='js_drop drop'><img class="js_price_down_after" src="/home_img/build_detail_down_defore.png">
-                                    <img class="js_price_down_before" style="display:none" src="/home_img/build_detail_down_after.png">
+                                    <span class='js_drop drop'><img class="js_price_down_after" src="{{homeRes('/home_img/build_detail_down_defore.png')}}">
+                                    <img class="js_price_down_before" style="display:none" src="{{homeRes('/home_img/build_detail_down_after.png')}}">
                                     </span>
                                 </div>
                             </div>
@@ -147,9 +131,9 @@
                                 <div class="listDetail">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">
-                                        <span id="listArea">{{$house->constru_acreage_cn}}</span>
-                                        <span id="listPrice">{{$house->unit_price_cn}}</span>
-                                        <span id="listTotal">{{$house->total_price_cn}}</span>
+                                        <div><span id="listArea">{{$house->constru_acreage}}</span>m²</div>
+                                        <div><span id="listPrice">{{$house->unit_price}}</span>元/㎡·月</div>
+                                        <div><span id="listTotal">{{$house->total_price}}</span>元/月</div>
                                     </div>
                                     <div class="listSpecial" id="listSpecial">
                                         @if(!empty($house->house_feature[0]))
@@ -175,25 +159,27 @@
                     <div class="buildInfor" id="buildInfor">
                         <div class="h1">楼盘信息</div>
                         <div class="buildInforBox">
-                            <div class="buildRow">
-                                <div>
-                                    <span class="developer">开发商</span><span>{{$building->developer}}</span>
+                            <div class="buildInforList">
+                                <div class="buildRow">
+                                    <div>
+                                        <span class="developer">开发商</span><span>{{$building->developer}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="developer">建筑年代</span>
+                                        <span>{{$building->years_cn}}</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <span class="developer">建筑年代</span>
-                                    <span>{{$building->years_cn}}</span>
+                                <div class="buildRow">
+                                    <div><span class="developer">总建筑面积</span><span>{{$building->acreage_cn}}</span></div>
+                                    <div><span class="developer">楼栋数量</span><span>{{$building->building_block_num_cn}}</span></div>
                                 </div>
-                            </div>
-                            <div class="buildRow">
-                                <div><span class="developer">总建筑面积</span><span>{{$building->acreage_cn}}</span></div>
-                                <div><span class="developer">楼栋数量</span><span>{{$building->building_block_num_cn}}</span></div>
-                            </div>
-                            <div class="buildRow">
-                                <div><span class="developer">车位数量</span><span>{{$building->parking_num_cn}}</span></div>
-                                <div><span class="developer">停车费</span><span>{{$building->parking_fee_cn}}</span></div>
-                            </div>
-                            <div class="buildRow">
-                                <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
+                                <div class="buildRow">
+                                    <div><span class="developer">车位数量</span><span>{{$building->parking_num_cn}}</span></div>
+                                    <div><span class="developer">停车费</span><span>{{$building->parking_fee_cn}}</span></div>
+                                </div>
+                                <div class="buildRow">
+                                    <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
+                                </div>
                             </div>
                             <div class="buildDetail">{{$building->describe}}</div>
                         </div>
@@ -202,9 +188,9 @@
                     <div class="quotation" id="quotation">
                         <div class="h1">市场行情</div>
                         <div class="average">
-                            <div class="buildPrice"><div>现代光谷世贸中心均价（楼盘）</div><div>{{$building->buildingAverage}}</div></div>
-                            <div class="buildPrice"><div>光谷均价（商圈）</div><div>{{$building->blockAverage}}</div></div>
-                            <div class="buildPrice"><div>洪山均价（区域）</div><div>{{$building->areaAverage}}</div></div>
+                            <div class="buildPrice"><div>{{$data['2']['name']}}均价(楼盘)</div><div>@{{list.buildingAveragePrice}}</div></div>
+                            <div class="buildPrice"><div>{{$data['1']['name']}}均价(商圈)</div><div>@{{list.blockAveragePrice}}</div></div>
+                            <div class="buildPrice"><div>{{$data['0']['name']}}均价(区域)</div><div>@{{list.areaAveragePrice}}</div></div>
                         </div>
                     </div>
                 </div>
@@ -215,16 +201,16 @@
                         <img class="agentPic" src="{{$block->agent_pic_cn}}">
                         <div class="name">
                             <div class="nameFirst">{{$block->agent_name}}</div>
-                            <div>{{$block->name}}楼盘经纪</div>
+                            <div>{{$block->name}}楼盘专属顾问</div>
                         </div>
                         <div class="free">免费咨询</div>
                         <div class="service">
-                            <img src="/home_img/build_detail_button.png">
+                            <img src="{{homeRes('/home_img/build_detail_button.png')}}">
                         </div>
                     </div>
                     <!-- 委托找房 -->
                     <div class="findHouse">
-                        <find-house></find-house> 
+                        <find-house></find-house>
                     </div>
                 </div>
             </div>
@@ -236,27 +222,28 @@
                 <div id="props" data-data='{{$building->toJson()}}' style="display:none"></div>
             </div>
             <div class="enjoy" id="enjoy">
-            <div class="enjoyBox">
-                <div class="h1">猜你喜欢</div>
-                <div class="enjoyList">
-                    @foreach($likeBuilding as $like)
-                    <div class="enjoyDetail">
-                        <div class="enjoyPic"><img src="{{$like['img_cn']}}" alt=""></div>
-                        <div class='enjoyInfor'>
-                            <div class="enjoyTitle">{{$like['name']}}</div>
-                            <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$like['address_cn']}}</div>
-                                <div class="enjoyPrice"><span>{{$like['unit_price']}}</span> 元/m²月</div>
+                <div class="enjoyBox">
+                    <div class="h1">猜你喜欢</div>
+                    <div class="enjoyList">
+                        <a v-for="(item, index) in list" @click="toBuilding(item.id)">
+                        <div class="enjoyDetail">
+                            <div class="enjoyPic"><img :src="item.img_cn"></div>
+                            <div class='enjoyInfor'>
+                                <div class="enjoyTitle">@{{item.name}}</div>
+                                <div class="enjoyIntro">
+                                    <div class="enjoyAddress"><img src="{{homeRes('/home_img/house_detail_map1.png')}}"> @{{item.address_cn}}</div>
+                                    <div class="enjoyPrice"><span>@{{item.avg_price}}</span> 元/m²月</div>
+                                </div>
                             </div>
                         </div>
+                        </a>
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>
-        </div>
     </div>
+    @include('home.footer')
 @endsection
 @section('script')
-<script src="/js/home_building_detail.js"></script>
+<script src="{{homeRes('/js/home_building_detail.js')}}"></script>
 @endsection

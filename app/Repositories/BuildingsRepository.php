@@ -24,6 +24,8 @@ class BuildingsRepository extends  Model
      * @param null $building_id
      * @param null $whetherPage
      * @param null $getCount
+     * @param null $mapRes  地图返回结果
+     * @param null $pcBuildingListAndMap  地图返回结果
      * @return array
      * @author 罗振
      */
@@ -32,15 +34,17 @@ class BuildingsRepository extends  Model
         $service,
         $building_id = null,
         $whetherPage = null,
-        $getCount = null
+        $getCount = null,
+        $mapRes = null,
+        $pcBuildingListAndMap = null
     )
     {
-        // 取得符合条件房子
-        $houses = $this->houseList($request, $building_id);
+        $houses = $this->houseList($request, $building_id, $pcBuildingListAndMap);
+
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
 
-        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area', 'label', 'house'])->get();
+        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
 
         // pc价格排序
         if (!empty($request->price_sort)) {
@@ -67,6 +71,8 @@ class BuildingsRepository extends  Model
                 'page' => $page,
                 'data' => $data
             ];
+        } elseif ($mapRes) {
+            return $data->values()->toArray();
         } else {
             return $data->toArray();
         }
@@ -90,7 +96,7 @@ class BuildingsRepository extends  Model
     )
     {
         foreach ($buildingData as $index => $v) {
-            $buildingData[$index]->pc_house = $v->house->take(5);
+            $buildingData[$index]->pc_house = $v->house->take(5)->toArray();
 
             // 价格及面积区间
             $service->priceAndAcreageSection($v);
@@ -132,7 +138,7 @@ class BuildingsRepository extends  Model
                 });
             }
         }
-        
+
         return collect($res);
     }
 
@@ -141,12 +147,18 @@ class BuildingsRepository extends  Model
      *
      * @param $request
      * @param $building_id
+     * @param null $pcBuildingList
      * @return mixed
      * @author jacklin
      */
-    public function houseList($request, $building_id)
+    public function houseList(
+        $request,
+        $building_id,
+        $pcBuildingList = null
+    )
     {
         $buildings = Building::make();
+
         // 如果有商圈id 查商圈
         if (!empty($request->block_id)) {
             $buildings = $buildings->where('block_id', $request->block_id);
@@ -155,7 +167,7 @@ class BuildingsRepository extends  Model
         }
 
         // 如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
-        if (!empty($building_id)) {
+        if (!empty($building_id) || (empty($building_id) && $pcBuildingList)) {
             $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
         } else {
             $buildings = $buildings->get()->pluck('id')->toArray();
@@ -323,6 +335,7 @@ class BuildingsRepository extends  Model
 
                 'company' => $request->company,
                 'album' => $request->album,
+                'big_album' => $request->big_album,
 
                 'describe' => $request->describe
             ]);
@@ -403,6 +416,7 @@ class BuildingsRepository extends  Model
              $building->greening_rate = $request->greening_rate;
              $building->company = $request->company;
              $building->album = $request->album;
+             $building->big_album = $request->big_album;
              $building->describe = $request->describe;
             if (!$building->save()) throw new \Exception('楼盘修改失败');
             // 查询查该楼盘已经有的特色

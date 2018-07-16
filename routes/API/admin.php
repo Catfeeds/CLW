@@ -11,7 +11,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 安全验证码
     Route::get('get_safe_string', 'BannerController@safeString');
 
-
     // 登录
     Route::resource('logins','LoginsController');
 
@@ -19,6 +18,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::group(['middleware' => 'safe.validate'], function () {
         //根据类型获取接收人人员openid
         Route::get('get_openid/{type}', 'AcceptMessagesController@getOpenid');
+
+        //通过电话获取openid
+        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
+
+        //微信绑定管理
+        Route::resource('employees', 'EmployeesController');
+
+        //换绑微信
+        Route::post('update_wechat', 'EmployeesController@updateWechat');
 
         //--------- 中介系统权限管理
         // 权限组管理
@@ -108,7 +116,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('service_labels', 'ServiceLabelsController');
         Route::get('all_service_labels', 'ServiceLabelsController@allServiceLabels');
 
-
         /*
         |--------------------------------------------------------------------------
         | 精品推荐管理
@@ -117,6 +124,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('recommends', 'RecommendsController');
         //获取楼盘下拉数据
         Route::get('buildings_select', 'RecommendsController@buildingsSelect');
+
+        /*
+        |--------------------------------------------------------------------------
+        | pc端精品推荐管理
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('pc_recommends', 'PcRecommendsController');
 
         /*
         |--------------------------------------------------------------------------
@@ -223,15 +237,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //生成二维码
         Route::post('code', 'EmployeesController@code');
 
-        //微信绑定管理
-        Route::resource('employees', 'EmployeesController');
-
-        //换绑微信
-        Route::post('update_wechat', 'EmployeesController@updateWechat');
-
-        //通过电话获取openid
-        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
-
         //慢查询
         Route::post('query', 'QueryController@create');
 
@@ -251,7 +256,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('information', 'InformationController');
         Route::get('set_top/{id}', 'InformationController@setTop');
         Route::get('del_top/{id}', 'InformationController@delTop');
-
+        // 爬取安居客资讯信息
+        Route::post('pick_information', 'InformationController@pickInformation');
 
         /*
         |--------------------------------------------------------------------------
@@ -262,6 +268,21 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         //pc端企业服务
         Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
+
+        /*
+        |--------------------------------------------------------------------------
+        | 商城标签管理
+        |--------------------------------------------------------------------------
+        */
+        //商城大类管理
+        Route::resource('categories','CategoriesController');
+        // 标签
+        Route::resource('labels', 'LabelsController');
+
+
+        // 通过大类获取一级标签
+        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
+
     });
 
 });

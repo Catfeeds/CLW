@@ -30,21 +30,46 @@ class BuildingsController extends Controller
         $block = $building->block;
         // 房源数量
         $building->house_count = $houses->count();
-        // 获取楼盘下房源均价(楼盘下房源总价格/楼盘下房源总面积)
-        $building->buildingAverage = $service->getBuildingAveragePrice($houses);
-        // 商圈下房源均价
-        $building->blockAverage = $service->getBlockAveragePrice($block->id);
         // 楼盘所属区域
         $areaId = $block->area->id;
-        // 区域下房源均价
-        $building->areaAverage = $service->getAreaAveragePrice($areaId);
         // 猜你喜欢
         $request->area_id = $areaId;   // 区域id
-        $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
+
         //区域商圈名称对应id
-        $data[$areaId] = $block->area->name;
-        $data[$block->id] = $block->name;
-        return view('home.building_detail', ['building' => $building, 'likeBuilding' => $likeBuilding, 'houses' => $houses, 'block' => $block, 'data' => $data]);
+        $data[0]['id'] = $areaId;
+        $data[0]['name'] = $block->area->name;
+        $data[1]['id'] = $block->id;
+        $data[1]['name'] = $block->name;
+        $data[2]['id'] = $building->id;
+        $data[2]['name'] = $building->name;
+
+        return view('home.building_detail', [
+            'building' => $building,
+            'houses' => $houses,
+            'block' => $block,
+            'data' => $data
+        ]);
+    }
+
+    // 楼盘详情市场行情
+    public function marketPrice(
+        $buildingId,
+        BuildingsService $service
+    )
+    {
+        $res = $service->marketPrice($buildingId);
+        return $this->sendResponse($res,'楼盘详情市场行情获取成功');
+    }
+
+    // 楼盘详情猜你喜欢
+    public function likeBuilding(
+        BuildingsRepository $repository,
+        BuildingsService $service
+    )
+    {
+        $likeBuilding = array_slice($repository->buildingList(collect(), $service, null, true),0,4);
+
+        return $this->sendResponse($likeBuilding,'楼盘详情猜你喜欢数据获取成功');
     }
 
     // 楼盘列表
@@ -95,6 +120,12 @@ class BuildingsController extends Controller
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }
 
+        // 相关推荐
+        if (empty($res['data']->count())) {
+            $recommend = $buildingsRepository->buildingList(collect(),$service,null,true,null,null);
+            $recommends = collect($recommend)->take(10);
+        }
+
         return view('home.house_list', [
             'house_count' => $res['house_count'],
             'areas' => $areas,
@@ -103,7 +134,8 @@ class BuildingsController extends Controller
             'Results'=>$res['data'],
             'page' => $res['page'],
             'request' => $data,
-            'count' => $res['house_count']
+            'count' => $res['house_count'],
+            'recommend' => $recommends??collect()
         ]);
     }
 }

@@ -1,16 +1,26 @@
 @extends('home.layouts.layout')
 @section('title', '房源详情')
 @section('header')
-<link rel="stylesheet" href="/css/home_house_detail.css">
+<link rel="stylesheet" href="{{homeRes('/css/home_house_detail.css')}}">
+<style>
+    #serverNext:hover{
+        background: url({{homeRes("/home_img/house_detail_right_before.png")}}) no-repeat !important;
+    }
+    #serverPrev:hover{
+        background: url({{homeRes("/home_img/house_detail_left_before.png")}}) no-repeat !important;
+    }
+    .pircePic:hover div{
+        background: url({{homeRes("/home_img/house_detail_collect_after.png")}}) no-repeat !important;
+    }
+</style>
 @endsection
 @section('body')
 @include('home.nav')
+@include('home.right_tab')
 <div class="content">
     <div style="background: #fff">
     <!-- 导航条 -->
-        <div class="nav">
-            <span>首页</span><span>>洪山区</span><span>>光谷</span><span>>现代世贸中心</span>
-        </div>
+    @include('home.layouts.nav', ['arrs'=>$data])
         <!-- 轮播 --> 
         <div class="banner">
             <div class="swiper">
@@ -22,15 +32,29 @@
                     </div>
                 </div>
                 <div class="littelSwiper">
-                    <div class="swiperPic" id="prev"><img src="/home_img/house_detail_left.jpg"></div>
+                    <div id="prev">
+                        <div class="swiperPic">
+                            <img src="{{homeRes('/home_img/house_detail_left.jpg')}}">
+                        </div>
+                        <div class="swiperPic js_swiper">
+                            <img src="{{homeRes('/home_img/house_detail_left_before.jpg')}}">
+                        </div>
+                    </div>
                     <div class="swiper-container" id="smallImg">
                         <div class="swiper-wrapper">
                             @foreach($house->pic_url as $houses)
-                            <div class="swiper-slide"><img src="{{$houses['url']}}"></div>
+                            <div class="swiper-slide stop-swiping"><img src="{{$houses['url']}}"></div>
                             @endforeach
                         </div>
                     </div>
-                    <div class="swiperPic" id="next"><img src="/home_img/house_detail_right.jpg"></div>
+                    <div id="next">
+                        <div class="swiperPic @if($house->pic_url->count()>5)js_swiper @endif">
+                            <img src="{{homeRes('/home_img/house_detail_right.jpg')}}">
+                        </div>
+                        <div class="swiperPic @if($house->pic_url->count()>5)active @else js_swiper @endif">
+                            <img src="{{homeRes('/home_img/house_detail_right_before.jpg')}}">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="infor">
@@ -41,7 +65,12 @@
                     <div>
                         <span>{{$house->total_price}}</span>元/月（单价：{{$house->unit_price_cn}}）
                     </div>
-                    <div class="pircePic"><img src="/home_img/house_detail_collect_before.png"></div>
+                    <!-- <div class="collect">
+                        <div class="pircePic">
+                            <div style="background: url({{homeRes('/home_img/house_detail_collect_before.png')}} no-repeat;"></div>
+                        </div>
+                        <div class="collectTitle">收藏</div>
+                    </div> -->
                 </div>
                 <!-- 面积 -->
                 <div class="acreage">
@@ -49,8 +78,8 @@
                     <div><span>可容纳工位数</span>{{$house->station_number_cn}}</div>
                     <div><span>装修程度</span>{{$house->renovation_cn}}</div>
                     <div class="address">
-                        <div><span>楼盘地址</span>{{$house->address}}</div>
-                        <a href="#"><img src="/home_img/house_detail_map.png"> 查看地图</a>
+                        <div><span>楼盘地址</span><div class="addressInfor">{{$house->address}}</div></div>
+                        <span class="js_map"><img src="{{homeRes('/home_img/house_detail_map.png')}}"> 查看地图</span>
                     </div>
                     <div class="better">
                         @if(!empty($house->house_feature[0]))
@@ -73,17 +102,17 @@
                 <!-- 电话咨询 -->
                 <div class="tel">
                     <div class="agent">
-                        <img src="/we_img/house_detail_banner03.jpg">
+                        <img src="{{$agentInfo->agent_pic_cn}}">
                         <div class="name">
-                            <div class="nameDet">林亚男</div>
-                            <div>光谷楼盘经纪</div>
+                            <div class="nameDet">{{$agentInfo->agent_name}}</div>
+                            <div>{{$agentInfo->name}}商圈专属顾问</div>
                         </div>
                     </div>
                     <!-- <div class="consult">
                         <div><img src=""> 在线咨询</div>
                     </div> -->
                 </div>
-                <div class="button"><img src="/home_img/house_detail_free.png"></div>
+                <div class="button"><img src="{{homeRes('/home_img/house_detail_free.png')}}"></div>
             </div>
         </div>
     </div>
@@ -146,7 +175,7 @@
                                     <span class="houseBox">物业费</span><span>{{$house->property_fee}}</span>
                                 </div>
                             </div>
-                            <div class="housePay">
+                            <div class="housePay"  style="margin-left: 0">
                                 <div>
                                     <span class="houseBox">采暖方式</span><span>{{$house->heating}}</span>
                                 </div>
@@ -166,12 +195,26 @@
                     <div class='server'>
                         <div class="head">企业服务</div>
                         <div class="serverPic">
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_plant.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_finance.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_computer.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_furniture.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_car.png"></a>
-                            <a href="javascript:void(0)"><img src="/home_img/house_detail_move.png"></a>
+                            <div class="serverImg" id="serverPrev" style="background: url({{homeRes('/home_img/house_detail_left.png')}}) no-repeat;"></div>
+                            <div class="swiper-container" id="service">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/plant.png')}}"><div>绿植摆租</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/furniture.png')}}"><div>办公家具</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/clean.png')}}"><div>保洁服务</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/decoration.png')}}"><div>企业装修</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/water.png')}}"><div>桶装水</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/computer.png')}}"><div>办公设备</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/move.png')}}"><div>搬家服务</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/agency.png')}}"><div>工商代办</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/car.png')}}"><div>豪车租赁</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/support.png')}}"><div>金融支持</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/green.png')}}"><div>绿化环保</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/advertisement.png')}}"><div>图文广告</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/pds.png')}}"><div>综合布线</div></a></div>
+                                    <div class="swiper-slide"><a href="javascript:void(0);"><img src="{{homeRes('/home_img/services/finance.png')}}"><div>财务财税</div></a></div>
+                                </div>
+                            </div>
+                            <div class="serverImg" id="serverNext" style="background: url({{homeRes('/home_img/house_detail_right.png')}}) no-repeat;"></div>
                         </div>
                     </div>
                 </div>
@@ -205,7 +248,7 @@
                         <div class='enjoyInfor'>
                             <div class="enjoyTitle">{{$rimHouses->building_name}}</div>
                             <div class="enjoyIntro">
-                                <div class="enjoyAddress"><img src="/home_img/house_detail_map1.png"> {{$rimHouses->address}}</div>
+                                <div class="enjoyAddress"><img src="{{homeRes('/home_img/house_detail_map1.png')}}"> {{$rimHouses->address}}</div>
                                 <div class="enjoyPrice"><span>{{$rimHouses->unit_price}}</span> 元/m²月</div>
                             </div>
                         </div>
@@ -217,7 +260,8 @@
         </div>
     </div>
 </div>
+@include('home.footer')
 @endsection
 @section('script')
-<script src="/js/home_house_detail.js"></script>
+<script src="{{homeRes('/js/home_house_detail.js')}}"></script>
 @endsection
