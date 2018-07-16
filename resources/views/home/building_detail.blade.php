@@ -225,7 +225,7 @@
                 <div class="enjoyBox">
                     <div class="h1">猜你喜欢</div>
                     <div class="enjoyList">
-                        <a v-for="(item, index) in list" @click="toBuilding(item.id)">
+                        <a v-for="(item, index) in list" class="pointer" @click="toBuilding(item.id)">
                         <div class="enjoyDetail">
                             <div class="enjoyPic"><img :src="item.img_cn"></div>
                             <div class='enjoyInfor'>

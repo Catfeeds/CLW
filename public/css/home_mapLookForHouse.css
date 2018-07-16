@@ -258,6 +258,10 @@ a:focus {
   color: #007bff !important;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 body {
   padding-top: 61px;
 }

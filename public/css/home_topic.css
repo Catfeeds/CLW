@@ -260,6 +260,10 @@ body .container .content .other_build .enjoyList a .enjoyDetail .enjoyInfor .enj
   color: #007bff !important;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 body {
   padding-top: 61px;
 }
