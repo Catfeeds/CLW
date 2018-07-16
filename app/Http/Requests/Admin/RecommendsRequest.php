@@ -59,7 +59,19 @@ class RecommendsRequest extends FormRequest
                         )
                     ],
                     'pic' => 'required',
-                    'building_id' => 'required|array',
+                    'pc_pic' => 'required',
+                    'pc_big_details_pic' => 'required',
+                    'pc_small_details_pic' => 'required',
+                    'building_id' => [
+                        'required',
+                        'array',
+                    ],
+                ];
+
+            case 'GET':
+            case 'DELETE':
+                return [
+                    'building_id' => 'required|array'
                 ];
             case 'PUT':
             case 'PATCH':
