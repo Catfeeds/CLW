@@ -17114,7 +17114,7 @@ var ElTabs = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_tabs___default.a,
         },
         radius: 4000
       }, // 检索中心点
-      keyword: '公交', // 检索词 
+      keyword: '公交', // 检索词
       center: { // 当前地图中心点
         lng: 114.419095,
         lat: 30.561904
