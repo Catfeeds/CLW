@@ -169,3 +169,48 @@
 [2018-07-16 11:44:29] local.INFO: select count(*) as aggregate from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null  
 [2018-07-16 11:44:29] local.INFO: select * from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null limit 10 offset 0  
 [2018-07-16 11:44:29] local.INFO: select * from `pc_enterprise_services`  
+[2018-07-16 11:46:23] local.INFO: select * from `areas`  
+[2018-07-16 11:46:27] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-07-16 11:46:28] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
+[2018-07-16 11:46:29] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-07-16 11:46:29] local.INFO: select id from `media`.`buildings` where exists (select * from `building_labels` where `media`.`buildings`.`id` = `building_labels`.`building_id`)  
+[2018-07-16 11:46:30] local.INFO: select * from `buildings` where `id` in (?, ?)  
+[2018-07-16 11:46:31] local.INFO: select `office_building_houses`.*, `building_blocks`.`building_id` from `office_building_houses` inner join `building_blocks` on `building_blocks`.`id` = `office_building_houses`.`building_block_id` where `shelf` = ? and `building_blocks`.`building_id` in (?, ?) and `office_building_houses`.`deleted_at` is null  
+[2018-07-16 11:46:31] local.INFO: select * from `areas` where `areas`.`id` in (?)  
+[2018-07-16 11:46:31] local.INFO: select * from `blocks` where `blocks`.`id` in (?)  
+[2018-07-16 11:46:31] local.INFO: select * from `pc_recommends` where `pic` is not null and `pc_recommends`.`deleted_at` is null  
+[2018-07-16 11:46:31] local.INFO: select * from `areas`  
+[2018-07-16 11:46:31] local.INFO: select * from `hot_blocks` where `pc_img` is not null and `hot_blocks`.`deleted_at` is null limit 5  
+[2018-07-16 11:46:31] local.INFO: select * from `blocks` where `blocks`.`id` in (?, ?, ?, ?, ?)  
+[2018-07-16 11:46:32] local.INFO: select count(*) as aggregate from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null  
+[2018-07-16 11:46:32] local.INFO: select * from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null limit 10 offset 0  
+[2018-07-16 11:46:32] local.INFO: select * from `pc_enterprise_services`  
+[2018-07-16 11:46:32] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-07-16 11:46:32] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
+[2018-07-16 11:46:32] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-07-16 11:46:32] local.INFO: select id from `media`.`buildings` where exists (select * from `building_labels` where `media`.`buildings`.`id` = `building_labels`.`building_id`)  
+[2018-07-16 11:46:41] local.INFO: select * from `areas`  
+[2018-07-16 11:46:41] local.INFO: select count(*) as aggregate from `information` where `information`.`deleted_at` is null  
+[2018-07-16 11:46:41] local.INFO: select * from `information` where `information`.`deleted_at` is null limit 10 offset 0  
+[2018-07-16 11:46:41] local.INFO: select * from `information` where `information`.`deleted_at` is null order by `click_num` desc, `created_at` desc limit 8  
+[2018-07-16 11:46:41] local.INFO: select id from `media`.`buildings` where exists (select * from `building_labels` where `media`.`buildings`.`id` = `building_labels`.`building_id`)  
+[2018-07-16 11:46:41] local.INFO: select * from `buildings` where `id` in (?, ?)  
+[2018-07-16 11:46:41] local.INFO: select `office_building_houses`.*, `building_blocks`.`building_id` from `office_building_houses` inner join `building_blocks` on `building_blocks`.`id` = `office_building_houses`.`building_block_id` where `shelf` = ? and `building_blocks`.`building_id` in (?, ?) and `office_building_houses`.`deleted_at` is null  
+[2018-07-16 11:46:41] local.INFO: select * from `areas` where `areas`.`id` in (?)  
+[2018-07-16 11:46:41] local.INFO: select * from `blocks` where `blocks`.`id` in (?)  
+[2018-07-16 11:46:41] local.INFO: select * from `pc_recommends` where `pic` is not null and `pc_recommends`.`deleted_at` is null  
+[2018-07-16 11:46:41] local.INFO: select * from `hot_blocks` where `pc_img` is not null and `hot_blocks`.`deleted_at` is null limit 5  
+[2018-07-16 11:46:41] local.INFO: select * from `blocks` where `blocks`.`id` in (?, ?, ?, ?, ?)  
+[2018-07-16 11:46:41] local.INFO: select count(*) as aggregate from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null  
+[2018-07-16 11:46:41] local.INFO: select * from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null limit 10 offset 0  
+[2018-07-16 11:46:41] local.INFO: select * from `pc_enterprise_services`  
+[2018-07-16 11:46:42] local.INFO: select * from `buildings` where `id` in (?, ?)  
+[2018-07-16 11:46:42] local.INFO: select `office_building_houses`.*, `building_blocks`.`building_id` from `office_building_houses` inner join `building_blocks` on `building_blocks`.`id` = `office_building_houses`.`building_block_id` where `shelf` = ? and `building_blocks`.`building_id` in (?, ?) and `office_building_houses`.`deleted_at` is null  
+[2018-07-16 11:46:42] local.INFO: select * from `areas` where `areas`.`id` in (?)  
+[2018-07-16 11:46:42] local.INFO: select * from `blocks` where `blocks`.`id` in (?)  
+[2018-07-16 11:46:42] local.INFO: select * from `pc_recommends` where `pic` is not null and `pc_recommends`.`deleted_at` is null  
+[2018-07-16 11:46:42] local.INFO: select * from `hot_blocks` where `pc_img` is not null and `hot_blocks`.`deleted_at` is null limit 5  
+[2018-07-16 11:46:42] local.INFO: select * from `blocks` where `blocks`.`id` in (?, ?, ?, ?, ?)  
+[2018-07-16 11:46:42] local.INFO: select count(*) as aggregate from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null  
+[2018-07-16 11:46:42] local.INFO: select * from `pc_service_recommends` where `pc_service_recommends`.`deleted_at` is null limit 10 offset 0  
+[2018-07-16 11:46:42] local.INFO: select * from `pc_enterprise_services`  
