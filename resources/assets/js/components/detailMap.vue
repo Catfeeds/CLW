@@ -1,7 +1,7 @@
 <template>
-  <baidu-map ref="map" class="map" 
+  <baidu-map ref="map" class="map"
   center="武汉"
-  :ak='ak' 
+  :ak='ak'
   :zoom="zoom"
   scroll-wheel-zoom
   @zoomend='zoomend'
@@ -13,7 +13,7 @@
       :page-capacity="100" :auto-viewport="true" style="display:none" 
       :nearby="point" :keyword="keyword" @searchcomplete="result"  :panel="true"></bm-local-search>
       <bm-circle :center="point.center" :location="location" :radius="point.radius" :stroke-weight="1" :stroke-opacity="0.1" fill-color="blue" :fill-opacity="0.4"></bm-circle>
-      <bm-marker :position="this.point.center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker> 
+      <bm-marker :position="this.point.center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker>
       <el-tabs type="border-card" @tab-click="handleClick" class="screen">
           <el-tab-pane label="交通">
             <el-tabs @tab-click="chioce" v-model="activeName">
@@ -128,7 +128,7 @@ export default {
     BmMarker,
     BmView
   },
-  data() { 
+  data() {
     return {
       activeName: 'first', // 默认地铁
       location: '武汉', // 检索区域
@@ -136,10 +136,10 @@ export default {
         center: {
           lng: this.coordinate[0],
           lat: this.coordinate[1]
-        }, 
+        },
         radius: 4000
       }, // 检索中心点
-      keyword: '公交', // 检索词 
+      keyword: '公交', // 检索词
       center: { // 当前地图中心点
         lng: 114.419095,
         lat: 30.561904
@@ -169,7 +169,7 @@ export default {
     result(val) {
       console.log('asfdsfg', val)
       var result = val.Br
-      var arr = [] 
+      var arr = []
       if(result) {
         for(var p of result) {
           arr.push({title: p.title, address: p.address, point: p.point})
