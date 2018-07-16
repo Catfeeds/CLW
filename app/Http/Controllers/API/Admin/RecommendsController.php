@@ -11,7 +11,7 @@ use App\Services\RecommendsService;
 class RecommendsController extends APIBaseController
 {
     /**
-     * 说明: 获取精品推荐类表
+     * 说明: 获取精品推荐列表
      *
      * @param RecommendsRepository $repository
      * @return \Illuminate\Http\JsonResponse
