@@ -68,10 +68,21 @@ class BlocksRepository extends Model
             if (!$block->save()) throw new \Exception('商圈修改失败');
 
             $blockLocation = BlockLocation::where('block_id', $block->id)->first();
-            $blockLocation->x = $request->x;
-            $blockLocation->y = $request->y;
-            $blockLocation->scope = $request->baidu_coord;
-            if (!$blockLocation->save()) throw new \Exception('商圈地理位置修改失败');
+            if (!empty($blockLocation)) {
+                $blockLocation->x = $request->x;
+                $blockLocation->y = $request->y;
+                $blockLocation->scope = $request->baidu_coord;
+                if (!$blockLocation->save()) throw new \Exception('商圈地理位置修改失败');
+            } else {
+                $res = BlockLocation::create([
+                    'block_id' => $block->id,
+                    'x' => $request->x,
+                    'y' => $request->y,
+                    'scope' => $request->baidu_coord
+                ]);
+                if (empty($res)) throw new \Exception('商圈地理位置创建失败');
+            }
+
             DB::connection('mysql')->commit();
             DB::connection('media')->commit();
             return true;

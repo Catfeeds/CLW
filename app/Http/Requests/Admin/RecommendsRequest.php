@@ -26,13 +26,6 @@ class RecommendsRequest extends FormRequest
                     'title.not_in' => '精品推荐标题不能重复',
                     'introduce.not_in' => '精品推荐介绍不能重复',
                 ];
-            case 'PUT':
-            case 'PATCH':
-                return [
-
-                ];
-            case 'GET':
-            case 'DELETE':
             default:
                 {
                     return [];
@@ -65,31 +58,29 @@ class RecommendsRequest extends FormRequest
                             Recommend::all()->pluck('introduce')->toArray()
                         )
                     ],
-                    'pic' => 'required|max:128',
+                    'pic' => 'required',
+                    'pc_pic' => 'required',
+                    'pc_big_details_pic' => 'required',
+                    'pc_small_details_pic' => 'required',
                     'building_id' => [
                         'required',
                         'array',
                     ],
                 ];
-            case 'PUT':
-            case 'PATCH':
-            return [
-                'title' => [
-                    'required',
-                    'max:32',
-                ],
-                'introduce' => [
-                    'required',
-                    'max:32',
-                ],
-                'pic' => 'required|max:128',
-                'building_id' => [
-                    'required',
-                    'array',
-                ],
-            ];
+
             case 'GET':
             case 'DELETE':
+                return [
+                    'building_id' => 'required|array'
+                ];
+            case 'PUT':
+            case 'PATCH':
+                return [
+                    'title' => 'required|max:32',
+                    'introduce' => 'required|max:32',
+                    'pic' => 'required',
+                    'building_id' => 'required|array',
+                ];
             default:
                 {
                     return [];

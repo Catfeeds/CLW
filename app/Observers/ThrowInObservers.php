@@ -15,9 +15,11 @@ class ThrowInObservers {
         $openid = $class->getOpenid(2);
         $name= $throwIn->appellation?$throwIn->appellation:'无';
         $tel = $throwIn->tel;
-        $data['openid'] = json_encode($openid);
         $data['name'] = $name;
         $data['tel'] = $tel;
-        curl(config('setting.wechat_url').'/throw_in_notice','post',$data);
+        if (!empty($openid)) {
+            $data['openid'] = json_encode($openid);
+            curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
+        }
     }
 }

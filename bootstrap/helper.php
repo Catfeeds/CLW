@@ -1,4 +1,5 @@
 <?php
+use \Illuminate\Support\Facades\Hash;
 
 // 定义静态资源 path方法
 if (! function_exists('res'))
@@ -6,6 +7,17 @@ if (! function_exists('res'))
     function res($path)
     {
         $cdn_path = config('setting.cdn_path');
+        $path = $cdn_path . $path;
+        return $path.config('setting.version');
+    }
+}
+
+// pc端静态资源
+if (! function_exists('homeRes'))
+{
+    function homeRes($path)
+    {
+        $cdn_path = config('setting.home_cdn_path');
         $path = $cdn_path . $path;
         return $path.config('setting.version');
     }
@@ -47,7 +59,7 @@ if (!function_exists('curl')) {
     function curl($url, $method, $data = null)
     {
         $ch = curl_init();
-
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['safeString'.':'.Hash::make('chulouwang'.date('Y-m-d',time()))]);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 

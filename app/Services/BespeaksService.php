@@ -5,9 +5,17 @@ namespace App\Services;
 use App\Models\Bespeak;
 use App\Models\MessageRecord;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class BespeaksService
 {
+    // 获取登录用户预约消息成功
+    public function getUserBespeaks()
+    {
+        $user = Session::get('user');   // 获取登录用户id
+        return Bespeak::where('user_id', $user->id)->get();
+    }
+
     /**
      * 说明: 预约
      *

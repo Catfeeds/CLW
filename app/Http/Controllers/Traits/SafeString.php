@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Traits;
 
-use Illuminate\Support\Facades\Crypt;
+use \Illuminate\Support\Facades\Hash;
 
 trait SafeString
 {
+    // 安全字符串
     public function safeString()
     {
         $string = 'chulouwang'.date('Y-m-d',time());
-        return Crypt::encryptString($string);
+        return Hash::make($string);
     }
 }

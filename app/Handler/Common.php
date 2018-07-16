@@ -7,9 +7,8 @@
  */
 namespace App\Handler;
 
-
 use Qiniu\Auth;
-
+use Qiniu\Storage\UploadManager;
 
 /**
  * Class Common
@@ -59,6 +58,32 @@ class Common
     }
 
     /**
+     * 说明: 七牛上传图片
+     *
+     * @param $filePath
+     * @param $key
+     * @return array
+     * @throws \Exception
+     * @author 罗振
+     */
+    public static function QiniuUpload($filePath, $key)
+    {
+        //获得token
+        $token = self::getToken();
+
+        // 初始化 UploadManager 对象并进行文件的上传
+        $uploadMgr = new UploadManager();
+
+        // 调用 UploadManager 的 putFile 方法进行文件的上传
+        list($ret, $err) = $uploadMgr->putFile($token, $key, $filePath);
+        $res = ['status' => true, 'url' => config('setting.qiniu_url') . $key];
+
+        if (!$err == null) return ['status' => false, 'msg' => $err];
+
+        return $res;
+    }
+
+    /**
      * 说明: 分页返回
      *
      * @param $page
@@ -71,12 +96,44 @@ class Common
         return array(
             'current_page' => $page??1,
             'data' => $data,
-            'per_page' => 10,
-
+            'per_page' => 10
         );
     }
 
+    /**
+     * 说明: 数组转对象
+     *
+     * @param $e
+     * @return object|void
+     * @author 罗振
+     */
+    public static function arrayToObject($e)
+    {
 
+        if (gettype($e) != 'array') return;
+        foreach ($e as $k => $v) {
+            if (gettype($v) == 'array' || getType($v) == 'object')
+                $e[$k] = (object)self::arrayToObject($v);
+        }
+        return (object)$e;
+    }
 
+    /**
+     * 说明: 对象转数组
+     *
+     * @param $e
+     * @return array|void
+     * @author 罗振
+     */
+    public static function objectToArray($e)
+    {
+        $e = (array)$e;
+        foreach ($e as $k => $v) {
+            if (gettype($v) == 'resource') return;
+            if (gettype($v) == 'object' || gettype($v) == 'array')
+                $e[$k] = (array)self::objectToArray($v);
+        }
+        return $e;
+    }
 
 }

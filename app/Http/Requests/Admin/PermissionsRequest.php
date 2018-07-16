@@ -79,10 +79,9 @@ class PermissionsRequest extends FormRequest
                 ];
             case 'update':
                 return [
-                    'id' => 'required|exists:media.permissions,id',
-                    'name' => 'required|string|min:1|max:32|regex:/^[a-z\d\_]*$/i|unique:media.permissions,name,'.$this->id,
+                    'name' => 'required|string|min:1|max:32|regex:/^[a-z\d\_]*$/i|unique:permissions,name,'.$this->route('backstage_permission'),
                     'label' => 'required|string|min:1|max:32',
-                    'group_id' => 'required|exists:media.permission_groups,id',
+                    'group_id' => 'required|exists:permission_groups,id',
                 ];
             default;
                 return [

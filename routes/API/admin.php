@@ -11,31 +11,53 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 安全验证码
     Route::get('get_safe_string', 'BannerController@safeString');
 
-
     // 登录
     Route::resource('logins','LoginsController');
 
     // 安全验证
-//    Route::group(['middleware' => 'safe.validate'], function () {
+    Route::group(['middleware' => 'safe.validate'], function () {
         //根据类型获取接收人人员openid
         Route::get('get_openid/{type}', 'AcceptMessagesController@getOpenid');
+
+        //通过电话获取openid
+        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
+
+        //微信绑定管理
+        Route::resource('employees', 'EmployeesController');
+
+        //换绑微信
+        Route::post('update_wechat', 'EmployeesController@updateWechat');
+
+        //--------- 中介系统权限管理
         // 权限组管理
         Route::resource('permission_groups','PermissionGroupsController');
-
         // 权限管理
         Route::resource('permissions','PermissionsController');
-        Route::get('/permissions_group', 'PermissionsController@permissionsGroup');
-
+        Route::get('permissions_group', 'PermissionsController@permissionsGroup');
         // 角色管理
         Route::resource('roles','RolesController');
-        Route::get('/get_all_permissions', 'RolesController@getAllPermissions');
+        Route::get('get_all_permissions', 'RolesController@getAllPermissions');
+        //-------
+
+        //------  CLW后台权限管理
+        // 权限组管理
+        Route::resource('backstage_permission_groups','BackstagePermissionGroupsController');
+        // 权限管理
+        Route::resource('backstage_permissions','BackstagePermissionsController');
+        Route::get('backstage_permissions_group', 'BackstagePermissionsController@permissionsGroup');
+        // 角色管理
+        Route::resource('backstage_roles','BackstageRolesController');
+        Route::get('backstage_get_all_permissions', 'BackstageRolesController@getAllPermissions');
+        Route::get('get_roles','BackstageRolesController@getRoles');
+        //------
+
 
         // 中介用户
         Route::resource('media_user','MediaUsersController');
 
         // 七牛token
         Route::get('/get_qi_niu_token', 'BannerController@token');
-//    });
+    });
 
     Route::group(['middleware' => 'apiAuth:admin'], function () {
         // 退出
@@ -94,7 +116,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('service_labels', 'ServiceLabelsController');
         Route::get('all_service_labels', 'ServiceLabelsController@allServiceLabels');
 
-
         /*
         |--------------------------------------------------------------------------
         | 精品推荐管理
@@ -103,6 +124,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('recommends', 'RecommendsController');
         //获取楼盘下拉数据
         Route::get('buildings_select', 'RecommendsController@buildingsSelect');
+
+        /*
+        |--------------------------------------------------------------------------
+        | pc端精品推荐管理
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('pc_recommends', 'PcRecommendsController');
 
         /*
         |--------------------------------------------------------------------------
@@ -209,15 +237,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //生成二维码
         Route::post('code', 'EmployeesController@code');
 
-        //微信绑定管理
-        Route::resource('employees', 'EmployeesController');
-
-        //换绑微信
-        Route::post('update_wechat', 'EmployeesController@updateWechat');
-
-        //通过电话获取openid
-        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
-
         //慢查询
         Route::post('query', 'QueryController@create');
 
@@ -237,6 +256,33 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('information', 'InformationController');
         Route::get('set_top/{id}', 'InformationController@setTop');
         Route::get('del_top/{id}', 'InformationController@delTop');
+        // 爬取安居客资讯信息
+        Route::post('pick_information', 'InformationController@pickInformation');
+
+        /*
+        |--------------------------------------------------------------------------
+        | pc端推荐服务管理
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('pc_service_recommends', 'PcServiceRecommendsController');
+
+        //pc端企业服务
+        Route::resource('pc_enterprise_services', 'PcEnterpriseServicesController');
+
+        /*
+        |--------------------------------------------------------------------------
+        | 商城标签管理
+        |--------------------------------------------------------------------------
+        */
+        //商城大类管理
+        Route::resource('categories','CategoriesController');
+        // 标签
+        Route::resource('labels', 'LabelsController');
+
+
+        // 通过大类获取一级标签
+        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
 
     });
+
 });

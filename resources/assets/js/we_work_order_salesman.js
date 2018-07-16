@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button, Cell, TabItem, Actionsheet, InfiniteScroll, Loadmore, Indicator } from 'mint-ui'
+import { Button, Cell, TabItem, Actionsheet, InfiniteScroll, Loadmore, Indicator, MessageBox } from 'mint-ui'
 import { Toast } from 'mint-ui';
 Vue.component(Actionsheet.name, Actionsheet);
 Vue.component(Button.name, Button)
@@ -42,7 +42,7 @@ const app = new Vue({
         },
         // 上拉加载更多 !待确定!
         getUnList() {
-            if(!pulldown1) {
+            if(!this.pulldown1) {
                 Indicator.open({
                     text: '加载中...',
                     spinnerType: 'fading-circle'
@@ -67,7 +67,7 @@ const app = new Vue({
         },
         // 上拉加载更多 !已确定!
         getList() {
-            if(!pulldown2) {
+            if(!this.pulldown2) {
                 Indicator.open({
                     text: '加载中...',
                     spinnerType: 'fading-circle'
@@ -90,6 +90,48 @@ const app = new Vue({
         },
         handleTopChange(status){
             this.untopStatus = status;
+        },
+        // 添加反馈
+        addFeedback(id) {
+            MessageBox.prompt('请输入反馈信息','').then(({ value, action }) => {
+                if(!value){
+                    Toast({
+                        message: '反馈信息不能为空',
+                        position: 'center',
+                        duration: 1000
+                    });
+                    return
+                }
+                var FormData = {
+                    id: id,
+                    feedback: value
+                }
+                $.ajax({
+                    headers: {
+                        'safeString': $('meta[name="safeString"]').attr('content')
+                    },
+                    url: url + "/api/feedback",
+                    type: 'post',
+                    data: FormData,
+                    success: function(data){
+                        if(data.success) {
+                            Toast({
+                                message: data.message,
+                                position: 'center',
+                                duration: 1000
+                            });
+                            getSaiesmanList(2, 1, true)
+                        }
+                    },
+                    error: function (res) {
+                        Toast({
+                            message: res.responseJSON.message,
+                            position: 'center',
+                            duration: 5000
+                        })
+                    }
+                });
+            });
         }
     },
     created() {
@@ -102,10 +144,14 @@ const app = new Vue({
     }
 })
 // 获取 工单列表
+// status为1 获取未确定工单 status为2 获取已未确定工单
 function getSaiesmanList(status, page, type=false) {
     if(requestType) return;
     requestType = true;
     $.ajax({
+        headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+        },
         url: url + "/api/staff_list",
         type: 'get',
         data:{
@@ -158,6 +204,9 @@ function getSaiesmanList(status, page, type=false) {
 // 业务员确认工单
 function distribution(FormData, index) {
     $.ajax({
+        headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+        },
         url: url + "/api/determine",
         type: 'post',
         data: FormData,
@@ -169,7 +218,8 @@ function distribution(FormData, index) {
                     duration: 1000
                 });
                 app.unsalesman.splice(index,1);
-                getSaiesmanList(2, 1, true)
+                app.loadTop()
+                app.pulldown2 = false
             }
         },
         error: function (res) {

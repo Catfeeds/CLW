@@ -8,6 +8,7 @@ use App\Repositories\InformationRepository;
 
 class InformationsController extends Controller
 {
+    // 资讯列表
     public function index
     (
         InformationRepository $repository
@@ -16,11 +17,24 @@ class InformationsController extends Controller
         $top = $repository->carousel(); // 轮播图
         $hot = $repository->hotInformation(); // 热点
         $content = $repository->getList();
-        return view('home.information', ['content' => $content, 'tops' => $top, 'hots' => $hot]);
+        return view('home.information', ['contents' => $content, 'tops' => $top, 'hots' => $hot]);
     }
 
-    public function show(Information $information)
+    // 资讯详情
+    public function show
+    (
+        Information $information,
+        InformationRepository $repository
+    )
     {
-        return '资讯详情';
+        $hot = $repository->hotInformation(); // 热点
+        $previous = $repository->previous($information->id);
+        $next = $repository->next($information->id);
+        return view('home.information_show',[
+            'information' =>$information,
+            'hots'=>$hot,
+            'previous' => $previous,
+            'next' => $next
+        ]);
     }
 }

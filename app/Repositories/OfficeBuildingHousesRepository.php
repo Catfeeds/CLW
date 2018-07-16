@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\Area;
+use App\Models\Block;
 use App\Models\Building;
 use App\Models\HouseLabel;
 use Illuminate\Database\Eloquent\Model;
@@ -119,4 +120,10 @@ class OfficeBuildingHousesRepository extends Model
         return OfficeBuildingHouse::find($id)->update(['shelf' => 2]);
     }
 
+    public function getAgentInfo($house)
+    {
+        //获取该房源所属商圈id
+        $block_id = $house->buildingBlock->building->block_id;
+        return Block::find($block_id);
+    }
 }

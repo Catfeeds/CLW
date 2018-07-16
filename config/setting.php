@@ -17,6 +17,7 @@ return [
     'qiniu_suffix' => '-test',
     
     'cdn_path' => env('CDN_PATH', ''),// cdn_path
+    'home_cdn_path' => env('HOME_CDN_PATH', ''),// pc端
 
     'version' => '?version=20180531',
 
@@ -31,11 +32,18 @@ return [
     //浮动面积
     'float_acreage' => 10,
 
+    // 商圈经纪人默认图
+    'block_agent_default_img' => 'https://upload.chulouwang.com/pc/static/agent_pic_default.png',
+    // pc端楼盘房源默认图
+    'pc_building_house_default_img' => 'https://upload.chulouwang.com/pc/static/building_house_default.jpg',
+    // pc楼盘大图
+    'pc_building_default_big_img' => 'https://upload.chulouwang.com/pc/static/default.jpg',
     // 楼盘默认图片
     'building_default_img' => 'https://cdn.chulouwang.com/app/imgs/building_none.jpg',
     // 房源默认图片
     'house_default_img' => 'https://cdn.chulouwang.com/app/imgs/house_none.jpg',
     'wechat_url' => env('WECHAT_URL'),
+    'media_url' => env('MEDIA_URL'),
 
 
     // 客户端类型

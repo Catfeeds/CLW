@@ -8,7 +8,7 @@ class BuildingFeature extends Model
 {
     protected $connection = 'mysql';
     protected $guarded = [];
-    protected $appends = ['feature_cn', 'pic_cn'];
+    protected $appends = ['feature_cn', 'pic_cn', 'pc_pic_url', 'pc_pic_cn'];
 
     /**
      * 说明: 特色图片
@@ -29,4 +29,22 @@ class BuildingFeature extends Model
     {
         return config('setting.qiniu_url').$this->pic;
     }
+
+    // pc端楼盘特色图片
+    public function getPcPicUrlAttribute()
+    {
+        return collect($this->pc_pic)->map(function($img) {
+            return [
+                'name' => $img,
+                'url'  => config('setting.qiniu_url') . $img
+            ];
+        });
+    }
+
+    // pc端楼盘特色图片
+    public function getPcPicCnAttribute()
+    {
+        return config('setting.qiniu_url').$this->pc_pic;
+    }
+
 }

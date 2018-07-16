@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="{{res('/favicon.ico')}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="safeString" content="{{ $safeString }}"/>
     <meta name="tel" content="{{ $tel }}"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="{{res('/css/we_work.css')}}">
@@ -38,8 +39,8 @@
                             </div>
                         </div>
                         <div class="list-bottom">
-                            <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                            <button class="button" @click="sheet(item.id, index)">分配</button>
+                            <div class="f-1 jus-start p-5"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
+                            <button class="button p-5" @click="sheet(item.id, index)">分配</button>
                         </div>
                     </div>
                 </div>
@@ -69,14 +70,18 @@
                         </div>
                     </div>
                     <div class="list-bottom">
-                        <div class="f-1 jus-start"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                        <div v-if="item.determine">
+                        <div class="f-2 jus-start p-5"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
+                        <div class="f-1 jus-end p-5" v-if="item.determine === 2">
                             <img style="left: 305px" src="/we_img/work_confirm.png">
                             <div class="text">已确定</div>
                         </div>
-                        <div v-else>
-                            <img style="left: 305px" src="/we_img/work_unconfirm.png">
+                        <div class="f-1 jus-end p-5" v-if="item.determine === 1">
+                            <img style="left: 305px" src="/we_img/work_unknow.png">
                             <div class="text">未确定</div>
+                        </div>
+                        <div class="f-1 jus-end p-5" v-if="item.determine === 3">
+                            <img style="left: 305px" src="/we_img/work_confirm.png">
+                            <div class="text">已反馈</div>
                         </div>
                     </div>
                 </div>

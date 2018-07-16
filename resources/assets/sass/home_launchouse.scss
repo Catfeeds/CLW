@@ -1,0 +1,15 @@
+@import 'home_sellhouse';
+@include nav();
+body {
+  .area{
+    margin-bottom: 19px;
+    select{
+      width: 155px;
+      height: 44px;
+      border: 1px solid #ccc;
+    }
+    select:nth-child(2){
+      margin-left: 10px;
+    }
+  }
+}
