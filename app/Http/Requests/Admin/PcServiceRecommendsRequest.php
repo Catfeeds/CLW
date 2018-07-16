@@ -29,12 +29,12 @@ class PcServiceRecommendsRequest extends FormRequest
             case 'store':
                 return [
                     'pic' => 'required|max:32',
-                    'url' => 'required|max:32'
+                    'url' => 'required|max:256'
                 ];
             case 'update':
                 return [
                     'pic' => 'required|max:32',
-                    'url' => 'required|max:32'
+                    'url' => 'required|max:256'
                 ];
             default;
                 return [

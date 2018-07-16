@@ -14,6 +14,6 @@ class OfficeBuildingHousesController extends APIBaseController
     )
     {
         $res = $service->getMiniHouse($request);
-        return $this->sendResponse($res,'获取房源一站通数据成功');
+        return response()->json(['StatusCode' => 200, 'ResultData' => $res]);
     }
 }

@@ -282,8 +282,10 @@ class OfficeBuildingHousesService
             $data['payType'] = json_decode($data['payType'] ?? '{}', true) ?? [];
 
             // 楼盘筛选
-            if (!empty($data['region']['building'])) {
-                $houses = OfficeBuildingHouse::where('building_id', $data['region']['building']);
+            if (!empty($data['region']['building_name'])) {
+                // 获取楼盘id
+                $buildingId = Building::where('name', $data['region']['building_name'])->pluck('id');
+                $houses = OfficeBuildingHouse::where('building_id', $buildingId);
             } elseif (!empty($data['region']['block'])) {
                 // 获取楼盘id
                 $buildingId = Building::where('name', $data['region']['block'])->pluck('id');
@@ -306,14 +308,19 @@ class OfficeBuildingHousesService
 
             // 付款方式筛选
             if (!empty($data['payType']['bond_month']) || !empty($data['payType']['pay_month'])) {
-                $houses = $houses->where('payment_type', 1);
+                $houses = $houses->where('payment_type', 3);
             }
-
-
-            
-            return $houses->get();
         }
 
+        $houses = $houses->paginate(10);
 
+        $housesData = $houses->map(function ($house) {
+            return OfficeBuildingHouse::miniHouseItems($house);
+        });
+
+        $resHouses = $houses->toArray();
+        $resHouses['data'] = $housesData;
+
+        return $resHouses;
     }
 }
