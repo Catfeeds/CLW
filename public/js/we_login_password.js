@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([19],{135:function(e,t,n){e.exports=n(136)},136:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s=n(3),r=(n.n(s),n(4)),o=n.n(r),a=n(5);n.n(a);n(2);var i=$("#tel"),c=$("#sms"),u=$("#getSms"),m=$("#password"),l=!0;$(document).on("click","#getSms",function(e){if(!i.val()||""===i.val().trim())return o()({message:"请输入手机号码",position:"center",duration:2e3}),!1;if(!l)return!1;l=!1;var t=i.val()+"/retrieve_password";$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/sms/captcha/"+t,type:"get",success:function(e){if(e.success){u.html("120s");var t=setInterval(function(){u.html(parseInt(u.html())-1+"s"),parseInt(u.html())||(l=!0,u.html("获取验证码"),window.clearInterval(t))},1e3);o()({message:"短信发送成功",position:"center",duration:2e3})}},error:function(e){l=!0,o()({message:e.responseJSON.message,position:"center",duration:2e3})}})}),$(document).on("click",".loginBtn button",function(e){var t=i.val(),n=c.val(),s=m.val();return t&&""!==t.trim()?n&&""!==n.trim()?s&&""!==s.trim()?s.length<6||s.length>18?(o()({message:"密码长度必须在6-18位之间",position:"center",duration:2e3}),!1):void $.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/retrieve_pwd",type:"post",data:{tel:t,smsCode:n,password:s},success:function(e){if(e.success){var t=o()({message:e.message,position:"center",duration:2e3});setTimeout(function(){t.close(),window.location.href="/user"},1e3)}},error:function(e){o()({message:e.responseJSON.message,position:"center",duration:2e3})}}):(o()({message:"请输入密码",position:"center",duration:2e3}),!1):(o()({message:"请输入验证码",position:"center",duration:2e3}),!1):(o()({message:"请输入手机号码",position:"center",duration:2e3}),!1)})}},[135]);
-=======
 webpackJsonp([19],{
 
 /***/ 110:
@@ -152,4 +149,3 @@ $(document).on('click', '.loginBtn button', function (e) {
 /***/ })
 
 },[110]);
->>>>>>> zxz
