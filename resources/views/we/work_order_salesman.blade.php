@@ -61,7 +61,7 @@
                             <div class="list-header">
                                 <div class="f-2 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
                                 <div class="f-1 jus-end">
-                                    <button v-if="!item.feedback" class="unfeedback" @click="addFeedback(item.id)">未反馈</button>
+                                    <button v-if="!item.feedback" class="unfeedback" @click="addFeedback(item.id)">反馈</button>
                                     <span v-else class="feedback" style="">已反馈</span>
                                 </div>
                             </div>

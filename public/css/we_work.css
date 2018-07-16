@@ -255,9 +255,9 @@ body {
 .unfeedback {
   height: 26px !important;
   border-radius: 13px !important;
-  color: #26a2ff;
+  color: #fff;
   border: 1px solid #26a2ff;
-  background-color: #fff;
+  background-color: #26a2ff;
 }
 
 .feedback {
@@ -323,5 +323,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.mint-actionsheet {
+  max-height: 420px !important;
+  overflow-y: scroll !important;
 }
 

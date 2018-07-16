@@ -279,17 +279,6 @@ class OfficeBuildingHouse extends BaseModel
         }
     }
 
-    /**
-     * 说明: 装修中文
-     *
-     * @return string
-     * @use renovation_cn
-     * @author 罗振
-     */
-
-
-
-
     // 装修
     public function getRenovationCnAttribute()
     {
@@ -454,5 +443,25 @@ class OfficeBuildingHouse extends BaseModel
             $data[] = '';
         }
         return $data;
+    }
+
+    public static function miniHouseItems(self $house)
+    {
+        return [
+            'guid' => $house->id,
+            'id' => $house->id,
+            'mini_label' => true,
+            'title' => $house->title,
+            'tel' => '123456',
+            'building_name' => $house->buildingBlock->building->name,
+            'total_acreage' => $house->constru_acreage,
+            'unit_price' => $house->unit_price,
+            'pay_type' => '押一付一',
+            'address' => $house->buildingBlock->building->address,
+            'img_url' => $house->pic_url,
+            'degree' => 100,
+            'house_type_hall' => true,
+            'house_type_room' => true
+        ];
     }
 }

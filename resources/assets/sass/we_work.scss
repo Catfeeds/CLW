@@ -96,3 +96,7 @@ body{
   justify-content: flex-end;
 　align-items:center;
 }
+.mint-actionsheet{
+  max-height: 420px !important;
+  overflow-y: scroll !important;
+}
