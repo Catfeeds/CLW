@@ -51,7 +51,7 @@ class MapsService
         // 获取去重之后的所有楼盘id
         $buildingsId = array_column($this->remove_duplicate(collect($buildings)->collapse()->all()),'id');
 
-        return $repository->buildingList($request, $buildingsService, $buildingsId,true,null, true);
+        return $repository->buildingList($request, $buildingsService, $buildingsId,true,null, true,true);
     }
 
     // 数组去重
@@ -84,6 +84,7 @@ class MapsService
 
         $result = array();
         foreach ($temp as $key => $val) {
+            $result[$key]['id'] = $val['id'];
             $result[$key]['name'] = $val['name'];
             $result[$key]['x'] = $val['area_location']['x'];
             $result[$key]['y'] = $val['area_location']['y'];
@@ -102,6 +103,7 @@ class MapsService
 
         $datas = array();
         foreach ($areas as $k => $v) {
+            $datas[$k]['id'] = $v->id;
             $datas[$k]['name'] = $v->name;
             $datas[$k]['x'] = $v->areaLocation->x;
             $datas[$k]['y'] = $v->areaLocation->y;
@@ -119,6 +121,7 @@ class MapsService
 
         $datas = array();
         foreach ($blocks as $k => $v) {
+            $datas[$k]['id'] = $v->id;
             $datas[$k]['name'] = $v->name;
             $datas[$k]['x'] = empty($v->blockLocation)?'':$v->blockLocation->x;
             $datas[$k]['y'] = empty($v->blockLocation)?'':$v->blockLocation->y;

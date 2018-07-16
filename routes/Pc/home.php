@@ -6,6 +6,10 @@ Route::get('get_select_info', 'IndexController@getSelectInfo');
 
 // 楼盘
 Route::resource('buildings', 'BuildingsController');
+// 楼盘详情市场行情
+Route::get('market_price/{buildingId}', 'BuildingsController@marketPrice');
+// 楼盘详情猜你喜欢
+Route::get('like_building', 'BuildingsController@likeBuilding');
 
 //房源详情
 Route::resource('office_building_houses', 'OfficeBuildingHousesController');
@@ -51,8 +55,9 @@ Route::get('topic',function(){
   return view('home.home_topic');
 });
 // 精选楼盘
-Route::resource('recommends', 'RecommendsController');
-
+Route::resource('pc_recommends', 'PcRecommendsController');
+// 关于我们
+Route::get('about/{info}', 'AboutWeController@about');
 /*
 |--------------------------------------------------------------------------
 | 个人中心

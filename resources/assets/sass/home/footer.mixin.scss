@@ -1,4 +1,16 @@
 @mixin  footer() {
+  .clearfix::after {
+    content:"";
+    clear: both;
+    line-height: 0;
+    height: 0;
+    visibility: hidden;
+  }.f_l {
+    float: left;
+  }
+  .f_r {
+    float: right;
+  }
   body {
     footer {
       div,a,span {
@@ -46,6 +58,9 @@
               a {
                 color:rgba(255, 255, 255, 0.4);
                 font-size: 12px;
+                &:hover {
+                  color:rgb(255,255,255)
+                }
               }
             }
           }

@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+webpackJsonp([7],{162:function(e,t,n){e.exports=n(163)},163:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var o=n(3),s=(n.n(o),n(4)),c=n.n(s),r=n(5);n.n(r);n(2);var i=$("#tel").html();console.log("ceshi",i);var a=i.slice(0,3)+"****"+i.slice(7);$("#tel").html(a),$(document).on("touchend || tap",".loginOut",function(){$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/logout",type:"get",success:function(e){var t=c()({message:e.message,position:"center",duration:5e3});setTimeout(function(){t.close(),window.location.href="/user"},1e3)},error:function(e){c()({message:e.responseJSON.message,position:"center",duration:5e3})}})})}},[162]);
+=======
 webpackJsonp([6],{
 
 /***/ 134:
@@ -65,3 +68,4 @@ $(document).on('touchend || tap', '.loginOut', function () {
 /***/ })
 
 },[134]);
+>>>>>>> zxz

@@ -10,8 +10,8 @@ use App\Repositories\BuildingsRepository;
 use App\Repositories\HotBlocksRepository;
 use App\Repositories\InformationRepository;
 use App\Repositories\PcEnterpriseServicesRepository;
+use App\Repositories\PcRecommendsRepository;
 use App\Repositories\PcServiceRecommendsRepository;
-use App\Repositories\RecommendsRepository;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -21,7 +21,7 @@ class IndexController extends Controller
         AreasRepository $areasRepository,
         InformationRepository $informationRepository,
         BuildingsRepository $buildingsRepository,
-        RecommendsRepository $recommendsRepository,
+        PcRecommendsRepository $pcRecommendsRepository,
         HotBlocksRepository $hotBlocksRepository,
         PcEnterpriseServicesRepository $pcEnterpriseServicesRepository,
         PcServiceRecommendsRepository $pcServiceRecommendsRepository
@@ -36,19 +36,20 @@ class IndexController extends Controller
         //精品写字楼
         $eliteBuilding = $buildingsRepository->getEliteBuilding();
         //精选专题
-        $recommends = $recommendsRepository->getList();
+        $pcRecommends = $pcRecommendsRepository->getList();
         //核心商圈
         $coreBlock = $hotBlocksRepository->getList();
         //推荐服务
         $recommendService = $pcServiceRecommendsRepository->PcServiceRecommendList()->take(4);
         //企业服务
         $service = $pcEnterpriseServicesRepository->getList()->take(5);
+
         return view('home.index', [
             'area' => $area,
             'information' => $information,
             'hotInformation' => $hotInformation,
             'eliteBuilding' => $eliteBuilding,
-            'recommends' => $recommends,
+            'pcRecommends' => $pcRecommends,
             'coreBlock' => $coreBlock,
             'service' => $service,
             'recommendService' => $recommendService

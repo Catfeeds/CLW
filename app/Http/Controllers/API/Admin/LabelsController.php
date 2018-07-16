@@ -4,8 +4,10 @@ namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\LabelsRequest;
+use App\Models\Category;
 use App\Models\Label;
 use App\Repositories\LabelsRepository;
+use App\Services\LabelsService;
 
 class LabelsController extends APIBaseController
 {
@@ -19,6 +21,19 @@ class LabelsController extends APIBaseController
     {
         $res = $repository->labelList($request);
         return $this->sendResponse($res, '标签列表获取成功');
+    }
+
+    // 添加标签返回数据
+    public function create()
+    {
+        // 返回所有大类
+        $categorys = Category::all();
+        return $this->sendResponse($categorys->map(function ($v) {
+            return [
+                'value' => $v->id,
+                'name' => $v->name
+            ];
+        }), '获取所有大类成功');
     }
 
     //添加标签
@@ -54,12 +69,22 @@ class LabelsController extends APIBaseController
     //删除标签
     public function destroy(Label $label)
     {
-        //如果等级为1,判断下面有没有子类
-        if ($label->stage == 1) {
-            $item = Label::where('parent_id', $label->id)->get();
-            if (!$item->isEmpty()) return $this->sendError('该标签下还有子类,无法删除');
-        }
-        $res = $label->delete();
-        return $this->sendResponse($res, '删除成功');
+        if (empty($res = $label->delete())) return $this->sendError('删除标签失败');
+        return $this->sendResponse($res,'标签删除成功');
+    }
+
+    // 通过大类获取一级标签
+    public function getParentByCategory(
+        $categoryId,
+        LabelsService $service
+    )
+    {
+        $res = $service->getParentByCategory($categoryId);
+        return $this->sendResponse($res->map(function($v) {
+            return [
+                'value' => $v->id,
+                'name' => $v->name
+            ];
+        }), '通过大类获取一级标签成功');
     }
 }

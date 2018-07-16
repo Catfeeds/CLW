@@ -116,7 +116,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('service_labels', 'ServiceLabelsController');
         Route::get('all_service_labels', 'ServiceLabelsController@allServiceLabels');
 
-
         /*
         |--------------------------------------------------------------------------
         | 精品推荐管理
@@ -125,6 +124,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('recommends', 'RecommendsController');
         //获取楼盘下拉数据
         Route::get('buildings_select', 'RecommendsController@buildingsSelect');
+
+        /*
+        |--------------------------------------------------------------------------
+        | pc端精品推荐管理
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('pc_recommends', 'PcRecommendsController');
 
         /*
         |--------------------------------------------------------------------------
@@ -250,7 +256,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('information', 'InformationController');
         Route::get('set_top/{id}', 'InformationController@setTop');
         Route::get('del_top/{id}', 'InformationController@delTop');
-
+        // 爬取安居客资讯信息
+        Route::post('pick_information', 'InformationController@pickInformation');
 
         /*
         |--------------------------------------------------------------------------
@@ -271,6 +278,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('categories','CategoriesController');
         // 标签
         Route::resource('labels', 'LabelsController');
+
+
+        // 通过大类获取一级标签
+        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
+
     });
 
 });

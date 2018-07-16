@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '资讯详情')
 @section('header')
-    <link rel="stylesheet" href="{{res('/css/home_information_show.css')}}">
+    <link rel="stylesheet" href="{{homeRes('/css/home_information_show.css')}}">
 @endsection
 @section('body')
     @include('home.nav')
@@ -29,7 +29,7 @@
                     {!! $information->content !!}
                 </div>
                 <div class="info-bottom">
-                    <div class="pub-number"><img src="/home_img/qr_code.jpg" /></div>
+                    <div class="pub-number"><img src="{{homeRes('/home_img/qr_code.jpg')}}" /></div>
                     <div class="pub-number"><span>关注楚楼网公众号，更多资讯等你看</span></div>
                     <div class="up-down">
                         <a href="{{url('/information/'.$previous->id)}}"><div>上一篇: {{$previous->title}}</div></a>
@@ -40,14 +40,14 @@
             </div>
             <div class="right">
                 <div class="img">
-                    <img src="/home_img/infomation_right.jpg" alt="">
+                    <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
                 </div>
                 <div class="zixun">
                     <div class="right-title"><span>热门资讯</span></div>
                     <div>
                         <ul>
                             @foreach($hots as $hot)
-                                <li><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
+                                <li><span class="el-icon-caret-right"></span><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -58,5 +58,5 @@
     @include('home.footer')
 @endsection
 @section('script')
-    <script src="{{res('/js/home_information.js')}}"></script>
+    <script src="{{homeRes('/js/home_information.js')}}"></script>
 @endsection

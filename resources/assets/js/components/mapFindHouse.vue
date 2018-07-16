@@ -4,54 +4,40 @@
                :ak='ak'
                :zoom="zoom"
                :min-zoom="12"
+               :map-click="false"
                scroll-wheel-zoom
                @zoomend='zoomend'
                @dragging='dragging'
                @dragend='dragend'
     >
+        <bm-scale anchor="BMAP_ANCHOR_BOTTOM_RIGHT"></bm-scale>
         <div v-if='!subwayKeyword'>
             <!--中心点测试-->
             <self-overlay :position="zhongxin">
-                <div style="font-size: 50px">⊙</div>
+                <!-- <div style="font-size: 50px">⊙</div> -->
             </self-overlay>
-
+            <!--zoom 比例尺说明 5公里: 12 、2公里：13、  1公里：14、 500米：15、 200米 16、 100米 17-->
+            <!--zoom 比例尺说明 5公里显示区域（12）  1公里显示商圈（14）    200米显示楼盘（16）   显示地铁1两公里（14） -->
             <!--区域数据 浮动圆-->
-            <self-overlay v-show='zoom<13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
+            <self-overlay v-show='zoom<=13' :position="{lng: item.x, lat: item.y}" v-for="(item, index) in regionList"
                           :key="'areaBox'+ index">
-                <div class="regionStyle" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
+                <div class="regionStyle" :id="getId(1,item.id)" @click="seeRegionDetail(item)" @mouseover='Active = item.name'
                      @mouseleave='Active = ""'>
-                    <span>{{item.name}}</span>
-                    <span>{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{item.name}}</span>
+                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈浮动矩形-->
-            <self-overlay v-show='zoom<14&&zoom>=13' :position="{lng: item.x, lat: item.y}"
+            <self-overlay v-show='zoom<=15&&zoom>13' :position="{lng: item.x, lat: item.y}"
                           v-for="(item, index) in blockList"
                           :key="'blockBox'+ index">
-                <div class="areaStyle" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
+                <div class="areaStyle" :id="getId(2,item.id)" @click="seeAreaDetail(item)" @mouseover='blockActive = item.baidu_coord'
                      @mouseleave='blockActive = ""'>
-                    <span>{{item.name}}</span>
+                    <span style="color:#fff;">{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
-                    <span>{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
-            <!--楼盘浮动矩形-->
-            <site-cover v-show='zoom>=14' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
-                        v-for="(item, index) in buildList"
-                        :key="'buildBox'+ index">
-                <div class="areaStyle" @click="seeBuildDetail(item)">
-                    <div class="triangle"></div>
-                    <span>{{item.name}}</span>
-                    <div class="detail">
-                        <div>
-                            <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
-                            <span>76.2元/㎡·月</span>
-                        </div>
-                        <div>{{item.title}}</div>
-                        <div>面积: 57-700㎡</div>
-                    </div>
-                </div>
-            </site-cover>
             <!--商圈区块-->
             <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
@@ -64,6 +50,23 @@
                     :strokeColor="boundaryStyle.strokeColor">
             </bm-boundary>
         </div>
+        <!--楼盘浮动矩形-->
+        <site-cover v-show='zoom>15' :position="{lng: parseFloat(item.x), lat: parseFloat(item.y)}"
+                    v-for="(item, index) in buildList"
+                    :key="'buildBox'+ index">
+            <div class="areaStyle" @click="seeBuildDetail(item)">
+                <div class="triangle"></div>
+                <span style="color:#fff;">{{item.name}}</span>
+                <div class="detail">
+                    <div>
+                        <img src="http://img6n.soufunimg.com/viewimage/house/2017_03/20/M00/0F/B0/wKgEUVjPYmSIEEFVAALX2QxAkpQAAYhCQNWRJEAAtfx041/232x162.jpg" width="200px; height:200px">
+                        <span>76.2元/㎡·月</span>
+                    </div>
+                    <div>{{item.title}}</div>
+                    <div>面积: 57-700㎡</div>
+                </div>
+            </div>
+        </site-cover>
         <!--线路-->
         <bm-bus v-if='subwayKeyword' ref='bus' @buslinehtmlset='buslinehtml' @getbuslistcomplete='getbuslist'
                 @getbuslinecomplete='getbuslinecomplete'
@@ -73,8 +76,8 @@
                     :key="'subway'+ index">
             <div class="areaStyle" @click="seeMtro(item)" @mouseover='blockActive = item.baidu_coord'
                  @mouseleave='blockActive = ""'>
-                <span>{{item.name}}</span>
-                <span v-if="zoom<15">{{item.num}}个</span>
+                <span style="color:#fff;">{{item.name}}</span>
+                <span v-if="zoom<15" style="color:#fff;">{{item.num}}个</span>
                 <div class="triangle"></div>
             </div>
         </site-cover>
@@ -83,7 +86,7 @@
             <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
                 <el-button @click="findKeyword" slot="append" icon="el-icon-search"></el-button>
             </el-input>
-            <el-row style="padding: 5px 0px">
+            <el-row style="padding: 10px 10px" :gutter="10">
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
                         <el-cascader size="mini" filterable
@@ -136,10 +139,10 @@
                     </div>
                 </el-col>
             </el-row>
-            <el-row style="padding: 5px 0px">
+            <el-row style="padding: 10px 0px; margin-left:30px;">
                 <el-col :span="15">
                     <img src=""/>
-                    武汉 为您找到{{buildListNum}}个楼盘
+                    <span>武汉</span> 为您找到 <span style="color:#007bff">{{buildListNum}}</span> 个楼盘
                 </el-col>
                 <el-col :span="9">
                     <!--<div class="grid-content bg-purple">-->
@@ -154,19 +157,19 @@
                     <!--</div>-->
                 </el-col>
             </el-row>
-            <el-row style="padding: 5px 0px" v-for="(item, index) in buildList" :key="'leftList'+ index">
-                <span @click="seeBuildDetail(item)">
-                    <el-col :span="8">
-                        <img style="width: 130px;height: 130px"
+            <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
+                <div @click="seeBuildDetail(item)" class="mapBox">
+                    <el-col :span="8" style="padding:0;margin-left: 40px;">
+                        <img style="width: 140px;height: 140px"
                              :src="item.img_cn">
                     </el-col>
-                    <el-col :span="15">
-                        <div>{{item.name}}</div>
-                        <div><span>{{item.buildingAverage}}</span><span>元/㎡·月</span></div>
-                        <div>地址: [{{item.address_cn}}] {{item.address}}</div>
-                        <div>面积：{{item.acreage_cn}}m²  </div>
+                    <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
+                        <div class="mapTitle">{{item.name}}</div>
+                        <div class="mapPrice"><span>{{item.avg_price}}</span><span>元/㎡·月</span></div>
+                        <div class="mapAddress" >地址: [{{item.address_cn}}] {{item.address}}</div>
+                        <div class="mapArea">面积：{{item.acreage_cn}}  </div>
                     </el-col>
-                </span>
+                </div>
             </el-row>
         </div>
     </baidu-map>
@@ -176,10 +179,12 @@
         BaiduMap,
         BmPolygon,
         BmBoundary, // 区块
+        BmScale, // 比例尺
         BmBus
     } from 'vue-baidu-map'
     import selfOverlay from './map/selfOverlay' // 悬浮窗容器
     import siteCover from './map/siteCover.vue' // 地铁悬浮窗容器
+    import $ from 'jquery' // 地铁悬浮窗容器
     import {Select, Option, Tabs, TabPane, Form, FormItem, Input, Button, Main, Row, Col, Cascader} from 'element-ui';
     var ElSelect = Select,
         ElOption = Option,
@@ -209,6 +214,7 @@
             BmBus,
             BmPolygon,
             BmBoundary,
+            BmScale,
             selfOverlay,
             siteCover,
             ElSelect,
@@ -232,6 +238,7 @@
                 zoom: 12, // 地图缩放级别
                 keyword: '地铁', // 检索词
                 regionList: [], // 区域数据
+                regionListAll: [], // 区域数据
                 blockList: [], // 商圈列数据
                 buildList: [], // 楼盘数据
                 buildListNum: 0, // 楼盘数据
@@ -247,10 +254,6 @@
                 },
                 regionArray: [],// 区域下拉数据
                 acreageArray: [{
-                    value: '',
-                    label: '全部'
-                },
-                    {
                         value: '0-100',
                         label: '0-100㎡'
                     },
@@ -405,6 +408,7 @@
             getRegionList().then(res => {
                 if (res.success) {
                     this.regionList = res.data
+                    this.regionListAll = res.data
                 }
             })
             // 获取商圈数据
@@ -425,11 +429,13 @@
         },
         watch: {
             'condition.metro': function () {
+                this.siteList = []
                 this.subwayKeyword = this.condition.metro
-                if (this.condition.metro === '') this.subwayKeyword = false;
-//                if(this.condition.metro !== ''){
-//
-//                }
+                if (this.condition.metro === '') {
+                    this.subwayKeyword = false;
+                } else{
+                    this.zoom = 14
+                }
             },
             subwayKeyword: function (val) {
                 if (val) {
@@ -445,7 +451,7 @@
                 }
             },
             zoom: function (val) {
-                if (val >= 14) {
+                if (val >= 16) {
                     const data = {
                         '_token': document.getElementsByName('csrf-token')[0].content,
                         gps: [
@@ -454,7 +460,7 @@
                                 y: this.zhongxin.lat
                             }
                         ],
-                        distance: 5
+                        distance: 2.7
                     }
                     // 请求楼盘数据
                     this.getBuild(data)
@@ -462,12 +468,28 @@
             },
             condition: {
                 handler: function (val, oldVal) {
-                    if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') return;
+                    if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') {
+                        if( this.regionList.length == 0) {
+                            // 获取区域 数据
+                            getRegionList().then(res => {
+                                if (res.success) {
+                                    this.regionList = res.data
+                                }
+                            })
+                        }
+                        return
+                    }
+                    console.log('val.acreage', val.acreage)
+                    console.log('val.total_price', val.total_price)
+                    console.log('val.unit_price', val.unit_price)
                     const data = this.condition
                     data._token = document.getElementsByName('csrf-token')[0].content
-                    console.log('data', data)
-                    this.getBuild(data)
-                    console.log('asdsada', val)
+                    if(val.acreage !== '' || (val.total_price !== '' && val.total_price !== undefined )|| val.unit_price !== '' && val.unit_price !== undefined ){
+                        this.getBuild(data, true)
+                    }else {
+                        this.getBuild(data)
+                        this.regionList = this.regionListAll
+                    }
                 },
                 deep: true,
                 immediate: true
@@ -503,7 +525,7 @@
                                 y: this.zhongxin.lat,
                             }
                         ],
-                        distance: 5
+                        distance: 2.7
                     }
                     // 请求楼盘数据
                     this.getBuild(data)
@@ -514,11 +536,11 @@
             },
             zoomend: function (e) {
                 this.zoom = e.target.getZoom()
-                console.log('this.zoom', this.zoom)
                 // 修改中心点 点击后操作
                 if (this.locationType) {
                     this.zhongxin = this.centerLocaion
                     this.location = this.centerLocaion
+
                     this.locationType = false
                 } else {
                     this.zhongxin = e.target.getCenter()
@@ -526,25 +548,61 @@
             },
             // 查看区域详情 -> 商圈列表
             seeRegionDetail(data){
-                this.zoom = 13
-                this.centerLocaion = {lng: data.x, lat: data.y}
                 this.locationType = true
+                this.centerLocaion = {lng: data.x, lat: data.y}
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
+                this.zoom = 14
+                this.$refs.map.reset()
             },
             // 点击商圈详情
             seeAreaDetail(data) {
+                this.zoom = 16
+                this.locationType = true
                 this.buildList = []
                 this.centerLocaion = {lng: data.x, lat: data.y}
-                this.zoom = 14
-                this.locationType = true
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
+                this.$refs.map.reset()
+                const datas = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
+                    distance: 5
+                }
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
+            // 地铁详情
             seeMtro(data){
-
+                this.buildList = []
+                this.locationType = true
+                this.centerLocaion = {lng: data.x, lat: data.y}
+                this.location = this.centerLocaion
+                this.zhongxin = this.centerLocaion
+                this.zoom = 16
+                this.$refs.map.reset()
+                const datas = {
+                    '_token': document.getElementsByName('csrf-token')[0].content,
+                    gps: [
+                        {
+                            x: this.zhongxin.lng,
+                            y: this.zhongxin.lat,
+                        }
+                    ],
+                    distance: 2.7
+                }
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
             // 获取站点楼盘数量
             getbuslinecomplete(el) {
                 var data = []
                 for (var key in el.DB) {
-                    console.log(el.DB[key])
                     data.push({
                         name: el.DB[key].name,
                         x: el.DB[key].position.lng,
@@ -579,14 +637,14 @@
                 })
             },
             // 根据条件获取楼盘数据
-            getBuild(data) {
+            getBuild(data, type = false) {
                 getCoreBuildList(data).then(res => {
                     if (res.success) {
-                        console.log('res.data.length', res.data.length)
                         this.buildList = res.data.res
                         this.buildListNum = res.data.res.length
-                        console.log('res.data', res.data)
-                        console.log('res.data.length', res.data.res.length)
+                        if(type) {
+                            this.regionList = res.data.areaLocations
+                        }
                     }
                 })
             },
@@ -611,8 +669,10 @@
                 if (data.length === 3) {
                     this.condition.area_id = ''
                     this.condition.block_id = data[2]
+                    $('#sq'+ data[2]).trigger('click')
                 } else if (data.length === 2) {
                     this.condition.area_id = data[1]
+                    $('#qy'+ data[1]).trigger('click')
                     this.condition.block_id = ''
                 } else {
                     this.condition.area_id = ''
@@ -628,6 +688,14 @@
                 } else {
                     this.condition.unit_price = ''
                     this.condition.total_price = data[1]
+                }
+            },
+            getId(type,id) {
+                if (type ==1 ){
+                    return 'qy' + id
+                } else{
+                    return 'sq' + id
+
                 }
             }
         }
@@ -703,12 +771,43 @@
         }
         .screen {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 400px;
+            top: 0px;
+            left: 0px;
+            width: 480px;
             height: 98vh;
             background: #fff;
             overflow: scroll;
+            .mapList{
+                padding: 20px 0;
+                border-bottom: 1px solid #f5f5f5;
+                .mapBox{
+                    .mapDetail{
+                        height: 140px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .mapTitle{
+                            font-size: 20px;
+                            font-weight: 600;
+                        }
+                        .mapPrice{
+                            span{
+                                font-size: 16px;
+                                color: #007bff;
+                            }
+                        }
+                        .mapAddress{
+                            font-size: 12px;
+                            line-height: 22px;
+                            color: #666;
+                        }
+                        .mapArea{
+                            color: #666;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
             .screenList {
                 width: 320px;
                 height: 270px;

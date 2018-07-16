@@ -30,6 +30,14 @@ class PcServiceRecommendsController extends APIBaseController
         return $this->sendResponse($result, '添加成功');
     }
 
+    // 获取修改原始数据
+    public function edit(
+        PcServiceRecommend $PcServiceRecommend
+    )
+    {
+        return $this->sendResponse($PcServiceRecommend,'获取修改原始数据成功');
+    }
+
     // 修改pc端推荐服务
     public function update
     (

@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '楚楼网首页')
 @section('header')
-<link rel="stylesheet" href="/css/home_index.css">
+<link rel="stylesheet" href="{{homeRes('/css/home_index.css')}}">
 @endsection
 @section('body')
 @include('home.nav' , ['fixed' => 1])
@@ -13,7 +13,7 @@
         <div class="input-box">
           <input name='keyword' id="searchInput" type="text" placeholder="输入搜索关键词">
         </div>
-        <button type="submit"><img src="/home_img/index_search_btn.png" alt=""></button>
+      <button type="submit"><img src="{{homeRes('/home_img/index_search_btn.png')}}" alt=""></button>
         <div class="clearfloat"></div>
       </form>
       <div class="condition-box">
@@ -81,7 +81,7 @@
       </div>
     </div>
     <div class="banner-commercial-box">
-      <img src="/home_img/index_banner_commercial_text.png" alt="">
+    <img src="{{homeRes('/home_img/index_banner_commercial_text.png')}}" alt="">
       <a class="velocity-factor" href="{{url('/bespeaks')}}">
         立即委托
       </a>
@@ -92,7 +92,7 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <div style="background-image: url('https://cdn.chulouwang.com/CLWTest/Home/index_banner.jpg');" class="banner-img"></div>
+        <div style="background-image: url('https://cdn.chulouwang.com/CLWTest/home/home_img/index_banner.jpg');" class="banner-img"></div>
         </div>
       </div>
     </div>
@@ -101,25 +101,25 @@
     <div class="banner-png-list">
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png1.png" alt="">
+        <img src="{{homeRes('/home_img/index_banner_png1.png')}}" alt="">
         </div>
         <div class="banner-png-text">100%真实房源</div>
       </div>
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png2.png" alt="">
+          <img src="{{homeRes('/home_img/index_banner_png2.png')}}" alt="">
         </div>
         <div class="banner-png-text">细化筛选</div>
       </div>
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png3.png" alt="">
+          <img src="{{homeRes('/home_img/index_banner_png3.png')}}" alt="">
         </div>
         <div class="banner-png-text">贵宾服务</div>
       </div>
       <div class="banner-png-item">
         <div class="img-box">
-          <img src="/home_img/index_banner_png4.png" alt="">
+          <img src="{{homeRes('/home_img/index_banner_png4.png')}}" alt="">
         </div>
         <div class="banner-png-text">增值服务</div>
       </div>
@@ -132,51 +132,17 @@
   <div class="elaborate-title">让办公更舒心</div>
   <div class="topic-content">
     <ul class="sever-list">
+      @foreach($service as $service_item)
       <li class="sever-item">
-        <a href="http://shop.chulouwang.com/plants" target="_blank">
-          <img src="/home_img/index_topic1_plant.jpg" alt="绿植服务">
+        <a href="{{$service_item->url}}" target="_blank">
+        <img src="{{$service_item->pc_img_cn}}" alt="{{$service_item->master_title}}">
           <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">绿植租摆</div>
-          <div class="server-title-active">绿植租摆</div>
+          <div class="text-box">{{$service_item->vice_title}}</div>
+          <div class="server-title">{{$service_item->master_title}}</div>
+          <div class="server-title-active">{{$service_item->master_title}}</div>
         </a>
       </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
-          <img src="/home_img/index_topic1_clear.jpg" alt="保洁服务">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">保洁服务</div>
-          <div class="server-title-active">保洁服务</div>
-        </a>
-      </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/furniture" target="_blank">
-          <img src="/home_img/index_topic1_jiaju.jpg" alt="办公家具">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">办公家具</div>
-          <div class="server-title-active">办公家具</div>
-        </a>
-      </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/business_taxes" target="_blank">
-          <img src="/home_img/index_topic1_gongshang.jpg" alt="工商代办">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">工商代办</div>
-          <div class="server-title-active">工商代办</div>
-        </a>
-      </li>
-      <li class="sever-item">
-        <a href="http://shop.chulouwang.com/housekeeping" target="_blank">
-          <img src="/home_img/index_topic1_moveHome.jpg" alt="搬家服务">
-          <div class="bg-box"></div>
-          <div class="text-box">经验认真 &nbsp;&nbsp;&nbsp; 认真负责</div>
-          <div class="server-title">搬家服务</div>
-          <div class="server-title-active">搬家服务</div>
-        </a>
-      </li>
+      @endforeach
       <li class="clearfloat"></li>
     </ul>
   </div>
@@ -190,7 +156,7 @@
         @foreach ( $coreBlock as $coreBlock_item )
           <li class="commercial-center-item">
             <a href="{{url('/building_list?area_id='.$coreBlock_item->area_id.'&block_id='.$coreBlock_item->block_id)}}">
-              <img src="{{$coreBlock_item->pc_img}}">
+              <img src="{{$coreBlock_item->pc_img_cn}}">
             </a>
           </li>
         @endforeach
@@ -203,10 +169,10 @@
   <div class="elaborate-title">优质写字楼 聚你所需</div>
   <div class="topic-content">
     <ul class="careful-select-list">
-      @foreach ( $recommends as $recommends_item )
+      @foreach ( $pcRecommends as $recommends_item )
         <li class="careful-select-item">
-        <a href="{{url('/recommends/'.$recommends_item->id)}}" title="{{$recommends_item->title}}">
-            <img src="{{$recommends_item->pc_pic}}" alt="{{$recommends_item->title}}">
+        <a href="{{url('/pc_recommends/'.$recommends_item->id)}}" title="{{$recommends_item->title}}">
+            <img src="{{$recommends_item->pic_cn}}" alt="{{$recommends_item->title}}">
           </a>
         </li>
       @endforeach
@@ -223,7 +189,8 @@
         <li class="fine-quality-item">
           <a href="{{url('/buildings').'/'.$eliteBuilding_item->id}}">
             <div class="img-box">
-              <img src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
+              <img class="min-img" src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select">
+              <img class="main-img" src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
             </div>
             <div class="text-box">
               <h3>{{$eliteBuilding_item->name}}</h3>
@@ -249,31 +216,28 @@
   <div class="elaborate-title">让办公更舒心</div>
   <div class="topic-content">
     <ul class="cite-server-list">
-      <?php
-            $service = ['plants','business_taxes','housekeeping','housekeeping']
-        ?>
-      @for($i = 1; $i < 5; $i++) 
+      @foreach( $recommendService as $reService_item )
         <li class="cite-server-item">
-          <a href="http://shop.chulouwang.com/{{$service[$i-1]}}" target="_blank">
-            <img src="/home_img/tempss_{{$i}}.jpg" alt="">
+          <a href="{{'http://shop.chulouwang.com/'.$reService_item->url}}" target="_blank">
+            <img src="{{$reService_item->pic_cn}}" alt="">
           </a>
         </li>
-      @endfor
+      @endforeach
       <li class="clearfloat"></li>
     </ul>
   </div>
   <a href="http://shop.chulouwang.com/" target="_blank" class="more-info">查看更多</a>
 </div>
-<div class="topic-box special-style" style="background-image: url('/home_img/index_factor_bg.jpg')">
+<div class="topic-box special-style" style="background-image: url('{{homeRes('/home_img/index_factor_bg.jpg')}}')">
   <div class="set-house-box">
     <div class="lookForHouse-box">
-      <img src="/home_img/index_lookForHouse.png" alt="">
+    <img src="{{homeRes('/home_img/index_lookForHouse.png')}}" alt="">
       <h3>委托找房</h3>
       <p>专业、可靠、免费优办提供一对一全程找房服务</p>
       <a href="{{url('/bespeaks')}}">委托找房>></a>
     </div>
     <div class="launchHouse-box">
-      <img src="/home_img/index_launchHouse.png" alt="">
+    <img src="{{homeRes('/home_img/index_launchHouse.png')}}" alt="">
       <h3>投放房源</h3>
       <p>专业、可靠、免费优办提供一对一全程服务</p>
       <a href="{{url('/throw_ins')}}">投放房源>></a>
@@ -295,13 +259,14 @@
               </a>
             </div>
             <div class="float-right">
-                <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
-                  <h3>{{$information[$j]->title}}</h3>
-                </a>
-              <p>
-                  {{$information[$j]->brief}}
-              </p>
+              <div class="icon-text"><img src="{{homeRes('/home_img/hangye_logo.png')}}" alt=""><span style="position:relative;left:5px;top:-3px;font-size:12px;">行业新闻</span></div>
+              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
+                <h3>{{$information[$j]->title}}</h3>
+              </a>
               <div class="time-box">{{$information[$j]->created_at}}</div>
+              <p>
+                {{$information[$j]->brief}}
+              </p>
             </div>
             <div class="clearfloat"></div>
           </li>
@@ -309,21 +274,28 @@
       </ul>
     </div>
     <div class="infamation-right">
-      <h3>热点资讯</h3>
-      <ul class="hot-infomation-list">
-        @for($j = 0; $j < 4; $j++)
-          @if(!empty($hotInformation[$j]))
-            <li class="hot-infomation-item">
-              <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
-                <h4>{{$hotInformation[$j]->title}}</h4>
-              </a>
-              <p>
+      <div class="img">
+        <a href="{{url('/about/we')}}">
+          <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
+        </a>
+      </div>
+      <div class="line-box">
+        <h3>热点资讯</h3>
+        <ul class="hot-infomation-list">
+          @for($j = 0; $j < 4; $j++)
+            @if(!empty($hotInformation[$j]))
+              <li class="hot-infomation-item">
+                <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$hotInformation[$j]->title}}">
+                  <h4>{{$hotInformation[$j]->title}}</h4>
+                </a>
+                <p>
                   {{$hotInformation[$j]->brief}}
-              </p>
-            </li>
-          @endif
-        @endfor
-      </ul>
+                </p>
+              </li>
+            @endif
+          @endfor
+        </ul>
+      </div>
     </div>
     <div class="clearfloat"></div>
   </div>
@@ -332,5 +304,5 @@
 @include('home.footer')
 @endsection
 @section('script')
-<script src="/js/home_index.js"></script>
+<script src="{{homeRes('/js/home_index.js')}}"></script>
 @endsection

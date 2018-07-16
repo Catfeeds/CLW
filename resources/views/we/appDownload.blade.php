@@ -20,7 +20,7 @@
       </a>
     </div>
   </div>
-  <div id="weixinTip" style="height: 931px;"><p><img style="width:100%;" src="http://wechat.louwang.com/weChat/images/live_weixin.png?version=201803027" alt="微信打开"></p></div>
+<div id="weixinTip" style="height: 931px;"><p><img style="width:100%;" src="{{res('/we_img/live_weixin.png')}}" alt="微信打开"></p></div>
   <script src="{{res('/js/we_manifest.js')}}"></script>
   <script src="{{res('/js/we_vendor.js')}}"></script>
   <script src="{{res('/js/we_appDownload.js')}}"></script>

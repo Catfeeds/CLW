@@ -17,8 +17,7 @@ class Recommend extends BaseModel
     {
         return $this->belongsTo(Building::class);
     }
-
-
+    
     /**
      * 说明: 图片拼接
      * @return string
@@ -46,6 +45,4 @@ class Recommend extends BaseModel
             ];
         })->values();
     }
-
-
 }

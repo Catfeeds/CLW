@@ -8,7 +8,8 @@ class Building extends Model
     protected $casts = [
         'album' => 'array',
         'gps' => 'array',
-        'company' => 'array'
+        'company' => 'array',
+        'big_album' => 'array'
     ];
 
     protected $table = 'buildings';
@@ -18,7 +19,7 @@ class Building extends Model
     protected $connection = 'media';
 
     protected $appends = ['pic_url_cn',  'img_cn', 'type_label', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
-        'parking_num_cn','parking_fee_cn'];
+        'parking_num_cn','parking_fee_cn', 'pc_pic_url', 'pc_pic_cn'];
 
     // 楼座
     public function buildingBlock()
@@ -135,6 +136,36 @@ class Building extends Model
         });
     }
 
+    // pc端图片url
+    public function getPcPicUrlAttribute()
+    {
+        if (!empty($this->big_album)) {
+            return collect($this->big_album)->map(function($img) {
+                return [
+                    'name' => $img,
+                    'url' => config('setting.qiniu_url') . $img
+                ];
+            });
+        } else {
+            return collect([
+                [
+                    'name' => '',
+                    'url' => config('setting.pc_building_default_big_img')
+                ]
+            ]);
+        }
+    }
+
+    // pc端图片
+    public function getPcPicCnAttribute()
+    {
+        if (empty($this->big_album)) {
+            return config('setting.pc_building_default_big_img');
+        } else {
+            return config('setting.qiniu_url').$this->big_album[0];
+        }
+    }
+
     /**
      * 说明: 楼盘默认图片
      *
@@ -144,7 +175,11 @@ class Building extends Model
     public function getImgCnAttribute()
     {
         if (empty($this->album)) {
-            return config('setting.building_default_img');
+            if ($_SERVER["HTTP_HOST"] === config('hosts.home')) {
+                return config('setting.pc_building_house_default_img');
+            } else {
+                return config('setting.building_default_img');
+            }
         } else {
             return config('setting.qiniu_url').$this->album[0];
         }
@@ -197,5 +232,4 @@ class Building extends Model
 //    {
 //        return $this->area->name . '-' . $this->block->name;;
 //    }
-
 }

@@ -1,7 +1,12 @@
 @extends('home.layouts.layout')
 @section('title', '楼盘列表页')
-<link rel="stylesheet" href="/css/home_house_list.css">
 @section('header')
+<link rel="stylesheet" href="{{homeRes('/css/home_house_list.css')}}">
+<style>
+    .js_cleaning:hover .icon_clean{
+        background:url({{('/home_img/rubish1.svg')}}) !important;
+    }
+</style>
 @section('body')
     @include('home.nav')
     @include('home.right_tab')
@@ -24,7 +29,7 @@
                 </div>
                 <form class="serch_area f_r " action="{{url('/building_list')}}">
                         <input name="keyword" type="text" id="searchInput" placeholder="搜索关键词" value="{{$request['keyword']??''}}">
-                        <button type="submit" class="serch_btn"><span></span></button>
+                        <button type="submit" class="serch_btn"><span style="background: url('{{homeRes('/home_img/index_search_btn.png')}}') no-repeat center/20px 20px;"></span></button>
                     <!-- <div class="serch_map"><span></span><a href="javascript:void(0)">搜图找房</a></div> -->
                 </form>
             </div>
@@ -120,10 +125,10 @@
                                 <li class="item js_features" @if($type)data-type="true" @endif data-content="{{$key}}">
                                     @if($type)
                                         <a class="js_addCurrent current all features" data-dom="features"
-                                           data-key="{{$key}}" data-content="{{$features}}"><em
-                                                    class="icon icon-tick"></em>{{$features}}</a>
+                                           data-key="{{$key}}" data-content="{{$features}}">
+                                           <em class="icon icon-tick" style="background: url('{{homeRes('/home_img/tick.svg')}}') no-repeat;"></em>{{$features}}</a>
                                     @else
-                                        <a class="js_addCurrent all"><em class="icon icon-untick "></em>{{$features}}
+                                        <a class="js_addCurrent all"><em class="icon icon-untick" style="background: url('{{homeRes('/home_img/untick.svg')}}') no-repeat;"></em>{{$features}}
                                         </a>
                                     @endif
                                 </li>
@@ -135,7 +140,7 @@
                         <div class="selected_box f_l clearfix">
                         </div>
                         <!-- <div class="order_selected f_l"><a href="javascript:void(0)" class="js_order_selected">订阅该筛选条件</a></div> -->
-                        <div class="cleaning f_l clearfix"><a href="javascript:void(0)"class="js_cleaning f_r"><span class="icon_clean"></span>清空</a>
+                        <div class="cleaning f_l clearfix"><a href="javascript:void(0)"class="js_cleaning f_r"><span class="icon_clean" style="background: url({{homeRes('/home_img/rubish.svg')}});"></span>清空</a>
                         </div>
                     </div>
                 </div>
@@ -156,14 +161,14 @@
                                    data-content="{{empty($request['price_sort'])?'':$request['price_sort']}}">
                                     价格排序
                                     @if(empty($request['price_sort']))
-                                        <img src="/home_img/build_detail_up_before.png" class="up js_up"/>
-                                        <img src="/home_img/down.png" class="down js_down"/>
+                                        <img src="{{homeRes('/home_img/build_detail_up_before.png')}}" class="up js_up"/>
+                                        <img src="{{homeRes('/home_img/down.png')}}" class="down js_down"/>
                                     @elseif($request['price_sort']=='asc')
-                                        <img src="/home_img/build_detail_up_after.png" class="up js_up"/>
-                                        <img src="/home_img/down.png" class="down js_down"/>
+                                        <img src="{{homeRes('/home_img/build_detail_up_after.png')}}" class="up js_up"/>
+                                        <img src="{{homeRes('/home_img/down.png')}}" class="down js_down"/>
                                     @elseif($request['price_sort']=='desc')
-                                        <img src="/home_img/build_detail_up_before.png" class="up js_up"/>
-                                        <img src="/home_img/build_detail_down_after.png" class="down js_down"/>
+                                        <img src="{{homeRes('/home_img/build_detail_up_before.png')}}" class="up js_up"/>
+                                        <img src="{{homeRes('/home_img/build_detail_down_after.png')}}" class="down js_down"/>
                                     @endif
                                 </a>
                             </div>
@@ -178,7 +183,7 @@
                                         <div class="img_box">
                                             <img src="{{$data->img_cn}}" alt="" class="house_img"/>
                                             @if($data->label_cn)
-                                                <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                                <img src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select">
                                             @endif
                                         </div>
                                         <div class="detail_title">
@@ -215,8 +220,9 @@
                                                             </a>
                                                         </li>
                                                     @endforeach
-                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}" target="_blank">更多...</a>
-                                                    </li>
+                                                    @if(count($data->pc_house)>2)
+                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}" target="_blank">更多...</a></li>
+                                                    @endif    
                                                 </ul>
                                             </div>
                                             @if(!empty($data->features))
@@ -258,7 +264,7 @@
                                             <div class="img_box">
                                                 <img src="{{$data['img_cn']}}" alt="" class="house_img"/>
                                                 @if($data['label_cn'])
-                                                    <img src="/home_img/perfect_sel.png" alt="" class="first_select">
+                                                    <img src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select">
                                                 @endif
                                             </div>
                                             <div class="detail_title">
@@ -328,5 +334,5 @@
     @include('home.footer')
 @endsection
 @section('script')
-    <script src="/js/home_house_list.js"></script>
+    <script src="{{homeRes('/js/home_house_list.js')}}"></script>
 @endsection

@@ -1,7 +1,7 @@
 @extends('home.layouts.layout')
 @section('title', '资讯中心')
 @section('header')
-    <link rel="stylesheet" href="{{res('/css/home_information.css')}}">
+    <link rel="stylesheet" href="{{homeRes('/css/home_information.css')}}">
 @endsection
 @section('body')
     @include('home.nav')
@@ -56,7 +56,7 @@
                                         <!--图片-->
                                         <div class="list-body-left"><img src="{{$cont->banner_cn}}"></div>
                                         <div class="list-body-right">
-                                            <div class="class"><span class="icon"></span><span>行业新闻</span></div>
+                                            <div class="class"><span class="icon" style="background: url({{homeRes('/home_img/hangye_logo.png')}}) no-repeat;"></span><span>行业新闻</span></div>
                                             <!--标题-->
                                             <div class="title">{{$cont->title}}</div>
                                             <!--时间-->
@@ -78,14 +78,16 @@
             </div>
             <div class="right">
                 <div class="img">
-                    <img src="/home_img/infomation_right.jpg" alt="">
+                    <a href="{{url('/about/we')}}">
+                        <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
+                    </a>
                 </div>
                 <div class="zixun">
                     <div class="right-title"><span>热门资讯</span></div>
                     <div>
                         <ul>
                             @foreach($hots as $hot)
-                                <li><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
+                                <li><span class="el-icon-caret-right"></span><a href="{{url('/information').'/'.$hot->id}}"><span>{{$hot->title}}</span></a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -96,5 +98,5 @@
     @include('home.footer')
 @endsection
 @section('script')
-    <script src="{{res('/js/home_information.js')}}"></script>
+    <script src="{{homeRes('/js/home_information.js')}}"></script>
 @endsection

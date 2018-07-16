@@ -26,11 +26,15 @@
     }
     #banner{
       width: 100%;
+      min-width: $master-width;
       .swiper-slide{
-        height: 563px;
-        img{
-          width: 100%;
+        width: 100% !important;
+        height: 560px;
+        div{
           height: 100%;
+          width: 100%;
+          background-position: center;
+          background-size: cover;
         }
       }
       .swiper-pagination{
@@ -135,10 +139,18 @@
                 color: #666;
               }
               .introMap{
+                display: flex;
+                justify-content: flex-start;
                 margin-left: 53px;
                 color: $master-blue;
                 img{
-                  vertical-align: middle
+                  height: 18px;
+                  margin-top: 15px;
+                  margin-right: 5px;
+                }
+                div{
+                  display: inline-block;
+                  color: $master-blue;
                 }
                 &:hover{
                   cursor: pointer;
@@ -349,6 +361,7 @@
             color: #666;
             &:hover{
               cursor: pointer;
+              color: $master-blue;
             }
           }
           .buildInfor{
@@ -448,10 +461,11 @@
                 @extend .font-level4;
                 font-weight: 600;
                 line-height: 25px;
+                margin-bottom: 5px;
               }
             }
             .free{
-              padding-top: 30px;
+              padding-top: 20px;
               @extend .font-level3;
               color: #858686;
             }

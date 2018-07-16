@@ -13,11 +13,12 @@
             </div>
             <div class="button" @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
         </div>
-        <div class="rent_describe">已经有<span>15141</span>位客户委托找房</div>
+        <div class="rent_describe">已经有 <span>15141</span> 位客户委托找房</div>
     </div>
-    <div class="renSuccess" v-if="showBefore">
+    <div class="renSuccess"  v-if="showBefore">
       <div>立即预约</div>
       <div class="renSuccess_tel">预约手机号：{{value}}</div>
+      <div class="telBorder"></div>
       <div class="rent_success">
         <div><img src="/home_img/find_house_success.png"></div>
         <div class="sucessTitle">预约成功</div>
@@ -32,6 +33,10 @@
         <div class="freeTime">(早8：00 - 晚8：00)</div>
       </div>
       <div class="border"></div>
+      <div class="mapFindHouse">
+        <img src="/home_img/mapFindHouse.jpg">
+        <a href="/map_test"><div class="mapButton">试试地图找房</div></a>
+      </div>
     </div>
   </div>
 </template>
@@ -172,6 +177,10 @@ export default {
         color: #999;
         margin-top: 7px;
       }
+      .telBorder{
+        border-top: 1px solid #eeeded;
+        margin-top: 20px;
+      }
       .rent_success{
         text-align: center;
         margin-top: 42px;
@@ -187,15 +196,16 @@ export default {
       }
       .rentBorder{
         border-top: 1px solid #eeeded;
-        margin-top: 60px;
+        margin-top: 45px;
       }
     }
     .freeConsult{
       margin-top: 16px;
-      width: 200px;
-      height: 100px;
+      width: 240px;
+      height: 320px;
       background: #fff;
-      padding: 30px 20px 37px 20px;
+      padding: 24px 20px 37px 20px;
+      box-sizing: border-box;
       .freePic{
         font-size: 16px;
         margin-bottom: 8px;
@@ -223,6 +233,43 @@ export default {
         height: 1px;
         background: #eeeded;
         margin-top: 22px;
+        margin-bottom: 18px;
+      }
+      .mapFindHouse{
+        img{
+          margin-bottom: 16px;
+        }
+        .mapButton{
+          border: 1px solid #007bff;
+          width: 140px;
+          height: 34px;
+          line-height: 34px;
+          text-align: center;
+          margin: 0 auto;
+          border-radius: 17px;
+          color: #007bff;
+          cursor: pointer;
+          z-index: 3;
+          overflow: hidden;
+          position: relative;
+          &::after{
+            background-color: #007bff;
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            z-index: -1;
+            transition: all .5s ease;
+          }
+          &:hover{
+            color: #fff;
+            &::after{
+              width: 100%;
+            }
+          }
+        }
       }
     }
 </style>

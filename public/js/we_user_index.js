@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+webpackJsonp([11],{154:function(t,e,l){t.exports=l(155)},155:function(t,e,l){l(2);var c=$("#tel").html(),n=c.slice(0,3)+"****"+c.slice(7);$("#tel").html(n)}},[154]);
+=======
 webpackJsonp([10],{
 
 /***/ 126:
@@ -20,3 +23,4 @@ $('#tel').html(newTel);
 /***/ })
 
 },[126]);
+>>>>>>> zxz
