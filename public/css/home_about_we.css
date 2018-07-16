@@ -555,6 +555,7 @@ nav .nav-content .login-box .user-login-box .hover-down-app {
   padding-top: 5px;
   margin-left: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 nav .nav-content .login-box .user-login-box .hover-down-app:hover .down-app-box {
