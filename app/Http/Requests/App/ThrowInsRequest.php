@@ -38,7 +38,13 @@ class ThrowInsRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'tel' => 'required|max:16',
+                    'tel' => [
+                        'required',
+                        'max:16',
+                        Rule::notIn(
+                            ThrowIns::whereBetween('created_at',[date('Y-m-d 00:00:00', time()), date('Y-m-d 23:59:59', time())])->plluck('tel')->toArray()
+                        )
+                        ],
                     'appellation' => 'nullable|max:32',
                     'area_id' => 'nullable|exists:media.areas,id',
                     'block_id' => 'nullable|exists:media.blocks,id',
