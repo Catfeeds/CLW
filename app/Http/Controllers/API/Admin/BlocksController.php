@@ -21,7 +21,7 @@ class BlocksController extends APIBaseController
         if (empty(Common::user()->can('block_list'))) {
             return $this->sendError('无block_list权限','403');
         }
-        $res = $repository->blockList();
+        $res = $repository->blockList($request);
         return $this->sendResponse($res,'商圈列表获取成功');
     }
 
