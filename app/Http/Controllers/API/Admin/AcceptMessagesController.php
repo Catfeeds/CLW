@@ -20,25 +20,9 @@ class AcceptMessagesController extends APIBaseController
         AcceptMessagesRequest $request
     )
     {
-
-
         $this->repo = $repository;
         $this->req = $request;
     }
-
-//    public function getUnType($id, MessagesService $service)
-//    {
-//        $res = $service->getUnType($id);
-//        return $this->sendResponse($res,'获取成功');
-//    }
-
-
-//    //消息数据
-//    public function getSelectType(MessagesService $service)
-//    {
-//       $res = $service->getSelectType();
-//       return $this->sendResponse($res, '消息下拉数据');
-//    }
 
     //员工数据
     public function getSelectUsers(MessagesService $service)
