@@ -6,6 +6,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\ServiceLabelsRequest;
 use App\Models\ServiceLabel;
 use App\Repositories\ServiceLabelsRepository;
+use App\Handler\Common;
 
 class ServiceLabelsController extends APIBaseController
 {
@@ -20,6 +21,9 @@ class ServiceLabelsController extends APIBaseController
         ServiceLabelsRepository $repository
     )
     {
+        if (empty(Common::user()->can('service_label_list'))) {
+            return $this->sendError('无service_label_list权限','403');
+        }
         $res = $repository->serviceLabelList();
         return $this->sendResponse($res,'服务标签列表获取成功');
     }
@@ -37,6 +41,9 @@ class ServiceLabelsController extends APIBaseController
         ServiceLabelsRepository $repository
     )
     {
+        if (empty(Common::user()->can('add_service_label'))) {
+            return $this->sendError('无add_service_label权限','403');
+        }
         $res = $repository->addServiceLabel($request);
         return $this->sendResponse($res,'服务标签添加成功');
     }
@@ -70,6 +77,9 @@ class ServiceLabelsController extends APIBaseController
         ServiceLabelsRepository $repository
     )
     {
+        if (empty(Common::user()->can('update_service_label'))) {
+            return $this->sendError('无update_service_label权限','403');
+        }
         $res = $repository->updateServiceLabel($request, $serviceLabel);
         if (empty($res)) return $this->sendError('服务标签修改失败');
         return $this->sendResponse($res,'服务标签修改成功');

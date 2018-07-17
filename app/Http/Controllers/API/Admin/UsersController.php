@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Repositories\UsersRepository;
 use App\Services\UsersService;
 use Illuminate\Http\Request;
+use App\Handler\Common;
 
 class UsersController extends APIBaseController
 {
@@ -22,6 +23,9 @@ class UsersController extends APIBaseController
         UsersRepository $repository
     )
     {
+        if (empty(Common::user()->can('users_list'))) {
+            return $this->sendError('无users_list权限','403');
+        }
         $res = $repository->usersList($request);
         return $this->sendResponse($res,'用户列表获取成功');
     }
@@ -37,6 +41,9 @@ class UsersController extends APIBaseController
         User $user
     )
     {
+        if (empty(Common::user()->can('user_show'))) {
+            return $this->sendError('无user_show权限','403');
+        }
         // 最后一条登录记录
         $lastLoginRecord = $user->LoginRecord->last();
         if (!empty($lastLoginRecord)) {

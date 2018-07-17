@@ -6,11 +6,15 @@ use App\Http\Requests\Admin\RolesRequest;
 use App\Models\Role;
 use App\Repositories\RolesRepository;
 use Illuminate\Http\Request;
+use App\Handler\Common;
 
 class RolesController extends APIBaseController
 {
     public function index()
     {
+        if (empty(Common::user()->can('role_list'))) {
+            return $this->sendError('无role_list权限','403');
+        }
         $res = curl(config('setting.media_url').'/api/roles','get');
         if (empty($res->data)) return $this->sendError($res->message);
         return $this->sendResponse($res->data,$res->message);
@@ -18,6 +22,9 @@ class RolesController extends APIBaseController
 
     public function store(Request $request)
     {
+        if (empty(Common::user()->can('add_role'))) {
+            return $this->sendError('无add_role权限','403');
+        }
         $data['name'] = $request->name_en;
         $data['name_cn'] = $request->name_cn;
         $data['name_en'] = $request->name_en;
@@ -39,6 +46,9 @@ class RolesController extends APIBaseController
         Request $request
     )
     {
+        if (empty(Common::user()->can('update_role'))) {
+            return $this->sendError('无update_role权限','403');
+        }
         $data['name'] = $request->name_en;
         $data['name_cn'] = $request->name_cn;
         $data['name_en'] = $request->name_en;
