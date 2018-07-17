@@ -22,7 +22,7 @@ class PermissionSeeder extends Seeder
         ]);
 
         Permission::create([
-            'name' => 'add_message',
+            'name' => 'add_banner',
             'guard_name' => 'web',
             'label' => '添加banner',
             'group_id' => 1,
@@ -345,13 +345,6 @@ class PermissionSeeder extends Seeder
             'name' => 'update_block',
             'guard_name' => 'web',
             'label' => '修改商圈',
-            'group_id' => 12,
-        ]);
-
-        Permission::create([
-            'name' => 'del_block',
-            'guard_name' => 'web',
-            'label' => '删除商圈',
             'group_id' => 12,
         ]);
 
