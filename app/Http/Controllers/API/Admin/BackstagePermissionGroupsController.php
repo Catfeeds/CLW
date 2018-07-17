@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\PermissionGroupsRequest;
 use App\Repositories\PermissionGroupsRepository;
+use App\Handler\Common;
 
 class BackstagePermissionGroupsController extends APIBaseController
 {
@@ -13,6 +14,9 @@ class BackstagePermissionGroupsController extends APIBaseController
         PermissionGroupsRepository $repository
     )
     {
+        if (empty(Common::user()->can('backstage_permission_groups_list'))) {
+            return $this->sendError('无backstage_permission_groups_list权限','403');
+        }
         $res = $repository->permissionGroupsList($request->per_page);
         return $this->sendResponse($res,'权限组列表成功');
     }
@@ -23,6 +27,9 @@ class BackstagePermissionGroupsController extends APIBaseController
         PermissionGroupsRepository $repository
     )
     {
+        if (empty(Common::user()->can('backstage_add_permission_groups'))) {
+            return $this->sendError('无backstage_add_permission_groups权限','403');
+        }
         $res = $repository->addPermissionGroups($request);
         return $this->sendResponse($res,'添加权限组成功');
     }

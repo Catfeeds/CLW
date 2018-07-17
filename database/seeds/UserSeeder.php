@@ -18,6 +18,6 @@ class UserSeeder extends Seeder
             'password' => bcrypt('chulouwang'),
             'nick_name' => '超级管理员'
         ]);
-        $temp->assignRole(1);
+        $temp->assignRole(11);
     }
 }

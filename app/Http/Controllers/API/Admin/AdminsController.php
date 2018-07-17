@@ -5,6 +5,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\AdminsRequest;
 use App\Services\RegistersService;
 use Illuminate\Support\Facades\Auth;
+use App\Handler\Common;
 
 class AdminsController extends APIBaseController
 {
@@ -14,6 +15,9 @@ class AdminsController extends APIBaseController
         RegistersService $service
     )
     {
+        if (empty(Common::user()->can('add_admin_user'))) {
+            return $this->sendError('无add_admin_user权限','403');
+        }
         $res = $service->addAdminUser($request);
         if (!$res) return $this->sendError('添加失败');
         return $this->sendResponse($res,'添加成功');

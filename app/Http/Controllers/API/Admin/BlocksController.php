@@ -8,6 +8,7 @@ use App\Repositories\BlockLocationsRepository;
 use App\Repositories\BlocksRepository;
 use App\Services\BlocksService;
 use Illuminate\Http\Request;
+use App\Handler\Common;
 
 class BlocksController extends APIBaseController
 {
@@ -17,7 +18,10 @@ class BlocksController extends APIBaseController
         BlocksRepository $repository
     )
     {
-        $res = $repository->blockList();
+        if (empty(Common::user()->can('block_list'))) {
+            return $this->sendError('无block_list权限','403');
+        }
+        $res = $repository->blockList($request);
         return $this->sendResponse($res,'商圈列表获取成功');
     }
 
@@ -27,6 +31,9 @@ class BlocksController extends APIBaseController
         BlocksRepository $repository
     )
     {
+        if (empty(Common::user()->can('add_block'))) {
+            return $this->sendError('无add_block权限','403');
+        }
         $res = $repository->addBlock($request);
         if (!$res) return $this->sendError('商圈添加失败');
         return $this->sendResponse($res,'商圈添加成功');
@@ -51,6 +58,9 @@ class BlocksController extends APIBaseController
         BlocksRepository $repository
     )
     {
+        if (empty(Common::user()->can('update_block'))) {
+            return $this->sendError('无update_block权限','403');
+        }
         $res = $repository->updateBlock($request, $block);
         if (empty($res)) return $this->sendError('商圈修改失败');
         return $this->sendResponse($res,'商圈修改成功');
@@ -61,6 +71,9 @@ class BlocksController extends APIBaseController
         Block $block
     )
     {
+        if (empty(Common::user()->can('del_block'))) {
+            return $this->sendError('无del_block权限','403');
+        }
         // 判断商圈下是否有楼盘数据
         if (!empty($block->building->count())) return $this->sendError('商圈下有楼盘,删除失败');
 
@@ -79,6 +92,9 @@ class BlocksController extends APIBaseController
         BlocksService $blocksService
     )
     {
+        if (empty(Common::user()->can('recommend_block_list'))) {
+            return $this->sendError('无recommend_block_list权限','403');
+        }
         $result= $blocksService->allBuildingBlock();
         return $this->sendResponse($result,'所有商圈信息获取成功');
     }
@@ -90,6 +106,9 @@ class BlocksController extends APIBaseController
         BlocksRepository $repository
     )
     {
+        if (empty(Common::user()->can('add_recommend_block'))) {
+            return $this->sendError('无add_recommend_block权限','403');
+        }
         $res = $repository->addRecommend($id, $request);
         return $this->sendResponse($res, '操作成功');
     }

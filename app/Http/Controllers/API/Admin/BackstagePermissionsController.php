@@ -5,6 +5,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\PermissionsRequest;
 use App\Models\Permission;
 use App\Repositories\PermissionsRepository;
+use App\Handler\Common;
 
 class BackstagePermissionsController extends APIBaseController
 {
@@ -12,6 +13,9 @@ class BackstagePermissionsController extends APIBaseController
         PermissionsRepository $repository
     )
     {
+        if (empty(Common::user()->can('backstage_permission_list'))) {
+            return $this->sendError('无backstage_permission_list权限','403');
+        }
         $res = $repository->permissionsList();
         return $this->sendResponse($res,'后台权限列表获取成功');
     }
@@ -22,6 +26,9 @@ class BackstagePermissionsController extends APIBaseController
         PermissionsRepository $repository
     )
     {
+        if (empty(Common::user()->can('backstage_add_permission'))) {
+            return $this->sendError('无backstage_add_permission权限','403');
+        }
         $res = $repository->addPermissions($request);
         return $this->sendResponse($res,'后台权限添加成功');
     }
@@ -39,6 +46,9 @@ class BackstagePermissionsController extends APIBaseController
         PermissionsRepository $repository
     )
     {
+        if (empty(Common::user()->can('backstage_update_permission'))) {
+            return $this->sendError('无backstage_update_permission权限','403');
+        }
         $permission = Permission::find($id);
         $res = $repository->updatePermissions($request, $permission);
         if (empty($res)) return $this->sendError('修改失败');
@@ -47,6 +57,9 @@ class BackstagePermissionsController extends APIBaseController
 
     public function destroy($id)
     {
+        if (empty(Common::user()->can('backstage_del_permission'))) {
+            return $this->sendError('无backstage_del_permission权限','403');
+        }
         $res = Permission::find($id)->delete();
         return $this->sendResponse($res,'删除权限成功');
     }
