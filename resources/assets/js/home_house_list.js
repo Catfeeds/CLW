@@ -19,6 +19,7 @@ function createURL(url, param) {
 }
 // 页面滚动
 $(window).scroll(function(){
+<<<<<<< HEAD
     var scrollTop = $(window).scrollTop()
     if(scrollTop >= 335){
         $('#findHouse').addClass("location")
@@ -27,11 +28,45 @@ $(window).scroll(function(){
             $('#findHouse').removeClass('location')
             $('#findHouse').css('margin-top','1974px')
         }    
+=======
+//     var scrollTop = $(window).scrollTop()
+//     if(scrollTop >= 335){
+//         $('#findHouse').addClass("location")
+//         $('#findHouse').css('margin-top','30px')  
+//         if(scrollTop >= 2300){
+//             $('#findHouse').removeClass('location')
+//             $('#findHouse').css('margin-top','1974px')
+//         }    
+//     }
+//     else if(scrollTop <= rightTop){
+//         $('#findHouse').removeClass("location")
+//         $("#findHouse").css('margin-top',0)
+//     }
+//   })
+  //
+  var scrollTop = $(window).scrollTop()
+    var marginTop = $('.house_show').height() - $('.find_house').height()
+    var height = $('.house_show').height() - 350
+    if($('.house_show').height() <= 2492){
+        if(scrollTop >= rightTop){
+            $('#findHouse').addClass("location")
+            $('#findHouse').css('margin-top','30px')  
+            if(scrollTop >= height){
+                $('#findHouse').removeClass('location')
+                $('#findHouse').css('margin-top',marginTop)
+            }    
+        }
+        else if(scrollTop <= rightTop){
+            $('#findHouse').removeClass("location")
+            $("#findHouse").css('margin-top',0)
+        }
+>>>>>>> origin/master
     }
     else if(scrollTop <= rightTop){
         $('#findHouse').removeClass("location")
         $("#findHouse").css('margin-top',0)
     }
+<<<<<<< HEAD
   })
   //
 //   var scrollTop = $(window).scrollTop()
@@ -66,6 +101,9 @@ $(window).scroll(function(){
 //             $("#findHouse").css('margin-top',0)
 //         }
 //     }
+=======
+})
+>>>>>>> origin/master
 // 拿到所有条件值
 var data = {
     area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
