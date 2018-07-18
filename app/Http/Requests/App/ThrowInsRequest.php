@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\App;
 
+use App\Models\ThrowIn;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 
@@ -25,6 +27,8 @@ class ThrowInsRequest extends FormRequest
                 return [
                     'area_id.exists' =>'区域不存在',
 //                    'block_id.exists' => '商圈不存在',
+                    'tel.regex' => '请输入正确的手机号',
+                    'tel.not_in' => '一天之內不能重复投放'
                 ];
             default;
                 return [
@@ -41,10 +45,12 @@ class ThrowInsRequest extends FormRequest
                     'tel' => [
                         'required',
                         'max:16',
+                        'regex:/^[1][3,4,5,7,8,9][0-9]{9}$/',
                         Rule::notIn(
-                            ThrowIns::whereBetween('created_at',[date('Y-m-d 00:00:00', time()), date('Y-m-d 23:59:59', time())])->plluck('tel')->toArray()
+                            ThrowIn::whereBetween('created_at',[date('Y-m-d 00:00:00', time()), date('Y-m-d 23:59:59', time())])->pluck('tel')->toArray()
                         )
                         ],
+
                     'appellation' => 'nullable|max:32',
                     'area_id' => 'nullable|exists:media.areas,id',
                     'block_id' => 'nullable|exists:media.blocks,id',

@@ -16,7 +16,10 @@ class BespeakController extends APIBaseController
      * @return array
      * @author 罗振
      */
-    public function store(BespeaksRequest $request, BespeaksService $bespeaksService)
+    public function store(
+        BespeaksRequest $request,
+        BespeaksService $bespeaksService
+    )
     {
         if (!empty($res = $bespeaksService->addBespeaks($request))) return $this->sendResponse($res,'预约成功');
         return $this->sendError('预约失败');

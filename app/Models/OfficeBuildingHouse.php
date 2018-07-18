@@ -19,13 +19,14 @@ class OfficeBuildingHouse extends BaseModel
         'min_acreage' => 'integer',
         'unit_price' => 'integer',
         'total_price' => 'integer',
+        'support_facilities'
     ];
 
     protected $appends = [
         'indoor_img_cn', 'unit_price_cn', 'constru_acreage_cn', 'total_price_cn', 'house_type', 'house_type_cn','payment_type_cn',
         'orientation_cn', 'renovation_cn', 'office_building_type_cn', 'check_in_time_cn', 'shortest_lease_cn',
         'split_cn', 'register_company_cn', 'open_bill_cn',  'house_feature', 'pic_url', 'floor_cn', 'show_cn',
-        'station_number_cn'
+        'station_number_cn', 'img_url', 'rent_free_cn'
     ];
 
     /**
@@ -246,6 +247,42 @@ class OfficeBuildingHouse extends BaseModel
     }
 
     /**
+     * 说明: 免租期中文
+     *
+     * @return string
+     * @use rent_free_cn
+     * @author 罗振
+     */
+    public function getRentFreeCnAttribute()
+    {
+        if ($this->rent_free == 1) {
+            return '1个月';
+        } elseif ($this->rent_free == 2) {
+            return '2个月';
+        } elseif ($this->rent_free == 3) {
+            return '3个月';
+        } elseif ($this->rent_free == 4) {
+            return '4个月';
+        } elseif ($this->rent_free == 5) {
+            return '5个月';
+        } elseif ($this->rent_free == 6) {
+            return '6个月';
+        } elseif ($this->rent_free == 7) {
+            return '7个月';
+        } elseif ($this->rent_free == 8) {
+            return '8个月';
+        } elseif ($this->rent_free == 9) {
+            return '9个月';
+        } elseif ($this->rent_free == 10) {
+            return '10个月';
+        } elseif ($this->rent_free == 11) {
+            return '面谈';
+        } else {
+            return '';
+        }
+    }
+
+    /**
      * 说明: 朝向中文
      *
      * @return string
@@ -278,17 +315,6 @@ class OfficeBuildingHouse extends BaseModel
             return '';
         }
     }
-
-    /**
-     * 说明: 装修中文
-     *
-     * @return string
-     * @use renovation_cn
-     * @author 罗振
-     */
-
-
-
 
     // 装修
     public function getRenovationCnAttribute()
@@ -454,5 +480,12 @@ class OfficeBuildingHouse extends BaseModel
             $data[] = '';
         }
         return $data;
+    }
+
+    public function getImgUrlAttribute()
+    {
+        return collect($this->indoor_img)->map(function ($img) {
+            return config('setting.qiniu_url') . $img;
+        })->values()->toArray();
     }
 }
