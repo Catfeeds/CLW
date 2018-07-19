@@ -20712,7 +20712,11 @@ var render = function() {
                       [
                         _c("img", {
                           staticStyle: { width: "140px", height: "140px" },
-                          attrs: { src: item.img_cn }
+                          attrs: {
+                            src:
+                              item.img_cn +
+                              "?imageMogr2/thumbnail/!140x140r/gravity/Center/crop/140x140/blur/1x0/quality/75|imageslim"
+                          }
                         })
                       ]
                     ),
