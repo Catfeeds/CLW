@@ -14,7 +14,9 @@
     "prod:home": "cross-env sourceMap='home' NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "clearDist": "rm -rf public/js & rm -rf public/css",
     "test:we": "npm run clearDist && cross-env isStatus='test' npm run prod:we && node qiniu.js",
-    "test:home": "npm run clearDist && cross-env isStatus='test' npm run prod:home && node qiniu.js"
+    "test:home": "npm run clearDist && cross-env isStatus='test' npm run prod:home && node qiniu.js",
+    "online:we": "npm run clearDist && cross-env isStatus='online' npm run prod:we && node qiniu.js",
+    "online:home": "npm run clearDist && cross-env isStatus='online' npm run prod:home && node qiniu.js"
   },
   "devDependencies": {
     "axios": "^0.17",
