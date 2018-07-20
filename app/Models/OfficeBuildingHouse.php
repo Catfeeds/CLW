@@ -122,14 +122,14 @@ class OfficeBuildingHouse extends BaseModel
         }
 
     }
-    
+
     //工位加入单位
     public function getStationNumberCnAttribute()
     {
         if (!$this->station_number) return '';
         return $this->station_number . '个';
     }
-    
+
 
     /**
      * 说明: 面积加入单位
