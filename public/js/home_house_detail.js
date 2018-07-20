@@ -1,4 +1,4 @@
-webpackJsonp([2],[
+webpackJsonp([1],[
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17713,13 +17713,13 @@ var Swiper = __webpack_require__(87);
 var detailMap = __webpack_require__(140);
 var findHouse = __webpack_require__(107);
 var PhotoSphereViewer = __webpack_require__(283); // 官网最新拓展全景组件
+
 // require('./components/home/PhotoSphereViewer') // 老全景组件
 function changeSeen(obj, url, btnId) {
   $('.custom-button.active').removeClass('active');
   $(obj.getNavbarButton(btnId).container).addClass('active');
   obj.setPanorama(url);
 }
-console.log(PhotoSphereViewer);
 if ($('#viewer').length > 0) {
   var viewer = new PhotoSphereViewer({
     container: $('#viewer')[0],
