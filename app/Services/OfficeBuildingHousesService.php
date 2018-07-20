@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Area;
 use App\Models\Block;
 use App\Models\Building;
+use App\Models\BuildingBlock;
 use App\Models\BuildingFeature;
 use App\Models\Collection;
 use App\Models\OfficeBuildingHouse;
@@ -267,6 +268,7 @@ class OfficeBuildingHousesService
         return $res;
     }
 
+    // 房源一站通房源
     public function getMiniHouse($request)
     {
         $houses = OfficeBuildingHouse::make();
@@ -284,19 +286,26 @@ class OfficeBuildingHousesService
             // 楼盘筛选
             if (!empty($data['region']['building_name'])) {
                 // 获取楼盘id
-                $buildingId = Building::where('name', $data['region']['building_name'])->pluck('id');
-                $houses = OfficeBuildingHouse::where('building_id', $buildingId);
+                $buildingIds = Building::where('name', $data['region']['building_name'])->pluck('id')->toArray();
             } elseif (!empty($data['region']['block'])) {
-                // 获取楼盘id
-                $buildingId = Building::where('name', $data['region']['block'])->pluck('id');
-                $houses = OfficeBuildingHouse::where('building_id', $buildingId);
+                // 商圈id
+                $blockId = Block::where('name', $data['region']['block'])->pluck('id');
+                // 楼盘id
+                $buildingIds = Building::where('block_id', $blockId)->pluck('id');
             } elseif (!empty($data['region']['area'])) {
                 // 区域id
                 $areaId = Area::where('name', $data['region']['area'])->pluck('id');
                 // 楼盘id
-                $buildingId = Building::where('area_id', $areaId)->pluck('id');
-                $houses = OfficeBuildingHouse::where('building_id', $buildingId);
+                $buildingIds = Building::where('area_id', $areaId)->pluck('id');
+            } else {
+                // 楼盘id
+                $buildingIds = Building::all()->pluck('id')->toArray();
             }
+
+            // 获取楼座id
+            $buildingBlockIds = BuildingBlock::whereIn('building_id', $buildingIds)->pluck('id')->toArray();
+
+            $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlockIds);
 
             if (!empty($data['acreage'])) {
                 $houses = $houses->whereBetween('constru_acreage', $data['acreage']);
@@ -312,15 +321,71 @@ class OfficeBuildingHousesService
             }
         }
 
-        $houses = $houses->paginate(10);
-
-        $housesData = $houses->map(function ($house) {
-            return OfficeBuildingHouse::miniHouseItems($house);
-        });
+        $houses = $houses->with('buildingBlock.building')->paginate(10);
+        $housesData = $this->buildingData($houses);
 
         $resHouses = $houses->toArray();
         $resHouses['data'] = $housesData;
 
         return $resHouses;
     }
+
+    // 数据处理
+    public function buildingData($houses)
+    {
+        $housesData = array();
+        foreach ($houses as $key => $house) {
+            $housesData[$key]['guid'] = $house->id;
+            $housesData[$key]['id'] = $house->id;
+            $housesData[$key]['mini_label'] = true;
+            $housesData[$key]['title'] = $house->title;
+            $housesData[$key]['tel'] = '123456';
+            $housesData[$key]['building_name'] = $house->buildingBlock->building->name;
+            $housesData[$key]['total_acreage'] = $house->constru_acreage;
+            $housesData[$key]['unit_price'] = $house->unit_price;
+            $housesData[$key]['pay_type'] = '押一付一';
+            $housesData[$key]['address'] = $house->buildingBlock->building->address;
+            $housesData[$key]['img_url'] = $house->img_url;
+            $housesData[$key]['degree'] = 100;
+            $housesData[$key]['house_type_hall'] = true;
+            $housesData[$key]['house_type_room'] = true;
+        }
+
+        return collect($housesData);
+    }
+
+    // 房源一站通房源详情
+    public function getMiniHouseInfo($request)
+    {
+        $house = OfficeBuildingHouse::where('id', $request->id)->with('buildingBlock.building')->first();
+
+        $houseData = array();
+        $houseData['address'] = $house->buildingBlock->building->address;
+        $houseData['tel'] = '123456';
+        $houseData['building_name'] = $house->buildingBlock->building->name;
+        $houseData['parking_fee'] = $house->buildingBlock->building->parking_fee;
+        $houseData['pay_type'] = '押一付一';
+        $houseData['register_cn'] = $house->register_company_cn;
+        $houseData['renovation_cn'] = $house->renovation_cn;
+        $houseData['rent_free_cn'] = $house->rent_free_cn;
+        $houseData['customizable_cn'] = '';
+        $houseData['station'] = $house->station_number_cn;
+        $houseData['house_type_room'] = $house->room;
+        $houseData['house_type_hall'] = $house->hall;
+        $houseData['property_fee'] = $house->buildingBlock->property_fee;
+        $houseData['furniture_cn'] = empty($house->support_facilities)?'无':'有';
+        $houseData['check_in_time'] = $house->check_in_time_cn;
+        $houseData['short_lease_cn'] = $house->shortest_lease_cn;
+        $houseData['status'] = true;
+        $houseData['movies'] = $house->img_url;
+        $houseData['imgtotal'] = count($house->indoor_img);
+        $houseData['total_acreage'] = $house->constru_acreage;
+        $houseData['unit_price'] = $house->unit_price;
+        $houseData['floor_num'] = $house->floor;
+        $houseData['usage_rate'] = '';
+        $houseData['title'] = $house->title;
+
+        return $houseData;
+    }
+
 }
