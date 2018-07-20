@@ -22,7 +22,7 @@ class ServiceLabelsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('service_label_list'))) {
-            return $this->sendError('无service_label_list权限','403');
+            return $this->sendError('无服务标签列表权限','403');
         }
         $res = $repository->serviceLabelList();
         return $this->sendResponse($res,'服务标签列表获取成功');
@@ -42,7 +42,7 @@ class ServiceLabelsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('add_service_label'))) {
-            return $this->sendError('无add_service_label权限','403');
+            return $this->sendError('无服务标签添加权限','403');
         }
         $res = $repository->addServiceLabel($request);
         return $this->sendResponse($res,'服务标签添加成功');
@@ -78,7 +78,7 @@ class ServiceLabelsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_service_label'))) {
-            return $this->sendError('无update_service_label权限','403');
+            return $this->sendError('无服务标签修改权限','403');
         }
         $res = $repository->updateServiceLabel($request, $serviceLabel);
         if (empty($res)) return $this->sendError('服务标签修改失败');

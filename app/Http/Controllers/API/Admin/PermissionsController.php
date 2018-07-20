@@ -10,7 +10,7 @@ class PermissionsController extends APIBaseController
     public function index()
     {
         if (empty(Common::user()->can('permission_list'))) {
-            return $this->sendError('无permission_list权限','403');
+            return $this->sendError('无中介系统权限列表权限','403');
         }
         $res = curl(config('setting.media_url').'/api/permissions','get');
         if (empty($res->data)) return $this->sendError($res->message);
@@ -20,7 +20,7 @@ class PermissionsController extends APIBaseController
     public function store(Request $request)
     {
         if (empty(Common::user()->can('add_permission'))) {
-            return $this->sendError('无add_permission权限','403');
+            return $this->sendError('无添加中介系统权限权限','403');
         }
         $data['name'] = $request->name;
         $data['label'] = $request->label;
@@ -44,7 +44,7 @@ class PermissionsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_permission'))) {
-            return $this->sendError('无update_permission权限','403');
+            return $this->sendError('无修改中介系统权限权限','403');
         }
         $data['name'] = $request->name;
         $data['label'] = $request->label;
@@ -58,7 +58,7 @@ class PermissionsController extends APIBaseController
     public function destroy($id)
     {
         if (empty(Common::user()->can('del_permission'))) {
-            return $this->sendError('无del_permission权限','403');
+            return $this->sendError('无删除中介系统权限权限','403');
         }
         $res = curl(config('setting.media_url').'/api/permissions/'.$id,'delete' );
         if (empty($res->data)) return $this->sendError($res->message);
