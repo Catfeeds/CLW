@@ -23,7 +23,7 @@ class ServicesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('service_list'))) {
-            return $this->sendError('无service_list权限','403');
+            return $this->sendError('无服务列表权限','403');
         }
         $res = $servicesRepositories->serviceList();
         return $this->sendResponse($res,'服务列表获取成功');
@@ -44,7 +44,7 @@ class ServicesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('add_service'))) {
-            return $this->sendError('无add_service权限','403');
+            return $this->sendError('无服务添加权限','403');
         }
         $res = $servicesRepository->addService($request);
         return $this->sendResponse($res,'服务添加成功');
@@ -82,7 +82,7 @@ class ServicesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_service'))) {
-            return $this->sendError('无update_service权限','403');
+            return $this->sendError('无服务修改权限','403');
         }
         $res = $servicesRepositories->updateService($request, $service);
         return $this->sendResponse($res, '服务更新成功');
@@ -99,7 +99,7 @@ class ServicesController extends APIBaseController
     public function destroy(Service $service)
     {
         if (empty(Common::user()->can('del_service'))) {
-            return $this->sendError('无del_service权限','403');
+            return $this->sendError('无服务删除权限','403');
         }
         $res = $service->delete();
         return $this->sendResponse($res,'服务删除成功');

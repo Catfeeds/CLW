@@ -58,7 +58,7 @@ class AcceptMessagesController extends APIBaseController
     public function index(MessagesService $service)
     {
         if (empty(Common::user()->can('accept_message_list'))) {
-            return $this->sendError('无accept_message_list权限','403');
+            return $this->sendError('无消息接收人员列表权限','403');
         }
         $res= $this->repo->messageList($this->req, $service);
         return $this->sendResponse($res,'获取成功');
@@ -68,7 +68,7 @@ class AcceptMessagesController extends APIBaseController
     public function store(MessagesService $service)
     {
         if (empty(Common::user()->can('add_accept_message'))) {
-            return $this->sendError('无add_accept_message权限','403');
+            return $this->sendError('无添加消息接收人员权限','403');
         }
         $res = $this->repo->addAcceptMessage($this->req, $service);
         return $this->sendResponse($res, '设置成功');
@@ -78,7 +78,7 @@ class AcceptMessagesController extends APIBaseController
     public function destroy()
     {
         if (empty(Common::user()->can('del_accept_message'))) {
-            return $this->sendError('无del_accept_message权限','403');
+            return $this->sendError('无删除消息接收人员权限','403');
         }
         $res = AcceptMessage::where(['type' => $this->req->type,'employee_id' => $this->req->employee_id])->delete();
         return $this->sendResponse($res,'删除成功');

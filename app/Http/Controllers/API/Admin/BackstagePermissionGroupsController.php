@@ -15,7 +15,7 @@ class BackstagePermissionGroupsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('backstage_permission_groups_list'))) {
-            return $this->sendError('无backstage_permission_groups_list权限','403');
+            return $this->sendError('无权限组列表权限','403');
         }
         $res = $repository->permissionGroupsList($request->per_page);
         return $this->sendResponse($res,'权限组列表成功');
@@ -28,7 +28,7 @@ class BackstagePermissionGroupsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('backstage_add_permission_groups'))) {
-            return $this->sendError('无backstage_add_permission_groups权限','403');
+            return $this->sendError('无添加权限组权限','403');
         }
         $res = $repository->addPermissionGroups($request);
         return $this->sendResponse($res,'添加权限组成功');

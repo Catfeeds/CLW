@@ -32,7 +32,7 @@ class ServiceRecommendsController extends APIBaseController
     public function index()
     {
         if (empty(Common::user()->can('service_recommends_list'))) {
-            return $this->sendError('无service_recommends_list权限','403');
+            return $this->sendError('无推荐服务列表权限','403');
         }
         $res = $this->repo->serviceRecommendsList();
         return $this->sendResponse($res, '推荐服务列表获取成功');
@@ -47,7 +47,7 @@ class ServiceRecommendsController extends APIBaseController
     public function store()
     {
         if (empty(Common::user()->can('add_service_recommend'))) {
-            return $this->sendError('无add_service_recommend权限','403');
+            return $this->sendError('无推荐服务添加权限','403');
         }
         // 如果添加的数据权重为1,判断权重为1的是否存在
         if ($this->req->weight == 1) {
@@ -82,7 +82,7 @@ class ServiceRecommendsController extends APIBaseController
     public function update(ServiceRecommend $serviceRecommend)
     {
         if (empty(Common::user()->can('update_service_recommend'))) {
-            return $this->sendError('无update_service_recommend权限','403');
+            return $this->sendError('无推荐服务修改权限','403');
         }
         // 检测服务是否重复
         if (!empty($this->req->service_id) && $this->req->service_id != $serviceRecommend->service_id && in_array($this->req->service_id, ServiceRecommend::pluck('service_id')->toArray())) {
@@ -113,7 +113,7 @@ class ServiceRecommendsController extends APIBaseController
     public function destroy(ServiceRecommend $serviceRecommend)
     {
         if (empty(Common::user()->can('del_service_recommend'))) {
-            return $this->sendError('无del_service_recommend权限','403');
+            return $this->sendError('无推荐服务删除权限','403');
         }
         $res = $serviceRecommend->delete();
         return $this->sendResponse($res,'推荐服务删除成功');

@@ -33,7 +33,7 @@ class BuildingFeaturesController extends APIBaseController
     public function index()
     {
         if (empty(Common::user()->can('building_feature_list'))) {
-            return $this->sendError('无building_feature_list权限','403');
+            return $this->sendError('无楼盘特色列表权限','403');
         }
         $res = $this->repo->buildingFeatureList();
         return $this->sendResponse($res, '楼盘特色列表获取成功');
@@ -48,7 +48,7 @@ class BuildingFeaturesController extends APIBaseController
     public function store()
     {
         if (empty(Common::user()->can('add_building_feature'))) {
-            return $this->sendError('无add_building_feature权限','403');
+            return $this->sendError('无楼盘特色添加权限','403');
         }
         $res = $this->repo->addBuildingFeature($this->req);
         return $this->sendResponse($res, '楼盘特色添加成功');
@@ -70,7 +70,7 @@ class BuildingFeaturesController extends APIBaseController
     public function update(BuildingFeature $buildingFeature)
     {
         if (empty(Common::user()->can('update_building_feature'))) {
-            return $this->sendError('无update_building_feature权限','403');
+            return $this->sendError('无楼盘特色修改权限','403');
         }
         if (!empty($this->req->name) && $this->req->name != $buildingFeature->name && in_array($this->req->name, BuildingFeature::pluck('name')->toArray())) return $this->sendError('楼盘特色重复');
 
@@ -90,7 +90,7 @@ class BuildingFeaturesController extends APIBaseController
     public function destroy(BuildingFeature $buildingFeature)
     {
         if (empty(Common::user()->can('del_building_feature'))) {
-            return $this->sendError('无del_building_feature权限','403');
+            return $this->sendError('无楼盘特色删除权限','403');
         }
         $res = $buildingFeature->delete();
         return $this->sendResponse($res, '楼盘特色删除成功');
