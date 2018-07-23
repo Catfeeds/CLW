@@ -6,7 +6,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\SystemNoticesRequest;
 use App\Models\SystemNotice;
 use App\Repositories\SystemNoticesRepository;
-use APP\Handler\Common;
+use App\Handler\Common;
 
 class SystemNoticesController extends APIBaseController
 {
