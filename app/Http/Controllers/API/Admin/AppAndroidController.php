@@ -15,7 +15,7 @@ class AppAndroidController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('app_android_list'))) {
-            return $this->sendError('无app_android_list权限','403');
+            return $this->sendError('无App,Android版本列表权限','403');
         }
         $res = $repository->appAndroidList();
         return $this->sendResponse($res, '获取App,Android版本列表成功');
@@ -28,7 +28,7 @@ class AppAndroidController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('add_app_android'))) {
-            return $this->sendError('无add_app_android权限','403');
+            return $this->sendError('无aApp,Android版本添加权限','403');
         }
         $res = $repository->addAppAndroid($request);
         if ($res['status'] == false) return $this->sendError($res['message']);

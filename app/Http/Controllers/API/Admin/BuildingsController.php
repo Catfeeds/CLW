@@ -34,7 +34,7 @@ class BuildingsController extends APIBaseController
     public function index(BuildingsService $service)
     {
         if (empty(Common::user()->can('building_lists'))) {
-            return $this->sendError('无building_lists权限','403');
+            return $this->sendError('无楼盘列表权限','403');
         }
         $res = $this->repo->buildingLists($this->req->per_page, json_decode($this->req->condition), $service);
         return $this->sendResponse($res, '楼盘列表获取成功');
@@ -49,7 +49,7 @@ class BuildingsController extends APIBaseController
     public function store()
     {
         if (empty(Common::user()->can('add_building'))) {
-            return $this->sendError('无add_building权限','403');
+            return $this->sendError('无楼盘添加权限','403');
         }
         // 楼栋信息不能为空
         if (empty($this->req->building_block)) return $this->sendError('楼栋信息不能为空');
@@ -91,7 +91,7 @@ class BuildingsController extends APIBaseController
     public function update(Building $building)
     {
         if (empty(Common::user()->can('update_building'))) {
-            return $this->sendError('无update_building权限','403');
+            return $this->sendError('无楼盘修改权限','403');
         }
         // 修改楼盘名称时判断是否重复
         if (!empty($this->req->name) && $this->req->name != $building->name && in_array($this->req->name,Building::where('area_id', $this->req->area_id)->pluck('name')->toArray())) return $this->sendError('该区域下已有此楼盘,请勿重复设置');
@@ -110,7 +110,7 @@ class BuildingsController extends APIBaseController
     public function addBuildingLabel()
     {
         if (empty(Common::user()->can('add_building_label'))) {
-            return $this->sendError('无add_building_label权限','403');
+            return $this->sendError('无楼盘标签添加权限','403');
         }
         $res = $this->repo->addBuildingLabel($this->req);
         return $this->sendResponse($res, '楼盘标签添加成功');
@@ -126,7 +126,7 @@ class BuildingsController extends APIBaseController
     public function destroy($id)
     {
         if (empty(Common::user()->can('del_building_label'))) {
-            return $this->sendError('无del_building_label权限','403');
+            return $this->sendError('无楼盘标签删除权限','403');
         }
         $res = BuildingLabel::where('building_id', $id)->first()->delete();
         return $this->sendResponse($res, '楼盘标签删除成功');

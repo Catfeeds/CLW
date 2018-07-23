@@ -63,7 +63,7 @@ class EntrustThrowInsRequest extends FormRequest
                     'building_name' => 'nullable|max:32',
                     'demand' => 'nullable',
                     'source' => 'nullable',
-                    'page_source' => 'required',
+                    'page_source' => 'nullable',
                     'type' => 'required',
                 ];
             case 'survey':

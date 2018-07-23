@@ -33,7 +33,7 @@ class HousesController extends APIBaseController
     public function index(OfficeBuildingHousesService $service)
     {
         if (empty(Common::user()->can('House_list'))) {
-            return $this->sendError('无House_list权限','403');
+            return $this->sendError('无房源列表权限','403');
         }
         $res = $this->repo->HouseList($this->req->per_page??null, json_decode($this->req->condition), $service);
         return $this->sendResponse($res, '房源列表获取成功');
@@ -48,7 +48,7 @@ class HousesController extends APIBaseController
     public function store()
     {
         if (empty(Common::user()->can('add_house_label'))) {
-            return $this->sendError('无add_house_label权限','403');
+            return $this->sendError('无房源标签添加权限','403');
         }
         $res = $this->repo->addHouseLabel($this->req);
         return $this->sendResponse($res, '房源标签添加成功');
@@ -63,7 +63,7 @@ class HousesController extends APIBaseController
     public function showHouse()
     {
         if (empty(Common::user()->can('show_house'))) {
-            return $this->sendError('无show_house权限','403');
+            return $this->sendError('无房源上架权限','403');
         }
         $res = $this->repo->showHouse($this->req);
         return $this->sendResponse($res, '房源上架成功');
@@ -79,7 +79,7 @@ class HousesController extends APIBaseController
     public function destroy($id)
     {
         if (empty(Common::user()->can('del_house_label'))) {
-            return $this->sendError('无del_house_label权限','403');
+            return $this->sendError('无房源标签删除权限','403');
         }
         $res = HouseLabel::where('house_id', $id)->delete();
         return $this->sendResponse($res, '房源标签删除成功');
@@ -95,7 +95,7 @@ class HousesController extends APIBaseController
     public function del($id)
     {
         if (empty(Common::user()->can('del_show_house'))) {
-            return $this->sendError('无del_show_house权限','403');
+            return $this->sendError('无房源下架权限','403');
         }
         $res = $this->repo->delShowHouse($id);
         return $this->sendResponse($res, '房源下架成功');

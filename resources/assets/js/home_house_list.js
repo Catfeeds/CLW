@@ -20,6 +20,7 @@ function createURL(url, param) {
 // 页面滚动
 $(window).scroll(function(){
 <<<<<<< HEAD
+<<<<<<< HEAD
     var scrollTop = $(window).scrollTop()
     if(scrollTop >= 335){
         $('#findHouse').addClass("location")
@@ -29,43 +30,60 @@ $(window).scroll(function(){
             $('#findHouse').css('margin-top','1974px')
         }    
 =======
+=======
+>>>>>>> origin/test
 //     var scrollTop = $(window).scrollTop()
 //     if(scrollTop >= 335){
 //         $('#findHouse').addClass("location")
-//         $('#findHouse').css('margin-top','30px')  
+//         $('#findHouse').css('margin-top','30px')
 //         if(scrollTop >= 2300){
 //             $('#findHouse').removeClass('location')
 //             $('#findHouse').css('margin-top','1974px')
-//         }    
+//         }
 //     }
 //     else if(scrollTop <= rightTop){
 //         $('#findHouse').removeClass("location")
 //         $("#findHouse").css('margin-top',0)
 //     }
 //   })
-  //
-  var scrollTop = $(window).scrollTop()
+    //
+    var scrollTop = $(window).scrollTop()
     var marginTop = $('.house_show').height() - $('.find_house').height()
     var height = $('.house_show').height() - 350
     if($('.house_show').height() <= 2492){
         if(scrollTop >= rightTop){
             $('#findHouse').addClass("location")
-            $('#findHouse').css('margin-top','30px')  
+            $('#findHouse').css('margin-top','30px')
             if(scrollTop >= height){
                 $('#findHouse').removeClass('location')
                 $('#findHouse').css('margin-top',marginTop)
-            }    
+            }
         }
         else if(scrollTop <= rightTop){
             $('#findHouse').removeClass("location")
             $("#findHouse").css('margin-top',0)
         }
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> origin/test
     }
-    else if(scrollTop <= rightTop){
-        $('#findHouse').removeClass("location")
-        $("#findHouse").css('margin-top',0)
+    else {
+        height = height + 100
+        if(scrollTop >= rightTop){
+            $('#findHouse').addClass("location")
+            $('#findHouse').css('margin-top','30px')
+            if(scrollTop >= height){
+                $('#findHouse').removeClass('location')
+                $('#findHouse').css('margin-top',marginTop)
+            }
+        }
+        else if(scrollTop <= rightTop){
+            $('#findHouse').removeClass("location")
+            $("#findHouse").css('margin-top',0)
+        }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
   })
   //
@@ -104,6 +122,9 @@ $(window).scroll(function(){
 =======
 })
 >>>>>>> origin/master
+=======
+})
+>>>>>>> origin/test
 // 拿到所有条件值
 var data = {
     area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',

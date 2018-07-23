@@ -12,9 +12,14 @@ use Illuminate\Support\Facades\DB;
 class EntrustThrowInsRepository extends Model
 {
     //列表
-    public function getList($request)
+    public function getList($request, $service)
     {
-        return EntrustThrowIn::paginate($request->per_page??10);
+        if (is_array($request->time)) {
+            $time = $request->time;
+        } else {
+            $time = $service->getTime($request->time);
+        }
+        return EntrustThrowIn::whereBetween('created_at', $time)->paginate($request->per_page??10);
     }
 
     //房源投放、委托找房
@@ -40,7 +45,8 @@ class EntrustThrowInsRepository extends Model
                 'source' => $source,
                 'page_source' => $request->page_source,
                 'type' => $request->type,
-                'demand' => $request->demand
+                'demand' => $request->demand,
+                'created_at' => $request->created_at? $request->created_at : date('Y-m-d H:i:s', time())
             ]);
             if (!$entrustThrowIn) throw new \Exception('失败');
 

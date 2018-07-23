@@ -24,7 +24,7 @@ class UsersController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('users_list'))) {
-            return $this->sendError('无users_list权限','403');
+            return $this->sendError('无用户列表权限','403');
         }
         $res = $repository->usersList($request);
         return $this->sendResponse($res,'用户列表获取成功');
@@ -42,7 +42,7 @@ class UsersController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('user_show'))) {
-            return $this->sendError('无user_show权限','403');
+            return $this->sendError('无用户基本信息权限','403');
         }
         // 最后一条登录记录
         $lastLoginRecord = $user->LoginRecord->last();
