@@ -6,7 +6,7 @@ webpackJsonp([5],{
 "use strict";
 
 
-var bind = __webpack_require__(14);
+var bind = __webpack_require__(15);
 var isBuffer = __webpack_require__(38);
 
 /*global toString:true*/
@@ -1021,28 +1021,185 @@ module.exports = function normalizeComponent (
 /***/ }),
 
 /***/ 13:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = __webpack_require__(37);
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["k"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
+/* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
+/* unused harmony export getBuildList */
+/* unused harmony export getSiteList */
+/* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
+/* harmony export (immutable) */ __webpack_exports__["c"] = collect;
+/* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
+/* harmony export (immutable) */ __webpack_exports__["i"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["o"] = login;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["m"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
+/* harmony export (immutable) */ __webpack_exports__["n"] = launchHouse;
+/* harmony export (immutable) */ __webpack_exports__["l"] = getSelectInfo;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getMarketPrice;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getLikeBuild;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+
+
+
+// 获取区域地理位置信息
+function getRegionList() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/get_area_locations_list',
+    method: 'GET'
+  });
+}
+// 获取商圈地理位置信息
+function getBlock() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/get_block_locations_list',
+    method: 'GET'
+  });
+}
+
+// 获取区域三级下拉列表
+function buildingsSelect(params) {
+  return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
+    headers: { 'safeString': params },
+    url: 'http://192.168.0.199/' + '/api/cities_areas_blocks_select',
+    method: 'GET'
+  });
+}
+
+function getBuildList() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/getBuildList',
+    method: 'GET'
+  });
+}
+
+function getSiteList() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/getSiteList',
+    method: 'GET'
+  });
+}
+
+// 委托找房
+function findHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/bespeaks',
+    method: 'POST',
+    data: data
+  });
+}
+
+// 收藏房源
+function collect(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/collections',
+    method: 'POST',
+    data: data
+  });
+}
+
+// 取消收藏
+function cancelCollet(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/del/' + params,
+    method: 'GET'
+  });
+}
+// 获取登录验证码
+function getLoginCode(tel) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/sms/captcha/' + tel + '/login',
+    method: 'GET'
+  });
+}
+// 登录
+function login(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/logins',
+    method: 'POST',
+    data: data
+  });
+}
+// 根据中心获取楼盘
+function getCoreBuildList(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/get_periphery_buildings',
+    method: 'POST',
+    params: data
+  });
+}
+
+// 获取站点楼盘数量
+function getSiteBuildNum(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/get_periphery_buildings_count',
+    method: 'POST',
+    params: data
+  });
+}
+
+// // 根据中心获取楼盘
+// export function getCoreBuildLists(data) {
+//     return request({
+//         url: 'http://192.168.0.110/get_periphery_buildings',
+//         method: 'post',
+//         data: data
+//     })
+// }
+
+// 委托找房表单
+function factorFindHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/bespeaks',
+    method: 'POST',
+    data: data
+  });
+}
+// 投放房源
+function launchHouse(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/throw_ins',
+    method: 'POST',
+    data: data
+  });
+}
+
+// 搜索框提示信息
+function getSelectInfo(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/get_select_info',
+    method: 'GET',
+    params: params
+  });
+}
+
+// 获取楼盘详情市场行情
+function getMarketPrice(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/market_price/' + params,
+    method: 'GET'
+  });
+}
+
+// 获取楼盘详情猜你喜欢
+function getLikeBuild() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/like_building',
+    method: 'GET'
+  });
+}
 
 /***/ }),
 
 /***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-module.exports = function bind(fn, thisArg) {
-  return function wrap() {
-    var args = new Array(arguments.length);
-    for (var i = 0; i < args.length; i++) {
-      args[i] = arguments[i];
-    }
-    return fn.apply(thisArg, args);
-  };
-};
-
+module.exports = __webpack_require__(37);
 
 /***/ }),
 
@@ -3304,12 +3461,31 @@ return $;
 "use strict";
 
 
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
+
+
+/***/ }),
+
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var utils = __webpack_require__(0);
 var settle = __webpack_require__(41);
 var buildURL = __webpack_require__(43);
 var parseHeaders = __webpack_require__(44);
 var isURLSameOrigin = __webpack_require__(45);
-var createError = __webpack_require__(16);
+var createError = __webpack_require__(17);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(46);
 
 module.exports = function xhrAdapter(config) {
@@ -3486,7 +3662,7 @@ module.exports = function xhrAdapter(config) {
 
 /***/ }),
 
-/***/ 16:
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3512,7 +3688,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 /***/ }),
 
-/***/ 17:
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3525,7 +3701,7 @@ module.exports = function isCancel(value) {
 
 /***/ }),
 
-/***/ 18:
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3549,182 +3725,6 @@ Cancel.prototype.__CANCEL__ = true;
 
 module.exports = Cancel;
 
-
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["k"] = getRegionList;
-/* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
-/* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
-/* unused harmony export getBuildList */
-/* unused harmony export getSiteList */
-/* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
-/* harmony export (immutable) */ __webpack_exports__["c"] = collect;
-/* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["o"] = login;
-/* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["m"] = getSiteBuildNum;
-/* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
-/* harmony export (immutable) */ __webpack_exports__["n"] = launchHouse;
-/* harmony export (immutable) */ __webpack_exports__["l"] = getSelectInfo;
-/* harmony export (immutable) */ __webpack_exports__["j"] = getMarketPrice;
-/* harmony export (immutable) */ __webpack_exports__["h"] = getLikeBuild;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-
-
-
-// 获取区域地理位置信息
-function getRegionList() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/get_area_locations_list',
-    method: 'GET'
-  });
-}
-// 获取商圈地理位置信息
-function getBlock() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/get_block_locations_list',
-    method: 'GET'
-  });
-}
-
-// 获取区域三级下拉列表
-function buildingsSelect(params) {
-  return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
-    headers: { 'safeString': params },
-    url: 'http://192.168.0.199/' + '/api/cities_areas_blocks_select',
-    method: 'GET'
-  });
-}
-
-function getBuildList() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/getBuildList',
-    method: 'GET'
-  });
-}
-
-function getSiteList() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/getSiteList',
-    method: 'GET'
-  });
-}
-
-// 委托找房
-function findHouse(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/bespeaks',
-    method: 'POST',
-    data: data
-  });
-}
-
-// 收藏房源
-function collect(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/collections',
-    method: 'POST',
-    data: data
-  });
-}
-
-// 取消收藏
-function cancelCollet(params) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/del/' + params,
-    method: 'GET'
-  });
-}
-// 获取登录验证码
-function getLoginCode(tel) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/sms/captcha/' + tel + '/login',
-    method: 'GET'
-  });
-}
-// 登录
-function login(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/logins',
-    method: 'POST',
-    data: data
-  });
-}
-// 根据中心获取楼盘
-function getCoreBuildList(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/get_periphery_buildings',
-    method: 'POST',
-    params: data
-  });
-}
-
-// 获取站点楼盘数量
-function getSiteBuildNum(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/get_periphery_buildings_count',
-    method: 'POST',
-    params: data
-  });
-}
-
-// // 根据中心获取楼盘
-// export function getCoreBuildLists(data) {
-//     return request({
-//         url: 'http://192.168.0.110/get_periphery_buildings',
-//         method: 'post',
-//         data: data
-//     })
-// }
-
-// 委托找房表单
-function factorFindHouse(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/bespeaks',
-    method: 'POST',
-    data: data
-  });
-}
-// 投放房源
-function launchHouse(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/throw_ins',
-    method: 'POST',
-    data: data
-  });
-}
-
-// 搜索框提示信息
-function getSelectInfo(params) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/get_select_info',
-    method: 'GET',
-    params: params
-  });
-}
-
-// 获取楼盘详情市场行情
-function getMarketPrice(params) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/market_price/' + params,
-    method: 'GET'
-  });
-}
-
-// 获取楼盘详情猜你喜欢
-function getLikeBuild() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/like_building',
-    method: 'GET'
-  });
-}
 
 /***/ }),
 
@@ -4264,7 +4264,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_login__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_api__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_api__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_bootstrap_sass_assets_javascripts_bootstrap_popover_js__ = __webpack_require__(147);
@@ -5244,7 +5244,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
 
 
@@ -5326,7 +5326,7 @@ service.interceptors.response.use(function (response) {
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(14);
+var bind = __webpack_require__(15);
 var Axios = __webpack_require__(39);
 var defaults = __webpack_require__(7);
 
@@ -5361,9 +5361,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(18);
+axios.Cancel = __webpack_require__(19);
 axios.CancelToken = __webpack_require__(53);
-axios.isCancel = __webpack_require__(17);
+axios.isCancel = __webpack_require__(18);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -5520,7 +5520,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(16);
+var createError = __webpack_require__(17);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -5963,7 +5963,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(50);
-var isCancel = __webpack_require__(17);
+var isCancel = __webpack_require__(18);
 var defaults = __webpack_require__(7);
 var isAbsoluteURL = __webpack_require__(51);
 var combineURLs = __webpack_require__(52);
@@ -6322,7 +6322,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(18);
+var Cancel = __webpack_require__(19);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -6649,7 +6649,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_dialog_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_ui_lib_theme_chalk_dialog_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_dialog__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_dialog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_element_ui_lib_dialog__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_api__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_api__ = __webpack_require__(13);
 
 
 
@@ -8048,10 +8048,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(15);
+    adapter = __webpack_require__(16);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(15);
+    adapter = __webpack_require__(16);
   }
   return adapter;
 }

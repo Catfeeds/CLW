@@ -59,7 +59,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/featureBanner.vue"
+Component.options.__file = "resources\\assets\\js\\components\\featureBanner.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -68,9 +68,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8606c78a", Component.options)
+    hotAPI.createRecord("data-v-5959920a", Component.options)
   } else {
-    hotAPI.reload("data-v-8606c78a", Component.options)
+    hotAPI.reload("data-v-5959920a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -146,7 +146,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-8606c78a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-5959920a", module.exports)
   }
 }
 

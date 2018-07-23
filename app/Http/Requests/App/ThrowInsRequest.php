@@ -25,6 +25,7 @@ class ThrowInsRequest extends FormRequest
                 return [
                     'area_id.exists' =>'区域不存在',
 //                    'block_id.exists' => '商圈不存在',
+                    'tel.regex' => '请输入正确的手机号'
                 ];
             default;
                 return [
@@ -38,7 +39,7 @@ class ThrowInsRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'tel' => 'required|max:16',
+                    'tel' => 'required|max:16||regex:/^[1][3,4,5,7,8,9][0-9]{9}$/',
                     'appellation' => 'nullable|max:32',
                     'area_id' => 'nullable|exists:media.areas,id',
                     'block_id' => 'nullable|exists:media.blocks,id',
