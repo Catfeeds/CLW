@@ -39,14 +39,20 @@ class GetMediaUserOpenid extends Command
      */
     public function handle()
     {
+        self::getMediaUserOpenid();
+    }
+
+    //导入数据
+    public function getMediaUserOpenid()
+    {
         // 查询出employees中的所有tel,openid
-        $data = Employee::pluck('tel', 'openid')->get()->toArray();
-        foreach ($data as $k=>$v) {
+        $data = Employee::all()->pluck('openid', 'tel')->toArray();
+        foreach ($data as $k => $v) {
             $res = User::where('tel', $k)->first();
             if(!empty($res)) {
-                User::where('tel',$k)->update(['openid'=>$v]);
+                $suc = User::where('tel', $k)->update(['openid'=>$v]);
             }
-            return $res;
+            if (empty($suc)) \Log::info($k . '同步数据失败');
         }
     }
 }

@@ -22,7 +22,6 @@ class EmployeesRepository extends Model
         $employee->email = $request->email;
         $employee->openid = $request->openid;
         if (!$employee->save()) return false;
-        return true;
         $this->syncOpenid($request->tel,$request->openid);
         return $employee;
     }
@@ -43,9 +42,17 @@ class EmployeesRepository extends Model
     //换绑微信
     public function updateWechat($request)
     {
-        Employee::where('id', $request->id)->update(['openid' => $request->openid]);
-        $res = Employee::where('id',$request->id)->first();
-        $this->syncOpenid($res->tel,$res->openid);
+        $employee = Employee::where('id',$request->id)->first();
+        $employee->openid = $request->openid;
+        if (!$employee->save()) return false;
+        $this->syncOpenid($employee->tel,$employee->openid);
+        return $employee;
+    }
+
+    public function del($employee)
+    {
+        $res = $employee->delete();
+        $this->syncOpenid($employee->tel, null);
         return $res;
     }
 
