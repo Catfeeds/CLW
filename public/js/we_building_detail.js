@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 62:
+/***/ 63:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(63);
+module.exports = __webpack_require__(64);
 
 
 /***/ }),
 
-/***/ 63:
+/***/ 64:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19,7 +19,7 @@ __webpack_require__(0);
 
 Vue.component('house-detail-list', __webpack_require__(13));
 Vue.component('detail-banner', __webpack_require__(14));
-Vue.component('feature-banner', __webpack_require__(75));
+Vue.component('feature-banner', __webpack_require__(76));
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default.a, {
   ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'
 });
@@ -34,15 +34,15 @@ new Vue({
 
 /***/ }),
 
-/***/ 75:
+/***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(76)
+var __vue_script__ = __webpack_require__(77)
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(78)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -82,7 +82,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -117,7 +117,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 77:
+/***/ 78:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -152,4 +152,4 @@ if (false) {
 
 /***/ })
 
-},[62]);
+},[63]);

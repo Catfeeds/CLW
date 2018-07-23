@@ -1,14 +1,14 @@
 webpackJsonp([21],{
 
-/***/ 104:
+/***/ 105:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(105);
+module.exports = __webpack_require__(106);
 
 
 /***/ }),
 
-/***/ 105:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -176,4 +176,4 @@ $(document).on('click', '.js_collect', function (e) {
 
 /***/ })
 
-},[104]);
+},[105]);

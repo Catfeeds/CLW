@@ -1058,7 +1058,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(73)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(71)))
 
 /***/ }),
 /* 8 */
@@ -4965,7 +4965,8 @@ module.exports = function ( delay, atBegin, callback ) {
 
 /***/ }),
 /* 70 */,
-/* 71 */
+/* 71 */,
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5028,7 +5029,6 @@ var removeResizeListener = exports.removeResizeListener = function removeResizeL
 };
 
 /***/ }),
-/* 72 */,
 /* 73 */,
 /* 74 */
 /***/ (function(module, exports) {
@@ -7428,7 +7428,7 @@ var index = (function () {
 
 /* harmony default export */ __webpack_exports__["default"] = (index);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(72)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(73)))
 
 /***/ }),
 /* 77 */
@@ -7746,8 +7746,6 @@ exports.default = {
     return {
       currentValue: this.value === undefined || this.value === null ? '' : this.value,
       textareaCalcStyle: {},
-      prefixOffset: null,
-      suffixOffset: null,
       hovering: false,
       focused: false,
       isOnComposition: false,
@@ -7762,6 +7760,7 @@ exports.default = {
     resize: String,
     form: String,
     disabled: Boolean,
+    readonly: Boolean,
     type: {
       type: String,
       default: 'text'
@@ -7813,9 +7812,6 @@ exports.default = {
     },
     inputDisabled: function inputDisabled() {
       return this.disabled || (this.elForm || {}).disabled;
-    },
-    isGroup: function isGroup() {
-      return this.$slots.prepend || this.$slots.append;
     },
     showClear: function showClear() {
       return this.clearable && !this.disabled && !this.readonly && this.currentValue !== '' && (this.focused || this.hovering);
@@ -7915,16 +7911,23 @@ exports.default = {
       }
     },
     calcIconOffset: function calcIconOffset(place) {
+      var el = this.$el.querySelector('.el-input__' + place);
+      if (!el || el.parentNode !== this.$el) return;
       var pendantMap = {
-        'suf': 'append',
-        'pre': 'prepend'
+        suffix: 'append',
+        prefix: 'prepend'
       };
 
       var pendant = pendantMap[place];
-
       if (this.$slots[pendant]) {
-        return { transform: 'translateX(' + (place === 'suf' ? '-' : '') + this.$el.querySelector('.el-input-group__' + pendant).offsetWidth + 'px)' };
+        el.style.transform = 'translateX(' + (place === 'suffix' ? '-' : '') + this.$el.querySelector('.el-input-group__' + pendant).offsetWidth + 'px)';
+      } else {
+        el.removeAttribute('style');
       }
+    },
+    updateIconOffset: function updateIconOffset() {
+      this.calcIconOffset('prefix');
+      this.calcIconOffset('suffix');
     },
     clear: function clear() {
       this.$emit('input', '');
@@ -7940,12 +7943,13 @@ exports.default = {
   },
   mounted: function mounted() {
     this.resizeTextarea();
-    if (this.isGroup) {
-      this.prefixOffset = this.calcIconOffset('pre');
-      this.suffixOffset = this.calcIconOffset('suf');
-    }
+    this.updateIconOffset();
+  },
+  updated: function updated() {
+    this.$nextTick(this.updateIconOffset);
   }
 }; //
+//
 //
 //
 //
@@ -8143,7 +8147,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     'el-input--prefix': _vm.$slots.prefix || _vm.prefixIcon,
     'el-input--suffix': _vm.$slots.suffix || _vm.suffixIcon || _vm.clearable
   }
-  ],on:{"mouseenter":function($event){_vm.hovering = true},"mouseleave":function($event){_vm.hovering = false}}},[(_vm.type !== 'textarea')?[(_vm.$slots.prepend)?_c('div',{staticClass:"el-input-group__prepend"},[_vm._t("prepend")],2):_vm._e(),(_vm.type !== 'textarea')?_c('input',_vm._b({ref:"input",staticClass:"el-input__inner",attrs:{"tabindex":_vm.tabindex,"type":_vm.type,"disabled":_vm.inputDisabled,"autocomplete":_vm.autoComplete,"aria-label":_vm.label},domProps:{"value":_vm.currentValue},on:{"compositionstart":_vm.handleComposition,"compositionupdate":_vm.handleComposition,"compositionend":_vm.handleComposition,"input":_vm.handleInput,"focus":_vm.handleFocus,"blur":_vm.handleBlur,"change":_vm.handleChange}},'input',_vm.$attrs,false)):_vm._e(),(_vm.$slots.prefix || _vm.prefixIcon)?_c('span',{staticClass:"el-input__prefix",style:(_vm.prefixOffset)},[_vm._t("prefix"),(_vm.prefixIcon)?_c('i',{staticClass:"el-input__icon",class:_vm.prefixIcon}):_vm._e()],2):_vm._e(),(_vm.$slots.suffix || _vm.suffixIcon || _vm.showClear || _vm.validateState && _vm.needStatusIcon)?_c('span',{staticClass:"el-input__suffix",style:(_vm.suffixOffset)},[_c('span',{staticClass:"el-input__suffix-inner"},[(!_vm.showClear)?[_vm._t("suffix"),(_vm.suffixIcon)?_c('i',{staticClass:"el-input__icon",class:_vm.suffixIcon}):_vm._e()]:_c('i',{staticClass:"el-input__icon el-icon-circle-close el-input__clear",on:{"click":_vm.clear}})],2),(_vm.validateState)?_c('i',{staticClass:"el-input__icon",class:['el-input__validateIcon', _vm.validateIcon]}):_vm._e()]):_vm._e(),(_vm.$slots.append)?_c('div',{staticClass:"el-input-group__append"},[_vm._t("append")],2):_vm._e()]:_c('textarea',_vm._b({ref:"textarea",staticClass:"el-textarea__inner",style:(_vm.textareaStyle),attrs:{"tabindex":_vm.tabindex,"disabled":_vm.inputDisabled,"aria-label":_vm.label},domProps:{"value":_vm.currentValue},on:{"compositionstart":_vm.handleComposition,"compositionupdate":_vm.handleComposition,"compositionend":_vm.handleComposition,"input":_vm.handleInput,"focus":_vm.handleFocus,"blur":_vm.handleBlur,"change":_vm.handleChange}},'textarea',_vm.$attrs,false))],2)}
+  ],on:{"mouseenter":function($event){_vm.hovering = true},"mouseleave":function($event){_vm.hovering = false}}},[(_vm.type !== 'textarea')?[(_vm.$slots.prepend)?_c('div',{staticClass:"el-input-group__prepend"},[_vm._t("prepend")],2):_vm._e(),(_vm.type !== 'textarea')?_c('input',_vm._b({ref:"input",staticClass:"el-input__inner",attrs:{"tabindex":_vm.tabindex,"type":_vm.type,"disabled":_vm.inputDisabled,"readonly":_vm.readonly,"autocomplete":_vm.autoComplete,"aria-label":_vm.label},domProps:{"value":_vm.currentValue},on:{"compositionstart":_vm.handleComposition,"compositionupdate":_vm.handleComposition,"compositionend":_vm.handleComposition,"input":_vm.handleInput,"focus":_vm.handleFocus,"blur":_vm.handleBlur,"change":_vm.handleChange}},'input',_vm.$attrs,false)):_vm._e(),(_vm.$slots.prefix || _vm.prefixIcon)?_c('span',{staticClass:"el-input__prefix"},[_vm._t("prefix"),(_vm.prefixIcon)?_c('i',{staticClass:"el-input__icon",class:_vm.prefixIcon}):_vm._e()],2):_vm._e(),(_vm.$slots.suffix || _vm.suffixIcon || _vm.showClear || _vm.validateState && _vm.needStatusIcon)?_c('span',{staticClass:"el-input__suffix"},[_c('span',{staticClass:"el-input__suffix-inner"},[(!_vm.showClear)?[_vm._t("suffix"),(_vm.suffixIcon)?_c('i',{staticClass:"el-input__icon",class:_vm.suffixIcon}):_vm._e()]:_c('i',{staticClass:"el-input__icon el-icon-circle-close el-input__clear",on:{"click":_vm.clear}})],2),(_vm.validateState)?_c('i',{staticClass:"el-input__icon",class:['el-input__validateIcon', _vm.validateIcon]}):_vm._e()]):_vm._e(),(_vm.$slots.append)?_c('div',{staticClass:"el-input-group__append"},[_vm._t("append")],2):_vm._e()]:_c('textarea',_vm._b({ref:"textarea",staticClass:"el-textarea__inner",style:(_vm.textareaStyle),attrs:{"tabindex":_vm.tabindex,"disabled":_vm.inputDisabled,"readonly":_vm.readonly,"aria-label":_vm.label},domProps:{"value":_vm.currentValue},on:{"compositionstart":_vm.handleComposition,"compositionupdate":_vm.handleComposition,"compositionend":_vm.handleComposition,"input":_vm.handleInput,"focus":_vm.handleFocus,"blur":_vm.handleBlur,"change":_vm.handleChange}},'textarea',_vm.$attrs,false))],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -8443,7 +8447,7 @@ module.exports =
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(72);
 
 /***/ }),
 
@@ -9462,7 +9466,7 @@ module.exports = function normalizeComponent (
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(72);
 
 /***/ }),
 
@@ -12326,6 +12330,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 
 var popperMixin = {
   props: {
@@ -12440,7 +12446,8 @@ exports.default = {
       inputValue: '',
       flatOptions: null,
       id: (0, _util.generateId)(),
-      needFocus: true
+      needFocus: true,
+      isOnComposition: false
     };
   },
 
@@ -12482,6 +12489,10 @@ exports.default = {
     },
     cascaderDisabled: function cascaderDisabled() {
       return this.disabled || (this.elForm || {}).disabled;
+    },
+    readonly: function readonly() {
+      var isIE = !this.$isServer && !isNaN(Number(document.documentMode));
+      return !this.filterable || !isIE && !this.menuVisible;
     }
   },
 
@@ -12701,6 +12712,9 @@ exports.default = {
     },
     handleBlur: function handleBlur(event) {
       this.$emit('blur', event);
+    },
+    handleComposition: function handleComposition(event) {
+      this.isOnComposition = event.type !== 'compositionend';
     }
   },
 
@@ -13217,7 +13231,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       'is-disabled': _vm.cascaderDisabled
     },
     _vm.cascaderSize ? 'el-cascader--' + _vm.cascaderSize : ''
-  ],on:{"click":_vm.handleClick,"mouseenter":function($event){_vm.inputHover = true},"focus":function($event){_vm.inputHover = true},"mouseleave":function($event){_vm.inputHover = false},"blur":function($event){_vm.inputHover = false},"keydown":_vm.handleKeydown}},[_c('el-input',{ref:"input",attrs:{"readonly":!_vm.filterable,"placeholder":_vm.currentLabels.length ? undefined : _vm.placeholder,"validate-event":false,"size":_vm.size,"disabled":_vm.cascaderDisabled},on:{"input":_vm.debouncedInputChange,"focus":_vm.handleFocus,"blur":_vm.handleBlur},model:{value:(_vm.inputValue),callback:function ($$v) {_vm.inputValue=$$v},expression:"inputValue"}},[_c('template',{attrs:{"slot":"suffix"},slot:"suffix"},[(_vm.clearable && _vm.inputHover && _vm.currentLabels.length)?_c('i',{key:"1",staticClass:"el-input__icon el-icon-circle-close el-cascader__clearIcon",on:{"click":_vm.clearValue}}):_c('i',{key:"2",staticClass:"el-input__icon el-icon-arrow-down",class:{ 'is-reverse': _vm.menuVisible }})])],2),_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.inputValue === ''),expression:"inputValue === ''"}],staticClass:"el-cascader__label"},[(_vm.showAllLevels)?[_vm._l((_vm.currentLabels),function(label,index){return [_vm._v("\n        "+_vm._s(label)+"\n        "),(index < _vm.currentLabels.length - 1)?_c('span',{key:index},[_vm._v(" "+_vm._s(_vm.separator)+" ")]):_vm._e()]})]:[_vm._v("\n      "+_vm._s(_vm.currentLabels[_vm.currentLabels.length - 1])+"\n    ")]],2)],1)}
+  ],on:{"click":_vm.handleClick,"mouseenter":function($event){_vm.inputHover = true},"focus":function($event){_vm.inputHover = true},"mouseleave":function($event){_vm.inputHover = false},"blur":function($event){_vm.inputHover = false},"keydown":_vm.handleKeydown}},[_c('el-input',{ref:"input",attrs:{"readonly":_vm.readonly,"placeholder":_vm.currentLabels.length ? undefined : _vm.placeholder,"validate-event":false,"size":_vm.size,"disabled":_vm.cascaderDisabled},on:{"input":_vm.debouncedInputChange,"focus":_vm.handleFocus,"blur":_vm.handleBlur},nativeOn:{"compositionstart":function($event){_vm.handleComposition($event)},"compositionend":function($event){_vm.handleComposition($event)}},model:{value:(_vm.inputValue),callback:function ($$v) {_vm.inputValue=$$v},expression:"inputValue"}},[_c('template',{attrs:{"slot":"suffix"},slot:"suffix"},[(_vm.clearable && _vm.inputHover && _vm.currentLabels.length)?_c('i',{key:"1",staticClass:"el-input__icon el-icon-circle-close el-cascader__clearIcon",on:{"click":_vm.clearValue}}):_c('i',{key:"2",staticClass:"el-input__icon el-icon-arrow-down",class:{ 'is-reverse': _vm.menuVisible }})])],2),_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.inputValue === '' && !_vm.isOnComposition),expression:"inputValue === '' && !isOnComposition"}],staticClass:"el-cascader__label"},[(_vm.showAllLevels)?[_vm._l((_vm.currentLabels),function(label,index){return [_vm._v("\n        "+_vm._s(label)+"\n        "),(index < _vm.currentLabels.length - 1)?_c('span',{key:index},[_vm._v(" "+_vm._s(_vm.separator)+" ")]):_vm._e()]})]:[_vm._v("\n      "+_vm._s(_vm.currentLabels[_vm.currentLabels.length - 1])+"\n    ")]],2)],1)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -14862,10 +14876,6 @@ exports.default = {
       } else {
         prop.o[prop.k] = this.initialValue;
       }
-      /* Select 的值被代码改变时不会触发校验，
-         这里需要强行触发一次，刷新 validateDisabled 的值，
-         确保 Select 下一次值改变时能正确触发校验 */
-      this.broadcast('ElSelect', 'fieldReset');
 
       this.broadcast('ElTimeSelect', 'fieldReset', this.initialValue);
     },
@@ -16278,6 +16288,8 @@ function range(rule, value, source, errors, options) {
   var len = typeof rule.len === 'number';
   var min = typeof rule.min === 'number';
   var max = typeof rule.max === 'number';
+  // 正则匹配码点范围从U+010000一直到U+10FFFF的文字（补充平面Supplementary Plane）
+  var spRegexp = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
   var val = value;
   var key = null;
   var num = typeof value === 'number';
@@ -16296,8 +16308,12 @@ function range(rule, value, source, errors, options) {
   if (!key) {
     return false;
   }
-  if (str || arr) {
+  if (arr) {
     val = value.length;
+  }
+  if (str) {
+    // 处理码点大于U+010000的文字length属性不准确的bug，如"𠮷𠮷𠮷".lenght !== 3
+    val = value.replace(spRegexp, '_').length;
   }
   if (len) {
     if (val !== rule.len) {
@@ -17272,7 +17288,12 @@ exports.default = {
       });
     },
     clearValidate: function clearValidate() {
-      this.fields.forEach(function (field) {
+      var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+      var fields = props.length ? this.fields.filter(function (field) {
+        return props.indexOf(field.prop) > -1;
+      }) : this.fields;
+      fields.forEach(function (field) {
         field.clearValidate();
       });
     },
@@ -19033,9 +19054,6 @@ exports.default = {
 
     this.$on('handleOptionClick', this.handleOptionSelect);
     this.$on('setSelected', this.setSelected);
-    this.$on('fieldReset', function () {
-      _this13.dispatch('ElFormItem', 'el.form.change');
-    });
   },
   mounted: function mounted() {
     var _this14 = this;
@@ -19291,7 +19309,7 @@ module.exports = __webpack_require__(96);
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(72);
 
 /***/ }),
 
@@ -20030,7 +20048,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(72)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(73)))
 
 /***/ }),
 /* 272 */
@@ -20205,7 +20223,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(72)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(73)))
 
 /***/ }),
 /* 277 */
