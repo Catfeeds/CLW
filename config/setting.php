@@ -34,12 +34,16 @@ return [
 
     // 商圈经纪人默认图
     'block_agent_default_img' => 'https://upload.chulouwang.com/pc/static/agent_pic_default.png',
+    // pc端楼盘房源默认图
+    'pc_building_house_default_img' => 'https://upload.chulouwang.com/pc/static/building_house_default.jpg',
+    // pc楼盘大图
+    'pc_building_default_big_img' => 'https://upload.chulouwang.com/pc/static/default.jpg',
     // 楼盘默认图片
     'building_default_img' => 'https://cdn.chulouwang.com/app/imgs/building_none.jpg',
     // 房源默认图片
     'house_default_img' => 'https://cdn.chulouwang.com/app/imgs/house_none.jpg',
     'wechat_url' => env('WECHAT_URL'),
-    'media_url' => env('MEDIA_URL'),
+    'media_url' => env('MEDIA_URL', '192.168.0.142:9999'),
 
 
     // 客户端类型

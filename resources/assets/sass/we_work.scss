@@ -60,9 +60,9 @@ body{
 .unfeedback{
   height: 26px !important;
   border-radius: 13px !important;
-  color: #26a2ff;
+  color: #fff;
   border: 1px solid #26a2ff;
-  background-color: #fff;
+  background-color: #26a2ff;
 }
 .feedback{
   color: #26a2ff;
@@ -87,12 +87,16 @@ body{
 }
 .jus-start {
   justify-content: start;
-　align-items:center;
+  align-items: center;
 }
 .jus-center {
   justify-content: center;
 }
 .jus-end {
   justify-content: flex-end;
-　align-items:center;
+  align-items: center;
+}
+.mint-actionsheet{
+  max-height: 420px !important;
+  overflow-y: scroll !important;
 }

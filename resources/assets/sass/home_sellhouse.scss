@@ -103,6 +103,8 @@ html,body {
           }
           textarea::placeholder,input::placeholder {
             font-size: 14px;
+          }
+          textarea::placeholder{
             line-height: 18px;
           }
           button {

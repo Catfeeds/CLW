@@ -78,7 +78,9 @@
             </div>
             <div class="right">
                 <div class="img">
-                    <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
+                    <a href="{{url('/about/we')}}">
+                        <img src="{{homeRes('/home_img/infomation_right.jpg')}}" alt="">
+                    </a>
                 </div>
                 <div class="zixun">
                     <div class="right-title"><span>热门资讯</span></div>
