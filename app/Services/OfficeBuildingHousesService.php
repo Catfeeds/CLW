@@ -148,7 +148,7 @@ class OfficeBuildingHousesService
             case 2:
                 $office->air_conditioner = '非中央空调';
                 break;
-                default;
+            default;
                 break;
         }
         //采暖方式
@@ -159,7 +159,7 @@ class OfficeBuildingHousesService
             case 2:
                 $office->heating = '太阳能';
                 break;
-                default;
+            default;
                 break;
         }
         //物业费
@@ -180,7 +180,7 @@ class OfficeBuildingHousesService
             case 4:
                 $office->structure = '砖木结构';
                 break;
-                default;
+            default;
                 break;
         }
         //等级
@@ -194,7 +194,7 @@ class OfficeBuildingHousesService
             case 3:
                 $office->class = '丙';
                 break;
-                default;
+            default;
                 break;
         }
         $office->collection = false;
@@ -248,18 +248,18 @@ class OfficeBuildingHousesService
     {
         //房源标题
         $res->house_title = $res->officeBuildingHouse->title;
-            //房源面积
+        //房源面积
         $res->acreage = $res->officeBuildingHouse->getConstruAcreageCnAttribute();
-            //单价
+        //单价
         $res->unit_proce = $res->officeBuildingHouse->getUnitPriceCnAttribute();
-            //总价
+        //总价
         $res->total_price = $res->officeBuildingHouse->getTotalPriceCnAttribute();
-            //图片
+        //图片
         $res->img = $res->officeBuildingHouse->getIndoorImgCnAttribute();
-            //标签
+        //标签
         $res->label = false;
         if ($res->officeBuildingHouse->houseLabel) $res->label = true;
-            //房源标签
+        //房源标签
         $res->feature = $res->officeBuildingHouse->getHouseFeatureAttribute();
 
 
