@@ -1638,7 +1638,7 @@ body .right_tab .bank-top .text-box {
           justify-content: space-between;
 }
 
-.content .build .enjoy .enjoyBox .enjoyList .enjoyDetail:hover {
+.content .build .enjoy .enjoyBox .enjoyList a:hover {
   -webkit-box-shadow: 0 5px 8px rgba(0,0,0,0.1);
           box-shadow: 0 5px 8px rgba(0,0,0,0.1);
 }
