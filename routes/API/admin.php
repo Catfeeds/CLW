@@ -283,6 +283,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 通过大类获取一级标签
         Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
 
+        //投放、预约
+        Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
+        //回访
+        Route::post('survey', 'EntrustThrowInsController@survey');
+        //添加工单
+        Route::post('add_gd', 'EntrustThrowInsController@addGd');
     });
+
+
 
 });
