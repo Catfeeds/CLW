@@ -1,1 +1,0 @@
-[2018-07-18 09:52:49] production.ERROR: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'rel_id' at row 1 (SQL: insert into `message_records` (`model_type`, `rel_id`, `updated_at`, `created_at`) values (App\Models\Bespeak, 154, 2018-07-18 09:52:49, 2018-07-18 09:52:49))  
