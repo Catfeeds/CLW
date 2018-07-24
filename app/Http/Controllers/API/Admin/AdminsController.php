@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\AdminsRequest;
 use App\Models\Admin;
+use App\Models\Role;
 use App\Services\RegistersService;
 use Illuminate\Support\Facades\Auth;
 use App\Handler\Common;
@@ -45,6 +46,12 @@ class AdminsController extends APIBaseController
     public function index( AdminsRequest $request)
     {
         $res = Admin::where([])->paginate($request->per_page??10);
+        foreach ($res as $v) {
+            if ($v->hasAnyRole(Role::all())) {
+                $name = $v->getRoleNames()[0];
+                $v->role_name = Role::where('name', $name)->value('name_cn');
+            }
+        }
         return $this->sendResponse($res, '用户列表获取成功');
     }
 
@@ -53,6 +60,7 @@ class AdminsController extends APIBaseController
         return $this->sendResponse($admin, '用户修改之前数据');
     }
 
+    //修改用户
     public function Update
     (
         Admin $admin,
@@ -64,20 +72,4 @@ class AdminsController extends APIBaseController
         if (!$res) return $this->sendError('修改失败');
         return $this->sendResponse($res, '修改成功');
     }
-
-    //为用户分配角色
-    public function distribution
-    (
-        AdminsRequest $request
-    )
-    {
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/zy
-        $admin = Admin::where('id', $request->id)->first();
-        $res = $admin->assignRole($request->role_id);
-        return $this->sendResponse($res, '分配成功');
-    }
-    
 }
