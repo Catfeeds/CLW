@@ -7,11 +7,12 @@ use App\Http\Requests\Admin\RecommendsRequest;
 use App\Models\Recommend;
 use App\Repositories\RecommendsRepository;
 use App\Services\RecommendsService;
+use App\Handler\Common;
 
 class RecommendsController extends APIBaseController
 {
     /**
-     * 说明: 获取精品推荐类表
+     * 说明: 获取精品推荐列表
      *
      * @param RecommendsRepository $repository
      * @return \Illuminate\Http\JsonResponse
@@ -21,6 +22,9 @@ class RecommendsController extends APIBaseController
         RecommendsRepository $repository
     )
     {
+        if (empty(Common::user()->can('recommends_list'))) {
+            return $this->sendError('无精品推荐列表权限','403');
+        }
         $res = $repository->recommendsList();
         return $this->sendResponse($res,'推荐列表获取成功');
     }
@@ -39,6 +43,9 @@ class RecommendsController extends APIBaseController
         RecommendsRequest $request
     )
     {
+        if (empty(Common::user()->can('add_recommends'))) {
+            return $this->sendError('无添加精品推荐权限','403');
+        }
         $res = $repository->addRecommends($request);
         return $this->sendResponse($res,'精品推荐添加成功');
     }
@@ -71,6 +78,9 @@ class RecommendsController extends APIBaseController
         Recommend $recommend
     )
     {
+        if (empty(Common::user()->can('update_recommends'))) {
+            return $this->sendError('无修改精品推荐权限','403');
+        }
         // 检测商圈是否重复
         if (!empty($request->title) && $request->title != $recommend->title && in_array($request->title, Recommend::pluck('title')->toArray())) {
             return $this->sendError('精品推荐标题不能重复');
@@ -96,6 +106,9 @@ class RecommendsController extends APIBaseController
      */
     public function destroy(Recommend $recommend)
     {
+        if (empty(Common::user()->can('del_recommends'))) {
+            return $this->sendError('无删除精品推荐权限','403');
+        }
         $res = $recommend->delete();
         return $this->sendResponse($res,'推荐删除成功');
     }

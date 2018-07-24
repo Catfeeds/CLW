@@ -1,1 +1,5 @@
-{}
+{
+    "/css/shop_index.css": "/css/shop_index.css",
+    "/css/shop_list.css": "/css/shop_list.css",
+    "/js/shop_manifest.js": "/js/shop_manifest.js"
+}

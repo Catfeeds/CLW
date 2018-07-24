@@ -1,4 +1,5 @@
 <?php
+
 // 前台首页
 Route::resource('/', 'IndexController');
 // 前台搜索框

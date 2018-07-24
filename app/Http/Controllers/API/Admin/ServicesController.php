@@ -6,6 +6,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\ServicesRequest;
 use App\Models\Service;
 use App\Repositories\ServicesRepository;
+use App\Handler\Common;
 
 class ServicesController extends APIBaseController
 {
@@ -21,6 +22,9 @@ class ServicesController extends APIBaseController
         ServicesRepository $servicesRepositories
     )
     {
+        if (empty(Common::user()->can('service_list'))) {
+            return $this->sendError('无服务列表权限','403');
+        }
         $res = $servicesRepositories->serviceList();
         return $this->sendResponse($res,'服务列表获取成功');
     }
@@ -39,6 +43,9 @@ class ServicesController extends APIBaseController
         ServicesRequest $request
     )
     {
+        if (empty(Common::user()->can('add_service'))) {
+            return $this->sendError('无服务添加权限','403');
+        }
         $res = $servicesRepository->addService($request);
         return $this->sendResponse($res,'服务添加成功');
     }
@@ -74,6 +81,9 @@ class ServicesController extends APIBaseController
         Service $service
     )
     {
+        if (empty(Common::user()->can('update_service'))) {
+            return $this->sendError('无服务修改权限','403');
+        }
         $res = $servicesRepositories->updateService($request, $service);
         return $this->sendResponse($res, '服务更新成功');
     }
@@ -88,6 +98,9 @@ class ServicesController extends APIBaseController
      */
     public function destroy(Service $service)
     {
+        if (empty(Common::user()->can('del_service'))) {
+            return $this->sendError('无服务删除权限','403');
+        }
         $res = $service->delete();
         return $this->sendResponse($res,'服务删除成功');
     }

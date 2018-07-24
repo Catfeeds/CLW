@@ -115,7 +115,7 @@ class RegistersService
                 'name' => $request->name,
                 'password' => bcrypt($request->password),
             ]);
-            $admin->assignRole('10');
+            $admin->assignRole($request->role_id);
             \DB::commit();
             return true;
         } catch(\Exception $exception) {
