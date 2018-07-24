@@ -1,5 +1,5 @@
 @extends('home.layouts.layout')
-@section('title', '资讯详情')
+@section('title', '商城列表页')
  <link rel="stylesheet" href="/css/shop_list.css">
 @section('header')
 @endsection
