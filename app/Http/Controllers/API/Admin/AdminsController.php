@@ -65,16 +65,4 @@ class AdminsController extends APIBaseController
         return $this->sendResponse($res, '修改成功');
     }
 
-    //为用户分配角色
-    public function distribution
-    (
-        AdminsRequest $request
-    )
-    {
-
-        $admin = Admin::where('id', $request->id)->first();
-        $res = $admin->assignRole($request->role_id);
-        return $this->sendResponse($res, '分配成功');
-    }
-    
 }
