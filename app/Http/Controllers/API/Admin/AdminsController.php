@@ -71,6 +71,7 @@ class AdminsController extends APIBaseController
         AdminsRequest $request
     )
     {
+
         $admin = Admin::where('id', $request->id)->first();
         $res = $admin->assignRole($request->role_id);
         return $this->sendResponse($res, '分配成功');
