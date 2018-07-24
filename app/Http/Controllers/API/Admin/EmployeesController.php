@@ -20,7 +20,7 @@ class EmployeesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('employees_list'))) {
-            return $this->sendError('无employees_list权限','403');
+            return $this->sendError('无员工列表权限','403');
         }
         $res = $repository->getList($request);
         return $this->sendResponse($res, '员工列表获取成功');
@@ -50,7 +50,7 @@ class EmployeesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('add_employees'))) {
-            return $this->sendError('无add_employees权限','403');
+            return $this->sendError('无微信绑定权限','403');
         }
         //判断是否已经绑定
         $employee = Employee::where('tel', $request->tel)->orWhere('openid', $request->openid)->first();
@@ -76,7 +76,7 @@ class EmployeesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_employees'))) {
-            return $this->sendError('无update_employees权限','403');
+            return $this->sendError('无修改员工信息权限','403');
         }
         $res = $repository->updateEmployee($employee, $request);
         return $this->sendResponse($res,'修改成功');
@@ -99,7 +99,7 @@ class EmployeesController extends APIBaseController
     public function destroy(Employee $employee)
     {
         if (empty(Common::user()->can('del_employees'))) {
-            return $this->sendError('无del_employees权限','403');
+            return $this->sendError('无解除绑定权限','403');
         }
         $res = $employee->delete();
         return $this->sendResponse($res,'删除成功');

@@ -17,7 +17,7 @@ class PcServiceRecommendsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('Pc_service_recommend_list'))) {
-            return $this->sendError('无Pc_service_recommend_list权限','403');
+            return $this->sendError('无pc端推荐服务列表权限','403');
         }
         $res = $PcServiceRecommendRepository->PcServiceRecommendList();
         return $this->sendResponse($res,'列表获取成功');
@@ -31,7 +31,7 @@ class PcServiceRecommendsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('add_pc_service_recommend'))) {
-            return $this->sendError('无add_pc_service_recommend权限','403');
+            return $this->sendError('无添加pc端推荐服务权限','403');
         }
         $result = $repository->addPcServiceRecommend($request);
         return $this->sendResponse($result, '添加成功');
@@ -54,7 +54,7 @@ class PcServiceRecommendsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_pc_service_recommend'))) {
-            return $this->sendError('无update_pc_service_recommend权限','403');
+            return $this->sendError('无修改pc端推荐服务权限','403');
         }
         $res = $PcServiceRecommendRepository->updatePcServiceRecommend($request,$PcServiceRecommend);
         return $this->sendResponse($res,'修改成功');
@@ -66,7 +66,7 @@ class PcServiceRecommendsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('del_pc_service_recommend'))) {
-            return $this->sendError('无del_pc_service_recommend权限','403');
+            return $this->sendError('无删除pc端推荐服务权限','403');
         }
         $res = $PcServiceRecommend->delete();
         return $this->sendResponse($res,'删除成功');

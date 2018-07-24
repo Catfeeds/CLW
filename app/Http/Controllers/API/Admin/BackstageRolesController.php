@@ -15,7 +15,7 @@ class BackstageRolesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('backstage_role_list'))) {
-            return $this->sendError('无backstage_role_list权限','403');
+            return $this->sendError('无角色列表权限','403');
         }
         $res = $repository->roleList();
         return $this->sendResponse($res,'获取角色列表成功');
@@ -27,7 +27,7 @@ class BackstageRolesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('backstage_add_role'))) {
-            return $this->sendError('无backstage_add_role权限','403');
+            return $this->sendError('无角色添加权限','403');
         }
         $res = $repository->addRole($request);
         if (empty($res)) return $this->sendError('角色添加失败');
@@ -49,7 +49,7 @@ class BackstageRolesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('backstage_update_role'))) {
-            return $this->sendError('无backstage_update_role权限','403');
+            return $this->sendError('无角色修改权限','403');
         }
         $role = Role::find($id);
         $res = $repository->updateRole($request, $role);

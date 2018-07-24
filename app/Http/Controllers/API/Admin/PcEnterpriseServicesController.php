@@ -27,7 +27,7 @@ class PcEnterpriseServicesController extends APIBaseController
     public function index()
     {
         if (empty(Common::user()->can('Pc_enterprise_services_list'))) {
-            return $this->sendError('无Pc_enterprise_services_list权限','403');
+            return $this->sendError('无服务列表权限','403');
         }
         $res = $this->repo->getList();
         return $this->sendResponse($res, '服务列表获取成功');
@@ -36,7 +36,7 @@ class PcEnterpriseServicesController extends APIBaseController
     public function store()
     {
         if (empty(Common::user()->can('add_pc_enterprise_services'))) {
-            return $this->sendError('无add_pc_enterprise_services权限','403');
+            return $this->sendError('无服务添加权限','403');
         }
         $res = $this->repo->addService($this->req);
         return $this->sendResponse($res, '服务添加成功');
@@ -50,7 +50,7 @@ class PcEnterpriseServicesController extends APIBaseController
     public function update(PcEnterpriseService $pcEnterpriseService)
     {
         if (empty(Common::user()->can('update_pc_enterprise_services'))) {
-            return $this->sendError('无update_pc_enterprise_services权限','403');
+            return $this->sendError('无服务修改权限','403');
         }
         $res = $this->repo->updateService($pcEnterpriseService, $this->req);
         if (!$res) return $this->sendError('修改失败');
@@ -60,7 +60,7 @@ class PcEnterpriseServicesController extends APIBaseController
     public function destroy(PcEnterpriseService $pcEnterpriseService)
     {
         if (empty(Common::user()->can('del_pc_enterprise_services'))) {
-            return $this->sendError('无del_pc_enterprise_services权限','403');
+            return $this->sendError('无服务删除权限','403');
         }
         $res = $pcEnterpriseService->delete();
         return $this->sendResponse($res,'删除成功');

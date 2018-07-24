@@ -161,7 +161,7 @@
                 <div @click="seeBuildDetail(item)" class="mapBox">
                     <el-col :span="8" style="padding:0;margin-left: 40px;">
                         <img style="width: 140px;height: 140px"
-                             :src="item.img_cn">
+                             :src="item.img_cn+'?imageMogr2/thumbnail/!140x140r/gravity/Center/crop/140x140/blur/1x0/quality/75|imageslim'">
                     </el-col>
                     <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
                         <div class="mapTitle">{{item.name}}</div>

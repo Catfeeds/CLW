@@ -13,7 +13,7 @@ class RolesController extends APIBaseController
     public function index()
     {
         if (empty(Common::user()->can('role_list'))) {
-            return $this->sendError('无role_list权限','403');
+            return $this->sendError('无中介系统角色列表权限','403');
         }
         $res = curl(config('setting.media_url').'/api/roles','get');
         if (empty($res->data)) return $this->sendError($res->message);
@@ -23,7 +23,7 @@ class RolesController extends APIBaseController
     public function store(Request $request)
     {
         if (empty(Common::user()->can('add_role'))) {
-            return $this->sendError('无add_role权限','403');
+            return $this->sendError('无添加中介系统角色权限','403');
         }
         $data['name'] = $request->name_en;
         $data['name_cn'] = $request->name_cn;
@@ -47,7 +47,7 @@ class RolesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_role'))) {
-            return $this->sendError('无update_role权限','403');
+            return $this->sendError('无修改中介系统角色权限','403');
         }
         $data['name'] = $request->name_en;
         $data['name_cn'] = $request->name_cn;

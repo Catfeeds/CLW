@@ -22,7 +22,7 @@ class SystemNoticesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('system_notices_list'))) {
-            return $this->sendError('无system_notices_list权限','403');
+            return $this->sendError('无系统公告列表权限','403');
         }
         $result = $systemNoticesRepository->SystemNoticesList();
         return $this->sendResponse($result, '系统公告列表获取成功');
@@ -42,7 +42,7 @@ class SystemNoticesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('add_system_notices'))) {
-            return $this->sendError('无add_system_notices权限','403');
+            return $this->sendError('无系统公告添加权限','403');
         }
         $result = $systemNoticesRepository->addSystemNotices($request);
         return $this->sendResponse($result, '系统公告添加成功');
@@ -78,7 +78,7 @@ class SystemNoticesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_system_notices'))) {
-            return $this->sendError('无update_system_notices权限','403');
+            return $this->sendError('无系统公告修改权限','403');
         }
         $result = $systemNoticesRepository->updateSystemNotices($request, $systemNotice);
         return $this->sendResponse($result, '系统公告修改成功');
@@ -97,7 +97,7 @@ class SystemNoticesController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('del_system_notices'))) {
-            return $this->sendError('无del_system_notices权限','403');
+            return $this->sendError('无系统公告删除权限','403');
         }
         $result = $systemNotice->delete();
         return $this->sendResponse($result, '系统公告删除成功');

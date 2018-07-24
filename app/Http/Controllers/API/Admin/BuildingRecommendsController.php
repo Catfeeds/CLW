@@ -25,7 +25,7 @@ class BuildingRecommendsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('buildings_recommend_list'))) {
-            return $this->sendError('无buildings_recommend_list权限','403');
+            return $this->sendError('无写字楼推荐列表权限','403');
         }
         $res = $BuildingRecommendsRepository->recommendList($service);
         return $this->sendResponse($res,'写字楼推荐列表');
@@ -46,7 +46,7 @@ class BuildingRecommendsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('add_building_recommend'))) {
-            return $this->sendError('无add_building_recommend权限','403');
+            return $this->sendError('无写字楼推荐添加权限','403');
         }
         $res = $BuildingRecommendsRepository->addRecommend($request);
         return $this->sendResponse($res, '添加成功');
@@ -86,7 +86,7 @@ class BuildingRecommendsController extends APIBaseController
     )
     {
         if (empty(Common::user()->can('update_building_recommend'))) {
-            return $this->sendError('无update_building_recommend权限','403');
+            return $this->sendError('无写字楼推荐修改权限','403');
         }
         // 检测商圈是否重复
         if (!empty($request->building_id) && $request->building_id != $buildingRecommend->building_id && in_array($request->building_id, BuildingRecommend::pluck('building_id')->toArray())) {
@@ -108,7 +108,7 @@ class BuildingRecommendsController extends APIBaseController
     public function destroy(BuildingRecommend $buildingRecommend)
     {
         if (empty(Common::user()->can('del_building_recommend'))) {
-            return $this->sendError('无del_building_recommend权限','403');
+            return $this->sendError('无写字楼推荐删除权限','403');
         }
         $res = $buildingRecommend->delete();
         return $this->sendResponse($res,'删除推荐楼盘成功');

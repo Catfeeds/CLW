@@ -13,7 +13,7 @@
             </div>
             <div class="button" @click="getVal"><a href="javascript:void(0);">立即委托</a></div>
         </div>
-        <div class="rent_describe">已经有 <span>15141</span> 位客户委托找房</div>
+        <div class="rent_describe">已经有 <span>{{num}}</span> 位客户委托找房</div>
     </div>
     <div class="renSuccess"  v-if="showBefore">
       <div>立即预约</div>
@@ -43,6 +43,7 @@
 <script>
 import { findHouse } from '../home_api'
 import { MessageBox } from 'element-ui'
+import Cookies from 'js-cookie'
 export default {
   data() {
     return {
@@ -50,8 +51,13 @@ export default {
       showAfter: true,
       showBefore: false,
       isShow: false,
-      title: '手机号不能为空'
+      title: '手机号不能为空',
+      num: 15141,
+      time: 1532314604416
     }
+  },
+  created() {
+    this.getNum()
   },
   methods: {
     getVal() {
@@ -62,6 +68,7 @@ export default {
           findHouse({ tel: this.value }).then(res => {
             this.showAfter = false
             this.showBefore = true
+            Cookies.set('name', '预约投放成功')
           })
         } else {
           this.isShow = true
@@ -70,6 +77,20 @@ export default {
         this.title = '手机号码格式不正确'
         this.isShow = true
       }
+    },
+    getNum() {
+      var name = Cookies.get('name')
+      var newDate = new Date().getTime()
+      var date = parseInt((parseInt(newDate) - parseInt(this.time))/1000/60/60)
+      var newNum = 0
+      if(name !== '') {
+        newNum += 1
+      }
+      if(date >= 1) {
+        newNum = newNum + date
+      }
+      this.num += newNum
+      return this.num
     }
   }
 }
