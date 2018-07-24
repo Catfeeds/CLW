@@ -123,8 +123,14 @@ class RegistersService
             \Log::error('用户添加失败'. $exception->getMessage());
             return false;
         }
+    }
 
-
-
+    //修改密码
+    public function update($admin, $request)
+    {
+        $admin->password = bcrypt($request->password);
+        $admin->nick_name = $request->nick_name;
+        if (!$admin->save()) return false;
+        return true;
     }
 }
