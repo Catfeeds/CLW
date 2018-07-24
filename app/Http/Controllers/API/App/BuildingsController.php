@@ -26,6 +26,21 @@ class BuildingsController extends APIBaseController
         BuildingsService $service
     )
     {
+        // 小程序处理面积
+        if (!empty($request->acreage) && gettype($request->acreage) === 'string') {
+            $request->offsetSet('acreage', explode(',',$request->acreage));
+        }
+
+        // 小程序处理总价
+        if (!empty($request->total_price) && gettype($request->total_price) === 'string') {
+            $request->offsetSet('total_price', explode(',',$request->total_price));
+        }
+
+        // 小程序处理单价
+        if (!empty($request->unit_price) && gettype($request->unit_price) === 'string') {
+            $request->offsetSet('unit_price', explode(',',$request->unit_price));
+        }
+
         $res = $buildingsRepository->buildingList($request, $service);
         return $this->sendResponse($res,'显示楼盘分页列表');
     }

@@ -119,6 +119,8 @@ class BuildingsRepository extends  Model
             $buildingData[$index]->building_label = !empty($v->label)?1:2;
 
             $buildingData[$index]->orderByLabel = !empty($v->label)?2:1;
+
+            $v->setRelation('house',collect());
         }
 
         if (empty($priceSort)) {
@@ -267,13 +269,13 @@ class BuildingsRepository extends  Model
      */
     public function OfficeHouseList($service, $id)
     {
-       $building = Building::find($id);
-       $res=  $building->house()->with('houseLabel', 'buildingBlock', 'buildingBlock.building')->paginate(6);
-       foreach ($res as $v) {
-           $service->getShow($v);
-           $service->labelShow($v);
-       }
-       return $res;
+        $building = Building::find($id);
+        $res=  $building->house()->with('houseLabel', 'buildingBlock', 'buildingBlock.building')->paginate(6);
+        foreach ($res as $v) {
+            $service->getShow($v);
+            $service->labelShow($v);
+        }
+        return $res;
 
     }
 
@@ -315,7 +317,7 @@ class BuildingsRepository extends  Model
         DB::connection('mysql')->beginTransaction();
         DB::connection('media')->beginTransaction();
         try {
-           // 添加楼盘信息
+            // 添加楼盘信息
             $building = Building::create([
                 'name' => $request->name,
                 'gps' => $request->gps,
@@ -401,27 +403,27 @@ class BuildingsRepository extends  Model
         DB::connection('mysql')->beginTransaction();
         DB::connection('media')->beginTransaction();
         try {
-             $building->name = $request->name;
-             $building->gps = $request->gps;
-             $building->type = $request->type;
-             $building->area_id = $request->area_id;
-             $building->block_id = $request->block_id;
-             $building->address = $request->address;
-             $building->developer = $request->developer;
-             $building->years = $request->years;
-             $building->acreage = $request->acreage;
-             $building->building_block_num = $request->building_block_num;
-             $building->parking_num = $request->parking_num;
-             $building->parking_fee = $request->parking_fee;
-             $building->greening_rate = $request->greening_rate;
-             $building->company = $request->company;
-             $building->album = $request->album;
-             $building->big_album = $request->big_album;
-             $building->describe = $request->describe;
+            $building->name = $request->name;
+            $building->gps = $request->gps;
+            $building->type = $request->type;
+            $building->area_id = $request->area_id;
+            $building->block_id = $request->block_id;
+            $building->address = $request->address;
+            $building->developer = $request->developer;
+            $building->years = $request->years;
+            $building->acreage = $request->acreage;
+            $building->building_block_num = $request->building_block_num;
+            $building->parking_num = $request->parking_num;
+            $building->parking_fee = $request->parking_fee;
+            $building->greening_rate = $request->greening_rate;
+            $building->company = $request->company;
+            $building->album = $request->album;
+            $building->big_album = $request->big_album;
+            $building->describe = $request->describe;
             if (!$building->save()) throw new \Exception('楼盘修改失败');
             // 查询查该楼盘已经有的特色
             $features = BuildingHasFeature::where('building_id', $building->id)->pluck('building_feature_id')->toArray();
-             // 获取要修改的特色
+            // 获取要修改的特色
             $buildingFeatures = $request->building_feature;
             if (!empty($buildingFeatures)) {
                 //修改特色-已有特色,得到要添加的特色
