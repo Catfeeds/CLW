@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\HotBlocksRequest;
 use App\Models\HotBlock;
 use App\Repositories\HotBlocksRepository;
 use App\Services\BlocksService;
+use App\Handler\Common;
 
 class HotBlocksController extends APIBaseController
 {
@@ -21,6 +22,9 @@ class HotBlocksController extends APIBaseController
         HotBlocksRepository $hotBlocksRepository
     )
     {
+        if (empty(Common::user()->can('hotBlocks_list'))) {
+            return $this->sendError('无热门商圈列表权限','403');
+        }
         $result = $hotBlocksRepository->hotBlocksList();
         return $this->sendResponse($result, '热门商圈获取成功');
     }
@@ -58,6 +62,9 @@ class HotBlocksController extends APIBaseController
         HotBlocksRepository $hotBlocksRepository
     )
     {
+        if (empty(Common::user()->can('add_hot_blocks'))) {
+            return $this->sendError('无热门商圈添加权限','403');
+        }
         $result = $hotBlocksRepository->addHotBlocks($request);
         return $this->sendResponse($result, '热门商圈添加成功');
     }
@@ -91,6 +98,9 @@ class HotBlocksController extends APIBaseController
         HotBlocksRepository $hotBlocksRepository
     )
     {
+        if (empty(Common::user()->can('update_hot_blocks'))) {
+            return $this->sendError('无热门商圈修改权限','403');
+        }
         // 检测商圈是否重复
         if (!empty($request->block_id) && $request->block_id != $hotBlock->block_id && in_array($request->block_id, HotBlock::pluck('block_id')->toArray())) {
             return $this->sendError('已存在，请勿重复设置为热门商圈');
@@ -117,6 +127,9 @@ class HotBlocksController extends APIBaseController
         HotBlock $hotBlock
     )
     {
+        if (empty(Common::user()->can('del_hot_blocks'))) {
+            return $this->sendError('无热门商圈删除权限','403');
+        }
         $result = $hotBlock->delete();
         return $this->sendResponse($result, '热门商圈删除成功');
     }
