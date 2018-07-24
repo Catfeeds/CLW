@@ -51,8 +51,6 @@ class EntrustThrowInsController extends APIBaseController
         StatisticsService $service
     )
     {
-
-
         $res = $service->statistic($request);
         return $this->sendResponse($res, '获取成功');
     }

@@ -19,7 +19,11 @@ class EntrustThrowInsRepository extends Model
         } else {
             $time = $service->getTime($request->time);
         }
-        return EntrustThrowIn::whereBetween('created_at', $time)->paginate($request->per_page??10);
+        return EntrustThrowIn::whereBetween('created_at', $time)
+                                ->whereIn('source', [1, 2, 3, 4])
+                                ->whereIn('type', [1, 2])
+                                ->latest()
+                                ->paginate($request->per_page??10);
     }
 
     //房源投放、委托找房
