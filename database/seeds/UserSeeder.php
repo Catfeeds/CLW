@@ -13,11 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $temp = Admin::create([
-            'name' => 'chulouwang',
-            'password' => bcrypt('chulouwang'),
-            'nick_name' => '超级管理员'
-        ]);
-        $temp->assignRole(11);
+        $temp = Admin::where('name', 'admin@chulouwang.com')->first();
+        $temp->assignRole(1);
     }
 }

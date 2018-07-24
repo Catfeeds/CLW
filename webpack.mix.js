@@ -61,10 +61,13 @@ var JSObj = null;
 fileSJSNameArr.map(function (item) {
   JSObj = inOutJs(item, JSObj)
 });
-JSObj.setPublicPath('./');
-if (map[sourceMap].extract && map[sourceMap].extract.length>0) {
-  JSObj.extract(map[sourceMap].extract, commonJSOutPath+map[sourceMap].vendorName); // 提出全局多次引入文件
+if (JSObj) {
+  JSObj.setPublicPath('./');
+  if (map[sourceMap].extract && map[sourceMap].extract.length>0) {
+    JSObj.extract(map[sourceMap].extract, commonJSOutPath+map[sourceMap].vendorName); // 提出全局多次引入文件
+  }
 }
+
 // 对象深度合并
 function deepMerge(obj1, obj2) {
   var key;
