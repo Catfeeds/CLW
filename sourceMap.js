@@ -108,5 +108,20 @@ module.exports = {
     extract: [
       './resources/assets/js/home_common'
     ]
+  },
+  // 商城资源
+  shop: {
+    scss: [
+      'shop_index',
+      'shop_list'
+    ],
+    js: [
+
+    ],
+    vendorName: 'shop_vendor',
+    manifestName: 'shop_manifest',
+    extract: [
+
+    ]
   }
 };
