@@ -17,7 +17,7 @@
     </div>
     <div class="renSuccess"  v-if="showBefore">
       <div>立即预约</div>
-      <div class="renSuccess_tel">预约手机号：{{value}}15265892365</div>
+      <div class="renSuccess_tel">预约手机号：{{value}}</div>
       <div class="telBorder"></div>
       <div class="rent_success">
         <div><img src="/home_img/find_house_success.png"></div>

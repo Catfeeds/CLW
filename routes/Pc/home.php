@@ -67,6 +67,3 @@ Route::get('about/{info}', 'AboutWeController@about');
 Route::get('get_user_bespeaks', 'BespeaksController@getUserBespeaks');
 // 浏览记录
 Route::resource('browse_records','BrowseRecordsController');
-
-
-

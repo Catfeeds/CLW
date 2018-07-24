@@ -15,8 +15,8 @@ class CreatePcRecommendsTable extends Migration
     {
         Schema::create('pc_recommends', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title','32')->nullable()->comment('标题');
-            $table->string('introduce','256')->nullable()->comment('介绍');
+            $table->string('title','128')->nullable()->comment('标题');
+            $table->string('introduce','2048')->nullable()->comment('介绍');
             $table->string('pic','128')->nullable()->comment('pc端图片');
             $table->string('big_details_pic','128')->nullable()->comment('pc端大详情图片');
             $table->string('small_details_pic','128')->nullable()->comment('pc端小详情图片');

@@ -278,6 +278,10 @@ a:focus {
   color: #007bff !important;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 body {
   padding-top: 61px;
 }
@@ -571,6 +575,7 @@ nav .nav-content .login-box .user-login-box .hover-down-app {
   padding-top: 5px;
   margin-left: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 nav .nav-content .login-box .user-login-box .hover-down-app:hover .down-app-box {
@@ -1031,7 +1036,6 @@ body .right_tab .bank-top .text-box {
 
 .content .banner .swiper .littelSwiper #smallImg {
   width: 622px;
-  margin-top: 2px;
   height: 70px;
 }
 
@@ -1041,7 +1045,7 @@ body .right_tab .bank-top .text-box {
 
 .content .banner .swiper .littelSwiper #smallImg .swiper-slide img {
   width: 118px;
-  height: 67px;
+  height: 70px;
 }
 
 .content .banner .infor .title {
@@ -1445,6 +1449,10 @@ body .right_tab .bank-top .text-box {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.content .second .enjoy .enjoyBox .enjoyList .enjoyDetail {
+  cursor: pointer;
 }
 
 .content .second .enjoy .enjoyBox .enjoyList .enjoyDetail:hover {

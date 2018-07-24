@@ -53,13 +53,12 @@
         }
         #smallImg{
           width: 622px;
-          margin-top: 2px;
           height: 70px;
           .swiper-slide{
             width: 118px !important;
             img{
               width: 118px;
-              height: 67px;
+              height: 70px;
             }
           }
         }
@@ -363,6 +362,7 @@
           display: flex;
           justify-content: space-between;
           .enjoyDetail{
+            cursor: pointer;
             &:hover{
               box-shadow: 0 5px 8px rgba(0,0,0,.1);
             }
