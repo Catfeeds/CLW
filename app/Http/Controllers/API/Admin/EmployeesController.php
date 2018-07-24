@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\EmployeesRequest;
 use App\Models\Employee;
 use App\Repositories\EmployeesRepository;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Handler\Common;
 
 
 class EmployeesController extends APIBaseController
@@ -18,6 +19,9 @@ class EmployeesController extends APIBaseController
         EmployeesRepository $repository
     )
     {
+        if (empty(Common::user()->can('employees_list'))) {
+            return $this->sendError('无员工列表权限','403');
+        }
         $res = $repository->getList($request);
         return $this->sendResponse($res, '员工列表获取成功');
     }
@@ -45,6 +49,9 @@ class EmployeesController extends APIBaseController
         EmployeesRepository $repository
     )
     {
+        if (empty(Common::user()->can('add_employees'))) {
+            return $this->sendError('无微信绑定权限','403');
+        }
         //判断是否已经绑定
         $employee = Employee::where('tel', $request->tel)->orWhere('openid', $request->openid)->first();
         if ($employee) return $this->sendError('请勿重复绑定');
@@ -68,6 +75,9 @@ class EmployeesController extends APIBaseController
         EmployeesRepository $repository
     )
     {
+        if (empty(Common::user()->can('update_employees'))) {
+            return $this->sendError('无修改员工信息权限','403');
+        }
         $res = $repository->updateEmployee($employee, $request);
         return $this->sendResponse($res,'修改成功');
     }
@@ -88,6 +98,9 @@ class EmployeesController extends APIBaseController
     //解除绑定
     public function destroy(Employee $employee)
     {
+        if (empty(Common::user()->can('del_employees'))) {
+            return $this->sendError('无解除绑定权限','403');
+        }
         $res = $employee->delete();
         return $this->sendResponse($res,'删除成功');
     }
