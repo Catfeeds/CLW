@@ -9,7 +9,6 @@ header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization,safeStri
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 安全验证码
     Route::get('get_safe_string', 'BannerController@safeString');
-
     // 登录
     Route::resource('logins','LoginsController');
 
@@ -285,6 +284,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 通过大类获取一级标签
         Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
 
+        //投放、预约
+        Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
+
+        //渠道数据同居
+        Route::get('statistics', 'EntrustThrowInsController@statistic');
+        //回访
+        Route::post('survey', 'EntrustThrowInsController@survey');
+        //添加工单
+        Route::post('add_gd', 'EntrustThrowInsController@addGd');
     });
+
+
 
 });

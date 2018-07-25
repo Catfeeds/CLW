@@ -11076,7 +11076,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      z-index: 99999;\n      position: relative;\n      background-color: #FFFFFF;\n      color: #000000;\n      display: none;\n      bottom: 0px;\n      right: 41px;\n      width: 200px;\n      text-align: center;\n}\n.map .areaStyle .detail img {\n        width: 200px;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 480px;\n    height: 98vh;\n    background: #fff;\n    overflow: scroll;\n}\n.map .screen .mapList {\n      padding: 20px 0;\n      border-bottom: 1px solid #f5f5f5;\n}\n.map .screen .mapList .mapBox .mapDetail {\n        height: 140px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .mapList .mapBox .mapDetail .mapTitle {\n          font-size: 20px;\n          font-weight: 600;\n}\n.map .screen .mapList .mapBox .mapDetail .mapPrice span {\n          font-size: 16px;\n          color: #007bff;\n}\n.map .screen .mapList .mapBox .mapDetail .mapAddress {\n          font-size: 12px;\n          line-height: 22px;\n          color: #666;\n}\n.map .screen .mapList .mapBox .mapDetail .mapArea {\n          color: #666;\n          font-size: 12px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n", ""]);
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      z-index: 99999;\n      position: relative;\n      background-color: #FFFFFF;\n      color: #000000;\n      display: none;\n      bottom: 0px;\n      right: 41px;\n      width: 200px;\n      text-align: center;\n}\n.map .areaStyle .detail img {\n        width: 200px;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    height: calc(100vh - 61px);\n    background: #fff;\n}\n.map .screen .list {\n      overflow-y: scroll;\n      overflow-x: hidden;\n      height: calc(100vh - 185px);\n}\n.map .screen .mapList {\n      padding: 20px 0;\n      border-bottom: 1px solid #f5f5f5;\n}\n.map .screen .mapList .mapBox .mapDetail {\n        height: 140px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .mapList .mapBox .mapDetail .mapTitle {\n          font-size: 20px;\n          font-weight: 600;\n}\n.map .screen .mapList .mapBox .mapDetail .mapPrice span {\n          font-size: 16px;\n          color: #007bff;\n}\n.map .screen .mapList .mapBox .mapDetail .mapAddress {\n          font-size: 12px;\n          line-height: 22px;\n          color: #666;\n}\n.map .screen .mapList .mapBox .mapDetail .mapArea {\n          color: #666;\n          font-size: 12px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n.map .arrow {\n    cursor: pointer;\n    background-position: left -443px;\n    line-height: 72px;\n    background-color: #FFFFFF;\n    position: absolute;\n    top: 480px;\n    width: 18px;\n    height: 72px;\n}\n.map .arrow span {\n      font-size: 20px;\n      color: #c6c6c6;\n      position: absolute;\n}\n", ""]);
 
 // exports
 
@@ -11361,6 +11361,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
  // 悬浮窗容器
@@ -11406,6 +11414,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         var _ref;
 
         return _ref = {
+            width: '480px',
+            conditionType: true,
             ak: 'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf', // 百度密钥
             location: '武汉', // 检索区域
             zhongxin: { lng: 114.312161, lat: 30.598964 },
@@ -11643,6 +11653,15 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         }
     },
     methods: {
+        widthUp: function widthUp() {
+            if (this.width === '480px') {
+                this.width = '0px';
+                this.conditionType = false;
+            } else {
+                this.width = '480px';
+                this.conditionType = true;
+            }
+        },
         seeBuildDetail: function seeBuildDetail(item) {
             window.location.href = '/buildings/' + item.id;
         },
@@ -20522,186 +20541,199 @@ var render = function() {
           : _vm._e()
       }),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "screen" },
-        [
-          _c(
-            "el-input",
-            {
-              staticClass: "input-with-select",
-              attrs: { placeholder: "请输入内容" },
-              model: {
-                value: _vm.keyword,
-                callback: function($$v) {
-                  _vm.keyword = $$v
-                },
-                expression: "keyword"
-              }
-            },
-            [
-              _c("el-button", {
-                attrs: { slot: "append", icon: "el-icon-search" },
-                on: { click: _vm.findKeyword },
-                slot: "append"
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { staticStyle: { padding: "10px 10px" }, attrs: { gutter: 10 } },
-            [
-              _c("el-col", { attrs: { span: 6 } }, [
+      _c("div", { staticClass: "screen", style: { width: _vm.width } }, [
+        _vm.conditionType
+          ? _c(
+              "div",
+              [
                 _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c("el-cascader", {
-                      attrs: {
-                        size: "mini",
-                        filterable: "",
-                        placeholder: "区域",
-                        "change-on-select": true,
-                        options: _vm.regionArray,
-                        "show-all-levels": false,
-                        clearable: true
+                  "el-input",
+                  {
+                    staticClass: "input-with-select",
+                    attrs: { placeholder: "请输入内容" },
+                    model: {
+                      value: _vm.keyword,
+                      callback: function($$v) {
+                        _vm.keyword = $$v
                       },
-                      on: { change: _vm.regionChange },
-                      model: {
-                        value: _vm.regionTemp,
-                        callback: function($$v) {
-                          _vm.regionTemp = $$v
-                        },
-                        expression: "regionTemp"
-                      }
+                      expression: "keyword"
+                    }
+                  },
+                  [
+                    _c("el-button", {
+                      attrs: { slot: "append", icon: "el-icon-search" },
+                      on: { click: _vm.findKeyword },
+                      slot: "append"
                     })
                   ],
                   1
-                )
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c(
-                      "el-select",
-                      {
-                        attrs: {
-                          clearable: true,
-                          size: "mini",
-                          filterable: "",
-                          placeholder: "面积"
-                        },
-                        model: {
-                          value: _vm.condition.acreage,
-                          callback: function($$v) {
-                            _vm.$set(_vm.condition, "acreage", $$v)
-                          },
-                          expression: "condition.acreage"
-                        }
-                      },
-                      _vm._l(_vm.acreageArray, function(item) {
-                        return _c("el-option", {
-                          key: item.value,
-                          attrs: { label: item.label, value: item.value }
-                        })
-                      })
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c("el-cascader", {
-                      attrs: {
-                        size: "mini",
-                        filterable: "",
-                        placeholder: "价格",
-                        "expand-trigger": "hover",
-                        options: _vm.priceArray,
-                        clearable: true,
-                        "show-all-levels": false
-                      },
-                      on: { change: _vm.priceChange },
-                      model: {
-                        value: _vm.priceTemp,
-                        callback: function($$v) {
-                          _vm.priceTemp = $$v
-                        },
-                        expression: "priceTemp"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid-content bg-purple" },
-                  [
-                    _c(
-                      "el-select",
-                      {
-                        attrs: {
-                          size: "mini",
-                          clearable: true,
-                          filterable: "",
-                          placeholder: "地铁"
-                        },
-                        model: {
-                          value: _vm.condition.metro,
-                          callback: function($$v) {
-                            _vm.$set(_vm.condition, "metro", $$v)
-                          },
-                          expression: "condition.metro"
-                        }
-                      },
-                      _vm._l(_vm.subwayOptions, function(item) {
-                        return _c("el-option", {
-                          key: item.label,
-                          attrs: { label: item.label, value: item.value }
-                        })
-                      })
-                    )
-                  ],
-                  1
-                )
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { staticStyle: { padding: "10px 0px", "margin-left": "30px" } },
-            [
-              _c("el-col", { attrs: { span: 15 } }, [
-                _c("img", { attrs: { src: "" } }),
+                ),
                 _vm._v(" "),
-                _c("span", [_vm._v("武汉")]),
-                _vm._v(" 为您找到 "),
-                _c("span", { staticStyle: { color: "#007bff" } }, [
-                  _vm._v(_vm._s(_vm.buildListNum))
-                ]),
-                _vm._v(" 个楼盘\n            ")
-              ]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 9 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
+                _c(
+                  "el-row",
+                  {
+                    staticStyle: { padding: "10px 10px" },
+                    attrs: { gutter: 10 }
+                  },
+                  [
+                    _c("el-col", { attrs: { span: 6 } }, [
+                      _c(
+                        "div",
+                        { staticClass: "grid-content bg-purple" },
+                        [
+                          _c("el-cascader", {
+                            attrs: {
+                              size: "mini",
+                              filterable: "",
+                              placeholder: "区域",
+                              "change-on-select": true,
+                              options: _vm.regionArray,
+                              "show-all-levels": false,
+                              clearable: true
+                            },
+                            on: { change: _vm.regionChange },
+                            model: {
+                              value: _vm.regionTemp,
+                              callback: function($$v) {
+                                _vm.regionTemp = $$v
+                              },
+                              expression: "regionTemp"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 6 } }, [
+                      _c(
+                        "div",
+                        { staticClass: "grid-content bg-purple" },
+                        [
+                          _c(
+                            "el-select",
+                            {
+                              attrs: {
+                                clearable: true,
+                                size: "mini",
+                                filterable: "",
+                                placeholder: "面积"
+                              },
+                              model: {
+                                value: _vm.condition.acreage,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.condition, "acreage", $$v)
+                                },
+                                expression: "condition.acreage"
+                              }
+                            },
+                            _vm._l(_vm.acreageArray, function(item) {
+                              return _c("el-option", {
+                                key: item.value,
+                                attrs: { label: item.label, value: item.value }
+                              })
+                            })
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 6 } }, [
+                      _c(
+                        "div",
+                        { staticClass: "grid-content bg-purple" },
+                        [
+                          _c("el-cascader", {
+                            attrs: {
+                              size: "mini",
+                              filterable: "",
+                              placeholder: "价格",
+                              "expand-trigger": "hover",
+                              options: _vm.priceArray,
+                              clearable: true,
+                              "show-all-levels": false
+                            },
+                            on: { change: _vm.priceChange },
+                            model: {
+                              value: _vm.priceTemp,
+                              callback: function($$v) {
+                                _vm.priceTemp = $$v
+                              },
+                              expression: "priceTemp"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 6 } }, [
+                      _c(
+                        "div",
+                        { staticClass: "grid-content bg-purple" },
+                        [
+                          _c(
+                            "el-select",
+                            {
+                              attrs: {
+                                size: "mini",
+                                clearable: true,
+                                filterable: "",
+                                placeholder: "地铁"
+                              },
+                              model: {
+                                value: _vm.condition.metro,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.condition, "metro", $$v)
+                                },
+                                expression: "condition.metro"
+                              }
+                            },
+                            _vm._l(_vm.subwayOptions, function(item) {
+                              return _c("el-option", {
+                                key: item.label,
+                                attrs: { label: item.label, value: item.value }
+                              })
+                            })
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  {
+                    staticStyle: { padding: "10px 0px", "margin-left": "30px" }
+                  },
+                  [
+                    _c("el-col", { attrs: { span: 15 } }, [
+                      _c("img", { attrs: { src: "" } }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("武汉")]),
+                      _vm._v(" 为您找到 "),
+                      _c("span", { staticStyle: { color: "#007bff" } }, [
+                        _vm._v(_vm._s(_vm.buildListNum))
+                      ]),
+                      _vm._v(" 个楼盘\n            ")
+                    ]),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 9 } })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "list" },
           _vm._l(_vm.buildList, function(item, index) {
             return _c(
               "el-row",
@@ -20777,8 +20809,25 @@ var render = function() {
               ]
             )
           })
-        ],
-        2
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "arrow",
+          style: { left: _vm.width },
+          on: {
+            click: function($event) {
+              _vm.widthUp()
+            }
+          }
+        },
+        [
+          _vm.width === "480px"
+            ? _c("span", { staticStyle: { left: "-5px" } }, [_vm._v("《 ")])
+            : _c("span", { staticStyle: { left: "5px" } }, [_vm._v(" 》")])
+        ]
       )
     ],
     2

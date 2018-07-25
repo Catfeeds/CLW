@@ -128,9 +128,18 @@ class RegistersService
     //修改密码
     public function update($admin, $request)
     {
-        $admin->password = bcrypt($request->password);
-        $admin->nick_name = $request->nick_name;
-        if (!$admin->save()) return false;
-        return true;
+        \DB::beginTransaction();
+        try {
+            $admin->password = bcrypt($request->password);
+            $admin->nick_name = $request->nick_name;
+            if (!$admin->save()) throw new \Exception('修改失败');
+            $admin->syncRoles($request->role_id);
+            \DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            \DB::rollback();
+            \Log::error('用修改失败'. $exception->getMessage());
+            return false;
+        }
     }
 }
