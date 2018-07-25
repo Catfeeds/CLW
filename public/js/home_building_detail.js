@@ -17005,7 +17005,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "mapFindHouse" }, [
         _c("img", { attrs: { src: "/home_img/mapFindHouse.jpg" } }),
         _vm._v(" "),
-        _c("a", { attrs: { href: "/map_test" } }, [
+        _c("a", { attrs: { href: "/map_find_house" } }, [
           _c("div", { staticClass: "mapButton" }, [_vm._v("试试地图找房")])
         ])
       ])

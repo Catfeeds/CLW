@@ -17005,7 +17005,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "mapFindHouse" }, [
         _c("img", { attrs: { src: "/home_img/mapFindHouse.jpg" } }),
         _vm._v(" "),
-        _c("a", { attrs: { href: "/map_test" } }, [
+        _c("a", { attrs: { href: "/map_find_house" } }, [
           _c("div", { staticClass: "mapButton" }, [_vm._v("试试地图找房")])
         ])
       ])
@@ -17905,13 +17905,13 @@ var Swiper = __webpack_require__(87);
 var detailMap = __webpack_require__(141);
 var findHouse = __webpack_require__(107);
 var PhotoSphereViewer = __webpack_require__(284); // 官网最新拓展全景组件
+
 // require('./components/home/PhotoSphereViewer') // 老全景组件
 function changeSeen(obj, url, btnId) {
   $('.custom-button.active').removeClass('active');
   $(obj.getNavbarButton(btnId).container).addClass('active');
   obj.setPanorama(url);
 }
-console.log(PhotoSphereViewer);
 if ($('#viewer').length > 0) {
   var viewer = new PhotoSphereViewer({
     container: $('#viewer')[0],

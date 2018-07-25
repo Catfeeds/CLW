@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 
 class MapsController extends Controller
 {
+    // 地图视图
+    public function index()
+    {
+        return view('home.map', ['safeString' => \Illuminate\Support\Facades\Hash::make('chulouwang'.date('Y-m-d',time()))]);
+    }
     // 根据当前gps指定距离获取周边楼盘
     public function getPeripheryBuildings(
         Request $request,
