@@ -192,14 +192,14 @@
                         </div>
                         <div class="build"></div>
                     </div>
-                    {{-- <div class="panorama-box">
+                    <div class="panorama-box">
                         <div class="head">360全景</div>
                         <div class="panorama-body">
                             <div id="viewer"></div>
                         </div>
                         
-                    </div> --}}
-                    {{-- <button class="zxz-test">zxz</button> --}}
+                    </div>
+                    {{-- <button class="zxz-test">zxz</button> 测试--}}
                     <div class='server'>
                         <div class="head">企业服务</div>
                         <div class="serverPic">
