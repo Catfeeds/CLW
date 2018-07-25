@@ -58,6 +58,7 @@
     width: 185px;
     height: 2px;
     background: #e81f1f;
+    transition: all .5s ease-in 0s;
   }
   .up{
     margin-top: 40px;
@@ -69,6 +70,18 @@
     .detail{
       font-size: 12px;
       color: #868484;
+    }
+  }
+  img{
+    transition: all .5s ease-in 0s;
+  }
+  &:hover{
+    cursor: pointer;
+    .border{
+      opacity: 0.6;
+    }
+    img{
+      transform: scale(0.9);
     }
   }
 }
@@ -104,41 +117,38 @@
         @extend .masterBack;
         .border{
           background: #e81f1f;
-          transition: all .5s ease-in 0s;
         }
-        img{
-          transition: all .5s ease-in 0s;
-        }
-        &:hover{
-          cursor: pointer;
-          .border{
-            background-color: #e73535;
-            opacity: 0.6;
-          }
-          img{
-            transform: scale(0.9);
-          }
-        }
+        
       }
       .decoration{
         @extend .masterBack;
-        border-top: 2px solid #feab1d;
+        .border{
+          background: #feab1d;
+        }
       }
       .furniture{
         @extend .masterBack;
-        border-top: 2px solid #81c351;
+        .border{
+          background: #81c351;
+        }
       }
       .clean{
         @extend .masterBack;
-        border-top: 2px solid #2496f1;
+        .border{
+          background: #2496f1;
+        }
       }
       .equipment{
         @extend .masterBack;
-        border-top: 2px solid #e43935;
+        .border{
+          background: #e43935;
+        }
       }
       .plants{
         @extend .masterBack;
-        border-top: 2px solid #feab1d;
+        .border{
+          background: #feab1d;
+        }
       }
     }
   }

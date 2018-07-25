@@ -26,6 +26,7 @@
           <div><img src="/shop_img/finance.jpg"></div>
         </div>
         <div class="decoration">
+        <div class="border"></div>
           <div class="up">
             <div class="title">企业服务</div>
             <div class="detail">全包服务 无增项</div>
@@ -33,6 +34,7 @@
           <div><img src="/shop_img/decoration.jpg"></div>
         </div>
         <div class="furniture">
+        <div class="border"></div>
           <div class="up">
             <div class="title">办公家具</div>
             <div class="detail">款式多样 按需定制</div>
@@ -40,6 +42,7 @@
           <div><img src="/shop_img/furniture.jpg"></div>
         </div>
         <div class="clean">
+        <div class="border"></div>
           <div class="up">
             <div class="title">入住服务</div>
             <div class="detail">日常开荒 专项保洁</div>
@@ -47,6 +50,7 @@
           <div><img src="/shop_img/clean.jpg"></div>
         </div>
         <div class="equipment">
+        <div class="border"></div>
           <div class="up">
             <div class="title">办公设备</div>
             <div class="detail">租电脑 零押金</div>
@@ -54,6 +58,7 @@
           <div><img src="/shop_img/equipment.jpg"></div>
         </div>
         <div class="plants">
+        <div class="border"></div>
           <div class="up">
             <div class="title">绿植摆租</div>
             <div class="detail">套餐单品 免费养护</div>

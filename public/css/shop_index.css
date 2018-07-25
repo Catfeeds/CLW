@@ -513,6 +513,8 @@ body footer .bottom .friend_link a {
   width: 185px;
   height: 2px;
   background: #e81f1f;
+  -webkit-transition: all .5s ease-in 0s;
+  transition: all .5s ease-in 0s;
 }
 
 .masterBack .up,
@@ -546,6 +548,48 @@ body footer .bottom .friend_link a {
 .main .service .serviceList .plants .up .detail {
   font-size: 12px;
   color: #868484;
+}
+
+.masterBack img,
+.main .service .serviceList .finance img,
+.main .service .serviceList .decoration img,
+.main .service .serviceList .furniture img,
+.main .service .serviceList .clean img,
+.main .service .serviceList .equipment img,
+.main .service .serviceList .plants img {
+  -webkit-transition: all .5s ease-in 0s;
+  transition: all .5s ease-in 0s;
+}
+
+.masterBack:hover,
+.main .service .serviceList .finance:hover,
+.main .service .serviceList .decoration:hover,
+.main .service .serviceList .furniture:hover,
+.main .service .serviceList .clean:hover,
+.main .service .serviceList .equipment:hover,
+.main .service .serviceList .plants:hover {
+  cursor: pointer;
+}
+
+.masterBack:hover .border,
+.main .service .serviceList .finance:hover .border,
+.main .service .serviceList .decoration:hover .border,
+.main .service .serviceList .furniture:hover .border,
+.main .service .serviceList .clean:hover .border,
+.main .service .serviceList .equipment:hover .border,
+.main .service .serviceList .plants:hover .border {
+  opacity: 0.6;
+}
+
+.masterBack:hover img,
+.main .service .serviceList .finance:hover img,
+.main .service .serviceList .decoration:hover img,
+.main .service .serviceList .furniture:hover img,
+.main .service .serviceList .clean:hover img,
+.main .service .serviceList .equipment:hover img,
+.main .service .serviceList .plants:hover img {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .main {
@@ -592,47 +636,26 @@ body footer .bottom .friend_link a {
 
 .main .service .serviceList .finance .border {
   background: #e81f1f;
-  -webkit-transition: all .5s ease-in 0s;
-  transition: all .5s ease-in 0s;
 }
 
-.main .service .serviceList .finance img {
-  -webkit-transition: all .5s ease-in 0s;
-  transition: all .5s ease-in 0s;
+.main .service .serviceList .decoration .border {
+  background: #feab1d;
 }
 
-.main .service .serviceList .finance:hover {
-  cursor: pointer;
+.main .service .serviceList .furniture .border {
+  background: #81c351;
 }
 
-.main .service .serviceList .finance:hover .border {
-  background-color: #e73535;
-  opacity: 0.6;
+.main .service .serviceList .clean .border {
+  background: #2496f1;
 }
 
-.main .service .serviceList .finance:hover img {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+.main .service .serviceList .equipment .border {
+  background: #e43935;
 }
 
-.main .service .serviceList .decoration {
-  border-top: 2px solid #feab1d;
-}
-
-.main .service .serviceList .furniture {
-  border-top: 2px solid #81c351;
-}
-
-.main .service .serviceList .clean {
-  border-top: 2px solid #2496f1;
-}
-
-.main .service .serviceList .equipment {
-  border-top: 2px solid #e43935;
-}
-
-.main .service .serviceList .plants {
-  border-top: 2px solid #feab1d;
+.main .service .serviceList .plants .border {
+  background: #feab1d;
 }
 
 .main .advertisement {
