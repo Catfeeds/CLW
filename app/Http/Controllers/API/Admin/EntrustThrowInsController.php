@@ -65,4 +65,14 @@ class EntrustThrowInsController extends APIBaseController
         return $this->sendResponse($res, '获取成功');
     }
 
+    public function conversionRate
+    (
+        EntrustThrowInsRequest $request,
+        StatisticsService $service
+    )
+    {
+        $res = $service->conversionRate($request);
+        return $this->sendResponse($res, '获取成功');
+    }
+    
 }
