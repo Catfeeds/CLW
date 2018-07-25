@@ -72,5 +72,4 @@ class AdminsController extends APIBaseController
         if (!$res) return $this->sendError('修改失败');
         return $this->sendResponse($res, '修改成功');
     }
-
 }

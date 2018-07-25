@@ -47,6 +47,5 @@ class Test extends Command
     {
         $data = curl('https://sysapi.jacklin.club/api/app/buildings','GET');
         dd($data->data->data[0]->pc_house[0]->payment_type);
-
     }
 }
