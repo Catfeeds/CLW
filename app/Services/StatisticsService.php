@@ -102,7 +102,6 @@ class StatisticsService
     //线上客户来源数据
     public function statistic($request)
     {
-
         //全部渠道统计数据
         $data = [];
         $data['all'] = $this->getAllData($request->time);
@@ -158,8 +157,6 @@ class StatisticsService
     //漏斗转化率
     public function conversionRate($request)
     {
-
-        $data = [];
         //渠道总数量
         $count1 = EntrustThrowIn::whereIn('type',[1,2])->count();
         $count2 = RawCustom::whereIn('source',[1,2])->count();
@@ -174,8 +171,6 @@ class StatisticsService
         $turnover_rate = round($count4 /$count3 ,3) *100 .'%';
         //渠道成交转化率
         $croct = round($count4 / $count ,3) *100 . '%';
-
-        return $data;
     }
 
 
