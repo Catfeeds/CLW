@@ -96,16 +96,19 @@ class EmployeesController extends APIBaseController
     }
 
     //解除绑定
-    public function destroy(Employee $employee)
+    public function destroy
+    (
+        Employee $employee,
+        EmployeesRepository $repository
+    )
     {
         if (empty(Common::user()->can('del_employees'))) {
             return $this->sendError('无解除绑定权限','403');
         }
-        $res = $employee->delete();
+        $res = $repository->del($employee);
+        //解绑
         return $this->sendResponse($res,'删除成功');
     }
-
-
 
     //通过电话获取openid
     public function getOpenidByTel(EmployeesRequest $request)
@@ -113,5 +116,5 @@ class EmployeesController extends APIBaseController
         $res = Employee::where('tel', $request->tel)->value('openid');
         return $this->sendResponse($res,'获取成功');
     }
-    
+
 }
