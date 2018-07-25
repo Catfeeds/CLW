@@ -106,7 +106,23 @@ class StatisticsService
         return $count;
     }
 
+    //漏斗转化率
+    public function conversionRate()
+    {
+        //渠道总数量
+        $count1 = EntrustThrowIn::whereIn('type',[1,2])->count();
+        $count2 = RawCustom::whereIn('source',[1,2])->count();
+        $count = $count1 + $count2;
+        //工单列表中有效状态中状态为有效的数量
+        $count3 = RawCustom::where('volid',1)->count();
+        //工单列表中是否成交状态的成交的数量
+        $count4 = RawCustom::where('clinch',1)->count();
+        //渠道有效转化率
+        $ecroc = round($count3 / $count ,3) *100 . '%';
+        //成交转化率
+        $turnover_rate = round($count4 /$count3 ,3) *100 .'%';
+        //渠道成交转化率
+        $croct = round($count4 / $count ,3) *100 . '%';
+    }
 
-
-    
 }
