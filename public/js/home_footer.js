@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-webpackJsonp([10],{254:function(n,o,c){n.exports=c(255)},255:function(n,o,c){c(67)}},[254]);
-=======
 webpackJsonp([10],{
 
 /***/ 280:
@@ -19,4 +16,3 @@ __webpack_require__(70);
 /***/ })
 
 },[280]);
->>>>>>> origin/master

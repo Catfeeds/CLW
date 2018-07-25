@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="safeString" content="{{ $safeString }}">
     <link rel="stylesheet" href="{{homeRes('/css/home_mapLookForHouse.css')}}">
-    <title>地图demo</title>
+    <title>楚楼网-地图找房</title>
 </head>
 <body>
 @include('home.nav')
