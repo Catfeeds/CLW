@@ -42,6 +42,9 @@ Route::group(['prefix' => 'mall', 'namespace' => 'Mall'], function () {
 Route::get('shop_index', function(){
     return view('shop.index');
 });
-Route::get('shop_list', function(){
-    return view('shop.list');
+Route::get('list_worktool', function(){
+    return view('shop.list_worktool');
+});
+Route::get('list_plants', function(){
+    return view('shop.list_plants');
 });

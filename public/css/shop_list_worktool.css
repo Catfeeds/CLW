@@ -477,7 +477,7 @@ body .list_container .select_area .select_option .select_title {
 }
 
 body .list_container .select_area .select_option .select_details .select_detail {
-  width: 65px;
+  width: 75px;
   text-align: center;
 }
 
@@ -488,6 +488,36 @@ body .list_container .select_area .select_option .select_details .select_detail 
 
 body .list_container .select_area .select_option .select_details .select_detail a:hover {
   color: #007bff;
+}
+
+body .list_container .select_area .brand_select {
+  height: 119px;
+}
+
+body .list_container .select_area .brand_select .brands {
+  margin: 15px 0;
+  width: 1135px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body .list_container .select_area .brand_select .brands .brand {
+  width: 108px;
+  height: 42px;
+  border: 1px solid #ededed;
+  border-right: none;
+}
+
+body .list_container .select_area .brand_select .brands .brand:nth-child(10n),
+body .list_container .select_area .brand_select .brands .brand:last-child {
+  border-right: 1px solid #ededed;
+}
+
+body .list_container .select_area .brand_select .brands .brand:nth-child(n+11) {
+  border-top: none;
 }
 
 body .list_container .sort .sort_details {
@@ -556,13 +586,12 @@ body .list_container .list_details .show_details .show_detail .product_pic {
   display: block;
   width: 242px;
   height: 172px;
-  margin-left: 22px;
+  margin-left: 10px;
   margin-top: 52px;
-  margin-bottom: 34px;
-  background-color: #333;
 }
 
 body .list_container .list_details .show_details .show_detail .product_name {
+  margin-top: 24px;
   text-align: center;
   font-size: 14px;
   color: #999;
