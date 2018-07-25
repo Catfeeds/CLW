@@ -1,0 +1,75 @@
+// 引入样式初始化文件
+@import "~normalize.css";
+@import "home/mixin";
+// 样式初始化
+* {
+  font-size: 14px;
+  font-weight: normal;
+  font-family: PingFang-SC-Heavy;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+html,body {
+  background-color: #f5f5f5;
+}
+ul,ol {
+  list-style: none;
+}
+// 浮动及清除浮动
+.f_l {
+  float: left;
+}
+.f_r {
+  float: right;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+
+input,textarea,button,select {
+  outline: none;
+}
+
+// 文字大小配置
+.font-level1 {
+  font-size: 12px;
+}
+.font-level2 {
+  font-size: 14px;
+}
+.font-level3 {
+  font-size: 16px;
+}
+.font-level4 {
+  font-size: 18px;
+}
+
+// 主题宽度
+$master-width: 1200px;
+
+// 页面手势
+
+.pointer {
+  cursor: pointer;
+}
+
+// 模块背景色
+
+.b_white {
+  background-color: #fff;
+}
+.b_f4 {
+  background-color: #f4f4f4; 
+}
+$master-blue: #007bff;
+$master-hoverBlue: #2b8df7;
+$master-white: #ffffff;

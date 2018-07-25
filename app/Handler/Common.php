@@ -7,7 +7,7 @@
  */
 namespace App\Handler;
 
-use Qiniu\Auth;
+use Illuminate\Support\Facades\Auth;
 use Qiniu\Storage\UploadManager;
 
 /**
@@ -27,6 +27,13 @@ class Common
     public static function isMobile($mobile)
     {
         return preg_match('#^1\d{10}$#', $mobile) ? true : false;
+    }
+
+    //管理平台用户登录信息
+    public static function user()
+    {
+        // 判断用户权限
+        return Auth::guard('admin')->user();
     }
 
     /**
