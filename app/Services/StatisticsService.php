@@ -163,19 +163,19 @@ class StatisticsService
         $count1 = EntrustThrowIn::whereIn('type',[1,2])->whereBetween('created_at',$date)->count();
         $count2 = RawCustom::whereIn('source',[1,2])->whereBetween('created_at',$date)->count();
         $count = $count1 + $count2;
-        $data['count_x'] = $count;
+        $data['canal'] = $count;
         //工单列表中有效状态中状态为有效的数量
         $count3 = RawCustom::where('valid',1)->whereBetween('created_at',$date)->count();
-        $data['count_y'] = $count3;
+        $data['valid'] = $count3;
         //工单列表中是否成交状态的成交的数量
         $count4 = RawCustom::where('clinch',1)->whereBetween('created_at',$date)->count();
-        $data['count_z'] = $count4;
+        $data['clinch'] = $count4;
         //渠道有效转化率
-        $data['ecroc']= round($count3 / $count ,3) *100 . '%';
+        $data['canal_valid']= round($count3 / $count ,3) *100 . '%';
         //成交转化率
-        $data['turnover_rate'] = round($count4 /$count3 ,3) *100 .'%';
+        $data['valid_clinch'] = round($count4 /$count3 ,3) *100 .'%';
         //渠道成交转化率
-        $data['croct'] = round($count4 / $count ,3) *100 . '%';
+        $data['canal_clinch'] = round($count4 / $count ,3) *100 . '%';
         return $data;
     }
 
