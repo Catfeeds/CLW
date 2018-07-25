@@ -68,6 +68,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('admins','AdminsController');
 
+        //为现有用户分配角色
+        Route::post('distributions', 'AdminsController@distribution');
+
         /*
         |--------------------------------------------------------------------------
         | 用户管理

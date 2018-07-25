@@ -82,11 +82,12 @@
             </div>
         </site-cover>
         <!--左侧列表-->
-        <div class="screen">
-            <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
+        <div class="screen" v-bind:style="{ width: width }">
+            <div v-if="conditionType">
+                <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
                 <el-button @click="findKeyword" slot="append" icon="el-icon-search"></el-button>
             </el-input>
-            <el-row style="padding: 10px 10px" :gutter="10">
+                <el-row style="padding: 10px 10px" :gutter="10">
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
                         <el-cascader size="mini" filterable
@@ -139,7 +140,7 @@
                     </div>
                 </el-col>
             </el-row>
-            <el-row style="padding: 10px 0px; margin-left:30px;">
+                <el-row style="padding: 10px 0px; margin-left:30px;">
                 <el-col :span="15">
                     <img src=""/>
                     <span>武汉</span> 为您找到 <span style="color:#007bff">{{buildListNum}}</span> 个楼盘
@@ -157,11 +158,13 @@
                     <!--</div>-->
                 </el-col>
             </el-row>
-            <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
+            </div>
+            <div class="list">
+                <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
                 <div @click="seeBuildDetail(item)" class="mapBox">
                     <el-col :span="8" style="padding:0;margin-left: 40px;">
                         <img style="width: 140px;height: 140px"
-                             :src="item.img_cn">
+                             :src="item.img_cn+'?imageMogr2/thumbnail/!140x140r/gravity/Center/crop/140x140/blur/1x0/quality/75|imageslim'">
                     </el-col>
                     <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
                         <div class="mapTitle">{{item.name}}</div>
@@ -171,6 +174,11 @@
                     </el-col>
                 </div>
             </el-row>
+            </div>
+        </div>
+        <div class="arrow" v-bind:style="{ left: width }" @click="widthUp()">
+            <span v-if="width==='480px'" style="left:-5px">《 </span>
+            <span v-else style="left: 5px"> 》</span>
         </div>
     </baidu-map>
 </template>
@@ -232,6 +240,8 @@
         },
         data() {
             return {
+                width: '480px',
+                conditionType: true,
                 ak: process.env.baiduAK, // 百度密钥
                 location: '武汉', // 检索区域
                 zhongxin: {lng: 114.312161, lat: 30.598964},
@@ -496,6 +506,15 @@
             }
         },
         methods: {
+            widthUp() {
+                if (this.width === '480px') {
+                    this.width = '0px'
+                    this.conditionType = false
+                } else {
+                    this.width = '480px'
+                    this.conditionType = true
+                }
+            },
             seeBuildDetail(item){
                 window.location.href='/buildings/' + item.id
             },
@@ -773,10 +792,13 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 480px;
-            height: 98vh;
+            height: calc(100vh - 61px);
             background: #fff;
-            overflow: scroll;
+            .list{
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: calc(100vh - 185px);
+            }
             .mapList{
                 padding: 20px 0;
                 border-bottom: 1px solid #f5f5f5;
@@ -821,6 +843,21 @@
                 width: 320px;
                 height: 325px;
                 overflow: auto;
+            }
+        }
+        .arrow{
+            cursor: pointer;
+            background-position: left -443px;
+            line-height: 72px;
+            background-color:#FFFFFF;
+            position: absolute;
+            top:480px;
+            width: 18px;
+            height: 72px;
+            span{
+                font-size: 20px;
+                color: #c6c6c6;
+                position: absolute;
             }
         }
     }
