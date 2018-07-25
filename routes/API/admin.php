@@ -286,9 +286,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         //投放、预约
         Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
-
         //渠道数据同居
         Route::get('statistics', 'EntrustThrowInsController@statistic');
+        //渠道来源构成
+        Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
         //回访
         Route::post('survey', 'EntrustThrowInsController@survey');
         //添加工单

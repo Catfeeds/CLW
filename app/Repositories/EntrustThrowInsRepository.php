@@ -12,18 +12,25 @@ use Illuminate\Support\Facades\DB;
 class EntrustThrowInsRepository extends Model
 {
     //列表
-    public function getList($request, $service)
+    public function getList($request)
     {
-        if (is_array($request->time)) {
-            $time = $request->time;
-        } else {
-            $time = $service->getTime($request->time);
+        $res = EntrustThrowIn::whereBetween('created_at', $request->time);
+        if (!empty($request->type)) {
+            $res =  $res->whereIn('source', [1, 2, 3, 4])->whereIn('type', [1, 2]);
         }
-        return EntrustThrowIn::whereBetween('created_at', $time)
-                                ->whereIn('source', [1, 2, 3, 4])
-                                ->whereIn('type', [1, 2])
-                                ->latest()
-                                ->paginate($request->per_page??10);
+        $res = $res->latest()->paginate($request->per_page??10);
+        foreach ($res as $k => $v) {
+            $data[$k]['id'] = $v->id;
+            $data[$k]['appellation'] = $v->appellation;
+            $data[$k]['tel'] = $v->tel;
+            $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
+            $data[$k]['type'] = $v->type_cn;
+            $data[$k]['demand'] = $v->demand;
+            $data[$k]['source'] = $v->source_cn;
+            $data[$k]['page_source'] = $v->page_source;
+            $data[$k]['status'] = $v->status;
+        }
+        return $res->setCollection(collect($data));
     }
 
     //房源投放、委托找房

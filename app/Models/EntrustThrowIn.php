@@ -34,6 +34,7 @@ class EntrustThrowIn extends Model
        }
     }
 
+    //数据来源
     public function getSourceCnAttribute()
     {
         switch ($this->source) {
@@ -55,8 +56,14 @@ class EntrustThrowIn extends Model
             case 6:
                 return '百度信息流';
                 break;
-                case 7;
+            case 7:
                 return '今日头条信息流';
+                break;
+            case 8:
+                return '58同城';
+                break;
+            case 9:
+                return '400电话';
                 break;
                 default;
                 break;

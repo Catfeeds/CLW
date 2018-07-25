@@ -13,12 +13,11 @@ class EntrustThrowInsController extends APIBaseController
     public function index
     (
         EntrustThrowInsRequest $request,
-        EntrustThrowInsRepository $repository,
-        StatisticsService $service
+        EntrustThrowInsRepository $repository
     )
     {
         //投放、委托列表
-        $res = $repository->getList($request, $service);
+        $res = $repository->getList($request);
         return $this->sendResponse($res, '列表获取成功');
     }
 
@@ -54,7 +53,16 @@ class EntrustThrowInsController extends APIBaseController
         $res = $service->statistic($request);
         return $this->sendResponse($res, '获取成功');
     }
-    
 
+    //渠道来源构成数据
+    public function constituteData
+    (
+        EntrustThrowInsRequest $request,
+        StatisticsService $service
+    )
+    {
+        $res = $service->constituteData($request);
+        return $this->sendResponse($res, '获取成功');
+    }
 
 }
