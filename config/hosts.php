@@ -7,5 +7,6 @@
  */
 return [
     'we' => env('HOSTS_WE', 'we.clw.com'),
-    'home' => env('HOSTS_HOME', 'www.clw.com')
+    'home' => env('HOSTS_HOME', 'www.clw.com'),
+    'mall' => env('HOSTS_MALL', 'www.mall.com'),
 ];
