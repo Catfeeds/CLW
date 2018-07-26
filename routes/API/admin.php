@@ -281,6 +281,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 标签
         Route::resource('labels', 'LabelsController');
 
+        /*
+        |--------------------------------------------------------------------------
+        | 绿植租摆
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('plants','PlantsController');
 
         // 通过大类获取一级标签
         Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
