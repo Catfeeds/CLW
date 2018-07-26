@@ -27,35 +27,17 @@ class LabelsService
             if ($val->stage == 1) {
                 $oneLable[$key]['name'] = $val->name;
                 $oneLable[$key]['id'] = $val->id;
-                    $twoLable = array();
-                    foreach ($val->next_label as $k => $v) {
-                        $twoLable[$k]['name'] = $v->name;
-                        $twoLable[$k]['id'] = $v->id;
-                    }
-                    $oneLable[$key]['children'] = $twoLable;
-            }
-        }
-
-        $data = array();
-        $data['name'] = $category;
-        $data['children'] = $oneLable;
-
-        return $data;
-    }
-    // 标签数据处理
-    public function labelDataTest($category, $labels, $request)
-    {
-        $oneLable = array();
-        foreach ($labels as $key => $val) {
-            if ($val->stage == 1) {
-                $oneLable[$key]['name'] = $val->name;
-                $oneLable[$key]['id'] = $val->id;
                 $twoLable = array();
                 foreach ($val->next_label as $k => $v) {
                     $twoLable[$k]['name'] = $v->name;
                     $twoLable[$k]['id'] = $v->id;
-                    $twoLable[$k]['url'] = $this->getUrl($v->id, $request->all(), $request->url());
+                    $twoLable[$k]['url'] = $this->getUrl($v->id, $request->labels, $request->url().'?');
+                    if (in_array($v->id, $request->labels)) {
+                        $twoLable[$k]['status'] = true;
+                    } else {
+                        $twoLable[$k]['status'] = false;
                     }
+                }
                 $oneLable[$key]['children'] = $twoLable;
             }
         }
@@ -66,10 +48,18 @@ class LabelsService
 
         return $data;
     }
-    // 获取url
-    public function getUrl($id, $data, $url)
-    {
 
+    // 获取url
+    public function getUrl($id, $lables, $url)
+    {
+        $data = array();
+        foreach ($lables as $key => $lable) {
+            if ($id !== (int)$lable) {
+                $data[] = (int)$lable;
+            }
+        }
+
+        return $url.'labels='.implode('-', $data);
     }
 
     // 获取所有商品

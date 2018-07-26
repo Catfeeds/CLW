@@ -16,8 +16,8 @@ class PlantsController extends Controller
     )
     {
         $labels = Label::getLabelByCategoryName('绿植租摆');
-
-        $labelData = $service->labelData('绿植租摆', $labels);
+        $request->offsetSet('labels', explode('-',$request->labels));
+        $labelData = $service->labelData('绿植租摆', $labels, $request);
 
         $plants = $service->getAllGoods($request, 'App\Models\Plant');
         return view('shop.list_plants',[
