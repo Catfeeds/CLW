@@ -649,6 +649,6 @@ body .list_container .list_details .show_details .show_detail:hover .rightNow {
 }
 
 .current {
-  color: #007bff;
+  color: #007bff !important;
 }
 

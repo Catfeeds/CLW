@@ -1,6 +1,6 @@
 {
     "/css/shop_index.css": "/css/shop_index.css",
+    "/js/shop_manifest.js": "/js/shop_manifest.js",
     "/css/shop_list_worktool.css": "/css/shop_list_worktool.css",
-    "/css/shop_list_plants.css": "/css/shop_list_plants.css",
-    "/js/shop_manifest.js": "/js/shop_manifest.js"
+    "/css/shop_list_plants.css": "/css/shop_list_plants.css"
 }

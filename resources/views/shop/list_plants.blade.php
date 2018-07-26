@@ -10,45 +10,21 @@
     <div class="graybox top_link">
       <a href="{{url()->current()}}" class="home_page">首页</a>
       <span class="top_arrow">></span>
-      <span class="current_page">绿植摆租</span>
+      <span class="current_page">{{$labelData['name']}}</span>
     </div>
     <!-- 筛选区域 -->
     <div class="select_area">
+    @foreach($labelData['children'] as $labels)
       <!-- 类型筛选 -->
       <div class="select_option serve_select clearfix">
-        <div class="select_title f_l">服务类别:</div>
+        <div class="select_title f_l">{{$labels['name']}}:</div>
         <ul class="select_details clearfix f_l">
-          @foreach(['全部','绿植单品','绿植套餐','绿植养护'] as $serve)
-            <li class="f_l select_detail"><a href="javascrpit:void(0)">{{$serve}}</a></li>
+          @foreach($labels['children'] as $label)
+            <li class="f_l select_detail"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}">{{$label['name']}}</a></li>
           @endforeach
         </ul>
       </div>
-      <!-- 品牌筛选 -->
-      <div class="select_option clearfix">
-        <div class="select_title f_l">绿植功效</div>
-        <ul class="select_details clearfix f_l">
-          @foreach(['全部','美观','净化空气','净化甲醛'] as $price)
-            <li class="f_l select_detail"><a href="javascrpit:void(0)">{{$price}}</a></li>
-          @endforeach
-        </ul>
-      </div>
-      <div class="select_option price_select clearfix">
-        <div class="select_title f_l">适合面积</div>
-        <ul class="select_details clearfix f_l">
-          @foreach(['全部','0-100','100-200','200以上'] as $price)
-            <li class="f_l select_detail"><a href="javascrpit:void(0)">{{$price}}</a></li>
-          @endforeach
-        </ul>
-      </div>
-      <!-- 尺寸筛选 -->
-      <div class="select_option size_select clearfix">
-        <div class="select_title f_l">盆栽类型</div>
-        <ul class="select_details clearfix f_l">
-          @foreach(['全部','大型盆栽','中型盆栽','中型偏小盆栽','小型盆栽'] as $size)
-            <li class="f_l select_detail"><a href="javascrpit:void(0)">{{$size}}</a></li>
-          @endforeach
-        </ul>
-      </div>
+    @endforeach
     </div>
     <!-- 排序方式 -->
     <div class="graybox sort clearfix">
