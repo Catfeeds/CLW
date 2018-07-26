@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\BuildingRecommendsRequest;
 use App\Models\BuildingRecommend;
 use App\Repositories\BuildingRecommendsRepository;
 use App\Services\BuildingsService;
-use APP\Handler\Common;
+use App\Handler\Common;
 
 class BuildingRecommendsController extends APIBaseController
 {

@@ -36,7 +36,8 @@ Route::get('building_search', 'BuildingsController@buildingSearch');
 Route::resource('bespeaks', 'BespeaksController');
 //PC端房源投放
 Route::resource('throw_ins', 'ThrowInsController');
-
+// 地图找房
+Route::get('map_find_house','MapsController@index');
 // 获取指定gps周边楼盘
 Route::post('get_periphery_buildings','MapsController@getPeripheryBuildings');
 // 获取地铁站点楼盘数量
@@ -68,6 +69,3 @@ Route::get('about/{info}', 'AboutWeController@about');
 Route::get('get_user_bespeaks', 'BespeaksController@getUserBespeaks');
 // 浏览记录
 Route::resource('browse_records','BrowseRecordsController');
-
-
-
