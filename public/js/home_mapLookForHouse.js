@@ -11622,7 +11622,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     distance: 2.7
                     // 请求楼盘数据
                 };this.getBuild(data);
-            } else if (val === 12) {
+            } else if (val <= 13) {
                 var _data = this.condition;
                 _data._token = document.getElementsByName('csrf-token')[0].content;
                 this.getBuild(_data);
@@ -11722,30 +11722,36 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             this.location = this.zhongxin;
             this.locationType = true;
             this.centerLocaion = { lng: Number(data.x), lat: Number(data.y) };
+            if (this.zoom === 14) {
+                this.zhongxin = this.centerLocaion;
+                this.location = this.centerLocaion;
+            }
             this.zoom = 14;
         },
 
         // 点击商圈详情
         seeAreaDetail: function seeAreaDetail(data) {
-            this.location = this.zhongxin;
             this.locationType = true;
             this.buildList = [];
             this.centerLocaion = { lng: data.x, lat: data.y };
             var datas = {
                 '_token': document.getElementsByName('csrf-token')[0].content,
                 gps: [{
-                    x: this.zhongxin.lng,
-                    y: this.zhongxin.lat
+                    x: this.centerLocaion.lng,
+                    y: this.centerLocaion.lat
                 }],
                 distance: 5
                 // 请求楼盘数据
             };this.getBuild(datas);
+            if (this.zoom === 16) {
+                this.zhongxin = this.centerLocaion;
+                this.location = this.centerLocaion;
+            }
             this.zoom = 16;
         },
 
         // 地铁详情
         seeMtro: function seeMtro(data) {
-            this.location = this.zhongxin;
             this.buildList = [];
             this.locationType = true;
             this.centerLocaion = { lng: data.x, lat: data.y };
@@ -11758,6 +11764,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 distance: 2.7
                 // 请求楼盘数据
             };this.getBuild(datas);
+            if (this.zoom === 16) {
+                this.zhongxin = this.centerLocaion;
+                this.location = this.centerLocaion;
+            }
             this.zoom = 16;
         },
 
@@ -11843,8 +11853,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             if (data.length === 3) {
                 this.condition.area_id = '';
                 this.condition.block_id = data[2];
-                console.log('data', data);
-                console.log('data[2]', data[2]);
                 __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#sq' + data[2]).trigger('click');
             } else if (data.length === 2) {
                 this.condition.area_id = data[1];
@@ -20397,7 +20405,14 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("span", { staticStyle: { color: "#fff" } }, [
-                          _vm._v(_vm._s(item.building_num) + "个楼盘")
+                          _vm._v(
+                            _vm._s(
+                              item.building_num == null ||
+                              item.building_num === ""
+                                ? 0
+                                : item.building_num
+                            ) + "个楼盘"
+                          )
                         ])
                       ]
                     )
@@ -20405,16 +20420,22 @@ var render = function() {
                 )
               }),
               _vm._v(" "),
-              _vm.blockActive !== ""
-                ? _c("bm-polygon", {
-                    attrs: {
-                      path: _vm.polygonPath,
-                      "stroke-color": "red",
-                      "stroke-opacity": 0.5,
-                      "stroke-weight": 2
-                    }
-                  })
-                : _vm._e(),
+              _c("bm-polygon", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.blockActive !== "",
+                    expression: "blockActive !== ''"
+                  }
+                ],
+                attrs: {
+                  path: _vm.polygonPath,
+                  "stroke-color": "red",
+                  "stroke-opacity": 0.5,
+                  "stroke-weight": 2
+                }
+              }),
               _vm._v(" "),
               _vm.Active !== ""
                 ? _c("bm-boundary", {

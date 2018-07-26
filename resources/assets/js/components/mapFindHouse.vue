@@ -35,11 +35,11 @@
                      @mouseleave='blockActive = ""'>
                     <span style="color:#fff;">{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
-                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{(item.building_num==null||item.building_num==='')?0:item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈区块-->
-            <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
+            <bm-polygon v-show="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
             <!--&lt;!&ndash;区域区块&ndash;&gt;-->
             <bm-boundary
@@ -477,7 +477,7 @@
                     }
                     // 请求楼盘数据
                     this.getBuild(data)
-                } else if(val === 12){
+                } else if(val <= 13){
                     const data = this.condition
                     data._token = document.getElementsByName('csrf-token')[0].content
                     this.getBuild(data)
@@ -576,11 +576,15 @@
                 this.location = this.zhongxin
                 this.locationType = true
                 this.centerLocaion = {lng: Number(data.x), lat: Number(data.y)}
+                if(this.zoom === 14) {
+                    this.zhongxin = this.centerLocaion
+                    this.location = this.centerLocaion
+                }
                 this.zoom = 14
+
             },
             // 点击商圈详情
             seeAreaDetail(data) {
-                this.location = this.zhongxin
                 this.locationType = true
                 this.buildList = []
                 this.centerLocaion = {lng: data.x, lat: data.y}
@@ -588,19 +592,22 @@
                     '_token': document.getElementsByName('csrf-token')[0].content,
                     gps: [
                         {
-                            x: this.zhongxin.lng,
-                            y: this.zhongxin.lat,
+                            x: this.centerLocaion.lng,
+                            y: this.centerLocaion.lat,
                         }
                     ],
                     distance: 5
                 }
                 // 请求楼盘数据
                 this.getBuild(datas)
+                if(this.zoom === 16) {
+                    this.zhongxin = this.centerLocaion
+                    this.location = this.centerLocaion
+                }
                 this.zoom = 16
             },
             // 地铁详情
             seeMtro(data){
-                this.location = this.zhongxin
                 this.buildList = []
                 this.locationType = true
                 this.centerLocaion = {lng: data.x, lat: data.y}
@@ -616,6 +623,10 @@
                 }
                 // 请求楼盘数据
                 this.getBuild(datas)
+                if(this.zoom === 16) {
+                    this.zhongxin = this.centerLocaion
+                    this.location = this.centerLocaion
+                }
                 this.zoom = 16
             },
             // 获取站点楼盘数量
@@ -688,8 +699,6 @@
                 if (data.length === 3) {
                     this.condition.area_id = ''
                     this.condition.block_id = data[2]
-                    console.log('data', data)
-                    console.log('data[2]', data[2])
                     $('#sq'+ data[2]).trigger('click')
                 } else if (data.length === 2) {
                     this.condition.area_id = data[1]
