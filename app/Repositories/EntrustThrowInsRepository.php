@@ -15,20 +15,27 @@ class EntrustThrowInsRepository extends Model
     public function getList($request)
     {
         $res = EntrustThrowIn::whereBetween('created_at', $request->time);
+        if (empty($request->type)) {
+            $res =  $res->whereNotIn('source', [1, 2])->whereIn('demand', [1, 2]);
+        }
         if (!empty($request->type)) {
-            $res =  $res->whereIn('source', [1, 2, 3, 4])->whereIn('type', [1, 2]);
+            $res =  $res->whereIn('source', [5, 6, 7, 8])->whereIn('demand', [1, 2]);
         }
         $res = $res->latest()->paginate($request->per_page??10);
+        $data = [];
         foreach ($res as $k => $v) {
             $data[$k]['id'] = $v->id;
-            $data[$k]['appellation'] = $v->appellation;
+            $data[$k]['name'] = $v->appellation;
             $data[$k]['tel'] = $v->tel;
             $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
-            $data[$k]['type'] = $v->type_cn;
             $data[$k]['demand'] = $v->demand;
-            $data[$k]['source'] = $v->source_cn;
+            $data[$k]['demand_cn'] = $v->demand_cn;
+            $data[$k]['source'] = $v->source;
+            $data[$k]['source_cn'] = $v->source_cn;
             $data[$k]['page_source'] = $v->page_source;
             $data[$k]['status'] = $v->status;
+            $data[$k]['remark'] = $v->remark;
+
         }
         return $res->setCollection(collect($data));
     }
@@ -45,7 +52,7 @@ class EntrustThrowInsRepository extends Model
             $user = User::where('tel', $request->tel)->first();
 
             $entrustThrowIn = EntrustThrowIn::create([
-                'appellation' => $request->appellation,
+                'name' => $request->name,
                 'tel' => $request->tel,
                 'user_id' => empty($user)?null:$user->id,
                 'area_id' => $request->area_id,
@@ -55,8 +62,8 @@ class EntrustThrowInsRepository extends Model
                 'building_name' => $request->building_name,
                 'source' => $source,
                 'page_source' => $request->page_source,
-                'type' => $request->type,
                 'demand' => $request->demand,
+                'remark' => $request->remark,
                 'created_at' => $request->created_at? $request->created_at : date('Y-m-d H:i:s', time())
             ]);
             if (!$entrustThrowIn) throw new \Exception('失败');
@@ -117,6 +124,16 @@ class EntrustThrowInsRepository extends Model
             \Log::error('工单添加失败'. $exception->getMessage());
             return false;
         }
+    }
+
+
+    public function send($openid, $name, $tel, $staff = false)
+    {
+        $data['openid'] = json_encode(array($openid));
+        $data['name'] = $name;
+        $data['tel'] = $tel;
+        $data['staff'] = $staff;
+        curl(config('setting.wechat_url').'/new_custom_notice','post', $data);
     }
 
 }

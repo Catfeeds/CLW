@@ -51,20 +51,20 @@ class EntrustThrowInsRequest extends FormRequest
                         'max:16',
                         'regex:/^[1][3,4,5,7,8,9][0-9]{9}$/',
                         Rule::notIn(
-                                EntrustThrowIn::whereBetween('created_at',[date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d'), date('Y'))),date('Y-m-d H:i:s', mktime(23, 59, 59, date('m'), date('d'), date('Y')))])->where('type',$this->type)->pluck('tel')->toArray()
+                                EntrustThrowIn::whereBetween('created_at',[date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d'), date('Y'))),date('Y-m-d H:i:s', mktime(23, 59, 59, date('m'), date('d'), date('Y')))])->where('demand',$this->demand)->pluck('tel')->toArray()
                             )
                         ],
                     'user_id' => 'nullable',
-                    'appellation' => 'nullable|max:32',
+                    'name' => 'required|max:32',
                     'area_id' => 'nullable|exists:media.areas,id',
                     'area_name' => 'nullable',
                     'block_id' => 'nullable|exists:media.blocks,id',
                     'acreage' => 'nullable',
                     'building_name' => 'nullable|max:32',
-                    'demand' => 'nullable',
-                    'source' => 'nullable',
+                    'remark' => 'nullable',
+                    'source' => 'required',
                     'page_source' => 'nullable',
-                    'type' => 'required',
+                    'demand' => 'required',
                 ];
             case 'survey':
                 return [
@@ -76,12 +76,12 @@ class EntrustThrowInsRequest extends FormRequest
                     'id' => 'required|exists:entrust_throw_ins,id',
                     'name' => 'required|max:32',
                     'tel' =>  'required|max:16',
-                    'source' => 'required|between:1,7|integer',
-                    'demand' => 'required|between:1,2|integer',
+                    'source' => 'required',
+                    'demand' => 'required',
                     'position' => 'nullable',
                     'acreage' => 'nullable',
                     'price' => 'nullable',
-                    'shopkeeper_id' => 'required|exists:media.users,id',
+                    'shopkeeper_id' => 'nullable|exists:media.users,id',
                     'remark' => 'nullable',
                     'recorder' => 'required'
                 ];

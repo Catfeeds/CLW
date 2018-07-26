@@ -292,6 +292,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('conversion_rates', 'EntrustThrowInsController@conversionRate');
         //渠道来源构成
         Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
+        //导出数据
+        Route::get('export', 'EntrustThrowInsController@export');
         //回访
         Route::post('survey', 'EntrustThrowInsController@survey');
         //添加工单

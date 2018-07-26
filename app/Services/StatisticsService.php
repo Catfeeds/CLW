@@ -66,7 +66,7 @@ class StatisticsService
         return $date;
     }
 
-    //统计数据
+    //获取数据统计数据
     public function getData($time, $source = null, $type = null)
     {
         $res = EntrustThrowIn::whereBetween('created_at', $time);
@@ -86,45 +86,48 @@ class StatisticsService
     //全部渠道的投放、委托数据
     public function getAllData($time)
     {
+        $data = [];
         $type = [1, 2];
-        $data['app'] = $this->getData($time,1, $type);
-        $data['pc'] = $this->getData($time, 2, $type);
-        $data['wechat'] = $this->getData($time, 3, $type);
-        $data['mini'] = $this->getData($time, 4, $type);
-        $data['web'] = $this->getData($time, 5, $type);
-        $data['baidu'] = $this->getData($time, 6, $type);
-        $data['toutiao'] = $this->getData($time, 7, $type);
-        $data['tongcheng'] = $this->getData($time, 8, $type);
-        $data['tel'] = $this->getData($time, 9, $type);
+        $data['tel'] = $this->getData($time,1, $type);
+        $data['web'] = $this->getData($time, 2, $type);
+        $data['baidu'] = $this->getData($time, 3, $type);
+        $data['toutiao'] = $this->getData($time, 4, $type);
+        $data['app'] = $this->getData($time, 5, $type);
+        $data['pc'] = $this->getData($time, 6, $type);
+        $data['wechat'] = $this->getData($time, 7, $type);
+        $data['mini'] = $this->getData($time, 8, $type);
+        $data['tongcheng'] = $this->getData($time, 9, $type);
+        return $data;
+    }
+
+    //获取不同渠道数据
+    public function getTypeData($time, $type)
+    {
+        $data = [];
+        $data['tel'] = $this->getData($time, 1, $type);
+        $data['web'] = $this->getData($time, 2, $type);
+        $data['baidu'] = $this->getData($time, 3, $type);
+        $data['toutiao'] = $this->getData($time, 4, $type);
+        $data['app'] = $this->getData($time, 5, $type);
+        $data['pc'] = $this->getData($time, 6, $type);
+        $data['wechat'] = $this->getData($time, 7, $type);
+        $data['mini'] = $this->getData($time, 8, $type);
+        $data['tongcheng'] = $this->getData($time, 9, $type);
         return $data;
     }
 
     //线上客户来源数据
     public function statistic($request)
     {
+//        1:APP,2:PC,3:微信,4:小程序,5:官网客服,6:百度信息流,7:今日头条信息流,8:58同城,9:400电话
+        //1=>投放房源,2=>委托找房,3=>企业服务,4=>其他
         //全部渠道统计数据
         $data = [];
         $data['all'] = $this->getAllData($request->time);
         //投放房源
-        $data['throw']['app'] = $this->getData($request->time, 1, 2);
-        $data['throw']['pc'] = $this->getData($request->time, 2, 2);
-        $data['throw']['wechat'] = $this->getData($request->time, 3, 2);
-        $data['throw']['mini'] = $this->getData($request->time, 4, 2);
-        $data['throw']['web'] = $this->getData($request->time, 5, 2);
-        $data['throw']['baidu'] = $this->getData($request->time, 6, 2);
-        $data['throw']['toutiao'] = $this->getData($request->time, 7, 2);
-        $data['throw']['tongcheng'] = $this->getData($request->time, 8, 2);
-        $data['throw']['tel'] = $this->getData($request->time, 9, 2);
+       $data['throw'] = $this->getTypeData($request->time,1);
         //委托找房
-        $data['entrust']['app'] = $this->getData($request->time, 1, 1);
-        $data['entrust']['pc'] = $this->getData($request->time, 2, 1);
-        $data['entrust']['wechat'] = $this->getData($request->time, 3, 1);
-        $data['entrust']['mini'] = $this->getData($request->time, 4, 1);
-        $data['entrust']['web'] = $this->getData($request->time, 5, 1);
-        $data['entrust']['baidu'] = $this->getData($request->time, 6, 1);
-        $data['entrust']['toutiao'] = $this->getData($request->time, 7, 1);
-        $data['entrust']['tongcheng'] = $this->getData($request->time, 8, 1);
-        $data['entrust']['tel'] = $this->getData($request->time, 9, 1);
+        $data['entrust'] = $this->getTypeData($request->time, 2);
         //企业服务
         $data['service'] = $this->getData($request->time, null, 3);
         //其他

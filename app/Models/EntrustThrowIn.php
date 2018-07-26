@@ -11,17 +11,17 @@ class EntrustThrowIn extends Model
     protected $connection = 'mysql';
     use SoftDeletes;
 
-    protected $appends = ['type_cn', 'source_cn'];
+    protected $appends = ['demand_cn', 'source_cn'];
 
     //需求类型
-    public function getTypeCnAttribute()
+    public function getDemandCnAttribute()
     {
-       switch ($this->type) {
+       switch ($this->demand) {
            case 1:
-               return '委托找房';
+               return '投放房源';
                break;
            case 2:
-               return '投放房源';
+               return '委托找房';
                break;
            case 3:
                return '企业服务';
@@ -39,33 +39,30 @@ class EntrustThrowIn extends Model
     {
         switch ($this->source) {
             case 1:
-                return 'APP';
-                break;
-            case 2:
-                return 'PC';
-                break;
-            case 3:
-                return '微信';
-                break;
-            case 4:
-                return '小程序';
-                break;
-            case 5:
-                return '官网客服';
-                break;
-            case 6:
-                return '百度信息流';
-                break;
-            case 7:
-                return '今日头条信息流';
-                break;
-            case 8:
-                return '58同城';
-                break;
-            case 9:
                 return '400电话';
                 break;
-                default;
+            case 2:
+                return '官网客服';
+                break;
+            case 3:
+                return '百度信息流';
+            case 4:
+                return '今日头条信息流';
+                break;
+            case 5:
+                return 'app';
+                break;
+            case 6:
+                return 'PC';
+                break;
+            case 7:
+                return '微信';
+            case 8:
+                return '小程序';
+            case 9:
+                return '58同城';
+                break;
+            default;
                 break;
         }
     }
