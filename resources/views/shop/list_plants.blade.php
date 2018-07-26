@@ -24,7 +24,7 @@
         </ul>
       </div>
       <!-- 品牌筛选 -->
-      <div class="select_option brand_select clearfix">
+      <div class="select_option clearfix">
         <div class="select_title f_l">绿植功效</div>
         <ul class="select_details clearfix f_l">
           @foreach(['全部','美观','净化空气','净化甲醛'] as $price)
