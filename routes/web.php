@@ -13,10 +13,6 @@
 
 
 Route::get('/user_agreement', 'HomeController@agreement');
-// TODO zxz地图功能开发路由
-Route:: get('map_test', function () {
-    return view('test.mapDemo', ['safeString' => \Illuminate\Support\Facades\Hash::make('chulouwang'.date('Y-m-d',time()))]);
-});
 /*
  * 微信端路由
  */
@@ -43,6 +39,7 @@ Route::group(['domain' => config('hosts.mall'), 'namespace' => 'Mall'], function
 Route::get('shop_index', function(){
     return view('shop.index');
 });
-Route::get('shop_list', function(){
-    return view('shop.list');
+Route::get('list_worktool', function(){
+    return view('shop.list_worktool');
 });
+Route::resource('list_plants','Mall\PlantsController');

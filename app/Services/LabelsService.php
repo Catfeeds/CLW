@@ -42,6 +42,35 @@ class LabelsService
 
         return $data;
     }
+    // 标签数据处理
+    public function labelDataTest($category, $labels, $request)
+    {
+        $oneLable = array();
+        foreach ($labels as $key => $val) {
+            if ($val->stage == 1) {
+                $oneLable[$key]['name'] = $val->name;
+                $oneLable[$key]['id'] = $val->id;
+                $twoLable = array();
+                foreach ($val->next_label as $k => $v) {
+                    $twoLable[$k]['name'] = $v->name;
+                    $twoLable[$k]['id'] = $v->id;
+                    $twoLable[$k]['url'] = $this->getUrl($v->id, $request->all(), $request->url());
+                    }
+                $oneLable[$key]['children'] = $twoLable;
+            }
+        }
+
+        $data = array();
+        $data['name'] = $category;
+        $data['children'] = $oneLable;
+
+        return $data;
+    }
+    // 获取url
+    public function getUrl($id, $data, $url)
+    {
+
+    }
 
     // 获取所有商品
     public function getAllGoods(
