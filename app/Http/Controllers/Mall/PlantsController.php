@@ -15,11 +15,12 @@ class PlantsController extends Controller
         LabelsService $service
     )
     {
-        $labels = Label::getLabelByCategoryName('保洁服务');
+        $labels = Label::getLabelByCategoryName('绿植租摆');
 
-        $labelData = $service->labelData('保洁服务', $labels);
+        $labelData = $service->labelData('绿植租摆', $labels);
 
         $plants = $service->getAllGoods($request, 'App\Models\Plant');
+        dd($request->all(), $labelData);
 
         return view('shop.list_plants',[
             'labelData' => $labelData,

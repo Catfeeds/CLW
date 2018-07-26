@@ -42,6 +42,4 @@ Route::get('shop_index', function(){
 Route::get('list_worktool', function(){
     return view('shop.list_worktool');
 });
-Route::get('list_plants', function(){
-    return view('shop.list_plants');
-});
+Route::resource('list_plants','Mall\PlantsController');
