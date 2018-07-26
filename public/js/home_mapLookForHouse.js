@@ -11076,7 +11076,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      z-index: 99999;\n      position: relative;\n      background-color: #FFFFFF;\n      color: #000000;\n      display: none;\n      bottom: 0px;\n      right: 41px;\n      width: 200px;\n      text-align: center;\n}\n.map .areaStyle .detail img {\n        width: 200px;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    height: calc(100vh - 61px);\n    background: #fff;\n}\n.map .screen .list {\n      overflow-y: scroll;\n      overflow-x: hidden;\n      height: calc(100vh - 185px);\n}\n.map .screen .mapList {\n      padding: 20px 0;\n      border-bottom: 1px solid #f5f5f5;\n}\n.map .screen .mapList .mapBox .mapDetail {\n        height: 140px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .mapList .mapBox .mapDetail .mapTitle {\n          font-size: 20px;\n          font-weight: 600;\n}\n.map .screen .mapList .mapBox .mapDetail .mapPrice span {\n          font-size: 16px;\n          color: #007bff;\n}\n.map .screen .mapList .mapBox .mapDetail .mapAddress {\n          font-size: 12px;\n          line-height: 22px;\n          color: #666;\n}\n.map .screen .mapList .mapBox .mapDetail .mapArea {\n          color: #666;\n          font-size: 12px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n.map .arrow {\n    cursor: pointer;\n    background-position: left -443px;\n    line-height: 72px;\n    background-color: #FFFFFF;\n    position: absolute;\n    top: 480px;\n    width: 18px;\n    height: 72px;\n}\n.map .arrow span {\n      font-size: 20px;\n      color: #c6c6c6;\n      position: absolute;\n}\n", ""]);
+exports.push([module.i, "\n.map {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.map .bmView {\n    width: 100%;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.map .regionStyle {\n    width: 120px;\n    height: 120px;\n    border-radius: 60px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.map .regionStyle:hover {\n      background: #1e99e0;\n}\n.map .areaStyle {\n    position: relative;\n    width: 120px;\n    height: 30px;\n    font-size: 14px;\n    background: #1e99e0ab;\n    color: #ffffff;\n    text-align: center;\n    line-height: 30px;\n}\n.map .areaStyle .detail {\n      z-index: 99999;\n      position: relative;\n      background-color: #FFFFFF;\n      color: #000000;\n      display: none;\n      bottom: 0px;\n      right: 41px;\n      width: 200px;\n      text-align: center;\n}\n.map .areaStyle .detail img {\n        width: 200px;\n}\n.map .areaStyle .triangle {\n      position: absolute;\n      width: 0px;\n      height: 0px;\n      font-size: 0;\n      line-height: 0;\n      overflow: hidden;\n      border-width: 7px;\n      border-style: dashed dashed dashed dashed;\n      border-color: #1e99e0ab transparent transparent transparent;\n      top: 30px;\n      left: 50px;\n}\n.map .areaStyle:hover {\n    background: #1e99e0;\n    border-color: #1e99e0 transparent transparent transparent;\n}\n.map .areaStyle:hover .detail {\n      display: block;\n}\n.map .screen {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    height: calc(100vh - 61px);\n    background: #fff;\n}\n.map .screen .list {\n      overflow-y: scroll;\n      overflow-x: hidden;\n      height: calc(100vh - 185px);\n}\n.map .screen .mapList {\n      padding: 20px 0;\n      border-bottom: 1px solid #f5f5f5;\n}\n.map .screen .mapList .mapBox .mapDetail {\n        height: 140px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .mapList .mapBox .mapDetail .mapTitle {\n          font-size: 20px;\n          font-weight: 600;\n}\n.map .screen .mapList .mapBox .mapDetail .mapPrice span {\n          font-size: 16px;\n          color: #007bff;\n}\n.map .screen .mapList .mapBox .mapDetail .mapAddress {\n          font-size: 12px;\n          line-height: 22px;\n          color: #666;\n}\n.map .screen .mapList .mapBox .mapDetail .mapArea {\n          color: #666;\n          font-size: 12px;\n}\n.map .screen .screenList {\n      width: 320px;\n      height: 270px;\n      overflow: auto;\n}\n.map .screen .screenList .screenDetail {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n}\n.map .screen .screenList1 {\n      width: 320px;\n      height: 325px;\n      overflow: auto;\n}\n.map .arrow {\n    cursor: pointer;\n    background-position: left -443px;\n    line-height: 72px;\n    background-color: #FFFFFF;\n    position: absolute;\n    top: 50vh;\n    width: 18px;\n    height: 72px;\n}\n.map .arrow span {\n      font-size: 20px;\n      color: #c6c6c6;\n      position: absolute;\n}\n", ""]);
 
 // exports
 
@@ -11540,6 +11540,9 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
     },
 
     computed: {
+        center: function center() {
+            return this.location;
+        },
         // 区块计算
         polygonPath: function polygonPath() {
             var copeData = this.blockActive.split(";");
@@ -11619,6 +11622,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     distance: 2.7
                     // 请求楼盘数据
                 };this.getBuild(data);
+            } else if (val <= 13) {
+                var _data = this.condition;
+                _data._token = document.getElementsByName('csrf-token')[0].content;
+                this.getBuild(_data);
             }
         },
         condition: {
@@ -11635,10 +11642,9 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                         });
                     }
                     return;
+                } else {
+                    this.keyword = '';
                 }
-                console.log('val.acreage', val.acreage);
-                console.log('val.total_price', val.total_price);
-                console.log('val.unit_price', val.unit_price);
                 var data = this.condition;
                 data._token = document.getElementsByName('csrf-token')[0].content;
                 if (val.acreage !== '' || val.total_price !== '' && val.total_price !== undefined || val.unit_price !== '' && val.unit_price !== undefined) {
@@ -11681,6 +11687,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
         dragging: function dragging(e) {
             this.zhongxin = e.target.getCenter();
+            //                this.location = this.zhongxin
         },
         dragend: function dragend(val) {
             if (this.zoom >= 14) {
@@ -11700,45 +11707,47 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         },
 
         zoomend: function zoomend(e) {
-            this.zoom = e.target.getZoom();
             // 修改中心点 点击后操作
             if (this.locationType) {
                 this.zhongxin = this.centerLocaion;
                 this.location = this.centerLocaion;
-
                 this.locationType = false;
             } else {
                 this.zhongxin = e.target.getCenter();
             }
+            this.zoom = e.target.getZoom();
         },
         // 查看区域详情 -> 商圈列表
         seeRegionDetail: function seeRegionDetail(data) {
+            this.location = this.zhongxin;
             this.locationType = true;
-            this.centerLocaion = { lng: data.x, lat: data.y };
-            this.location = this.centerLocaion;
-            this.zhongxin = this.centerLocaion;
+            this.centerLocaion = { lng: Number(data.x), lat: Number(data.y) };
+            if (this.zoom === 14) {
+                this.zhongxin = this.centerLocaion;
+                this.location = this.centerLocaion;
+            }
             this.zoom = 14;
-            this.$refs.map.reset();
         },
 
         // 点击商圈详情
         seeAreaDetail: function seeAreaDetail(data) {
-            this.zoom = 16;
             this.locationType = true;
             this.buildList = [];
             this.centerLocaion = { lng: data.x, lat: data.y };
-            this.location = this.centerLocaion;
-            this.zhongxin = this.centerLocaion;
-            this.$refs.map.reset();
             var datas = {
                 '_token': document.getElementsByName('csrf-token')[0].content,
                 gps: [{
-                    x: this.zhongxin.lng,
-                    y: this.zhongxin.lat
+                    x: this.centerLocaion.lng,
+                    y: this.centerLocaion.lat
                 }],
                 distance: 5
                 // 请求楼盘数据
             };this.getBuild(datas);
+            if (this.zoom === 16) {
+                this.zhongxin = this.centerLocaion;
+                this.location = this.centerLocaion;
+            }
+            this.zoom = 16;
         },
 
         // 地铁详情
@@ -11746,10 +11755,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             this.buildList = [];
             this.locationType = true;
             this.centerLocaion = { lng: data.x, lat: data.y };
-            this.location = this.centerLocaion;
-            this.zhongxin = this.centerLocaion;
-            this.zoom = 16;
-            this.$refs.map.reset();
             var datas = {
                 '_token': document.getElementsByName('csrf-token')[0].content,
                 gps: [{
@@ -11759,6 +11764,11 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 distance: 2.7
                 // 请求楼盘数据
             };this.getBuild(datas);
+            if (this.zoom === 16) {
+                this.zhongxin = this.centerLocaion;
+                this.location = this.centerLocaion;
+            }
+            this.zoom = 16;
         },
 
         // 获取站点楼盘数量
@@ -11778,9 +11788,9 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 if (res.success) {
                     _this3.siteList = res.data;
                     _this3.$nextTick(function () {
-                        this.zoom = 13;
                         this.centerLocaion = { lng: data.x, lat: data.y };
                         this.locationType = true;
+                        this.zoom = 13;
                     });
                 }
             });
@@ -11849,6 +11859,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#qy' + data[1]).trigger('click');
                 this.condition.block_id = '';
             } else {
+                this.center = '武汉';
+                this.zoom = 12;
                 this.condition.area_id = '';
                 this.condition.block_id = '';
             }
@@ -20289,7 +20301,7 @@ var render = function() {
       ref: "map",
       staticClass: "map",
       attrs: {
-        center: _vm.location,
+        center: _vm.center,
         ak: _vm.ak,
         zoom: _vm.zoom,
         "min-zoom": 12,
@@ -20393,7 +20405,14 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("span", { staticStyle: { color: "#fff" } }, [
-                          _vm._v(_vm._s(item.building_num) + "个楼盘")
+                          _vm._v(
+                            _vm._s(
+                              item.building_num == null ||
+                              item.building_num === ""
+                                ? 0
+                                : item.building_num
+                            ) + "个楼盘"
+                          )
                         ])
                       ]
                     )
@@ -20401,16 +20420,22 @@ var render = function() {
                 )
               }),
               _vm._v(" "),
-              _vm.blockActive !== ""
-                ? _c("bm-polygon", {
-                    attrs: {
-                      path: _vm.polygonPath,
-                      "stroke-color": "red",
-                      "stroke-opacity": 0.5,
-                      "stroke-weight": 2
-                    }
-                  })
-                : _vm._e(),
+              _c("bm-polygon", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.blockActive !== "",
+                    expression: "blockActive !== ''"
+                  }
+                ],
+                attrs: {
+                  path: _vm.polygonPath,
+                  "stroke-color": "red",
+                  "stroke-opacity": 0.5,
+                  "stroke-weight": 2
+                }
+              }),
               _vm._v(" "),
               _vm.Active !== ""
                 ? _c("bm-boundary", {

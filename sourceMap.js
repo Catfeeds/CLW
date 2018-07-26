@@ -113,7 +113,8 @@ module.exports = {
   shop: {
     scss: [
       'shop_index',
-      'shop_list'
+      'shop_list_worktool',
+      'shop_list_plants'
     ],
     js: [
 

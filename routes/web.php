@@ -31,13 +31,15 @@ Route::get('work_order_shopowner', 'We\WorkOrderController@shopwner');
 Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/home.php');
 });
-// 楚楼网商城
-Route::group(['prefix' => 'mall', 'namespace' => 'Mall'], function () {
+// 楚楼网官网
+Route::group(['domain' => config('hosts.mall'), 'namespace' => 'Mall'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/mall.php');
 });
+
 Route::get('shop_index', function(){
     return view('shop.index');
 });
-Route::get('shop_list', function(){
-    return view('shop.list');
+Route::get('list_worktool', function(){
+    return view('shop.list_worktool');
 });
+Route::resource('list_plants','Mall\PlantsController');
