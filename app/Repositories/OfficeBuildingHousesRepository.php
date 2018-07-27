@@ -69,6 +69,14 @@ class OfficeBuildingHousesRepository extends Model
         if (!empty($condition->max_acreage)) {
             $result = $result->where('constru_acreage', "<=", (int)$condition->max_acreage);
         }
+        //房源编号
+        if (!empty($condition->house_identifier)) {
+            $result = $result->where('house_identifier',$condition->house_identifier);
+        }
+        //房号
+        if(!empty($condition->house_number)) {
+            $result = $result->where('house_number',$condition->house_number);
+        }
 
         // 排序
         if (!empty($condition->order)) {

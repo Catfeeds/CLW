@@ -31,6 +31,7 @@ module.exports = {
       'we_user_revise_password',
       'we_user_revise_phone1',
       'we_user_revise_phone2',
+      'we_user_setting',
       'we_work',
       'we_appDownload'
     ],
@@ -112,7 +113,8 @@ module.exports = {
   shop: {
     scss: [
       'shop_index',
-      'shop_list'
+      'shop_list_worktool',
+      'shop_list_plants'
     ],
     js: [
 

@@ -11,9 +11,14 @@ use Illuminate\Support\Facades\DB;
 class BlocksRepository extends Model
 {
     // 商圈列表
-    public function blockList()
+    public function blockList($request)
     {
-        return Block::where([])->with('area', 'building', 'blockLocation')->paginate(10);
+        $model = Block::with('area', 'building', 'blockLocation');
+        if($request->area_id) {
+            $model = $model->where(['area_id'=>$request->area_id]);
+        }
+        return $model->paginate($request->per_page??10);
+
     }
 
     // 添加商圈

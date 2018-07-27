@@ -35,7 +35,7 @@
       <div class="border"></div>
       <div class="mapFindHouse">
         <img src="/home_img/mapFindHouse.jpg">
-        <a href="/map_test"><div class="mapButton">试试地图找房</div></a>
+        <a href="/map_find_house"><div class="mapButton">试试地图找房</div></a>
       </div>
     </div>
   </div>

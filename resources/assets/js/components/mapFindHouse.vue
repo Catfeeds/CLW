@@ -1,6 +1,6 @@
 <template>
     <baidu-map ref="map" class="map"
-               :center="location"
+               :center="center"
                :ak='ak'
                :zoom="zoom"
                :min-zoom="12"
@@ -14,7 +14,7 @@
         <div v-if='!subwayKeyword'>
             <!--中心点测试-->
             <self-overlay :position="zhongxin">
-                <!-- <div style="font-size: 50px">⊙</div> -->
+                 <!--<div style="font-size: 50px">⊙</div>-->
             </self-overlay>
             <!--zoom 比例尺说明 5公里: 12 、2公里：13、  1公里：14、 500米：15、 200米 16、 100米 17-->
             <!--zoom 比例尺说明 5公里显示区域（12）  1公里显示商圈（14）    200米显示楼盘（16）   显示地铁1两公里（14） -->
@@ -35,11 +35,11 @@
                      @mouseleave='blockActive = ""'>
                     <span style="color:#fff;">{{item.name}}</span>
                     <!--<span>{{(item.price / 10000).toFixed(1)}}万元/㎡</span>-->
-                    <span style="color:#fff;">{{item.building_num}}个楼盘</span>
+                    <span style="color:#fff;">{{(item.building_num==null||item.building_num==='')?0:item.building_num}}个楼盘</span>
                 </div>
             </self-overlay>
             <!--商圈区块-->
-            <bm-polygon v-if="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
+            <bm-polygon v-show="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
             <!--&lt;!&ndash;区域区块&ndash;&gt;-->
             <bm-boundary
@@ -82,11 +82,12 @@
             </div>
         </site-cover>
         <!--左侧列表-->
-        <div class="screen">
-            <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
+        <div class="screen" v-bind:style="{ width: width }">
+            <div v-if="conditionType">
+                <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
                 <el-button @click="findKeyword" slot="append" icon="el-icon-search"></el-button>
             </el-input>
-            <el-row style="padding: 10px 10px" :gutter="10">
+                <el-row style="padding: 10px 10px" :gutter="10">
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
                         <el-cascader size="mini" filterable
@@ -139,7 +140,7 @@
                     </div>
                 </el-col>
             </el-row>
-            <el-row style="padding: 10px 0px; margin-left:30px;">
+                <el-row style="padding: 10px 0px; margin-left:30px;">
                 <el-col :span="15">
                     <img src=""/>
                     <span>武汉</span> 为您找到 <span style="color:#007bff">{{buildListNum}}</span> 个楼盘
@@ -157,11 +158,13 @@
                     <!--</div>-->
                 </el-col>
             </el-row>
-            <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
+            </div>
+            <div class="list">
+                <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
                 <div @click="seeBuildDetail(item)" class="mapBox">
                     <el-col :span="8" style="padding:0;margin-left: 40px;">
                         <img style="width: 140px;height: 140px"
-                             :src="item.img_cn">
+                             :src="item.img_cn+'?imageMogr2/thumbnail/!140x140r/gravity/Center/crop/140x140/blur/1x0/quality/75|imageslim'">
                     </el-col>
                     <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
                         <div class="mapTitle">{{item.name}}</div>
@@ -171,6 +174,11 @@
                     </el-col>
                 </div>
             </el-row>
+            </div>
+        </div>
+        <div class="arrow" v-bind:style="{ left: width }" @click="widthUp()">
+            <span v-if="width==='480px'" style="left:-5px">《 </span>
+            <span v-else style="left: 5px"> 》</span>
         </div>
     </baidu-map>
 </template>
@@ -232,6 +240,8 @@
         },
         data() {
             return {
+                width: '480px',
+                conditionType: true,
                 ak: process.env.baiduAK, // 百度密钥
                 location: '武汉', // 检索区域
                 zhongxin: {lng: 114.312161, lat: 30.598964},
@@ -385,6 +395,9 @@
             }
         },
         computed: {
+            center: function () {
+              return this.location
+            },
             // 区块计算
             polygonPath: function () {
                 const copeData = this.blockActive.split(";")
@@ -464,6 +477,10 @@
                     }
                     // 请求楼盘数据
                     this.getBuild(data)
+                } else if(val <= 13){
+                    const data = this.condition
+                    data._token = document.getElementsByName('csrf-token')[0].content
+                    this.getBuild(data)
                 }
             },
             condition: {
@@ -478,10 +495,9 @@
                             })
                         }
                         return
+                    } else {
+                        this.keyword = ''
                     }
-                    console.log('val.acreage', val.acreage)
-                    console.log('val.total_price', val.total_price)
-                    console.log('val.unit_price', val.unit_price)
                     const data = this.condition
                     data._token = document.getElementsByName('csrf-token')[0].content
                     if(val.acreage !== '' || (val.total_price !== '' && val.total_price !== undefined )|| val.unit_price !== '' && val.unit_price !== undefined ){
@@ -496,6 +512,15 @@
             }
         },
         methods: {
+            widthUp() {
+                if (this.width === '480px') {
+                    this.width = '0px'
+                    this.conditionType = false
+                } else {
+                    this.width = '480px'
+                    this.conditionType = true
+                }
+            },
             seeBuildDetail(item){
                 window.location.href='/buildings/' + item.id
             },
@@ -514,6 +539,7 @@
             },
             dragging (e) {
                 this.zhongxin = e.target.getCenter()
+//                this.location = this.zhongxin
             },
             dragend (val) {
                 if (this.zoom >= 14) {
@@ -535,57 +561,56 @@
                 this.BMap = val.BMap
             },
             zoomend: function (e) {
-                this.zoom = e.target.getZoom()
                 // 修改中心点 点击后操作
                 if (this.locationType) {
                     this.zhongxin = this.centerLocaion
                     this.location = this.centerLocaion
-
                     this.locationType = false
                 } else {
                     this.zhongxin = e.target.getCenter()
                 }
+                this.zoom = e.target.getZoom()
             },
             // 查看区域详情 -> 商圈列表
             seeRegionDetail(data){
+                this.location = this.zhongxin
                 this.locationType = true
-                this.centerLocaion = {lng: data.x, lat: data.y}
-                this.location = this.centerLocaion
-                this.zhongxin = this.centerLocaion
+                this.centerLocaion = {lng: Number(data.x), lat: Number(data.y)}
+                if(this.zoom === 14) {
+                    this.zhongxin = this.centerLocaion
+                    this.location = this.centerLocaion
+                }
                 this.zoom = 14
-                this.$refs.map.reset()
+
             },
             // 点击商圈详情
             seeAreaDetail(data) {
-                this.zoom = 16
                 this.locationType = true
                 this.buildList = []
                 this.centerLocaion = {lng: data.x, lat: data.y}
-                this.location = this.centerLocaion
-                this.zhongxin = this.centerLocaion
-                this.$refs.map.reset()
                 const datas = {
                     '_token': document.getElementsByName('csrf-token')[0].content,
                     gps: [
                         {
-                            x: this.zhongxin.lng,
-                            y: this.zhongxin.lat,
+                            x: this.centerLocaion.lng,
+                            y: this.centerLocaion.lat,
                         }
                     ],
                     distance: 5
                 }
                 // 请求楼盘数据
                 this.getBuild(datas)
+                if(this.zoom === 16) {
+                    this.zhongxin = this.centerLocaion
+                    this.location = this.centerLocaion
+                }
+                this.zoom = 16
             },
             // 地铁详情
             seeMtro(data){
                 this.buildList = []
                 this.locationType = true
                 this.centerLocaion = {lng: data.x, lat: data.y}
-                this.location = this.centerLocaion
-                this.zhongxin = this.centerLocaion
-                this.zoom = 16
-                this.$refs.map.reset()
                 const datas = {
                     '_token': document.getElementsByName('csrf-token')[0].content,
                     gps: [
@@ -598,6 +623,11 @@
                 }
                 // 请求楼盘数据
                 this.getBuild(datas)
+                if(this.zoom === 16) {
+                    this.zhongxin = this.centerLocaion
+                    this.location = this.centerLocaion
+                }
+                this.zoom = 16
             },
             // 获取站点楼盘数量
             getbuslinecomplete(el) {
@@ -614,9 +644,9 @@
                     if (res.success) {
                         this.siteList = res.data
                         this.$nextTick(function () {
-                            this.zoom = 13
                             this.centerLocaion = {lng: data.x, lat: data.y}
                             this.locationType = true
+                            this.zoom = 13
                         })
                     }
                 })
@@ -675,6 +705,8 @@
                     $('#qy'+ data[1]).trigger('click')
                     this.condition.block_id = ''
                 } else {
+                    this.center = '武汉'
+                    this.zoom = 12
                     this.condition.area_id = ''
                     this.condition.block_id = ''
                 }
@@ -773,10 +805,13 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 480px;
-            height: 98vh;
+            height: calc(100vh - 61px);
             background: #fff;
-            overflow: scroll;
+            .list{
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: calc(100vh - 185px);
+            }
             .mapList{
                 padding: 20px 0;
                 border-bottom: 1px solid #f5f5f5;
@@ -821,6 +856,21 @@
                 width: 320px;
                 height: 325px;
                 overflow: auto;
+            }
+        }
+        .arrow{
+            cursor: pointer;
+            background-position: left -443px;
+            line-height: 72px;
+            background-color:#FFFFFF;
+            position: absolute;
+            top: 50vh;
+            width: 18px;
+            height: 72px;
+            span{
+                font-size: 20px;
+                color: #c6c6c6;
+                position: absolute;
             }
         }
     }

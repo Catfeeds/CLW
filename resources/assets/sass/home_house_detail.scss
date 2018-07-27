@@ -1,5 +1,6 @@
 @import "home_master";
 @import "~swiper/dist/css/swiper.min.css";
+@import "~photo-sphere-viewer/dist/photo-sphere-viewer.min.css";
 @include nav();// 导航样式
 @include footer(); // 底部样式
 @include right_tab(); // 侧边栏样式
@@ -279,6 +280,26 @@
           .build{
             height: 50px;
             background: #fff;
+          }
+          // 360 全景样式
+          .panorama-box{
+            background: #fff;
+            margin-top: 20px;
+            .panorama-body{
+              padding: 0 24px;
+              >div{
+                height: 430px;
+                cursor: move;
+                text-align: center;
+                background-color: #000000;
+                .custom-button{
+                  width: auto;
+                  &.active{
+                    color: $master-blue;
+                  }
+                }
+              }
+            }
           }
           .server{
             margin-top: 20px;

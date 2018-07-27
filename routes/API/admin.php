@@ -6,11 +6,9 @@
  * Time: 上午11:54
  */
 header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization,safeString');
-
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 安全验证码
     Route::get('get_safe_string', 'BannerController@safeString');
-
     // 登录
     Route::resource('logins','LoginsController');
 
@@ -69,6 +67,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         |--------------------------------------------------------------------------
         */
         Route::resource('admins','AdminsController');
+
+        //为现有用户分配角色
+        Route::post('distributions', 'AdminsController@distribution');
 
         /*
         |--------------------------------------------------------------------------
@@ -279,10 +280,32 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 标签
         Route::resource('labels', 'LabelsController');
 
+        /*
+        |--------------------------------------------------------------------------
+        | 绿植租摆
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('plants','PlantsController');
 
         // 通过大类获取一级标签
         Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
 
+        //投放、预约
+        Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
+        //渠道数据统计
+        Route::get('statistics', 'EntrustThrowInsController@statistic');
+        //转化率
+        Route::get('conversion_rates', 'EntrustThrowInsController@conversionRate');
+        //渠道来源构成
+        Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
+        //导出数据
+        Route::get('export', 'EntrustThrowInsController@export');
+        //回访
+        Route::post('survey', 'EntrustThrowInsController@survey');
+        //添加工单
+        Route::post('add_gd', 'EntrustThrowInsController@addGd');
     });
+
+
 
 });

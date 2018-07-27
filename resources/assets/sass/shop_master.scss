@@ -5,7 +5,7 @@
 * {
   font-size: 14px;
   font-weight: normal;
-  font-family: PingFang-SC-Heavy;
+  font-family: PingFang-SC-Medium;
   padding: 0;
   margin: 0;
 }
@@ -18,6 +18,8 @@ html,body {
 }
 ul,ol {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 // 浮动及清除浮动
 .f_l {

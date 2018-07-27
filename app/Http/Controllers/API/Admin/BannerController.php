@@ -8,6 +8,7 @@ use App\Http\Controllers\Traits\SafeString;
 use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use App\Repositories\BannerRepository;
+use App\Handler\Common;
 
 class BannerController extends APIBaseController
 {
@@ -26,9 +27,16 @@ class BannerController extends APIBaseController
         BannerRepository $bannerRepository
     )
     {
+
+        if (empty(Common::user()->can('banner_list'))) {
+            return $this->sendError('无banner列表权限','403');
+        }
+
         $res = $bannerRepository->bannerList();
         return $this->sendResponse($res,'banner列表获取成功');
     }
+
+
 
     /**
      * 说明: 添加
@@ -44,6 +52,9 @@ class BannerController extends APIBaseController
         BannerRequest $request
     )
     {
+        if (empty(Common::user()->can('add_banner'))) {
+            return $this->sendError('无banner添加权限','403');
+        }
         $res = Banner::all()->toArray();
         if (!empty($res)) {
             return $this->sendError('banner无法重复添加','405');
@@ -81,6 +92,9 @@ class BannerController extends APIBaseController
         Banner $banner
     )
     {
+        if (empty(Common::user()->can('update_banner'))) {
+            return $this->sendError('无banner修改权限','403');
+        }
         $res = $bannerRepository->updateBanner($request, $banner);
         return $this->sendResponse($res,'banner修改成功');
     }
@@ -95,6 +109,9 @@ class BannerController extends APIBaseController
      */
     public function destroy(Banner $banner)
     {
+        if (empty(Common::user()->can('del_banner'))) {
+            return $this->sendError('无banner删除权限','403');
+        }
         $res = $banner->delete();
         return $this->sendResponse($res,'图片删除成功');
     }
