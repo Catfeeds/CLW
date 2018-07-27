@@ -30,7 +30,6 @@ class PlantsController extends Controller
         }
         $labelData = $service->labelData('绿植租摆', $labels, $request);
         $plants = $service->getAllGoods($request, 'App\Models\Plant');
-        // dd($labelData);
         return view('shop.list_plants',[
             'labelData' => $labelData,
             'plants' => $plants,

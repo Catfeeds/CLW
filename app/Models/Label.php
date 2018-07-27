@@ -49,13 +49,13 @@ class Label extends BaseModel
 
             // 删除商品标签关联数据
             GoodsHasLabel::whereIn('label_id', $labelId)->delete();
+
             \DB::commit();
+            return true;
         } catch (\Exception $e) {
             \DB::rollback();
-            Log::debug('删除小类失败：', $this->all());
             return false;
         }
-        return true;
     }
 
 }

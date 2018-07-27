@@ -2,10 +2,9 @@
 
 namespace App\Services;
 
-use App\Models\Area;
-use App\Models\Block;
 use App\Models\Category;
 use App\Models\GoodsHasLabel;
+use App\Models\Label;
 
 class LabelsService
 {
@@ -122,11 +121,39 @@ class LabelsService
         } else {
             // 获取标签数据
             $goodsIds = GoodsHasLabel::where('goods_type', $model)->whereIn('label_id', $request->labels)->pluck('goods_id')->toArray();
+            $ids = [];
+            $counts = array_count_values($goodsIds);
+            foreach ($counts as $id => $n) {
+                if ($n == count($request->labels)) $ids[] = $id;
+            }
 
-            $goods = $model::whereIn('id', $goodsIds)->paginate(10);
+            $goods = $model::whereIn('id', $ids)->paginate(10);
         }
 
         return $goods;
     }
 
+    // 添加商品时获取标签
+    public function getLabels($categoryName)
+    {
+        $labels = Label::getLabelByCategoryName($categoryName);
+
+        $oneLabel = array();
+        foreach ($labels as $key => $value) {
+            if ($value->stage == 1) {
+                $oneLabel[$key]['label'] = $value->name;
+                $twoLabel = array();
+                if (!empty($value->next_label->count())) {
+                    foreach ($value->next_label as $k => $v) {
+                        $twoLabel[$k]['id'] = $v->id;
+                        $twoLabel[$k]['label'] = $v->name;
+                    }
+                }
+                $oneLabel[$key]['children'] = $twoLabel;
+            }
+        }
+
+        return collect($oneLabel)->values();
+    }
+    
 }

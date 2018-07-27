@@ -51,4 +51,45 @@ class PlantsRepository extends Model
             return false;
         }
     }
+
+    public function updatePlant(
+        $request,
+        $plant
+    )
+    {
+
+        \DB::beginTransaction();
+        try {
+            $plant->name = $request->name;
+            $plant->img = $request->img;
+            $plant->price = $request->price;
+            $plant->price_unit = $request->price_unit;
+            $plant->details_url = $request->details_url;
+            $plant->sales_volume = $request->sales_volume;
+            if (!$plant->save()) throw new \Exception('绿植修改失败！');
+
+            // 旧原始标签
+            $oldLabels = GoodsHasLabel::where([
+                    'goods_type' => 'App\Models\Plant',
+                    'goods_id' => $plant->id,
+                ])->delete();
+            if (empty($oldLabels)) throw new \Exception('旧标签删除失败！');
+
+            // 添加标签
+            foreach ($request->labels as $label) {
+                $addLabels = GoodsHasLabel::create([
+                    'goods_type' => 'App\Models\Plant',
+                    'goods_id' => $plant->id,
+                    'label_id' => $label
+                ]);
+                if (empty($addLabels)) throw new \Exception('添加关联表失败！');
+            }
+            // 提交事务
+            \DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            return false;
+        }
+    }
 }
