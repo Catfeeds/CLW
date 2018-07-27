@@ -117,7 +117,7 @@ module.exports = {
       'shop_list_plants'
     ],
     js: [
-
+      'shop_index'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

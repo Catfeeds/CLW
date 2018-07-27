@@ -229,7 +229,9 @@ select {
   outline: none;
 }
 
-.font-level1 {
+.font-level1,
+.header .navUp .navBox .nav_left,
+.header .navUp .navBox .nav_right div {
   font-size: 12px;
 }
 
@@ -237,7 +239,9 @@ select {
   font-size: 14px;
 }
 
-.font-level3 {
+.font-level3,
+.header .select .selectBox .select_all div,
+.header .select .selectBox .select_nav li {
   font-size: 16px;
 }
 
@@ -255,6 +259,372 @@ select {
 
 .b_f4 {
   background-color: #f4f4f4;
+}
+
+.active {
+  background: #007bff;
+}
+
+.header {
+  background: #fff;
+}
+
+.header .navUp {
+  height: 35px;
+  background: #444;
+}
+
+.header .navUp .navBox {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 35px;
+  color: rgba(255,255,255,0.7);
+}
+
+.header .navUp .navBox .nav_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .navUp .navBox .nav_right div {
+  color: rgba(255,255,255,0.7);
+  padding: 0 10px;
+}
+
+.header .search {
+  width: 1200px;
+  height: 98px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .search .logo {
+  margin-top: 24px;
+}
+
+.header .search .searchInput {
+  margin-left: 206px;
+  margin-top: 27px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .search .searchInput .input {
+  width: 430px;
+  height: 36px;
+  border: solid 2px #007bff;
+  border-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .search .searchInput .input img {
+  margin: 10px 8px 0 13px;
+}
+
+.header .search .searchInput .input input {
+  height: 30px;
+  border: none;
+  margin-top: 3px;
+  width: 390px;
+}
+
+.header .search .searchInput button {
+  width: 77px;
+  height: 40px;
+  border: 2px solid #007bff;
+  background: #007bff;
+  color: #fff;
+  margin-left: -2px;
+}
+
+.header .search .tel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 144px;
+  margin-top: 35px;
+}
+
+.header .search .tel img {
+  margin-top: 4px;
+}
+
+.header .search .tel .telNum {
+  margin-left: 7px;
+  color: #007bff;
+  font-size: 21px;
+  font-family: PingFang-SC-Medium;
+}
+
+.header .select {
+  height: 44px;
+  background: #60adff;
+}
+
+.header .select .selectBox {
+  position: relative;
+  height: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: #fff;
+}
+
+.header .select .selectBox .select_all {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 44px;
+  background: #007bff;
+}
+
+.header .select .selectBox .select_all img {
+  margin: 11px 8px 0 24px;
+}
+
+.header .select .selectBox .select_all div {
+  font-family: PingFang-SC-Medium;
+}
+
+.header .select .selectBox .select_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 44px;
+}
+
+.header .select .selectBox .select_nav li {
+  color: #fff;
+  width: 134px;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+}
+
+.header .select .selectBox .select_nav li:hover {
+  background: #007bff;
+}
+
+.header .select .selectBox .select_nav .hot_sale {
+  position: relative;
+}
+
+.header .select .selectBox .select_nav .hot_sale img {
+  position: absolute;
+  top: -20px;
+  left: 48px;
+  -webkit-animation: hotpic .7s infinite;
+          animation: hotpic .7s infinite;
+}
+
+@-webkit-keyframes hotpic {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  25% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+
+  75% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes hotpic {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  25% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+
+  75% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.header .select .selectBox .select_list {
+  position: absolute;
+  top: 44px;
+  width: 250px;
+  height: 480px;
+  background: #44464b;
+}
+
+.header .select .selectBox .select_list .select_list_aside {
+  height: 80px;
+  padding: 18px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 1px solid #616161;
+}
+
+.header .select .selectBox .select_list .select_list_aside .list_aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .select .selectBox .select_list .select_list_aside .list_aside .list_aside_right .aside_right_detail {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 15px;
+}
+
+.header .select .selectBox .select_list .select_list_aside .list_aside img {
+  margin-top: 11px;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right {
+  display: none;
+  position: absolute;
+  width: 700px;
+  height: 480px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 1px solid #ededed;
+  background: #fff;
+  top: 0;
+  left: 250px;
+  padding: 24px 70px 24px 20px;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li .total_classify {
+  width: 98px;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li .total_classify:hover {
+  color: #007bff;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li .classify_list {
+  width: 507px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-bottom: 1px dashed #ededed;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li .classify_list a {
+  color: #ccc;
+  margin-bottom: 13px;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li .classify_list a span {
+  padding: 0 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li .classify_list a span:hover {
+  color: #007bff;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li .classify_border {
+  width: 507px;
+  height: 1px;
+  background: #ededed;
+}
+
+.header .select .selectBox .select_list .select_list_aside .select_list_right li:last-child .classify_list {
+  border-bottom: none;
+}
+
+.header .select .selectBox .select_list .select_list_aside:last-child {
+  border-bottom: none;
+}
+
+.header .select .selectBox .select_list .select_list_aside:hover {
+  background: #585b61;
+  cursor: pointer;
+}
+
+.header .select .selectBox .select_list .select_list_aside:hover .select_list_right {
+  display: block;
 }
 
 .clearfix::after {
@@ -680,7 +1050,7 @@ body footer .bottom .friend_link a {
 .small_scale .small_scale_up:hover img,
 .main .firstFloor .content .first_right .small_scale_up:hover img,
 .main .fourFloor .content .four_right .small_scale_up:hover img {
-  margin-left: 65px;
+  margin-left: 70px;
 }
 
 .small_scale .small_scale_up .small_scale_title,
@@ -704,8 +1074,8 @@ body footer .bottom .friend_link a {
 .main .fourFloor .content .four_right .small_scale_up img {
   margin-top: 16px;
   margin-left: 80px;
-  -webkit-transition: all .2s linear 0s;
-  transition: all .2s linear 0s;
+  -webkit-transition: all .3s linear 0s;
+  transition: all .3s linear 0s;
 }
 
 .small_scale .small_scale_border,
@@ -1170,8 +1540,8 @@ body footer .bottom .friend_link a {
 .main .hot .sale_model_right .modeFirst .modeBox img,
 .main .hot_sale_model .content .sale_model_right .modeFirst .modeBox img,
 .main .hot_sale_plants .content .sale_model_right .modeFirst .modeBox img {
-  -webkit-transition: all .2s ease-in 0s;
-  transition: all .2s ease-in 0s;
+  -webkit-transition: all .3s ease-in 0s;
+  transition: all .3s ease-in 0s;
 }
 
 .main .hot .sale_model_right .modeFirst .modeBox:hover,
@@ -1183,8 +1553,8 @@ body footer .bottom .friend_link a {
 .main .hot .sale_model_right .modeFirst .modeBox:hover img,
 .main .hot_sale_model .content .sale_model_right .modeFirst .modeBox:hover img,
 .main .hot_sale_plants .content .sale_model_right .modeFirst .modeBox:hover img {
-  -webkit-transform: translateX(-15px);
-          transform: translateX(-15px);
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
 }
 
 .main .hot .sale_model_right .modelSecond,
@@ -1352,8 +1722,11 @@ body footer .bottom .friend_link a {
   width: 250px;
   height: 36px;
   border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 2px;
-  font-size: 18px;
+  font-size: 14px;
+  padding-left: 10px;
 }
 
 .main .customService .customBox .consult button {

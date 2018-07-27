@@ -4,6 +4,7 @@
  <link rel="stylesheet" href="/css/shop_index.css">
 @endsection
 @section('body')
+@include('shop.header')
   <div class="main">
     <!-- 轮播 -->
     <div class="swiper-container js_banner">
