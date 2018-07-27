@@ -14,9 +14,9 @@
     <div class="searchInput">
       <div class="input">
         <div><img src="/shop_img/index_search.png" alt=""></div>
-        <input type="text" placeholder="请输入搜索关键字">
+        <input id="searchInput" type="text" placeholder="请输入搜索关键字">
       </div>
-      <button>搜索</button>
+      <button class="js_search">搜索</button>
     </div>
     <div class="tel"><div><img src="/shop_img/index_tel.png" alt=""></div><div class="telNum">4000-580-888</div></div>
   </div>

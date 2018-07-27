@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './inputSearch'
+import App from './search'
 export function init(selector) {
   $(selector).addClass('js_vueSearch') // 添加vue启动钩子
   var placeholder = $(selector).attr('placeholder')

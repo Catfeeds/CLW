@@ -83,7 +83,7 @@
     <!-- 广告 -->
     <div class="advertisement"><img src="/shop_img/register.jpg" alt=""></div>
     <!-- 1F 工商财税-->
-    <div class="firstFloor">
+    <div class="firstFloor louti1">
       <div class="nav">
         <div class="hexagon">
           <div class="left"></div>
@@ -154,7 +154,7 @@
       </div>
     </div>
     <!-- 2F 办公设备-->
-    <div class="secondFloor">
+    <div class="secondFloor louti2">
       <div class="nav">
         <div class="hexagon">
           <div class="left"></div>
@@ -199,7 +199,7 @@
       </div>
     </div>
     <!-- 3F 入住服务 -->
-    <div class="thirdFloor">
+    <div class="thirdFloor louti3">
       <div class="nav">
         <div class="hexagon">
           <div class="left"></div>
@@ -244,7 +244,7 @@
       </div>
     </div>
     <!-- 4F 办公家具 -->
-    <div class="fourFloor">
+    <div class="fourFloor louti4">
       <div class="nav">
         <div class="hexagon">
           <div class="left"></div>
@@ -315,7 +315,7 @@
       </div>
     </div>
     <!-- 5F 装修服务 -->
-    <div class="fiveFloor">
+    <div class="fiveFloor louti5">
       <div class="nav">
         <div class="hexagon">
           <div class="left"></div>
@@ -353,7 +353,7 @@
     <!-- 广告 -->
     <div class="advertisement"><img src="/shop_img/index_office_furniture.jpg" alt=""></div>
     <!-- 热销机型 -->
-    <div class="hot_sale_model">
+    <div class="hot_sale_model louti6">
       <div class="nav">
         <div class="hexagon">
           <div class="left"></div>
@@ -414,7 +414,7 @@
       </div>
     </div>
     <!-- 热销绿植 -->
-    <div class="hot_sale_plants">
+    <div class="hot_sale_plants louti7">
       <div class="nav">
         <div class="hexagon">
           <div class="left"></div>
@@ -487,8 +487,23 @@
     </div>
     <!-- 优势 -->
     <div style="border-top: 1px solid #eeeded"><img src="/shop_img/index_better.jpg" alt=""></div>
+    <!-- 楼梯导航 -->
+    <div class="elevator">
+      <ul class="elevator_list">
+        <li class="louti active">工商财税</li>
+        <li class="louti">办公设备</li>
+        <li class="louti">入驻服务</li>
+        <li class="louti">办公家具</li>
+        <li class="louti">装修服务</li>
+        <li class="louti">热销机型</li>
+        <li class="louti">热销绿植</li>
+        <li class="top">在线客服</li>
+        <li class="top"><div><img src="/shop_img/index_up.png" alt=""></div>顶部</li>
+      </ul>
+    </div>
   </div>
   @include('home.footer')
 @endsection
 @section('script')
+<script src='/js/shop_index.js'></script>
 @endsection

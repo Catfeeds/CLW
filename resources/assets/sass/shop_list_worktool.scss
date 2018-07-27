@@ -1,5 +1,6 @@
 @import 'shop_master';
 @include footer();
+@import 'shop_common_area';
 body {
   background-color: #fff;
   .list_container { // 列表盒子
@@ -14,121 +15,19 @@ body {
       border: 1px solid #ededed;
       padding-left: 10px;
     }
-    .top_link { // 链接样式
-      .home_page {
-        font-size: 12px;
-        color: #333;
-        font-family: PingFang-SC-Regular;
-        &:hover {
-          color:$master-blue
-        }
-      }
-      .top_arrow {
-        color: #333;
-      }
-      .current_page {
-        font-size: 12px;
-        color: #333;
-      }
-    }
-    .select_area { // 筛选区域样式
-      width: 100%;
-      margin-bottom: 10px;
-      .select_option {
-        width: 100%;
-        height: 50px;
-        border-bottom: 1px solid #f5f5f5;
-        line-height: 50px;
-        padding-left: 3px;
-        .select_title {
-          font-size: 12px;
-          color:#999;
-          width: 65px;
-        }
-        .select_details {
-          .select_detail {
-            width: 75px;
-            text-align: center;
-            a {
-              font-size: 12px;
-              color: #333;
-              &:hover {
-                color:$master-blue;
-              }
-            }
-          }
-        }
-      }
-      .brand_select {
-        height: 119px;
-        .brands {
-          margin: 15px 0;
-          width: 1135px;
-          display: flex;
-          flex-wrap: wrap;
-          .brand {
-            box-sizing: border-box;
-            width: 108px;
-            height: 42px;
-            border: 1px solid #ededed;
-            border-right:  none;
-            &:nth-child(10n),&:last-child {
-              border-right: 1px solid #ededed;
-            }
-            &:nth-child(n+11) {
-              border-top:none;
-            }
-            a {
-              display: block;
-              width: 100%;
-              height: 100%;
-            }
-            &:hover {
-              border:2px solid #e23a3c;
-            }
-          }
-        }
-      }
-    }
-    .sort { // 价格排序区域样式
-      .sort_details {
-        margin-top: 7px;
-        box-sizing: border-box;
-        width: 84px;
-        height: 25px;
-        background-color: #fff;
-        border: 1px solid #ededed;
-        margin-right: 3px;
-        line-height: 23px;
-        text-align: center;
-        a {
-          font-size: 12px;
-          color:#333;
-        }
-        &:not(.sort_current):hover {
-          a {
-            color:$master-blue;
-          }
-        }
-      }
-      .sort_current {
-        background-color: #007bff;
-        a {
-          color:#fff;
-        }
-      }
-    }
     .list_details { // 商品展示区域样式
       width: 100%;
       margin-bottom: 53px;
       .show_details {
+        flex-wrap:wrap;
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        flex-wrap:wrap;
         .show_detail {
           box-sizing: border-box;
           flex: 1;
+          max-width: 285px;
+          min-width: 285px;
           border: 1px solid #f5f5f5;
           margin-right: 20px;
           margin-top: 20px;
@@ -141,6 +40,11 @@ body {
             height: 172px;
             margin-left: 10px;
             margin-top: 40px;
+          }
+          .detail_pic {
+            display: block;
+            width: 283px;
+            height: 283px;
           }
           .product_name {
             margin-top: 24px;
@@ -186,5 +90,5 @@ body {
   }
 }
 .current {
-  color:$master-blue;
+  color:$master-blue !important;
 }
