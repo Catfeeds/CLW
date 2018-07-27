@@ -10,7 +10,7 @@ class LabelsRepository extends Model
     //标签列表
     public function labelList($request)
     {
-        return Label::paginate($request->per_page??10);
+        return Label::with('category')->paginate($request->per_page??10);
     }
 
     //添加标签

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class CategoriesRepository extends Model
 {
      //商城大类列表管理
-    public function CategoriesList()
+    public function CategoriesList($request)
     {
-        return Category::paginate(10);
+        return Category::paginate($request->per_page??10);
     }
 
     //添加商城大类

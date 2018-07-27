@@ -4,6 +4,12 @@ namespace App\Models;
 
 class Label extends BaseModel
 {
+    // 大类
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
     public function goodsHasLabel()
     {
         return $this->hasMany('App\Models\GoodsHasLabel','label_id','id');
