@@ -16,12 +16,25 @@ class PlantsController extends Controller
     )
     {
         $labels = Label::getLabelByCategoryName('绿植租摆');
-        $request->offsetSet('labels', explode('-',$request->labels));
+        $sort = $request->url();
+        $symbol = '?';
+        if (!empty($request->labels)) {
+            $request->offsetSet('labels', explode('-',$request->labels));
+            $data = array();
+
+            foreach ($request->labels as $label){
+                $data[] = $label;
+            }
+            $sort = $sort.'?labels='.implode('-', $data);
+            $symbol = '&';
+        }
         $labelData = $service->labelData('绿植租摆', $labels, $request);
         $plants = $service->getAllGoods($request, 'App\Models\Plant');
         return view('shop.list_plants',[
             'labelData' => $labelData,
-            'plants' => $plants
+            'plants' => $plants,
+            'sort' => $sort,
+            'symbol' => $symbol
         ]);
     }
 }

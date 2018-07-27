@@ -20,7 +20,11 @@ class LabelsService
     }
 
     // 标签数据处理
-    public function labelData($category, $labels)
+    public function labelData(
+        $category,
+        $labels,
+        $request
+    )
     {
         $oneLable = array();
         foreach ($labels as $key => $val) {
@@ -28,16 +32,27 @@ class LabelsService
                 $oneLable[$key]['name'] = $val->name;
                 $oneLable[$key]['id'] = $val->id;
                 $twoLable = array();
+                $twoLable[0]['name'] = '全部';
+                $twoLable[0]['url'] = $this->getUrl('', $request->labels, $request->url(), $val->next_label->pluck('id')->toArray(),true);
+                // 判断全部是否选择
+                if (!empty($request->labels) && array_intersect($val->next_label->pluck('id')->toArray(), $request->labels)) {
+                    $twoLable[0]['status'] = false;
+                } else {
+                    $twoLable[0]['status'] = true;
+                }
+
                 foreach ($val->next_label as $k => $v) {
-                    $twoLable[$k]['name'] = $v->name;
-                    $twoLable[$k]['id'] = $v->id;
-                    $twoLable[$k]['url'] = $this->getUrl($v->id, $request->labels, $request->url().'?');
-                    if (in_array($v->id, $request->labels)) {
-                        $twoLable[$k]['status'] = true;
+                    $twoLable[$k+1]['name'] = $v->name;
+                    $twoLable[$k+1]['id'] = $v->id;
+                    $twoLable[$k+1]['url'] = $this->getUrl($v->id, $request->labels, $request->url(),$val->next_label->pluck('id')->toArray(), false);
+                    // 判断标签是否选择
+                    if (in_array($v->id, $request->labels??[])) {
+                        $twoLable[$k+1]['status'] = true;
                     } else {
-                        $twoLable[$k]['status'] = false;
+                        $twoLable[$k+1]['status'] = false;
                     }
                 }
+
                 $oneLable[$key]['children'] = $twoLable;
             }
         }
@@ -50,16 +65,49 @@ class LabelsService
     }
 
     // 获取url
-    public function getUrl($id, $lables, $url)
+    public function getUrl(
+        $id,    // 当前标签id
+        $lables,    // 条件中选择到的标签id
+        $url,   // 当前url
+        $nextLabel, // 同行所有标签
+        $type   // 是否代表全部标识
+    )
     {
         $data = array();
-        foreach ($lables as $key => $lable) {
-            if ($id !== (int)$lable) {
-                $data[] = (int)$lable;
+        if (!empty($lables)) {
+            // 判断当前行是否被选择且不是全部,将当前标签id拼接到要返回的条件数组
+            $temp = array_intersect($nextLabel, $lables);
+            if (empty($temp) && !$type) {
+                $data[] = $id;
+            }
+
+            foreach ($lables as $key => $lable) {
+                // 如果为全部,并且选中标签id存在于选中条件的同一行,不拼接要返回的条件数组
+                if ($type && in_array($lable, $temp)) {
+                   continue;
+                }
+
+                if ($id !== (int)$lable) {
+                    // 如果 $lable 是当前行的其他值 $data[] 就等于 其本身
+                    // 判断$id 和 $lable 是否同一行
+                    if(in_array($id, $nextLabel) && in_array((int)$lable, $nextLabel)) {
+                        $data[] = $id;
+                    } else {
+                        $data[] = (int)$lable;
+                    }
+                }
+            }
+        } else {
+            if (empty($type)) {
+                $data[] = $id;
             }
         }
 
-        return $url.'labels='.implode('-', $data);
+        if (empty($data)) {
+            return $url;
+        } else {
+            return $url.'?labels='.implode('-', $data);
+        }
     }
 
     // 获取所有商品

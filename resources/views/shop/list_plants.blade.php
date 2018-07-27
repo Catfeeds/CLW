@@ -29,13 +29,13 @@
     <!-- 排序方式 -->
     <div class="graybox sort clearfix">
       <div class="sort_details f_l default_sort sort_current">
-        <a href="javascript:void(0)">默认排序</a>
+        <a href="{{$sort}}">默认排序</a>
       </div>
       <div class="sort_details f_l price_sort">
-        <a href="javascript:void(0)">价格由高到低</a>
+        <a href="{{$sort.$symbol}}price=desc">价格由高到低</a>
       </div>
       <div class="sort_details f_l sell_sort">
-        <a href="javascript:void(0)">销量由底到高</a>
+        <a href="{{$sort.$symbol}}price=asc">销量由底到高</a>
       </div>
     </div>
     <!-- 商品展示区 -->
