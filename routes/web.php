@@ -43,3 +43,6 @@ Route::get('list_worktool', function(){
     return view('shop.list_worktool');
 });
 Route::resource('list_plants','Mall\PlantsController');
+Route::get('check',function(){
+    return view('shop.check');
+});
