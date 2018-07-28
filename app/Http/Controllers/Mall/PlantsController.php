@@ -32,7 +32,7 @@ class PlantsController extends Controller
         $plants = $service->getAllGoods($request, 'App\Models\Plant');
         return view('shop.list',[
             'labelData' => $labelData,
-            'plants' => $plants,
+            'datas' => $plants,
             'sort' => $sort,
             'symbol' => $symbol,
             'request' => $request->all()
