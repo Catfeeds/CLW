@@ -38,4 +38,9 @@ class PlantsController extends Controller
             'request' => $request->all()
         ]);
     }
+
+    public function show()
+    {
+        dd('绿植详情');
+    }
 }

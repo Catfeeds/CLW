@@ -11,4 +11,8 @@ class CompanySiteSelectController extends Controller
     {
         dd('企业选址');
     }
+    public function show()
+    {
+        dd('企业选址详情');
+    }
 }

@@ -37,4 +37,8 @@ class FurnitureController extends Controller
             'symbol' => $symbol
         ]);
     }
+    public function show()
+    {
+        dd('办公家具详情');
+    }
 }

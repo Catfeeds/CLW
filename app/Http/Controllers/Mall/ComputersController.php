@@ -37,4 +37,9 @@ class ComputersController extends Controller
             'symbol' => $symbol
         ]);
     }
+
+    public function show()
+    {
+        dd('电脑租售详情');
+    }
 }

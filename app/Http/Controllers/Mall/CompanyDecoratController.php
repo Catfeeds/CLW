@@ -11,4 +11,8 @@ class CompanyDecoratController extends Controller
     {
         dd('企业装修');
     }
+    public function show()
+    {
+        dd('电脑租售详情');
+    }
 }
