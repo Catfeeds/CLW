@@ -490,7 +490,7 @@
     <!-- 楼梯导航 -->
     <div class="elevator">
       <ul class="elevator_list">
-        <li class="louti active">工商财税</li>
+        <li class="louti">工商财税</li>
         <li class="louti">办公设备</li>
         <li class="louti">入驻服务</li>
         <li class="louti">办公家具</li>
