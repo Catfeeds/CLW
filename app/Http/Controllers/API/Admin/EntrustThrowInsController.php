@@ -41,19 +41,21 @@ class EntrustThrowInsController extends APIBaseController
         StatisticsService $service
     )
     {
-        $res = $service->statistic($request);
-        array_unshift($res['all'], '全部');
-        array_unshift($res['throw'], '投放房源');
-        array_unshift($res['entrust'], '委托找房');
+        $string = $request->time;
+        $time = explode(',', $string);
+        $res = $service->statistic($time);
         $data = [
             ['渠道类别', '400电话', '官网客服', '百度信息流', '今日头条信息流', 'APP', 'PC', '微信', '小程序', '58同城'],
-            $res['all'],  $res['throw'],  $res['entrust'], ['企业服务', '其他'], [$res['service'], $res['other']]
+            $res[0], $res[1], $res[2],
+            ['企业服务', '其他'],
+            [$res[3]['tel'], $res[4]['tel']]
         ];
         \Excel::create('统计数据表', function($excel) use ($data) {
             $excel->sheet('score', function($sheet) use ($data) {
                 $sheet->rows($data);
             });
         })->export('xls');
+        return $this->sendResponse(true, '导出成功');
     }
 
     public function survey
@@ -88,7 +90,7 @@ class EntrustThrowInsController extends APIBaseController
         StatisticsService $service
     )
     {
-        $res = $service->statistic($request);
+        $res = $service->statistic($request->time);
         return $this->sendResponse($res, '获取成功');
     }
 
