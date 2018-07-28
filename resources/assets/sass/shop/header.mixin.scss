@@ -1,7 +1,4 @@
 @mixin header(){
-  .active{
-    color: $master-blue;
-  }
   .header{
     background: #fff;
     .navUp{
@@ -56,6 +53,9 @@
             &:hover{
               color: $master-blue;
             }
+          }
+          .active{
+            color: $master-blue;
           }
           .hot_sale{
             position: relative;

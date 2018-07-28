@@ -256,10 +256,6 @@ select {
   background-color: #f4f4f4;
 }
 
-.active {
-  color: #007bff;
-}
-
 .header {
   background: #fff;
 }
@@ -343,6 +339,10 @@ select {
 }
 
 .header .search .searchLogo .select_nav li:hover {
+  color: #007bff;
+}
+
+.header .search .searchLogo .select_nav .active {
   color: #007bff;
 }
 
