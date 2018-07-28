@@ -26,22 +26,6 @@ class StatisticsService
         return $date;
     }
 
-    //获取上月时间
-    public function getLastMonthTime()
-    {
-        $start = mktime(0,0,0,$this->month-1,1, $this->year);
-        $end = mktime(23,59,59,$this->month-1, date("t",$start),date("Y",$start));
-        return $this->getDate($start, $end);
-    }
-
-    //获取本月时间
-    public function getMonthTime()
-    {
-        $start = mktime(0,0,0, $this->month,1, $this->year);
-        $end = mktime(23,59,59, $this->month, date('t'), $this->year);
-        return $this->getDate($start, $end);
-    }
-    
     //根据年月获取指定月份时间格式
     public function getAppointDate($year, $month)
     {
@@ -53,16 +37,8 @@ class StatisticsService
     //根据参数获取日期
     public function getDateByParam($string)
     {
-        if (substr_count($string, '-')) {
-            $arr = explode('-', $string);
-            $date = $this->getAppointDate($arr[0], $arr[1]);
-        } else {
-            if ($string == 1) {
-                $date = $this->getMonthTime();
-            } else {
-                $date = $this->getLastMonthTime();
-            }
-        }
+        $arr = explode('-', $string);
+        $date = $this->getAppointDate($arr[0], $arr[1]);
         return $date;
     }
 
@@ -73,9 +49,9 @@ class StatisticsService
         if (!empty($source)) $res = $res->where('source', $source);
         if (!empty($type)) {
             if (is_array($type)) {
-                $res = $res->whereIn('type', $type);
+                $res = $res->whereIn('demand', $type);
             } else {
-                $res = $res->where('type', $type);
+                $res = $res->where('demand', $type);
             }
         }
         $count = $res->count();
@@ -117,21 +93,26 @@ class StatisticsService
     }
 
     //线上客户来源数据
-    public function statistic($request)
+    public function statistic($time)
     {
 //        1:APP,2:PC,3:微信,4:小程序,5:官网客服,6:百度信息流,7:今日头条信息流,8:58同城,9:400电话
         //1=>投放房源,2=>委托找房,3=>企业服务,4=>其他
         //全部渠道统计数据
         $data = [];
-        $data['all'] = $this->getAllData($request->time);
+        $data[] = $this->getAllData($time);
+        $data[0] = array_merge(['label_name' => '全部'], $data[0]);
         //投放房源
-       $data['throw'] = $this->getTypeData($request->time,1);
+        $data[] = $this->getTypeData($time,1);
+        $data[1] = array_merge(['label_name' => '投放房源'], $data[1]);
         //委托找房
-        $data['entrust'] = $this->getTypeData($request->time, 2);
-        //企业服务
-        $data['service'] = $this->getData($request->time, null, 3);
-        //其他
-        $data['other'] = $this->getData($request->time, null, 4);
+        $data[] = $this->getTypeData($time, 2);
+        $data[2] = array_merge(['label_name' => '委托找房'], $data[2]);
+        //企业服务 总计数量
+        $data[]['tel'] = $this->getData($time, null, 3);
+        $data[3] = array_merge(['label_name' => '企业服务'], $data[3]);
+        //其他 tel
+        $data[]['tel'] = $this->getData($time, null, 4);
+        $data[4] = array_merge(['label_name' => '其他'], $data[4]);
         return $data;
     }
 
@@ -139,46 +120,74 @@ class StatisticsService
     public function constituteData($request)
     {
         $date = $this->getDateByParam($request->time);
-        $data = $this->getAllData($date);
-        $count = 0;
-        foreach ($data as $v) {
-            $count += $v;
-        }
-        if (!$count) return;
-        $data['app'] = round($data['app'] / $count, 3) * 100 . '%';
-        $data['pc'] = round($data['pc'] / $count, 3) * 100 . '%';
-        $data['wechat'] = round($data['wechat'] / $count, 3) * 100 . '%';
-        $data['mini'] = round($data['mini'] / $count, 3) * 100 . '%';
-        $data['web'] = round($data['web'] / $count, 3) * 100 . '%';
-        $data['baidu'] = round($data['baidu'] / $count, 3) * 100 . '%';
-        $data['toutiao'] = round($data['toutiao'] / $count, 3) * 100 . '%';
-        $data['tongcheng'] = round($data['tongcheng'] / $count, 3) * 100 . '%';
-        $data['tel'] = round($data['tel'] / $count, 3) * 100 . '%';
+        $res = $this->getAllData($date);
+        $data = [];
+        $data[0]['title'] = '400电话';
+        $data[0]['value'] = $res['tel'];
+        $data[1]['title'] = '官网客服';
+        $data[1]['value'] = $res['web'];
+        $data[2]['title'] = '百度信息流';
+        $data[2]['value'] = $res['baidu'];
+        $data[3]['title'] = '今日头条信息流';
+        $data[3]['value'] = $res['toutiao'];
+        $data[4]['title'] = 'APP';
+        $data[4]['value'] = $res['app'];
+        $data[5]['title'] = 'PC';
+        $data[5]['value'] = $res['pc'];
+        $data[6]['title'] = '微信';
+        $data[6]['value'] = $res['wechat'];
+        $data[7]['title'] = '小程序';
+        $data[7]['value'] = $res['mini'];
+        $data[8]['title'] = '58同城';
+        $data[8]['value'] = $res['tongcheng'];
         return $data;
     }
+
+    public function getRawCount($time, $param = null, $demand = null, $source = null)
+    {
+        $res = RawCustom::whereBetween('created_at', $time);
+        if (!empty($param)) $res = $res->where($param, 1);
+        if (!empty($demand)) $res = $res->whereIn('demand', $demand);
+        if (!empty($source)) $res = $res->whereIn('source', $source);
+        return $res->count();
+    }
+    
 
     //漏斗转化率
     public function conversionRate($request)
     {
         $date = $this->getDateByParam($request->time);
-        //渠道总数量
         $data = [];
-        $count1 = EntrustThrowIn::whereIn('type',[1,2])->whereBetween('created_at',$date)->count();
-        $count2 = RawCustom::whereIn('source',[1,2])->whereBetween('created_at',$date)->count();
-        $count = $count1 + $count2;
-        $data['canal'] = $count;
-        //工单列表中有效状态中状态为有效的数量
-        $count3 = RawCustom::where('valid',1)->whereBetween('created_at',$date)->count();
-        $data['valid'] = $count3;
-        //工单列表中是否成交状态的成交的数量
-        $count4 = RawCustom::where('clinch',1)->whereBetween('created_at',$date)->count();
-        $data['clinch'] = $count4;
-        //渠道有效转化率
-        $data['canal_valid']= round($count3 / $count ,3) *100 . '%';
-        //成交转化率
-        $data['valid_clinch'] = round($count4 /$count3 ,3) *100 .'%';
-        //渠道成交转化率
-        $data['canal_clinch'] = round($count4 / $count ,3) *100 . '%';
+        $demand = [1, 2];
+        //渠道总数量(全部渠道中的委托 + 工单中电话和客服的委托)
+        $count = $this->getData($date, null, $demand) + $this->getRawCount($date, null, $demand, $demand);
+        if (!$count) return $data;
+        //有效
+        $count1 = $this->getRawCount($date, 'valid', $demand, null);
+
+        //成交clinch
+        $count2 = $this->getRawCount($date, 'clinch', $demand, null);
+
+        //有效/渠道
+        $percent1 = round($count1 / $count ,3) *100 . '%';
+
+        //成交/有效
+        $percent2 = round($count2 /$count1 ,3) *100 .'%';
+
+        //成交/渠道
+        $percent3 = round($count2 / $count ,3) *100 . '%';
+
+        $arr = [];
+        $arr['percent1'] = $percent1;
+        $arr['percent2'] = $percent2;
+        $arr['percent3'] = $percent3;
+        $data['arr'][0]['title'] = '渠道';
+        $data['arr'][0]['value'] = $count;
+        $data['arr'][1]['title'] = '有效';
+        $data['arr'][1]['value'] = $count1;
+        $data['arr'][2]['title'] = '成交';
+        $data['arr'][2]['value'] = $count2;
+        $data['percent'] = $arr;
         return $data;
     }
 
