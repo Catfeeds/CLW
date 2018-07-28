@@ -296,6 +296,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('computers','ComputersController');
 
+        /*
+        |--------------------------------------------------------------------------
+        | 办公家具
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('furniture','FurnitureController');
 
         //投放、预约
         Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
