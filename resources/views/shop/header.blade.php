@@ -13,7 +13,7 @@
     <div class="logo"><img src="/shop_img/logo.png" alt=""></div>
     <div class="searchInput">
       <div class="input">
-        <div><img src="/shop_img/index_search.png" alt=""></div>
+        <div class="inputPic"><img src="/shop_img/index_search.png" alt=""></div>
         <input id="searchInput" type="text" placeholder="请输入搜索关键字">
       </div>
       <button class="js_search">搜索</button>

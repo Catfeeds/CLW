@@ -1,4 +1,4 @@
-@extends('home.layouts.layout')
+@extends('shop.layout.layout')
 @section('title', '首页')
 @section('header')
  <link rel="stylesheet" href="/css/shop_index.css">
@@ -482,23 +482,27 @@
           <li class="find">没有找到合适的企业服务?</li>
           <li class="free">免费咨询 , 立即回复</li>
         </ul>
-        <div class="consult"><input type="text"><button>立即咨询</button></div>
+        <div class="consult"><input type="text"><button>立即预约</button></div>
       </div>
     </div>
     <!-- 优势 -->
-    <div style="border-top: 1px solid #eeeded"><img src="/shop_img/index_better.jpg" alt=""></div>
+    <div class="better"><div style="background:url(/shop_img/index_better.jpg) no-repeat"></div></div>
     <!-- 楼梯导航 -->
     <div class="elevator">
       <ul class="elevator_list">
-        <li class="louti">工商财税</li>
+        <li class="louti active">工商财税</li>
         <li class="louti">办公设备</li>
         <li class="louti">入驻服务</li>
         <li class="louti">办公家具</li>
         <li class="louti">装修服务</li>
         <li class="louti">热销机型</li>
         <li class="louti">热销绿植</li>
-        <li class="top">在线客服</li>
-        <li class="top"><div><img src="/shop_img/index_up.png" alt=""></div>顶部</li>
+        <li class="backTop">
+          <ul>
+            <!-- <li class="top">在线客服</li> -->
+            <li class="top js_backTop"><div><img src="/shop_img/index_up.png" alt=""></div>顶部</li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

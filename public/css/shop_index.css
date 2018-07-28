@@ -328,23 +328,21 @@ select {
   height: 36px;
   border: solid 2px #007bff;
   border-radius: 2px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  position: relative;
 }
 
 .header .search .searchInput .input img {
-  margin: 10px 8px 0 13px;
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  left: 13px;
 }
 
 .header .search .searchInput .input input {
-  height: 30px;
+  width: 430px;
+  height: 36px;
   border: none;
-  margin-top: 3px;
-  width: 390px;
+  padding-left: 40px;
 }
 
 .header .search .searchInput button {
@@ -363,7 +361,7 @@ select {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-left: 144px;
+  margin-left: 140px;
   margin-top: 35px;
 }
 
@@ -806,7 +804,8 @@ body footer .bottom .friend_link a {
 .width,
 .main .hot_sale_model,
 .main .hot_sale_plants,
-.main .customService {
+.main .customService,
+.main .better div {
   width: 1200px;
   margin: 0 auto;
 }
@@ -1738,9 +1737,19 @@ body footer .bottom .friend_link a {
   cursor: pointer;
 }
 
+.main .better {
+  border-top: 1px solid #eeeded;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.main .better div {
+  height: 100%;
+}
+
 .main .elevator {
   display: none;
-  width: 1340px;
+  width: 1380px;
   margin: 0 auto;
 }
 
@@ -1773,6 +1782,11 @@ body footer .bottom .friend_link a {
 
 .main .elevator .elevator_list li:hover {
   cursor: pointer;
+}
+
+.main .elevator .elevator_list .backTop {
+  height: 48px;
+  padding: 0;
 }
 
 .main .elevator .elevator_list .active {

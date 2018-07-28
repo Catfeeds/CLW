@@ -668,9 +668,18 @@
       }
     }
   }
+  .better{
+    border-top: 1px solid #eeeded;
+    height: 120px;
+    margin: 0 auto;
+    div{
+      @extend .width;
+      height: 100%;
+    }
+  }
   .elevator{
     display: none;
-    width: 1340px;
+    width: 1380px;
     margin: 0 auto;
     .elevator_list{
       position: fixed;
@@ -695,6 +704,10 @@
         &:hover{
           cursor: pointer;
         }
+      }
+      .backTop{
+        height: 48px;
+        padding: 0;
       }
       .active{
         background: #4d9dfc;
