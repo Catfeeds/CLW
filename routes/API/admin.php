@@ -279,6 +279,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('categories','CategoriesController');
         // 标签
         Route::resource('labels', 'LabelsController');
+        // 通过大类获取一级标签
+        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
 
         /*
         |--------------------------------------------------------------------------
@@ -287,8 +289,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('plants','PlantsController');
 
-        // 通过大类获取一级标签
-        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
+        /*
+        |--------------------------------------------------------------------------
+        | 电脑租售
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('computers','ComputersController');
+
 
         //投放、预约
         Route::resource('entrust_throw_ins', 'EntrustThrowInsController');

@@ -17,10 +17,11 @@ class LabelsRepository extends Model
     public function addLabel($request)
     {
         return Label::create([
-           'category_id' => $request->category_id,
+            'category_id' => $request->category_id,
             'parent_id' => $request->parent_id,
             'name' => $request->name,
-            'stage' => $request->stage
+            'stage' => $request->stage,
+            'img' => $request->img
         ]);
     }
 
@@ -31,6 +32,7 @@ class LabelsRepository extends Model
         $label->parent_id = $request->parent_id;
         $label->name = $request->name;
         $label->stage = $request->stage;
+        $label->img = $request->img;
         if (!$label->save()) return false;
         return true;
     }

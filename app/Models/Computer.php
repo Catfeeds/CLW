@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Plant extends Model
+class Computer extends Model
 {
     protected $guarded = [];
 
@@ -15,7 +15,7 @@ class Plant extends Model
 
     public function goodsHasLabels()
     {
-        return $this->hasMany('App\Models\GoodsHasLabel','goods_id','id')->where('goods_type', 'App\Models\Plant');
+        return $this->hasMany('App\Models\GoodsHasLabel','goods_id','id')->where('goods_type', 'App\Models\Computer');
     }
 
     // 删除标签及商品标签关联数据
@@ -26,11 +26,11 @@ class Plant extends Model
             parent::delete();
             // 删除商品标签关联表数据
             GoodsHasLabel::where([
-                'goods_type' => 'App\Models\Plant',
+                'goods_type' => 'App\Models\Computer',
                 'goods_id' => $this->id,
             ])->delete();
 
-            // 删除绿植租摆商品
+            // 删除电脑租售商品
             self::where('id', $this->id)->delete();
 
             \DB::commit();
@@ -56,4 +56,5 @@ class Plant extends Model
             ];
         })->values();
     }
+
 }

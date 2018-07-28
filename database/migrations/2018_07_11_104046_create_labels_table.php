@@ -19,8 +19,8 @@ class CreateLabelsTable extends Migration
             $table->tinyInteger('parent_id')->nullable()->comment('父级id');
             $table->string('name','32')->nullable()->comment('标签名');
             $table->tinyInteger('stage')->nullable()->comment('等级');
+            $table->string('img')->nullable()->comment('标签图片');
             $table->timestamps();
-            $table->softDeletes();
         });
         DB::statement("alter table `labels` comment'商城标签表'");
     }

@@ -41,6 +41,11 @@ class LabelsService
                 }
 
                 foreach ($val->next_label as $k => $v) {
+                    if (!empty($v->img)) {
+                        $twoLable[$k+1]['img'] = $v->img_cn;
+                    } else {
+                        $twoLable[$k+1]['img'] = '';
+                    }
                     $twoLable[$k+1]['name'] = $v->name;
                     $twoLable[$k+1]['id'] = $v->id;
                     $twoLable[$k+1]['url'] = $this->getUrl($v->id, $request->labels, $request->url(),$val->next_label->pluck('id')->toArray(), false);
