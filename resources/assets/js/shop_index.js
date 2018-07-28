@@ -11,7 +11,7 @@ $('.elevator>.elevator_list>.louti').on('click', function() {
     index = $(this).index() + 1 // 获取当前的下边
     $(this).addClass('active').siblings().removeClass('active')
     if(index == 1) {
-      $(this).css('background', '#6ca7ed').siblings().css('background', '#f4f4f4')
+      $(this).css('background', '#4d9dfc').siblings().css('background', '#f4f4f4')
     } else if(index == 2) {
       $(this).css('background', '#ff8a6a').siblings().css('background', '#f4f4f4')
     } else if(index == 3) {
@@ -50,7 +50,7 @@ $(window).scroll(function() {
         var dom = $('.louti').eq(i-1)
         dom.addClass('active').siblings().removeClass('active')
         if(val == '工商财税') {
-          dom.css('background', '#6ca7ed').siblings().css('background', '#f4f4f4') 
+          dom.css('background', '#4d9dfc').siblings().css('background', '#f4f4f4') 
         } else if(val == '办公设备') { 
           dom.css('background', '#ff8a6a').siblings().css('background', '#f4f4f4')
         } else if(val == '入驻服务') {

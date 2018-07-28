@@ -7,10 +7,196 @@
 @include('shop.header')
   <div class="main">
     <!-- 轮播 -->
-    <div class="swiper-container js_banner">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="swiperPic" style="background-image:url(/shop_img/banner.jpg)"></div>
+    <div class="banner">
+      <div class="bannerSelect">
+        <ul class="select_list"> 
+          <li class="select_list_aside">
+            <div class="list_aside">
+              <div class="list_aside_right">
+                <div class="aside_right_title">工商财税</div>
+                <div class="aside_right_detail">公司注册&nbsp;&nbsp;&nbsp;&nbsp;财务税务</div>
+              </div>
+              <div><img src="/shop_img/index_back.png" alt=""></div>
+            </div>
+            <ul class="select_list_right">
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">代理记账 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>小规模记账</span></a>
+                  <a href="javascript:void(0)">|<span>一般纳税人代理记账</span></a>
+                </div>
+              </li>
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">税务代办 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>税收筹划</span></a>
+                  <a href="javascript:void(0)">|<span>税控器解锁</span></a>
+                  <a href="javascript:void(0)">|<span>报税系统解锁</span></a>
+                  <a href="javascript:void(0)">|<span>发票增版/增量</span></a>
+                  <a href="javascript:void(0)">|<span>申办一般纳税人</span></a>
+                  <a href="javascript:void(0)">|<span>税控代办及票种核定</span></a>
+                  <a href="javascript:void(0)">|<span>所得税汇算清缴</span></a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="select_list_aside">
+            <div class="list_aside">
+              <div class="list_aside_right">
+                <div class="aside_right_title">办公设备</div>
+                <div class="aside_right_detail">打印机&nbsp;&nbsp;&nbsp;&nbsp;电脑</div>
+              </div>
+              <div><img src="/shop_img/index_back.png" alt=""></div>
+            </div>
+            <ul class="select_list_right">
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">代理记账 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>小规模记账</span></a>
+                  <a href="javascript:void(0)">|<span>一般纳税人代理记账</span></a>
+                </div>
+              </li>
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">税务代办 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>税收筹划</span></a>
+                  <a href="javascript:void(0)">|<span>税控器解锁</span></a>
+                  <a href="javascript:void(0)">|<span>报税系统解锁</span></a>
+                  <a href="javascript:void(0)">|<span>发票增版/增量</span></a>
+                  <a href="javascript:void(0)">|<span>申办一般纳税人</span></a>
+                  <a href="javascript:void(0)">|<span>税控代办及票种核定</span></a>
+                  <a href="javascript:void(0)">|<span>所得税汇算清缴</span></a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="select_list_aside">
+            <div class="list_aside">
+              <div class="list_aside_right">
+                <div class="aside_right_title">入驻服务</div>
+                <div class="aside_right_detail">绿植&nbsp;&nbsp;&nbsp;&nbsp;保洁&nbsp;&nbsp;&nbsp;&nbsp;搬家&nbsp;&nbsp;&nbsp;&nbsp;桶装水</div>
+              </div>
+              <div><img src="/shop_img/index_back.png" alt=""></div>
+            </div>
+            <ul class="select_list_right">
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">代理记账 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>财务审计</span></a>
+                  <a href="javascript:void(0)">|<span>一般纳税人代理记账</span></a>
+                </div>
+              </li>
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">税务代办 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>税收筹划</span></a>
+                  <a href="javascript:void(0)">|<span>税控器解锁</span></a>
+                  <a href="javascript:void(0)">|<span>报税系统解锁</span></a>
+                  <a href="javascript:void(0)">|<span>发票增版/增量</span></a>
+                  <a href="javascript:void(0)">|<span>申办一般纳税人</span></a>
+                  <a href="javascript:void(0)">|<span>税控代办及票种核定</span></a>
+                  <a href="javascript:void(0)">|<span>所得税汇算清缴</span></a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="select_list_aside">
+            <div class="list_aside">
+              <div class="list_aside_right">
+                <div class="aside_right_title">装饰装修</div>
+                <div class="aside_right_detail">办公装修&nbsp;&nbsp;&nbsp;&nbsp;综合布线</div>
+              </div>
+              <div><img src="/shop_img/index_back.png" alt=""></div>
+            </div>
+            <ul class="select_list_right">
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">代理记账 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>财务审计</span></a>
+                  <a href="javascript:void(0)">|<span>一般纳税人代理记账</span></a>
+                </div>
+              </li>
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">税务代办 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>税收筹划</span></a>
+                  <a href="javascript:void(0)">|<span>税控器解锁</span></a>
+                  <a href="javascript:void(0)">|<span>报税系统解锁</span></a>
+                  <a href="javascript:void(0)">|<span>发票增版/增量</span></a>
+                  <a href="javascript:void(0)">|<span>申办一般纳税人</span></a>
+                  <a href="javascript:void(0)">|<span>税控代办及票种核定</span></a>
+                  <a href="javascript:void(0)">|<span>所得税汇算清缴</span></a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="select_list_aside">
+            <div class="list_aside">
+              <div class="list_aside_right">
+                <div class="aside_right_title">办公家具</div>
+                <div class="aside_right_detail">班台&nbsp;&nbsp;&nbsp;&nbsp;工位&nbsp;&nbsp;&nbsp;&nbsp;办公椅</div>
+              </div>
+              <div><img src="/shop_img/index_back.png" alt=""></div>
+            </div>
+            <ul class="select_list_right">
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">代理记账 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>财务审计</span></a>
+                  <a href="javascript:void(0)">|<span>一般纳税人代理记账</span></a>
+                </div>
+              </li>
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">税务代办 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>税收筹划</span></a>
+                  <a href="javascript:void(0)">|<span>税控器解锁</span></a>
+                  <a href="javascript:void(0)">|<span>报税系统解锁</span></a>
+                  <a href="javascript:void(0)">|<span>发票增版/增量</span></a>
+                  <a href="javascript:void(0)">|<span>申办一般纳税人</span></a>
+                  <a href="javascript:void(0)">|<span>税控代办及票种核定</span></a>
+                  <a href="javascript:void(0)">|<span>所得税汇算清缴</span></a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="select_list_aside">
+            <div class="list_aside">
+              <div class="list_aside_right">
+                <div class="aside_right_title">其他</div>
+                <div class="aside_right_detail">图文广告&nbsp;&nbsp;&nbsp;&nbsp;金融支持&nbsp;&nbsp;&nbsp;&nbsp;豪车租赁</div>
+              </div>
+              <div><img src="/shop_img/index_back.png" alt=""></div>
+            </div>
+            <ul class="select_list_right">
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">代理记账 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>财务审计</span></a>
+                  <a href="javascript:void(0)">|<span>一般纳税人代理记账</span></a>
+                </div>
+              </li>
+              <li>
+                <a href="javascript:void(0)"><div class="total_classify">税务代办 &nbsp;&nbsp;> </div></a>
+                <div class="classify_list">
+                  <a href="javascript:void(0)">|<span>税收筹划</span></a>
+                  <a href="javascript:void(0)">|<span>税控器解锁</span></a>
+                  <a href="javascript:void(0)">|<span>报税系统解锁</span></a>
+                  <a href="javascript:void(0)">|<span>发票增版/增量</span></a>
+                  <a href="javascript:void(0)">|<span>申办一般纳税人</span></a>
+                  <a href="javascript:void(0)">|<span>税控代办及票种核定</span></a>
+                  <a href="javascript:void(0)">|<span>所得税汇算清缴</span></a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="swiper-container js_banner">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiperPic" style="background-image:url(/shop_img/banner.jpg)"></div>
+          </div>
         </div>
       </div>
     </div>
