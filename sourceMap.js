@@ -123,7 +123,7 @@ module.exports = {
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',
     extract: [
-
+      './resources/assets/js/shop_common'
     ]
   }
 };
