@@ -1,6 +1,6 @@
 @mixin header(){
   .active{
-    color: $master-blue;
+    color: $master-blue !important;
   }
   .header{
     background: #fff;

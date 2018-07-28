@@ -11,14 +11,14 @@
   </div>
   <div class="search">
     <div class="searchLogo">
-      <div class="logo"><img src="/shop_img/logo.png" alt=""></div>
+      <a href="{{url('/')}}"><div class="logo"><img src="/shop_img/logo.png" alt=""></div></a>
       <ul class="select_nav">
-        <a href="javascript:viod(0)"><li class="active">首页</li></a>
-        <a href="javascript:viod(0)"><li>企业选址</li></a>
-        <a href="javascript:viod(0)"><li class="hot_sale">办公家具<div><img src="/shop_img/hot.png" alt=""></div></li></a>
-        <a href="javascript:viod(0)"><li class="hot_sale">绿植租摆<div><img src="/shop_img/hot.png" alt=""></div></li></a>
-        <a href="javascript:viod(0)"><li>企业装修</li></a>
-        <a href="javascript:viod(0)"><li>办公设备</li></a>
+        <a href="{{url('/')}}"><li class="active">首页</li></a>
+        <a href="{{url('/companySiteSelect')}}"><li>企业选址</li></a>
+        <a href="{{url('/furniture')}}"><li class="hot_sale">办公家具<div><img src="/shop_img/hot.png" alt=""></div></li></a>
+        <a href="{{url('/plants')}}"><li class="hot_sale">绿植租摆<div><img src="/shop_img/hot.png" alt=""></div></li></a>
+        <a href="{{url('/companyDecorat')}}"><li>企业装修</li></a>
+        <a href="{{url('/computers')}}"><li>办公设备</li></a>
       </ul>
     </div>
     <!-- <div class="searchInput">
