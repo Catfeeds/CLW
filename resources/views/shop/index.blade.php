@@ -351,30 +351,30 @@
         <div class="floorTitle">办公设备</div>
       </div>
       <div class="content">
-        <a href="javascript:void(0)"><img src="/shop_img/index_second_01.jpg" alt=""></a>
+        <a href="{{url('/computers')}}"><img src="/shop_img/index_second_01.jpg" alt=""></a>
         <div class="second_right">
-          <a href="javascript:void(0)">
+          <a href="{{url('/computers/1')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_02.jpg" alt="">
               <div class="seconde_work_title">电脑租赁</div>
               <div class="seconde_work_detail">免押金 一台起租 随租随还</div>
             </div>
           </a>
-          <a href="javascript:void(0)">
+          <a href="{{url('/computers/2')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_03.jpg" alt="">
               <div class="seconde_work_title">打印复印</div>
               <div class="seconde_work_detail">全包服务</div>
             </div>
           </a>
-          <a href="javascript:void(0)">
+          <a href="{{url('/computers/3')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_04.jpg" alt="">
               <div class="seconde_work_title">一体机租赁</div>
               <div class="seconde_work_detail">苹果一体机  设计专用</div>
             </div>
           </a>
-          <a href="javascript:void(0)">
+          <a href="{{url('/computers/4')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_05.jpg" alt="">
               <div class="seconde_work_title">平板电脑</div>
