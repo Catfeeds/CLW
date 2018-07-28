@@ -118,12 +118,13 @@ module.exports = {
       'shop_check'
     ],
     js: [
+      'shop_index',
       'shop_check'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',
     extract: [
-
+      './resources/assets/js/shop_common'
     ]
   }
 };

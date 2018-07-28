@@ -1,5 +1,5 @@
-@extends('home.layouts.layout')
-@section('title', '资讯详情')
+@extends('shop.layout.layout')
+@section('title', '楚楼网发布会签到系统')
  <link rel="stylesheet" href="/css/shop_check.css">
 @section('header')
 @endsection
