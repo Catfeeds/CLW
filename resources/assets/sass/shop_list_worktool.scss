@@ -1,4 +1,5 @@
 @import 'shop_master';
+@include header();
 @include footer();
 @import 'shop_common_area';
 body {

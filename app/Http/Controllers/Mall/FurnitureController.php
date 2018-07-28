@@ -29,10 +29,10 @@ class FurnitureController extends Controller
             $symbol = '&';
         }
         $labelData = $service->labelData('办公家具', $labels, $request);
-        $plants = $service->getAllGoods($request, 'App\Models\Furniture');
-        return view('shop.list_plants',[
+        $furniture = $service->getAllGoods($request, 'App\Models\Furniture');
+        return view('shop.list',[
             'labelData' => $labelData,
-            'plants' => $plants,
+            'datas' => $furniture,
             'sort' => $sort,
             'symbol' => $symbol
         ]);

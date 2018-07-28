@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Mall;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class IndexController extends Controller
+class CompanyDecoratController extends Controller
 {
     public function index()
     {
-        return view('shop.index');
+        dd('企业装修');
     }
 }
