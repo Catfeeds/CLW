@@ -5711,6 +5711,7 @@ module.exports = __webpack_require__(81);
 
 __webpack_require__(15);
 __webpack_require__(45);
+$('.error').hide(); // 隐藏错误提示
 var index = 0; // 电梯导航下标
 var off = true; // 避免点击与滚动事件重合
 var isClick = true; // 避免点击后动画还未完成就进行下一个点击事件
@@ -5793,6 +5794,9 @@ $('.consult button').click(function () {
   var tel = /^\d{11}$/;
   if (tel.test(telVal)) {
     console.log('sssss', telVal);
+    $('.error').hide();
+  } else {
+    $('.error').show();
   }
 });
 
