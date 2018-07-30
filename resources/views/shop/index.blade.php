@@ -265,17 +265,17 @@
             <div><img src="/shop_img/finance.jpg"></div>
           </div>
         </a>
-        <a href="javascript:void(0)">
+        <a href="{{url('/companyDecorat')}}">
           <div class="decoration">
             <div class="border"></div>
             <div class="up">
-              <div class="title">企业服务</div>
+              <div class="title">企业装修</div>
               <div class="detail">全包服务 无增项</div>
             </div>
             <div><img src="/shop_img/decoration.jpg"></div>
           </div>
         </a>
-        <a href="javascript:void(0)">
+        <a href="{{url('/furniture')}}">
           <div class="furniture">
             <div class="border"></div>
             <div class="up">
@@ -295,7 +295,7 @@
             <div><img src="/shop_img/clean.jpg"></div>
           </div>
         </a>
-        <a href="javascript:void(0)">
+        <a href="{{url('/computers')}}">
           <div class="equipment">
             <div class="border"></div>
             <div class="up">
@@ -305,11 +305,11 @@
             <div><img src="/shop_img/equipment.jpg"></div>
           </div>
         </a>
-        <a href="javascript:void(0)">
+        <a href="{{url('/plants')}}">
           <div class="plants">
             <div class="border"></div>
             <div class="up">
-              <div class="title">绿植摆租</div>
+              <div class="title">绿植摆租</div> 
               <div class="detail">套餐单品 免费养护</div>
             </div>
             <div><img src="/shop_img/plants.jpg"></div>
@@ -463,7 +463,7 @@
               <div class="seconde_work_detail">景田  极速达  无押金</div>
             </div>
           </a>
-          <a href="javascript:void(0)">
+          <a href="{{url('/plants')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_04.jpg" alt="">
               <div class="seconde_work_title">绿植服务</div>
@@ -492,7 +492,7 @@
         <div class="floorTitle">办公家具</div>
       </div>
       <div class="content">
-        <a href="javascript:void(0)"><div><img src="/shop_img/index_four_01.jpg" alt=""></div></a>
+        <a href="{{url('/furniture')}}"><div><img src="/shop_img/index_four_01.jpg" alt=""></div></a>
         <div class="four_right">
           <div class="small_scale">
             <a href="javascript:void(0)">
@@ -572,7 +572,7 @@
               <li>免费方案</li>
               <li>一站式服务</li>
             </ul>
-            <a href="javascript:void(0)"><div class="check">立即查看</div></a>
+            <a href="{{url('/companyDecorat')}}"><div class="check">立即查看</div></a>
           </div>
         </div>
         <a href="javascript:void(0)">
@@ -601,7 +601,7 @@
         <div class="floorTitle">热销机型</div>
       </div>
       <div class="content">
-        <a href="javascript:void(0)">
+        <a href="{{url('/computers')}}">
           <div><img src="/shop_img/index_sale_model_01.jpg" alt=""></div>
         </a>
         <div class="sale_model_right">
@@ -662,7 +662,7 @@
         <div class="floorTitle">热销绿植</div>
       </div>
       <div class="content">
-        <a href="javascript:void(0)">
+        <a href="{{url('/plants')}}">
           <div><img src="/shop_img/index_sale_plants_01.jpg" alt=""></div>
         </a>
         <div class="sale_model_right">
@@ -719,7 +719,7 @@
           <li class="find">没有找到合适的企业服务?</li>
           <li class="free">免费咨询 , 立即回复</li>
         </ul>
-        <div class="consult"><input type="text"><button>立即预约</button></div>
+        <div class="consult"><input type="text" placeholder="请输入电话号码"><button>立即预约</button></div>
       </div>
     </div>
     <!-- 优势 -->
