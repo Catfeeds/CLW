@@ -19,7 +19,6 @@ class CreateGoodsHasLabelsTable extends Migration
             $table->char('goods_id',32)->comment('商品id');
             $table->integer('label_id')->unsigned()->comment('标签id');
             $table->timestamps();
-            $table->softDeletes();
         });
         DB::statement("alter table `goods_has_labels` comment'标签商品关联表'");
     }

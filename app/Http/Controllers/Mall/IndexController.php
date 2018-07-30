@@ -9,6 +9,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        dd('商城');
+        return view('shop.index');
     }
 }

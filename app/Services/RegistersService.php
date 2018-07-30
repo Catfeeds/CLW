@@ -130,7 +130,9 @@ class RegistersService
     {
         \DB::beginTransaction();
         try {
-            $admin->password = bcrypt($request->password);
+            if (!empty($request->password)) {
+                $admin->password = bcrypt($request->password);
+            }
             $admin->nick_name = $request->nick_name;
             if (!$admin->save()) throw new \Exception('修改失败');
             $admin->syncRoles($request->role_id);

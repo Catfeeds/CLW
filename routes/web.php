@@ -35,11 +35,3 @@ Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function (
 Route::group(['domain' => config('hosts.mall'), 'namespace' => 'Mall'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/mall.php');
 });
-
-Route::get('shop_index', function(){
-    return view('shop.index');
-});
-Route::get('list_worktool', function(){
-    return view('shop.list_worktool');
-});
-Route::resource('list_plants','Mall\PlantsController');

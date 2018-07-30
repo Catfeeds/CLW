@@ -1,9 +1,3 @@
-@import 'shop_list_worktool';
+@import 'shop/header.mixin';
 
-.show_detail {
-  .ccc {
-    width: 283px;
-    height: 283px;
-    color:red;
-  }
-}
+@import 'shop_list_worktool';

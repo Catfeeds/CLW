@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\EntrustThrowIn;
 use App\Models\QueryTime;
+use App\Observers\EntrustThrowInObservers;
 use App\Observers\QueryObservers;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use App\Models\Bespeak;
@@ -34,5 +36,6 @@ class EventServiceProvider extends ServiceProvider
 
         ThrowIn::observe(ThrowInObservers::class);
         Bespeak::observe(BespeakObservers::class);
+        EntrustThrowIn::observe(EntrustThrowInObservers::class);
     }
 }
