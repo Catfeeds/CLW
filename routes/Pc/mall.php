@@ -27,3 +27,16 @@ Route::get('cleanup', 'EntryServiceController@index');
 Route::get('water', 'EntryServiceController@water');
 // 搬家
 Route::get('houseMv', 'EntryServiceController@houseMv');
+
+
+// 图文快印
+Route::get('fastPrint', 'PhotoAdsController@fastPrint');
+// 商务印品
+Route::get('businessPrint', 'PhotoAdsController@businessPrint');
+// 企业广告
+Route::get('businessAds', 'PhotoAdsController@businessAds');
+
+// 金融支持
+Route::resource('finance', 'FinanceController');
+// 豪车租赁
+Route::resource('luxuryCar', 'LuxuryCarController');
