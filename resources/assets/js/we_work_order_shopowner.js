@@ -15,7 +15,7 @@ Vue.use(InfiniteScroll); // 上拉加载更多
 var FormData = {
     staff_id: '', // 员工id
     id: '', // 工单id
-    tel: $('meta[name="tel"]').attr('content')
+    openid: $('meta[name="openid"]').attr('content')
 }
 var sheetClick = function(e) {
     FormData.staff_id = e.id
@@ -117,7 +117,7 @@ const app = new Vue({
             type: 'get',
             data:{
                 status: 1,
-                tel: $('meta[name="tel"]').attr('content')
+                openid: $('meta[name="openid"]').attr('content')
             },
             success: function(data){
                 if(data.success) {
@@ -155,7 +155,7 @@ function getShopkeeperList(status, page, type=false) {
         type: 'get',
         data:{
             status: status,
-            tel: $('meta[name="tel"]').attr('content'),
+            openid: $('meta[name="openid"]').attr('content'),
             page: page
         },
         success: function(data){
