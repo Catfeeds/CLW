@@ -5711,6 +5711,7 @@ module.exports = __webpack_require__(81);
 
 __webpack_require__(15);
 __webpack_require__(45);
+$('.error').hide(); // 隐藏错误提示
 var index = 0; // 电梯导航下标
 var off = true; // 避免点击与滚动事件重合
 var isClick = true; // 避免点击后动画还未完成就进行下一个点击事件
@@ -5793,6 +5794,9 @@ $('.consult button').click(function () {
   var tel = /^\d{11}$/;
   if (tel.test(telVal)) {
     console.log('sssss', telVal);
+    $('.error').hide();
+  } else {
+    $('.error').show();
   }
 });
 
@@ -5807,14 +5811,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_shop_search__ = __webpack_require__(46);
 __webpack_require__(15);
  // 搜索组件
-Object(__WEBPACK_IMPORTED_MODULE_0__components_shop_search__["a" /* init */])('#searchInput');
+// init('#searchInput')
 
 /***/ }),
 /* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = init;
+/* unused harmony export init */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search__ = __webpack_require__(47);

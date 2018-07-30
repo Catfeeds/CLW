@@ -495,7 +495,7 @@
         <a href="{{url('/furniture')}}"><div><img src="/shop_img/index_four_01.jpg" alt=""></div></a>
         <div class="four_right">
           <div class="small_scale">
-            <a href="javascript:void(0)">
+            <a href="{{url('/furniture/1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">班台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -503,7 +503,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="javascript:void(0)">
+            <a href="{{url('/furniture/2')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">前台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -513,7 +513,7 @@
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="javascript:void(0)">
+            <a href="{{url('/furniture/3')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">办公沙发</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -521,7 +521,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="javascript:void(0)">
+            <a href="{{url('/furniture/4')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">资料柜</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -531,7 +531,7 @@
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="javascript:void(0)">
+            <a href="{{url('/furniture/5')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">会议桌</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -539,7 +539,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="javascript:void(0)">
+            <a href="{{url('/furniture/6')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">办公组合</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -606,46 +606,56 @@
         </a>
         <div class="sale_model_right">
           <div class="modeFirst">
-            <div class="modeBox">
-              <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-              <div class="modeDetail">方寸间 乐趣全开</div>
-              <div class="price">
-                <div class="unitPrice">¥ 99/月</div>
-                <div><img src="/shop_img/index_sale_model_02.jpg" alt=""></div>
+            <a href="{{url('/computers/1')}}">
+              <div class="modeBox">
+                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="price">
+                  <div class="unitPrice">¥ 99/月</div>
+                  <div><img src="/shop_img/index_sale_model_02.jpg" alt=""></div>
+                </div>
               </div>
-            </div>
-            <div class="modeBox">
-              <div class="modeTitle">全新 联想/Lenovo 启天M410</div>
-              <div class="modeDetail">主动商务，高效易用</div>
-              <div class="price">
-                <div class="unitPrice">¥ 99/月</div>
-                <div><img src="/shop_img/index_sale_model_03.jpg" alt=""></div>
+            </a>
+            <a href="{{url('/computers/2')}}">
+              <div class="modeBox">
+                <div class="modeTitle">全新 联想/Lenovo 启天M410</div>
+                <div class="modeDetail">主动商务，高效易用</div>
+                <div class="price">
+                  <div class="unitPrice">¥ 99/月</div>
+                  <div><img src="/shop_img/index_sale_model_03.jpg" alt=""></div>
+                </div>
               </div>
+            </a>
+          </div>
+          <a href="{{url('/computers/3')}}">
+            <div class="modelSecond">
+              <div class="modeTitle">新一代成铭 3980</div>
+                <div class="modeDetail">专属定制 低价高效</div>
+                <div class="unitPrice">¥ 99/月</div>
+                <div><img src="/shop_img/index_sale_model_04.jpg" alt=""></div>
             </div>
-          </div>
-          <div class="modelSecond">
-            <div class="modeTitle">新一代成铭 3980</div>
-              <div class="modeDetail">专属定制 低价高效</div>
-              <div class="unitPrice">¥ 99/月</div>
-              <div><img src="/shop_img/index_sale_model_04.jpg" alt=""></div>
-          </div>
+          </a>
           <div class="modeThird">
-            <div class="modeBox">
-              <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-              <div class="modeDetail">方寸间 乐趣全开</div>
-              <div class="price">
-                <div><img src="/shop_img/index_sale_model_05.jpg" alt=""></div>
-                <div class="unitPrice">¥ 99/月</div>
+            <a href="{{url('/computers/4')}}">
+              <div class="modeBox">
+                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="price">
+                  <div><img src="/shop_img/index_sale_model_05.jpg" alt=""></div>
+                  <div class="unitPrice">¥ 99/月</div>
+                </div>
               </div>
-            </div>
-            <div class="modeBox">
-              <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-              <div class="modeDetail">方寸间 乐趣全开</div>
-              <div class="price">
-                <div><img src="/shop_img/index_sale_model_06.jpg" alt=""></div>
-                <div class="unitPrice">¥ 99/月</div>
+            </a>
+            <a href="{{url('/computers/5')}}">
+              <div class="modeBox">
+                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="price">
+                  <div><img src="/shop_img/index_sale_model_06.jpg" alt=""></div>
+                  <div class="unitPrice">¥ 99/月</div>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -667,59 +677,75 @@
         </a>
         <div class="sale_model_right">
           <div class="modeFirst">
-            <div class="modeBox">
-              <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-              <div class="modeDetail">方寸间 乐趣全开</div>
-              <div class="price">
-                <div class="unitPrice">¥ 99/月</div>
-                <div><img src="/shop_img/index_sale_plants_02.jpg" alt=""></div>
+            <a href="{{url('/plants/1')}}">
+              <div class="modeBox">
+                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="price">
+                  <div class="unitPrice">¥ 99/月</div>
+                  <div><img src="/shop_img/index_sale_plants_02.jpg" alt=""></div>
+                </div>
               </div>
-            </div>
-            <div class="modeBox">
-              <div class="modeTitle">全新 联想/Lenovo 启天M410</div>
-              <div class="modeDetail">主动商务，高效易用</div>
-              <div class="price">
-                <div class="unitPrice">¥ 99/月</div>
-                <div><img src="/shop_img/index_sale_plants_03.jpg" alt=""></div>
+            </a>
+            <a href="{{url('/plants/2')}}">
+              <div class="modeBox">
+                <div class="modeTitle">全新 联想/Lenovo 启天M410</div>
+                <div class="modeDetail">主动商务，高效易用</div>
+                <div class="price">
+                  <div class="unitPrice">¥ 99/月</div>
+                  <div><img src="/shop_img/index_sale_plants_03.jpg" alt=""></div>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
-          <div class="modelSecond">
-            <div class="modeTitle">新一代成铭 3980</div>
+          <a href="{{url('/plants/3')}}">
+            <div class="modelSecond">
+              <div class="modeTitle">新一代成铭 3980</div>
               <div class="modeDetail">专属定制 低价高效</div>
               <div class="unitPrice">¥ 99/月</div>
               <div><img src="/shop_img/index_sale_plants_04.jpg" alt=""></div>
-          </div>
+            </div>
+          </a>
           <div class="modeThird">
-            <div class="modeBox">
-              <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-              <div class="modeDetail">方寸间 乐趣全开</div>
-              <div class="price">
-                <div><img src="/shop_img/index_sale_plants_05.jpg" alt=""></div>
-                <div class="unitPrice">¥ 99/月</div>
+            <a href="{{url('/plants/4')}}">
+              <div class="modeBox">
+                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="price">
+                  <div><img src="/shop_img/index_sale_plants_05.jpg" alt=""></div>
+                  <div class="unitPrice">¥ 99/月</div>
+                </div>
               </div>
-            </div>
-            <div class="modeBox">
-              <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-              <div class="modeDetail">方寸间 乐趣全开</div>
-              <div class="price">
-                <div><img src="/shop_img/index_sale_plants_06.jpg" alt=""></div>
-                <div class="unitPrice">¥ 99/月</div>
+            </a>
+            <a href="{{url('/plants/5')}}">
+              <div class="modeBox">
+                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="price">
+                  <div><img src="/shop_img/index_sale_plants_06.jpg" alt=""></div>
+                  <div class="unitPrice">¥ 99/月</div>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
     <!-- 客服 -->
     <div class="customService">
-      <img src="/shop_img/custom_service.png" alt="">
+      <img class="customServicePic" src="/shop_img/custom_service.png" alt="">
       <div class="customBox">
         <ul>
           <li class="find">没有找到合适的企业服务?</li>
           <li class="free">免费咨询 , 立即回复</li>
         </ul>
-        <div class="consult"><input type="text" placeholder="请输入电话号码"><button>立即预约</button></div>
+        <div class="consult">
+          <div>
+            <input type="text" placeholder="请输入电话号码">
+            <div class="error"><img src="/shop_img/alert.svg"> <div>手机号码格式错误</div></div>
+          </div>
+          <button>立即预约</button>
+        </div>
       </div>
     </div>
     <!-- 优势 -->

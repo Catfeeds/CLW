@@ -707,7 +707,7 @@
   .customService{
     @extend .width;
     position: relative;
-    img{
+    .customServicePic{
       position: absolute;
       bottom: 0;
       left: 107px;
@@ -742,6 +742,17 @@
         background: rgba(182, 213, 246, 0.4);
         padding: 10px;
         box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        .error{
+          margin-top: 12px;
+          color: #fe7a85;
+          display: flex;
+          justify-content: flex-start;
+          img{
+            margin-right: 5px;
+          }
+        }
         input{
           width: 250px;
           height: 36px;
