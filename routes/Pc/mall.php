@@ -11,3 +11,6 @@ Route::resource('/furniture', 'FurnitureController');
 Route::resource('/companySiteSelect', 'CompanySiteSelectController');
 // 企业装修
 Route::resource('/companyDecorat', 'CompanyDecoratController');
+
+//企业服务
+Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
