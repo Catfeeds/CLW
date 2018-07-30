@@ -6,28 +6,8 @@
     <link rel="shortcut icon" href="{{res('/favicon.ico')}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    {{-- <style>
-        #nb_icon_wrap{
-            margin-top: 280px !important;
-            right: 75px !important;
-        }
-    </style>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?a8bb44e51deceeae65bac46930eab06e";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>   --}}
     <!-- <base target="_blank"> -->
     <title>@section('title')楚楼网--找写字楼上楚楼网十分钟轻松搞定@show</title>
-    {{--<script>--}}
-        {{--// 百度统计 商桥客服--}}
-        {{----}}
-    {{--</script>--}}
-
     @yield('header')
 </head>
 <body>

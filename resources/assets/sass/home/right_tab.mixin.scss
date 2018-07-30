@@ -1,5 +1,16 @@
 @mixin right_tab() {
   body{
+    // 商桥客服默认样式隐藏
+    #nb_icon_wrap{
+        display:none !important;
+    }
+    .onlineAdvisory{
+      position:fixed;
+      right:60px;
+      bottom:50px;
+      cursor:pointer;
+      display: none;
+    }
     .right_tab{
       position: fixed;
       right: -50px;
@@ -12,6 +23,9 @@
       transition: all .5s;
       &.active{
         right: 0;
+        .onlineAdvisory{
+          display: block;
+        }
       }
       .tab-content{
         position: absolute;
