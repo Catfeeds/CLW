@@ -5707,10 +5707,20 @@ module.exports = __webpack_require__(81);
 
 /***/ }),
 /* 42 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _Message2 = _interopRequireDefault(__webpack_require__(56)).default;
+
+__webpack_require__(4);
+
+var _Message = _interopRequireDefault(__webpack_require__(58)).default;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 __webpack_require__(15);
 __webpack_require__(45);
+
 $('.error').hide(); // 隐藏错误提示
 var index = 0; // 电梯导航下标
 var off = true; // 避免点击与滚动事件重合
@@ -5794,7 +5804,37 @@ $('.consult button').click(function () {
   var tel = /^\d{11}$/;
   if (tel.test(telVal)) {
     console.log('sssss', telVal);
-    $('.error').hide();
+    var data = {};
+    data.tel = telVal;
+    data.source = 10;
+    data.demand = 3;
+    data.page_source = '首页底部-企业服务';
+    $.ajax({
+      url: '/entrust_throw_ins',
+      type: 'POST',
+      data: data,
+      success: function success(res) {
+        if (res.success) {
+          _Message({
+            message: '预约成功',
+            type: 'success'
+          });
+        } else {
+          _Message({
+            message: res.message,
+            type: 'warning'
+          });
+        }
+        $('.error').hide();
+        $('.consult input').val('');
+      },
+      error: function error(res) {
+        _Message({
+          message: res.responseJSON.message,
+          type: 'warning'
+        });
+      }
+    });
   } else {
     $('.error').show();
   }

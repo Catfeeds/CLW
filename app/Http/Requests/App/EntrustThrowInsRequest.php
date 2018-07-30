@@ -55,7 +55,7 @@ class EntrustThrowInsRequest extends FormRequest
                             )
                         ],
                     'user_id' => 'nullable',
-                    'name' => 'required|max:32',
+                    'name' => 'nullable|max:32',
                     'area_id' => 'nullable|exists:media.areas,id',
                     'area_name' => 'nullable',
                     'block_id' => 'nullable|exists:media.blocks,id',

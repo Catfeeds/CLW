@@ -31,6 +31,10 @@ Route::resource('recommends', 'RecommendController');
 Route::resource('bespeaks', 'BespeakController');
 //房源投放
 Route::resource('throw_ins', 'ThrowInController');
+
+//委托找房、投放房源
+Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
+
 // 房源详情页
 Route::resource('houses', 'HouseController');
 Route::get('rim_houses/{id}','HouseController@showOffice');

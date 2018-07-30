@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\App;
+namespace App\Http\Controllers\We;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\EntrustThrowInsRequest;
