@@ -247,9 +247,6 @@
               margin-bottom: 10px;
               .total_classify{
                 width: 98px;
-                &:hover{
-                  color: $master-blue;
-                }
               }
               .classify_list{
                 width: 507px;
@@ -287,7 +284,7 @@
           }
           &:hover{
             background: #585b61;
-            cursor: pointer;
+            // cursor: pointer;
             .select_list_right{
               display: block;
             }

@@ -1076,10 +1076,6 @@ body footer .bottom .friend_link a {
   width: 98px;
 }
 
-.main .banner .bannerSelect .select_list .select_list_aside .select_list_right li .total_classify:hover {
-  color: #007bff;
-}
-
 .main .banner .bannerSelect .select_list .select_list_aside .select_list_right li .classify_list {
   width: 507px;
   display: -webkit-box;
@@ -1124,7 +1120,6 @@ body footer .bottom .friend_link a {
 
 .main .banner .bannerSelect .select_list .select_list_aside:hover {
   background: #585b61;
-  cursor: pointer;
 }
 
 .main .banner .bannerSelect .select_list .select_list_aside:hover .select_list_right {
