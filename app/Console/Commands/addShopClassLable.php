@@ -203,6 +203,13 @@ class addShopClassLable extends Command
                     'stage' => 2,
                 ],
                 [
+                    'id' => 17,
+                    'category_id' => 1,
+                    'parent_id' => 1,
+                    'name' => '打印设备',
+                    'stage' => 2,
+                ],
+                [
                     'id' => 18,
                     'category_id' => 1,
                     'parent_id' => 2,
