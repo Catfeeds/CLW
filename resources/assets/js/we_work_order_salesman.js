@@ -13,7 +13,7 @@ Vue.use(InfiniteScroll); // 上拉加载更多
  */
 var FormData = {
     id: '',
-    tel: $('meta[name="tel"]').attr('content')
+    openid: $('meta[name="openid"]').attr('content')
 }
 var requestType = false;
 const url = process.env.agencyHostURL
@@ -104,7 +104,51 @@ const app = new Vue({
                 }
                 var FormData = {
                     id: id,
-                    feedback: value
+                    feedback: value,
+                    valid: 1 // 反馈
+                }
+                $.ajax({
+                    headers: {
+                        'safeString': $('meta[name="safeString"]').attr('content')
+                    },
+                    url: url + "/api/feedback",
+                    type: 'post',
+                    data: FormData,
+                    success: function(data){
+                        if(data.success) {
+                            Toast({
+                                message: data.message,
+                                position: 'center',
+                                duration: 1000
+                            });
+                            getSaiesmanList(2, 1, true)
+                        }
+                    },
+                    error: function (res) {
+                        Toast({
+                            message: res.responseJSON.message,
+                            position: 'center',
+                            duration: 5000
+                        })
+                    }
+                });
+            });
+        },
+        // 添加无效原因
+        addIneffective(id) {
+            MessageBox.prompt('请输入无效原因','').then(({ value, action }) => {
+                if(!value){
+                    Toast({
+                        message: '无效原因不能为空',
+                        position: 'center',
+                        duration: 1000
+                    });
+                    return
+                }
+                var FormData = {
+                    id: id,
+                    feedback: value,
+                    valid: 2 // 无效
                 }
                 $.ajax({
                     headers: {
@@ -156,7 +200,7 @@ function getSaiesmanList(status, page, type=false) {
         type: 'get',
         data:{
             status: status,
-            tel: $('meta[name="tel"]').attr('content'),
+            openid: $('meta[name="openid"]').attr('content'),
             page: page
         },
         success: function(data){

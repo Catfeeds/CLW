@@ -19,14 +19,12 @@ class EntrustThrowInObservers {
         $openid = $class->getOpenid($entrustThrowIn->type);
         if (!empty($openid)) {
             $data['openid'] = json_encode($openid);
-
             //如果是投放房源
-            if ($entrustThrowIn->type == 2) {
+            if ($entrustThrowIn->demand == 1) {
                 curl(config('setting.wechat_url').'/throw_in_notice','post',$data);
             }
-
             //如果是委托找房
-            if ($entrustThrowIn->type == 1) {
+            if ($entrustThrowIn->demand == 2) {
                 curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
             }
         }

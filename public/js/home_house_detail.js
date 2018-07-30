@@ -8706,6 +8706,13 @@ var _Popover = _interopRequireDefault(__webpack_require__(84)).default;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var _hmt = _hmt || [];
+(function () {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a8bb44e51deceeae65bac46930eab06e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
 var ElPopover = _Popover;
 var ElTooltip = _Tooltip;
 new Vue({
@@ -8717,6 +8724,9 @@ new Vue({
 });
 $(document).on('click', '.js_bankTop', function () {
   $('html, body').animate({ scrollTop: 0 }, 'slow');
+});
+$(document).on('click', '.js_clickCustomerService', function () {
+  $('#nb_icon_wrap').trigger('click');
 });
 
 /***/ }),
