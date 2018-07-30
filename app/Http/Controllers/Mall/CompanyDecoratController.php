@@ -13,6 +13,6 @@ class CompanyDecoratController extends Controller
     }
     public function show()
     {
-        dd('电脑租售详情');
+        dd('企业装修详情');
     }
 }
