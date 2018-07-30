@@ -170,8 +170,8 @@ class addShopClassLable extends Command
             // 盆栽类型 39.大象盆栽 40.中型盆栽 41.小型盆栽
 
             // 添加 办公家具
-            // 分类 42.班台  43.会议桌   44.办公桌  45. 文件柜   46. 沙发   47. 前台   48. 办公椅
-            // 价格 49. 0-100   50. 100-200   51.200以上
+            // 分类 42.班台  43.会议桌   44.办公桌  45. 文件柜   46. 沙发   47. 前台   48. 办公椅 49.办公组合
+            // 价格 50. 0-100   51. 100-200   52.200以上
 
             $labelTwos = [
                 [
@@ -374,7 +374,7 @@ class addShopClassLable extends Command
                     'id' => 42,
                     'category_id' => 3,
                     'parent_id' => 9,
-                    'name' => '小型盆栽',
+                    'name' => '班台',
                     'stage' => 2,
                 ],
                 [
@@ -422,19 +422,26 @@ class addShopClassLable extends Command
                 [
                     'id' => 49,
                     'category_id' => 3,
-                    'parent_id' => 10,
-                    'name' => '0-100',
+                    'parent_id' => 9,
+                    'name' => '办公组合',
                     'stage' => 2,
                 ],
                 [
                     'id' => 50,
                     'category_id' => 3,
                     'parent_id' => 10,
-                    'name' => '100-200',
+                    'name' => '0-100',
                     'stage' => 2,
                 ],
                 [
                     'id' => 51,
+                    'category_id' => 3,
+                    'parent_id' => 10,
+                    'name' => '100-200',
+                    'stage' => 2,
+                ],
+                [
+                    'id' => 52,
                     'category_id' => 3,
                     'parent_id' => 10,
                     'name' => '200以上',

@@ -495,7 +495,7 @@
         <a href="{{url('/furniture')}}"><div><img src="/shop_img/index_four_01.jpg" alt=""></div></a>
         <div class="four_right">
           <div class="small_scale">
-            <a href="{{url('/furniture/1')}}">
+            <a href="{{url('/furniture?labels=42')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">班台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -503,7 +503,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/furniture/2')}}">
+            <a href="{{url('/furniture?labels=47')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">前台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -513,7 +513,7 @@
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="{{url('/furniture/3')}}">
+            <a href="{{url('/furniture?labels=46')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">办公沙发</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -521,7 +521,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/furniture/4')}}">
+            <a href="{{url('/furniture?labels=45')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">资料柜</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -531,7 +531,7 @@
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="{{url('/furniture/5')}}">
+            <a href="{{url('/furniture?labels=43')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">会议桌</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
@@ -539,7 +539,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/furniture/6')}}">
+            <a href="{{url('/furniture?labels=49')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">办公组合</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
