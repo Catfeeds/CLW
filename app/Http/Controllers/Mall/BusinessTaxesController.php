@@ -5,18 +5,15 @@ namespace App\Http\Controllers\Mall;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CompanyDecoratController extends Controller
+class BusinessTaxesController extends Controller
 {
     public function index()
     {
-        dd('企业装修');
+        dd('工商财税列表');
     }
+
     public function show()
     {
-        dd('企业装修详情');
-    }
-    public function wiring()
-    {
-        dd('综合布线');
+        dd('详情');
     }
 }
