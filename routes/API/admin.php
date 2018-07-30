@@ -7,6 +7,8 @@
  */
 header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization,safeString');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    //导出数据
+    Route::post('export', 'EntrustThrowInsController@export');
     // 安全验证码
     Route::get('get_safe_string', 'BannerController@safeString');
     // 登录
@@ -311,13 +313,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('conversion_rates', 'EntrustThrowInsController@conversionRate');
         //渠道来源构成
         Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
-        //导出数据
-        Route::get('export', 'EntrustThrowInsController@export');
+
         //回访
         Route::post('survey', 'EntrustThrowInsController@survey');
         //添加工单
         Route::post('add_gd', 'EntrustThrowInsController@addGd');
     });
+
 
 
 
