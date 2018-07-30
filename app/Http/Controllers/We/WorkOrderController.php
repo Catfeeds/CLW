@@ -20,13 +20,8 @@ class WorkOrderController extends Controller
     {
         $string = 'chulouwang'.date('Y-m-d',time());
         $safeString = Hash::make($string);
-
-         $openid = $request->openid;
-         if (!$openid) return response('缺少参数','404');
-        //通过openid查询电话
-         $tel = $this->getTel($openid);
-         if (!$tel) return response('缺少参数','404');
-        return view('we.work_order_salesman', ['tel'=>$tel, 'safeString'=>$safeString]);
+         if (!$request->openid) return response('缺少参数','404');
+        return view('we.work_order_salesman', ['tel'=>$request->openid, 'safeString'=>$safeString]);
     }
 
     /**
@@ -39,18 +34,7 @@ class WorkOrderController extends Controller
     {
         $string = 'chulouwang'.date('Y-m-d',time());
         $safeString = Hash::make($string);
-
-        $openid = $request->openid;
-        if (!$openid) return response('缺少参数','404');
-        //通过openid查询电话
-        $tel = $this->getTel($openid);
-        if (!$tel) return response('缺少参数','404');
-        return view('we.work_order_shopowner', ['tel'=>$tel, 'safeString'=>$safeString]);
-    }
-
-    //通过openid查询手机号
-    public function getTel($id)
-    {
-        return Employee::where('openid', $id)->value('tel');
+        if (!$request->openid) return response('缺少参数','404');
+        return view('we.work_order_shopowner', ['tel'=>$request->openid, 'safeString'=>$safeString]);
     }
 }
