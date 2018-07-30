@@ -16,7 +16,7 @@ class EntrustThrowInsRepository extends Model
     {
         $res = EntrustThrowIn::whereBetween('created_at', $request->time);
         if (empty($request->type)) {
-            $res =  $res->whereNotIn('source', [1, 2])->whereIn('demand', [1, 2]);
+            $res =  $res->whereNotIn('source', [1, 2])->whereIn('demand', [1, 2, 3]);
         }
         if (!empty($request->type)) {
             $res =  $res->whereIn('source', [5, 6, 7, 8])->whereIn('demand', [1, 2]);
@@ -25,7 +25,7 @@ class EntrustThrowInsRepository extends Model
         $data = [];
         foreach ($res as $k => $v) {
             $data[$k]['id'] = $v->id;
-            $data[$k]['name'] = $v->appellation;
+            $data[$k]['name'] = $v->name;
             $data[$k]['tel'] = $v->tel;
             $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
             $data[$k]['demand'] = $v->demand;
@@ -41,7 +41,7 @@ class EntrustThrowInsRepository extends Model
     }
 
     //房源投放、委托找房
-    public function add($request, $source = null)
+    public function add($request)
     {
         \DB::beginTransaction();
         try {
