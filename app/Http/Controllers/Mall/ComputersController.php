@@ -15,7 +15,7 @@ class ComputersController extends Controller
         LabelsService $service
     )
     {
-        $labels = Label::getLabelByCategoryName('电脑租售');
+        $labels = Label::getLabelByCategoryName('办公设备');
         $sort = $request->url();
         $symbol = '?';
         if (!empty($request->labels)) {

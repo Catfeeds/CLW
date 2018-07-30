@@ -1076,10 +1076,6 @@ body footer .bottom .friend_link a {
   width: 98px;
 }
 
-.main .banner .bannerSelect .select_list .select_list_aside .select_list_right li .total_classify:hover {
-  color: #007bff;
-}
-
 .main .banner .bannerSelect .select_list .select_list_aside .select_list_right li .classify_list {
   width: 507px;
   display: -webkit-box;
@@ -1124,7 +1120,6 @@ body footer .bottom .friend_link a {
 
 .main .banner .bannerSelect .select_list .select_list_aside:hover {
   background: #585b61;
-  cursor: pointer;
 }
 
 .main .banner .bannerSelect .select_list .select_list_aside:hover .select_list_right {
@@ -1644,7 +1639,7 @@ body footer .bottom .friend_link a {
   position: relative;
 }
 
-.main .customService img {
+.main .customService .customServicePic {
   position: absolute;
   bottom: 0;
   left: 107px;
@@ -1690,6 +1685,27 @@ body footer .bottom .friend_link a {
   padding: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.main .customService .customBox .consult .error {
+  margin-top: 12px;
+  color: #fe7a85;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.main .customService .customBox .consult .error img {
+  margin-right: 5px;
 }
 
 .main .customService .customBox .consult input {
@@ -1701,6 +1717,26 @@ body footer .bottom .friend_link a {
   border-radius: 2px;
   font-size: 14px;
   padding-left: 10px;
+}
+
+.main .customService .customBox .consult input::input-placeholder {
+  color: #b8c4ce !important;
+}
+
+.main .customService .customBox .consult input::-webkit-input-placeholder {
+  color: #999 !important;
+}
+
+.main .customService .customBox .consult input:-moz-placeholder {
+  color: #999 !important;
+}
+
+.main .customService .customBox .consult input::-moz-placeholder {
+  color: #999 !important;
+}
+
+.main .customService .customBox .consult input:-ms-input-placeholder {
+  color: #999 !important;
 }
 
 .main .customService .customBox .consult button {
