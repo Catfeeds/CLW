@@ -22,42 +22,42 @@
               <li>
                 <div class="total_classify">代理记账 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>小规模记账</span></a>
-                  <a href="javascript:void(0)">|<span>一般纳税人代理记账</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>小规模记账</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>一般纳税人代理记账</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">税务代办 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>税收筹划</span></a>
-                  <a href="javascript:void(0)">|<span>税控器解锁</span></a>
-                  <a href="javascript:void(0)">|<span>报税系统解锁</span></a>
-                  <a href="javascript:void(0)">|<span>发票增版/增量</span></a>
-                  <a href="javascript:void(0)">|<span>申办一般纳税人</span></a>
-                  <a href="javascript:void(0)">|<span>税控代办及票种核定</span></a>
-                  <a href="javascript:void(0)">|<span>所得税汇算清缴</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>税收筹划</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>税控器解锁</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>报税系统解锁</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>发票增版/增量</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>申办一般纳税人</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>税控代办及票种核定</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>所得税汇算清缴</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">财务审计 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>年度财务报表审计</span></a>
-                  <a href="javascript:void(0)">|<span>所得税汇算清缴审计</span></a>
-                  <a href="javascript:void(0)">|<span>验资报告</span></a>
-                  <a href="javascript:void(0)">|<span>专项审计</span></a>
-                  <a href="javascript:void(0)">|<span>税审</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>年度财务报表审计</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>所得税汇算清缴审计</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>验资报告</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>专项审计</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>税审</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">工商代办 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>有限责任公司注册</span></a>
-                  <a href="javascript:void(0)">|<span>外商独资公司注册</span></a>
-                  <a href="javascript:void(0)">|<span>合伙企业注册</span></a>
-                  <a href="javascript:void(0)">|<span>个人独资企业注册</span></a>
-                  <a href="javascript:void(0)">|<span>公司注册地址</span></a>
-                  <a href="javascript:void(0)">|<span>分公司注册</span></a>
-                  <a href="javascript:void(0)">|<span>一般人注册地址</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>有限责任公司注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>外商独资公司注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>合伙企业注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>个人独资企业注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>公司注册地址</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>分公司注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}">|<span>一般人注册地址</span></a>
                 </div>
               </li>
             </ul>
@@ -74,19 +74,16 @@
               <li>
                 <div class="total_classify">电脑设备 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>笔记本</span></a>
-                  <a href="javascript:void(0)">|<span>台式机</span></a>
-                  <a href="javascript:void(0)">|<span>一体机</span></a>
-                  <a href="javascript:void(0)">|<span>平板电脑</span></a>
+                  <a href="{{url('/computers?labels=13')}}">|<span>笔记本</span></a>
+                  <a href="{{url('/computers?labels=14')}}">|<span>台式机</span></a>
+                  <a href="{{url('/computers?labels=15')}}">|<span>一体机</span></a>
+                  <a href="{{url('/computers?labels=16')}}">|<span>平板电脑</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">打印复印 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>设备租赁</span></a>
-                  <a href="javascript:void(0)">|<span>半价合约机</span></a>
-                  <a href="javascript:void(0)">|<span>设备免费送</span></a>
-                  <a href="javascript:void(0)">|<span>全包服务</span></a>
+                  <a href="{{url('/computers?labels=17')}}">|<span>打印设备</span></a>
                 </div>
               </li>
             </ul>
@@ -103,33 +100,33 @@
               <li>
                 <div class="total_classify">保洁服务 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>日常保洁</span></a>
-                  <a href="javascript:void(0)">|<span>开荒保洁</span></a>
+                  <a href="{{url('/cleanup')}}">|<span>日常保洁</span></a>
+                  <a href="{{url('/cleanup')}}">|<span>开荒保洁</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">搬家服务 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>搬家服务</span></a>
+                  <a href="{{url('/houseMv')}}">|<span>搬家服务</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">绿植服务 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>绿植单品</span></a>
-                  <a href="javascript:void(0)">|<span>绿植套餐</span></a>
+                  <a href="{{url('/plants?labels=28')}}">|<span>绿植单品</span></a>
+                  <a href="{{url('/plants?labels=29')}}">|<span>绿植套餐</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">室内环保 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>室内环保</span></a>
+                  <a href="{{url('/cleanup')}}">|<span>室内环保</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">饮水服务 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>桶装水</span></a>
+                  <a href="{{url('/water')}}">|<span>桶装水</span></a>
                 </div>
               </li>
             </ul>
@@ -146,13 +143,13 @@
               <li>
                 <div class="total_classify">室内装修 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>室内装修</span></a>
+                  <a href="{{url('/companyDecorat')}}">|<span>室内装修</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">综合布线 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>综合布线</span></a>
+                  <a href="{{url('/wiring')}}">|<span>综合布线</span></a>
                 </div>
               </li>
             </ul>
@@ -169,43 +166,43 @@
               <li>
                 <div class="total_classify">班台 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>班台</span></a>
+                  <a href="{{url('/furniture?labels=42')}}">|<span>班台</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">会议桌 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>会议桌</span></a>
+                  <a href="{{url('/furniture?labels=43')}}">|<span>会议桌</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">办公桌 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>办公桌</span></a>
+                  <a href="{{url('/furniture?labels=44')}}">|<span>办公桌</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">文件柜 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>文件柜</span></a>
+                  <a href="{{url('/furniture?labels=45')}}">|<span>文件柜</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">沙发 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>沙发</span></a>
+                  <a href="{{url('/furniture?labels=46')}}">|<span>沙发</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">前台 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>前台</span></a>
+                  <a href="{{url('/furniture?labels=47')}}">|<span>前台</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">办公椅 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>办公椅</span></a>
+                  <a href="{{url('/furniture?labels=48')}}">|<span>办公椅</span></a>
                 </div>
               </li>
             </ul>
@@ -222,21 +219,21 @@
               <li>
                 <div class="total_classify">图文广告 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>图文快印</span></a>
-                  <a href="javascript:void(0)">|<span>商务印品</span></a>
-                  <a href="javascript:void(0)">|<span>企业广告</span></a>
+                  <a href="{{url('/fastPrint')}}">|<span>图文快印</span></a>
+                  <a href="{{url('/businessPrint')}}">|<span>商务印品</span></a>
+                  <a href="{{url('/businessAds')}}">|<span>企业广告</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">金融 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>金融支持</span></a>
+                  <a href="{{url('/finance')}}">|<span>金融支持</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify">豪车 &nbsp;&nbsp;> </div>
                 <div class="classify_list">
-                  <a href="javascript:void(0)">|<span>豪车租赁</span></a>
+                  <a href="{{url('/luxuryCar')}}">|<span>豪车租赁</span></a>
                 </div>
               </li>
             </ul>
@@ -255,7 +252,7 @@
     <div class="service">
       <div class="head">一站式快捷服务</div>
       <div class="serviceList">
-        <a href="javascript:void(0)">
+        <a href="{{url('/business_taxes')}}">
           <div class="finance">
             <div class="border"></div>
             <div class="up">
@@ -285,7 +282,7 @@
             <div><img src="/shop_img/furniture.jpg"></div>
           </div>
         </a>
-        <a href="javascript:void(0)">
+        <a href="{{url('/cleanup')}}">
           <div class="clean">
             <div class="border"></div>
             <div class="up">
@@ -679,8 +676,8 @@
           <div class="modeFirst">
             <a href="{{url('/plants/1')}}">
               <div class="modeBox">
-                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeTitle">碧玉 绿植盆栽租赁</div>
+                <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
                   <div class="unitPrice">¥ 99/月</div>
                   <div><img src="/shop_img/index_sale_plants_02.jpg" alt=""></div>
@@ -689,8 +686,8 @@
             </a>
             <a href="{{url('/plants/2')}}">
               <div class="modeBox">
-                <div class="modeTitle">全新 联想/Lenovo 启天M410</div>
-                <div class="modeDetail">主动商务，高效易用</div>
+                <div class="modeTitle">红掌水培植物</div>
+                <div class="modeDetail">方寸间 乐趣全开</div>
                 <div class="price">
                   <div class="unitPrice">¥ 99/月</div>
                   <div><img src="/shop_img/index_sale_plants_03.jpg" alt=""></div>
@@ -700,7 +697,7 @@
           </div>
           <a href="{{url('/plants/3')}}">
             <div class="modelSecond">
-              <div class="modeTitle">新一代成铭 3980</div>
+              <div class="modeTitle">发财树 绿植盆栽租赁</div>
               <div class="modeDetail">专属定制 低价高效</div>
               <div class="unitPrice">¥ 99/月</div>
               <div><img src="/shop_img/index_sale_plants_04.jpg" alt=""></div>
@@ -709,7 +706,7 @@
           <div class="modeThird">
             <a href="{{url('/plants/4')}}">
               <div class="modeBox">
-                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeTitle">幸福树 绿植盆栽租赁</div>
                 <div class="modeDetail">方寸间 乐趣全开</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_plants_05.jpg" alt=""></div>
@@ -719,7 +716,7 @@
             </a>
             <a href="{{url('/plants/5')}}">
               <div class="modeBox">
-                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
+                <div class="modeTitle">也铁门 绿植盆栽租赁</div>
                 <div class="modeDetail">方寸间 乐趣全开</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_plants_06.jpg" alt=""></div>
