@@ -750,7 +750,21 @@
           border-radius: 2px;
           font-size: 14px;
           padding-left: 10px;
+          // color: #999;
         }
+        input::input-placeholder{color:#b8c4ce!important;} 
+        input::-webkit-input-placeholder{ 
+        color: #999 !important; 
+        } 
+        input:-moz-placeholder{ 
+        color: #999 !important; 
+        } 
+        input::-moz-placeholder{ 
+        color: #999 !important; 
+        } 
+        input:-ms-input-placeholder{ 
+        color: #999 !important; 
+        } 
         button{
           border: none;
           width: 87px;

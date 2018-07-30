@@ -73,3 +73,12 @@ $(window).scroll(function() {
 $('.js_backTop').on('click', function() {
   $("body,html").animate({scrollTop: 0}, 500)
 })
+
+// 立即预约
+$('.consult button').click(function() {
+  var telVal = $('.consult input').val()
+  var tel = /^\d{11}$/
+  if(tel.test(telVal)) {
+    console.log('sssss', telVal)
+  }
+})

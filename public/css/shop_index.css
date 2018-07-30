@@ -1698,6 +1698,26 @@ body footer .bottom .friend_link a {
   padding-left: 10px;
 }
 
+.main .customService .customBox .consult input::input-placeholder {
+  color: #b8c4ce !important;
+}
+
+.main .customService .customBox .consult input::-webkit-input-placeholder {
+  color: #999 !important;
+}
+
+.main .customService .customBox .consult input:-moz-placeholder {
+  color: #999 !important;
+}
+
+.main .customService .customBox .consult input::-moz-placeholder {
+  color: #999 !important;
+}
+
+.main .customService .customBox .consult input:-ms-input-placeholder {
+  color: #999 !important;
+}
+
 .main .customService .customBox .consult button {
   border: none;
   width: 87px;
