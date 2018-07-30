@@ -331,10 +331,10 @@
         <div class="floorTitle">工商财税</div>
       </div>
       <div class="content">
-        <a href="javascript:void(0)"><div><img src="/shop_img/index_first.jpg" alt=""></div></a>
+        <a href="{{url('/business_taxes')}}"><div><img src="/shop_img/index_first.jpg" alt=""></div></a>
         <div class="first_right">
           <div class="small_scale">
-            <a href="javascript:void(0)">
+            <a href="{{url('/business_taxes/1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">小规模纳税人 代理记账</div>
                 <div class="small_scale_detail">30项代账服务 满足您的账务需求</div>
@@ -342,7 +342,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="javascript:void(0)">
+            <a href="{{url('/business_taxes/1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">年度财务报表审计</div>
                 <div class="small_scale_detail">专业财务审计意见，满足第三方的要求</div>
@@ -352,7 +352,7 @@
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="javascript:void(0)">
+            <a href="{{url('/business_taxes/1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">一般纳税人 代理记账</div>
                 <div class="small_scale_detail">五对一 省钱又省心</div>
@@ -360,7 +360,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="javascript:void(0)">
+            <a href="{{url('/business_taxes/1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">税审</div>
                 <div class="small_scale_detail">12年专业经验 为您服务</div>
@@ -370,7 +370,7 @@
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="javascript:void(0)">
+            <a href="{{url('/business_taxes/1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">税务筹划</div>
                 <div class="small_scale_detail">为企业提供合法合规财税优惠服务</div>
@@ -378,7 +378,7 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="javascript:void(0)">
+            <a href="{{url('/business_taxes/1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">验资报告</div>
                 <div class="small_scale_detail">注会协贴标，正规，专业</div>
@@ -402,30 +402,30 @@
         <div class="floorTitle">办公设备</div>
       </div>
       <div class="content">
-        <a href="{{url('/computers')}}"><img src="/shop_img/index_second_01.jpg" alt=""></a>
+        <a href="{{url('/computers?labels=15')}}"><img src="/shop_img/index_second_01.jpg" alt=""></a>
         <div class="second_right">
-          <a href="{{url('/computers/1')}}">
+          <a href="{{url('/computers?labels=14')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_02.jpg" alt="">
               <div class="seconde_work_title">电脑租赁</div>
               <div class="seconde_work_detail">免押金 一台起租 随租随还</div>
             </div>
           </a>
-          <a href="{{url('/computers/2')}}">
+          <a href="{{url('/computers?labels=17')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_03.jpg" alt="">
               <div class="seconde_work_title">打印复印</div>
               <div class="seconde_work_detail">全包服务</div>
             </div>
           </a>
-          <a href="{{url('/computers/3')}}">
+          <a href="{{url('/computers?labels=15')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_04.jpg" alt="">
               <div class="seconde_work_title">一体机租赁</div>
               <div class="seconde_work_detail">苹果一体机  设计专用</div>
             </div>
           </a>
-          <a href="{{url('/computers/4')}}">
+          <a href="{{url('/computers?labels=16')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_05.jpg" alt="">
               <div class="seconde_work_title">平板电脑</div>
@@ -447,16 +447,16 @@
         <div class="floorTitle">入驻服务</div>
       </div>
       <div class="content">
-        <a href="javascript:void(0)"><img src="/shop_img/index_third_01.jpg" alt=""></a>
+        <a href="{{url('/cleanup')}}"><img src="/shop_img/index_third_01.jpg" alt=""></a>
         <div class="third_right">
-          <a href="javascript:void(0)">
+          <a href="{{url('/cleanup')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_02.jpg" alt="">
               <div class="seconde_work_title">保洁服务</div>
               <div class="seconde_work_detail">日常开荒  全面服务</div>
             </div>
           </a>
-          <a href="javascript:void(0)">
+          <a href="{{url('/water')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_03.jpg" alt="">
               <div class="seconde_work_title">桶装水</div>
@@ -470,7 +470,7 @@
               <div class="seconde_work_detail">租赁买卖  品种多样</div>
             </div>
           </a>
-          <a href="javascript:void(0)">
+          <a href="{{URL('/houseMv')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_05.jpg" alt="">
               <div class="seconde_work_title">搬家服务</div>
@@ -575,7 +575,7 @@
             <a href="{{url('/companyDecorat')}}"><div class="check">立即查看</div></a>
           </div>
         </div>
-        <a href="javascript:void(0)">
+        <a href="{{url('/wiring')}}">
           <div class="fiveRight">
             <div class="fiveRightTitle">综合布线</div>
             <ul>
