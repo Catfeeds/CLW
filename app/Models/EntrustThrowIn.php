@@ -62,6 +62,9 @@ class EntrustThrowIn extends Model
             case 9:
                 return '58同城';
                 break;
+            case 10:
+                return '商城';
+                break;
             default;
                 break;
         }

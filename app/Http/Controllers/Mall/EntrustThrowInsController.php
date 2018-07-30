@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\API\App;
+namespace App\Http\Controllers\Mall;
 
 use App\Http\Controllers\API\APIBaseController;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\App\EntrustThrowInsRequest;
 use App\Repositories\EntrustThrowInsRepository;
 
-class EntrustThrowInsController extends APIBaseController
+class EntrustThrowInsController extends Controller
 {
     public function store
     (

@@ -43,14 +43,10 @@ class EntrustThrowInsRepository extends Model
     //房源投放、委托找房
     public function add($request, $source = null)
     {
-        if (empty($source)) {
-            $source = $request->source;
-        }
         \DB::beginTransaction();
         try {
             // 通过手机号查询用户
             $user = User::where('tel', $request->tel)->first();
-
             $entrustThrowIn = EntrustThrowIn::create([
                 'name' => $request->name,
                 'tel' => $request->tel,
@@ -60,7 +56,7 @@ class EntrustThrowInsRepository extends Model
                 'block_id' => $request->block_id,
                 'acreage' => $request->acreage,
                 'building_name' => $request->building_name,
-                'source' => $source,
+                'source' => $request->source,
                 'page_source' => $request->page_source,
                 'demand' => $request->demand,
                 'remark' => $request->remark,
