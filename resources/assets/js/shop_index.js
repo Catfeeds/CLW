@@ -1,5 +1,6 @@
 require('./shop_common');
 require('./shop_header');
+import { Message } from 'element-ui';
 $('.error').hide() // 隐藏错误提示
 var index = 0 // 电梯导航下标
 var off = true // 避免点击与滚动事件重合
@@ -81,7 +82,37 @@ $('.consult button').click(function() {
   var tel = /^\d{11}$/
   if(tel.test(telVal)) {
     console.log('sssss', telVal)
-    $('.error').hide()
+    var data={}
+    data.tel = telVal
+    data.source = 10
+    data.demand = 3
+    data.page_source = '首页底部-企业服务'
+    $.ajax({
+      url: '/entrust_throw_ins',
+      type: 'POST',
+      data: data,
+      success: function(res) {
+        if(res.success) {
+          Message({
+            message: '预约成功',
+            type: 'success'
+          })
+        } else {
+          Message({
+            message: res.message,
+            type: 'warning'
+          })
+        }
+        $('.error').hide()
+        $('.consult input').val('')
+      },
+      error: function(res) {
+        Message({
+          message: res.responseJSON.message,
+          type: 'warning'
+        })
+      }
+    })
   } else {
     $('.error').show()
   }
