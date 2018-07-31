@@ -44,6 +44,7 @@ var type = $("#commentForm").validate({
             maxlength: "联系人最长不能超过32"
         }
     },
+    debug: true,
     showErrors: function(errorMap, errorList) {
         var appellation = $("input[name='appellation']").val()
         var tel = $("input[name='tel']").val()
@@ -87,7 +88,12 @@ var type = $("#commentForm").validate({
       },
     submitHandler: function(form) {
         var data = new FormData(form)
-        data.append('source_page', sourcePage('sourcePage') + '-投放房源')
+        var page = sourcePage('sourcePage')
+        if (page) {
+            data.append('source_page', page + '-投放房源')
+        } else {
+            data.append('source_page', null)
+        }
         data.append('demand', 1)
         data.append('source', 6)
         launchHouse(data).then(res => {

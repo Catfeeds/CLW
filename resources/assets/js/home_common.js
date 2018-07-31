@@ -5,9 +5,12 @@ window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
 
 window.sourcePage = function(name) { 
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i"); 
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i")
+  if (!window.location.search) {
+    return null
+  }
   var r = window.location.search.substr(1).match(reg); 
-  if (r!=null) {
+  if (r !== null) {
     const int = parseInt(r[2])
     switch (int) {
       case 1:
@@ -26,5 +29,6 @@ window.sourcePage = function(name) {
         return null
     }
   }
+  return null
 }
   

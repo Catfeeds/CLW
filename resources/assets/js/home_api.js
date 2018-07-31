@@ -42,7 +42,7 @@ export function getSiteList() {
 // 委托找房
 export function findHouse(data) {
   return request({
-    url: '/bespeaks',
+    url: '/entrust_throw_ins',
     method: 'POST',
     data
   })

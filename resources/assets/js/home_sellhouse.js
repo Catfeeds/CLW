@@ -70,20 +70,25 @@ var type = $("#commentForm").validate({
         }
       }
     },
+    debug: true,
     submitHandler: function(form) {
-        console.log(form)
-        var data = new FormData(form)
-        data.append('source_page', sourcePage('sourcePage') + '-委托找房')
-        data.append('demand', 2)
-        data.append('source', 6)
-        factorFindHouse(data).then(res => {
-            if (res.success) {
-                Message({
-                    message: '委托成功，楚楼网10分钟内联系您',
-                    type: 'success'
-                })
-                form.reset()
-            }
-        })
+      var data = new FormData(form)
+      var page = sourcePage('sourcePage')
+      if (page) {
+        data.append('source_page', page + '-委托找房')
+      } else {
+        data.append('source_page', null)
+      }
+      data.append('demand', 2)
+      data.append('source', 6)
+      factorFindHouse(data).then(res => {
+        if (res.success) {
+          Message({
+              message: '委托成功，楚楼网10分钟内联系您',
+              type: 'success'
+          })
+          form.reset()
+        }
+      })
     }
 })

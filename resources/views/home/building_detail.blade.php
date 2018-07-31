@@ -210,7 +210,7 @@
                     </div>
                     <!-- 委托找房 -->
                     <div class="findHouse">
-                        <find-house></find-house>
+                        <find-house source-page='楼盘详情'></find-house>
                     </div>
                 </div>
             </div>
