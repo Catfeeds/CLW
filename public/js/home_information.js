@@ -1066,7 +1066,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.199/' + '/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.199' + '/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -1155,7 +1155,7 @@ function getSiteBuildNum(data) {
 // 委托找房表单
 function factorFindHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/bespeaks',
+    url: '/entrust_throw_ins',
     method: 'POST',
     data: data
   });
@@ -1163,7 +1163,7 @@ function factorFindHouse(data) {
 // 投放房源
 function launchHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/throw_ins',
+    url: '/entrust_throw_ins',
     method: 'POST',
     data: data
   });

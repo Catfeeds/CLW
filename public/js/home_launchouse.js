@@ -1066,7 +1066,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.199/' + '/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.199' + '/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -1155,7 +1155,7 @@ function getSiteBuildNum(data) {
 // 委托找房表单
 function factorFindHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/bespeaks',
+    url: '/entrust_throw_ins',
     method: 'POST',
     data: data
   });
@@ -1163,7 +1163,7 @@ function factorFindHouse(data) {
 // 投放房源
 function launchHouse(data) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
-    url: '/throw_ins',
+    url: '/entrust_throw_ins',
     method: 'POST',
     data: data
   });
@@ -4282,7 +4282,6 @@ __webpack_require__(146);
 
  // 引入bootstrap提示工具对应js文件
  // 引入bootstrap弹出框对应js文件
-var url = '';
 var blockData = JSON.parse($('#blockData').val());
 $('#blockData')[0].remove();
 var arae = new __WEBPACK_IMPORTED_MODULE_4_vue___default.a({
@@ -4364,6 +4363,9 @@ var type = $("#commentForm").validate({
     },
     submitHandler: function submitHandler(form) {
         var data = new FormData(form);
+        data.append('source_page', sourcePage('sourcePage') + '-投放房源');
+        data.append('demand', 1);
+        data.append('source', 6);
         Object(__WEBPACK_IMPORTED_MODULE_5__home_api__["n" /* launchHouse */])(data).then(function (res) {
             if (res.success) {
                 __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({

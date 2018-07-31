@@ -6,7 +6,6 @@ import { launchHouse } from './home_api'
 import { Message } from 'element-ui';
 import 'bootstrap-sass/assets/javascripts/bootstrap/tooltip.js' // 引入bootstrap提示工具对应js文件
 import 'bootstrap-sass/assets/javascripts/bootstrap/popover.js' // 引入bootstrap弹出框对应js文件
-const url = process.env.homeHostUrl
 const blockData = JSON.parse($('#blockData').val())
 $('#blockData')[0].remove()
 const arae = new Vue({
@@ -88,6 +87,9 @@ var type = $("#commentForm").validate({
       },
     submitHandler: function(form) {
         var data = new FormData(form)
+        data.append('source_page', sourcePage('sourcePage') + '-投放房源')
+        data.append('demand', 1)
+        data.append('source', 6)
         launchHouse(data).then(res => {
             if (res.success) {
                 Message({

@@ -73,7 +73,9 @@ var type = $("#commentForm").validate({
     submitHandler: function(form) {
         console.log(form)
         var data = new FormData(form)
-        console.log('ssss', data)
+        data.append('source_page', sourcePage('sourcePage') + '-委托找房')
+        data.append('demand', 2)
+        data.append('source', 6)
         factorFindHouse(data).then(res => {
             if (res.success) {
                 Message({

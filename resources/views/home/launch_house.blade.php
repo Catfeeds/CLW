@@ -16,7 +16,7 @@
             <span>*</span>联系人
           </div>
           <div class="content">
-            <input name="appellation" type="text" placeholder="联系人姓名"/>
+            <input name="name" type="text" placeholder="联系人姓名"/>
             <div class="errorTitle js_appellation" data-container="body" data-toggle="popover" data-placement="right" data-content="请输入联系人"></div>
             <div class="errorTitle appellation_length" data-container="body" data-toggle="popover" data-placement="right" data-content="联系人最长不能超过32"></div>
           </div>

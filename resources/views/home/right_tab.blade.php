@@ -6,14 +6,14 @@
       <div class="text-box">热线</div>
     </div>
     <el-tooltip effect="dark" content="免费委托 专业服务" placement="left">
-      <a class="lookForHouse-box" href="{{url('/bespeaks')}}" target="_blank">
+      <a class="lookForHouse-box" href="{{url('/bespeaks').'?sourcePage='.sourcePage(Request::segment(1))}}" target="_blank">
         <div class="text-box">委托</div>
         <div class="text-box">找房</div>
       </a>
     </el-tooltip>
     <div class="launchHose-box">
       <el-tooltip effect="dark" content="免费投放 专业服务" placement="left">
-        <a href="{{url('/throw_ins')}}" target="_blank">
+        <a href="{{url('/throw_ins').'?sourcePage='.sourcePage(Request::segment(1))}}" target="_blank">
           <img src="{{homeRes('/home_img/right_launch.png')}}" alt="投放房源">
         </a>
       </el-tooltip>

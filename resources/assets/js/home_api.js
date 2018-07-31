@@ -109,7 +109,7 @@ export function getSiteBuildNum(data) {
 // 委托找房表单
 export function factorFindHouse(data) {
   return request({
-    url: '/bespeaks',
+    url: '/entrust_throw_ins',
     method: 'POST',
     data
   })
@@ -117,7 +117,7 @@ export function factorFindHouse(data) {
 // 投放房源
 export function launchHouse(data) {
   return request({
-    url: '/throw_ins',
+    url: '/entrust_throw_ins',
     method: 'POST',
     data
   })
