@@ -95,6 +95,8 @@ export default {
       var newNum = 0
       if(name !== '') {
         newNum += 1
+        this.showAfter = false
+        this.showBefore = true
       }
       if(date >= 1) {
         newNum = newNum + date
