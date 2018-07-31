@@ -104,17 +104,18 @@ $(document).on('click', '.loginOut button', function () {
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            url: "/throw_ins",
+            url: "/entrust_throw_ins",
             type: 'post',
             data: {
                 tel: tel,
-                appellation: appellation,
+                name: appellation,
                 building_name: building_name,
                 area_id: app.area_id,
                 acreage: acreage,
                 area_name: app.value,
-                page_source: source + '个人中心',
-                source: source.substring(0, source.length - 1)
+                page_source: '个人中心-投放房源',
+                source: 7,
+                demand: 1
             },
             success: function success(data) {
                 var toast = Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
