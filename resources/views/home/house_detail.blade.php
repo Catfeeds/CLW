@@ -192,13 +192,12 @@
                         </div>
                         <div class="build"></div>
                     </div>
-                    <div class="panorama-box">
+                    {{--<div class="panorama-box">
                         <div class="head">360全景</div>
                         <div class="panorama-body">
                             <div id="viewer"></div>
                         </div>
-                        
-                    </div>
+                    </div> --}}
                     {{-- <button class="zxz-test">zxz</button> 测试--}}
                     <div class='server'>
                         <div class="head">企业服务</div>
@@ -228,7 +227,7 @@
                 </div>
                 <!-- 免费委托找房 -->
                 <div class="findHouse">
-                    <find-house></find-house>
+                    <find-house source-page='房源详情'></find-house>
                 </div>
             </div>
         </div>
