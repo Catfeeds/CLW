@@ -35,7 +35,7 @@
       <div class="border"></div>
       <div class="mapFindHouse">
         <img src="/home_img/mapFindHouse.jpg">
-        <a href="/map_test"><div class="mapButton">试试地图找房</div></a>
+        <a href="/map_find_house"><div class="mapButton">试试地图找房</div></a>
       </div>
     </div>
   </div>
@@ -45,6 +45,12 @@ import { findHouse } from '../home_api'
 import { MessageBox } from 'element-ui'
 import Cookies from 'js-cookie'
 export default {
+  props: {
+    sourcePage: {
+      type: String,
+      default: null
+    }
+  },
   data() {
     return {
       value: '',
@@ -65,7 +71,11 @@ export default {
       if(tel.test(this.value)) {
         if(this.value) {
           this.isShow = false
-          findHouse({ tel: this.value }).then(res => {
+          let sourcePage = null
+          if (this.sourcePage) {
+            sourcePage = this.sourcePage + '广告栏-委托找房'
+          }
+          findHouse({ tel: this.value, source_page: sourcePage, source: 6, demand: 2 }).then(res => {
             this.showAfter = false
             this.showBefore = true
             Cookies.set('name', '预约投放成功')
@@ -85,6 +95,8 @@ export default {
       var newNum = 0
       if(name !== '') {
         newNum += 1
+        this.showAfter = false
+        this.showBefore = true
       }
       if(date >= 1) {
         newNum = newNum + date

@@ -675,6 +675,13 @@ class PermissionSeeder extends Seeder
         ]);
 
         Permission::create([
+            'name' => 'information_edit',
+            'guard_name' => 'web',
+            'label' => '添加资讯',
+            'group_id' => 23,
+        ]);
+
+        Permission::create([
             'name' => 'del_information',
             'guard_name' => 'web',
             'label' => '删除资讯',

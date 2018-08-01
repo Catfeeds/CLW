@@ -18,7 +18,6 @@ class CreateCategoriesTable extends Migration
             $table->string('name','32')->nullable()->comment('类名');
             $table->string('route','32')->nullable()->comment('路由');
             $table->timestamps();
-            $table->softDeletes();
         });
         DB::statement("alter table `categories` comment'商城类表'");
     }

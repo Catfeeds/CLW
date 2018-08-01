@@ -6,16 +6,18 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\CategoriesRequest;
 use App\Models\Category;
 use App\Repositories\CategoriesRepository;
+use Illuminate\Http\Request;
 
 class CategoriesController extends APIBaseController
 {
     // 商城大类列表
     public function index
     (
+        Request $request,
         CategoriesRepository $categoriesRepository
     )
     {
-        $res = $categoriesRepository->CategoriesList();
+        $res = $categoriesRepository->CategoriesList($request);
         return $this->sendResponse($res,'商城大类列表获取成功');
     }
 

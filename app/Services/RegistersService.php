@@ -123,8 +123,25 @@ class RegistersService
             \Log::error('用户添加失败'. $exception->getMessage());
             return false;
         }
+    }
 
-
-
+    //修改密码
+    public function update($admin, $request)
+    {
+        \DB::beginTransaction();
+        try {
+            if (!empty($request->password)) {
+                $admin->password = bcrypt($request->password);
+            }
+            $admin->nick_name = $request->nick_name;
+            if (!$admin->save()) throw new \Exception('修改失败');
+            $admin->syncRoles($request->role_id);
+            \DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            \DB::rollback();
+            \Log::error('用修改失败'. $exception->getMessage());
+            return false;
+        }
     }
 }

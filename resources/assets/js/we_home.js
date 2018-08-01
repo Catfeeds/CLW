@@ -81,17 +81,18 @@ $(document).on('touchend || tap', '#popover', function () {
 });
 // 预约
 $(document).on('touchend || tap', '#lookForHouse', function () {
-  var source = whatBrowser()
+  // var source = whatBrowser()
   $.ajax({
-    url: '/bespeaks',
+    url: '/entrust_throw_ins',
     type: 'POST',
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: source+'首页',
-      source: source.substring(0,source.length-1)
+      page_source: '首页-委托找房',
+      source: 7,
+      demand: 2
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);
@@ -122,17 +123,18 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
 });
 // 投放房源
 $(document).on('touchend || tap', '#peltHouse', function () {
-  var source = whatBrowser()
+  // var source = whatBrowser()
   $.ajax({
-    url: '/throw_ins',
+    url: '/entrust_throw_ins',
     type: 'POST',
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: source+'首页',
-      source: source.substring(0,source.length-1)
+      page_source: '首页-投放房源',
+      source: 7,
+      demand: 1
     },
     success: function (data) {
       $('#backdrop').fadeOut(300);

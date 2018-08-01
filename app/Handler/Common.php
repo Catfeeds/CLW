@@ -7,7 +7,7 @@
  */
 namespace App\Handler;
 
-use Illuminate\Support\Facades\Auth;
+use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 
 /**
@@ -33,7 +33,7 @@ class Common
     public static function user()
     {
         // 判断用户权限
-        return Auth::guard('admin')->user();
+        return \Illuminate\Support\Facades\Auth::guard('admin')->user();
     }
 
     /**

@@ -113,15 +113,18 @@ module.exports = {
   shop: {
     scss: [
       'shop_index',
-      'shop_list'
+      'shop_list_worktool',
+      'shop_list_plants',
+      'shop_check'
     ],
     js: [
-
+      'shop_index',
+      'shop_check'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',
     extract: [
-
+      './resources/assets/js/shop_common'
     ]
   }
 };
