@@ -111,13 +111,21 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
         });
       }
     },
-    error: function () {
+    error: function (error) {
       $('#backdrop').fadeOut(300);
-      Toast({
-        message: '服务器繁忙,请联系客服处理',
-        position: 'center',
-        duration: 3000
-      });
+      if (error.status < 500) {
+        Toast({
+          message: error.responseJSON.message,
+          position: 'center',
+          duration: 3000
+        });
+      } else {
+        Toast({
+          message: '服务器出错',
+          position: 'center',
+          duration: 3000
+        });
+      }
     }
   })
 });
@@ -153,13 +161,22 @@ $(document).on('touchend || tap', '#peltHouse', function () {
         });
       }
     },
-    error: function () {
+    error: function (error) {
       $('#backdrop').fadeOut(300);
-      Toast({
-        message: '服务器繁忙,请联系客服处理',
-        position: 'center',
-        duration: 3000
-      });
+      if (error.status < 500) {
+        Toast({
+          message: error.responseJSON.message,
+          position: 'center',
+          duration: 3000
+        });
+      } else {
+        Toast({
+          message: '服务器出错',
+          position: 'center',
+          duration: 3000
+        });
+      }
+      
     }
   })
 });

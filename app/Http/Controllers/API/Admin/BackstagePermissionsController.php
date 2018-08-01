@@ -10,13 +10,14 @@ use App\Handler\Common;
 class BackstagePermissionsController extends APIBaseController
 {
     public function index(
-        PermissionsRepository $repository
+        PermissionsRepository $repository,
+        PermissionsRequest $request
     )
     {
         if (empty(Common::user()->can('backstage_permission_list'))) {
             return $this->sendError('无后台权限列表权限','403');
         }
-        $res = $repository->permissionsList();
+        $res = $repository->permissionsList($request);
         return $this->sendResponse($res,'后台权限列表获取成功');
     }
 
