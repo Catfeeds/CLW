@@ -75,7 +75,7 @@ export default {
           if (this.sourcePage) {
             sourcePage = this.sourcePage + '广告栏-委托找房'
           }
-          findHouse({ tel: this.value, source_page: sourcePage, source: 6, demand: 2 }).then(res => {
+          findHouse({ tel: this.value, page_source: sourcePage, source: 6, demand: 2 }).then(res => {
             this.showAfter = false
             this.showBefore = true
             Cookies.set('name', '预约投放成功')

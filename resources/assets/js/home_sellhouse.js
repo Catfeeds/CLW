@@ -75,9 +75,9 @@ var type = $("#commentForm").validate({
       var data = new FormData(form)
       var page = sourcePage('sourcePage')
       if (page) {
-        data.append('source_page', page + '-委托找房')
+        data.append('page_source', page + '-委托找房')
       } else {
-        data.append('source_page', null)
+        data.append('page_source', null)
       }
       data.append('demand', 2)
       data.append('source', 6)
