@@ -170,14 +170,14 @@ class StatisticsService
 
         //有效/渠道
         $percent1 = round($count1 / $count ,3) *100 . '%';
-
-        //成交/有效
-        $percent2 = round($count2 /$count1 ,3) *100 .'%';
-
+        $arr = [];
+        $percent2 = 0 .'%';
+        if ($count1) {
+            //成交/有效
+            $percent2 = round($count2 /$count1 ,3) *100 .'%';
+        }
         //成交/渠道
         $percent3 = round($count2 / $count ,3) *100 . '%';
-
-        $arr = [];
         $arr['percent1'] = $percent1;
         $arr['percent2'] = $percent2;
         $arr['percent3'] = $percent3;
