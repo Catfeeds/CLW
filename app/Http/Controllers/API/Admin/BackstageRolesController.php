@@ -11,13 +11,14 @@ class BackstageRolesController extends APIBaseController
 {
     public function index
     (
+        RolesRequest $request,
         RolesRepository $repository
     )
     {
         if (empty(Common::user()->can('backstage_role_list'))) {
             return $this->sendError('无角色列表权限','403');
         }
-        $res = $repository->roleList();
+        $res = $repository->roleList($request);
         return $this->sendResponse($res,'获取角色列表成功');
     }
 
