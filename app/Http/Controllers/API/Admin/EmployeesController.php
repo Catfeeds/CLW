@@ -29,6 +29,9 @@ class EmployeesController extends APIBaseController
     //生成带参数的二维码
     public function code(EmployeesRequest $request)
     {
+        if (empty(Common::user()->can('add_employees'))) {
+            return $this->sendError('无微信绑定权限','403');
+        }
         if ($request->status == 'add') {
             $url = config('setting.wechat_url') . '/oauth_wechat?redirectUrl=binding_wechat?param=name='
                 . $request->name . ';tel='
@@ -42,6 +45,7 @@ class EmployeesController extends APIBaseController
         $res =  QrCode::encoding('UTF-8')->size(300)->generate($url);
         return $this->sendResponse($res, '获取成功');
     }
+
     //微信绑定
     public function store
     (
@@ -49,15 +53,12 @@ class EmployeesController extends APIBaseController
         EmployeesRepository $repository
     )
     {
-        if (empty(Common::user()->can('add_employees'))) {
-            return $this->sendError('无微信绑定权限','403');
-        }
         //判断是否已经绑定
         $employee = Employee::where('tel', $request->tel)->orWhere('openid', $request->openid)->first();
         if ($employee) return $this->sendError('请勿重复绑定');
         $res = $repository->addEmployee($request);
-        if (!$res) return $this->sendResponse($res,'绑定失败');
-        return $this->sendError('绑定成功');
+        if (!$res) return $this->sendError($res,'绑定失败');
+        return $this->sendResponse('绑定成功');
     }
 
 
