@@ -93,7 +93,8 @@ export default {
       var newDate = new Date().getTime()
       var date = parseInt((parseInt(newDate) - parseInt(this.time))/1000/60/60)
       var newNum = 0
-      if(name !== '') {
+      console.log(name)
+      if(name) {
         newNum += 1
         this.showAfter = false
         this.showBefore = true
