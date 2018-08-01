@@ -46,3 +46,6 @@ Route::resource('list_plants','Mall\PlantsController');
 Route::get('check',function(){
     return view('shop.check');
 });
+Route::get('list_detail',function() {
+    return view('shop.list_detail');
+});

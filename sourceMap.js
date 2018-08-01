@@ -115,7 +115,8 @@ module.exports = {
       'shop_index',
       'shop_list_worktool',
       'shop_list_plants',
-      'shop_check'
+      'shop_check',
+      'shop_list_detail'
     ],
     js: [
       'shop_check'

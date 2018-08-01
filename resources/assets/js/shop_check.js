@@ -1,4 +1,4 @@
-require('./home_common');
+require('./shop_common');
 var check = require('./components/check.vue')
 new Vue({
   el: '#check',
