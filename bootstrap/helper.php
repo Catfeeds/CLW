@@ -22,7 +22,26 @@ if (! function_exists('homeRes'))
         return $path.config('setting.version');
     }
 }
-
+// 判断当前页面并赋值 PC侧边栏用
+if (! function_exists('sourcePage'))
+{
+    function sourcePage($res)
+    {
+        if (empty($res)) {
+            return 2;  // 首页
+        }
+        switch ($res) {
+            case 'building_list': // 楼盘列表
+                return 4;
+            case 'buildings': // 楼盘详情
+                return 5;
+            case 'office_building_houses': // 房源详情
+                return 6;
+            default: // 未知引用
+                return null;
+        }
+    }
+}
 /**
  * 全局辅助函数 放置处
  */

@@ -325,7 +325,7 @@
                     @endif
                 </div>
                 <div id="findHouse">
-                    <find-house class="find_house"></find-house>
+                    <find-house class="find_house" source-page='楼盘列表'></find-house>
                 </div>
 
             </div>
