@@ -4,6 +4,7 @@ namespace App\Http\Controllers\PC;
 
 use App\Handler\Common;
 use App\Http\Controllers\Controller;
+use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use App\Services\MapsService;
@@ -16,6 +17,7 @@ class MapsController extends Controller
     {
         return view('home.map', ['safeString' => \Illuminate\Support\Facades\Hash::make('chulouwang'.date('Y-m-d',time()))]);
     }
+
     // 根据当前gps指定距离获取周边楼盘
     public function getPeripheryBuildings(
         Request $request,
@@ -29,7 +31,7 @@ class MapsController extends Controller
             $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
-            $res = $repository->buildingList($request, $buildingsService, $buildingIds,true,null, true,true);
+            $res = $repository->buildingList($request, $buildingsService, $buildingIds,false,null, true,true);
         } elseif (!empty($request->distance) && !empty($request->gps)) {
             $res = $mapsService->getPeripheryBuildings($request, $repository, $buildingsService);
         } elseif(!empty($request->area_id) || !empty($request->block_id) || !empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price)) {
@@ -39,7 +41,7 @@ class MapsController extends Controller
             if (!empty($request->total_price)) $request->offsetSet('total_price', explode('-',$request->total_price));
 
             // 楼盘列表数据
-            $res = $repository->buildingList($request, $buildingsService,null,true,null, true);
+            $res = $repository->buildingList($request, $buildingsService,null,false,null, true);
 
             if ((empty($request->area_id) && empty($request->block_id)) && (!empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price))) {
                 // 通过楼盘获取区域
@@ -48,7 +50,7 @@ class MapsController extends Controller
             }
         } else {
             // 楼盘列表数据
-            $res = $repository->buildingList($request, $buildingsService,null,true,null, true);
+            $res = $repository->buildingList($request, $buildingsService,null,false,null, true);
         }
 
         return $this->sendResponse(['res' => $res],'地图找楼获取成功');
