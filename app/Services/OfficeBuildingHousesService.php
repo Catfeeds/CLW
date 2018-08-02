@@ -129,14 +129,6 @@ class OfficeBuildingHousesService
         $office->building_name = $office->buildingBlock->building->name;
         //楼层总数
         $office->total_floor = $office->buildingBlock->total_floor?$office->buildingBlock->total_floor . '层' : '';
-//        //客梯数量
-//        $office->passenger_lift = $office->buildingBlock->passenger_lift?$office->buildingBlock->passenger_lift . '部': '';
-//        //货梯数量
-//        $office->cargo_lift = $office->buildingBlock->cargo_lift?$office->buildingBlock->cargo_lift. '部' : '';
-//        //总裁电梯数量
-//        $office->president_lift = $office->buildingBlock->president_lift?$office->buildingBlock->president_lift . '部' : '';
-        //总电梯数
-//        $elevator_num = $office->buildingBlock->passenger_lift + $office->buildingBlock->cargo_lift + $office->buildingBlock->president_lift;
         $office->elevator_num =  $office->buildingBlock->elevator_num;
         //gps
         $office->gps = $office->buildingBlock->building->gps;
@@ -246,25 +238,24 @@ class OfficeBuildingHousesService
      */
     public function houseInfo($res)
     {
-        //房源标题
-        $res->house_title = $res->officeBuildingHouse->title;
-        //房源面积
-        $res->acreage = $res->officeBuildingHouse->getConstruAcreageCnAttribute();
-        //单价
-        $res->unit_proce = $res->officeBuildingHouse->getUnitPriceCnAttribute();
-        //总价
-        $res->total_price = $res->officeBuildingHouse->getTotalPriceCnAttribute();
-        //图片
-        $res->img = $res->officeBuildingHouse->getIndoorImgCnAttribute();
-        //标签
-        $res->label = false;
-        if ($res->officeBuildingHouse->houseLabel) $res->label = true;
-        //房源标签
-        $res->feature = $res->officeBuildingHouse->getHouseFeatureAttribute();
-
-
-        $res->officeBuildingHouse = $this->getShow($res->officeBuildingHouse);
-
+        if (!empty($res->officeBuildingHouse)) {
+            //房源标题
+            $res->house_title = $res->officeBuildingHouse->title;
+            //房源面积
+            $res->acreage = $res->officeBuildingHouse->getConstruAcreageCnAttribute();
+            //单价
+            $res->unit_proce = $res->officeBuildingHouse->getUnitPriceCnAttribute();
+            //总价
+            $res->total_price = $res->officeBuildingHouse->getTotalPriceCnAttribute();
+            //图片
+            $res->img = $res->officeBuildingHouse->getIndoorImgCnAttribute();
+            //标签
+            $res->label = false;
+            if ($res->officeBuildingHouse->houseLabel) $res->label = true;
+            //房源标签
+            $res->feature = $res->officeBuildingHouse->getHouseFeatureAttribute();
+            $res->officeBuildingHouse = $this->getShow($res->officeBuildingHouse);
+        }
         return $res;
     }
 
