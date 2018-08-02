@@ -7,12 +7,12 @@ use App\Handler\Common;
 
 class PermissionsController extends APIBaseController
 {
-    public function index()
+    public function index(Request $request)
     {
         if (empty(Common::user()->can('permission_list'))) {
             return $this->sendError('无中介系统权限列表权限','403');
         }
-        $res = curl(config('setting.media_url').'/api/permissions','get');
+        $res = curl(config('setting.media_url').'/api/permissions/?per_page='.$request->per_page.'&page='.$request->page,'get');
         if (empty($res->data)) return $this->sendError($res->message);
         return $this->sendResponse($res->data,$res->message);
     }
