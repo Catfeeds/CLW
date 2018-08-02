@@ -2,10 +2,9 @@
 
 namespace App\Services;
 
-use App\Models\Area;
-use App\Models\Block;
 use App\Models\Category;
 use App\Models\GoodsHasLabel;
+use App\Models\Label;
 
 class LabelsService
 {
@@ -31,17 +30,24 @@ class LabelsService
             if ($val->stage == 1) {
                 $oneLable[$key]['name'] = $val->name;
                 $oneLable[$key]['id'] = $val->id;
+                $oneLable[$key]['show'] = $val->show;
                 $twoLable = array();
-                $twoLable[0]['name'] = '全部';
-                $twoLable[0]['url'] = $this->getUrl('', $request->labels, $request->url(), $val->next_label->pluck('id')->toArray(),true);
-                // 判断全部是否选择
-                if (!empty($request->labels) && array_intersect($val->next_label->pluck('id')->toArray(), $request->labels)) {
-                    $twoLable[0]['status'] = false;
-                } else {
-                    $twoLable[0]['status'] = true;
+                if($val->show==1) {
+                    $twoLable[0]['name'] = '全部';
+                    $twoLable[0]['url'] = $this->getUrl('', $request->labels, $request->url(), $val->next_label->pluck('id')->toArray(),true);
+                    // 判断全部是否选择
+                    if (!empty($request->labels) && array_intersect($val->next_label->pluck('id')->toArray(), $request->labels)) {
+                        $twoLable[0]['status'] = false;
+                    } else {
+                        $twoLable[0]['status'] = true;
+                    }
                 }
-
                 foreach ($val->next_label as $k => $v) {
+                    if (!empty($v->img)) {
+                        $twoLable[$k+1]['img'] = $v->img_cn;
+                    } else {
+                        $twoLable[$k+1]['img'] = '';
+                    }
                     $twoLable[$k+1]['name'] = $v->name;
                     $twoLable[$k+1]['id'] = $v->id;
                     $twoLable[$k+1]['url'] = $this->getUrl($v->id, $request->labels, $request->url(),$val->next_label->pluck('id')->toArray(), false);
@@ -122,11 +128,39 @@ class LabelsService
         } else {
             // 获取标签数据
             $goodsIds = GoodsHasLabel::where('goods_type', $model)->whereIn('label_id', $request->labels)->pluck('goods_id')->toArray();
+            $ids = [];
+            $counts = array_count_values($goodsIds);
+            foreach ($counts as $id => $n) {
+                if ($n == count($request->labels)) $ids[] = $id;
+            }
 
-            $goods = $model::whereIn('id', $goodsIds)->paginate(10);
+            $goods = $model::whereIn('id', $ids)->paginate(10);
         }
 
         return $goods;
     }
 
+    // 添加商品时获取标签
+    public function getLabels($categoryName)
+    {
+        $labels = Label::getLabelByCategoryName($categoryName);
+
+        $oneLabel = array();
+        foreach ($labels as $key => $value) {
+            if ($value->stage == 1) {
+                $oneLabel[$key]['label'] = $value->name;
+                $twoLabel = array();
+                if (!empty($value->next_label->count())) {
+                    foreach ($value->next_label as $k => $v) {
+                        $twoLabel[$k]['id'] = $v->id;
+                        $twoLabel[$k]['label'] = $v->name;
+                    }
+                }
+                $oneLabel[$key]['children'] = $twoLabel;
+            }
+        }
+
+        return collect($oneLabel)->values();
+    }
+    
 }

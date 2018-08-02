@@ -30,9 +30,47 @@ class PlantsRepository extends Model
                 'price' => $request->price,
                 'price_unit' => $request->price_unit,
                 'details_url' => $request->details_url,
-                'sales_volume' => $request->sales_volume
             ]);
             if (empty($plant)) throw new \Exception('写入绿植表失败！');
+
+            // 添加标签
+            foreach ($request->labels as $label) {
+                $addLabels = GoodsHasLabel::create([
+                    'goods_type' => 'App\Models\Plant',
+                    'goods_id' => $plant->id,
+                    'label_id' => $label
+                ]);
+                if (empty($addLabels)) throw new \Exception('添加关联表失败！');
+            }
+            // 提交事务
+            \DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            return false;
+        }
+    }
+
+    // 修改绿植租摆商品
+    public function updatePlant(
+        $request,
+        $plant
+    )
+    {
+        \DB::beginTransaction();
+        try {
+            $plant->name = $request->name;
+            $plant->img = $request->img;
+            $plant->price = $request->price;
+            $plant->price_unit = $request->price_unit;
+            $plant->details_url = $request->details_url;
+            if (!$plant->save()) throw new \Exception('绿植修改失败！');
+
+            // 旧原始标签
+            GoodsHasLabel::where([
+                'goods_type' => 'App\Models\Plant',
+                'goods_id' => $plant->id,
+            ])->delete();
 
             // 添加标签
             foreach ($request->labels as $label) {

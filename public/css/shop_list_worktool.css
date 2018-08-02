@@ -185,6 +185,7 @@ template {
   font-weight: normal;
   font-family: PingFang-SC-Medium;
   padding: 0;
+  margin: 0;
 }
 
 a {
@@ -223,7 +224,9 @@ select {
   outline: none;
 }
 
-.font-level1 {
+.font-level1,
+.header .navUp .navBox .nav_left,
+.header .navUp .navBox .nav_right div {
   font-size: 12px;
 }
 
@@ -231,7 +234,9 @@ select {
   font-size: 14px;
 }
 
-.font-level3 {
+.font-level3,
+.header .search .searchLogo .select_nav li,
+.header .select .selectBox .select_all div {
   font-size: 16px;
 }
 
@@ -249,6 +254,222 @@ select {
 
 .b_f4 {
   background-color: #f4f4f4;
+}
+
+.header {
+  background: #fff;
+}
+
+.header .navUp {
+  height: 35px;
+  background: #444;
+}
+
+.header .navUp .navBox {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 35px;
+  color: rgba(255,255,255,0.7);
+}
+
+.header .navUp .navBox .nav_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .navUp .navBox .nav_right div {
+  color: rgba(255,255,255,0.7);
+  padding: 0 10px;
+}
+
+.header .search {
+  width: 1200px;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 88px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .search .searchLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .search .searchLogo .logo {
+  margin-top: 24px;
+}
+
+.header .search .searchLogo .select_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 98px;
+  margin-left: 72px;
+}
+
+.header .search .searchLogo .select_nav li {
+  color: #333;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  margin-right: 60px;
+}
+
+.header .search .searchLogo .select_nav li:hover {
+  color: #007bff;
+}
+
+.header .search .searchLogo .select_nav .active {
+  color: #007bff;
+}
+
+.header .search .searchLogo .select_nav .hot_sale {
+  position: relative;
+}
+
+.header .search .searchLogo .select_nav .hot_sale img {
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  -webkit-animation: hotpic .7s infinite;
+          animation: hotpic .7s infinite;
+}
+
+@-webkit-keyframes hotpic {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  25% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+
+  75% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes hotpic {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  25% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+
+  75% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.header .search .tel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 38px;
+}
+
+.header .search .tel img {
+  margin-top: 4px;
+}
+
+.header .search .tel .telNum {
+  margin-left: 7px;
+  color: #007bff;
+  font-size: 21px;
+  font-family: PingFang-SC-Medium;
+}
+
+.header .select {
+  height: 44px;
+  background: #60adff;
+}
+
+.header .select .selectBox {
+  position: relative;
+  height: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: #fff;
+}
+
+.header .select .selectBox .select_all {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 44px;
+  background: #007bff;
+}
+
+.header .select .selectBox .select_all img {
+  margin: 11px 8px 0 24px;
+}
+
+.header .select .selectBox .select_all div {
+  font-family: PingFang-SC-Medium;
 }
 
 .clearfix::after {

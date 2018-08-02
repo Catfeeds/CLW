@@ -15,7 +15,7 @@ class EntrustThrowInsController extends APIBaseController
     )
     {
         //房源投放、委托找房
-        $res = $repository->add($request,'App');
+        $res = $repository->add($request);
         if (!$res) return $this->sendError('失败');
         return $this->sendResponse($res, '成功');
     }

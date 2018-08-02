@@ -24,7 +24,7 @@ class CreateEntrustThrowInsTable extends Migration
             $table->integer('block_id')->nullable()->comment('商圈');
             $table->decimal('acreage')->nullable()->comment('面积');
             $table->string('building_name', '32')->nullable()->comment('楼盘名称');
-            $table->tinyInteger('source')->nullable()->comment('来源,1:400电话,2:官网客服,3:百度信息流,4:今日头条信息流,5:app,6:PC,7:微信,8:小程序,9:58同城');
+            $table->tinyInteger('source')->nullable()->comment('来源,1:400电话,2:官网客服,3:百度信息流,4:今日头条信息流,5:app,6:PC,7:微信,8:小程序,9:58同城,10:商城');
             $table->string('page_source',32)->nullable()->comment('页面来源');
             $table->tinyInteger('demand')->nullable()->comment('需求类型,1:投放房源,2:委托找房,3:企业服务,4:其他');
             $table->text('remark')->nullable()->comment('需求');

@@ -1,12 +1,14 @@
 // 引入样式初始化文件
 @import "~normalize.css";
-@import "home/mixin";
+@import "home/mixin"; // 引用底部样式
+@import "shop/mixin"; // 引用头部样式
 // 样式初始化
 * {
   font-size: 14px;
   font-weight: normal;
   font-family: PingFang-SC-Medium;
   padding: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;

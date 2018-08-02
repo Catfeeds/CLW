@@ -11,8 +11,7 @@ use App\Services\LabelsService;
 
 class LabelsController extends APIBaseController
 {
-
-    //标签列表
+    // 标签列表
     public function index
     (
         LabelsRequest $request,
@@ -36,7 +35,7 @@ class LabelsController extends APIBaseController
         }), '获取所有大类成功');
     }
 
-    //添加标签
+    // 添加标签
     public function store
     (
         LabelsRequest $request,
@@ -47,13 +46,13 @@ class LabelsController extends APIBaseController
         return $this->sendResponse($res, '标签添加成功');
     }
 
-    //修改标签之前原始数据
+    // 修改标签之前原始数据
     public function edit(Label $label)
     {
         return $this->sendResponse($label,'标签修改之前原始数据');
     }
 
-    //修改标签
+    // 修改标签
     public function update
     (
         Label $label,
@@ -66,7 +65,7 @@ class LabelsController extends APIBaseController
         return $this->sendResponse($res,'标签修改成功');
     }
 
-    //删除标签
+    // 删除标签
     public function destroy(Label $label)
     {
         if (empty($res = $label->delete())) return $this->sendError('删除标签失败');

@@ -19,19 +19,20 @@ $(document).on('click', '.loginOut button', function(){
             duration: 2000
         })
     } else {
-        var source = whatBrowser()
+        // var source = whatBrowser()
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            url: "/bespeaks",
+            url: "/entrust_throw_ins",
             type: 'post',
             data:{
                 tel: tel,
-                appellation: appellation,
-                demand: demand,
-                page_source: source+'个人中心',
-                source: source.substring(0,source.length-1)
+                name: appellation,
+                remark: demand,
+                page_source: '个人中心-委托找房',
+                source: 7,
+                demand: 2
             },
             success: function(data){
                 var toast = Toast({

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="safeString" content="{{ $safeString }}"/>
-    <meta name="tel" content="{{ $tel }}"/>
+    <meta name="openid" content="{{ $openid }}"/>
     <title>楚楼网</title>
     <link rel="stylesheet" href="{{res('/css/we_work.css')}}">
     <script src="{{res('/js/we_manifest.js')}}"></script>
@@ -61,6 +61,7 @@
                             <div class="list-header">
                                 <div class="f-2 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
                                 <div class="f-1 jus-end">
+                                    <button v-if="!item.feedback" class="unfeedback special" @click="addIneffective(item.id)">无效</button>
                                     <button v-if="!item.feedback" class="unfeedback" @click="addFeedback(item.id)">反馈</button>
                                     <span v-else class="feedback" style="">已反馈</span>
                                 </div>

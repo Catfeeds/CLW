@@ -36,6 +36,10 @@ Route::get('building_search', 'BuildingsController@buildingSearch');
 Route::resource('bespeaks', 'BespeaksController');
 //PC端房源投放
 Route::resource('throw_ins', 'ThrowInsController');
+
+//委托找房、投放房源
+Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
+
 // 地图找房
 Route::get('map_find_house','MapsController@index');
 // 获取指定gps周边楼盘

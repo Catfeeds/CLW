@@ -12,21 +12,19 @@ class EntrustThrowInObservers {
     public function created(EntrustThrowIn $entrustThrowIn)
     {
         $class = new AcceptMessagesController(new AcceptMessagesRepository(),new AcceptMessagesRequest());
-        $name= $entrustThrowIn->appellation?$entrustThrowIn->appellation:'无';
+        $name= $entrustThrowIn->name?$entrustThrowIn->name:'无';
         $tel = $entrustThrowIn->tel;
         $data['name'] = $name;
         $data['tel'] = $tel;
-        $openid = $class->getOpenid($entrustThrowIn->type);
+        $openid = $class->getOpenid($entrustThrowIn->demand);
         if (!empty($openid)) {
             $data['openid'] = json_encode($openid);
-
             //如果是投放房源
-            if ($entrustThrowIn->type == 2) {
+            if ($entrustThrowIn->demand == 1) {
                 curl(config('setting.wechat_url').'/throw_in_notice','post',$data);
             }
-
             //如果是委托找房
-            if ($entrustThrowIn->type == 1) {
+            if ($entrustThrowIn->demand == 2) {
                 curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
             }
         }

@@ -752,6 +752,18 @@ body footer .bottom .friend_link a {
   font-weight: 300;
 }
 
+body #nb_icon_wrap {
+  display: none !important;
+}
+
+body .onlineAdvisory {
+  position: fixed;
+  right: 60px;
+  bottom: 50px;
+  cursor: pointer;
+  display: none;
+}
+
 body .right_tab {
   position: fixed;
   right: -50px;
@@ -769,6 +781,11 @@ body .right_tab {
 body .right_tab.active,
 body nav.right_tab.transition {
   right: 0;
+}
+
+body .right_tab.active .onlineAdvisory,
+body nav.right_tab.transition .onlineAdvisory {
+  display: block;
 }
 
 body .right_tab .tab-content {

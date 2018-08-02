@@ -8,22 +8,25 @@
     <div class="select_area">
     @foreach($labelData['children'] as $labels)
       <!-- 类型筛选 -->
-      <div class="select_option serve_select clearfix">
-        <div class="select_title f_l">{{$labels['name']}}:</div>
-        <ul class="select_details clearfix f_l">
-          @foreach($labels['children'] as $label)
-            <li class="f_l select_detail"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}">{{$label['name']}}</a></li>
-          @endforeach
-        </ul>
-      </div>
-      <div class="select_option brand_select clearfix">
-        <div class="select_title f_l">商品品牌:</div>
-        <ul class="brands f_l">
-          @foreach([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] as $a)
-            <li class="brand"><a href="javascript:void(0)"></a></li>
-          @endforeach
-        </ul>
-      </div>
+      @if($labels['show'] === 1)
+          <div class="select_option serve_select clearfix">
+            <div class="select_title f_l">{{$labels['name']}}</div>
+            <ul class="select_details clearfix f_l">
+              @foreach($labels['children'] as $label)
+                <li class="f_l select_detail"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}">{{$label['name']}}</a></li>
+              @endforeach
+            </ul>
+          </div>
+      @else
+          <div class="select_option brand_select clearfix">
+              <div class="select_title f_l">{{$labels['name']}}</div>
+              <ul class="brands f_l">
+                  @foreach($labels['children'] as $label)
+                      <li class="brand"><a href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
     @endforeach
     </div>
     <!-- 排序方式 -->
@@ -33,8 +36,5 @@
       </div>
       <div class="sort_details f_l price_sort">
         <a href="{{$sort.$symbol}}price=desc">价格由高到低</a>
-      </div>
-      <div class="sort_details f_l sell_sort">
-        <a href="{{$sort.$symbol}}price=asc">销量由底到高</a>
       </div>
     </div>

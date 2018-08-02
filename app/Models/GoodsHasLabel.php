@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class GoodsHasLabel extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class GoodsHasLabel extends Model
 {
-    //
+    protected $guarded = [];
 }

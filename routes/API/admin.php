@@ -7,6 +7,8 @@
  */
 header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization,safeString');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    //导出数据
+    Route::post('export', 'EntrustThrowInsController@export');
     // 安全验证码
     Route::get('get_safe_string', 'BannerController@safeString');
     // 登录
@@ -279,6 +281,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::resource('categories','CategoriesController');
         // 标签
         Route::resource('labels', 'LabelsController');
+        // 通过大类获取一级标签
+        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
 
         /*
         |--------------------------------------------------------------------------
@@ -287,8 +291,19 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('plants','PlantsController');
 
-        // 通过大类获取一级标签
-        Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
+        /*
+        |--------------------------------------------------------------------------
+        | 电脑租售
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('computers','ComputersController');
+
+        /*
+        |--------------------------------------------------------------------------
+        | 办公家具
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('furniture','FurnitureController');
 
         //投放、预约
         Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
@@ -298,13 +313,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('conversion_rates', 'EntrustThrowInsController@conversionRate');
         //渠道来源构成
         Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
-        //导出数据
-        Route::get('export', 'EntrustThrowInsController@export');
+
         //回访
         Route::post('survey', 'EntrustThrowInsController@survey');
         //添加工单
         Route::post('add_gd', 'EntrustThrowInsController@addGd');
     });
+
 
 
 

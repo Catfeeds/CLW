@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
-class Category extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
 {
+    protected $guarded = [];
+
     // 标签
     public function label()
     {

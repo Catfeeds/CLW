@@ -115,11 +115,13 @@ module.exports = {
       'shop_index',
       'shop_list_worktool',
       'shop_list_plants',
-      'shop_check',
-      'shop_list_detail'
+      'shop_list_charge',
+      'shop_list_register'
     ],
     js: [
-      'shop_check'
+      'shop_index',
+      'shop_list_register',
+      'shop_list_charge'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',
