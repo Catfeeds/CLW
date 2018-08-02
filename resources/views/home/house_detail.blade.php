@@ -2,17 +2,19 @@
 @section('title', '房源详情')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_house_detail.css')}}">
-    <style>
-        #serverNext:hover{
-            background: url({{homeRes("/home_img/house_detail_right_before.png")}}) no-repeat !important;
-        }
-        #serverPrev:hover{
-            background: url({{homeRes("/home_img/house_detail_left_before.png")}}) no-repeat !important;
-        }
-        .pircePic:hover div{
-            background: url({{homeRes("/home_img/house_detail_collect_after.png")}}) no-repeat !important;
-        }
-    </style>
+<meta name="storeId" content="{{ $house->id }}" data-type='house'>
+<style>
+    #serverNext:hover {
+        background: url({{homeRes("/home_img/house_detail_right_before.png")}}) no-repeat !important;
+    }
+    #serverPrev:hover {
+        background: url({{homeRes("/home_img/house_detail_left_before.png")}}) no-repeat !important;
+    }
+    .pircePic:hover div {
+        background: url({{homeRes("/home_img/house_detail_collect_after.png")}}) no-repeat !important;
+    }
+</style>
+
 @endsection
 @section('body')
 @include('home.nav')

@@ -90,9 +90,9 @@ var type = $("#commentForm").validate({
         var data = new FormData(form)
         var page = sourcePage('sourcePage')
         if (page) {
-            data.append('source_page', page + '-投放房源')
+            data.append('page_source', page + '-投放房源')
         } else {
-            data.append('source_page', null)
+            data.append('page_source', null)
         }
         data.append('demand', 1)
         data.append('source', 6)

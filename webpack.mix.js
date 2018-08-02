@@ -13,25 +13,25 @@ if (isStatus) {
   envCof = envCof.baseConfig
 }
 
-if (process.env.NODE_ENV === 'production') {
-  uglify = new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false,
-          drop_debugger: true,
-          drop_console: true
-        }
-      }
-    })
-} else {
-  uglify = new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: true
-        }
-      }
-    })
-}
+// if (process.env.NODE_ENV === 'production') {
+//   uglify = new UglifyJsPlugin({
+//       uglifyOptions: {
+//         compress: {
+//           warnings: false,
+//           drop_debugger: true,
+//           drop_console: true
+//         }
+//       }
+//     })
+// } else {
+//   uglify = new UglifyJsPlugin({
+//       uglifyOptions: {
+//         compress: {
+//           warnings: true
+//         }
+//       }
+//     })
+// }
 var commonSCSSPath = map.commonSCSSPath, // scss 目录
     commonOutCSSPath = map.commonOutCSSPath, // css 输出目录
     commonJSPath = map.commonJSPath, // js 脚本源文件目录
@@ -52,7 +52,7 @@ mix.webpackConfig({
   plugins: [
     envConfig,
     commonsChunk,
-    uglify
+    // uglify
   ]
 });
 var fileSCSSNameArr = map[sourceMap].scss;// 要打包的 scss 文件
