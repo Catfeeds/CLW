@@ -4,13 +4,7 @@
     #nb_icon_wrap{
         display:none !important;
     }
-    .onlineAdvisory{
-      position:fixed;
-      right:60px;
-      bottom:50px;
-      cursor:pointer;
-      display: none;
-    }
+
     .right_tab{
       position: fixed;
       right: -50px;
@@ -21,10 +15,40 @@
       z-index: 500;
       box-shadow: -5px 0px 5px rgba(26, 28, 39, 0.1);
       transition: all .5s;
+      // 在线客服图片
+      .onlineAdvisory{
+        position:fixed;
+        right:60px;
+        bottom:50px;
+        cursor:pointer;
+        display: none;
+        transition: all .5s;
+      }
+      // 浏览记录历史容器
+      $scanHistory-width: 290px; // 浏览记录宽度
+      .history-list-box{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 40px;
+        width: $scanHistory-width;
+        padding-top: 60px;
+        background: #ffffff;
+        border-left: 1px solid #efefef;
+        .history-vue-box{
+          height: 100%;
+        }
+      }
       &.active{
         right: 0;
         .onlineAdvisory{
           display: block;
+        }
+        &.click-history-active {
+          right: $scanHistory-width;
+          .onlineAdvisory{
+            right:60px + $scanHistory-width;
+          }
         }
       }
       .tab-content{

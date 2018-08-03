@@ -1,0 +1,362 @@
+@import 'shop_master';
+@include header();
+@include footer();
+@include list_common();
+
+body {
+  .container {
+    width: 100%;
+    // 列表标题
+    .tax_title {
+      width: 100%;
+      height: 480px;
+      background: url(/shop_img/tax_banner.jpg) no-repeat center;
+      box-sizing: border-box;
+      padding-top: 160px;
+      .tax_title1 {
+        font-size: 70px;
+        width: 600px;
+        margin: 0 auto;
+        color:#fff;
+        letter-spacing: -3px;
+        text-align: center;
+        margin-bottom: 45px;
+      }
+      .tax_title2 {
+        font-size: 28px;
+        color:#fff;
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+    // 有限公司注册介绍
+    .company_register {
+      height: 629px;
+      width: 100%;
+      background: url(/shop_img/company_back.jpg) no-repeat center;
+      box-sizing: border-box;
+      padding-top: 80px;
+      .register_title {
+        width: 400px;
+        font-size: 40px;
+        margin: 0 auto;
+        text-align: center;
+        color: #333;
+        margin-bottom: 25px;
+      }
+      .border {
+        width: 75px;
+        height: 3px;
+        background-color: #007bff;
+        margin: 0 auto;
+        margin-bottom: 95px;
+      }
+      .register_contents {
+        width: 1015px;
+        height: 270px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        .content {
+          width: 470px;
+          height: 270px;
+          box-shadow: 0px 4px 6px 0px rgba(4, 0, 0, 0.05);
+          border-radius: 6px;
+          background-color: #fff;
+          margin-right: 75px;
+          box-sizing: border-box;
+          padding-top: 40px;
+          &:last-child() {
+            margin-right: 0;
+          }
+          .content_title {
+            font-size: 20px;
+            color:#333;
+            width: 290px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+          .border {
+            width: 255px;
+            height: 1px;
+            background-color: #333;
+            opacity: 0.08;
+            margin: 0 auto;
+            margin-bottom: 38px;
+          }
+          .content_describe {
+            color:#8c8c8c;
+            width: 290px;
+            line-height: 29px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    // 注册步骤
+    .register_steps {
+      box-sizing: border-box;
+      width: 100%;
+      height: 690px;
+      padding-top: 115px;
+      background: url(/shop_img/steps_back.jpg) no-repeat center;
+      .step_title {
+        font-size: 36px;
+        color:#fff;
+        font-family: 'PingFang-SC-Bold';
+        width: 356px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        span {
+          font-family: 'PingFang-SC-Regular';
+          font-size: 36px;
+          font-weight: 300;
+        }
+      }
+      .step_describe {
+        width: 330px;
+        height: 55px;
+        line-height: 55px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        color:#fff;
+        border: 1px dashed #fff;
+        border-left: none;
+        border-right: none;
+        text-align: center;
+        margin-bottom: 85px;
+      }
+      .step_img {
+        text-align: center;
+      }
+    }
+    // 提供的材料
+    .provides {
+      width: 100%;
+      height: 690px;
+      box-sizing: border-box;
+      background: url(/shop_img/provides_back.jpg) no-repeat center;
+      padding-top: 105px;
+      .provides_box {
+        margin-left: 400px;
+        .provides_title {
+          font-size: 40px;
+          color:#333;
+          margin-bottom: 32px;
+        }
+        .border {
+          width: 64px;
+          height: 3px;
+          background-color: #007bff; 
+          margin-bottom: 65px;
+        }
+        .provide_details {
+          box-sizing: border-box;
+          padding-left: 7px;
+          .provide_detail {
+            margin-bottom: 30px;
+            .num {
+              font-family: 'PingFang-SC-Light';
+              width: 28px;
+              height: 28px;
+              border: 1px solid #5088f8;
+              line-height: 28px;
+              text-align: center;
+              font-weight: 300;
+              margin-right: 22px;
+              font-size: 19px;
+              color:#2272f8;
+              border-radius: 4px;
+            }
+            .name {
+              font-size: 16px;
+              line-height: 28px;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+    // 得到的材料
+    .gets {
+      width: 100%;
+      height: 782px;
+      background-color: #f6f6f6;
+      box-sizing: border-box;
+      .arrow_down {
+        text-align: center;
+        margin-bottom: 105px;
+        img {
+          margin-top: -36px;
+        }
+      }
+      .get_title {
+        text-align: center;
+        .get_title {
+          font-family: 'PingFang-SC-Regular'; 
+          font-size: 40px;
+          color:#333;
+          margin-top: -60px;
+          margin-bottom: 20px;
+          font-weight: 300;
+        }
+      }
+      .border {
+        width: 77px;
+        height: 3px;
+        background-color: #007bff;
+        margin: 0 auto;
+        margin-bottom: 83px;
+      }
+      .gets_box {
+        width: 1040px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        .gets_detail {
+          width: 300px;
+          margin-right: 70px;
+          &:last-child() {
+            margin-right: 0;
+          }
+          .gets_title {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            color:#fff;
+            background-color: #46a6fb;
+            text-align: center;
+          }
+          .gets_content {
+            width: 100%;
+            height: 350px;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+    // 企业查询方法
+    .search_methods {
+      width: 100%;
+      height: 700px;
+      background: url('/shop_img/register_search.jpg') no-repeat center;
+      box-sizing: border-box;
+      padding-top: 115px;
+      .search_title {
+        color: #fff;
+        font-size: 40px;
+        width: 350px;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+      .border {
+        width: 65px;
+        height: 3px;
+        background: #fff;
+        margin: 0 auto;
+        margin-bottom: 105px;
+      }
+      .search_box {
+        width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        .search_detail {
+          width: 270px;
+          margin-right: 39px;
+          &:last-child() {
+            margin-right: 0;
+          }
+          .img_box {
+            width: 100%;
+            margin-bottom: 35px;
+          }
+          .detail_title {
+            color:#fff;
+            text-align: center;
+            font-size: 16px;
+            line-height: 25px;
+          }
+        }
+      }
+    }
+    // 公司注册的重要性
+    .importance {
+      width: 100%;
+      height: 870px;
+      background-color: #fff;
+      box-sizing: border-box;
+      padding-top: 115px;
+      .importance_box {
+        width: 1200px;
+        margin: 0 auto;
+        .title {
+          font-size: 40px;
+          color:#333;
+          width: 100%;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .border {
+          width: 65px;
+          height: 3px;
+          background-color: #007bff;
+          margin: 0 auto;
+          margin-bottom: 60px;
+        }
+      }
+    }
+    .our_tellent {
+      background: #f6f6f6;
+      .tellent_contents {
+        .content {
+          background-color: #fff;
+        }
+      }
+    }
+    .list_step {
+      .steps {
+        .step {
+          background: url(/shop_img/register_step1.png) no-repeat center;
+          &:nth-child(2) {
+            background: url(/shop_img/register_step2.png) no-repeat center;
+          }
+          &:nth-child(3) {
+            background: url(/shop_img/register_step3.png) no-repeat center;
+          }
+          &:last-child() {
+            background: url(/shop_img/register_step4.png) no-repeat center;
+          }
+        } 
+      }
+    }
+  }
+}
+.fixed {
+  position: fixed;
+  right:0;
+  top: 0;
+}
+.absolute {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.f_l {
+  float: left;
+}
+.f_r {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}

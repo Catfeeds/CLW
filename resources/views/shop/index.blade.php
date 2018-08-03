@@ -20,44 +20,44 @@
             </div>
             <ul class="select_list_right">
               <li>
-                <div class="total_classify">代理记账 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>代理记账</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}">|<span>小规模记账</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>一般纳税人代理记账</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>小规模记账</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>一般纳税人代理记账</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">税务代办 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>税务代办</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}">|<span>税收筹划</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>税控器解锁</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>报税系统解锁</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>发票增版/增量</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>申办一般纳税人</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>税控代办及票种核定</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>所得税汇算清缴</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>税收筹划</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>税控器解锁</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>报税系统解锁</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>发票增版/增量</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>申办一般纳税人</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>税控代办及票种核定</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>所得税汇算清缴</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">财务审计 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>财务审计</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}">|<span>年度财务报表审计</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>所得税汇算清缴审计</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>验资报告</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>专项审计</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>税审</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>年度财务报表审计</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>所得税汇算清缴审计</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>验资报告</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>专项审计</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>税审</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">工商代办 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>工商代办</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}">|<span>有限责任公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>外商独资公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>合伙企业注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>个人独资企业注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>公司注册地址</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>分公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}">|<span>一般人注册地址</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>有限责任公司注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>外商独资公司注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>合伙企业注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>个人独资企业注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>公司注册地址</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>分公司注册</span></a>
+                  <a href="{{url('/business_taxes/1')}}"><span>一般人注册地址</span></a>
                 </div>
               </li>
             </ul>
@@ -72,18 +72,18 @@
             </div>
             <ul class="select_list_right">
               <li>
-                <div class="total_classify">电脑设备 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>电脑设备</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/computers?labels=13')}}">|<span>笔记本</span></a>
-                  <a href="{{url('/computers?labels=14')}}">|<span>台式机</span></a>
-                  <a href="{{url('/computers?labels=15')}}">|<span>一体机</span></a>
-                  <a href="{{url('/computers?labels=16')}}">|<span>平板电脑</span></a>
+                  <a href="{{url('/computers?labels=13')}}"><span>笔记本</span></a>
+                  <a href="{{url('/computers?labels=14')}}"><span>台式机</span></a>
+                  <a href="{{url('/computers?labels=15')}}"><span>一体机</span></a>
+                  <a href="{{url('/computers?labels=16')}}"><span>平板电脑</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">打印复印 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>打印复印</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/computers?labels=17')}}">|<span>打印设备</span></a>
+                  <a href="{{url('/computers?labels=17')}}"><span>打印设备</span></a>
                 </div>
               </li>
             </ul>
@@ -98,35 +98,35 @@
             </div>
             <ul class="select_list_right">
               <li>
-                <div class="total_classify">保洁服务 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>保洁服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/cleanup')}}">|<span>日常保洁</span></a>
-                  <a href="{{url('/cleanup')}}">|<span>开荒保洁</span></a>
+                  <a href="{{url('/cleanup')}}"><span>日常保洁</span></a>
+                  <a href="{{url('/cleanup')}}"><span>开荒保洁</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">搬家服务 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>搬家服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/houseMv')}}">|<span>搬家服务</span></a>
+                  <a href="{{url('/houseMv')}}"><span>搬家服务</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">绿植服务 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>绿植服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/plants?labels=28')}}">|<span>绿植单品</span></a>
-                  <a href="{{url('/plants?labels=29')}}">|<span>绿植套餐</span></a>
+                  <a href="{{url('/plants?labels=28')}}"><span>绿植单品</span></a>
+                  <a href="{{url('/plants?labels=29')}}"><span>绿植套餐</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">室内环保 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>室内环保</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/cleanup')}}">|<span>室内环保</span></a>
+                  <a href="{{url('/cleanup')}}"><span>室内环保</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">饮水服务 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>饮水服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/water')}}">|<span>桶装水</span></a>
+                  <a href="{{url('/water')}}"><span>桶装水</span></a>
                 </div>
               </li>
             </ul>
@@ -141,15 +141,15 @@
             </div>
             <ul class="select_list_right">
               <li>
-                <div class="total_classify">室内装修 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>室内装修</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/companyDecorat')}}">|<span>室内装修</span></a>
+                  <a href="{{url('/companyDecorat')}}"><span>室内装修</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">综合布线 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>综合布线</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/wiring')}}">|<span>综合布线</span></a>
+                  <a href="{{url('/wiring')}}"><span>综合布线</span></a>
                 </div>
               </li>
             </ul>
@@ -164,45 +164,45 @@
             </div>
             <ul class="select_list_right">
               <li>
-                <div class="total_classify">班台 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>班台</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/furniture?labels=42')}}">|<span>班台</span></a>
+                  <a href="{{url('/furniture?labels=42')}}"><span>班台</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">会议桌 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>会议桌</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/furniture?labels=43')}}">|<span>会议桌</span></a>
+                  <a href="{{url('/furniture?labels=43')}}"><span>会议桌</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">办公桌 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>办公桌</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/furniture?labels=44')}}">|<span>办公桌</span></a>
+                  <a href="{{url('/furniture?labels=44')}}"><span>办公桌</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">文件柜 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>文件柜</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/furniture?labels=45')}}">|<span>文件柜</span></a>
+                  <a href="{{url('/furniture?labels=45')}}"><span>文件柜</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">沙发 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>沙发</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/furniture?labels=46')}}">|<span>沙发</span></a>
+                  <a href="{{url('/furniture?labels=46')}}"><span>沙发</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">前台 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>前台</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/furniture?labels=47')}}">|<span>前台</span></a>
+                  <a href="{{url('/furniture?labels=47')}}"><span>前台</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">办公椅 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>办公椅</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/furniture?labels=48')}}">|<span>办公椅</span></a>
+                  <a href="{{url('/furniture?labels=48')}}"><span>办公椅</span></a>
                 </div>
               </li>
             </ul>
@@ -217,23 +217,23 @@
             </div>
             <ul class="select_list_right">
               <li>
-                <div class="total_classify">图文广告 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>图文广告</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/fastPrint')}}">|<span>图文快印</span></a>
-                  <a href="{{url('/businessPrint')}}">|<span>商务印品</span></a>
-                  <a href="{{url('/businessAds')}}">|<span>企业广告</span></a>
+                  <a href="{{url('/fastPrint')}}"><span>图文快印</span></a>
+                  <a href="{{url('/businessPrint')}}"><span>商务印品</span></a>
+                  <a href="{{url('/businessAds')}}"><span>企业广告</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">金融 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>金融</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/finance')}}">|<span>金融支持</span></a>
+                  <a href="{{url('/finance')}}"><span>金融支持</span></a>
                 </div>
               </li>
               <li>
-                <div class="total_classify">豪车 &nbsp;&nbsp;> </div>
+                <div class="total_classify"><span>豪车</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/luxuryCar')}}">|<span>豪车租赁</span></a>
+                  <a href="{{url('/luxuryCar')}}"><span>豪车租赁</span></a>
                 </div>
               </li>
             </ul>

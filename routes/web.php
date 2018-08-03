@@ -35,3 +35,10 @@ Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function (
 Route::group(['domain' => config('hosts.mall'), 'namespace' => 'Mall'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/mall.php');
 });
+// 商城小功能列表详情页
+Route::get('list_charge',function(){
+    return view('shop.list_charge');
+});
+Route::get('list_register',function(){
+    return view('shop.list_register');
+});
