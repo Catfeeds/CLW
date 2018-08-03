@@ -6,6 +6,9 @@
     }
 
     .right_tab{
+      *{
+        box-sizing: content-box;
+      }
       position: fixed;
       right: -50px;
       bottom: 0;

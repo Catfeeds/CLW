@@ -770,6 +770,11 @@ body .right_tab {
   transition: all .5s;
 }
 
+body .right_tab * {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
 body .right_tab .onlineAdvisory {
   position: fixed;
   right: 60px;

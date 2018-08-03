@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="data-list-item" v-for="(item, index) in list" :key="'history' + index">
-      <a href="javascript:void(0);" target="_blank">
+    <div class="data-list-item" v-for="(item, index) in dataList" :key="'history' + index">
+      <a :href="type?'/buildings/'+item.id:'/office_building_houses/'+item.id" target="_blank">
         <div class="r-panel-img">
-          <img src="//fang-oss.haozu.com/cms/index/2017/04/05/6Ain7JjiSG.jpg@208w_156h_90q_1c_1e_1l|watermark=1&amp;object=aGFvenUucG5n&amp;t=90&amp;p=9&amp;x=10&amp;y=10">
+          <img :src="item.img">
         </div>
         <div class="r-panel-txt">
-          <p class="p1">汉街万达尊</p>
-          <p class="p2">3.3元/m²⋅月</p>
-          <p class="p3">可租面积：111-317m²</p>
-          <p class="p3">武昌&nbsp;-&nbsp;中北路</p>
+          <div class="p1">{{item.name}}</div>
+          <div class="p2">{{item.rent}}</div>
+          <div class="p3">可租面积: {{item.acreage}}</div>
+          <div class="p3">{{item.address}}</div>
         </div>
       </a>
     </div>
@@ -18,9 +18,18 @@
 <script>
 export default {
   props: {
-    list: {
+    list: { 
       type: Array,
       default: []
+    },
+    type: {
+      type: Boolean,
+      default: true
+    }
+  },
+  computed: {
+    dataList() {
+      return this.list
     }
   }
 }
@@ -48,10 +57,10 @@ export default {
     .r-panel-txt {
       float: left;
       padding-left: 10px;
-      width: 136px;
-      font-size: 12px;
+      width: 139px;
       color: #333;
-      p{
+      div{
+        font-size: 12px;
         padding: 0;
         margin: 0;
       }
