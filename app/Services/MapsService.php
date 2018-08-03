@@ -83,7 +83,7 @@ class MapsService
     public function getBuildingArea($buildings)
     {
         $temp = array();
-        foreach ($buildings as $k => $v) {
+        foreach ($buildings['data'] as $k => $v) {
             $temp[] = $v['area'];
         }
 
