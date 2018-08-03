@@ -68,7 +68,7 @@ class BuildingsRepository extends  Model
             if (!empty($request->keyword)) $data = $service->highlight($data, $request->keyword);
             $customPage = new CustomPage();
             $baseUrl = url('/building_list');
-            $page = $customPage->getSelfPageView($request->nowPage??1,$totalPage,$baseUrl,$request->data);
+            $page = $customPage->getSelfPageView($request->nowPage??1, $totalPage, $baseUrl, $request->data);
             return [
                 'house_count' => $houses->count(),
                 'page' => $page,
