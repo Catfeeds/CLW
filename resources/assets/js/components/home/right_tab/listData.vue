@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="data-list-item" v-for="(item, index) in dataList" :key="'history' + index">
-      <a href="" target="_blank">
+      <a :href="typeData?'/buildings/'+item.id:'/office_building_houses/'+item.id" target="_blank">
         <div class="r-panel-img">
-          <img src="//fang-oss.haozu.com/cms/index/2017/04/05/6Ain7JjiSG.jpg@208w_156h_90q_1c_1e_1l|watermark=1&amp;object=aGFvenUucG5n&amp;t=90&amp;p=9&amp;x=10&amp;y=10">
+          <img :src="item.img">
         </div>
         <div class="r-panel-txt">
-          <p class="p1">{{item.name}}</p>
-          <p class="p2">{{item.average_price}}</p>
-          <p class="p3">可租面积: {{item.Rentable_area}}</p>
-          <p class="p3">{{item.address}}</p>
+          <div class="p1">{{item.name}}</div>
+          <div class="p2">{{item.rent}}</div>
+          <div class="p3">可租面积: {{item.acreage}}</div>
+          <div class="p3">{{item.address}}</div>
         </div>
       </a>
     </div>
@@ -18,27 +18,28 @@
 <script>
 export default {
   props: {
-    list: {
+    list: { 
       type: Array,
       default: []
     },
     type: {
-      type: Number,
-      default: 1
+      type: Boolean,
+      default: true
+    }
+  },
+  data() {
+    return {
+      typeData: this.type
     }
   },
   computed: {
     dataList() {
+      console.log('ssasasda', this.list)
       return this.list
     }
   },
-  method: {
-    geturl(url, val) {
-      return url + val
-    }
-  },
   created() {
-    console.log('这是', this.list)
+    console.log('这是', this.type)
   }
 }
 </script>
@@ -65,10 +66,10 @@ export default {
     .r-panel-txt {
       float: left;
       padding-left: 10px;
-      width: 136px;
-      font-size: 12px;
+      width: 139px;
       color: #333;
-      p{
+      div{
+        font-size: 12px;
         padding: 0;
         margin: 0;
       }
