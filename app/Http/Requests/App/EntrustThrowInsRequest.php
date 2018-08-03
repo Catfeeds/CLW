@@ -23,7 +23,8 @@ class EntrustThrowInsRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'tel.not_in' => '不能重复委托'
+                    'tel.not_in' => '不能重复委托',
+                    'tel.regex' => '请输入正确格式手机号'
                 ];
             case 'PUT':
             case 'PATCH':

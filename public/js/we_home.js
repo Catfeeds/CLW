@@ -121,17 +121,18 @@ $(document).on('touchend || tap', '#popover', function () {
 });
 // 预约
 $(document).on('touchend || tap', '#lookForHouse', function () {
-  var source = whatBrowser();
+  // var source = whatBrowser()
   $.ajax({
-    url: '/bespeaks',
+    url: '/entrust_throw_ins',
     type: 'POST',
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: source + '首页',
-      source: source.substring(0, source.length - 1)
+      page_source: '首页-委托找房',
+      source: 7,
+      demand: 2
     },
     success: function success(data) {
       $('#backdrop').fadeOut(300);
@@ -150,29 +151,38 @@ $(document).on('touchend || tap', '#lookForHouse', function () {
         });
       }
     },
-    error: function error() {
+    error: function error(_error) {
       $('#backdrop').fadeOut(300);
-      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-        message: '服务器繁忙,请联系客服处理',
-        position: 'center',
-        duration: 3000
-      });
+      if (_error.status < 500) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: _error.responseJSON.message,
+          position: 'center',
+          duration: 3000
+        });
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: '服务器出错',
+          position: 'center',
+          duration: 3000
+        });
+      }
     }
   });
 });
 // 投放房源
 $(document).on('touchend || tap', '#peltHouse', function () {
-  var source = whatBrowser();
+  // var source = whatBrowser()
   $.ajax({
-    url: '/throw_ins',
+    url: '/entrust_throw_ins',
     type: 'POST',
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
       tel: $('#telInput').val(),
-      page_source: source + '首页',
-      source: source.substring(0, source.length - 1)
+      page_source: '首页-投放房源',
+      source: 7,
+      demand: 1
     },
     success: function success(data) {
       $('#backdrop').fadeOut(300);
@@ -191,13 +201,21 @@ $(document).on('touchend || tap', '#peltHouse', function () {
         });
       }
     },
-    error: function error() {
+    error: function error(_error2) {
       $('#backdrop').fadeOut(300);
-      Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
-        message: '服务器繁忙,请联系客服处理',
-        position: 'center',
-        duration: 3000
-      });
+      if (_error2.status < 500) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: _error2.responseJSON.message,
+          position: 'center',
+          duration: 3000
+        });
+      } else {
+        Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
+          message: '服务器出错',
+          position: 'center',
+          duration: 3000
+        });
+      }
     }
   });
 });

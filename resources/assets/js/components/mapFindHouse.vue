@@ -82,8 +82,8 @@
             </div>
         </site-cover>
         <!--左侧列表-->
-        <div class="screen" v-bind:style="{ width: width }">
-            <div v-if="conditionType">
+        <div :class="{ screen: true, active: conditionType}">
+            <div>
                 <el-input v-model="keyword" placeholder="请输入内容" class="input-with-select">
                 <el-button @click="findKeyword" slot="append" icon="el-icon-search"></el-button>
             </el-input>
@@ -160,7 +160,7 @@
             </el-row>
             </div>
             <div class="list">
-                <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
+            <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
                 <div @click="seeBuildDetail(item)" class="mapBox">
                     <el-col :span="8" style="padding:0;margin-left: 40px;">
                         <img style="width: 140px;height: 140px"
@@ -670,8 +670,8 @@
             getBuild(data, type = false) {
                 getCoreBuildList(data).then(res => {
                     if (res.success) {
-                        this.buildList = res.data.res
-                        this.buildListNum = res.data.res.length
+                        this.buildList = res.data.res.data
+                        this.buildListNum = res.data.res.total
                         if(type) {
                             this.regionList = res.data.areaLocations
                         }
@@ -804,9 +804,14 @@
         .screen {
             position: absolute;
             top: 0px;
-            left: 0px;
+            left: -480px;
+            width: 480px;
             height: calc(100vh - 61px);
             background: #fff;
+            transition: left .5s;
+            &.active{
+                left: 0px;
+            }
             .list{
                 overflow-y: scroll;
                 overflow-x: hidden;
@@ -815,6 +820,10 @@
             .mapList{
                 padding: 20px 0;
                 border-bottom: 1px solid #f5f5f5;
+                cursor: pointer;
+                &:hover{
+                    background: #f5f5f5;
+                }
                 .mapBox{
                     .mapDetail{
                         height: 140px;

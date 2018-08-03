@@ -87,18 +87,19 @@ $('#upload').on('click', function () {
     return false;
   }
   $('#backdrop').fadeOut(300);
-  var source = whatBrowser();
+  // var source = whatBrowser()
   $.ajax({
-    url: '/bespeaks',
+    url: '/entrust_throw_ins',
     type: 'POST',
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     data: {
-      appellation: name,
+      name: name,
       tel: tel,
-      page_source: source + '房源详情页',
-      source: source.substring(0, source.length - 1)
+      page_source: '房源详情页-委托找房',
+      source: 7,
+      demand: 2
     },
     success: function success(data) {
       if (data.success) {

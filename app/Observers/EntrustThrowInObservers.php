@@ -12,11 +12,11 @@ class EntrustThrowInObservers {
     public function created(EntrustThrowIn $entrustThrowIn)
     {
         $class = new AcceptMessagesController(new AcceptMessagesRepository(),new AcceptMessagesRequest());
-        $name= $entrustThrowIn->appellation?$entrustThrowIn->appellation:'无';
+        $name= $entrustThrowIn->name?$entrustThrowIn->name:'无';
         $tel = $entrustThrowIn->tel;
         $data['name'] = $name;
         $data['tel'] = $tel;
-        $openid = $class->getOpenid($entrustThrowIn->type);
+        $openid = $class->getOpenid($entrustThrowIn->demand);
         if (!empty($openid)) {
             $data['openid'] = json_encode($openid);
             //如果是投放房源

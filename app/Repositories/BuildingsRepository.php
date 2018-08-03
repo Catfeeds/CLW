@@ -53,12 +53,15 @@ class BuildingsRepository extends  Model
             $data = $this->buildingDataComplete($buildings, $buildingData, $service);
         }
 
+        // 楼盘总数
+        $total = $data->count();
+
         // 总页数
-        $totalPage = ceil($data->count() / 10);
+        $totalPage = ceil($total / 10);
 
         if (empty($whetherPage)) {
             $data = $data->forpage($request->page??1, 10);
-            return Common::pageData($request->page, $data->values());
+            return Common::pageData($request->page, $data->values(), $total);
         } elseif ($getCount) {
             $data = $data->forpage($request->nowPage??1, 10);
             // 搜索高亮

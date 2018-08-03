@@ -20,7 +20,7 @@ class WorkOrderController extends Controller
     {
         $string = 'chulouwang'.date('Y-m-d',time());
         $safeString = Hash::make($string);
-         if (!$request->openid) return response('缺少参数','404');
+         if (!$request->openid) return '缺少参数';
         return view('we.work_order_salesman', ['openid'=>$request->openid, 'safeString'=>$safeString]);
     }
 
@@ -34,7 +34,7 @@ class WorkOrderController extends Controller
     {
         $string = 'chulouwang'.date('Y-m-d',time());
         $safeString = Hash::make($string);
-        if (!$request->openid) return response('缺少参数','404');
+        if (!$request->openid) return '缺少参数';
         return view('we.work_order_shopowner', ['openid'=>$request->openid, 'safeString'=>$safeString]);
     }
 

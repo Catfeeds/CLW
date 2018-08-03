@@ -95,15 +95,21 @@ class Common
      *
      * @param $page
      * @param $data
+     * @param $total
      * @return array
      * @author 罗振
      */
-    public static function pageData($page, $data)
+    public static function pageData(
+        $page,
+        $data,
+        $total
+    )
     {
         return array(
             'current_page' => $page??1,
             'data' => $data,
-            'per_page' => 10
+            'per_page' => 10,
+            'total' => $total
         );
     }
 

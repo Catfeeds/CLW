@@ -2,6 +2,7 @@
 @section('title', '楼盘详情')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_building_detail.css')}}">
+<meta name="storeId" content="{{ $building->id }}" data-type='building'>
 @endsection
 @section('body')
 @include('home.nav')
@@ -210,7 +211,7 @@
                     </div>
                     <!-- 委托找房 -->
                     <div class="findHouse">
-                        <find-house></find-house>
+                        <find-house source-page='楼盘详情'></find-house>
                     </div>
                 </div>
             </div>

@@ -5,13 +5,33 @@ var mix = require('laravel-mix'),
     webpack = require('webpack'),
     envCof = require('./env.js'),
     map = require('./sourceMap'),
-    isStatus = process.env.isStatus
+    isStatus = process.env.isStatus,
+    UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 if (isStatus) {
   envCof = deepMerge(envCof.baseConfig, envCof[isStatus].envConfig)
 } else {
   envCof = envCof.baseConfig
 }
 
+// if (process.env.NODE_ENV === 'production') {
+//   uglify = new UglifyJsPlugin({
+//       uglifyOptions: {
+//         compress: {
+//           warnings: false,
+//           drop_debugger: true,
+//           drop_console: true
+//         }
+//       }
+//     })
+// } else {
+//   uglify = new UglifyJsPlugin({
+//       uglifyOptions: {
+//         compress: {
+//           warnings: true
+//         }
+//       }
+//     })
+// }
 var commonSCSSPath = map.commonSCSSPath, // scss 目录
     commonOutCSSPath = map.commonOutCSSPath, // css 输出目录
     commonJSPath = map.commonJSPath, // js 脚本源文件目录
@@ -31,7 +51,8 @@ var commonsChunk =  new webpack.optimize.CommonsChunkPlugin({
 mix.webpackConfig({
   plugins: [
     envConfig,
-    commonsChunk
+    commonsChunk,
+    // uglify
   ]
 });
 var fileSCSSNameArr = map[sourceMap].scss;// 要打包的 scss 文件
