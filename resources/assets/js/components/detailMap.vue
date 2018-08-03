@@ -5,7 +5,6 @@
   :zoom="zoom"
   scroll-wheel-zoom
   @zoomend='zoomend'
-  @click="getPoint"
   @ready="ready"
   >
       <bm-view class="map"></bm-view>

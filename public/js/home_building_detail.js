@@ -58279,7 +58279,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -58452,7 +58451,7 @@ var render = function() {
         zoom: _vm.zoom,
         "scroll-wheel-zoom": ""
       },
-      on: { zoomend: _vm.zoomend, click: _vm.getPoint, ready: _vm.ready }
+      on: { zoomend: _vm.zoomend, ready: _vm.ready }
     },
     [
       _c("bm-view", { staticClass: "map" }),
