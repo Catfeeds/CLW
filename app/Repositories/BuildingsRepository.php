@@ -488,4 +488,11 @@ class BuildingsRepository extends  Model
         return $res;
     }
 
+    //获取楼盘记录列表
+    public function buildingRecordList($request)
+    {
+        $id = $request->id;
+        $idArr = explode(",",$id);
+        return Building::whereIn('id',$idArr)->with('block','area')->get();
+    }
 }
