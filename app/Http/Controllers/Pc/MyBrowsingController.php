@@ -24,9 +24,9 @@ class MyBrowsingController extends Controller
             $data[$k]['id'] = $v->id;
             $data[$k]['img'] = empty($v->album)?config('setting.building_default_img'):config('setting.qiniu_url') .$v->album[0];
             $data[$k]['name'] = $v->name;
-            $data[$k]['average_price'] = $service->getBuildingAveragePrice($v->house);
+            $data[$k]['rent'] = $service->getBuildingAveragePrice($v->house);
             $data[$k]['address'] = $v->area->name . '-' . $v->block->name;
-            $data[$k]['Rentable_area'] = intval($v->house->min('constru_acreage')) . ' - ' . intval($v->house->max('constru_acreage')). '㎡';
+            $data[$k]['acreage'] = intval($v->house->min('constru_acreage')) . ' - ' . intval($v->house->max('constru_acreage')). '㎡';
         }
         return $this->sendResponse($data,'获取成功');
     }
@@ -44,8 +44,8 @@ class MyBrowsingController extends Controller
             $data[$k]['id'] = $v->id;
             $data[$k]['img'] = empty($v->buildingBlock->building->album)?config('setting.building_default_img') :config('setting.qiniu_url') .$v->buildingBlock->building->album[0];
             $data[$k]['name'] = $v->buildingBlock->building->name;
-            $data[$k]['unit_price'] = $v->unit_price . '元/㎡.月';
-            $data[$k]['constru_acreage'] = $v->constru_acreage. '㎡';
+            $data[$k]['rent'] = $v->unit_price . '元/㎡.月';
+            $data[$k]['acreage'] = $v->constru_acreage. '㎡';
             $data[$k]['address'] = $v->buildingBlock->building->block->area->name . '-' .$v->buildingBlock->building->block->name;
         }
         return $this->sendResponse($data,'获取成功');
