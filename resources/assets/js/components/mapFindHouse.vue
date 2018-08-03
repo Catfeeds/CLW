@@ -517,7 +517,7 @@
         methods: {
             // 滚动加载方法
             listScroll(e) {
-                if (this.blockList.length >= this.buildListNum) {
+                if (this.buildList.length >= this.buildListNum) {
                     return false
                 }
                 const scrollTop = e.target.scrollTop
@@ -526,7 +526,7 @@
                 const targetNum = 50
                 if (scrollHeight - (offsetHeight + scrollTop) < targetNum && !this.panelLoading) {
                     this.panelLoading = true
-                    const page = (this.blockList.length/this.listPerPage) + 1
+                    const page = (this.buildList.length/this.listPerPage) + 1
                     const data = JSON.parse(JSON.stringify(this.conditionData))
                     data.page = page
                     getCoreBuildList(data).then(res => {
@@ -623,13 +623,13 @@
                     ],
                     distance: 5
                 }
-                // 请求楼盘数据
-                this.getBuild(datas)
                 if(this.zoom === 16) {
                     this.zhongxin = this.centerLocaion
                     this.location = this.centerLocaion
                 }
                 this.zoom = 16
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
             // 地铁详情
             seeMtro(data){
@@ -694,13 +694,31 @@
             // 根据条件获取楼盘数据
             getBuild(data, type = false) {
                 this.panelLoading = true
-                getCoreBuildList(data).then(res => {
+                const condition = data
+                if (this.zoom >= 16) {
+                    condition.type = 'all'
+                }
+                getCoreBuildList(condition).then(res => {
                     this.panelLoading = false
                     if (res.success) {
                         this.conditionData = data // 当前搜寻条件
-                        this.buildList = res.data.res.data
-                        this.buildListNum = res.data.res.total
-                        this.listPerPage = res.data.res.per_page
+                        if (res.data.res.data) {
+                            this.buildList = res.data.res.data
+                        } else {
+                            this.buildList = res.data.res
+                        }
+                        
+                        if (res.data.res.total) {
+                            this.buildListNum = res.data.res.total
+                        } else {
+                            this.buildListNum = res.data.res.length
+                        }
+                        if (res.data.res.listPerPage) {
+                            this.listPerPage = res.data.res.per_page
+                        } else {
+                            this.listPerPage = 10
+                        }
+
                         if(type) {
                             this.regionList = res.data.areaLocations
                         }
