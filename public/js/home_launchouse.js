@@ -1205,7 +1205,7 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["k"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["l"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
@@ -1213,15 +1213,17 @@ module.exports = __webpack_require__(4);
 /* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["o"] = login;
-/* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["m"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["p"] = login;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["n"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
-/* harmony export (immutable) */ __webpack_exports__["n"] = launchHouse;
-/* harmony export (immutable) */ __webpack_exports__["l"] = getSelectInfo;
-/* harmony export (immutable) */ __webpack_exports__["j"] = getMarketPrice;
-/* harmony export (immutable) */ __webpack_exports__["h"] = getLikeBuild;
+/* harmony export (immutable) */ __webpack_exports__["o"] = launchHouse;
+/* harmony export (immutable) */ __webpack_exports__["m"] = getSelectInfo;
+/* harmony export (immutable) */ __webpack_exports__["k"] = getMarketPrice;
+/* harmony export (immutable) */ __webpack_exports__["i"] = getLikeBuild;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getBuildBrowse;
+/* unused harmony export getHouseBrowse */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -1372,6 +1374,24 @@ function getLikeBuild() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/like_building',
     method: 'GET'
+  });
+}
+
+// 获取楼盘浏览记录
+function getBuildBrowse(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/property_browsing_list',
+    method: 'GET',
+    params: params
+  });
+}
+
+// 获取房源浏览记录
+function getHouseBrowse(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/listing_list',
+    method: 'GET',
+    params: params
   });
 }
 
@@ -4732,7 +4752,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__webpack_require__(70);
+__webpack_require__(71);
 
 
 __webpack_require__(181);
@@ -4830,7 +4850,7 @@ var type = $("#commentForm").validate({
         }
         data.append('demand', 1);
         data.append('source', 6);
-        Object(__WEBPACK_IMPORTED_MODULE_5__home_api__["n" /* launchHouse */])(data).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_5__home_api__["o" /* launchHouse */])(data).then(function (res) {
             if (res.success) {
                 __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
                     message: '投放成功，楚楼网10分钟内联系您',
@@ -6883,7 +6903,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
 
       if (this.validateTel()) {
         this.secondNum = 60;
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["i" /* getLoginCode */])(this.tel).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["j" /* getLoginCode */])(this.tel).then(function (res) {
           __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
             message: '短信已发送请耐心等候',
             type: 'success'
@@ -6903,7 +6923,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
       this.isTel = true; // 手机号验证状态 true: 通过 false: 不通过
       this.isCode = true; // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["o" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["p" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',
@@ -8327,7 +8347,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(71)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(72)))
 
 /***/ }),
 

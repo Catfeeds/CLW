@@ -1286,7 +1286,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(71)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(72)))
 
 /***/ }),
 /* 9 */
@@ -2205,7 +2205,7 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["k"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["l"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
@@ -2213,15 +2213,17 @@ module.exports = __webpack_require__(4);
 /* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["o"] = login;
-/* harmony export (immutable) */ __webpack_exports__["g"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["m"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["p"] = login;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getCoreBuildList;
+/* harmony export (immutable) */ __webpack_exports__["n"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
-/* harmony export (immutable) */ __webpack_exports__["n"] = launchHouse;
-/* harmony export (immutable) */ __webpack_exports__["l"] = getSelectInfo;
-/* harmony export (immutable) */ __webpack_exports__["j"] = getMarketPrice;
-/* harmony export (immutable) */ __webpack_exports__["h"] = getLikeBuild;
+/* harmony export (immutable) */ __webpack_exports__["o"] = launchHouse;
+/* harmony export (immutable) */ __webpack_exports__["m"] = getSelectInfo;
+/* harmony export (immutable) */ __webpack_exports__["k"] = getMarketPrice;
+/* harmony export (immutable) */ __webpack_exports__["i"] = getLikeBuild;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getBuildBrowse;
+/* unused harmony export getHouseBrowse */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -2372,6 +2374,24 @@ function getLikeBuild() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/like_building',
     method: 'GET'
+  });
+}
+
+// 获取楼盘浏览记录
+function getBuildBrowse(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/property_browsing_list',
+    method: 'GET',
+    params: params
+  });
+}
+
+// 获取房源浏览记录
+function getHouseBrowse(params) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
+    url: '/listing_list',
+    method: 'GET',
+    params: params
   });
 }
 
@@ -4910,7 +4930,8 @@ exports.default = {
 /* 65 */,
 /* 66 */,
 /* 67 */,
-/* 68 */
+/* 68 */,
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4937,7 +4958,7 @@ exports.default = {
 });
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-undefined */
@@ -4964,9 +4985,9 @@ module.exports = function ( delay, atBegin, callback ) {
 
 
 /***/ }),
-/* 70 */,
 /* 71 */,
-/* 72 */
+/* 72 */,
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5029,7 +5050,6 @@ var removeResizeListener = exports.removeResizeListener = function removeResizeL
 };
 
 /***/ }),
-/* 73 */,
 /* 74 */,
 /* 75 */
 /***/ (function(module, exports) {
@@ -7429,7 +7449,7 @@ var index = (function () {
 
 /* harmony default export */ __webpack_exports__["default"] = (index);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(73)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(74)))
 
 /***/ }),
 /* 78 */
@@ -8461,7 +8481,7 @@ module.exports =
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(72);
+module.exports = __webpack_require__(73);
 
 /***/ }),
 
@@ -9480,7 +9500,7 @@ module.exports = function normalizeComponent (
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(72);
+module.exports = __webpack_require__(73);
 
 /***/ }),
 
@@ -11018,7 +11038,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /**
  * Created by zxz1992 on 2018/6/5.
  */
-__webpack_require__(70);
+__webpack_require__(71);
 
 Vue.component('self-div', __WEBPACK_IMPORTED_MODULE_0__components_mapFindHouse___default.a);
 new Vue({
@@ -11600,7 +11620,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             _this.regionArray = res.data.data;
         });
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["k" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["l" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
                 _this.regionListAll = res.data;
@@ -11670,7 +11690,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword !== '') {
                     if (this.regionList.length == 0) {
                         // 获取区域 数据
-                        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["k" /* getRegionList */])().then(function (res) {
+                        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["l" /* getRegionList */])().then(function (res) {
                             if (res.success) {
                                 _this2.regionList = res.data;
                             }
@@ -11818,7 +11838,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     y: el.DB[key].position.lat
                 });
             }
-            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["m" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["n" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
                 console.log('getSiteBuildNum', res);
                 if (res.success) {
                     _this3.siteList = res.data;
@@ -11854,7 +11874,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
             var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["g" /* getCoreBuildList */])(data).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["h" /* getCoreBuildList */])(data).then(function (res) {
                 if (res.success) {
                     _this4.buildList = res.data.res.data;
                     _this4.buildListNum = res.data.res.total;
@@ -11874,7 +11894,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 keyword: this.keyword
                 // 清空其他条件
             };this.emptyCondition();
-            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["g" /* getCoreBuildList */])(resultData).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["h" /* getCoreBuildList */])(resultData).then(function (res) {
                 if (res.success) {
                     _this5.buildList = res.data.res;
                     _this5.buildListNum = res.data.res.length;
@@ -12208,7 +12228,7 @@ module.exports = __webpack_require__(163);
 /***/ 14:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(69);
+module.exports = __webpack_require__(70);
 
 /***/ }),
 
@@ -16170,7 +16190,7 @@ __webpack_require__(175)('observable');
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16471,7 +16491,7 @@ function pattern(rule, value, source, errors, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16508,7 +16528,7 @@ function method(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16547,7 +16567,7 @@ function number(rule, value, callback, source, options) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rule___ = __webpack_require__(69);
 
 
 
@@ -16583,7 +16603,7 @@ function boolean(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16620,7 +16640,7 @@ function regexp(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16658,7 +16678,7 @@ function integer(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16696,7 +16716,7 @@ function floatFn(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16733,7 +16753,7 @@ function array(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16770,7 +16790,7 @@ function object(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16808,7 +16828,7 @@ function enumerable(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16848,7 +16868,7 @@ function pattern(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -16882,7 +16902,7 @@ function date(rule, value, callback, source, options) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rule___ = __webpack_require__(69);
 
 
 
@@ -16900,7 +16920,7 @@ function required(rule, value, callback, source, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rule___ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(25);
 
 
@@ -18235,7 +18255,7 @@ var Component = normalizeComponent(
 /***/ 14:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(69);
+module.exports = __webpack_require__(70);
 
 /***/ }),
 
@@ -19376,7 +19396,7 @@ module.exports = __webpack_require__(110);
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(72);
+module.exports = __webpack_require__(73);
 
 /***/ }),
 
@@ -20115,7 +20135,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(73)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(74)))
 
 /***/ }),
 /* 308 */
@@ -20290,7 +20310,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(73)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(74)))
 
 /***/ }),
 /* 313 */

@@ -147,3 +147,21 @@ export function getLikeBuild() {
     method: 'GET'
   })
 }
+
+// 获取楼盘浏览记录
+export function getBuildBrowse(params) {
+  return request({
+    url: '/property_browsing_list',
+    method: 'GET',
+    params
+  })
+}
+
+// 获取房源浏览记录
+export function getHouseBrowse(params) {
+  return request({
+    url: '/listing_list',
+    method: 'GET',
+    params
+  })
+}

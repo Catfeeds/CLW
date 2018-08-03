@@ -21,7 +21,14 @@ export default {
     list: {
       type: Array,
       default: []
+    },
+    type: {
+      type: Number,
+      default: 1
     }
+  },
+  created() {
+    console.log('这是', this.type)
   }
 }
 </script>
