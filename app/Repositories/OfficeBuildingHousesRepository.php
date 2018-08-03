@@ -134,4 +134,11 @@ class OfficeBuildingHousesRepository extends Model
         $block_id = $house->buildingBlock->building->block_id;
         return Block::find($block_id);
     }
+
+    public function officeBuildingHousesRecordList($request)
+    {
+        $id = $request->id;
+        $idArr = explode(",",$id);
+        return OfficeBuildingHouse::whereIn('id',$idArr)->with('buildingBlock.building.block.area')->get();
+    }
 }
