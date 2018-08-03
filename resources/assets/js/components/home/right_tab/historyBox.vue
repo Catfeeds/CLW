@@ -33,7 +33,6 @@ export default {
   created() {
     var buildingId = Cookies.get('building')
     var houseId = Cookies.get('house')
-    console.log(houseId)
     if (buildingId) {
       getBuildBrowse({ id: buildingId }).then(res => {
         if (res.success) {

@@ -10191,7 +10191,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     var buildingId = __WEBPACK_IMPORTED_MODULE_2_js_cookie___default.a.get('building');
     var houseId = __WEBPACK_IMPORTED_MODULE_2_js_cookie___default.a.get('house');
-    console.log(houseId);
     if (buildingId) {
       Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["g" /* getBuildBrowse */])({ id: buildingId }).then(function (res) {
         if (res.success) {
@@ -50829,12 +50828,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   computed: {
     dataList: function dataList() {
-      console.log('ssasasda', this.list);
       return this.list;
     }
-  },
-  created: function created() {
-    console.log('这是', this.type);
   }
 });
 

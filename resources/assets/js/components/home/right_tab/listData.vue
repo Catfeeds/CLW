@@ -29,12 +29,8 @@ export default {
   },
   computed: {
     dataList() {
-      console.log('ssasasda', this.list)
       return this.list
     }
-  },
-  created() {
-    console.log('这是', this.type)
   }
 }
 </script>
