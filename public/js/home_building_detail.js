@@ -50827,12 +50827,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       default: true
     }
   },
-  data: function data() {
-    return {
-      typeData: this.type
-    };
-  },
-
   computed: {
     dataList: function dataList() {
       console.log('ssasasda', this.list);
@@ -50863,7 +50857,7 @@ var render = function() {
             "a",
             {
               attrs: {
-                href: _vm.typeData
+                href: _vm.type
                   ? "/buildings/" + item.id
                   : "/office_building_houses/" + item.id,
                 target: "_blank"

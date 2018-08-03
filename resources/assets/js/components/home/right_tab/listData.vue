@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="data-list-item" v-for="(item, index) in dataList" :key="'history' + index">
-      <a :href="typeData?'/buildings/'+item.id:'/office_building_houses/'+item.id" target="_blank">
+      <a :href="type?'/buildings/'+item.id:'/office_building_houses/'+item.id" target="_blank">
         <div class="r-panel-img">
           <img :src="item.img">
         </div>
@@ -25,11 +25,6 @@ export default {
     type: {
       type: Boolean,
       default: true
-    }
-  },
-  data() {
-    return {
-      typeData: this.type
     }
   },
   computed: {
