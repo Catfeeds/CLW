@@ -1205,7 +1205,7 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["l"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["m"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
@@ -1213,17 +1213,17 @@ module.exports = __webpack_require__(4);
 /* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["j"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["p"] = login;
+/* harmony export (immutable) */ __webpack_exports__["k"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["q"] = login;
 /* harmony export (immutable) */ __webpack_exports__["h"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["n"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["o"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
-/* harmony export (immutable) */ __webpack_exports__["o"] = launchHouse;
-/* harmony export (immutable) */ __webpack_exports__["m"] = getSelectInfo;
-/* harmony export (immutable) */ __webpack_exports__["k"] = getMarketPrice;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getLikeBuild;
+/* harmony export (immutable) */ __webpack_exports__["p"] = launchHouse;
+/* harmony export (immutable) */ __webpack_exports__["n"] = getSelectInfo;
+/* harmony export (immutable) */ __webpack_exports__["l"] = getMarketPrice;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getLikeBuild;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getBuildBrowse;
-/* unused harmony export getHouseBrowse */
+/* harmony export (immutable) */ __webpack_exports__["i"] = getHouseBrowse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -4850,7 +4850,7 @@ var type = $("#commentForm").validate({
         }
         data.append('demand', 1);
         data.append('source', 6);
-        Object(__WEBPACK_IMPORTED_MODULE_5__home_api__["o" /* launchHouse */])(data).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_5__home_api__["p" /* launchHouse */])(data).then(function (res) {
             if (res.success) {
                 __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
                     message: '投放成功，楚楼网10分钟内联系您',
@@ -6903,7 +6903,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
 
       if (this.validateTel()) {
         this.secondNum = 60;
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["j" /* getLoginCode */])(this.tel).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["k" /* getLoginCode */])(this.tel).then(function (res) {
           __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
             message: '短信已发送请耐心等候',
             type: 'success'
@@ -6923,7 +6923,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
       this.isTel = true; // 手机号验证状态 true: 通过 false: 不通过
       this.isCode = true; // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["p" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["q" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',

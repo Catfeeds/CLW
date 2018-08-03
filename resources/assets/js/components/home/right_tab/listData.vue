@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="data-list-item" v-for="(item, index) in list" :key="'history' + index">
-      <a href="javascript:void(0);" target="_blank">
+    <div class="data-list-item" v-for="(item, index) in dataList" :key="'history' + index">
+      <a href="" target="_blank">
         <div class="r-panel-img">
           <img src="//fang-oss.haozu.com/cms/index/2017/04/05/6Ain7JjiSG.jpg@208w_156h_90q_1c_1e_1l|watermark=1&amp;object=aGFvenUucG5n&amp;t=90&amp;p=9&amp;x=10&amp;y=10">
         </div>
         <div class="r-panel-txt">
-          <p class="p1">汉街万达尊</p>
-          <p class="p2">3.3元/m²⋅月</p>
-          <p class="p3">可租面积：111-317m²</p>
-          <p class="p3">武昌&nbsp;-&nbsp;中北路</p>
+          <p class="p1">{{item.name}}</p>
+          <p class="p2">{{item.average_price}}</p>
+          <p class="p3">可租面积: {{item.Rentable_area}}</p>
+          <p class="p3">{{item.address}}</p>
         </div>
       </a>
     </div>
@@ -27,8 +27,18 @@ export default {
       default: 1
     }
   },
+  computed: {
+    dataList() {
+      return this.list
+    }
+  },
+  method: {
+    geturl(url, val) {
+      return url + val
+    }
+  },
   created() {
-    console.log('这是', this.type)
+    console.log('这是', this.list)
   }
 }
 </script>

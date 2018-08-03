@@ -32,13 +32,19 @@ export default {
   created() {
     var buildingId = Cookies.get('building')
     var houseId = Cookies.get('house')
-    console.log('sssss', houseId)
+    console.log(houseId)
     if (buildingId) {
       getBuildBrowse({ id: buildingId }).then(res => {
-        console.log('ceshi', res)
+        console.log('ceshi', res.data)
         if (res.success) {
           this.buildList = res.data
         }
+      })
+    }
+    if (houseId) {
+      getHouseBrowse({ id: houseId }).then(res => {
+        console.log('房源的数据', res)
+        this.houseList = res.data
       })
     }
   }

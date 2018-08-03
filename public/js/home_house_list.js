@@ -2205,7 +2205,7 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["l"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["m"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
@@ -2213,17 +2213,17 @@ module.exports = __webpack_require__(4);
 /* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["j"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["p"] = login;
+/* harmony export (immutable) */ __webpack_exports__["k"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["q"] = login;
 /* harmony export (immutable) */ __webpack_exports__["h"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["n"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["o"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
-/* harmony export (immutable) */ __webpack_exports__["o"] = launchHouse;
-/* harmony export (immutable) */ __webpack_exports__["m"] = getSelectInfo;
-/* harmony export (immutable) */ __webpack_exports__["k"] = getMarketPrice;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getLikeBuild;
+/* harmony export (immutable) */ __webpack_exports__["p"] = launchHouse;
+/* harmony export (immutable) */ __webpack_exports__["n"] = getSelectInfo;
+/* harmony export (immutable) */ __webpack_exports__["l"] = getMarketPrice;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getLikeBuild;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getBuildBrowse;
-/* unused harmony export getHouseBrowse */
+/* harmony export (immutable) */ __webpack_exports__["i"] = getHouseBrowse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -4972,7 +4972,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
 
       if (this.validateTel()) {
         this.secondNum = 60;
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["j" /* getLoginCode */])(this.tel).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["k" /* getLoginCode */])(this.tel).then(function (res) {
           __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
             message: '短信已发送请耐心等候',
             type: 'success'
@@ -4992,7 +4992,7 @@ var ElButton = __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_button___default.a;
       this.isTel = true; // 手机号验证状态 true: 通过 false: 不通过
       this.isCode = true; // 验证码状态 true: 通过 false: 不通过
       if (this.validateTel() && this.validateCode()) {
-        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["p" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_9__home_api__["q" /* login */])({ tel: this.tel, smsCode: this.code }).then(function (res) {
           if (res) {
             __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
               message: '登陆成功！即将刷新页面',
@@ -10190,13 +10190,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     var buildingId = __WEBPACK_IMPORTED_MODULE_2_js_cookie___default.a.get('building');
     var houseId = __WEBPACK_IMPORTED_MODULE_2_js_cookie___default.a.get('house');
-    console.log('sssss', houseId);
+    console.log(houseId);
     if (buildingId) {
       Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["g" /* getBuildBrowse */])({ id: buildingId }).then(function (res) {
-        console.log('ceshi', res);
+        console.log('ceshi', res.data);
         if (res.success) {
           _this.buildList = res.data;
         }
+      });
+    }
+    if (houseId) {
+      Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["i" /* getHouseBrowse */])({ id: houseId }).then(function (res) {
+        console.log('房源的数据', res);
+        _this.houseList = res.data;
       });
     }
   }
@@ -50822,8 +50828,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       default: 1
     }
   },
+  computed: {
+    dataList: function dataList() {
+      return this.list;
+    }
+  },
+  method: {
+    geturl: function geturl(url, val) {
+      return url + val;
+    }
+  },
   created: function created() {
-    console.log('这是', this.type);
+    console.log('这是', this.list);
   }
 });
 
@@ -50837,11 +50853,29 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.list, function(item, index) {
+    _vm._l(_vm.dataList, function(item, index) {
       return _c(
         "div",
         { key: "history" + index, staticClass: "data-list-item" },
-        [_vm._m(0, true)]
+        [
+          _c("a", { attrs: { href: "", target: "_blank" } }, [
+            _vm._m(0, true),
+            _vm._v(" "),
+            _c("div", { staticClass: "r-panel-txt" }, [
+              _c("p", { staticClass: "p1" }, [_vm._v(_vm._s(item.name))]),
+              _vm._v(" "),
+              _c("p", { staticClass: "p2" }, [
+                _vm._v(_vm._s(item.average_price))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "p3" }, [
+                _vm._v("可租面积: " + _vm._s(item.Rentable_area))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "p3" }, [_vm._v(_vm._s(item.address))])
+            ])
+          ])
+        ]
       )
     })
   )
@@ -50851,30 +50885,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      { attrs: { href: "javascript:void(0);", target: "_blank" } },
-      [
-        _c("div", { staticClass: "r-panel-img" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "//fang-oss.haozu.com/cms/index/2017/04/05/6Ain7JjiSG.jpg@208w_156h_90q_1c_1e_1l|watermark=1&object=aGFvenUucG5n&t=90&p=9&x=10&y=10"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "r-panel-txt" }, [
-          _c("p", { staticClass: "p1" }, [_vm._v("汉街万达尊")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p2" }, [_vm._v("3.3元/m²⋅月")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p3" }, [_vm._v("可租面积：111-317m²")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p3" }, [_vm._v("武昌 - 中北路")])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "r-panel-img" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "//fang-oss.haozu.com/cms/index/2017/04/05/6Ain7JjiSG.jpg@208w_156h_90q_1c_1e_1l|watermark=1&object=aGFvenUucG5n&t=90&p=9&x=10&y=10"
+        }
+      })
+    ])
   }
 ]
 render._withStripped = true
@@ -52772,7 +52790,7 @@ var ElAutocomplete = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_autocomplete___d
   methods: {
     querySearchAsync: function querySearchAsync(queryString, cb) {
       cb([]);
-      Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["m" /* getSelectInfo */])({ selectInfo: queryString }).then(function (res) {
+      Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["n" /* getSelectInfo */])({ selectInfo: queryString }).then(function (res) {
         cb(res.data);
       });
     },

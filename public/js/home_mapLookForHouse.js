@@ -2205,7 +2205,7 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["l"] = getRegionList;
+/* harmony export (immutable) */ __webpack_exports__["m"] = getRegionList;
 /* harmony export (immutable) */ __webpack_exports__["f"] = getBlock;
 /* harmony export (immutable) */ __webpack_exports__["a"] = buildingsSelect;
 /* unused harmony export getBuildList */
@@ -2213,17 +2213,17 @@ module.exports = __webpack_require__(4);
 /* harmony export (immutable) */ __webpack_exports__["e"] = findHouse;
 /* harmony export (immutable) */ __webpack_exports__["c"] = collect;
 /* harmony export (immutable) */ __webpack_exports__["b"] = cancelCollet;
-/* harmony export (immutable) */ __webpack_exports__["j"] = getLoginCode;
-/* harmony export (immutable) */ __webpack_exports__["p"] = login;
+/* harmony export (immutable) */ __webpack_exports__["k"] = getLoginCode;
+/* harmony export (immutable) */ __webpack_exports__["q"] = login;
 /* harmony export (immutable) */ __webpack_exports__["h"] = getCoreBuildList;
-/* harmony export (immutable) */ __webpack_exports__["n"] = getSiteBuildNum;
+/* harmony export (immutable) */ __webpack_exports__["o"] = getSiteBuildNum;
 /* harmony export (immutable) */ __webpack_exports__["d"] = factorFindHouse;
-/* harmony export (immutable) */ __webpack_exports__["o"] = launchHouse;
-/* harmony export (immutable) */ __webpack_exports__["m"] = getSelectInfo;
-/* harmony export (immutable) */ __webpack_exports__["k"] = getMarketPrice;
-/* harmony export (immutable) */ __webpack_exports__["i"] = getLikeBuild;
+/* harmony export (immutable) */ __webpack_exports__["p"] = launchHouse;
+/* harmony export (immutable) */ __webpack_exports__["n"] = getSelectInfo;
+/* harmony export (immutable) */ __webpack_exports__["l"] = getMarketPrice;
+/* harmony export (immutable) */ __webpack_exports__["j"] = getLikeBuild;
 /* harmony export (immutable) */ __webpack_exports__["g"] = getBuildBrowse;
-/* unused harmony export getHouseBrowse */
+/* harmony export (immutable) */ __webpack_exports__["i"] = getHouseBrowse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_request__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -11620,7 +11620,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             _this.regionArray = res.data.data;
         });
         // 获取区域 数据
-        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["l" /* getRegionList */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["m" /* getRegionList */])().then(function (res) {
             if (res.success) {
                 _this.regionList = res.data;
                 _this.regionListAll = res.data;
@@ -11690,7 +11690,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword !== '') {
                     if (this.regionList.length == 0) {
                         // 获取区域 数据
-                        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["l" /* getRegionList */])().then(function (res) {
+                        Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["m" /* getRegionList */])().then(function (res) {
                             if (res.success) {
                                 _this2.regionList = res.data;
                             }
@@ -11838,7 +11838,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                     y: el.DB[key].position.lat
                 });
             }
-            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["n" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["o" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
                 console.log('getSiteBuildNum', res);
                 if (res.success) {
                     _this3.siteList = res.data;
