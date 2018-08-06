@@ -1564,6 +1564,11 @@ body .right_tab .bank-top .text-box {
   color: #999;
 }
 
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow .company {
+  width: 100%;
+  margin-right: 40px;
+}
+
 .content .build .first .left .buildInfor .buildInforBox .buildDetail {
   padding: 35px 100px 35px 40px;
   color: #666;

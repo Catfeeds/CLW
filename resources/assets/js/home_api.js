@@ -141,7 +141,7 @@ export function getMarketPrice(params) {
 }
 
 // 获取楼盘详情猜你喜欢
-export function getLikeBuild() {
+export function getLikeBuild(params) {
   return request({
     url: '/like_building',
     method: 'GET'

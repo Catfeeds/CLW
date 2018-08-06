@@ -854,7 +854,7 @@ function getMarketPrice(params) {
 }
 
 // 获取楼盘详情猜你喜欢
-function getLikeBuild() {
+function getLikeBuild(params) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/like_building',
     method: 'GET'
