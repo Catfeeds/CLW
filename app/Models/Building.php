@@ -18,8 +18,20 @@ class Building extends Model
 
     protected $connection = 'media';
 
-    protected $appends = ['pic_url_cn',  'img_cn', 'type_label', 'pic_url', 'greening_rate_cn', 'acreage_cn', 'years_cn', 'building_block_num_cn',
-        'parking_num_cn','parking_fee_cn', 'pc_pic_url', 'pc_pic_cn'];
+    protected $appends = [
+        'pic_url_cn',
+        'img_cn',
+        'type_label',
+        'pic_url',
+        'greening_rate_cn',
+        'acreage_cn',
+        'years_cn',
+        'building_block_num_cn',
+        'parking_num_cn',
+        'parking_fee_cn',
+        'pc_pic_url',
+        'pc_pic_cn'
+    ];
 
     // 楼座
     public function buildingBlock()
@@ -227,9 +239,4 @@ class Building extends Model
                 return '商铺';
         }
     }
-
-//    public function getAddressCnAttribute()
-//    {
-//        return $this->area->name . '-' . $this->block->name;;
-//    }
 }

@@ -11,6 +11,7 @@ use App\Handler\Common;
 
 class AdminsController extends APIBaseController
 {
+    // 添加后台管理用户
     public function store
     (
         AdminsRequest $request,
@@ -43,7 +44,8 @@ class AdminsController extends APIBaseController
         return $this->sendResponse($res, '获取成功');
     }
 
-    public function index( AdminsRequest $request)
+    // 管理员列表
+    public function index(AdminsRequest $request)
     {
         $res = Admin::where([])->paginate($request->per_page??10);
         foreach ($res as $v) {
@@ -55,12 +57,13 @@ class AdminsController extends APIBaseController
         return $this->sendResponse($res, '用户列表获取成功');
     }
 
+    // 用户修改之前数据
     public function edit(Admin $admin)
     {
         return $this->sendResponse($admin, '用户修改之前数据');
     }
 
-    //修改用户
+    // 修改用户信息
     public function Update
     (
         Admin $admin,

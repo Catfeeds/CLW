@@ -42,3 +42,9 @@ Route::get('list_charge',function(){
 Route::get('list_register',function(){
     return view('shop.list_register');
 });
+Route::get('list_clean',function(){
+    return view('shop.list_clean');
+});
+Route::get('list_ressetClean',function(){
+    return view('shop.list_ressetClean');
+});

@@ -259,6 +259,7 @@ class BuildingsRepository extends  Model
         $service->priceAndAcreageSection($building);
         $service->features($building);
         $service->label($building);
+        $service->companyString($building);
         return $building;
     }
 

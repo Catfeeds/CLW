@@ -27,7 +27,6 @@ class BannerController extends APIBaseController
         BannerRepository $bannerRepository
     )
     {
-
         if (empty(Common::user()->can('banner_list'))) {
             return $this->sendError('无banner列表权限','403');
         }
@@ -35,8 +34,6 @@ class BannerController extends APIBaseController
         $res = $bannerRepository->bannerList();
         return $this->sendResponse($res,'banner列表获取成功');
     }
-
-
 
     /**
      * 说明: 添加

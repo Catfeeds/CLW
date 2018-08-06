@@ -106,6 +106,7 @@ class RegistersService
         return ['status' => true, 'message' => '注册成功'];
     }
 
+    // 添加后台管理用户
     public function addAdminUser( $request)
     {
         \DB::beginTransaction();
@@ -125,7 +126,7 @@ class RegistersService
         }
     }
 
-    //修改密码
+    // 修改用户信息
     public function update($admin, $request)
     {
         \DB::beginTransaction();

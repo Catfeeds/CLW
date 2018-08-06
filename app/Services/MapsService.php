@@ -51,7 +51,14 @@ class MapsService
         // 获取去重之后的所有楼盘id
         $buildingsId = array_column($this->remove_duplicate(collect($buildings)->collapse()->all()),'id');
 
-        return $repository->buildingList($request, $buildingsService, $buildingsId,false,null, true,true);
+        // 获取所有/分页
+        if ($request->type == 'all') {
+            $whetherPage = true;
+        } else {
+            $whetherPage = false;
+        }
+
+        return $repository->buildingList($request, $buildingsService, $buildingsId, $whetherPage,null, true,true);
     }
 
     // 数组去重
@@ -76,7 +83,7 @@ class MapsService
     public function getBuildingArea($buildings)
     {
         $temp = array();
-        foreach ($buildings as $k => $v) {
+        foreach ($buildings['data'] as $k => $v) {
             $temp[] = $v['area'];
         }
 

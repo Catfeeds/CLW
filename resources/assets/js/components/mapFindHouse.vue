@@ -39,11 +39,11 @@
                 </div>
             </self-overlay>
             <!--商圈区块-->
-            <bm-polygon v-show="blockActive !== ''" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
+            <bm-polygon v-if="blockActive !== '' && zoom<=15&&zoom>13" :path="polygonPath" stroke-color="red" :stroke-opacity="0.5"
                         :stroke-weight="2"></bm-polygon>
             <!--&lt;!&ndash;区域区块&ndash;&gt;-->
             <bm-boundary
-                    v-if='Active !== ""'
+                    v-if='Active !== "" && zoom<14'
                     :name="Active"
                     :massClear='boundaryStyle.massClear'
                     :strokeWeight="boundaryStyle.strokeWeight"
@@ -159,21 +159,22 @@
                 </el-col>
             </el-row>
             </div>
-            <div class="list">
-            <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
-                <div @click="seeBuildDetail(item)" class="mapBox">
-                    <el-col :span="8" style="padding:0;margin-left: 40px;">
-                        <img style="width: 140px;height: 140px"
-                             :src="item.img_cn+'?imageMogr2/thumbnail/!140x140r/gravity/Center/crop/140x140/blur/1x0/quality/75|imageslim'">
-                    </el-col>
-                    <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
-                        <div class="mapTitle">{{item.name}}</div>
-                        <div class="mapPrice"><span>{{item.avg_price}}</span><span>元/㎡·月</span></div>
-                        <div class="mapAddress" >地址: [{{item.address_cn}}] {{item.address}}</div>
-                        <div class="mapArea">面积：{{item.acreage_cn}}  </div>
-                    </el-col>
-                </div>
-            </el-row>
+            <div class="list" @scroll="listScroll">
+                <el-row v-for="(item, index) in buildList" :key="'leftList'+ index" :gutter="20" class="mapList">
+                    <div @click="seeBuildDetail(item)" class="mapBox">
+                        <el-col :span="8" style="padding:0;margin-left: 40px;">
+                            <img style="width: 140px;height: 140px"
+                                :src="item.img_cn+'?imageMogr2/thumbnail/!140x140r/gravity/Center/crop/140x140/blur/1x0/quality/75|imageslim'">
+                        </el-col>
+                        <el-col :span="13" class="mapDetail" style="padding: 5px 0;">
+                            <div class="mapTitle">{{item.name}}</div>
+                            <div class="mapPrice"><span>{{item.avg_price}}</span><span>元/㎡·月</span></div>
+                            <div class="mapAddress" >地址: [{{item.address_cn}}] {{item.address}}</div>
+                            <div class="mapArea">面积：{{item.acreage_cn}}  </div>
+                        </el-col>
+                    </div>
+                </el-row>
+                <div v-if="panelLoading" style="height:90px;background:#dddddd;" v-loading="panelLoading" element-loading-text="加载中"></div>
             </div>
         </div>
         <div class="arrow" v-bind:style="{ left: width }" @click="widthUp()">
@@ -240,8 +241,11 @@
         },
         data() {
             return {
+                conditionData: {},
+                listPerPage: 10,
                 width: '480px',
                 conditionType: true,
+                panelLoading: true,
                 ak: process.env.baiduAK, // 百度密钥
                 location: '武汉', // 检索区域
                 zhongxin: {lng: 114.312161, lat: 30.598964},
@@ -408,7 +412,6 @@
                     coord[numb].lng = parseFloat(temp[0])
                     coord[numb].lat = parseFloat(temp[1])
                 }
-                console.log(coord)
                 return coord
             }
         },
@@ -512,6 +515,28 @@
             }
         },
         methods: {
+            // 滚动加载方法
+            listScroll(e) {
+                if (this.buildList.length >= this.buildListNum) {
+                    return false
+                }
+                const scrollTop = e.target.scrollTop
+                const scrollHeight = e.target.scrollHeight
+                const offsetHeight = e.target.offsetHeight
+                const targetNum = 50
+                if (scrollHeight - (offsetHeight + scrollTop) < targetNum && !this.panelLoading) {
+                    this.panelLoading = true
+                    const page = (this.buildList.length/this.listPerPage) + 1
+                    const data = JSON.parse(JSON.stringify(this.conditionData))
+                    data.page = page
+                    getCoreBuildList(data).then(res => {
+                        this.panelLoading = false
+                        if (res.success) {
+                            this.buildList = this.buildList.concat(res.data.res.data)
+                        }
+                    })
+                }
+            },
             widthUp() {
                 if (this.width === '480px') {
                     this.width = '0px'
@@ -598,13 +623,13 @@
                     ],
                     distance: 5
                 }
-                // 请求楼盘数据
-                this.getBuild(datas)
                 if(this.zoom === 16) {
                     this.zhongxin = this.centerLocaion
                     this.location = this.centerLocaion
                 }
                 this.zoom = 16
+                // 请求楼盘数据
+                this.getBuild(datas)
             },
             // 地铁详情
             seeMtro(data){
@@ -668,10 +693,32 @@
             },
             // 根据条件获取楼盘数据
             getBuild(data, type = false) {
-                getCoreBuildList(data).then(res => {
+                this.panelLoading = true
+                const condition = data
+                if (this.zoom >= 16) {
+                    condition.type = 'all'
+                }
+                getCoreBuildList(condition).then(res => {
+                    this.panelLoading = false
                     if (res.success) {
-                        this.buildList = res.data.res.data
-                        this.buildListNum = res.data.res.total
+                        this.conditionData = data // 当前搜寻条件
+                        if (res.data.res.data) {
+                            this.buildList = res.data.res.data
+                        } else {
+                            this.buildList = res.data.res
+                        }
+                        
+                        if (res.data.res.total) {
+                            this.buildListNum = res.data.res.total
+                        } else {
+                            this.buildListNum = res.data.res.length
+                        }
+                        if (res.data.res.listPerPage) {
+                            this.listPerPage = res.data.res.per_page
+                        } else {
+                            this.listPerPage = 10
+                        }
+
                         if(type) {
                             this.regionList = res.data.areaLocations
                         }
@@ -813,7 +860,7 @@
                 left: 0px;
             }
             .list{
-                overflow-y: scroll;
+                overflow-y: auto;
                 overflow-x: hidden;
                 height: calc(100vh - 185px);
             }
