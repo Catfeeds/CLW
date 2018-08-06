@@ -128,8 +128,8 @@
                         </div>
                         <div class="js_listDetail">
                             @foreach($houses as $house)
-                            <a href="{{url('/office_building_houses').'/'.$house->id}}">
-                                <div class="listDetail">
+                            <div class="listDetail">
+                                <a href="{{url('/office_building_houses').'/'.$house->id}}">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">
                                         <div><span id="listArea">{{$house->constru_acreage}}</span>m²</div>
@@ -147,8 +147,9 @@
                                         <div class="special3">{{$house->house_feature[2]}}</div>
                                         @endif
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
+                            
                             @endforeach
                         </div>
                     </div>

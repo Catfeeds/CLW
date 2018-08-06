@@ -11,6 +11,7 @@ var initHouseData = getVal() // 房源数据
 var houseDetail = getVal()
 var houseCount = parseInt($('.js_listCount span').html()) // 房源数量
 var listTemplate = $('.js_listDetail .listDetail').eq(0).prop('outerHTML') // 房源列表模板
+console.log('模板', listTemplate)
 var rightTop = $('.right').offset().top // 右侧边栏至顶部的距离
 var secondTop = $('#second').offset().top // 周边配套至顶部的距离
 console.log('sssss', Data.id)
