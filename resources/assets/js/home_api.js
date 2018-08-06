@@ -144,7 +144,8 @@ export function getMarketPrice(params) {
 export function getLikeBuild(params) {
   return request({
     url: '/like_building',
-    method: 'GET'
+    method: 'GET',
+    params
   })
 }
 
