@@ -35,7 +35,7 @@ var FormData = {
     openid: $('meta[name="openid"]').attr('content')
 };
 var requestType = false;
-var url = 'http://192.168.0.199';
+var url = 'http://192.168.0.142:9999';
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     data: {

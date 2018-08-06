@@ -107,6 +107,9 @@
                     </div>
                 </div>
             </div>
+            <div class="banner-median">
+
+            </div>
             @if(count($hotBlocks) === 5)
             <!-- 热门商圈 -->
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>
