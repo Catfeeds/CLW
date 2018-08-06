@@ -360,7 +360,7 @@
                     unit_price: '', // 单价
                     total_price: '', // 总价
                     acreage: '', // 面积
-                    metro: '' // 地铁
+                    metro: null // 地铁
                 }, // 条件
                 options: [{
                     label: '1号线',
@@ -444,12 +444,12 @@
 //            this.getBuild(ResultData)
         },
         watch: {
-            'condition.metro': function () {
+            'condition.metro': function (val) {
                 this.siteList = []
-                this.subwayKeyword = this.condition.metro
-                if (this.condition.metro === '') {
-                    this.subwayKeyword = false;
+                if (!val) {
+                    window.location.reload()
                 } else{
+                    this.subwayKeyword = val
                     this.zoom = 14
                 }
             },
@@ -464,6 +464,8 @@
                             }, 50)
                         }
                     })
+                } else {
+                    alert(1)
                 }
             },
             zoom: function (val) {
@@ -734,9 +736,10 @@
                 // 清空其他条件
                 this.emptyCondition()
                 getCoreBuildList(resultData).then(res => {
+                    this.conditionData = resultData
                     if (res.success) {
-                        this.buildList = res.data.res
-                        this.buildListNum = res.data.res.length
+                        this.buildList = res.data.res.data
+                        this.buildListNum = res.data.res.total
                     }
                 })
             },
