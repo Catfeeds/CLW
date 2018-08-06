@@ -3,7 +3,7 @@
     <div class="data-list-item" v-for="(item, index) in dataList" :key="'history' + index">
       <a :href="type?'/buildings/'+item.id:'/office_building_houses/'+item.id" target="_blank">
         <div class="r-panel-img">
-          <img :src="item.img">
+          <img :src="item.img + cropStyle">
         </div>
         <div class="r-panel-txt">
           <div class="p1">{{item.name}}</div>
@@ -27,6 +27,11 @@ export default {
       default: true
     }
   },
+  data() {
+    return {
+      cropStyle: process.env.config.cropStylist.newApp_list
+    }
+  },
   computed: {
     dataList() {
       return this.list
@@ -40,6 +45,9 @@ export default {
     border-bottom: 1px #ebeaea solid;
     display: block;
     overflow: hidden;
+    &:hover{
+      background-color: #efefef;
+    }
     &::after{
       content: "\0020";
       display: block;
@@ -53,6 +61,9 @@ export default {
       float: left;
       width: 104px;
       height: 78px;
+      img{
+        width: 100%;
+      }
     }
     .r-panel-txt {
       float: left;
