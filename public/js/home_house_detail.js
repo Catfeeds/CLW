@@ -1735,7 +1735,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.199' + '/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.142:9999' + '/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -8961,7 +8961,11 @@ $(document).on('click', '.js_clickCustomerService', function () {
   $('#nb_icon_wrap').trigger('click');
 });
 $(document).on('click', '.js_clickShowHistory', function () {
-  $('.js_rightTab').addClass('click-history-active');
+  if (!$('.js_rightTab').hasClass('click-history-active')) {
+    $('.js_rightTab').addClass('click-history-active');
+  } else {
+    $('.js_rightTab').removeClass('click-history-active');
+  }
 });
 
 /***/ }),
@@ -50787,7 +50791,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.data-list-item {\n  padding: 10px;\n  border-bottom: 1px #ebeaea solid;\n  display: block;\n  overflow: hidden;\n}\n.data-list-item::after {\n    content: \" \";\n    display: block;\n    clear: both;\n    height: 0;\n    visibility: hidden;\n}\n.data-list-item .r-panel-img {\n    font-size: 0;\n    overflow: hidden;\n    float: left;\n    width: 104px;\n    height: 78px;\n}\n.data-list-item .r-panel-txt {\n    float: left;\n    padding-left: 10px;\n    width: 139px;\n    color: #333;\n}\n.data-list-item .r-panel-txt div {\n      font-size: 12px;\n      padding: 0;\n      margin: 0;\n}\n.data-list-item .r-panel-txt .p1 {\n      font-size: 14px;\n      line-height: 22px;\n      height: 22px;\n      width: 136px;\n      display: block;\n      white-space: nowrap;\n      overflow: hidden;\n      text-overflow: ellipsis;\n}\n.data-list-item .r-panel-txt .p2 {\n      line-height: 16px;\n      padding-bottom: 6px;\n      color: #007bff;\n}\n.data-list-item .r-panel-txt .p3 {\n      line-height: 16px;\n      color: #9496ad;\n}\n.data-list-item .r-panel-txt .p4 {\n      float: left;\n      padding-left: 10px;\n      width: 136px;\n      font-size: 12px;\n      color: #333;\n}\n", ""]);
+exports.push([module.i, "\n.data-list-item {\n  padding: 10px;\n  border-bottom: 1px #ebeaea solid;\n  display: block;\n  overflow: hidden;\n}\n.data-list-item:hover {\n    background-color: #f5f5f5;\n}\n.data-list-item::after {\n    content: \" \";\n    display: block;\n    clear: both;\n    height: 0;\n    visibility: hidden;\n}\n.data-list-item .r-panel-img {\n    font-size: 0;\n    overflow: hidden;\n    float: left;\n    width: 104px;\n    height: 78px;\n}\n.data-list-item .r-panel-img img {\n      width: 100%;\n}\n.data-list-item .r-panel-txt {\n    float: left;\n    padding-left: 10px;\n    width: 139px;\n    color: #333;\n}\n.data-list-item .r-panel-txt div {\n      font-size: 12px;\n      padding: 0;\n      margin: 0;\n}\n.data-list-item .r-panel-txt .p1 {\n      font-size: 14px;\n      line-height: 22px;\n      height: 22px;\n      width: 136px;\n      display: block;\n      white-space: nowrap;\n      overflow: hidden;\n      text-overflow: ellipsis;\n}\n.data-list-item .r-panel-txt .p2 {\n      line-height: 16px;\n      padding-bottom: 6px;\n      color: #007bff;\n}\n.data-list-item .r-panel-txt .p3 {\n      line-height: 16px;\n      color: #9496ad;\n}\n.data-list-item .r-panel-txt .p4 {\n      float: left;\n      padding-left: 10px;\n      width: 136px;\n      font-size: 12px;\n      color: #333;\n}\n", ""]);
 
 // exports
 
@@ -50827,6 +50831,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       default: true
     }
   },
+  data: function data() {
+    return {
+      cropStyle: '?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'
+    };
+  },
+
   computed: {
     dataList: function dataList() {
       return this.list;
@@ -50861,7 +50871,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "r-panel-img" }, [
-                _c("img", { attrs: { src: item.img } })
+                _c("img", { attrs: { src: item.img + _vm.cropStyle } })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "r-panel-txt" }, [

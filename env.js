@@ -4,7 +4,7 @@
 module.exports = {
   baseConfig: { // 开发配置
     weHostURl: "''", // 微信接口服务器地址
-    agencyHostURL: "'http://192.168.0.199'", // 中介服务器接口地址
+    agencyHostURL: "'http://192.168.0.142:9999'", // 中介服务器接口地址
     homeHostUrl:"''",
     baiduAK: "'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'", // 百度地图key
     config: { // 打包配置

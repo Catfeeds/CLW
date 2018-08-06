@@ -44,5 +44,9 @@ $(document).on('click', '.js_clickCustomerService', function() {
   $('#nb_icon_wrap').trigger('click')
 })
 $(document).on('click', '.js_clickShowHistory', function() {
-  $('.js_rightTab').addClass('click-history-active')
+  if (!$('.js_rightTab').hasClass('click-history-active')) {
+    $('.js_rightTab').addClass('click-history-active')
+  } else {
+    $('.js_rightTab').removeClass('click-history-active')
+  }
 })

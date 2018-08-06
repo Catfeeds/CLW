@@ -1735,7 +1735,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.199' + '/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.142:9999' + '/api/cities_areas_blocks_select',
     method: 'GET'
   });
 }
@@ -12285,7 +12285,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             unit_price: '', // 单价
             total_price: '', // 总价
             acreage: '', // 面积
-            metro: '' // 地铁
+            metro: null // 地铁
         }), _defineProperty(_ref, 'options', [{
             label: '1号线',
             value: 1
@@ -12362,12 +12362,12 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
     },
 
     watch: {
-        'condition.metro': function conditionMetro() {
+        'condition.metro': function conditionMetro(val) {
             this.siteList = [];
-            this.subwayKeyword = this.condition.metro;
-            if (this.condition.metro === '') {
-                this.subwayKeyword = false;
+            if (!val) {
+                window.location.reload();
             } else {
+                this.subwayKeyword = val;
                 this.zoom = 14;
             }
         },
@@ -12382,6 +12382,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                         }, 50);
                     }
                 });
+            } else {
+                alert(1);
             }
         },
         zoom: function zoom(val) {
@@ -12660,9 +12662,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 // 清空其他条件
             };this.emptyCondition();
             Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["h" /* getCoreBuildList */])(resultData).then(function (res) {
+                _this6.conditionData = resultData;
                 if (res.success) {
-                    _this6.buildList = res.data.res;
-                    _this6.buildListNum = res.data.res.length;
+                    _this6.buildList = res.data.res.data;
+                    _this6.buildListNum = res.data.res.total;
                 }
             });
         },
