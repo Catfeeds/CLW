@@ -7,7 +7,6 @@ use App\Models\BlockLocation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-
 class BlocksRepository extends Model
 {
     // 商圈列表
@@ -15,10 +14,9 @@ class BlocksRepository extends Model
     {
         $model = Block::with('area', 'building', 'blockLocation');
         if($request->area_id) {
-            $model = $model->where(['area_id'=>$request->area_id]);
+            $model = $model->where(['area_id' => $request->area_id]);
         }
         return $model->paginate($request->per_page??10);
-
     }
 
     // 添加商圈
@@ -29,7 +27,7 @@ class BlocksRepository extends Model
         DB::connection('mysql')->beginTransaction();
         DB::connection('media')->beginTransaction();
         try {
-             $block = Block::create([
+            $block = Block::create([
                 'name' => $request->name,
                 'area_id' => $request->area_id,
                 'recommend' => $request->recommend,
@@ -37,12 +35,13 @@ class BlocksRepository extends Model
                 'agent_pic' => $request->agent_pic,
             ]);
             if (empty($block)) throw new \Exception('商圈添加失败');
+
             $blockLocation = BlockLocation::create([
-                    'block_id' => $block->id,
-                    'x' => $request->x,
-                    'y' => $request->y,
-                    'scope' => $request->baidu_coord
-                ]);
+                'block_id' => $block->id,
+                'x' => $request->x,
+                'y' => $request->y,
+                'scope' => $request->baidu_coord
+            ]);
             if (empty($blockLocation)) throw new \Exception('商圈地理范围添加失败');
             DB::connection('mysql')->commit();
             DB::connection('media')->commit();
@@ -53,7 +52,6 @@ class BlocksRepository extends Model
             \Log::error('商圈添加失败'. $exception->getMessage());
             return false;
         }
-
     }
 
     // 修改商圈

@@ -10,7 +10,6 @@ use App\Models\Employee;
 use App\Repositories\AcceptMessagesRepository;
 use App\Services\MessagesService;
 
-
 class AcceptMessagesController extends APIBaseController
 {
     protected $repo;
@@ -25,20 +24,21 @@ class AcceptMessagesController extends APIBaseController
         $this->req = $request;
     }
 
-    //员工数据
+    // 员工数据
     public function getSelectUsers(MessagesService $service)
     {
         $res = $service->getSelectUsers();
         return $this->sendResponse($res, '员工下拉数据');
     }
 
+    // 查询类型下已经绑定的人员
     public function getBinding($type, MessagesService $service)
     {
         $res= $service->getBinding($type);
         return $this->sendResponse($res,'获取成功');
     }
 
-    //消息接收人员列表
+    // 消息接收人员列表
     public function index(MessagesService $service)
     {
         if (empty(Common::user()->can('accept_message_list'))) {
@@ -48,7 +48,7 @@ class AcceptMessagesController extends APIBaseController
         return $this->sendResponse($res,'获取成功');
     }
 
-    //添加消息接收人员
+    // 添加消息接收人员
     public function store(MessagesService $service)
     {
         if (empty(Common::user()->can('add_accept_message'))) {
@@ -58,17 +58,20 @@ class AcceptMessagesController extends APIBaseController
         return $this->sendResponse($res, '设置成功');
     }
 
-    //删除消息接收人员
+    // 删除消息接收人员
     public function destroy()
     {
         if (empty(Common::user()->can('del_accept_message'))) {
             return $this->sendError('无删除消息接收人员权限','403');
         }
-        $res = AcceptMessage::where(['type' => $this->req->type,'employee_id' => $this->req->employee_id])->delete();
+        $res = AcceptMessage::where([
+            'type' => $this->req->type,
+            'employee_id' => $this->req->employee_id
+        ])->delete();
         return $this->sendResponse($res,'删除成功');
     }
 
-    //获取员工openid
+    // 获取员工openid
     public function getOpenid($type)
     {
         $employee_id = AcceptMessage::where('type',$type)->pluck('employee_id')->toArray();
