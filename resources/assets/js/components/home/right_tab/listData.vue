@@ -46,7 +46,7 @@ export default {
     display: block;
     overflow: hidden;
     &:hover{
-      background-color: #efefef;
+      background-color: #f5f5f5;
     }
     &::after{
       content: "\0020";
