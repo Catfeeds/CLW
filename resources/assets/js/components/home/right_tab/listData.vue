@@ -41,7 +41,7 @@ export default {
 </script>
 <style lang="scss">
   .data-list-item{
-    padding: 10px;
+    padding: 16px;
     border-bottom: 1px #ebeaea solid;
     display: block;
     overflow: hidden;
@@ -92,14 +92,14 @@ export default {
       }
       .p3{
         line-height: 16px;
-        color: #9496ad;
+        color: #999999;
       }
       .p4{
         float: left;
         padding-left: 10px;
         width: 136px;
         font-size: 12px;
-        color: #333;
+        color: #999999;
       }
     }
   }

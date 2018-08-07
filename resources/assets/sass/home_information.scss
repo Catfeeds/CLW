@@ -3,6 +3,9 @@
 @include nav();// 导航样式
 @include footer(); // 底部样式
 @include pagination(); // 分页样式
+div.pagination{
+  margin-bottom: 40px;
+}
 ul{
   list-style: none;
   margin: 0px;

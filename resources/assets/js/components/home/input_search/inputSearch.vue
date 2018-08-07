@@ -36,4 +36,15 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.el-scrollbar{
+  padding-bottom: 15px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #e4e7ed;
+  >div{
+    border: none;
+  }
+}
+</style>
 

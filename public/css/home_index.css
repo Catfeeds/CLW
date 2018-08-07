@@ -1114,7 +1114,7 @@ body .index-header-box .banner-box .banner-img {
 
 body .index-header-box .banner-content-box {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   width: 1200px;
   margin: 0 auto;
 }
@@ -1139,6 +1139,7 @@ body .index-header-box .banner-content-box .banner-search-box .form-box .input-b
   float: left;
   width: 279px;
   height: 46px;
+  overflow: hidden;
   border-radius: 4px 0px 0px 4px;
   border-top: 1px solid #e1e1e1;
   border-bottom: 1px solid #e1e1e1;
@@ -1151,8 +1152,7 @@ body .index-header-box .banner-content-box .banner-search-box .form-box .input-b
   display: block;
   font-size: 16px;
   width: 100%;
-  height: 44px;
-  line-height: 44px;
+  height: 46px;
   padding-left: 19px;
 }
 
