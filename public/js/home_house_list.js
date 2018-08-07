@@ -50875,15 +50875,28 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "r-panel-txt" }, [
-                _c("div", { staticClass: "p1" }, [_vm._v(_vm._s(item.name))]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p2" }, [_vm._v(_vm._s(item.rent))]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p3" }, [
-                  _vm._v("可租面积: " + _vm._s(item.acreage))
+                _c("div", { staticClass: "p1", attrs: { title: item.name } }, [
+                  _vm._v(_vm._s(item.name))
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "p3" }, [_vm._v(_vm._s(item.address))])
+                _c("div", { staticClass: "p2", attrs: { title: item.rent } }, [
+                  _vm._v(_vm._s(item.rent))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "p3",
+                    attrs: { title: "可租面积:" + item.acreage }
+                  },
+                  [_vm._v("可租面积: " + _vm._s(item.acreage))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "p3", attrs: { title: item.address } },
+                  [_vm._v(_vm._s(item.address))]
+                )
               ])
             ]
           )

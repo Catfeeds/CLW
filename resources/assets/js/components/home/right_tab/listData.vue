@@ -6,10 +6,10 @@
           <img :src="item.img + cropStyle">
         </div>
         <div class="r-panel-txt">
-          <div class="p1">{{item.name}}</div>
-          <div class="p2">{{item.rent}}</div>
-          <div class="p3">可租面积: {{item.acreage}}</div>
-          <div class="p3">{{item.address}}</div>
+          <div class="p1" :title="item.name">{{item.name}}</div>
+          <div class="p2" :title="item.rent">{{item.rent}}</div>
+          <div class="p3" :title="'可租面积:'+item.acreage">可租面积: {{item.acreage}}</div>
+          <div class="p3" :title="item.address">{{item.address}}</div>
         </div>
       </a>
     </div>
