@@ -42,8 +42,8 @@ class MyBrowsingController extends Controller
         $data = [];
         foreach ($res as $k=>$v) {
             $data[$k]['id'] = $v->id;
-            $data[$k]['img'] = empty($v->buildingBlock->building->album)?config('setting.building_default_img') :config('setting.qiniu_url') .$v->buildingBlock->building->album[0];
-            $data[$k]['name'] = $v->buildingBlock->building->name;
+            $data[$k]['img'] = empty($v->indoor_img)?config('setting.pc_building_house_default_img') :config('setting.qiniu_url') .$v->indoor_img[0];
+            $data[$k]['name'] = $v->title;
             $data[$k]['rent'] = $v->unit_price . '元/㎡.月';
             $data[$k]['acreage'] = $v->constru_acreage. '㎡';
             $data[$k]['address'] = $v->buildingBlock->building->block->area->name . '-' .$v->buildingBlock->building->block->name;
