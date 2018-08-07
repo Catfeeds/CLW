@@ -1,6 +1,6 @@
 <template>
   <div class="histroy-content">
-    <h3>我的浏览 <span class="close-history" @click="close()">X</span></h3>
+    <h3>我的浏览 <span class="close-history" @click="close()"><img src="/home_img/right_close.png" alt=""></span></h3>
     <!-- <div>123</div> -->
     <Tabs value="name1" style="flex:1;display: flex;flex-direction: column;" :animated="false">
       <TabPane label="楼盘" name="name1">
