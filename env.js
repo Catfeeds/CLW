@@ -25,7 +25,7 @@ module.exports = {
         Bucket: 'chulouwang-cdn', // 上传桶名
         targetScr: 'public/', // 本地上传目录(已执行命令的目录位置为相对路径)
         listLimit: 100, // 每次获取七牛云存储文件列表数量
-        uploadNore: ['.DS_Store', 'index.php', 'home_img', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
+        uploadNore: ['.DS_Store', 'index.php', 'home_img', 'shop_img', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
         CDNMkdir: 'CLWTest/we/'
       }
     },
@@ -36,7 +36,7 @@ module.exports = {
         Bucket: 'chulouwang-cdn', // 上传桶名
         targetScr: 'public/', // 本地上传目录(已执行命令的目录位置为相对路径)
         listLimit: 100, // 每次获取七牛云存储文件列表数量
-        uploadNore: ['.DS_Store', 'mui', 'we_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
+        uploadNore: ['.DS_Store', 'mui', 'we_img', 'shop_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
         CDNMkdir: 'CLWTest/home/'
       }
     }
@@ -52,7 +52,7 @@ module.exports = {
         Bucket: 'chulouwang-cdn', // 上传桶名
         targetScr: 'public/', // 本地上传目录(已执行命令的目录位置为相对路径)
         listLimit: 100, // 每次获取七牛云存储文件列表数量
-        uploadNore: ['.DS_Store', 'index.php', 'home_img', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
+        uploadNore: ['.DS_Store', 'index.php', 'home_img', 'shop_img', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
         CDNMkdir: 'CLW/we/'
       }
     },
@@ -63,7 +63,7 @@ module.exports = {
         Bucket: 'chulouwang-cdn', // 上传桶名
         targetScr: 'public/', // 本地上传目录(已执行命令的目录位置为相对路径)
         listLimit: 100, // 每次获取七牛云存储文件列表数量
-        uploadNore: ['.DS_Store', 'mui', 'we_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
+        uploadNore: ['.DS_Store', 'mui', 'we_img', 'shop_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
         CDNMkdir: 'CLW/home/'
       }
     }

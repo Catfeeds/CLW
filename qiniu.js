@@ -187,6 +187,9 @@ function delFile(rlObj) {
   })
   rlObj.close();
 }
+/**
+ * 执行上传
+ */
 function uploadFile() {
   var config = new QiNiu.conf.Config();
   var formUploader = new QiNiu.form_up.FormUploader(config);
@@ -194,56 +197,30 @@ function uploadFile() {
   var srcObj = findSync(Config.QiNui.targetScr); // 上传文件映射关系 {远程路径: 本地路径}
   console.log(('开始执行七牛文件部署').info)
   for (var index in srcObj) {
-      console.log('这是坐标', index)
+    uploadItem(srcObj, index, formUploader, extra)
+  }
+}
+/**
+ * 单次上传的方法
+ * @param {String} srcObj 本地远程映射关系
+ * @param {String} index  // 远程目录
+ * @param {Function} formUploader // 七牛上传方法
+ * @param {*} extra // new QiNiu.form_up.PutExtra() 方法获得
+ */
+function uploadItem(srcObj, index, formUploader, extra) {
     console.log(srcObj[index],'=>'.debug,index.info, '远程映射关系构建中'.info)
-    // pushData(getToken(index), index, srcObj[index], extra, index.info)
     formUploader.putFile(getToken(index), index, srcObj[index], extra, function(respErr, respBody, respInfo) {
       if (respErr) {
-        console.log('error')
-        console.log(respErr)
-        console.log(respInfo)
+        console.log(('本地文件：'+srcObj[index]+'部署失败。').error);
         return
       }
       if (respInfo.statusCode === 200) {
         console.log(('远程文件：'+respBody.key+'部署成功。').info);
       } else {
-          console.log('error')
-          console.log(respErr)
-          console.log(respInfo)
+        console.log(('本地文件：'+srcObj[index]+'部署失败。').warn);
       }
     });
-  }
 }
 
-const pushQiniu = function(token, index, srcIndex, extra) {
-  return new Promise(function (resolve, reject) {
-    formUploader.putFile(token, index, srcIndex, extra, function(respErr, respBody, respInfo) {
-      if (respErr) {
-        reject(false)
-        return false
-      }
-      if (respInfo.statusCode === 200) {
-        resolve(true);
-        return true
-      } else {
-          reject(false)
-          return false
-      }
-    });
-  });
-}
-async function pushData(token, index, srcIndex, extra, infos) {
-  pushQiniu(token, index, srcIndex, extra).then(res => {
-    console.log(('远程文件：'+infos+'部署成功。').info);
-  }).catch(res => {
-    console.log(('远程文件：'+infos+'部署失败。').error);
-  })
-  // let res = await 
-  // if (res) {
-  //   console.log(('远程文件：'+infos+'部署成功。').info);
-  // } else {
-  //   console.log(('远程文件：'+infos+'部署失败。').error);
-  // }
-}
 // 上传请打开他
 getQiniuFileList();

@@ -112,12 +112,12 @@
                 <div id="banner-median" class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <a href="javascript:void(0)">
+                            <a href="https://wechat.chulouwang.com/buildings/204">
                                     <img src="{{res('/we_img/index_banner2_1.jpg')}}" alt="">
                             </a>
                         </div>
                         <div class="swiper-slide">
-                            <a href="javascript:void(0)">
+                            <a href="tel:4000-580-888">
                                 <img src="{{res('/we_img/index_banner2_2.png')}}" alt="">
                             </a>
                         </div>
