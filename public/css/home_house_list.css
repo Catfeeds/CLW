@@ -1780,6 +1780,7 @@ body .house_list_container .house_list_content .house_list .house_show .js_conte
   color: #71726f;
   font-size: 14px;
   min-width: 100px;
+  max-width: 100px;
 }
 
 body .house_list_container .house_list_content .house_list .house_show .js_content .detail .detail_title .house_special ul>li:first-child {

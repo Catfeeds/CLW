@@ -2,11 +2,11 @@
 @section('title', '楼盘列表页')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_house_list.css')}}">
-<style>
+{{-- <style>
     .js_cleaning:hover .icon_clean{
         background:url({{('/home_img/rubish1.svg')}}) !important;
     }
-</style>
+</style> --}}
 @section('body')
     @include('home.nav')
     @include('home.right_tab')
@@ -201,7 +201,7 @@
                                                 <ul class="clearfix">
                                                     @foreach($data->pc_house as $pchouse)
                                                         <li style="position: relative" class="f_l">
-                                                            <a href="javascript:void(0);">{{$pchouse['constru_acreage']}}
+                                                            <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}">{{$pchouse['constru_acreage']}}
                                                                 ㎡</a>
                                                             <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}" target="_blank">
                                                                 <div class="acreage-detail">
@@ -281,7 +281,7 @@
                                                     <ul class="clearfix">
                                                         @foreach($data['pc_house'] as $pchouse)
                                                             <li style="position: relative" class="f_l">
-                                                                <a href="javascript:void(0);">{{$pchouse['constru_acreage']}}
+                                                                <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}">{{$pchouse['constru_acreage']}}
                                                                     ㎡</a>
                                                                 <a href="{{url('/office_building_houses'.'/'.$pchouse['id'])}}">
                                                                     <div class="acreage-detail">
