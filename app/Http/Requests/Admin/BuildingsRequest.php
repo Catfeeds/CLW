@@ -52,7 +52,7 @@ class BuildingsRequest extends FormRequest
 
                     'developer' => 'nullable|max:128',
                     'years' => 'nullable|numeric|max:10000',
-                    'acreage' => 'nullable|numeric|max:99999999999',
+                    'acreage' => 'nullable|numeric',
                     'building_block_num' => 'nullable|numeric|max:10000',
                     'parking_num' => 'nullable|numeric|max:10000',
                     'parking_fee' => 'nullable|numeric|max:10000',
@@ -76,7 +76,7 @@ class BuildingsRequest extends FormRequest
 
                     'developer' => 'nullable|max:128',
                     'years' => 'nullable|numeric|max:10000',
-                    'acreage' => 'nullable|numeric|max:99999999999',
+                    'acreage' => 'nullable|numeric',
                     'building_block_num' => 'nullable|numeric|max:10000',
                     'parking_num' => 'nullable|numeric|max:10000',
                     'parking_fee' => 'nullable|numeric|max:10000',
