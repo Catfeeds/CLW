@@ -77,6 +77,7 @@ class BuildingsController extends APIBaseController
     {
         $service->features($building);
         $building->city_id = $building->area->city->id;
+        $building->company = $building->company??[];
         return $this->sendResponse($building, '修改楼盘之前原始数据');
     }
 

@@ -10,12 +10,12 @@ use App\Handler\Common;
 
 class RolesController extends APIBaseController
 {
-    public function index()
+    public function index(Request $request)
     {
         if (empty(Common::user()->can('role_list'))) {
             return $this->sendError('无中介系统角色列表权限','403');
         }
-        $res = curl(config('setting.media_url').'/api/roles','get');
+        $res = curl(config('setting.media_url').'/api/roles/?per_page='.$request->per_page.'&page='.$request->page,'get');
         if (empty($res->data)) return $this->sendError($res->message);
         return $this->sendResponse($res->data,$res->message);
     }

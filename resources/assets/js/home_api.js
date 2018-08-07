@@ -141,9 +141,28 @@ export function getMarketPrice(params) {
 }
 
 // 获取楼盘详情猜你喜欢
-export function getLikeBuild() {
+export function getLikeBuild(params) {
   return request({
     url: '/like_building',
-    method: 'GET'
+    method: 'GET',
+    params
+  })
+}
+
+// 获取楼盘浏览记录
+export function getBuildBrowse(params) {
+  return request({
+    url: '/property_browsing_list',
+    method: 'GET',
+    params
+  })
+}
+
+// 获取房源浏览记录
+export function getHouseBrowse(params) {
+  return request({
+    url: '/listing_list',
+    method: 'GET',
+    params
   })
 }

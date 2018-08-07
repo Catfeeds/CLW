@@ -53,19 +53,22 @@ class BuildingsRepository extends  Model
             $data = $this->buildingDataComplete($buildings, $buildingData, $service);
         }
 
+        // 楼盘总数
+        $total = $data->count();
+
         // 总页数
-        $totalPage = ceil($data->count() / 10);
+        $totalPage = ceil($total / 10);
 
         if (empty($whetherPage)) {
             $data = $data->forpage($request->page??1, 10);
-            return Common::pageData($request->page, $data->values());
+            return Common::pageData($request->page, $data->values(), $total);
         } elseif ($getCount) {
             $data = $data->forpage($request->nowPage??1, 10);
             // 搜索高亮
             if (!empty($request->keyword)) $data = $service->highlight($data, $request->keyword);
             $customPage = new CustomPage();
             $baseUrl = url('/building_list');
-            $page = $customPage->getSelfPageView($request->nowPage??1,$totalPage,$baseUrl,$request->data);
+            $page = $customPage->getSelfPageView($request->nowPage??1, $totalPage, $baseUrl, $request->data);
             return [
                 'house_count' => $houses->count(),
                 'page' => $page,
@@ -256,6 +259,7 @@ class BuildingsRepository extends  Model
         $service->priceAndAcreageSection($building);
         $service->features($building);
         $service->label($building);
+        $service->companyString($building);
         return $building;
     }
 
@@ -488,4 +492,11 @@ class BuildingsRepository extends  Model
         return $res;
     }
 
+    //获取楼盘记录列表
+    public function buildingRecordList($request)
+    {
+        $id = $request->id;
+        $idArr = explode(",",$id);
+        return Building::whereIn('id',$idArr)->with('block','area')->get();
+    }
 }

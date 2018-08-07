@@ -52,7 +52,7 @@ mix.webpackConfig({
   plugins: [
     envConfig,
     commonsChunk,
-    uglify
+    // uglify
   ]
 });
 var fileSCSSNameArr = map[sourceMap].scss;// 要打包的 scss 文件

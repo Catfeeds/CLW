@@ -107,6 +107,23 @@
                     </div>
                 </div>
             </div>
+            {{-- 中部轮播 --}}
+            <div class="banner-median">
+                <div id="banner-median" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="https://wechat.chulouwang.com/buildings/204">
+                                    <img src="{{res('/we_img/index_banner2_1.jpg')}}" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="tel:4000-580-888">
+                                <img src="{{res('/we_img/index_banner2_2.png')}}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @if(count($hotBlocks) === 5)
             <!-- 热门商圈 -->
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>

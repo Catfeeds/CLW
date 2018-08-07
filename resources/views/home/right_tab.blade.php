@@ -30,25 +30,32 @@
         <img src="{{homeRes('/home_img/right_dimentionalCode.png')}}" alt="扫码关注">
       </a>
     </div>
-  </div>
-  <el-tooltip effect="dark" content="点击放回顶部" placement="left">
-  <div class="bank-top js_bankTop">
-    <div class="text-box">
-        TOP
+    <div class="dimentional-box">
+      <el-tooltip effect="dark" content="浏览记录" placement="left">
+        <a href="javascript:void(0)">
+          <img src="{{homeRes('/home_img/right_scanHistory.png')}}" alt="浏览记录按钮" class="js_clickShowHistory">
+        </a>
+      </el-tooltip>
     </div>
   </div>
+  <el-tooltip effect="dark" content="点击放回顶部" placement="left">
+    <div class="bank-top js_bankTop">
+      <div class="text-box">
+          TOP
+      </div>
+    </div>
   </el-tooltip>
   <div id="popoper" style="display:none">
-      <el-popover
-      ref="customer"
-      placement="left-start"
-      width="184"
-      trigger="hover" popper-class="customer-popover">
+    <el-popover
+    ref="customer"
+    placement="left-start"
+    width="184"
+    trigger="hover" popper-class="customer-popover">
         <div class="text-box">免费客服：</div>
         <h3 class="title-box">4000-580-888</h3>
         <div class="brife-box">周一至周日 8:00-20:00</div>
-      </el-popover>
-      <el-popover
+    </el-popover>
+    <el-popover
     ref="dimentional"
     placement="left"
     popper-class="dimentionalCode-popover"
@@ -58,6 +65,11 @@
     </div>
     <div style="text-align:center;position:relative;top:0px;font-size:12px">楚楼网微信公众号</div>
     </el-popover>
+  </div>
+  <div class="history-list-box">
+    <div class="history-vue-box">
+        <history-box></history-box>
+    </div>
   </div>
   <img src="{{homeRes('/home_img/right_onlineAdvisory.png')}}" alt="在线咨询" class="js_clickCustomerService onlineAdvisory">
 </div>

@@ -257,6 +257,22 @@
       }
     }
   }
+  .banner-median{
+    margin-top: 20px;
+    border-top: 1px solid #f4f4f4;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: -15px;
+    margin-right: -15px;
+    a{
+      display: block;
+      img{
+        display: block;
+      }
+    }
+  }
   // 首要推荐服务
   .index-serverFirst{
     margin-bottom: 10px;

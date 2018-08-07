@@ -223,18 +223,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         //消息发送管理
         Route::resource('accept_message', 'AcceptMessagesController');
-        //获取消息下拉数据
-//        Route::get('select_type', 'AcceptMessagesController@getSelectType');
         //获取员工下拉数据
         Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
 
         //获取绑定消息的员工
         Route::get('get_binding/{type}', 'AcceptMessagesController@getBinding');
-
-
-
-        //获取员工没有绑定的消息类型
-//        Route::get('get_un_type/{id}', 'AcceptMessagesController@getUnType');
 
 
         //生成二维码

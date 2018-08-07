@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 郭庆
- * Date: 2018/3/13
- * Time: 下午2:58
- */
+
 return [
     'scopes' => [
         'place-orders' => 'Place orders',
