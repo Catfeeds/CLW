@@ -68,7 +68,7 @@ export default {
     .r-panel-txt {
       float: left;
       padding-left: 10px;
-      width: 139px;
+      width: 129px;
       color: #333;
       div{
         font-size: 12px;
