@@ -1424,221 +1424,7 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 
-/***/ 17:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-var settle = __webpack_require__(41);
-var buildURL = __webpack_require__(43);
-var parseHeaders = __webpack_require__(44);
-var isURLSameOrigin = __webpack_require__(45);
-var createError = __webpack_require__(18);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(46);
-
-module.exports = function xhrAdapter(config) {
-  return new Promise(function dispatchXhrRequest(resolve, reject) {
-    var requestData = config.data;
-    var requestHeaders = config.headers;
-
-    if (utils.isFormData(requestData)) {
-      delete requestHeaders['Content-Type']; // Let the browser set it
-    }
-
-    var request = new XMLHttpRequest();
-    var loadEvent = 'onreadystatechange';
-    var xDomain = false;
-
-    // For IE 8/9 CORS support
-    // Only supports POST and GET calls and doesn't returns the response headers.
-    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
-    if ("development" !== 'test' &&
-        typeof window !== 'undefined' &&
-        window.XDomainRequest && !('withCredentials' in request) &&
-        !isURLSameOrigin(config.url)) {
-      request = new window.XDomainRequest();
-      loadEvent = 'onload';
-      xDomain = true;
-      request.onprogress = function handleProgress() {};
-      request.ontimeout = function handleTimeout() {};
-    }
-
-    // HTTP basic authentication
-    if (config.auth) {
-      var username = config.auth.username || '';
-      var password = config.auth.password || '';
-      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
-    }
-
-    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
-
-    // Set the request timeout in MS
-    request.timeout = config.timeout;
-
-    // Listen for ready state
-    request[loadEvent] = function handleLoad() {
-      if (!request || (request.readyState !== 4 && !xDomain)) {
-        return;
-      }
-
-      // The request errored out and we didn't get a response, this will be
-      // handled by onerror instead
-      // With one exception: request that using file: protocol, most browsers
-      // will return status as 0 even though it's a successful request
-      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
-        return;
-      }
-
-      // Prepare the response
-      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
-      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
-      var response = {
-        data: responseData,
-        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
-        status: request.status === 1223 ? 204 : request.status,
-        statusText: request.status === 1223 ? 'No Content' : request.statusText,
-        headers: responseHeaders,
-        config: config,
-        request: request
-      };
-
-      settle(resolve, reject, response);
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle low level network errors
-    request.onerror = function handleError() {
-      // Real errors are hidden from us by the browser
-      // onerror should only fire if it's a network error
-      reject(createError('Network Error', config, null, request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle timeout
-    request.ontimeout = function handleTimeout() {
-      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
-        request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Add xsrf header
-    // This is only done if running in a standard browser environment.
-    // Specifically not if we're in a web worker, or react-native.
-    if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(47);
-
-      // Add xsrf header
-      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
-          cookies.read(config.xsrfCookieName) :
-          undefined;
-
-      if (xsrfValue) {
-        requestHeaders[config.xsrfHeaderName] = xsrfValue;
-      }
-    }
-
-    // Add headers to the request
-    if ('setRequestHeader' in request) {
-      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
-        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
-          // Remove Content-Type if data is undefined
-          delete requestHeaders[key];
-        } else {
-          // Otherwise add header to the request
-          request.setRequestHeader(key, val);
-        }
-      });
-    }
-
-    // Add withCredentials to request if needed
-    if (config.withCredentials) {
-      request.withCredentials = true;
-    }
-
-    // Add responseType to request if needed
-    if (config.responseType) {
-      try {
-        request.responseType = config.responseType;
-      } catch (e) {
-        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
-        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
-        if (config.responseType !== 'json') {
-          throw e;
-        }
-      }
-    }
-
-    // Handle progress if needed
-    if (typeof config.onDownloadProgress === 'function') {
-      request.addEventListener('progress', config.onDownloadProgress);
-    }
-
-    // Not all browsers support upload events
-    if (typeof config.onUploadProgress === 'function' && request.upload) {
-      request.upload.addEventListener('progress', config.onUploadProgress);
-    }
-
-    if (config.cancelToken) {
-      // Handle cancellation
-      config.cancelToken.promise.then(function onCanceled(cancel) {
-        if (!request) {
-          return;
-        }
-
-        request.abort();
-        reject(cancel);
-        // Clean up request
-        request = null;
-      });
-    }
-
-    if (requestData === undefined) {
-      requestData = null;
-    }
-
-    // Send the request
-    request.send(requestData);
-  });
-};
-
-
-/***/ }),
-
-/***/ 18:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var enhanceError = __webpack_require__(42);
-
-/**
- * Create an Error with the specified message, config, error code, request and response.
- *
- * @param {string} message The error message.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The created error.
- */
-module.exports = function createError(message, config, code, request, response) {
-  var error = new Error(message);
-  return enhanceError(error, config, code, request, response);
-};
-
-
-/***/ }),
-
-/***/ 181:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -1651,7 +1437,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  */
 (function( factory ) {
 	if ( true ) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(126)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(125)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -3248,7 +3034,7 @@ return $;
 
 /***/ }),
 
-/***/ 182:
+/***/ 161:
 /***/ (function(module, exports) {
 
 /* ========================================================================
@@ -3775,7 +3561,7 @@ return $;
 
 /***/ }),
 
-/***/ 183:
+/***/ 162:
 /***/ (function(module, exports) {
 
 /* ========================================================================
@@ -3886,6 +3672,220 @@ return $;
   }
 
 }(jQuery);
+
+
+/***/ }),
+
+/***/ 17:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+var settle = __webpack_require__(41);
+var buildURL = __webpack_require__(43);
+var parseHeaders = __webpack_require__(44);
+var isURLSameOrigin = __webpack_require__(45);
+var createError = __webpack_require__(18);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(46);
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+    var loadEvent = 'onreadystatechange';
+    var xDomain = false;
+
+    // For IE 8/9 CORS support
+    // Only supports POST and GET calls and doesn't returns the response headers.
+    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+    if ("development" !== 'test' &&
+        typeof window !== 'undefined' &&
+        window.XDomainRequest && !('withCredentials' in request) &&
+        !isURLSameOrigin(config.url)) {
+      request = new window.XDomainRequest();
+      loadEvent = 'onload';
+      xDomain = true;
+      request.onprogress = function handleProgress() {};
+      request.ontimeout = function handleTimeout() {};
+    }
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request[loadEvent] = function handleLoad() {
+      if (!request || (request.readyState !== 4 && !xDomain)) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+      }
+
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var response = {
+        data: responseData,
+        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
+        status: request.status === 1223 ? 204 : request.status,
+        statusText: request.status === 1223 ? 'No Content' : request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__(47);
+
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+          cookies.read(config.xsrfCookieName) :
+          undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (config.withCredentials) {
+      request.withCredentials = true;
+    }
+
+    // Add responseType to request if needed
+    if (config.responseType) {
+      try {
+        request.responseType = config.responseType;
+      } catch (e) {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
+          throw e;
+        }
+      }
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+
+    if (requestData === undefined) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+
+/***/ 18:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(42);
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
 
 
 /***/ }),
@@ -4484,6 +4484,131 @@ module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.ttf?6f0
 
 /***/ }),
 
+/***/ 313:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(314);
+
+
+/***/ }),
+
+/***/ 314:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_login__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_api__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_bootstrap_sass_assets_javascripts_bootstrap_popover_js__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_bootstrap_sass_assets_javascripts_bootstrap_popover_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_bootstrap_sass_assets_javascripts_bootstrap_popover_js__);
+
+
+
+__webpack_require__(71);
+
+__webpack_require__(160);
+
+
+ // 引入bootstrap提示工具对应js文件
+ // 引入bootstrap弹出框对应js文件
+var url = '';
+$('.submit').on('click', function () {});
+var type = $("#commentForm").validate({
+  rules: {
+    tel: {
+      required: true,
+      maxlength: 16
+    },
+    appellation: {
+      required: true,
+      maxlength: 32
+    }
+  },
+  messages: {
+    tel: {
+      required: "请输入电话",
+      maxlength: "电话长度格式错误"
+    },
+    appellation: {
+      required: "请输入联系人",
+      maxlength: "联系人最长不能超过32"
+    }
+  },
+  showErrors: function showErrors(errorMap, errorList) {
+    // 获取到总共有多少个未通过验证的元素
+    var appellation = $("input[name='appellation']").val(); // 获取联系人
+    var tel = $("input[name='tel']").val(); // 获取电话
+    if (errorMap.appellation == '请输入联系人' && errorMap.tel == '请输入电话') {
+      $(".js_appellation").popover('show');
+      $(".js_tel").popover('show');
+      $(".appellation_length").popover('hide');
+      $(".tel_length").popover('hide');
+    } else if (errorMap.appellation == '请输入联系人') {
+      $(".js_appellation").popover('show');
+      $(".appellation_length").popover('hide');
+      if (tel == '') {
+        $(".js_tel").popover('show');
+      } else {
+        $(".js_tel").popover('hide');
+      }
+    } else if (errorMap.tel == '请输入电话') {
+      $(".js_tel").popover('show');
+      $(".tel_length").popover('hide');
+      if (appellation == '') {
+        $(".js_appellation").popover('show');
+      } else {
+        $(".js_appellation").popover('hide');
+      }
+    } else if (errorMap.appellation == '联系人最长不能超过32') {
+      $(".appellation_length").popover('show');
+    } else if (errorMap.tel == '电话长度格式错误') {
+      $(".tel_length").popover('show');
+    } else {
+      if (appellation !== '' && tel == '') {
+        $(".js_appellation").popover('hide');
+        $(".js_tel").popover('show');
+      } else if (appellation == '' && tel !== '') {
+        $(".js_appellation").popover('show');
+        $(".js_tel").popover('hide');
+      } else {
+        $(".js_appellation").popover('hide');
+        $(".js_tel").popover('hide');
+      }
+    }
+  },
+  debug: true,
+  submitHandler: function submitHandler(form) {
+    var data = new FormData(form);
+    var page = sourcePage('sourcePage');
+    if (page) {
+      data.append('page_source', page + '-委托找房');
+    } else {
+      data.append('page_source', null);
+    }
+    data.append('demand', 2);
+    data.append('source', 6);
+    Object(__WEBPACK_IMPORTED_MODULE_4__home_api__["d" /* factorFindHouse */])(data).then(function (res) {
+      if (res.success) {
+        __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
+          message: '委托成功，楚楼网10分钟内联系您',
+          type: 'success'
+        });
+        form.reset();
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4720,131 +4845,6 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
-
-/***/ }),
-
-/***/ 334:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(335);
-
-
-/***/ }),
-
-/***/ 335:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui_lib_theme_chalk_message_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_theme_chalk_base_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_login__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_api__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_bootstrap_sass_assets_javascripts_bootstrap_tooltip_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_bootstrap_sass_assets_javascripts_bootstrap_popover_js__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_bootstrap_sass_assets_javascripts_bootstrap_popover_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_bootstrap_sass_assets_javascripts_bootstrap_popover_js__);
-
-
-
-__webpack_require__(71);
-
-__webpack_require__(181);
-
-
- // 引入bootstrap提示工具对应js文件
- // 引入bootstrap弹出框对应js文件
-var url = '';
-$('.submit').on('click', function () {});
-var type = $("#commentForm").validate({
-  rules: {
-    tel: {
-      required: true,
-      maxlength: 16
-    },
-    appellation: {
-      required: true,
-      maxlength: 32
-    }
-  },
-  messages: {
-    tel: {
-      required: "请输入电话",
-      maxlength: "电话长度格式错误"
-    },
-    appellation: {
-      required: "请输入联系人",
-      maxlength: "联系人最长不能超过32"
-    }
-  },
-  showErrors: function showErrors(errorMap, errorList) {
-    // 获取到总共有多少个未通过验证的元素
-    var appellation = $("input[name='appellation']").val(); // 获取联系人
-    var tel = $("input[name='tel']").val(); // 获取电话
-    if (errorMap.appellation == '请输入联系人' && errorMap.tel == '请输入电话') {
-      $(".js_appellation").popover('show');
-      $(".js_tel").popover('show');
-      $(".appellation_length").popover('hide');
-      $(".tel_length").popover('hide');
-    } else if (errorMap.appellation == '请输入联系人') {
-      $(".js_appellation").popover('show');
-      $(".appellation_length").popover('hide');
-      if (tel == '') {
-        $(".js_tel").popover('show');
-      } else {
-        $(".js_tel").popover('hide');
-      }
-    } else if (errorMap.tel == '请输入电话') {
-      $(".js_tel").popover('show');
-      $(".tel_length").popover('hide');
-      if (appellation == '') {
-        $(".js_appellation").popover('show');
-      } else {
-        $(".js_appellation").popover('hide');
-      }
-    } else if (errorMap.appellation == '联系人最长不能超过32') {
-      $(".appellation_length").popover('show');
-    } else if (errorMap.tel == '电话长度格式错误') {
-      $(".tel_length").popover('show');
-    } else {
-      if (appellation !== '' && tel == '') {
-        $(".js_appellation").popover('hide');
-        $(".js_tel").popover('show');
-      } else if (appellation == '' && tel !== '') {
-        $(".js_appellation").popover('show');
-        $(".js_tel").popover('hide');
-      } else {
-        $(".js_appellation").popover('hide');
-        $(".js_tel").popover('hide');
-      }
-    }
-  },
-  debug: true,
-  submitHandler: function submitHandler(form) {
-    var data = new FormData(form);
-    var page = sourcePage('sourcePage');
-    if (page) {
-      data.append('page_source', page + '-委托找房');
-    } else {
-      data.append('page_source', null);
-    }
-    data.append('demand', 2);
-    data.append('source', 6);
-    Object(__WEBPACK_IMPORTED_MODULE_4__home_api__["d" /* factorFindHouse */])(data).then(function (res) {
-      if (res.success) {
-        __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_message___default()({
-          message: '委托成功，楚楼网10分钟内联系您',
-          type: 'success'
-        });
-        form.reset();
-      }
-    });
-  }
-});
 
 /***/ }),
 
@@ -6443,7 +6443,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/home/login/login.vue"
+Component.options.__file = "resources\\assets\\js\\components\\home\\login\\login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -6452,9 +6452,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1639a0aa", Component.options)
+    hotAPI.createRecord("data-v-3608f090", Component.options)
   } else {
-    hotAPI.reload("data-v-1639a0aa", Component.options)
+    hotAPI.reload("data-v-3608f090", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -6476,13 +6476,13 @@ var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(6)("36072488", content, false, {});
+var update = __webpack_require__(6)("4006e374", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
-     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -8130,7 +8130,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1639a0aa", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3608f090", module.exports)
   }
 }
 
@@ -8445,4 +8445,4 @@ module.exports = function normalizeComponent (
 
 /***/ })
 
-},[334]);
+},[313]);

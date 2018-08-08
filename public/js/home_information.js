@@ -437,7 +437,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 101:
+/***/ 100:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -7593,6 +7593,51 @@ module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.ttf?6f0
 
 /***/ }),
 
+/***/ 311:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(312);
+
+
+/***/ }),
+
+/***/ 312:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_login__ = __webpack_require__(56);
+__webpack_require__(71);
+
+var Swiper = __webpack_require__(100);
+
+var mySwiper2 = new Swiper('.swiper-container1', {
+    effect: 'fade',
+    fade: {
+        crossFade: true
+    }
+});
+var mySwiper1 = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    effect: 'fade',
+    width: 770,
+    autoplay: 5000, //可选选项，自动滑动
+    autoplayDisableOnInteraction: false,
+    onTransitionEnd: function onTransitionEnd(swiper) {
+        console.log(swiper.activeIndex);
+        mySwiper2.slideTo(swiper.activeIndex);
+    }
+});
+
+$(".list-body-content").each(function () {
+    var words = $(this).text().trim().length;
+    if (words > 90) {
+        $(this).text($(this).text().trim().slice(0, 90) + "......");
+    }
+});
+
+/***/ }),
+
 /***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7829,51 +7874,6 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
-
-/***/ }),
-
-/***/ 332:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(333);
-
-
-/***/ }),
-
-/***/ 333:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_login__ = __webpack_require__(56);
-__webpack_require__(71);
-
-var Swiper = __webpack_require__(101);
-
-var mySwiper2 = new Swiper('.swiper-container1', {
-    effect: 'fade',
-    fade: {
-        crossFade: true
-    }
-});
-var mySwiper1 = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    effect: 'fade',
-    width: 770,
-    autoplay: 5000, //可选选项，自动滑动
-    autoplayDisableOnInteraction: false,
-    onTransitionEnd: function onTransitionEnd(swiper) {
-        console.log(swiper.activeIndex);
-        mySwiper2.slideTo(swiper.activeIndex);
-    }
-});
-
-$(".list-body-content").each(function () {
-    var words = $(this).text().trim().length;
-    if (words > 90) {
-        $(this).text($(this).text().trim().slice(0, 90) + "......");
-    }
-});
 
 /***/ }),
 
@@ -9472,7 +9472,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/home/login/login.vue"
+Component.options.__file = "resources\\assets\\js\\components\\home\\login\\login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -9481,9 +9481,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1639a0aa", Component.options)
+    hotAPI.createRecord("data-v-3608f090", Component.options)
   } else {
-    hotAPI.reload("data-v-1639a0aa", Component.options)
+    hotAPI.reload("data-v-3608f090", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -9505,13 +9505,13 @@ var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(6)("36072488", content, false, {});
+var update = __webpack_require__(6)("4006e374", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
-     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1639a0aa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3608f090\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -11159,7 +11159,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1639a0aa", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3608f090", module.exports)
   }
 }
 
@@ -11474,4 +11474,4 @@ module.exports = function normalizeComponent (
 
 /***/ })
 
-},[332]);
+},[311]);
