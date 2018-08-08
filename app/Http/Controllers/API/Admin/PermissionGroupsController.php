@@ -7,16 +7,18 @@ use App\Handler\Common;
 
 class PermissionGroupsController extends APIBaseController
 {
+    //中介权限组列表
     public function index(Request $request)
     {
         if (empty(Common::user()->can('permission_groups_list'))) {
             return $this->sendError('无中介系统权限组列表权限','403');
         }
-        $res = curl(config('setting.media_url').'/api/permission_groups/?per_page='.$request->per_page,'get');
+        $res = curl(config('setting.media_url').'/api/permission_groups/?per_page='.$request->per_page.'&page='.$request->page,'get');
         if (empty($res->data)) return $this->sendError($res->message);
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //添加中介权限组
     public function store(Request $request)
     {
         if (empty(Common::user()->can('add_permission_groups'))) {

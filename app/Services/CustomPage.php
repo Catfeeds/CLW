@@ -44,10 +44,10 @@ class CustomPage
 
     /**
      * 获取整个的分页样式
-     * @param $nowPage 当前页
-     * @param $totalPage 共多少页面
-     * @param $baseUrl  当前url
-     * @param $search   搜索
+     * @param $nowPage // 当前页
+     * @param $totalPage // 共多少页面
+     * @param $baseUrl  // 当前url
+     * @param $search   // 搜索
      * @return string
      */
     public function getSelfPageView($nowPage, $totalPage, $baseUrl, $search)

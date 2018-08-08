@@ -2,6 +2,7 @@
 @section('title', '楼盘详情')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_building_detail.css')}}">
+<meta name="storeId" content="{{ $building->id }}" data-type='building'>
 @endsection
 @section('body')
 @include('home.nav')
@@ -127,8 +128,8 @@
                         </div>
                         <div class="js_listDetail">
                             @foreach($houses as $house)
-                            <a href="{{url('/office_building_houses').'/'.$house->id}}">
-                                <div class="listDetail">
+                            <div class="listDetail">
+                                <a href="{{url('/office_building_houses').'/'.$house->id}}">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">
                                         <div><span id="listArea">{{$house->constru_acreage}}</span>m²</div>
@@ -146,8 +147,8 @@
                                         <div class="special3">{{$house->house_feature[2]}}</div>
                                         @endif
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div> 
                             @endforeach
                         </div>
                     </div>
@@ -179,6 +180,9 @@
                                 </div>
                                 <div class="buildRow">
                                     <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
+                                </div>
+                                <div class="buildRow">
+                                    <div class="company"><span class="developer">入驻企业</span><span>{{$building->company_string}}</span></div>
                                 </div>
                             </div>
                             <div class="buildDetail">{{$building->describe}}</div>

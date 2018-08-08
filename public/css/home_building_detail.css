@@ -194,6 +194,66 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: PingFang-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
 .clearfloat {
   display: block;
   clear: both;
@@ -775,14 +835,6 @@ body #nb_icon_wrap {
   display: none !important;
 }
 
-body .onlineAdvisory {
-  position: fixed;
-  right: 60px;
-  bottom: 50px;
-  cursor: pointer;
-  display: none;
-}
-
 body .right_tab {
   position: fixed;
   right: -50px;
@@ -797,6 +849,36 @@ body .right_tab {
   transition: all .5s;
 }
 
+body .right_tab * {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+body .right_tab .onlineAdvisory {
+  position: fixed;
+  right: 60px;
+  bottom: 50px;
+  cursor: pointer;
+  display: none;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+body .right_tab .history-list-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40px;
+  width: 290px;
+  padding-top: 60px;
+  background: #ffffff;
+  border-left: 1px solid #efefef;
+}
+
+body .right_tab .history-list-box .history-vue-box {
+  height: 100%;
+}
+
 body .right_tab.active,
 body nav.right_tab.transition {
   right: 0;
@@ -805,6 +887,16 @@ body nav.right_tab.transition {
 body .right_tab.active .onlineAdvisory,
 body nav.right_tab.transition .onlineAdvisory {
   display: block;
+}
+
+body .right_tab.active.click-history-active,
+body nav.right_tab.click-history-active.transition {
+  right: 290px;
+}
+
+body .right_tab.active.click-history-active .onlineAdvisory,
+body nav.right_tab.click-history-active.transition .onlineAdvisory {
+  right: 350px;
 }
 
 body .right_tab .tab-content {
@@ -1394,6 +1486,17 @@ body .right_tab .bank-top .text-box {
   background: rgba(238,246,255,0.5);
 }
 
+.content .build .first .left .buildList .listDetail a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
 .content .build .first .left .buildList .listDetail .listPic {
   height: 100px;
 }
@@ -1519,6 +1622,11 @@ body .right_tab .bank-top .text-box {
 .content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow div .developer {
   width: 110px;
   color: #999;
+}
+
+.content .build .first .left .buildInfor .buildInforBox .buildInforList .buildRow .company {
+  width: 100%;
+  margin-right: 40px;
 }
 
 .content .build .first .left .buildInfor .buildInforBox .buildDetail {

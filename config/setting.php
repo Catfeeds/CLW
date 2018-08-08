@@ -19,7 +19,7 @@ return [
     'cdn_path' => env('CDN_PATH', ''),// cdn_path
     'home_cdn_path' => env('HOME_CDN_PATH', ''),// pc端
 
-    'version' => '?version=20180531',
+    'version' => '?version=201800699',
 
     /*
     |--------------------------------------------------------------------------

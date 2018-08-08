@@ -32,8 +32,8 @@ class BuildingsController extends Controller
         $building->house_count = $houses->count();
         // 楼盘所属区域
         $areaId = $block->area->id;
-        // 猜你喜欢
-        $request->area_id = $areaId;   // 区域id
+        // 区域id
+        $request->area_id = $areaId;
 
         //区域商圈名称对应id
         $data[0]['id'] = $areaId;
@@ -64,10 +64,11 @@ class BuildingsController extends Controller
     // 楼盘详情猜你喜欢
     public function likeBuilding(
         BuildingsRepository $repository,
-        BuildingsService $service
+        BuildingsService $service,
+        Request $request
     )
     {
-        $likeBuilding = array_slice($repository->buildingList(collect(), $service, null, true),0,4);
+        $likeBuilding = array_slice($repository->buildingList($request, $service, null, true),0,4);
 
         return $this->sendResponse($likeBuilding,'楼盘详情猜你喜欢数据获取成功');
     }
@@ -109,7 +110,7 @@ class BuildingsController extends Controller
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
 
-            $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true);
+            $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true,null,true);
         } else {
             // 处理价格,面积,特色
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
@@ -131,7 +132,7 @@ class BuildingsController extends Controller
             'areas' => $areas,
             'blocks' => $blocks,
             'buildingFeatures' => $buildingFeatures,
-            'Results'=>$res['data'],
+            'Results'=> $res['data'],
             'page' => $res['page'],
             'request' => $data,
             'count' => $res['house_count'],

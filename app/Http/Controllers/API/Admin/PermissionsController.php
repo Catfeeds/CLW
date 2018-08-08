@@ -7,16 +7,18 @@ use App\Handler\Common;
 
 class PermissionsController extends APIBaseController
 {
-    public function index()
+    //中介权限列表
+    public function index(Request $request)
     {
         if (empty(Common::user()->can('permission_list'))) {
             return $this->sendError('无中介系统权限列表权限','403');
         }
-        $res = curl(config('setting.media_url').'/api/permissions','get');
+        $res = curl(config('setting.media_url').'/api/permissions/?per_page='.$request->per_page.'&page='.$request->page,'get');
         if (empty($res->data)) return $this->sendError($res->message);
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //中介添加权限
     public function store(Request $request)
     {
         if (empty(Common::user()->can('add_permission'))) {
@@ -30,6 +32,7 @@ class PermissionsController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //中介权限修改之前原始数据
     public function edit($id)
     {
         $res = curl(config('setting.media_url').'/api/permissions/'.$id.'/edit','get');
@@ -37,6 +40,7 @@ class PermissionsController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //修改中介权限
     public function update
     (
         $id,
@@ -55,6 +59,7 @@ class PermissionsController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //删除中介权限
     public function destroy($id)
     {
         if (empty(Common::user()->can('del_permission'))) {
@@ -65,6 +70,7 @@ class PermissionsController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //中介权限组下拉数据
     public function permissionsGroup()
     {
         $res = curl(config('setting.media_url').'/api/permissions_group','get' );

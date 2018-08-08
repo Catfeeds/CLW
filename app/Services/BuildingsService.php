@@ -210,4 +210,14 @@ class BuildingsService
 
         return $data;
     }
+    
+    // 楼盘列表入住企业转换字符串
+    public function companyString($building)
+    {
+        if (empty($building->company)) {
+            $building->company_string = '';
+        } else {
+            $building->company_string = implode(',', array_filter($building->company));
+        }
+    }
 }
