@@ -148,6 +148,9 @@
         <appoint></appoint>
       </div>
       @include('shop.layout.list_common')
+      <div class="footer_banner" style="text-align:center">
+        <img src="/shop_img/index_better.jpg" alt="">
+      </div>
     </div>
   @include('home.footer')
 @endsection

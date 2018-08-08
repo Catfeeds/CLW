@@ -1,0 +1,91 @@
+@import 'shop_master';
+@include header();
+@include footer();
+
+body {
+  .rentCar_container {
+    width: 100%;
+    min-width: 1200px;
+    background-color: #000;
+    .banner {
+      width: 100%;
+      height: 540px;
+      background: url(/shop_img/car_banner.jpg) no-repeat center;
+    }
+    .details {
+      width: 100%;
+      height: 900px;
+      box-sizing: border-box;
+      padding-top: 100px;
+      .details_box {
+        width: 1080px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        margin-bottom: 100px;
+        .detail {
+          width: 320px;
+          height: 170px;
+          margin-right: 60px;
+          box-sizing: border-box;
+          border: solid 7px #414242;
+          padding: 43px 38px;
+          padding-right: 0;
+          &:last-child() {
+            margin-right: 0;
+          }
+          .detail_img {
+            margin-right: 14px;
+          }
+          .detail_des {
+            padding-top: 3px;
+            .name {
+              font-size: 20px;
+              color:#fff;
+              margin-bottom: 8px;
+            }
+            .des {
+              font-size: 14px;
+              line-height: 20px;
+              color: #fff;
+            }
+          }
+        }
+      }
+      .model {
+        color:#a5a5a5;
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 18px;
+        span {
+          font-size: 30px;
+          color:#fff;
+        }
+      }
+      .border {
+        width: 80px;
+        height: 1px;
+        background-color: #585858;
+        margin: 0 auto;
+        margin-bottom: 60px;
+      }
+      .brand {
+        text-align: center;
+      }
+    }
+  }
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  line-height: 0;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+.f_l {
+  float: left;
+}
+.f_r {
+  float: right;
+}
