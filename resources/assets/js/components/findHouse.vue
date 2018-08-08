@@ -78,7 +78,7 @@ export default {
           findHouse({ tel: this.value, page_source: sourcePage, source: 6, demand: 2 }).then(res => {
             this.showAfter = false
             this.showBefore = true
-            Cookies.set('name', '预约投放成功')
+            Cookies.set('name', this.value)
           })
         } else {
           this.isShow = true
@@ -93,11 +93,11 @@ export default {
       var newDate = new Date().getTime()
       var date = parseInt((parseInt(newDate) - parseInt(this.time))/1000/60/60)
       var newNum = 0
-      console.log(name)
       if(name) {
         newNum += 1
         this.showAfter = false
         this.showBefore = true
+        this.value = Cookies.get('name')
       }
       if(date >= 1) {
         newNum = newNum + date

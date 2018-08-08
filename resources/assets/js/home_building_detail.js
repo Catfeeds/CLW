@@ -37,8 +37,7 @@ new Vue({
     }
   },
   created() {
-    getLikeBuild({block_id: Data.block_id, price_sort: 'asc'
-    }).then(res => {
+    getLikeBuild({block_id: Data.block_id, price_sort: 'asc'}).then(res => {
       this.list = res.data
     })
   },

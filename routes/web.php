@@ -48,3 +48,15 @@ Route::get('list_clean',function(){
 Route::get('list_ressetClean',function(){
     return view('shop.list_ressetClean');
 });
+Route::get('list_moving',function(){
+    return view('shop.list_moving');
+});
+Route::get('decoration',function(){
+    return view('shop.decoration');
+});
+Route::get('decoration_company',function(){
+    return view('shop.decoration_company');
+});
+Route::get('rent_car',function(){
+    return view('shop.rent_car');
+});
