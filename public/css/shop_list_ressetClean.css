@@ -257,6 +257,9 @@ select {
 }
 
 .header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
   background: #fff;
 }
 

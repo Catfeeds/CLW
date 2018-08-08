@@ -3256,7 +3256,7 @@ $('.elevator>.elevator_list>.louti').on('click', function () {
     //通过拼接字符串获取元素，再取得相对于文档的高度
     var top = $(".louti" + index).offset().top;
     //scrollTop滚动到对应高度
-    $("body,html").animate({ scrollTop: top - 30 }, 500, function () {
+    $("body,html").animate({ scrollTop: top - 153 }, 500, function () {
       off = true;
       isClick = true;
     });
@@ -3660,7 +3660,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/shop/search/search.vue"
+Component.options.__file = "resources\\assets\\js\\components\\shop\\search\\search.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -3669,9 +3669,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-513a43ed", Component.options)
+    hotAPI.createRecord("data-v-e722e6e6", Component.options)
   } else {
-    hotAPI.reload("data-v-513a43ed", Component.options)
+    hotAPI.reload("data-v-e722e6e6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -7957,10 +7957,11 @@ function getMarketPrice(params) {
 }
 
 // 获取楼盘详情猜你喜欢
-function getLikeBuild() {
+function getLikeBuild(params) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__home_request__["a" /* default */])({
     url: '/like_building',
-    method: 'GET'
+    method: 'GET',
+    params: params
   });
 }
 
@@ -8983,7 +8984,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-513a43ed", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-e722e6e6", module.exports)
   }
 }
 

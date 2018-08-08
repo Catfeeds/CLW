@@ -59004,8 +59004,7 @@ new Vue({
   created: function created() {
     var _this = this;
 
-    Object(__WEBPACK_IMPORTED_MODULE_2__home_api__["j" /* getLikeBuild */])({ block_id: Data.block_id, price_sort: 'asc'
-    }).then(function (res) {
+    Object(__WEBPACK_IMPORTED_MODULE_2__home_api__["j" /* getLikeBuild */])({ block_id: Data.block_id, price_sort: 'asc' }).then(function (res) {
       _this.list = res.data;
     });
   },

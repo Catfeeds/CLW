@@ -257,6 +257,9 @@ select {
 }
 
 .header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
   background: #fff;
 }
 
@@ -766,6 +769,7 @@ body {
 body .list_container {
   width: 1200px;
   margin: 0 auto;
+  padding-top: 123px;
 }
 
 body .list_container .graybox {
