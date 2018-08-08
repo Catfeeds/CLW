@@ -86,7 +86,7 @@
                                 <span class="js_active" data-min='140'>140/m²月以上</span>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     <!-- 房源列表 -->
                     <div class="buildList" id="buildList">
                         <div class="listNav">

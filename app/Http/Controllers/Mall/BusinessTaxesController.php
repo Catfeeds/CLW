@@ -14,6 +14,11 @@ class BusinessTaxesController extends Controller
 
     public function show()
     {
-        dd('详情');
+        return view('shop.list_charge');
+    }
+
+    public function regist()
+    {
+        return view('shop.list_register');
     }
 }
