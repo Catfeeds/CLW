@@ -317,6 +317,9 @@ select {
 }
 
 .header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
   background: #fff;
 }
 
@@ -1045,6 +1048,7 @@ body footer .bottom .friend_link a {
 
 .main {
   background: #fff;
+  padding-top: 123px;
 }
 
 .main .banner .js_banner {

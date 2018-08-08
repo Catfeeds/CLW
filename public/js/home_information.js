@@ -437,7 +437,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 100:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -7593,51 +7593,6 @@ module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.ttf?6f0
 
 /***/ }),
 
-/***/ 311:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(312);
-
-
-/***/ }),
-
-/***/ 312:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_login__ = __webpack_require__(56);
-__webpack_require__(71);
-
-var Swiper = __webpack_require__(100);
-
-var mySwiper2 = new Swiper('.swiper-container1', {
-    effect: 'fade',
-    fade: {
-        crossFade: true
-    }
-});
-var mySwiper1 = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    effect: 'fade',
-    width: 770,
-    autoplay: 5000, //可选选项，自动滑动
-    autoplayDisableOnInteraction: false,
-    onTransitionEnd: function onTransitionEnd(swiper) {
-        console.log(swiper.activeIndex);
-        mySwiper2.slideTo(swiper.activeIndex);
-    }
-});
-
-$(".list-body-content").each(function () {
-    var words = $(this).text().trim().length;
-    if (words > 90) {
-        $(this).text($(this).text().trim().slice(0, 90) + "......");
-    }
-});
-
-/***/ }),
-
 /***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7874,6 +7829,51 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+
+/***/ 334:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(335);
+
+
+/***/ }),
+
+/***/ 335:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_login__ = __webpack_require__(56);
+__webpack_require__(71);
+
+var Swiper = __webpack_require__(101);
+
+var mySwiper2 = new Swiper('.swiper-container1', {
+    effect: 'fade',
+    fade: {
+        crossFade: true
+    }
+});
+var mySwiper1 = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    effect: 'fade',
+    width: 770,
+    autoplay: 5000, //可选选项，自动滑动
+    autoplayDisableOnInteraction: false,
+    onTransitionEnd: function onTransitionEnd(swiper) {
+        console.log(swiper.activeIndex);
+        mySwiper2.slideTo(swiper.activeIndex);
+    }
+});
+
+$(".list-body-content").each(function () {
+    var words = $(this).text().trim().length;
+    if (words > 90) {
+        $(this).text($(this).text().trim().slice(0, 90) + "......");
+    }
+});
 
 /***/ }),
 
@@ -11474,4 +11474,4 @@ module.exports = function normalizeComponent (
 
 /***/ })
 
-},[311]);
+},[334]);
