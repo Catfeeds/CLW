@@ -38871,14 +38871,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     swiperSlide: __WEBPACK_IMPORTED_MODULE_0_vue_awesome_swiper__["swiperSlide"]
   },
   data: function data() {
+    var cropStyle = '?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jb20vbG9nb19taW5pLnBuZw==/dissolve/100/gravity/NorthWest/dx/10/dy/10|imageslim';
+    if (true) {
+      // TODO 判断依据
+      cropStyle = '?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|imageslim';
+    }
     return {
-      cropStyle: '-newApp_detail',
+      cropStyle: cropStyle,
       srcImg: '/we_img/none.png',
       options: {
         autoplay: 3000,
         autoplayDisableOnInteraction: false
       }
     };
+  },
+
+  methods: {
+    /**
+     * 添加自定义七牛样式的方法
+     */
+    addShearStr: function addShearStr(url) {
+      var tempArr = url.split('-');
+      var inSelfUrlArr = window.location.href.split('/');
+      console.log(inSelfUrlArr);
+      if (tempArr[tempArr.length - 1] === 'test') {
+        // 判断后端是否添加旋正样式 有则替换为自定义样式
+        if (inSelfUrlArr.indexOf('buildings') !== -1) {
+          // 判断当前是否为楼盘详情页面
+          tempArr[tempArr.length - 1] = 'newApp_detail_nologo';
+        } else {
+          tempArr[tempArr.length - 1] = 'newApp_detail';
+        }
+      } else {
+        // 添加自定义样式
+        if (inSelfUrlArr.indexOf('buildings') !== -1) {
+          tempArr[tempArr.length] = 'newApp_detail_nologo';
+        } else {
+          tempArr[tempArr.length] = 'newApp_detail';
+        }
+      }
+      return tempArr.join('-');
+    }
   }
 });
 
@@ -46624,7 +46657,7 @@ var render = function() {
         { key: "banner" + index, staticStyle: { position: "relative" } },
         [
           _c("a", { attrs: { href: "#" } }, [
-            _c("img", { attrs: { src: item.url + _vm.cropStyle } })
+            _c("img", { attrs: { src: _vm.addShearStr(item.url) } })
           ]),
           _vm._v(" "),
           _c(
