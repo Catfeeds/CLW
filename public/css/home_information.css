@@ -194,6 +194,66 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: PingFang-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
 .clearfloat {
   display: block;
   clear: both;
@@ -830,6 +890,10 @@ div.pagination ul.pagination li:hover a {
 
 div.pagination ul.pagination li.active:hover a {
   color: #fff;
+}
+
+div.pagination {
+  margin-bottom: 40px;
 }
 
 ul {

@@ -10,6 +10,7 @@ use App\Handler\Common;
 
 class RolesController extends APIBaseController
 {
+    //中介角色列表
     public function index(Request $request)
     {
         if (empty(Common::user()->can('role_list'))) {
@@ -20,6 +21,7 @@ class RolesController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //中介角色添加
     public function store(Request $request)
     {
         if (empty(Common::user()->can('add_role'))) {
@@ -34,6 +36,7 @@ class RolesController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //中介角色修改之前原始数据
     public function edit($id)
     {
         $res = curl(config('setting.media_url').'/api/roles/'.$id.'/edit','get');
@@ -41,6 +44,7 @@ class RolesController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //修改中介角色
     public function update(
         $id,
         Request $request

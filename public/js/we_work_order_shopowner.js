@@ -40,7 +40,7 @@ var sheetClick = function sheetClick(e) {
     FormData.staff_id = e.id;
     distribution(FormData);
 };
-var url = 'http://192.168.0.199';
+var url = 'http://192.168.0.142:9999';
 var requestType = false;
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',

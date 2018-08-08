@@ -9,6 +9,7 @@ use App\Handler\Common;
 
 class BackstagePermissionsController extends APIBaseController
 {
+    //后台权限列表
     public function index(
         PermissionsRepository $repository,
         PermissionsRequest $request
@@ -21,6 +22,7 @@ class BackstagePermissionsController extends APIBaseController
         return $this->sendResponse($res,'后台权限列表获取成功');
     }
 
+    //添加后台权限
     public function store
     (
         PermissionsRequest $request,
@@ -34,13 +36,14 @@ class BackstagePermissionsController extends APIBaseController
         return $this->sendResponse($res,'后台权限添加成功');
     }
 
+    //后台权限修改之前原始数据
     public function edit($id)
     {
         $permission = Permission::find($id);
         return $this->sendResponse($permission, '获取权限原始数据成功');
     }
 
-
+    //更新后台权限
     public function update(
         $id,
         PermissionsRequest $request,
@@ -56,6 +59,7 @@ class BackstagePermissionsController extends APIBaseController
         return $this->sendResponse($res,'修改成功');
     }
 
+    //删除后台权限
     public function destroy($id)
     {
         if (empty(Common::user()->can('backstage_del_permission'))) {
@@ -65,6 +69,7 @@ class BackstagePermissionsController extends APIBaseController
         return $this->sendResponse($res,'删除权限成功');
     }
 
+    //后台权限组下拉数据
     public function permissionsGroup(PermissionsRepository $repository)
     {
         $res = $repository->permissionsGroup();

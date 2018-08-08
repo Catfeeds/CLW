@@ -180,6 +180,66 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: PingFang-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
 * {
   font-size: 14px;
   font-weight: normal;
@@ -635,363 +695,126 @@ body footer .bottom .friend_link a {
   font-weight: 300;
 }
 
-body .container {
+body .rentCar_container {
   width: 100%;
-}
-
-body .container .list_title {
-  width: 100%;
-  height: 480px;
-  background: url(/shop_img/list_detail_title.jpg) no-repeat center;
-  padding-top: 150px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body .container .list_title .title_1 {
-  font-size: 70px;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 65px;
-}
-
-body .container .list_title .title_2 {
-  font-size: 28px;
-  text-align: center;
-  color: #fff;
-  font-family: 'PingFang-SC-Regular';
-  font-weight: 300;
-}
-
-body .container .list_describe {
-  width: 100%;
-  height: 673px;
-  background: url(/shop_img/list_describe_back.jpg) no-repeat center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body .container .list_describe .caculate {
-  margin-left: 410px;
-  margin-top: 155px;
-}
-
-body .container .list_describe .list_describe_right {
-  width: 455px;
-  margin-left: 130px;
-  margin-top: 120px;
-}
-
-body .container .list_describe .list_describe_right .right_top {
-  margin-bottom: 130px;
-}
-
-body .container .list_describe .list_describe_right .right_common {
-  width: 100%;
-}
-
-body .container .list_describe .list_describe_right .right_common .common_title {
-  font-size: 28px;
-  color: #333;
-  font-family: 'PingFang-SC-Medium';
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-body .container .list_describe .list_describe_right .right_common .common_title span {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
+  min-width: 1200px;
   background-color: #000;
-  margin-bottom: 7px;
-  margin-right: 10px;
 }
 
-body .container .list_describe .list_describe_right .right_common .common_descibe {
-  color: #666666;
-  font-size: 16px;
-  line-height: 26px;
-  font-family: 'PingFang-SC-Regular';
+body .rentCar_container .banner {
+  width: 100%;
+  height: 540px;
+  background: url(/shop_img/car_banner.jpg) no-repeat center;
 }
 
-body .container .list_promise {
+body .rentCar_container .details {
+  width: 100%;
+  height: 900px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 100px;
-  width: 100%;
-  height: 710px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#526ee4), to(#6c9bf1)),-webkit-gradient(linear, left top, left bottom, from(#90b1e6), to(#90b1e6));
-  background: linear-gradient(0deg, #526ee4 0%, #6c9bf1 100%),linear-gradient(#90b1e6, #90b1e6);
 }
 
-body .container .list_promise .promise_title {
-  font-family: 'PingFang-SC-Medium';
-  text-align: center;
-  color: #fff;
-  font-size: 40px;
-  margin-bottom: 40px;
-}
-
-body .container .list_promise .border {
-  width: 95px;
-  height: 3px;
-  background-color: #fff;
-  margin: 0 auto;
-  margin-bottom: 107px;
-}
-
-body .container .list_promise .step_box {
-  width: 1030px;
-  height: 290px;
+body .rentCar_container .details .details_box {
+  width: 1080px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 auto;
+  margin-bottom: 100px;
 }
 
-body .container .list_promise .step_box .step {
-  width: 425px;
-  height: 92px;
-  margin-right: 180px;
-  margin-bottom: 95px;
-}
-
-body .container .list_promise .step_box .step .step_title_box {
-  width: 298px;
-  margin-left: 45px;
-}
-
-body .container .list_promise .step_box .step .step_title_box .step_title {
-  font-family: 'PingFang-SC-Medium';
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 12px;
-}
-
-body .container .list_promise .step_box .step .step_title_box .step_info {
-  font-family: PingFang-SC-Light;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 28px;
-  color: #fff;
-}
-
-body .container .list_promise .step_box .step:nth-child(2n) {
-  margin-right: 0;
-}
-
-body .container .list_promise .step_box .step:nth-child(n+2) {
-  margin-bottom: 0;
-}
-
-body .container .you_provide {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  height: 775px;
-  background: url(/shop_img/you_provide.jpg) no-repeat center;
-  padding-top: 124px;
-  padding-left: 393px;
-}
-
-body .container .you_provide .provide_title {
-  font-family: 'PingFang-SC-Regular';
-  font-size: 40px;
-  color: #333;
-  font-weight: 300;
-  margin-bottom: 30px;
-}
-
-body .container .you_provide .border {
-  width: 64px;
-  height: 3px;
-  margin-left: 4px;
-  background-color: #007bff;
-  margin-bottom: 105px;
-}
-
-body .container .you_provide .provides {
-  width: 515px;
+body .rentCar_container .details .details_box .detail {
+  width: 320px;
   height: 170px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-body .container .you_provide .provides .provide {
-  width: 250px;
-  height: 50px;
-  margin-right: 15px;
-  margin-bottom: 70px;
-}
-
-body .container .you_provide .provides .provide:nth-child(2n) {
-  margin-right: 0;
-}
-
-body .container .you_provide .provides .provide:nth-child(n+2) {
-  margin-bottom: 0;
-}
-
-body .container .you_provide .provides .provide .num {
-  font-family: 'PingFang-SC-Light';
-  width: 48px;
-  height: 48px;
-  border: 1px solid #5088f8;
-  line-height: 48px;
-  text-align: center;
-  margin-right: 20px;
-  font-size: 32px;
-  color: #2272f8;
-  border-radius: 8px;
-}
-
-body .container .you_provide .provides .provide .name {
-  font-family: 'PingFang-SC-Regular';
-  font-size: 20px;
-  line-height: 48px;
-}
-
-body .container .you_provide .provides .note {
-  margin-top: 112px;
-  font-size: 14px;
-  color: #999;
-  font-family: 'PingFang-SC-Regular';
-}
-
-body .container .you_get {
+  margin-right: 60px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
-  height: 633px;
-  background-color: #f6f6f6;
+  border: solid 7px #414242;
+  padding: 43px 38px;
+  padding-right: 0;
 }
 
-body .container .you_get .arrow_down {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-body .container .you_get .arrow_down img {
-  margin-top: -36px;
-}
-
-body .container .you_get .get_title {
-  text-align: center;
-}
-
-body .container .you_get .get_title .title_back {
-  font-size: 60px;
-  color: #f0f0f0;
-  font-family: 'PingFang-SC-Medium';
-}
-
-body .container .you_get .get_title .get_title {
-  font-family: 'PingFang-SC-Regular';
-  font-size: 40px;
-  color: #333;
-  margin-top: -60px;
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-
-body .container .you_get .border {
-  width: 77px;
-  height: 3px;
-  background-color: #007bff;
-  margin: 0 auto;
-  margin-bottom: 83px;
-}
-
-body .container .you_get .get_data {
-  font-family: 'PingFang-SC-Medium';
-  width: 1039px;
-  height: 240px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: 0 auto;
-}
-
-body .container .you_get .get_data .data {
-  width: 263px;
-  height: 100%;
-  margin-right: 125px;
-}
-
-body .container .you_get .get_data .data:last-child {
+body .rentCar_container .details .details_box .detail:last-child {
   margin-right: 0;
 }
 
-body .container .you_get .get_data .data .data_title {
-  width: 100%;
-  height: 62px;
-  text-align: center;
-  line-height: 62px;
+body .rentCar_container .details .details_box .detail .detail_img {
+  margin-right: 14px;
+}
+
+body .rentCar_container .details .details_box .detail .detail_des {
+  padding-top: 3px;
+}
+
+body .rentCar_container .details .details_box .detail .detail_des .name {
+  font-size: 20px;
   color: #fff;
+  margin-bottom: 8px;
+}
+
+body .rentCar_container .details .details_box .detail .detail_des .des {
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+}
+
+body .rentCar_container .details .model {
+  color: #a5a5a5;
   font-size: 20px;
-  background-color: #46a6fb;
-}
-
-body .container .you_get .get_data .data .data_content {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  height: 178px;
-  background: #fff;
-  padding-top: 30px;
-}
-
-body .container .you_get .get_data .data .data_content li {
   text-align: center;
-  color: #333;
-  font-size: 16px;
-  line-height: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
-body .container .our_tellent {
-  width: 100%;
-  height: 945px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-top: 115px;
+body .rentCar_container .details .model span {
+  font-size: 30px;
+  color: #fff;
 }
 
-body .container .our_tellent .tellent_title {
+body .rentCar_container .details .border {
+  width: 80px;
+  height: 1px;
+  background-color: #585858;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+body .rentCar_container .details .brand {
   text-align: center;
 }
 
-body .container .our_tellent .tellent_title .title_back {
-  font-family: 'PingFang-SC-Medium';
-  font-size: 60px;
-  color: #f9f9f9;
+body .rentCar_container .recommend {
+  width: 100%;
+  height: 1150px;
+  background-color: #101010;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 95px;
 }
 
-body .container .our_tellent .tellent_title .tellent_title {
-  font-family: 'PingFang-SC-Regular';
-  font-size: 40px;
-  color: #333;
-  margin-top: -60px;
-  margin-bottom: 20px;
-  font-weight: 300;
+body .rentCar_container .recommend .title {
+  font-size: 20px;
+  color: #a5a5a5;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-body .container .our_tellent .border {
-  width: 77px;
-  height: 3px;
-  background-color: #007bff;
+body .rentCar_container .recommend .title span {
+  font-size: 30px;
+  color: #a5a5a5;
+}
+
+body .rentCar_container .recommend .border {
+  width: 130px;
+  height: 1px;
+  background-color: #585858;
   margin: 0 auto;
   margin-bottom: 70px;
 }
 
-body .container .our_tellent .tellent_contents {
+body .rentCar_container .recommend .options {
   width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -999,168 +822,92 @@ body .container .our_tellent .tellent_contents {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 auto;
-}
-
-body .container .our_tellent .tellent_contents .content {
-  width: 590px;
-  height: 270px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background-color: #f6f6f6;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 35px;
-  padding-right: 30px;
-}
-
-body .container .our_tellent .tellent_contents .content:nth-child(2n) {
-  margin-right: 0;
-}
-
-body .container .our_tellent .tellent_contents .content:nth-child(2+n) {
-  margin-bottom: 0;
-}
-
-body .container .our_tellent .tellent_contents .content .img {
-  width: 250px;
-  height: 200px;
-  margin-right: 55px;
-}
-
-body .container .our_tellent .tellent_contents .content .right_box {
-  padding-top: 17px;
-  color: #333;
-}
-
-body .container .our_tellent .tellent_contents .content .right_box .eng {
-  font-family: 'PingFang-SC-Regular';
-  margin-bottom: 12px;
-}
-
-body .container .our_tellent .tellent_contents .content .right_box .chz {
-  font-family: 'PingFang-SC-Medium';
-  font-size: 26px;
-  margin-bottom: 25px;
-}
-
-body .container .our_tellent .tellent_contents .content .right_box .red {
-  background-color: #d20000;
-  width: 19px;
-  height: 5px;
-  margin-bottom: 10px;
-}
-
-body .container .our_tellent .tellent_contents .content .right_box .black {
-  width: 126px;
-  height: 1px;
-  background-color: #333;
-  margin-bottom: 15px;
-}
-
-body .container .our_tellent .tellent_contents .content .right_box .tellent_describe {
-  line-height: 25px;
-  font-family: PingFang-SC-Medium;
-}
-
-body .container .list_step {
-  width: 100%;
-  height: 555px;
-  padding-top: 85px;
-  background-color: #414143;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body .container .list_step .step_title {
   text-align: center;
 }
 
-body .container .list_step .step_title .title_back {
-  font-size: 60px;
-  color: #4d4d4f;
-}
-
-body .container .list_step .step_title .title {
-  font-size: 40px;
-  color: #fff;
-  margin-top: -60px;
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-
-body .container .list_step .border {
-  width: 77px;
-  height: 3px;
-  background-color: #fff;
-  margin: 0 auto;
-  margin-bottom: 85px;
-}
-
-body .container .list_step .steps {
-  width: 1105px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: 0 auto;
-}
-
-body .container .list_step .steps .step {
-  width: 187px;
-  height: 187px;
-  margin-right: 119px;
-}
-
-body .container .list_step .steps .step:last-child {
-  margin-right: 0;
-}
-
-body .container .list_serve {
-  width: 100%;
-  height: 237px;
-  background: #f6f6f6;
+body .rentCar_container .recommend .options .option {
+  width: 400px;
+  height: 400px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-top: 55px;
+  border: solid 1px #333;
 }
 
-body .container .list_serve .serve_box {
-  width: 1132px;
-  height: 90px;
+body .rentCar_container .recommend .options .option img {
+  display: inline-block;
+}
+
+body .rentCar_container .recommend .options .option .name {
+  font-size: 18px;
+  display: inline-block;
+  height: 40px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  line-height: 40px;
+  color: #fff;
+  text-align: center;
+  margin-top: 35px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 5px;
+}
+
+body .rentCar_container .promise {
+  width: 100%;
+  height: 640px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 100px;
+}
+
+body .rentCar_container .promise .title {
+  font-size: 20px;
+  color: #a5a5a5;
+  margin-bottom: 17px;
+  text-align: center;
+}
+
+body .rentCar_container .promise .title span {
+  font-size: 30px;
+  color: #fff;
+}
+
+body .rentCar_container .promise .border {
+  width: 130px;
+  height: 1px;
+  background-color: #585858;
+  margin: 0 auto;
+  margin-bottom: 95px;
+}
+
+body .rentCar_container .promise .promise_box {
+  width: 1155px;
   margin: 0 auto;
 }
 
-body .container .list_serve .serve_box .title {
-  font-size: 28px;
-  color: #414143;
-  font-family: 'PingFang-SC-Regular';
-  margin-bottom: 45px;
-  margin-left: -20px;
+body .rentCar_container .promise .promise_box .img_box {
+  width: 565px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 70px;
+  margin-right: 20px;
 }
 
-body .container .list_serve .serve_box .serves ul {
-  list-style: disc;
-  font-family: 'PingFang-SC-Regular';
-}
-
-body .container .list_serve .serve_box .serves ul li {
-  color: #999999;
-  float: left;
-  margin-right: 50px;
-}
-
-body .container .list_serve .serve_box .serves ul li:last-child {
-  margin-right: 0;
+body .rentCar_container .promise .promise_box .promission {
+  width: 570px;
+  height: 265px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 30px;
 }
 
 .clearfix::after {
   content: '';
   clear: both;
-  height: 0;
   line-height: 0;
-  visibility: hidden;
+  height: 0;
   display: block;
+  visibility: hidden;
 }
 
 .f_l {

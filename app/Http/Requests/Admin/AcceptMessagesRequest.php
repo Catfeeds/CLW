@@ -23,8 +23,15 @@ class AcceptMessagesRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        switch ($this->route()->getActionMethod()) {
+            case 'store':
+                return [
+                    'type' => 'required',
+                    'employee_id' => 'array'
+                ];
+            default;
+                return [
+                ];
+        }
     }
 }

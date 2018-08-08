@@ -118,14 +118,18 @@ module.exports = {
       'shop_list_charge',
       'shop_list_register',
       'shop_list_clean',
-      'shop_list_ressetClean'
+      'shop_list_ressetClean',
+      'shop_list_moving',
+      'shop_decoration',
+      'shop_decoration_company',
+      'shop_rent_car'
     ],
     js: [
       'shop_index',
       'shop_list_register',
       'shop_list_charge',
       'shop_list_clean',
-      'shop_list_ressetClean'
+      'shop_list_ressetClean',
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

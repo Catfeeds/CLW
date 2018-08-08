@@ -8,6 +8,7 @@ use App\Handler\Common;
 
 class BackstagePermissionGroupsController extends APIBaseController
 {
+    //后台权限组列表
     public function index
     (
         PermissionGroupsRequest $request,
@@ -21,6 +22,7 @@ class BackstagePermissionGroupsController extends APIBaseController
         return $this->sendResponse($res,'权限组列表成功');
     }
 
+    //后台添加权限组
     public function store
     (
         PermissionGroupsRequest $request,
