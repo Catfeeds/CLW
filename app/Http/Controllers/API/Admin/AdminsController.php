@@ -11,6 +11,8 @@ use App\Handler\Common;
 
 class AdminsController extends APIBaseController
 {
+
+    //添加后台人员
     public function store
     (
         AdminsRequest $request,

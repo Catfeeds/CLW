@@ -7,6 +7,7 @@ use App\Handler\Common;
 
 class PermissionGroupsController extends APIBaseController
 {
+    //中介权限组列表
     public function index(Request $request)
     {
         if (empty(Common::user()->can('permission_groups_list'))) {
@@ -17,6 +18,7 @@ class PermissionGroupsController extends APIBaseController
         return $this->sendResponse($res->data,$res->message);
     }
 
+    //添加中介权限组
     public function store(Request $request)
     {
         if (empty(Common::user()->can('add_permission_groups'))) {

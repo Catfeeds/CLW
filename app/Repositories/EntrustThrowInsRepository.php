@@ -122,7 +122,7 @@ class EntrustThrowInsRepository extends Model
         }
     }
 
-
+    //工单发送消息
     public function send($openid, $name, $tel, $staff = false)
     {
         $data['openid'] = json_encode(array($openid));
