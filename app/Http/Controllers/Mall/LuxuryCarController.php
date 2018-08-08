@@ -9,6 +9,6 @@ class LuxuryCarController extends Controller
 {
     public function index()
     {
-        dd('豪车租赁');
+        return view('shop.rent_car');
     }
 }
