@@ -9,7 +9,7 @@ class EntryServiceController extends Controller
 {
    public function index()
    {
-       dd('入驻服务.保洁服务，室内环保服务');
+       return view('shop.list_clean');
    }
 
     public function water()
@@ -19,6 +19,6 @@ class EntryServiceController extends Controller
 
     public function houseMv()
     {
-        dd('搬家');
+        return view('shop.list_moving');
     }
 }
