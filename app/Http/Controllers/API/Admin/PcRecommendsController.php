@@ -15,7 +15,7 @@ class PcRecommendsController extends APIBaseController
         PcRecommendsRepository $repository
     )
     {
-        if (empty(Common::user()->can('Pc_recommends_list'))) {
+        if (empty(Common::user()->can('pcRecomFineList'))) {
             return $this->sendError('无pc端精品推荐列表权限','403');
         }
         $res = $repository->pcRecommendsList();
@@ -28,7 +28,7 @@ class PcRecommendsController extends APIBaseController
         PcRecommendsRepository $repository
     )
     {
-        if (empty(Common::user()->can('add_pc_recommends'))) {
+        if (empty(Common::user()->can('pcRecomFine_add'))) {
             return $this->sendError('无添加pc端精品推荐权限','403');
         }
         $res = $repository->addPcRecommends($request);
@@ -50,7 +50,7 @@ class PcRecommendsController extends APIBaseController
         PcRecommendsRepository $repository
     )
     {
-        if (empty(Common::user()->can('update_pc_recommends'))) {
+        if (empty(Common::user()->can('pcRecomFine_edit'))) {
             return $this->sendError('无修改pc端精品推荐信息权限','403');
         }
         $res = $repository->updatePcRecommends($request, $pcRecommend);
