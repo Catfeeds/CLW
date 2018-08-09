@@ -7,8 +7,10 @@ use App\Models\Building;
 use App\Models\BuildingBlock;
 use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
+use App\Models\BuildingKeywords;
 use App\Models\BuildingLabel;
 use App\Models\OfficeBuildingHouse;
+use App\Services\BuildingKeywordService;
 use App\Services\BuildingsService;
 use App\Services\CustomPage;
 use Illuminate\Database\Eloquent\Model;
@@ -348,6 +350,7 @@ class BuildingsRepository extends  Model
 
             //添加楼座信息
             $buildingBlocks = $request->building_block;
+
             foreach ($buildingBlocks as $buildingBlock) {
                 BuildingBlock::create([
                     'building_id' => $building->id,
@@ -369,6 +372,15 @@ class BuildingsRepository extends  Model
                     'building_feature_id' => $buildingFeature
                 ]);
             }
+
+            // 添加关键字
+            $buildingKeywordService = new BuildingKeywordService();
+            $string = $buildingKeywordService->keyword($building);
+            BuildingKeywords::create([
+                'building_id' => $building->id,
+                'keywords' => $string
+            ]);
+
             DB::connection('mysql')->commit();
             DB::connection('media')->commit();
             return true;
