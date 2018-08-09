@@ -301,7 +301,7 @@ class BuildingsRepository extends  Model
         }
 
         $buildings = $result->get();
-        
+
         foreach($buildings as $v) {
             $service->features($v);
             $service->label($v);
