@@ -497,6 +497,9 @@ class BuildingsRepository extends  Model
     {
         $service = new BuildingsService();
         $buildingIds = BuildingLabel::orderBy('created_at','asc')->get()->pluck('building_id')->toArray();
+
+        if (empty($buildingIds)) return collect();
+
         $res = Building::with('house','area','block')->whereIn('id', $buildingIds)->orderByRaw("FIELD(id, " . implode(", ", $buildingIds) . ")")->get();
         foreach ($res as $v) {
             $service->getAddress($v);
