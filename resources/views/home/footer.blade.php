@@ -44,7 +44,7 @@
    </div>
    <div class="bottom">
     <div class="friend_link">友情链接:
-        <a href="https://www.iyxh.com/">奇立英雄会</a>
+        <a href="https://www.iyxh.com/" target="_blank">奇立英雄会</a>
     </div>
    </div>
 </footer>
