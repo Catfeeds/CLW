@@ -496,10 +496,8 @@ class BuildingsRepository extends  Model
     public function getEliteBuilding()
     {
         $service = new BuildingsService();
-        
-        $tmp = DB::select('select id from `media`.`buildings` where exists (select * from `building_labels` where `media`.`buildings`.`id` = `building_labels`.`building_id`)');
-        $building_id = collect($tmp)->pluck('id')->toArray();
-        $res = Building::with('house','area','block')->whereIn('id', $building_id)->get();
+        $buildingIds = BuildingLabel::orderBy('created_at','asc')->get()->pluck('building_id')->toArray();
+        $res = Building::with('house','area','block')->whereIn('id', $buildingIds)->orderByRaw("FIELD(id, " . implode(", ", $buildingIds) . ")")->get();
         foreach ($res as $v) {
             $service->getAddress($v);
             $house[] = $v->house;
