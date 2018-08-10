@@ -248,8 +248,8 @@
                         @endif
                     @else
                         <div class="empty">
-                            <div class="title">Sorry,暂时无法满足您筛选条件的房源!</div>
-                            <div class="callme">请直接拨打<span>4000-580-888</span></div>
+                            <div class="title">Sorry,暂时无法满足您筛选条件的房源!让顾问帮您找找看？</div>
+                            <div class="callme">联系顾问：<span>4000-580-888</span></div>
                         </div>
                         <div class="related">
                             <div class="related_title">
