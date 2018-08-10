@@ -3,7 +3,7 @@ import './components/home/login'
 import Vue from 'vue';
 require('jquery-validation');
 import { launchHouse } from './home_api'
-import { Message } from 'element-ui';
+import sweetalert from 'sweetalert2'
 import 'bootstrap-sass/assets/javascripts/bootstrap/tooltip.js' // 引入bootstrap提示工具对应js文件
 import 'bootstrap-sass/assets/javascripts/bootstrap/popover.js' // 引入bootstrap弹出框对应js文件
 const blockData = JSON.parse($('#blockData').val())
@@ -98,9 +98,11 @@ var type = $("#commentForm").validate({
         data.append('source', 6)
         launchHouse(data).then(res => {
             if (res.success) {
-                Message({
-                    message: '投放成功，楚楼网10分钟内联系您',
-                    type: 'success'
+                sweetalert({
+                    title: '投放成功，楚楼网10分钟内联系您',
+                    type: 'success',
+                    timer: 3000,
+                    showConfirmButton: false
                 })
                 form.reset()
             }

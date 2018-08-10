@@ -6,7 +6,7 @@
                 &#169;2017<br/>
                 楚楼(武汉)信息科技有限公司&nbsp;版权所有<br />
                 鄂ICP备18001084号<br />
-                鄂公网安备&nbsp;42018502001214号
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42018502001214" target="_blank">鄂公网安备&nbsp;42018502001214号</a>
             </div>
         </div>
         <div class="about_us f_l">

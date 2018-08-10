@@ -2,7 +2,7 @@ require('./home_common');
 import './components/home/login'
 require('jquery-validation');
 import { factorFindHouse } from './home_api'
-import { Message } from 'element-ui';
+import sweetalert from 'sweetalert2'
 import 'bootstrap-sass/assets/javascripts/bootstrap/tooltip.js' // 引入bootstrap提示工具对应js文件
 import 'bootstrap-sass/assets/javascripts/bootstrap/popover.js' // 引入bootstrap弹出框对应js文件
 const url = process.env.homeHostUrl
@@ -83,9 +83,11 @@ var type = $("#commentForm").validate({
       data.append('source', 6)
       factorFindHouse(data).then(res => {
         if (res.success) {
-          Message({
-              message: '委托成功，楚楼网10分钟内联系您',
-              type: 'success'
+          sweetalert({
+            title: '委托成功，楚楼网10分钟内联系您',
+            type: 'success',
+            timer: 3000,
+            showConfirmButton: false
           })
           form.reset()
         }
