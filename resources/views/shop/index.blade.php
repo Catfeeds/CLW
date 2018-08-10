@@ -676,10 +676,10 @@
           <div class="modeFirst">
             <a href="{{url('/plants/1')}}">
               <div class="modeBox">
-                <div class="modeTitle">碧玉 绿植盆栽租赁</div>
+                <div class="modeTitle">金钱树 绿植盆栽租赁</div>
                 <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 25/月</div>
                   <div><img src="/shop_img/index_sale_plants_02.jpg" alt=""></div>
                 </div>
               </div>
@@ -687,9 +687,9 @@
             <a href="{{url('/plants/2')}}">
               <div class="modeBox">
                 <div class="modeTitle">红掌水培植物</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 15/月</div>
                   <div><img src="/shop_img/index_sale_plants_03.jpg" alt=""></div>
                 </div>
               </div>
@@ -698,8 +698,8 @@
           <a href="{{url('/plants/3')}}">
             <div class="modelSecond">
               <div class="modeTitle">发财树 绿植盆栽租赁</div>
-              <div class="modeDetail">专属定制 低价高效</div>
-              <div class="unitPrice">¥ 99/月</div>
+              <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
+              <div class="unitPrice">¥ 30/月</div>
               <div><img src="/shop_img/index_sale_plants_04.jpg" alt=""></div>
             </div>
           </a>
@@ -707,20 +707,20 @@
             <a href="{{url('/plants/4')}}">
               <div class="modeBox">
                 <div class="modeTitle">幸福树 绿植盆栽租赁</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_plants_05.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 80/月</div>
                 </div>
               </div>
             </a>
             <a href="{{url('/plants/5')}}">
               <div class="modeBox">
                 <div class="modeTitle">也铁门 绿植盆栽租赁</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_plants_06.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 12/月</div>
                 </div>
               </div>
             </a>
