@@ -10,7 +10,8 @@ module.exports = {
     config: { // 打包配置
       cropStylist: { // app图片剪裁样式 命名应与七牛剪裁样式名一致
         newApp_list: "'?imageMogr2/thumbnail/!240x180r/gravity/Center/crop/240x180/format/jpg/blur/1x0/quality/75'",
-        newApp_detail: "'?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jb20vbG9nb19taW5pLnBuZw==/dissolve/100/gravity/NorthWest/dx/10/dy/10|imageslim'"
+        newApp_detail: "'?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|watermark/1/image/aHR0cHM6Ly9jZG4uY2h1bG91d2FuZy5jb20vbG9nb19taW5pLnBuZw==/dissolve/100/gravity/NorthWest/dx/10/dy/10|imageslim'",
+        newApp_detail_nologo: "'?imageMogr2/thumbnail/!800x600r/gravity/Center/crop/800x600/blur/1x0/quality/75|imageslim'"
       }
     },
   },
