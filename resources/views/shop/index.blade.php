@@ -22,11 +22,11 @@
               <li>
                 <div class="total_classify"><span>代理记账</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}"><span>小规模记账</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>一般纳税人代理记账</span></a>
+                  <a href="{{url('/business_taxes?id=1')}}"><span>小规模记账</span></a>
+                  <a href="{{url('/business_taxes?id=2')}}"><span>一般纳税人代理记账</span></a>
                 </div>
               </li>
-              <li>
+              <!-- <li>
                 <div class="total_classify"><span>税务代办</span><span>></span></div>
                 <div class="classify_list">
                   <a href="{{url('/business_taxes/1')}}"><span>税收筹划</span></a>
@@ -47,17 +47,17 @@
                   <a href="{{url('/business_taxes/1')}}"><span>专项审计</span></a>
                   <a href="{{url('/business_taxes/1')}}"><span>税审</span></a>
                 </div>
-              </li>
+              </li> -->
               <li>
                 <div class="total_classify"><span>工商代办</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}"><span>有限责任公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>外商独资公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>合伙企业注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>个人独资企业注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>公司注册地址</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>分公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>一般人注册地址</span></a>
+                  <a href="{{url('/business_taxes?id=3')}}"><span>有限责任公司注册</span></a>
+                  <a href="{{url('/business_taxes?id=4')}}"><span>外商独资公司注册</span></a>
+                  <a href="{{url('/business_taxes?id=5')}}"><span>合伙企业注册</span></a>
+                  <a href="{{url('/business_taxes?id=6')}}"><span>个人独资企业注册</span></a>
+                  <a href="{{url('/business_taxes?id=7')}}"><span>公司注册地址</span></a>
+                  <a href="{{url('/business_taxes?id=8')}}"><span>分公司注册</span></a>
+                  <a href="{{url('/business_taxes?id=9')}}"><span>一般人注册地址</span></a>
                 </div>
               </li>
             </ul>
@@ -100,14 +100,14 @@
               <li>
                 <div class="total_classify"><span>保洁服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/cleanup')}}"><span>日常保洁</span></a>
-                  <a href="{{url('/cleanup')}}"><span>开荒保洁</span></a>
+                  <a href="{{url('/cleanup?id=1')}}"><span>日常保洁</span></a>
+                  <a href="{{url('/cleanup?id=2')}}"><span>开荒保洁</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify"><span>搬家服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/houseMv')}}"><span>搬家服务</span></a>
+                  <a href="{{url('/cleanup?id=3')}}"><span>搬家服务</span></a>
                 </div>
               </li>
               <li>
@@ -120,13 +120,13 @@
               <li>
                 <div class="total_classify"><span>室内环保</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/cleanup')}}"><span>室内环保</span></a>
+                  <a href="{{url('/cleanup?id=4')}}"><span>室内环保</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify"><span>饮水服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/water')}}"><span>桶装水</span></a>
+                  <a href="{{url('/cleanup?id=5')}}"><span>桶装水</span></a>
                 </div>
               </li>
             </ul>
@@ -143,13 +143,13 @@
               <li>
                 <div class="total_classify"><span>室内装修</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/companyDecorat')}}"><span>室内装修</span></a>
+                  <a href="{{url('/companyDecorat?id=1')}}"><span>室内装修</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify"><span>综合布线</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/wiring')}}"><span>综合布线</span></a>
+                  <a href="{{url('/companyDecorat?id=2')}}"><span>综合布线</span></a>
                 </div>
               </li>
             </ul>
@@ -252,7 +252,7 @@
     <div class="service">
       <div class="head">一站式快捷服务</div>
       <div class="serviceList">
-        <a href="{{url('/business_taxes')}}">
+        <a href="{{url('/business_taxes?id=1')}}">
           <div class="finance">
             <div class="border"></div>
             <div class="up">
@@ -262,7 +262,7 @@
             <div><img src="/shop_img/finance.jpg"></div>
           </div>
         </a>
-        <a href="{{url('/companyDecorat')}}">
+        <a href="{{url('/companyDecorat?id=1')}}">
           <div class="decoration">
             <div class="border"></div>
             <div class="up">
@@ -282,7 +282,7 @@
             <div><img src="/shop_img/furniture.jpg"></div>
           </div>
         </a>
-        <a href="{{url('/cleanup')}}">
+        <a href="{{url('/cleanup?id=1')}}">
           <div class="clean">
             <div class="border"></div>
             <div class="up">
@@ -328,10 +328,10 @@
         <div class="floorTitle">工商财税</div>
       </div>
       <div class="content">
-        <a href="{{url('/business_taxes')}}"><div><img src="/shop_img/index_first.jpg" alt=""></div></a>
+        <a href="{{url('/business_taxes?id=3')}}"><div><img src="/shop_img/index_first.jpg" alt=""></div></a>
         <div class="first_right">
           <div class="small_scale">
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="{{url('/business_taxes?id=1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">小规模纳税人 代理记账</div>
                 <div class="small_scale_detail">30项代账服务 满足您的账务需求</div>
@@ -444,16 +444,16 @@
         <div class="floorTitle">入驻服务</div>
       </div>
       <div class="content">
-        <a href="{{url('/cleanup')}}"><img src="/shop_img/index_third_01.jpg" alt=""></a>
+        <a href="{{url('/cleanup?id=4')}}"><img src="/shop_img/index_third_01.jpg" alt=""></a>
         <div class="third_right">
-          <a href="{{url('/cleanup')}}">
+          <a href="{{url('/cleanup?id=1')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_02.jpg" alt="">
               <div class="seconde_work_title">保洁服务</div>
               <div class="seconde_work_detail">日常开荒  全面服务</div>
             </div>
           </a>
-          <a href="{{url('/water')}}">
+          <a href="{{url('/cleanup?id=5')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_03.jpg" alt="">
               <div class="seconde_work_title">桶装水</div>
@@ -467,7 +467,7 @@
               <div class="seconde_work_detail">租赁买卖  品种多样</div>
             </div>
           </a>
-          <a href="{{URL('/houseMv')}}">
+          <a href="{{URL('/cleanup?id=3')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_05.jpg" alt="">
               <div class="seconde_work_title">搬家服务</div>
@@ -569,10 +569,10 @@
               <li>免费方案</li>
               <li>一站式服务</li>
             </ul>
-            <a href="{{url('/companyDecorat')}}"><div class="check">立即查看</div></a>
+            <a href="{{url('/companyDecorat?id=1')}}"><div class="check">立即查看</div></a>
           </div>
         </div>
-        <a href="{{url('/wiring')}}">
+        <a href="{{url('/companyDecorat?id=2')}}">
           <div class="fiveRight">
             <div class="fiveRightTitle">综合布线</div>
             <ul>

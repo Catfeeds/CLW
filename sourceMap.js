@@ -120,13 +120,12 @@ module.exports = {
       'shop_list_clean',
       'shop_list_ressetClean',
       'shop_list_moving',
-      'shop_decoration',
-      'shop_decoration_company',
       'shop_rent_car',
       'shop_water',
       'shop_zc',
       'shop_protection',
-      'shop_finance'
+      'shop_finance',
+      'shop_serviceList'
     ],
     js: [
       'shop_index',
@@ -134,7 +133,8 @@ module.exports = {
       'shop_list_charge',
       'shop_list_clean',
       'shop_list_ressetClean',
-      'shop_zc'
+      'shop_zc',
+      'shop_serveList'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

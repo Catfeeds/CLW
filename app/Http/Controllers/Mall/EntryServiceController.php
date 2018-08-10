@@ -7,22 +7,8 @@ use App\Http\Controllers\Controller;
 
 class EntryServiceController extends Controller
 {
-   public function index()
+   public function index(Request $request)
    {
-       return view('shop.list_clean');
+       return view('shop.serviceList', ['serveid'=>$request->id]);
    }
-
-    public function water()
-    {
-        return view('shop.water');
-    }
-
-    public function houseMv()
-    {
-        return view('shop.list_moving');
-    }
-    public function protection()
-    {
-        return view('shop.protection');
-    }
 }

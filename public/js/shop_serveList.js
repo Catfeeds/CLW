@@ -1,4 +1,4 @@
-webpackJsonp([0],[
+webpackJsonp([1],[
 /* 0 */
 /***/ (function(module, exports) {
 
@@ -8838,246 +8838,78 @@ if (false) {
 }
 
 /***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(84);
-__webpack_require__(88);
-__webpack_require__(89);
-__webpack_require__(90);
-__webpack_require__(91);
-__webpack_require__(92);
-__webpack_require__(93);
-__webpack_require__(94);
-__webpack_require__(95);
-__webpack_require__(96);
-__webpack_require__(97);
-__webpack_require__(98);
-__webpack_require__(99);
-__webpack_require__(100);
-module.exports = __webpack_require__(101);
-
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _Message2 = _interopRequireDefault(__webpack_require__(40)).default;
-
-__webpack_require__(4);
-
-var _Message = _interopRequireDefault(__webpack_require__(41)).default;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-__webpack_require__(15);
-__webpack_require__(46);
-
-$('.error').hide(); // 隐藏错误提示
-var index = 0; // 电梯导航下标
-var off = true; // 避免点击与滚动事件重合
-var isClick = true; // 避免点击后动画还未完成就进行下一个点击事件
-$('.elevator>.elevator_list>.louti').on('click', function () {
-  // 上一个动画完成之后才能进行下一个点击事件
-  if (isClick) {
-    off = false;
-    isClick = false;
-    index = $(this).index() + 1; // 获取当前的下边
-    $(this).addClass('active').siblings().removeClass('active');
-    if (index == 1) {
-      $(this).css('background', '#4d9dfc').siblings().css('background', '#f4f4f4');
-    } else if (index == 2) {
-      $(this).css('background', '#ff8a6a').siblings().css('background', '#f4f4f4');
-    } else if (index == 3) {
-      $(this).css('background', '#ffac62').siblings().css('background', '#f4f4f4');
-    } else if (index == 4) {
-      $(this).css('background', '#7881fe').siblings().css('background', '#f4f4f4');
-    } else if (index == 5) {
-      $(this).css('background', '#5ac36d').siblings().css('background', '#f4f4f4');
-    } else if (index == 6) {
-      $(this).css('background', '#e690fc').siblings().css('background', '#f4f4f4');
-    } else if (index == 7) {
-      $(this).css('background', '#71ca82').siblings().css('background', '#f4f4f4');
-    }
-    //通过拼接字符串获取元素，再取得相对于文档的高度
-    var top = $(".louti" + index).offset().top;
-    //scrollTop滚动到对应高度
-    $("body,html").animate({ scrollTop: top - 153 }, 500, function () {
-      off = true;
-      isClick = true;
-    });
-  }
-});
-// 页面滚动事件
-$(window).scroll(function () {
-  var scrollTop = $(document).scrollTop(); // 获取页面滚动距离
-  if (off) {
-    // 点击事件完成之后再进行滚动监听
-    if (scrollTop >= 550) {
-      // 滚动距离大于500时候滚动条显示
-      $('.elevator').show();
-    } else {
-      $('.elevator').hide();
-    }
-    for (var i = 1; i <= $('.louti').length; i++) {
-      // 如果元素到浏览器顶部的距离减去页面滚动的距离小于元素本身高度的一半时导航栏亮灯
-      if ($('.louti' + i).offset().top - scrollTop - 150 < $('.louti' + i).height() / 2) {
-        var val = $('.louti').eq(i - 1).html(); // 到达楼层的innerHtml
-        var dom = $('.louti').eq(i - 1);
-        dom.addClass('active').siblings().removeClass('active');
-        if (val == '工商财税') {
-          dom.css('background', '#4d9dfc').siblings().css('background', '#f4f4f4');
-        } else if (val == '办公设备') {
-          dom.css('background', '#ff8a6a').siblings().css('background', '#f4f4f4');
-        } else if (val == '入驻服务') {
-          dom.css('background', '#ffac62').siblings().css('background', '#f4f4f4');
-        } else if (val == '办公家具') {
-          dom.css('background', '#7881fe').siblings().css('background', '#f4f4f4');
-        } else if (val == '装修服务') {
-          dom.css('background', '#5ac36d').siblings().css('background', '#f4f4f4');
-        } else if (val == '热销机型') {
-          dom.css('background', '#e690fc').siblings().css('background', '#f4f4f4');
-        } else if (val == '热销绿植') {
-          dom.css('background', '#71ca82').siblings().css('background', '#f4f4f4');
-        }
-      }
-    }
-  }
-});
-
-// 点击回到顶部
-$('.js_backTop').on('click', function () {
-  $("body,html").animate({ scrollTop: 0 }, 500);
-});
-
-// 立即预约
-$('.consult button').click(function () {
-  var telVal = $('.consult input').val();
-  var tel = /^\d{11}$/;
-  if (tel.test(telVal)) {
-    console.log('sssss', telVal);
-    var data = {};
-    data.tel = telVal;
-    data.source = 10;
-    data.demand = 3;
-    data.page_source = '首页底部-企业服务';
-    $.ajax({
-      url: '/entrust_throw_ins',
-      type: 'POST',
-      data: data,
-      success: function success(res) {
-        if (res.success) {
-          _Message({
-            message: '预约成功',
-            type: 'success'
-          });
-        } else {
-          _Message({
-            message: res.message,
-            type: 'warning'
-          });
-        }
-        $('.error').hide();
-        $('.consult input').val('');
-      },
-      error: function error(res) {
-        _Message({
-          message: res.responseJSON.message,
-          type: 'warning'
-        });
-      }
-    });
-  } else {
-    $('.error').show();
-  }
-});
-
-/***/ }),
+/* 83 */,
+/* 84 */,
 /* 85 */,
 /* 86 */,
 /* 87 */,
-/* 88 */
-/***/ (function(module, exports) {
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+module.exports = __webpack_require__(113);
 
-/***/ }),
-/* 89 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 94 */
-/***/ (function(module, exports) {
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+__webpack_require__(15);
+__webpack_require__(46);
+var textVal = '日常保洁';
+$('.js_cleanse .banner_title').html('开荒保洁');
+$('.select_details .select_detail').click(function () {
+  textVal = $(this).text();
+  $(this).find('a').addClass('current').parent().siblings().find('a').removeClass('current');
+  if ($(this).parent().parent().length !== 0) {
+    $(this).parent().parent().siblings().find('a').removeClass('current');
+  }
+  console.log(textVal);
+  if (textVal == '日常保洁') {
+    $('.js_dailyClean').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '开荒保洁') {
+    $('.js_cleanse').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '搬家服务') {
+    $('.js_move').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '室内环保') {
+    $('.js_protection').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '桶装水') {
+    $('.js_water').css('display', 'block').siblings().css('display', 'none');
+  }
+  if (textVal == '室内装修') {
+    $('.js_decoration').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '综合布线') {
+    $('.js_colligate').css('display', 'block').siblings().css('display', 'none');
+  }
+  if (textVal == '小规模记账') {
+    $('.js_charge').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '有限责任公司注册') {
+    $('.js_register').css('display', 'block').siblings().css('display', 'none');
+  }
+});
 
 /***/ })
-],[83]);
+],[112]);

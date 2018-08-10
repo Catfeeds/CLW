@@ -1,0 +1,49 @@
+@import 'shop_master';
+@include header();
+@include footer();
+@include clean_common();
+@include shop_move();
+@include indoor_protection();
+@include mineral_water();
+@include interior_decoration();
+@include colligate();
+@include list_common();
+@include charge();
+@include register();
+@import 'shop_common_area';
+body {
+  background-color: #fff;
+  .list_container { // 列表盒子
+    width:$master-width;
+    margin: 0 auto;
+    padding-top: 123px;
+    .graybox { // 灰色盒子样式
+      box-sizing: border-box;
+      width: 100%;
+      background-color: #f5f5f5;
+      height: 41px;
+      line-height: 41px;
+      border: 1px solid #ededed;
+      padding-left: 10px;
+    }
+    .select_taxes{
+      width: 120px !important;
+      text-align: left !important;
+      margin-left: 20px;
+    }
+  }
+  .serviceDetail{
+    .container{
+      padding-top: 30px;
+    }
+    .protection_container{
+      padding-top: 30px;
+    }
+    .water_container{
+      padding-top: 30px;
+    }
+  }
+}
+.current {
+  color:$master-blue !important;
+}

@@ -319,6 +319,7 @@ select {
   z-index: 10;
   width: 100%;
   background: #fff;
+  border-bottom: 1px solid #ededed;
 }
 
 .header .navUp {
@@ -906,7 +907,7 @@ body footer .bottom .friend_link a {
 
 body .container {
   width: 100%;
-  padding-top: 123px;
+  padding-top: 30px;
 }
 
 body .container .list_title {
