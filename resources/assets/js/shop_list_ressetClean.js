@@ -13,11 +13,11 @@ var startTop = $('.clean_banner').offset().top
 $('#appoint').addClass('absolute')
 $('#appoint').css('margin-top',startTop)
 $(window).scroll(function(){
-  var nowTop = $(window).scrollTop();
+  var nowTop = $(window).scrollTop() + 123;
   console.log(nowTop)
   if(nowTop >= startTop){
     $('#appoint').removeClass('absolute')
-    $('#appoint').css('margin-top',0)
+    $('#appoint').css('margin-top','123px')
     $('#appoint').addClass('fixed')
   }
   if(nowTop <= startTop){

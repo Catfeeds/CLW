@@ -343,15 +343,22 @@ module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.woff?2f
 
 /***/ }),
 
-/***/ 105:
+/***/ 109:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(106);
+module.exports = __webpack_require__(110);
 
 
 /***/ }),
 
-/***/ 106:
+/***/ 11:
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.ttf?6f0a76321d30f3c8120915e57f7bd77e";
+
+/***/ }),
+
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -375,11 +382,11 @@ var startTop = $('.clean_banner').offset().top;
 $('#appoint').addClass('absolute');
 $('#appoint').css('margin-top', startTop);
 $(window).scroll(function () {
-  var nowTop = $(window).scrollTop();
+  var nowTop = $(window).scrollTop() + 123;
   console.log(nowTop);
   if (nowTop >= startTop) {
     $('#appoint').removeClass('absolute');
-    $('#appoint').css('margin-top', 0);
+    $('#appoint').css('margin-top', '123px');
     $('#appoint').addClass('fixed');
   }
   if (nowTop <= startTop) {
@@ -388,13 +395,6 @@ $(window).scroll(function () {
     $('#appoint').css('margin-top', startTop);
   }
 });
-
-/***/ }),
-
-/***/ 11:
-/***/ (function(module, exports) {
-
-module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.ttf?6f0a76321d30f3c8120915e57f7bd77e";
 
 /***/ }),
 
@@ -2381,4 +2381,4 @@ module.exports = function escape(url) {
 
 /***/ })
 
-},[105]);
+},[109]);

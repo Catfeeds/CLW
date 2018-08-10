@@ -9,6 +9,6 @@ class FinanceController extends Controller
 {
    public function index()
    {
-       dd('金融服务');
+       return view('shop.finance');
    }
 }

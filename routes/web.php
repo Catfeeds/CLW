@@ -60,3 +60,6 @@ Route::get('decoration_company',function(){
 Route::get('rent_car',function(){
     return view('shop.rent_car');
 });
+Route::get('zc',function(){
+    return view('shop.zc');
+});

@@ -343,15 +343,15 @@ module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.woff?2f
 
 /***/ }),
 
-/***/ 101:
+/***/ 105:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(102);
+module.exports = __webpack_require__(106);
 
 
 /***/ }),
 
-/***/ 102:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -374,11 +374,11 @@ var startTop = $('.list_title').offset().top;
 $('#appoint').addClass('absolute');
 $('#appoint').css('margin-top', startTop);
 $(window).scroll(function () {
-  var nowTop = $(window).scrollTop();
+  var nowTop = $(window).scrollTop() + 123;
   console.log(nowTop);
   if (nowTop >= startTop) {
     $('#appoint').removeClass('absolute');
-    $('#appoint').css('margin-top', 0);
+    $('#appoint').css('margin-top', '123px');
     $('#appoint').addClass('fixed');
   }
   if (nowTop <= startTop) {
@@ -2380,4 +2380,4 @@ module.exports = function escape(url) {
 
 /***/ })
 
-},[101]);
+},[105]);

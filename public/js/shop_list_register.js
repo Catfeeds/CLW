@@ -343,7 +343,15 @@ module.exports = "/fonts/vendor/element-ui/lib/theme-chalk/element-icons.woff?2f
 
 /***/ }),
 
-/***/ 100:
+/***/ 103:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(104);
+
+
+/***/ }),
+
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -366,11 +374,11 @@ var startTop = $('.tax_title').offset().top;
 $('#appoint').addClass('absolute');
 $('#appoint').css('margin-top', startTop);
 $(window).scroll(function () {
-  var nowTop = $(window).scrollTop();
+  var nowTop = $(window).scrollTop() + 123;
   console.log(nowTop);
   if (nowTop >= startTop) {
     $('#appoint').removeClass('absolute');
-    $('#appoint').css('margin-top', 0);
+    $('#appoint').css('margin-top', '123px');
     $('#appoint').addClass('fixed');
   }
   if (nowTop <= startTop) {
@@ -2370,14 +2378,6 @@ module.exports = function escape(url) {
 }
 
 
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(100);
-
-
 /***/ })
 
-},[99]);
+},[103]);

@@ -14,11 +14,15 @@ class EntryServiceController extends Controller
 
     public function water()
     {
-        dd('桶装水');
+        return view('shop.water');
     }
 
     public function houseMv()
     {
         return view('shop.list_moving');
+    }
+    public function protection()
+    {
+        return view('shop.protection');
     }
 }

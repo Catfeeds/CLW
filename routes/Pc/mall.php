@@ -22,6 +22,7 @@ Route::resource('business_taxes', 'BusinessTaxesController');
 
 // 室内环保服务 保洁服务
 Route::get('cleanup', 'EntryServiceController@index');
+Route::get('protection', 'EntryServiceController@protection');
 
 // 桶装水
 Route::get('water', 'EntryServiceController@water');
