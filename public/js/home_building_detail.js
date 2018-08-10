@@ -59237,7 +59237,7 @@ function getVal() {
     item.price = list.eq(i).find('.listNum #listPrice').html(); // 获取单价
     item.total = list.eq(i).find('.listNum #listTotal').html(); // 获取总价
     item.feature = list.eq(i).find('#listSpecial').html(); // 获取房源特色
-    item.href = list.eq(i).find('a[href]').attr('href');
+    item.href = list.eq(i).find('a[href]').attr('href'); // 要跳转的房源详情链接
     data.push(item);
     // 最多只显示10条数据，其他的隐藏
     if (i >= 10) {
