@@ -9,7 +9,7 @@ class CompanyDecoratController extends Controller
 {
     public function index()
     {
-        dd('企业装修');
+        return view('shop.decoration_company');
     }
     public function show()
     {
@@ -17,6 +17,6 @@ class CompanyDecoratController extends Controller
     }
     public function wiring()
     {
-        dd('综合布线');
+        return view('shop.decoration');
     }
 }

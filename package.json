@@ -50,6 +50,7 @@
     "photo-sphere-viewer": "^3.4.0",
     "qiniu": "^7.1.7",
     "sweetalert": "^2.1.0",
+    "sweetalert2": "^7.26.11",
     "swiper": "^3.4.2",
     "three": "^0.94.0",
     "to": "^0.2.9",

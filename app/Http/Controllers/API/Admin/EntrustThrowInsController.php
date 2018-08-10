@@ -11,13 +11,13 @@ use App\User;
 
 class EntrustThrowInsController extends APIBaseController
 {
+    //投放、委托列表
     public function index
     (
         EntrustThrowInsRequest $request,
         EntrustThrowInsRepository $repository
     )
     {
-        //投放、委托列表
         $res = $repository->getList($request);
         return $this->sendResponse($res, '列表获取成功');
     }
@@ -35,6 +35,7 @@ class EntrustThrowInsController extends APIBaseController
         return $this->sendResponse($res, '成功');
     }
 
+    //导出统计数据
     public function export
     (
         EntrustThrowInsRequest $request,
@@ -58,6 +59,7 @@ class EntrustThrowInsController extends APIBaseController
         return $this->sendResponse(true, '导出成功');
     }
 
+    //信息回访
     public function survey
     (
         EntrustThrowInsRequest $request,
@@ -68,6 +70,7 @@ class EntrustThrowInsController extends APIBaseController
         return $this->sendResponse($res, '回访状态修改成功');
     }
 
+    //信息添加工单
     public function addGd
     (
         EntrustThrowInsRequest $request,
@@ -105,6 +108,7 @@ class EntrustThrowInsController extends APIBaseController
         return $this->sendResponse($res, '获取成功');
     }
 
+    //渠道数据转化率
     public function conversionRate
     (
         EntrustThrowInsRequest $request,

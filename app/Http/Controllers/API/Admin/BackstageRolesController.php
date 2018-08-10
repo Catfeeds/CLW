@@ -9,6 +9,7 @@ use App\Handler\Common;
 
 class BackstageRolesController extends APIBaseController
 {
+    //后台角色列表
     public function index
     (
         RolesRequest $request,
@@ -22,6 +23,7 @@ class BackstageRolesController extends APIBaseController
         return $this->sendResponse($res,'获取角色列表成功');
     }
 
+    //后台角色添加
     public function store(
         RolesRequest $request,
         RolesRepository $repository
@@ -35,6 +37,7 @@ class BackstageRolesController extends APIBaseController
         return $this->sendResponse($res,'角色添加成功');
     }
 
+    //后台角色修改之前原始数据
     public function edit($id)
     {
         // 角色所有权限
@@ -43,6 +46,7 @@ class BackstageRolesController extends APIBaseController
         return $this->sendResponse($role,'获取角色原始数据成功');
     }
 
+    //更新后台角色
     public function update(
         $id,
         RolesRequest $request,
@@ -68,6 +72,7 @@ class BackstageRolesController extends APIBaseController
         return $this->sendResponse($res,'获取所有权限数据成功');
     }
 
+    //后台角色下拉数据
     public function getRoles
     (
         RolesRepository $repository

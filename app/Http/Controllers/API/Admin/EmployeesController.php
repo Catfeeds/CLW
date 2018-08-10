@@ -83,6 +83,7 @@ class EmployeesController extends APIBaseController
         return $this->sendResponse($res,'修改成功');
     }
 
+    //换绑微信
     public function updateWechat
     (
         EmployeesRequest $request,

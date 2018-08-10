@@ -6,10 +6,10 @@
           <img :src="item.img + cropStyle">
         </div>
         <div class="r-panel-txt">
-          <div class="p1">{{item.name}}</div>
-          <div class="p2">{{item.rent}}</div>
-          <div class="p3">可租面积: {{item.acreage}}</div>
-          <div class="p3">{{item.address}}</div>
+          <div class="p1" :title="item.name">{{item.name}}</div>
+          <div class="p2" :title="item.rent">{{item.rent}}</div>
+          <div class="p3" :title="'可租面积:'+item.acreage">可租面积: {{item.acreage}}</div>
+          <div class="p3" :title="item.address">{{item.address}}</div>
         </div>
       </a>
     </div>
@@ -41,7 +41,7 @@ export default {
 </script>
 <style lang="scss">
   .data-list-item{
-    padding: 10px;
+    padding: 16px;
     border-bottom: 1px #ebeaea solid;
     display: block;
     overflow: hidden;
@@ -68,7 +68,7 @@ export default {
     .r-panel-txt {
       float: left;
       padding-left: 10px;
-      width: 139px;
+      width: 125px;
       color: #333;
       div{
         font-size: 12px;
@@ -92,14 +92,14 @@ export default {
       }
       .p3{
         line-height: 16px;
-        color: #9496ad;
+        color: #999999;
       }
       .p4{
         float: left;
         padding-left: 10px;
         width: 136px;
         font-size: 12px;
-        color: #333;
+        color: #999999;
       }
     }
   }

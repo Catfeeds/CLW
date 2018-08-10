@@ -30,7 +30,7 @@ $('.elevator>.elevator_list>.louti').on('click', function() {
     //通过拼接字符串获取元素，再取得相对于文档的高度
     var top = $(".louti" + index).offset().top;
     //scrollTop滚动到对应高度
-    $("body,html").animate({ scrollTop: top-30 }, 500, function() { 
+    $("body,html").animate({ scrollTop: top-153 }, 500, function() { 
       off = true
       isClick = true  
     })

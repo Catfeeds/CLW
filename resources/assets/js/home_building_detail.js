@@ -37,8 +37,7 @@ new Vue({
     }
   },
   created() {
-    getLikeBuild({block_id: Data.block_id, price_sort: 'asc'
-    }).then(res => {
+    getLikeBuild({block_id: Data.block_id, price_sort: 'asc'}).then(res => {
       this.list = res.data
     })
   },
@@ -243,6 +242,7 @@ function getVal() {
     item.price = list.eq(i).find('.listNum #listPrice').html() // 获取单价
     item.total = list.eq(i).find('.listNum #listTotal').html() // 获取总价
     item.feature = list.eq(i).find('#listSpecial').html() // 获取房源特色
+    item.href = list.eq(i).find('a[href]').attr('href') // 要跳转的房源详情链接
     data.push(item)
     // 最多只显示10条数据，其他的隐藏
     if(i >= 10) {
@@ -263,6 +263,7 @@ function createVal(data) {
     list.find('.listNum #listPrice').html(data[p].price)
     list.find('.listNum #listTotal').html(data[p].total)
     list.find('#listSpecial').html(data[p].feature)
+    list.find('a[href]').attr('href', data[p].href)
     // 最多只显示10条数据，其他的隐藏
     if(p >= 10) {
       list.css('display', 'none')

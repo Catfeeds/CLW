@@ -7,8 +7,10 @@ use App\Models\Building;
 use App\Models\BuildingBlock;
 use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
+use App\Models\BuildingKeywords;
 use App\Models\BuildingLabel;
 use App\Models\OfficeBuildingHouse;
+use App\Services\BuildingKeywordService;
 use App\Services\BuildingsService;
 use App\Services\CustomPage;
 use Illuminate\Database\Eloquent\Model;
@@ -283,30 +285,35 @@ class BuildingsRepository extends  Model
 
     }
 
-    /**
-     * 说明: 楼盘分页列表
-     *
-     * @param $per_page
-     * @param $condition
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
-     * @author 刘坤涛
-     */
-    public function buildingLists($per_page, $condition, $service)
+    // 楼盘分页列表
+    public function buildingLists(
+        $request,
+        $condition,
+        $service
+    )
     {
-        $result = Building::with('buildingBlock', 'features', 'label', 'area', 'block')->orderBy('updated_at', 'desc');
+        $result = Building::with('buildingBlock', 'features', 'label', 'area', 'block');
         if (!empty($condition->building_id)) {
             $result = $result->where(['id' => $condition->building_id]);
         } elseif(!empty($condition->area_id)) {
             $buildingId = array_column(Area::find($condition->area_id)->building->flatten()->toArray(), 'id');
             $result = $result->whereIn('id', $buildingId);
         }
-        $buildings = $result->paginate($per_page??10);
+
+        $buildings = $result->get();
+
         foreach($buildings as $v) {
             $service->features($v);
             $service->label($v);
             $service->getAddress($v);
+            $v->label_sort = empty($v->label)?1:2;
         }
-        return $buildings;
+
+        $data = collect($buildings)->sortByDesc(function ($val) {
+            return [$val->label_sort, $val->updated_at];
+        })->forpage($request->page??1, $request->per_page??10);
+
+        return Common::pageData($request->page, $data->values(), $buildings->count());
     }
 
     /**
@@ -348,6 +355,7 @@ class BuildingsRepository extends  Model
 
             //添加楼座信息
             $buildingBlocks = $request->building_block;
+
             foreach ($buildingBlocks as $buildingBlock) {
                 BuildingBlock::create([
                     'building_id' => $building->id,
@@ -369,6 +377,15 @@ class BuildingsRepository extends  Model
                     'building_feature_id' => $buildingFeature
                 ]);
             }
+
+            // 添加关键字
+            $buildingKeywordService = new BuildingKeywordService();
+            $string = $buildingKeywordService->keyword($building);
+            BuildingKeywords::create([
+                'building_id' => $building->id,
+                'keywords' => $string
+            ]);
+
             DB::connection('mysql')->commit();
             DB::connection('media')->commit();
             return true;
@@ -479,6 +496,7 @@ class BuildingsRepository extends  Model
     public function getEliteBuilding()
     {
         $service = new BuildingsService();
+        
         $tmp = DB::select('select id from `media`.`buildings` where exists (select * from `building_labels` where `media`.`buildings`.`id` = `building_labels`.`building_id`)');
         $building_id = collect($tmp)->pluck('id')->toArray();
         $res = Building::with('house','area','block')->whereIn('id', $building_id)->get();

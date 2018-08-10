@@ -33,6 +33,13 @@
             color:rgba(245, 245, 245, 0.4);  
             font-size: 12px;
             line-height: 24px;
+            a{
+              color:rgba(245, 245, 245, 0.4);  
+              font-size: 12px;
+              &:hover{
+                color: #ffffff;
+              }
+            }
           }
           .friend_link {
             opacity: 0.5;
