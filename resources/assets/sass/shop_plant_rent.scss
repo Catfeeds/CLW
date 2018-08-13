@@ -1,0 +1,221 @@
+@import 'shop_master';
+@include header();
+@include footer();
+
+body {
+  .plant_container {
+    width: 100%;
+    min-width: 1200px;
+    padding-top: 123px;
+    .banner {
+      width: 100%;
+      height: 480px;
+      box-sizing: border-box;
+      padding-top: 175px;
+      background: url(/shop_img/plant_rent_banner.jpg) no-repeat center;
+      .banner_title1 {
+        font-size: 60px;
+        color:#fff;
+        text-align: center;
+        margin-bottom: 44px;
+      }
+      .title2 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 300;
+        color:#fff
+      }
+    }
+    .plant_archives {
+      width: 100%;
+      height: 740px;
+      background: url(/shop_img/plant_archives.jpg) no-repeat center;
+      position: relative;
+      box-sizing: border-box;
+      padding-top: 290px;
+      padding-right: 395px;
+      .img_box {
+        position: absolute;
+        left: 580px;
+        bottom: 220px;
+      }
+      .plant_info {
+        .info_name {
+          .name {
+            width: 90px;
+            height: 32px;
+            line-height: 32px;
+            color:#fff;
+            text-align: center;
+            background-color: #507f4d;
+            border-radius: 1px 30px 1px 1px;
+            margin-bottom: 18px;
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+        .info_des {
+          .des {
+            width: 426px;
+            height: 32px;
+            font-size: 16px;
+            line-height: 32px;
+            box-sizing: border-box;
+            margin-bottom: 18px;
+            color:#666;
+            padding-left: 18px;
+            border-bottom: 1px dashed #cccccc;
+          }
+        }
+      }
+    }
+    .knowledge {
+      width: 100%;
+      .title {
+        width: 100%;
+        height: 160px;
+        background: url(/shop_img/plant_rent_knowledge.jpg) no-repeat center;
+        line-height: 160px;
+        font-size: 38px;
+        color:#fff;
+        text-align: center;
+      }
+      .needing {
+        width: 100%;
+        height: 405px;
+        box-sizing: border-box;
+        padding-top: 70px;
+        .require {
+          width: 1125px;
+          margin: 0 auto;
+          display: flex;
+          .detail {
+            width: 168px;
+            margin-right: 23px;
+            text-align: center;
+            &:last-child(){
+              width: 168px;
+              margin-right: 0;
+            }
+            .img1 {
+              margin-bottom: 20px;
+            }
+            .border {
+              width: 28px;
+              height: 1px;
+              background-color: #ccc;
+              margin: 0 auto;
+              margin-bottom: 2px;
+            }
+            .detail_name {
+              font-size: 20px;
+              color:#333;
+              margin-bottom: 15px;
+            }
+            .detail_do {
+              font-size: 14px;
+              font-weight: 200;
+              color:#333;
+              margin-top: 6px;
+            }
+          }
+        }
+      }
+    }
+    .plant_put {
+      width: 100%;
+      height: 580px;
+      background: url(/shop_img/plant_out.jpg) no-repeat center;
+      box-sizing: border-box;
+      padding-top: 100px;
+      .title {
+        font-size: 40px;
+        text-align: center;
+        color:#333;
+        margin-bottom: 28px;
+      }
+      .title2 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+        color:#333;
+        margin-bottom: 69px;
+      }
+      .plants_img {
+        width: 1040px;
+        margin: 0 auto;
+        display: flex;
+        img {
+          margin-right: 40px;
+          &:last-child(){
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    .us_serve {
+      width: 100%;
+      height: 570px;
+      box-sizing: border-box;
+      padding-top: 110px;
+      background: url(/shop_img/us_serve_back.jpg) no-repeat center;
+      .title {
+        font-size: 40px;
+        color:#333;
+        text-align: center;
+      }
+    }
+    .promise {
+      width: 100%;
+      .title {
+        width: 100%;
+        height: 160px;
+        color:#fff;
+        text-align: center;
+        line-height: 160px;
+        font-size: 40px;
+        background: url(/shop_img/rent_plant_promise_back.jpg) no-repeat center;
+      }
+      .details {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        .detail {
+          padding-top: 110px;
+          padding-bottom: 130px;
+          width: 285px;
+          margin-right: 20px;
+          &:last-child(){
+            margin-right: 0;
+          }
+          img {
+            display: block;
+          }
+          .name {
+            width: 100%;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            color:#fff;
+            font-size: 22px;
+            background-color: #3c4049;
+          }
+        }
+      }
+    }
+  }
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  line-height: 0;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+.f_l {
+  float: left;
+}
+.f_r {
+  float: right;
+}

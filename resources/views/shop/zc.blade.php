@@ -190,8 +190,73 @@
         </div>
       </div>
     </div>
+    <div class="banner5">
+      <div class="banner5_des">
+        <div class="title">更简单有效的微信营销方式</div>
+        <div class="title2">
+          与微信的携手，使房在线能把你所要分享的每套房源都变成精美的房源海报，更能一键分享给你的客户；<br>
+          你还可以把图片和房源信息一键保存到手机，以便更快捷的进行朋友圈营销
+        </div>
+      </div>
+      <div class="banner5_animate">
+        <div class="phone1 phone">
+          <img src="/test/phone1.png" alt="">
+        </div>
+        <div class="phone2 phone">
+          <img src="/test/phone2.png" alt="" style="width:249px;height:498px">
+        </div>
+        <div class="phone3 phone">
+          <img src="/test/phone3.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="banner7">
+      <div class="banner7_des">
+        <div class="title">免费为你采集海量的真实个人房源</div>
+        <div class="title2">
+          房在线采集房源网站多达295个，并在业主发布完房源后的0.8秒内，将最新个人房源采集到房在线房产中介管理系统内。<br>        
+					每秒采集上万套房源，至今已有上百万的真实个人房源，这些都是你的免费房源信息。
+        </div>
+      </div>
+      <div class="img_box">
+        <img src="/test/icon.gif" style="width:640px" alt="" class="icon">
+      </div>
+    </div>
+    <div class="banner8">
+      <div class="banner8_des">
+        <div class="title">人员行程管理，让数据支持你的管理</div>
+        <div class="title2">
+          更直观的行程统计让你对公司的掌控程度再进一步。每一位团队成员不论是新增房客源，还是带看次数，<br>
+          甚至是上传图片和钥匙，房在线房产中介管理系统都能记录下来。更专业的数据，让你的管理更有力。 
+        </div>
+      </div>
+      <div class="banner8_animate">
+        <div class="line1">
+          <div class="img">
+            <img src="/shop_img/person.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="banner4">
-      
+      <div class="banner4_des">
+        <div class="title">媲美链家的楼盘字典</div>
+        <div class="title2">
+          与传统楼盘字典不同的是，房在线通过大数据的挖掘，<br>
+					使你一搜索，房源的楼盘位置、周边配套、楼盘面积、容积、楼栋房号等详情，立刻就能展现在你眼前。</div>
+      </div>
+    </div>
+    <div class="banner6">
+      <div class="banner6_des">
+        <div class="title">与微信支付同级别的安全防护体系</div>
+        <div class="title2">
+          房在线ERP 使用微信的核心技术，其具备与微信数据、支付相同的安全防护标准。<br>         
+					比如 DDoS 高防 IP 、加密服务、实时防护机制等。这一切，让你公司的数据如同微信里的钱一样安全。
+        </div>
+      </div>
+      <div class="img_box">
+        <img src="/test/baoxiangui.gif" alt="">
+      </div>
     </div>
   </div>
   <script src="/js/shop_manifest.js"></script>

@@ -240,6 +240,23 @@ template {
   src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
 }
 
+.clearfix::after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  clear: both;
+}
+
+.f_l {
+  float: left;
+}
+
+.f_r {
+  float: right;
+}
+
 * {
   font-size: 14px;
   padding: 0;
@@ -585,35 +602,307 @@ body .container .banner4 {
   width: 100%;
   height: 1000px;
   background: url(/test/banner4.png) no-repeat center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 130px;
+  background-size: 130%;
+}
+
+body .container .banner4 .banner4_des {
+  opacity: 0;
+  text-align: center;
+}
+
+body .container .banner4 .banner4_des .title {
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+body .container .banner4 .banner4_des .title2 {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #fff;
+  line-height: 30px;
+}
+
+body .container .banner5 {
+  width: 100%;
+  height: 1000px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 140px;
+}
+
+body .container .banner5 .banner5_des {
+  opacity: 0;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+body .container .banner5 .banner5_des .title {
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 20px;
+}
+
+body .container .banner5 .banner5_des .title2 {
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+body .container .banner5 .banner5_animate {
+  width: 870px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+body .container .banner5 .banner5_animate .phone {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -250px;
+}
+
+body .container .banner6 {
+  width: 100%;
+  height: 750px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 150px;
+  background-color: #D37B63;
+  position: relative;
+}
+
+body .container .banner6 .banner6_des {
+  opacity: 0;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+body .container .banner6 .banner6_des .title {
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+body .container .banner6 .banner6_des .title2 {
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+body .container .banner6 .img_box {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -125px;
+}
+
+body .container .banner7 {
+  width: 100%;
+  height: 800px;
+  background-color: #1481ff;
+}
+
+body .container .banner7 .banner7_des {
+  opacity: 0;
+  text-align: center;
+  margin-bottom: 140px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 200px;
+}
+
+body .container .banner7 .banner7_des .title {
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+body .container .banner7 .banner7_des .title2 {
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+body .container .banner7 .img_box {
+  height: 90px;
+  text-align: center;
+}
+
+body .container .banner7 .img_box img {
+  display: none;
+}
+
+body .container .banner8 {
+  width: 100%;
+  height: 837px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 180px;
+  background-color: #FAFAFA;
+}
+
+body .container .banner8 .banner8_des {
+  text-align: center;
+  margin-bottom: 80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body .container .banner8 .banner8_des .title {
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 20px;
+}
+
+body .container .banner8 .banner8_des .title2 {
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+@-webkit-keyframes titleShow {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes titleShow {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.titleShow {
+  -webkit-animation: titleShow 3s forwards;
+          animation: titleShow 3s forwards;
+}
+
+@-webkit-keyframes phone1 {
+  0% {
+    opacity: 0;
+    left: 50%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 15%;
+  }
+}
+
+@keyframes phone1 {
+  0% {
+    opacity: 0;
+    left: 50%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 15%;
+  }
+}
+
+.phone1_act {
+  -webkit-animation: phone1 2s forwards;
+          animation: phone1 2s forwards;
+}
+
+@-webkit-keyframes phone2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes phone2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.phone2_show {
+  -webkit-animation: phone2 1s forwards;
+          animation: phone2 1s forwards;
+}
+
+@-webkit-keyframes phone3 {
+  0% {
+    opacity: 0;
+    left: 50%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 85%;
+  }
+}
+
+@keyframes phone3 {
+  0% {
+    opacity: 0;
+    left: 50%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 85%;
+  }
+}
+
+.phone3_act {
+  -webkit-animation: phone3 2s forwards;
+          animation: phone3 2s forwards;
 }
 
 @-webkit-keyframes banner4 {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    background-size: 130%;
   }
 
   100% {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    background-size: 100%;
   }
 }
 
 @keyframes banner4 {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    background-size: 130%;
   }
 
   100% {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    background-size: 100%;
   }
 }
 
 .banner4_sca {
-  -webkit-animation: banner4 2s forwards;
-          animation: banner4 2s forwards;
+  -webkit-animation: banner4 3s forwards;
+          animation: banner4 3s forwards;
 }
 
 @-webkit-keyframes addShow {

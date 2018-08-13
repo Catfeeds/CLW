@@ -126,7 +126,9 @@ module.exports = {
       'shop_water',
       'shop_zc',
       'shop_protection',
-      'shop_finance'
+      'shop_finance',
+      'shop_plant_rent',
+      'shop_printing'
     ],
     js: [
       'shop_index',

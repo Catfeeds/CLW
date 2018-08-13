@@ -240,6 +240,23 @@ template {
   src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
 }
 
+.clearfix::after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  clear: both;
+}
+
+.f_l {
+  float: left;
+}
+
+.f_r {
+  float: right;
+}
+
 * {
   font-size: 14px;
   padding: 0;
