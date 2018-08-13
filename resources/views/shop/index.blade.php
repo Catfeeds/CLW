@@ -219,9 +219,9 @@
               <li>
                 <div class="total_classify"><span>图文广告</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/fastPrint')}}"><span>图文快印</span></a>
-                  <a href="{{url('/businessPrint')}}"><span>商务印品</span></a>
-                  <a href="{{url('/businessAds')}}"><span>企业广告</span></a>
+                  <a href="{{url('/fastPrint?id=1')}}"><span>图文快印</span></a>
+                  <a href="{{url('/fastPrint?id=2')}}"><span>商务印品</span></a>
+                  <a href="{{url('/fastPrint?id=3')}}"><span>企业广告</span></a>
                 </div>
               </li>
               <li>
@@ -335,51 +335,63 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">小规模纳税人 代理记账</div>
                 <div class="small_scale_detail">30项代账服务 满足您的账务需求</div>
-                <img src="/shop_img/index_first_01.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_01.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">年度财务报表审计</div>
                 <div class="small_scale_detail">专业财务审计意见，满足第三方的要求</div>
-                <img src="/shop_img/index_first_04.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_04.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="{{url('/business_taxes?id=2')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">一般纳税人 代理记账</div>
                 <div class="small_scale_detail">五对一 省钱又省心</div>
-                <img src="/shop_img/index_first_02.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_02.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">税审</div>
                 <div class="small_scale_detail">12年专业经验 为您服务</div>
-                <img src="/shop_img/index_first_05.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_05.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">税务筹划</div>
                 <div class="small_scale_detail">为企业提供合法合规财税优惠服务</div>
-                <img src="/shop_img/index_first_03.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_03.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">验资报告</div>
                 <div class="small_scale_detail">注会协贴标，正规，专业</div>
-                <img src="/shop_img/index_first_06.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_06.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -496,7 +508,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">班台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_02.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_02.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -504,7 +516,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">前台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_05.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_05.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -514,7 +526,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">办公沙发</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_03.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_03.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -522,7 +534,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">资料柜</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_06.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_06.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -532,7 +544,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">会议桌</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_04.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_04.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -540,7 +552,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">办公组合</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_07.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_07.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>

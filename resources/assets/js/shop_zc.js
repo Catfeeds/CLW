@@ -13,8 +13,8 @@ $(function(){
     if(nowTop >= getTop($('.banner2'))/2){
       $('.banner2_des').fadeIn(2000)
     }
-    if(nowTop >= getTop($('.banner3_des'))){
-      alert(1)
+    if(nowTop >= getTop($('.banner3'))/7*5){
+      $('.banner3_des').fadeIn(2000)
       $('.start_back').addClass('opacity')
       $('.start1').addClass('startLeft')
       $('.start2').addClass('startRight')
@@ -23,21 +23,18 @@ $(function(){
         $('.second_back').addClass('second_back_a')
         var timer1 = setInterval(function(){
           $('.js_gray').addClass('grayShow')
-          console.log(2)
           var act = true
           if(act){
             clearInterval(timer1)
           }
         },2000)
         var act = true
-        console.log(1)
         if(act){
           clearInterval(timer)
           var timer2 = setInterval(function(){
             $('.guest_list').addClass('formShow')
             var act = true
             if(act){
-              console.log(3)
               clearInterval(timer2)
               var timer3 = setInterval(function(){
                 $('.add').addClass('addShow')
@@ -50,7 +47,6 @@ $(function(){
                     var act = true
                     if(act){
                       clearInterval(timer4)
-                      console.log(4)
                       $('.guest_list').fadeOut(2000)
                       $('.check').fadeOut(2000)
                       $('.second_back').fadeOut(3000)
@@ -61,7 +57,6 @@ $(function(){
                         if(act){
                           clearInterval(timer5)
                           var timer6 = setInterval(function(){
-                            console.log(6)
                             $('.xl').addClass('checkShow')
                             $('.rc').addClass('checkShow')
                             $('.kfy').addClass('checkShow')
@@ -82,8 +77,24 @@ $(function(){
       },2000)
       
     }
-    if(nowTop >= getTop($('.banner4'))/2){
+    if(nowTop >= getTop($('.banner4'))/7*6){
+      console.log(1)
       $('.banner4').addClass('banner4_sca')
+      $('.banner4_des').addClass('titleShow')
+    }
+
+    if(nowTop >= getTop($('.banner5'))/7*6){
+      $('.banner5_des').addClass('titleShow')
+      $('.phone1').addClass('phone1_act')
+      $('.phone2').addClass('phone2_show')
+      $('.phone3').addClass('phone3_act')
+    }
+    if(nowTop >= getTop($('.banner6'))/7*6){
+      $('.banner6_des').addClass('titleShow')
+    }
+    if(nowTop >= getTop($('.banner7'))/7*6){
+      $('.banner7_des').addClass('titleShow')
+      $('.icon').fadeIn(100)
     }
   })
 })

@@ -63,3 +63,11 @@ Route::get('rent_car',function(){
 Route::get('zc',function(){
     return view('shop.zc');
 });
+// 碧玉
+Route::get('plant_rent',function(){
+    return view('shop.plant_rent');
+});
+// 图文快印
+Route::get('printing',function(){
+    return view('shop.printing');
+});

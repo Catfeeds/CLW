@@ -39,8 +39,10 @@ class PlantsController extends Controller
         ]);
     }
 
-    public function show()
+    public function show($id)
     {
-        dd('绿植详情');
+        // dd($id);
+        if($id == '1')
+        return view ('shop.plant_rent');
     }
 }

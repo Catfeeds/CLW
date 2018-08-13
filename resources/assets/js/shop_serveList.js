@@ -27,6 +27,8 @@ $('.select_details .select_detail').click(function() {
   }
   if(textVal == '小规模记账') {
     $('.js_charge').css('display','block').siblings().css('display', 'none')
+  } else if(textVal == '一般纳税人代理记账') {
+    $('.js_general').css('display','block').siblings().css('display', 'none')
   } else if(textVal == '有限责任公司注册') {
     $('.js_register').css('display','block').siblings().css('display', 'none')
   }

@@ -1,4 +1,4 @@
-@extends('home.layouts.layout')
+@extends('shop.layout.layout')
 @section('title', '商城列表页')
 @section('header')
     <link rel="stylesheet" href="/css/shop_list_worktool.css">

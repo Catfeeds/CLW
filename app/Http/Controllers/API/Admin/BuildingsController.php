@@ -25,18 +25,15 @@ class BuildingsController extends APIBaseController
         $this->req = $request;
     }
 
-    /**
-     * 说明: 获取楼盘列表
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @author 刘坤涛
-     */
-    public function index(BuildingsService $service)
+    // 获取楼盘列表
+    public function index(
+        BuildingsService $service
+    )
     {
         if (empty(Common::user()->can('building_lists'))) {
             return $this->sendError('无楼盘列表权限','403');
         }
-        $res = $this->repo->buildingLists($this->req->per_page, json_decode($this->req->condition), $service);
+        $res = $this->repo->buildingLists($this->req, json_decode($this->req->condition), $service);
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 

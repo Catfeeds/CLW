@@ -31,7 +31,7 @@ Route::resource('cleanup', 'EntryServiceController');
 
 
 // 图文快印
-Route::get('fastPrint', 'PhotoAdsController@fastPrint');
+Route::resource('fastPrint', 'PhotoAdsController');
 // 商务印品
 Route::get('businessPrint', 'PhotoAdsController@businessPrint');
 // 企业广告

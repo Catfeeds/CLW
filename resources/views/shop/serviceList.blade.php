@@ -17,6 +17,8 @@
           <span class="current_page">企业装修</span>
           @elseif(request()->getPathInfo() == '/business_taxes')
           <span class="current_page">工商财税</span>
+          @elseif(request()->getPathInfo() == '/fastPrint')
+          <span class="current_page">图文广告</span>
           @endif
         </div> 
         <div class="select_area">
@@ -62,6 +64,16 @@
             </ul>
           </div>
           @endif
+          @if(request()->getPathInfo() == '/fastPrint')
+          <div class="select_option serve_select clearfix">
+            <div class="select_title f_l">全部分类</div>
+            <ul class="select_details clearfix f_l">
+              <li class="f_l select_detail"><a class="@if($adsId=='1') current @endif" href="javascript:void(0)">图文快印</a></li>
+              <li class="f_l select_detail"><a href="javascript:void(0)" class="@if($adsId=='2') current @endif">商务印品</a></li>
+              <li class="f_l select_detail"><a href="javascript:void(0)" class="@if($adsId=='2') current @endif">企业广告</a></li>
+            </ul>
+          </div>
+          @endif
         </div>
       </div>
       @if(request()->getPathInfo() == '/cleanup')
@@ -98,9 +110,17 @@
         <div class="js_charge" style="@if($finance=='1') display:block @else()display:none @endif">
           @include('shop.layout.charge')
         </div>
+        <div class="js_general" style="@if($finance=='2') display:block @else()display:none @endif">
+          @include('shop.layout.general_taxpayer')
+        </div>
         <div class="js_register" style="@if($finance=='3') display:block @else()display:none @endif">
         @include('shop.layout.register')
         </div>
+      </div>
+      @endif
+      @if(request()->getPathInfo() == '/fastPrint')
+      <div>
+        @include('shop.layout.print')
       </div>
       @endif
     </div>

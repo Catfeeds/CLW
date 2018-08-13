@@ -5,6 +5,7 @@
 @endsection
 @section('body')
   @include('shop.header')
+  @include('shop.layout.nav')
   <div class="finance_container">
     <div class="banner"></div>
     <div class="serves">
