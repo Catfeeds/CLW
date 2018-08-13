@@ -57844,21 +57844,33 @@ var ElAutocomplete = __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_autocomplete___d
   data: function data() {
     var keyword = this.value;
     return {
-      keyword: this.value
+      keyword: this.value,
+      py: null
     };
   },
 
   components: { ElAutocomplete: ElAutocomplete },
+  watch: {
+    py: function py(val) {
+      this.$refs.inputSearch.debouncedGetData(this.keyword);
+    }
+  },
   methods: {
     querySearchAsync: function querySearchAsync(queryString, cb) {
       cb([]);
-      Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["n" /* getSelectInfo */])({ selectInfo: queryString }).then(function (res) {
+      Object(__WEBPACK_IMPORTED_MODULE_3__home_api__["n" /* getSelectInfo */])({ selectInfo: queryString, pySelectInfo: this.py }).then(function (res) {
         cb(res.data);
       });
     },
     handleSelect: function handleSelect(item) {
       window.location.href = '/building_list?keyword=' + item.value;
     }
+  },
+  created: function created() {
+    var This = this;
+    $(document).on('compositionupdate', 'input[name="keyword"]', function (e) {
+      This.py = e.originalEvent.data;
+    });
   }
 });
 
@@ -58669,6 +58681,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("el-autocomplete", {
+    ref: "inputSearch",
     attrs: {
       name: "keyword",
       placement: "bottom-end",
