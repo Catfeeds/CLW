@@ -15,7 +15,8 @@ use App\Repositories\PcServiceRecommendsRepository;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
-{
+{   
+    // 前端首页
     public function index
     (
         AreasRepository $areasRepository,
@@ -61,10 +62,16 @@ class IndexController extends Controller
         Request $request
     )
     {
+        // 中文
         $string = "'". $request['selectInfo'] . "'";
-        $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
-        // 获取所有楼盘id
-        $buildingIds = array_column(Common::objectToArray($res), 'building_id');
+        $res = $this->getSelectRes($string);
+
+        // 英文
+        $pyString = "'". $request['pySelectInfo'] . "'";
+        $pyRes = $this->getSelectRes($pyString);
+
+        // 获取所有楼盘id(合并中英文搜索结果合并去重)
+        $buildingIds = array_unique(array_merge($res, $pyRes));
 
         $res = Building::whereIn('id', $buildingIds)->pluck('name')->toArray();
 
@@ -73,5 +80,14 @@ class IndexController extends Controller
                 'value' => $v
             ];
         }),'通过关键字获取楼盘名成功');
+    }
+
+    // 通过关键字搜索
+    public function getSelectRes($condition)
+    {
+        $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($condition IN BOOLEAN MODE)");
+
+        // 获取所有楼盘id
+        return array_column(Common::objectToArray($res), 'building_id');
     }
 }
