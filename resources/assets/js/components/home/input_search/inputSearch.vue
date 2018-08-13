@@ -7,7 +7,7 @@
   :placeholder='placeholder'
   :fetch-suggestions="querySearchAsync"
   :trigger-on-focus="false"
-  @select="handleSelect" ref="inputSearch">
+  @select="handleSelect">
   </el-autocomplete>
 </template>
 <script>
@@ -19,32 +19,20 @@ export default {
   data() {
     const keyword = this.value
     return {
-      keyword: this.value,
-      py: null
+      keyword: this.value
     }
   },
   components: { ElAutocomplete },
-  watch: {
-    py(val) {
-      this.$refs.inputSearch.debouncedGetData(this.keyword)
-    }
-  },
   methods: {
     querySearchAsync(queryString, cb) {
       cb([])
-      getSelectInfo({ selectInfo: queryString, pySelectInfo: this.py }).then(res => {
+      getSelectInfo({ selectInfo: queryString }).then(res => {
         cb(res.data)
       })
     },
     handleSelect(item) {
       window.location.href ='/building_list?keyword=' + item.value
     }
-  },
-  created() {
-    const This = this
-    $(document).on('compositionupdate', 'input[name="keyword"]', function(e) {
-      This.py = e.originalEvent.data
-    })
   }
 }
 </script>
