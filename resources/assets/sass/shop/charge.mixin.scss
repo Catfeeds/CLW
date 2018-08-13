@@ -147,7 +147,7 @@
           background-color: #007bff;
           margin-bottom: 105px; 
         }
-        .provides {
+        .provides1 {
           width: 515px;
           height: 170px;
           display: flex;
@@ -265,7 +265,16 @@
           }
         }
       }
-      
+      .charge{
+        .our_tellent {
+          background: #fff;
+          .tellent_contents {
+            .content {
+              background-color: #f6f6f6;
+            }
+          }
+        }
+      }
     }
   }
   .fixed {

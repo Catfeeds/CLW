@@ -120,7 +120,8 @@ module.exports = {
       'shop_finance',
       'shop_serviceList',
       'shop_plant_rent',
-      'shop_printing'
+      'shop_printing',
+      'shop_rent_computer'
     ],
     js: [
       'shop_index',

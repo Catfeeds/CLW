@@ -8842,20 +8842,27 @@ if (false) {
 /* 84 */,
 /* 85 */,
 /* 86 */,
-/* 87 */
+/* 87 */,
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(88);
+module.exports = __webpack_require__(89);
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
 __webpack_require__(31);
 var textVal = '日常保洁';
 $('.js_cleanse .banner_title').html('开荒保洁');
+$('.js_register1 .tax_title1').html('外商独资公司注册');
+$('.js_register2 .tax_title1').html('合伙企业注册');
+$('.js_register3 .tax_title1').html('个人独资企业注册');
+$('.js_register4 .tax_title1').html('公司注册地址');
+$('.js_register5 .tax_title1').html('分公司注册');
+$('.js_register6 .tax_title1').html('一般人注册地址');
 $('.select_details .select_detail').click(function () {
   textVal = $(this).text();
   $(this).find('a').addClass('current').parent().siblings().find('a').removeClass('current');
@@ -8885,8 +8892,20 @@ $('.select_details .select_detail').click(function () {
     $('.js_general').css('display', 'block').siblings().css('display', 'none');
   } else if (textVal == '有限责任公司注册') {
     $('.js_register').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '外商独资公司注册') {
+    $('.js_register1').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '合伙企业注册') {
+    $('.js_register2').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '个人独资企业注册') {
+    $('.js_register3').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '公司注册地址') {
+    $('.js_register4').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '分公司注册') {
+    $('.js_register5').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '一般人注册地址') {
+    $('.js_register6').css('display', 'block').siblings().css('display', 'none');
   }
 });
 
 /***/ })
-],[87]);
+],[88]);

@@ -122,67 +122,67 @@
     <div class="colors">
       <div class="color_sel">
         <div class="color" style="background-color:#fff"></div>
-        <div class="color_name">1# 白色</div>
+        <div class="color_name">1 #白色</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#272c30"></div>
-        <div class="color_name">1# 黑色</div>
+        <div class="color_name">2 #黑色</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#875f53"></div>
-        <div class="color_name">1# 咖啡</div>
+        <div class="color_name">3 #咖啡</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#dcd3ce"></div>
-        <div class="color_name">1# 银灰</div>
+        <div class="color_name">4 #银灰</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#f9f7c6"></div>
-        <div class="color_name">1# 米黄</div>
+        <div class="color_name">5 #米黄</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#e7c699"></div>
-        <div class="color_name">1# 浅棕</div>
+        <div class="color_name">6 #浅棕</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#eaad52"></div>
-        <div class="color_name">1# 金黄</div>
+        <div class="color_name">7 #金黄</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#f57b2e"></div>
-        <div class="color_name">1# 橘红</div>
+        <div class="color_name">8 #橘红</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#ebb5b3"></div>
-        <div class="color_name">1# 粉红</div>
+        <div class="color_name">9 #粉红</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#c42344"></div>
-        <div class="color_name">1# 大红</div>
+        <div class="color_name">10 #大红</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#9acfd3"></div>
-        <div class="color_name">1# 浅蓝</div>
+        <div class="color_name">11 #浅蓝</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#14abc6"></div>
-        <div class="color_name">1# 湖蓝</div>
+        <div class="color_name">12 #湖蓝</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#4978a2"></div>
-        <div class="color_name">1# 深蓝</div>
+        <div class="color_name">13 #深蓝</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#d0e191"></div>
-        <div class="color_name">1# 浅绿</div>
+        <div class="color_name">14 #浅绿</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#6ab74f"></div>
-        <div class="color_name">1# 草绿</div>
+        <div class="color_name">15 #草绿</div>
       </div>
       <div class="color_sel">
         <div class="color" style="background-color:#567331"></div>
-        <div class="color_name">1# 深绿</div>
+        <div class="color_name">16 #深绿</div>
       </div>
     </div>
   </div>
@@ -191,5 +191,8 @@
     <div class="img_box">
       <img src="/shop_img/printing_bottom.jpg" alt="">
     </div>
+  </div>
+  <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
+    <img src="/shop_img/index_better.jpg" alt="">
   </div>
 </div>

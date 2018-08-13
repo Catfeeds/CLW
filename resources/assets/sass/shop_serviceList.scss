@@ -8,9 +8,9 @@
 @include interior_decoration();
 @include colligate();
 @include list_common();
+@include print();
 @include charge();
 @include register();
-@include print();
 @import 'shop_common_area';
 body {
   background-color: #fff;

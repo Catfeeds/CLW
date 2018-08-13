@@ -71,3 +71,7 @@ Route::get('plant_rent',function(){
 Route::get('printing',function(){
     return view('shop.printing');
 });
+// 一体机
+Route::get('rent_computer',function(){
+    return view('shop.rent_computer');
+});

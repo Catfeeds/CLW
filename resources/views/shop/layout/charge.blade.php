@@ -61,7 +61,7 @@
     <div class="you_provide">
       <div class="provide_title">需要提供的资料</div>
       <div class="border"></div>
-      <div class="provides">
+      <div class="provides1">
         <div class="provide clearfix">
           <div class="num f_l">01</div>
           <div class="name f_l">营业执照复印件</div>
@@ -122,7 +122,9 @@
     <div id="appoint">
       <appoint></appoint>
     </div>
-    @include('shop.layout.list_common')
+    <div class="charge"> 
+      @include('shop.layout.list_common')
+    </div>
     <div class="footer_banner" style="text-align:center">
       <img src="/shop_img/index_better.jpg" alt="">
     </div>

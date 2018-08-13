@@ -114,7 +114,25 @@
           @include('shop.layout.general_taxpayer')
         </div>
         <div class="js_register" style="@if($finance=='3') display:block @else()display:none @endif">
-        @include('shop.layout.register')
+          @include('shop.layout.register')
+        </div>
+        <div class="js_register1" style="@if($finance=='4') display:block @else()display:none @endif">
+          @include('shop.layout.register')
+        </div>
+        <div class="js_register2" style="@if($finance=='5') display:block @else()display:none @endif">
+          @include('shop.layout.register')
+        </div>
+        <div class="js_register3" style="@if($finance=='6') display:block @else()display:none @endif">
+          @include('shop.layout.register')
+        </div>
+        <div class="js_register4" style="@if($finance=='7') display:block @else()display:none @endif">
+          @include('shop.layout.register')
+        </div>
+        <div class="js_register5" style="@if($finance=='8') display:block @else()display:none @endif">
+          @include('shop.layout.register')
+        </div>
+        <div class="js_register6" style="@if($finance=='9') display:block @else()display:none @endif">
+          @include('shop.layout.register')
         </div>
       </div>
       @endif

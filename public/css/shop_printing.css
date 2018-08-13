@@ -385,7 +385,7 @@ select {
   height: 170px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-top: 40px;
+  padding-top: 30px;
   -webkit-box-shadow: 0 2px 6px 0px rgba(74,74,74,0.22);
           box-shadow: 0 2px 6px 0px rgba(74,74,74,0.22);
   text-align: center;
@@ -394,7 +394,7 @@ select {
 .print_container .print_trub .troubles .trouble .trouble_info .trouble_name {
   font-size: 22px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .print_container .print_trub .troubles .trouble .trouble_info .trouble_des {

@@ -44,5 +44,13 @@ class PlantsController extends Controller
         // dd($id);
         if($id == '1')
         return view ('shop.plant_rent');
+        if($id == '2')
+        return view ('shop.plants1');
+        if($id == '3')
+        return view ('shop.plants2');
+        if($id == '4')
+        return view ('shop.plants3');
+        if($id == '5')
+        return view ('shop.plants4');
     }
 }
