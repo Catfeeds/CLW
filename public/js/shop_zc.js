@@ -108,6 +108,18 @@ $(function () {
       $('.banner7_des').addClass('titleShow');
       $('.icon').fadeIn(100);
     }
+    if (nowTop >= getTop($('.banner8')) / 8 * 7) {
+      $('.img1').addClass('img1Show');
+      $('.img2').addClass('img2Show');
+      $('.img3').addClass('img3Show');
+      $('.banner8_des').addClass('titleShow');
+      $('.js_num1').addClass('num1Add');
+      $('.js_fade1').addClass('num1Fade');
+      $('.js_num2').addClass('num2Add');
+      $('.js_fade2').addClass('num2Fade');
+      $('.js_num3').addClass('num3Add');
+      $('.js_fade3').addClass('num3Fade');
+    }
   });
 });
 // showIn($('.banner3'),$('.banner3>.banner3_des'))

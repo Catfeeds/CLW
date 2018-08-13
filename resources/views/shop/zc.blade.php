@@ -233,7 +233,35 @@
       <div class="banner8_animate">
         <div class="line1">
           <div class="img">
-            <img src="/shop_img/person.png" alt="">
+            <img src="/test/person.png" alt="">
+          </div>
+          <div class="data_area">
+            <div class="add_line">
+              <img src="/test/add1.png" alt="" class="img1">
+              <img src="/test/add1.png" alt="" class="img2">
+              <img src="/test/add1.png" alt="" class="img3">
+            </div>
+            <div class="data_name">
+              <div class="name">带看</div>
+              <div class="name">陪看</div>
+              <div class="name">房源跟进</div>
+              <div class="name">客源跟进</div>
+              <div class="name">创建房源</div>
+              <div class="name">发布</div>
+              <div class="name">上线外网</div>
+            </div>
+            <div class="numbers">
+              <div class="num">6</div>
+              <div class="num js_fade1">3</div>
+              <div class="num_add js_num1">4</div>
+              <div class="num js_fade2">12</div>
+              <div class="num_add js_num2" style="left:265px">13</div>
+              <div class="num">15</div>
+              <div class="num js_fade3">9</div>
+              <div class="num_add js_num3" style="left:485px">10</div>
+              <div class="num">17</div>
+              <div class="num">5</div>
+            </div>
           </div>
         </div>
       </div>

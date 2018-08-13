@@ -337,7 +337,7 @@ body {
       padding-top: 180px;
       background-color: #FAFAFA;
       .banner8_des {
-        // opacity: 0;
+        opacity: 0;
         text-align: center;
         margin-bottom: 80px;
         box-sizing: border-box;
@@ -352,8 +352,132 @@ body {
           line-height: 30px;
         }
       }
+      .banner8_animate {
+        width: 880px;
+        margin: 0 auto;
+        .line1 {
+          display: flex;
+          .add_line {
+            height: 25px;
+            position: relative;
+            img {
+              position: absolute;
+              top:5px;
+              left: 0;
+              opacity: 0;
+            }
+            .img1 {
+              left: 156px;
+            }
+            .img2 {
+              left: 265px;
+            }
+            .img3 {
+              left: 485px;
+            }
+          }
+          .img {
+            flex:1;
+            max-width: 105px;
+            min-width: 105px;
+          }
+          .data_area {
+            flex: 1;
+            .data_name {
+              height: 25px;
+              line-height: 25px;
+              text-align: center;
+              display: flex;
+              margin-bottom: 15px;
+              .name {
+                flex: 1;
+                font-size: 16px;
+              }
+            }
+            .numbers {
+              height: 25px;
+              line-height: 25px;
+              text-align: center;
+              display: flex;
+              position: relative;
+              .num {
+                flex:1;
+                font-size: 16px;
+              }
+              .num_add {
+                opacity: 0;
+                width: 25px;
+                font-size: 16px;
+                text-align: center;
+                background-color: #FAFAFA;
+                position: absolute;
+                left: 153px;
+                margin-top: 20px;
+              }
+            }
+          }    
+        }
+      }
     }
   }
+}
+@keyframes numAdd {
+  0% {
+    opacity: 0;
+    transform: translate(0,0) rotateX(60deg)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0,-20px) rotateX(0)
+  }
+}
+@keyframes numFade {
+  0% {
+    opacity: 1;
+    transform: translate(0,0) rotateX(0)
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0,-20px) rotateX(60deg)
+  }
+}
+.num1Add {
+  animation: numAdd 1s forwards 1.5s
+}
+.num1Fade {
+  animation: numFade 1s forwards 1.5s
+}
+.num2Add {
+  animation: numAdd 1s forwards 3s
+}
+.num2Fade {
+  animation: numFade 1s forwards 3s
+}
+.num3Add {
+  animation: numAdd 1s forwards 4.5s
+}
+.num3Fade {
+  animation: numFade 1s forwards 4.5s
+}
+@keyframes img {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.img1Show {
+  animation: img 0.5s forwards 1s
+}
+.img2Show {
+  animation: img 0.5s forwards 2.5s
+}
+.img3Show {
+  animation: img 0.5s forwards 4s
 }
 @keyframes titleShow {
   0% {
