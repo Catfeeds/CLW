@@ -68,6 +68,7 @@ class IndexController extends Controller
 
         // 英文
         $pyString = "'". $request['pySelectInfo'] . "'";
+        $pyString = str_replace("'","",$pyString);
         $pyRes = $this->getSelectRes($pyString);
 
         // 获取所有楼盘id(合并中英文搜索结果合并去重)
@@ -86,6 +87,8 @@ class IndexController extends Controller
     public function getSelectRes($condition)
     {
         $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($condition IN BOOLEAN MODE)");
+
+        if (empty($res)) return array();
 
         // 获取所有楼盘id
         return array_column(Common::objectToArray($res), 'building_id');
