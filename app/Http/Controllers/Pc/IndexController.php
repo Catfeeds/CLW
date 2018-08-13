@@ -67,8 +67,12 @@ class IndexController extends Controller
         $res = $this->getSelectRes($string);
 
         // 英文
-        $pyString = "'". $request['pySelectInfo'] . "'";
-        $pyString = str_replace("'","",$pyString);
+        $pyString = $request['pySelectInfo'];
+
+
+        $regex = "/\/|\～|\，|\。|\！|\？|\“|\”|\【|\】|\『|\』|\：|\；|\《|\》|\’|\‘|\ |\·|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
+        $pyString = preg_replace($regex,"",$pyString);
+        $pyString = "'". str_replace("'","", $pyString) . "'";
         $pyRes = $this->getSelectRes($pyString);
 
         // 获取所有楼盘id(合并中英文搜索结果合并去重)
