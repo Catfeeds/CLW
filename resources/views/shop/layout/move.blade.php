@@ -1,11 +1,4 @@
-@extends('shop.layout.layout')
-@section('title', '搬家服务')
-@section('header')
-  <link rel="stylesheet" href="/css/shop_list_moving.css">
-@endsection
-@section('body')
-  @include('shop.header')
-  <div class="container">
+<div class="container">
     <div class="banner"></div>
     <div class="choose">
       <div class="choose_title" style="font-family:PingFang-SC-Regular">为什么选择我们</div>
@@ -162,7 +155,3 @@
       <img src="/shop_img/index_better.jpg" alt="">
     </div>
   </div>
-  @include('home.footer')
-@endsection
-@section('script')
-@endsection

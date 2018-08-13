@@ -5,14 +5,15 @@
 @endsection
 @section('body')
     @include('shop.header')
+    @include('shop.layout.nav')
     <div class="plant_container">
       <div class="banner">
-        <div class="banner_title1">电脑宝贝（碧玉）绿植租赁</div>
+        <div class="banner_title1">金钱树 绿植租赁</div>
         <div class="title2">防辐射，净化甲醛，二甲苯，二手烟，是写字楼的天然清道夫</div>
       </div>
       <div class="plant_archives clearfix">
         <div class="img_box">
-          <img src="/shop_img/plant_archives_type.jpg" alt="">
+          <img src="/shop_img/plants_img.jpg" alt="">
         </div>
         <div class="plant_info f_r clearfix">
           <ul class="info_name f_l">
@@ -24,12 +25,12 @@
             <li class="name">作用价值</li>
           </ul>
           <ul class="info_des f_l">
-            <li class="des">碧玉</li>
-            <li class="des">豆瓣菜 电脑宝贝</li>
-            <li class="des">办公桌、茶几</li>
-            <li class="des">中立公正 雅致</li>
-            <li class="des">喜温暖、湿润的半阴环境，不耐高温</li>
-            <li class="des">净化空气，美化环境</li>
+            <li class="des">金钱树</li>
+            <li class="des">金币树、雪铁芋、泽米叶天南星、扎米莲</li>
+            <li class="des">客厅、书房、起居室</li>
+            <li class="des">招财进宝、荣华富贵</li>
+            <li class="des">喜暖热略干、半阴及温度变化小的环境，耐干旱，畏寒冷</li>
+            <li class="des">旺气生财，寓意吉祥，提升格调</li>
           </ul>
         </div>
       </div>
@@ -93,7 +94,7 @@
       </div>
       <div class="plant_put">
         <div class="title">摆放场景</div>
-        <div class="title2">碧玉适合摆放在办公桌、茶几等位置，轻巧装点室内角落，为办公室增添一抹清爽。</div>
+        <div class="title2">金钱树适合摆放在在办公桌上，会给人一种蓬勃向上和青翠欲滴的清新感觉。</div>
         <div class="plants_img">
           <img src="/shop_img/plants_img1.jpg" alt="">
           <img src="/shop_img/plants_img2.jpg" alt="">

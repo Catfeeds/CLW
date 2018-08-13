@@ -336,6 +336,7 @@ select {
   z-index: 10;
   width: 100%;
   background: #fff;
+  border-bottom: 1px solid #ededed;
 }
 
 .header .navUp {
@@ -713,13 +714,19 @@ body footer .bottom .friend_link a {
   font-weight: 300;
 }
 
-body .container .banner {
+.container {
+  padding-top: 123px;
+  width: 100%;
+  min-width: 1200px;
+}
+
+.container .banner {
   width: 100%;
   height: 480px;
   background: url(/shop_img/moving_banner.jpg) no-repeat center;
 }
 
-body .container .choose {
+.container .choose {
   width: 100%;
   height: 605px;
   -webkit-box-sizing: border-box;
@@ -727,7 +734,7 @@ body .container .choose {
   padding-top: 90px;
 }
 
-body .container .choose .choose_title {
+.container .choose .choose_title {
   text-align: center;
   font-size: 40px;
   color: #333;
@@ -737,7 +744,7 @@ body .container .choose .choose_title {
   font-weight: 300;
 }
 
-body .container .choose .border {
+.container .choose .border {
   width: 80px;
   height: 3px;
   background-color: #007bff;
@@ -745,7 +752,7 @@ body .container .choose .border {
   margin-bottom: 70px;
 }
 
-body .container .choose .reasons {
+.container .choose .reasons {
   width: 1171px;
   margin: 0 auto;
   display: -webkit-box;
@@ -755,36 +762,36 @@ body .container .choose .reasons {
       flex-wrap: wrap;
 }
 
-body .container .choose .reasons .reason {
+.container .choose .reasons .reason {
   width: 214px;
   height: 255px;
   margin-right: 105px;
 }
 
-body .container .choose .reasons .reason .img_box {
+.container .choose .reasons .reason .img_box {
   text-align: center;
   margin-bottom: 30px;
 }
 
-body .container .choose .reasons .reason .reason_title {
+.container .choose .reasons .reason .reason_title {
   font-size: 18px;
   color: #333;
   margin-bottom: 26px;
   text-align: center;
 }
 
-body .container .choose .reasons .reason .reason_des {
+.container .choose .reasons .reason .reason_des {
   font-size: 14px;
   color: #666;
   text-align: center;
   line-height: 26px;
 }
 
-body .container .choose .reasons .reason:last-child {
+.container .choose .reasons .reason:last-child {
   margin-right: 0;
 }
 
-body .container .moving_serve {
+.container .moving_serve {
   width: 100%;
   height: 640px;
   background: url(/shop_img/moving_res.png) no-repeat center;
@@ -793,7 +800,7 @@ body .container .moving_serve {
   padding-top: 90px;
 }
 
-body .container .moving_serve .title {
+.container .moving_serve .title {
   font-size: 40px;
   width: 400px;
   margin: 0 auto;
@@ -802,7 +809,7 @@ body .container .moving_serve .title {
   font-weight: 300;
 }
 
-body .container .provides {
+.container .provides {
   width: 100%;
   height: 628px;
   -webkit-box-sizing: border-box;
@@ -810,34 +817,34 @@ body .container .provides {
   padding-top: 105px;
 }
 
-body .container .provides .provides_box {
+.container .provides .provides_box {
   margin-left: 410px;
 }
 
-body .container .provides .provides_box .provides_title {
+.container .provides .provides_box .provides_title {
   font-size: 40px;
   color: #333;
   margin-bottom: 32px;
 }
 
-body .container .provides .provides_box .border {
+.container .provides .provides_box .border {
   width: 64px;
   height: 3px;
   background-color: #007bff;
   margin-bottom: 65px;
 }
 
-body .container .provides .provides_box .provide_details {
+.container .provides .provides_box .provide_details {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-body .container .provides .provides_box .provide_details .provide_detail {
+.container .provides .provides_box .provide_details .provide_detail {
   margin-bottom: 30px;
   margin-right: 185px;
 }
 
-body .container .provides .provides_box .provide_details .provide_detail .num {
+.container .provides .provides_box .provide_details .provide_detail .num {
   font-family: 'PingFang-SC-Light';
   width: 28px;
   height: 28px;
@@ -851,13 +858,13 @@ body .container .provides .provides_box .provide_details .provide_detail .num {
   border-radius: 4px;
 }
 
-body .container .provides .provides_box .provide_details .provide_detail .name {
+.container .provides .provides_box .provide_details .provide_detail .name {
   font-size: 16px;
   line-height: 28px;
   font-weight: 300;
 }
 
-body .container .our_tellent {
+.container .our_tellent {
   width: 100%;
   height: 900px;
   -webkit-box-sizing: border-box;
@@ -866,11 +873,11 @@ body .container .our_tellent {
   background-color: #f6f6f6;
 }
 
-body .container .our_tellent .tellent_title {
+.container .our_tellent .tellent_title {
   text-align: center;
 }
 
-body .container .our_tellent .tellent_title .tellent_title {
+.container .our_tellent .tellent_title .tellent_title {
   font-family: 'PingFang-SC-Regular';
   font-size: 40px;
   color: #333;
@@ -878,7 +885,7 @@ body .container .our_tellent .tellent_title .tellent_title {
   font-weight: 300;
 }
 
-body .container .our_tellent .border {
+.container .our_tellent .border {
   width: 77px;
   height: 3px;
   background-color: #007bff;
@@ -886,7 +893,7 @@ body .container .our_tellent .border {
   margin-bottom: 70px;
 }
 
-body .container .our_tellent .tellent_contents {
+.container .our_tellent .tellent_contents {
   width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -896,7 +903,7 @@ body .container .our_tellent .tellent_contents {
   margin: 0 auto;
 }
 
-body .container .our_tellent .tellent_contents .content {
+.container .our_tellent .tellent_contents .content {
   width: 590px;
   height: 270px;
   margin-right: 20px;
@@ -908,51 +915,51 @@ body .container .our_tellent .tellent_contents .content {
   padding-right: 30px;
 }
 
-body .container .our_tellent .tellent_contents .content:nth-child(2n) {
+.container .our_tellent .tellent_contents .content:nth-child(2n) {
   margin-right: 0;
 }
 
-body .container .our_tellent .tellent_contents .content:nth-child(2+n) {
+.container .our_tellent .tellent_contents .content:nth-child(2+n) {
   margin-bottom: 0;
 }
 
-body .container .our_tellent .tellent_contents .content .img {
+.container .our_tellent .tellent_contents .content .img {
   width: 250px;
   height: 200px;
   margin-right: 55px;
 }
 
-body .container .our_tellent .tellent_contents .content .right_box {
+.container .our_tellent .tellent_contents .content .right_box {
   padding-top: 17px;
   color: #333;
 }
 
-body .container .our_tellent .tellent_contents .content .right_box .eng {
+.container .our_tellent .tellent_contents .content .right_box .eng {
   font-family: 'PingFang-SC-Regular';
   margin-bottom: 12px;
 }
 
-body .container .our_tellent .tellent_contents .content .right_box .chz {
+.container .our_tellent .tellent_contents .content .right_box .chz {
   font-family: 'PingFang-SC-Medium';
   font-size: 26px;
   margin-bottom: 25px;
 }
 
-body .container .our_tellent .tellent_contents .content .right_box .red {
+.container .our_tellent .tellent_contents .content .right_box .red {
   background-color: #d20000;
   width: 19px;
   height: 5px;
   margin-bottom: 10px;
 }
 
-body .container .our_tellent .tellent_contents .content .right_box .black {
+.container .our_tellent .tellent_contents .content .right_box .black {
   width: 126px;
   height: 1px;
   background-color: #333;
   margin-bottom: 15px;
 }
 
-body .container .our_tellent .tellent_contents .content .right_box .tellent_describe {
+.container .our_tellent .tellent_contents .content .right_box .tellent_describe {
   line-height: 25px;
   font-family: PingFang-SC-Medium;
 }

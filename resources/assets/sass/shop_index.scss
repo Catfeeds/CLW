@@ -112,13 +112,14 @@
 .small_scale{
   height: 456px;
   .small_scale_up{
+    position: relative;
     width: 303px;
     height: 227px;
     padding: 30px;
     box-sizing: border-box;
     border-right: 1px solid #f5f5f5;
     &:hover{
-      img{
+      .pic{
         margin-left: 70px;
       }
     }
@@ -132,10 +133,15 @@
       font-size: 12px;
       font-family: PingFang-SC-Regular;
     }
-    img{
+    .pic{
       margin-top: 16px;
       margin-left: 80px;
       transition: all .3s linear 0s;
+    }
+    .notOpen{
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
   .small_scale_border{

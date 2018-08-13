@@ -1,11 +1,4 @@
-@extends('shop.layout.layout')
-@section('title', '工商注册')
-@section('header')
-<link rel="stylesheet" href="/css/shop_list_register.css">
-@endsection
-@section('body')
-  @include('shop.header')
-    <div class="container">
+<div class="container">
       <div class="tax_title">
         <div class="tax_title1" style="font-weight:300">有限责任公司注册</div>
         <div class="tax_title2" style="font-weight:300">快速办理 专业一对一</div>
@@ -152,8 +145,3 @@
         <img src="/shop_img/index_better.jpg" alt="">
       </div>
     </div>
-  @include('home.footer')
-@endsection
-@section('script')
-<script src="/js/shop_list_register.js"></script>
-@endsection

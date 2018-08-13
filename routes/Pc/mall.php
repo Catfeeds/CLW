@@ -21,17 +21,17 @@ Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
 Route::resource('business_taxes', 'BusinessTaxesController');
 
 // 室内环保服务 保洁服务
-Route::get('cleanup', 'EntryServiceController@index');
-Route::get('protection', 'EntryServiceController@protection');
+Route::resource('cleanup', 'EntryServiceController');
+// Route::get('protection', 'EntryServiceController@protection');
 
 // 桶装水
-Route::get('water', 'EntryServiceController@water');
+// Route::get('water', 'EntryServiceController@water');
 // 搬家
-Route::get('houseMv', 'EntryServiceController@houseMv');
+// Route::get('houseMv', 'EntryServiceController@houseMv');
 
 
 // 图文快印
-Route::get('fastPrint', 'PhotoAdsController@fastPrint');
+Route::resource('fastPrint', 'PhotoAdsController');
 // 商务印品
 Route::get('businessPrint', 'PhotoAdsController@businessPrint');
 // 企业广告

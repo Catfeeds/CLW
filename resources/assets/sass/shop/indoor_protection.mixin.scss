@@ -1,8 +1,4 @@
-@import 'shop_master';
-@include header();
-@include footer();
-
-body {
+@mixin indoor_protection {
   .protection_container {
     width: 100%;
     min-width: 1200px;

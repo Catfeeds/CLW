@@ -1,11 +1,4 @@
-@extends('home.layouts.layout')
-@section('title', '商城列表页')
-@section('header')
-    <link rel="stylesheet" href="/css/shop_protection.css">
-@endsection
-@section('body')
-    @include('shop.header')
-    <div class="protection_container">
+<div class="protection_container">
       <div class="banner1"></div>
       <div class="banner2">
         <div class="title">甲醛严重危害人们的健康</div>
@@ -89,10 +82,3 @@
         </div>
       </div>
     </div>
-    <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-      <img src="/shop_img/index_better.jpg" alt="">
-    </div>
-    @include('home.footer')
-@endsection
-@section('script')
-@endsection

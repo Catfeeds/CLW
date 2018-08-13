@@ -336,6 +336,7 @@ select {
   z-index: 10;
   width: 100%;
   background: #fff;
+  border-bottom: 1px solid #ededed;
 }
 
 .header .navUp {
@@ -716,6 +717,7 @@ body footer .bottom .friend_link a {
 body .container {
   width: 100%;
   min-width: 1200px;
+  padding-top: 123px;
 }
 
 body .container .decoration_banner {

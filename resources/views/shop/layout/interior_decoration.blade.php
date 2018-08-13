@@ -1,11 +1,4 @@
-@extends('shop.layout.layout')
-@section('title', '企业装修')
-@section('header')
-<link rel="stylesheet" href="/css/shop_decoration_company.css">
-@endsection
-@section('body')
-  @include('shop.header')
-  <div class="container">
+<div class="container">
     <div class="banner"></div>
     <div class="question">
       <div class="title">你或许正面临这样的难题</div>
@@ -174,7 +167,3 @@
       <img src="/shop_img/index_better.jpg" alt="">
     </div>
   </div>
-  @include('home.footer')
-@endsection
-@section('script')
-@endsection

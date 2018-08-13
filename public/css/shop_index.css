@@ -336,6 +336,7 @@ select {
   z-index: 10;
   width: 100%;
   background: #fff;
+  border-bottom: 1px solid #ededed;
 }
 
 .header .navUp {
@@ -964,6 +965,7 @@ body footer .bottom .friend_link a {
 .small_scale .small_scale_up,
 .main .firstFloor .content .first_right .small_scale_up,
 .main .fourFloor .content .four_right .small_scale_up {
+  position: relative;
   width: 303px;
   height: 227px;
   padding: 30px;
@@ -972,9 +974,9 @@ body footer .bottom .friend_link a {
   border-right: 1px solid #f5f5f5;
 }
 
-.small_scale .small_scale_up:hover img,
-.main .firstFloor .content .first_right .small_scale_up:hover img,
-.main .fourFloor .content .four_right .small_scale_up:hover img {
+.small_scale .small_scale_up:hover .pic,
+.main .firstFloor .content .first_right .small_scale_up:hover .pic,
+.main .fourFloor .content .four_right .small_scale_up:hover .pic {
   margin-left: 70px;
 }
 
@@ -994,13 +996,21 @@ body footer .bottom .friend_link a {
   font-family: PingFang-SC-Regular;
 }
 
-.small_scale .small_scale_up img,
-.main .firstFloor .content .first_right .small_scale_up img,
-.main .fourFloor .content .four_right .small_scale_up img {
+.small_scale .small_scale_up .pic,
+.main .firstFloor .content .first_right .small_scale_up .pic,
+.main .fourFloor .content .four_right .small_scale_up .pic {
   margin-top: 16px;
   margin-left: 80px;
   -webkit-transition: all .3s linear 0s;
   transition: all .3s linear 0s;
+}
+
+.small_scale .small_scale_up .notOpen,
+.main .firstFloor .content .first_right .small_scale_up .notOpen,
+.main .fourFloor .content .four_right .small_scale_up .notOpen {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .small_scale .small_scale_border,

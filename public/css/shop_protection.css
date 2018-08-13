@@ -336,6 +336,7 @@ select {
   z-index: 10;
   width: 100%;
   background: #fff;
+  border-bottom: 1px solid #ededed;
 }
 
 .header .navUp {
@@ -713,24 +714,24 @@ body footer .bottom .friend_link a {
   font-weight: 300;
 }
 
-body .protection_container {
+.protection_container {
   width: 100%;
   min-width: 1200px;
   padding-top: 123px;
 }
 
-body .protection_container .banner1 {
+.protection_container .banner1 {
   width: 100%;
   height: 480px;
   background: url(/shop_img/protection_banner1.jpg) no-repeat center;
 }
 
-body .protection_container .banner2 {
+.protection_container .banner2 {
   width: 100%;
   padding-top: 100px;
 }
 
-body .protection_container .banner2 .title {
+.protection_container .banner2 .title {
   text-align: center;
   font-size: 40px;
   margin-bottom: 20px;
@@ -738,7 +739,7 @@ body .protection_container .banner2 .title {
   color: #333;
 }
 
-body .protection_container .banner2 .title2 {
+.protection_container .banner2 .title2 {
   font-size: 16px;
   font-weight: 200;
   line-height: 25px;
@@ -747,16 +748,16 @@ body .protection_container .banner2 .title2 {
   margin-bottom: 55px;
 }
 
-body .protection_container .banner2 .banner2_box {
+.protection_container .banner2 .banner2_box {
   text-align: center;
   margin-bottom: 120px;
 }
 
-body .protection_container .banner3 {
+.protection_container .banner3 {
   width: 100%;
 }
 
-body .protection_container .banner3 .title {
+.protection_container .banner3 .title {
   width: 100%;
   height: 260px;
   background: url(/shop_img/protect_banner3.jpg);
@@ -768,13 +769,13 @@ body .protection_container .banner3 .title {
   padding-top: 75px;
 }
 
-body .protection_container .banner3 .ques_mark {
+.protection_container .banner3 .ques_mark {
   display: block;
   margin: 0 auto;
   margin-top: -104px;
 }
 
-body .protection_container .banner3 .reasons {
+.protection_container .banner3 .reasons {
   width: 1330px;
   margin: 0 auto;
   display: -webkit-box;
@@ -782,7 +783,7 @@ body .protection_container .banner3 .reasons {
   display: flex;
 }
 
-body .protection_container .banner3 .reasons .reason {
+.protection_container .banner3 .reasons .reason {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -793,11 +794,11 @@ body .protection_container .banner3 .reasons .reason {
   padding-top: 10px;
 }
 
-body .protection_container .banner3 .reasons .reason:last-child {
+.protection_container .banner3 .reasons .reason:last-child {
   border-right: none;
 }
 
-body .protection_container .banner3 .reasons .reason .name {
+.protection_container .banner3 .reasons .reason .name {
   text-align: center;
   font-size: 24px;
   color: #348c23;
@@ -805,7 +806,7 @@ body .protection_container .banner3 .reasons .reason .name {
   margin-bottom: 33px;
 }
 
-body .protection_container .banner3 .reasons .reason .describe {
+.protection_container .banner3 .reasons .reason .describe {
   text-align: center;
   color: #333;
   font-size: 16px;
@@ -813,11 +814,11 @@ body .protection_container .banner3 .reasons .reason .describe {
   margin-bottom: 54px;
 }
 
-body .protection_container .banner3 .reasons .reason .img_box {
+.protection_container .banner3 .reasons .reason .img_box {
   text-align: center;
 }
 
-body .protection_container .banner4 {
+.protection_container .banner4 {
   width: 100%;
   height: 600px;
   -webkit-box-sizing: border-box;
@@ -826,14 +827,14 @@ body .protection_container .banner4 {
   padding-top: 115px;
 }
 
-body .protection_container .banner4 .title {
+.protection_container .banner4 .title {
   text-align: center;
   font-size: 40px;
   color: #fff;
   margin-bottom: 30px;
 }
 
-body .protection_container .banner4 .title2 {
+.protection_container .banner4 .title2 {
   font-size: 16px;
   color: #fff;
   font-weight: 300;
@@ -841,7 +842,7 @@ body .protection_container .banner4 .title2 {
   margin-bottom: 125px;
 }
 
-body .protection_container .banner4 .protect_steps {
+.protection_container .banner4 .protect_steps {
   width: 1100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -849,47 +850,47 @@ body .protection_container .banner4 .protect_steps {
   margin: 0 auto;
 }
 
-body .protection_container .banner4 .protect_steps .step {
+.protection_container .banner4 .protect_steps .step {
   width: 195px;
   margin-right: 110px;
   text-align: center;
 }
 
-body .protection_container .banner4 .protect_steps .step:last-child {
+.protection_container .banner4 .protect_steps .step:last-child {
   margin-right: 0;
 }
 
-body .protection_container .banner4 .protect_steps .step img {
+.protection_container .banner4 .protect_steps .step img {
   margin-bottom: 30px;
 }
 
-body .protection_container .banner4 .protect_steps .step div {
+.protection_container .banner4 .protect_steps .step div {
   text-align: center;
   font-size: 16px;
   color: #fff;
 }
 
-body .protection_container .serve_protect {
+.protection_container .serve_protect {
   width: 100%;
   padding-top: 95px;
   margin-bottom: 110px;
 }
 
-body .protection_container .serve_protect .title {
+.protection_container .serve_protect .title {
   text-align: center;
   font-size: 40px;
   color: #333;
   margin-bottom: 30px;
 }
 
-body .protection_container .serve_protect .title2 {
+.protection_container .serve_protect .title2 {
   text-align: center;
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 55px;
 }
 
-body .protection_container .serve_protect .serve_steps {
+.protection_container .serve_protect .serve_steps {
   width: 1040px;
   margin: 0 auto;
   display: -webkit-box;
@@ -897,18 +898,18 @@ body .protection_container .serve_protect .serve_steps {
   display: flex;
 }
 
-body .protection_container .serve_protect .serve_steps .step {
+.protection_container .serve_protect .serve_steps .step {
   width: 320px;
   height: 340px;
   margin-right: 40px;
   position: relative;
 }
 
-body .protection_container .serve_protect .serve_steps .step:last-child {
+.protection_container .serve_protect .serve_steps .step:last-child {
   margin-right: 0;
 }
 
-body .protection_container .serve_protect .serve_steps .step .des {
+.protection_container .serve_protect .serve_steps .step .des {
   bottom: 40px;
   left: 50%;
   font-size: 20px;

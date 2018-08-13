@@ -1,15 +1,7 @@
-@extends('shop.layout.layout')
-@section('title', '小规模记账详情')
-@section('header')
-<link rel="stylesheet" href="/css/shop_list_charge.css">
-@endsection
-@section('body')
-  @include('shop.header')
-  <!-- 列表页盒子 -->
-  <div class="container">
+<div class="container">
     <!-- 列表页标题 -->
     <div class="list_title">
-      <div class="title_1">代理记账 小规模记账</div>
+      <div class="title_1">一般纳税人代理记账</div>
       <div class="title_2">准确规范记账 一对一定制服务</div>
     </div>
     <!-- 列表页概述 -->
@@ -17,15 +9,15 @@
       <img src="/shop_img/list_detail_describe_left.png" alt="" class="caculate f_l">
       <div class="list_describe_right f_l">
         <div class="right_top right_common">
-          <div class="common_title"><span></span>小规模记账是什么</div>
+          <div class="common_title"><span></span>一般纳税人代理记账是什么</div>
           <div class="common_descibe">
-            将小规模纳税人的会计核算、记账、报税等一系列的工作全部委托给专业记账公司完成，本企业只设立出纳人员，负责日常货币收支业务和财产保管等工作
+          将一般纳税人的会计核算、记账、报税等一系列的工作全部委托给专业记账公司完成，本企业只设立出纳人员，负责日常货币收支业务和财产保管等工作
           </div>
         </div>
         <div class="right_bottom right_common">
-          <div class="common_title"><span></span>为什么需要小规模记账</div>
+          <div class="common_title"><span></span>为什么需要一般纳税人代理记帐</div>
           <div class="common_descibe">
-          代理记账人员专业，及时掌握财税政策，能有效进行税收筹划，降低纳税风险，也可以大大降低成立独立财会部门所带来的高成本。
+          代理记账人员专业，及时掌握财税政策，能有效进行税收筹划，降低纳税风险，也可以大大降低成立独立财会部门所带来的高成本
           </div>
         </div>
       </div>
@@ -135,8 +127,3 @@
       <img src="/shop_img/index_better.jpg" alt="">
     </div>
   </div>
-  @include('home.footer')
-@endsection
-@section('script')
-<script src="/js/shop_list_charge.js"></script>
-@endsection
