@@ -3535,8 +3535,8 @@ body .container .list_step .steps .step:last-child {
 .select_area .brand_select .brands .brand {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 108px;
-  height: 42px;
+  width: 109px;
+  height: 44px;
   border: 1px solid #ededed;
   border-right: none;
 }
