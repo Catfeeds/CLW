@@ -1,5 +1,5 @@
 @extends('shop.layout.layout')
-@section('title', '图文快印')
+@section('title', '电脑租赁')
 @section('header')
     <link rel="stylesheet" href="/css/shop_rent_computer.css">
 @endsection

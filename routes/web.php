@@ -75,3 +75,11 @@ Route::get('printing',function(){
 Route::get('rent_computer',function(){
     return view('shop.rent_computer');
 });
+// 前台
+Route::get('proscenium',function(){
+    return view('shop.proscenium');
+});
+// 班台
+Route::get('pantai',function(){
+    return view('shop.pantai');
+});

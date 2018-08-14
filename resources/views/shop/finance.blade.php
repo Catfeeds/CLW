@@ -1,5 +1,5 @@
 @extends('home.layouts.layout')
-@section('title', '商城列表页')
+@section('title', '金融支持')
 @section('header')
     <link rel="stylesheet" href="/css/shop_finance.css">
 @endsection
