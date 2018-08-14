@@ -81,7 +81,7 @@
     </div>
     <!-- 应用场景 -->
     <div class="scene" style="height:785px">
-      <div class="title" style="margin-bottom:70px;">应用场景</div>
+      <div class="title" style="margin-bottom:70px;">适用场景</div>
       <div class="pad_scenes">
         <div class="pad_scene">
           <img src="/shop_img/pad_scene1.jpg" alt="">
