@@ -95,3 +95,7 @@ Route::get('sofa',function(){
 Route::get('desk',function(){
     return view('shop.desk');
 });
+// 会议桌
+Route::get('meeting_desk',function(){
+    return view('shop.meeting_desk');
+});
