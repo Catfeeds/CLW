@@ -1,7 +1,7 @@
 @import 'shop_master';
 @include header();
 @include footer();
-
+@include nav();
 body {
   .proscenium_container {
     width: 100%;

@@ -17,7 +17,7 @@
                             <img src="{{$data->img_cn}}" alt="">
                         </a>
                         <div class="product_name">{{$data->name}}</div>
-                        <div class="product_price"><span>{{$data->price}}</span>{{$data->unit}}</div>
+                        <div class="product_price"><span>{{$data->price}}</span> {{$data->price_unit}}</div>
                     </li>
                 @endforeach
             </ul>

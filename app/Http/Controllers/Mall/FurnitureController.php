@@ -30,15 +30,20 @@ class FurnitureController extends Controller
         }
         $labelData = $service->labelData('办公家具', $labels, $request);
         $furniture = $service->getAllGoods($request, 'App\Models\Furniture');
-        return view('shop.list',[
+        return view('shop.list1',[
             'labelData' => $labelData,
             'datas' => $furniture,
             'sort' => $sort,
             'symbol' => $symbol
         ]);
     }
-    public function show()
+    public function show($id)
     {
-        dd('办公家具详情');
+        if($id == '1')
+        return view('shop.pantai');
+        if($id == '2')
+        return view('shop.proscenium');
+        if($id == '3')
+        return view('shop.desk');
     }
 }
