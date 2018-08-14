@@ -83,3 +83,7 @@ Route::get('proscenium',function(){
 Route::get('pantai',function(){
     return view('shop.pantai');
 });
+// 笔记本电脑
+Route::get('pad',function(){
+    return view('shop.pad');
+});
