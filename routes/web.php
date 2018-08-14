@@ -87,3 +87,11 @@ Route::get('pantai',function(){
 Route::get('pad',function(){
     return view('shop.pad');
 });
+// 办公沙发
+Route::get('sofa',function(){
+    return view('shop.sofa');
+});
+// 办公桌
+Route::get('desk',function(){
+    return view('shop.desk');
+});
