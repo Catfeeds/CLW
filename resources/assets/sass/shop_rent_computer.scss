@@ -142,6 +142,30 @@ body {
           display: block;
         }
       }
+      .pad_scenes {
+        width: 1200px;
+        display: flex;
+        margin: 0 auto;
+        .pad_scene {
+          width: 280px;
+          margin-right: 28px;
+          &:last-child(){
+            margin-right: 0;
+          }
+          img {
+            display: block;
+          }
+          .pad_scene_name {
+            width: 280px;
+            height: 70px;
+            background-color: rgba(134,40,40,0.9);
+            color:#fff;
+            line-height: 70px;
+            text-align: center;
+            font-size: 24px;
+          }
+        }
+      }
     }
     // 细节展示图
     .computer_details {
