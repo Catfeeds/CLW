@@ -437,7 +437,7 @@
           <a href="{{url('/computers?labels=16')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_05.jpg" alt="">
-              <div class="seconde_work_title">平板电脑</div>
+              <div class="seconde_work_title">笔记本电脑</div>
               <div class="seconde_work_detail">超轻薄  携带方便</div>
             </div>
           </a>
