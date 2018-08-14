@@ -5,6 +5,7 @@
 @endsection
 @section('body')
   @include('shop.header')
+  @include('shop.layout.nav')
   <div class="rent_conputer_container">
     <div class="banner" style="background:url('/shop_img/pad_banner.jpg')"></div>
     <!-- 电脑性能 -->

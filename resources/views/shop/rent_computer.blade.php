@@ -5,6 +5,7 @@
 @endsection
 @section('body')
   @include('shop.header')
+  @include('shop.layout.nav')
   <div class="rent_conputer_container">
     <div class="banner"></div>
     <!-- 电脑性能 -->

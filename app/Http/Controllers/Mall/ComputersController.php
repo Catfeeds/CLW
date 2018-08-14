@@ -38,8 +38,11 @@ class ComputersController extends Controller
         ]);
     }
 
-    public function show()
+    public function show($id)
     {
-        dd('办公设备详情');
+        if($id == '1')
+        return view('shop.rent_computer');
+        if($id == '2')
+        return view('shop.pad');
     }
 }

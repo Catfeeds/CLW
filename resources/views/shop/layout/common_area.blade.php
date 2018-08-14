@@ -18,7 +18,7 @@
             </ul>
           </div>
       @else
-          <div class="select_option brand_select clearfix">
+          <div class="select_option brand_select clearfix" style="height:auto">
               <div class="select_title f_l">{{$labels['name']}}</div>
               <ul class="brands f_l">
                   @foreach($labels['children'] as $label)
