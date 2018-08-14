@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="banner"></div>
+    <div class="moveBanner"></div>
     <div class="choose">
       <div class="choose_title" style="font-family:PingFang-SC-Regular">为什么选择我们</div>
       <div class="border"></div>

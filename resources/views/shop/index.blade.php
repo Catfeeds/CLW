@@ -52,12 +52,12 @@
                 <div class="total_classify"><span>工商代办</span><span>></span></div>
                 <div class="classify_list">
                   <a href="{{url('/business_taxes?id=3')}}"><span>有限责任公司注册</span></a>
-                  <a href="{{url('/business_taxes?id=4')}}"><span>外商独资公司注册</span></a>
+                  <!-- <a href="{{url('/business_taxes?id=4')}}"><span>外商独资公司注册</span></a>
                   <a href="{{url('/business_taxes?id=5')}}"><span>合伙企业注册</span></a>
                   <a href="{{url('/business_taxes?id=6')}}"><span>个人独资企业注册</span></a>
                   <a href="{{url('/business_taxes?id=7')}}"><span>公司注册地址</span></a>
                   <a href="{{url('/business_taxes?id=8')}}"><span>分公司注册</span></a>
-                  <a href="{{url('/business_taxes?id=9')}}"><span>一般人注册地址</span></a>
+                  <a href="{{url('/business_taxes?id=9')}}"><span>一般人注册地址</span></a> -->
                 </div>
               </li>
             </ul>
@@ -220,8 +220,8 @@
                 <div class="total_classify"><span>图文广告</span><span>></span></div>
                 <div class="classify_list">
                   <a href="{{url('/fastPrint?id=1')}}"><span>图文快印</span></a>
-                  <a href="{{url('/fastPrint?id=2')}}"><span>商务印品</span></a>
-                  <a href="{{url('/fastPrint?id=3')}}"><span>企业广告</span></a>
+                  <!-- <a href="{{url('/fastPrint?id=2')}}"><span>商务印品</span></a>
+                  <a href="{{url('/fastPrint?id=3')}}"><span>企业广告</span></a> -->
                 </div>
               </li>
               <li>
