@@ -32,16 +32,15 @@ class LabelsService
                 $oneLable[$key]['id'] = $val->id;
                 $oneLable[$key]['show'] = $val->show;
                 $twoLable = array();
-                if($val->show==1) {
-                    $twoLable[0]['name'] = '全部';
-                    $twoLable[0]['url'] = $this->getUrl('', $request->labels, $request->url(), $val->next_label->pluck('id')->toArray(),true);
-                    // 判断全部是否选择
-                    if (!empty($request->labels) && array_intersect($val->next_label->pluck('id')->toArray(), $request->labels)) {
-                        $twoLable[0]['status'] = false;
-                    } else {
-                        $twoLable[0]['status'] = true;
-                    }
+                $twoLable[0]['name'] = '全部';
+                $twoLable[0]['url'] = $this->getUrl('', $request->labels, $request->url(), $val->next_label->pluck('id')->toArray(),true);
+                // 判断全部是否选择
+                if (!empty($request->labels) && array_intersect($val->next_label->pluck('id')->toArray(), $request->labels)) {
+                    $twoLable[0]['status'] = false;
+                } else {
+                    $twoLable[0]['status'] = true;
                 }
+                
                 foreach ($val->next_label as $k => $v) {
                     if (!empty($v->img)) {
                         $twoLable[$k+1]['img'] = $v->img_cn;
@@ -66,7 +65,7 @@ class LabelsService
         $data = array();
         $data['name'] = $category;
         $data['children'] = $oneLable;
-
+        dd($data);
         return $data;
     }
 
