@@ -891,6 +891,13 @@ body .list_container .list_details .show_details {
           justify-content: flex-start;
 }
 
+body .list_container .list_details .show_details .list_nothing {
+  padding-top: 40px;
+  width: 430px;
+  height: 243px;
+  margin: 0 auto;
+}
+
 body .list_container .list_details .show_details .show_detail {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

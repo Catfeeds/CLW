@@ -416,7 +416,7 @@
           <a href="{{url('/computers?labels=14')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_02.jpg" alt="">
-              <div class="seconde_work_title">电脑租赁</div>
+              <div class="seconde_work_title">台式机租赁</div>
               <div class="seconde_work_detail">免押金 一台起租 随租随还</div>
             </div>
           </a>
@@ -434,7 +434,7 @@
               <div class="seconde_work_detail">苹果一体机  设计专用</div>
             </div>
           </a>
-          <a href="{{url('/computers?labels=16')}}">
+          <a href="{{url('/computers?labels=13')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_second_05.jpg" alt="">
               <div class="seconde_work_title">笔记本电脑</div>
@@ -548,9 +548,9 @@
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/furniture?labels=49')}}">
+            <a href="{{url('/furniture?labels=44')}}">
               <div class="small_scale_up">
-                <div class="small_scale_title">办公组合</div>
+                <div class="small_scale_title">办公桌</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
                 <img class="pic" src="/shop_img/index_four_07.jpg" alt="">
               </div>
@@ -615,53 +615,53 @@
         </a>
         <div class="sale_model_right">
           <div class="modeFirst">
-            <a href="{{url('/computers/1')}}">
+            <a href="{{url('/nothing')}}">
               <div class="modeBox">
-                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeTitle">ThinkPad T420 4G内存 笔记本</div>
+                <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 200/月</div>
                   <div><img src="/shop_img/index_sale_model_02.jpg" alt=""></div>
                 </div>
               </div>
             </a>
-            <a href="{{url('/computers/2')}}">
+            <a href="{{url('/nothing')}}">
               <div class="modeBox">
-                <div class="modeTitle">全新 联想/Lenovo 启天M410</div>
-                <div class="modeDetail">主动商务，高效易用</div>
+                <div class="modeTitle">戴尔 3020 20英寸 台式机</div>
+                <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 120/月</div>
                   <div><img src="/shop_img/index_sale_model_03.jpg" alt=""></div>
                 </div>
               </div>
             </a>
           </div>
-          <a href="{{url('/computers/3')}}">
+          <a href="{{url('/computers/1')}}">
             <div class="modelSecond">
-              <div class="modeTitle">新一代成铭 3980</div>
-                <div class="modeDetail">专属定制 低价高效</div>
-                <div class="unitPrice">¥ 99/月</div>
+              <div class="modeTitle">优威派克 23.8英寸 一体机</div>
+                <div class="modeDetail">高性能 高性价比 高颜值</div>
+                <div class="unitPrice">¥ 180.00/月</div>
                 <div><img src="/shop_img/index_sale_model_04.jpg" alt=""></div>
             </div>
           </a>
           <div class="modeThird">
-            <a href="{{url('/computers/4')}}">
+            <a href="{{url('/computers/2')}}">
               <div class="modeBox">
-                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeTitle">Thinkpad 14.1英寸 笔记本</div>
+                <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_model_05.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 105.00/月</div>
                 </div>
               </div>
             </a>
-            <a href="{{url('/computers/5')}}">
+            <a href="{{url('/nothing')}}">
               <div class="modeBox">
-                <div class="modeTitle">Apple iPad 9.7英寸平板电脑</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeTitle">Thinkpad T520 4G内存 笔记本</div>
+                <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
-                  <div><img src="/shop_img/index_sale_model_06.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div><img src="/shop_img/index_sale_model_05.jpg" alt=""></div>
+                  <div class="unitPrice">¥ 260/月</div>
                 </div>
               </div>
             </a>

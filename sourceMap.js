@@ -124,7 +124,8 @@ module.exports = {
       'shop_printing',
       'shop_rent_computer',
       'shop_proscenium',
-      'shop_pantai'
+      'shop_pantai',
+      'shop_soon'
     ],
     js: [
       'shop_index',

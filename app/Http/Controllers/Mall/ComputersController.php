@@ -45,4 +45,8 @@ class ComputersController extends Controller
         if($id == '2')
         return view('shop.pad');
     }
+    public function nothing()
+    {
+        return view('shop.soon');
+    }
 }

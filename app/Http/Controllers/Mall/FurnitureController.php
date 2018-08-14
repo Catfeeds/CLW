@@ -44,6 +44,10 @@ class FurnitureController extends Controller
         if($id == '2')
         return view('shop.proscenium');
         if($id == '3')
+        return view('shop.meeting_desk');
+        if($id == '4')
         return view('shop.desk');
+        if($id == '5')
+        return view('shop.sofa');
     }
 }

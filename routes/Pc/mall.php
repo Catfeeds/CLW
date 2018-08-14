@@ -3,8 +3,10 @@ Route::get('/', 'IndexController@index');
 
 // 绿植租摆
 Route::resource('/plants', 'PlantsController');
-// 办公设备
+// 电脑租售
 Route::resource('/computers', 'ComputersController');
+// 暂无数据
+Route::get('/nothing', 'ComputersController@nothing');
 // 家具
 Route::resource('/furniture', 'FurnitureController');
 // 企业选址

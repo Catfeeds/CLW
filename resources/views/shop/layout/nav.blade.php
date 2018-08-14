@@ -27,17 +27,20 @@
     <a href="{{url('/computers')}}"><div class="index">办公设备</div></a>&nbsp; > &nbsp;
     <div>Thinkpad</div>
     @elseif(request()->getPathInfo() == '/furniture/1')
-    <a href="{{url('/computers')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
+    <a href="{{url('/furniture')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
     <div>班台</div>
     @elseif(request()->getPathInfo() == '/furniture/2')
-    <a href="{{url('/computers')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
+    <a href="{{url('/furniture')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
     <div>前台</div>
     @elseif(request()->getPathInfo() == '/furniture/3')
-    <a href="{{url('/computers')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
+    <a href="{{url('/furniture')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
     <div>会议桌</div>
     @elseif(request()->getPathInfo() == '/furniture/4')
-    <a href="{{url('/computers')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
+    <a href="{{url('/furniture')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
     <div>办公桌</div>
+    @elseif(request()->getPathInfo() == '/furniture/5')
+    <a href="{{url('/furniture')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
+    <div>沙发</div>
     @endif
   </div>
 </div>

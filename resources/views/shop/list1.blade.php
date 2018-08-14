@@ -11,15 +11,21 @@
     <!-- 商品展示区 -->
         <div class="list_details">
             <ul class="show_details">
-                @foreach($datas as $data)
-                    <li class="show_detail">
-                        <a href="{{$data->details_url}}" class="detail_pic">
-                            <img src="{{$data->img_cn}}" alt="">
-                        </a>
-                        <div class="product_name">{{$data->name}}</div>
-                        <div class="product_price"><span>{{$data->price}}</span> {{$data->price_unit}}</div>
-                    </li>
-                @endforeach
+            @if(!empty($datas->count()))
+            @foreach($datas as $data)
+                <li class="show_detail">
+                    <a href="{{$data->details_url}}" class="detail_pic">
+                        <img src="{{$data->img_cn}}" alt="">
+                    </a>
+                    <div class="product_name">{{$data->name}}</div>
+                    <div class="product_price"><span>{{$data->price}}</span> {{$data->price_unit}}</div>
+                </li>
+            @endforeach
+            @else
+            <li class="list_nothing">
+                <img src="/shop_img/coming_soon.jpg" alt="">
+            </li>
+             @endif
             </ul>
         </div>
     </div>
