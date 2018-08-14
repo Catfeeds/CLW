@@ -25,7 +25,7 @@ class ComputersRequest extends FormRequest
             case 'store': {
                 return [
                     'name.not_in' => '该名称已存在',
-                    'labels.in' => '只可添加电脑租售二级标签'
+                    'labels.in' => '只可添加办公设备二级标签'
                 ];
             }
             default: {
@@ -55,7 +55,7 @@ class ComputersRequest extends FormRequest
                         'required',
                         'array',
                         Rule::in(
-                            Label::getLabelByCategoryName('电脑租售')
+                            Label::getLabelByCategoryName('办公设备')
                                 ->where('stage', '=', 2)
                                 ->pluck('id')
                                 ->toArray()

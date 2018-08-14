@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class ComputersController extends Controller
 {
-    // 电脑租售
+    // 办公设备
     public function index(
         Request $request,
         LabelsService $service
@@ -28,7 +28,7 @@ class ComputersController extends Controller
             $sort = $sort.'?labels='.implode('-', $data);
             $symbol = '&';
         }
-        $labelData = $service->labelData('电脑租售', $labels, $request);
+        $labelData = $service->labelData('办公设备', $labels, $request);
         $computer = $service->getAllGoods($request, 'App\Models\Computer');
         return view('shop.list',[
             'labelData' => $labelData,
@@ -40,6 +40,6 @@ class ComputersController extends Controller
 
     public function show()
     {
-        dd('电脑租售详情');
+        dd('办公设备详情');
     }
 }
