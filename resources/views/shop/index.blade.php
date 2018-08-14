@@ -199,12 +199,12 @@
                   <a href="{{url('/furniture?labels=47')}}"><span>前台</span></a>
                 </div>
               </li>
-              <li>
+              <!-- <li>
                 <div class="total_classify"><span>办公椅</span><span>></span></div>
                 <div class="classify_list">
                   <a href="{{url('/furniture?labels=48')}}"><span>办公椅</span></a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li class="select_list_aside">

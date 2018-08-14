@@ -15,7 +15,8 @@ use App\Repositories\PcServiceRecommendsRepository;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
-{
+{   
+    // 前端首页
     public function index
     (
         AreasRepository $areasRepository,

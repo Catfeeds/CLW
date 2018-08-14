@@ -189,7 +189,7 @@
         <li class="fine-quality-item">
           <a href="{{url('/buildings').'/'.$eliteBuilding_item->id}}">
             <div class="img-box">
-              <img class="min-img" src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select">
+              {{-- <img class="min-img" src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select"> --}}
               <img class="main-img" src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
             </div>
             <div class="text-box">

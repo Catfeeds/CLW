@@ -30,7 +30,7 @@
       <div class="freePic"><img src="/home_img/fond_house_tel.png">免费电话预约</div>
       <div class="freeNum">
         <div class="freeTel">4000-580-888</div>
-        <div class="freeTime">(早8：00 - 晚8：00)</div>
+        <div class="freeTime">(早9：00 - 晚10：00)</div>
       </div>
       <div class="border"></div>
       <div class="mapFindHouse">
