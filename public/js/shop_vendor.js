@@ -11186,6 +11186,17 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by zxz1992 on 2018/6/5.
+ */
+window.$ = window.jQuery = __webpack_require__(75);
+window.Vue = __webpack_require__(1);
+
+/***/ }),
+
 /***/ 73:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21823,23 +21834,12 @@ return jQuery;
 
 /***/ }),
 
-/***/ 8:
+/***/ 94:
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Created by zxz1992 on 2018/6/5.
- */
-window.$ = window.jQuery = __webpack_require__(75);
-window.Vue = __webpack_require__(1);
-
-/***/ }),
-
-/***/ 90:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(6);
 
 
 /***/ })
 
-},[90]);
+},[94]);

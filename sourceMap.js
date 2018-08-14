@@ -121,12 +121,15 @@ module.exports = {
       'shop_serviceList',
       'shop_plant_rent',
       'shop_printing',
-      'shop_rent_computer'
+      'shop_rent_computer',
+      'shop_proscenium',
+      'shop_pantai'
     ],
     js: [
       'shop_index',
       'shop_zc',
-      'shop_serveList'
+      'shop_serveList',
+      'shop_pantai'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

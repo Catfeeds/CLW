@@ -1,0 +1,1174 @@
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+@font-face {
+  font-family: PingFang-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Medium;
+  src: url("https://upload.chulouwang.com/font/PingFang_Medium.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Regular;
+  src: url("https://upload.chulouwang.com/font/PingFang_Regular.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Bold;
+  src: url("https://upload.chulouwang.com/font/PingFang_Bold.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-ExtraLight;
+  src: url("https://upload.chulouwang.com/font/PingFang_ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: PingFang-SC-Heavy;
+  src: url("https://upload.chulouwang.com/font/PingFang_Heavy.ttf");
+}
+
+@font-face {
+  font-family: PingFangSC-SC-Light;
+  src: url("https://upload.chulouwang.com/font/PingFang_Light.ttf");
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  clear: both;
+}
+
+.f_l {
+  float: left;
+}
+
+.f_r {
+  float: right;
+}
+
+* {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.f_l {
+  float: left;
+}
+
+.f_r {
+  float: right;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+
+input,
+textarea,
+button,
+select {
+  outline: none;
+}
+
+.font-level1,
+.header .navUp .navBox .nav_left,
+.header .navUp .navBox .nav_right div {
+  font-size: 12px;
+}
+
+.font-level2 {
+  font-size: 14px;
+}
+
+.font-level3,
+.header .search .searchLogo .select_nav li,
+.header .select .selectBox .select_all div {
+  font-size: 16px;
+}
+
+.font-level4 {
+  font-size: 18px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.b_white {
+  background-color: #fff;
+}
+
+.b_f4 {
+  background-color: #f4f4f4;
+}
+
+.header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ededed;
+}
+
+.header .navUp {
+  height: 35px;
+  background: #444;
+}
+
+.header .navUp .navBox {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 35px;
+  color: rgba(255,255,255,0.7);
+}
+
+.header .navUp .navBox .nav_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .navUp .navBox .nav_right div {
+  color: rgba(255,255,255,0.7);
+  padding: 0 10px;
+}
+
+.header .search {
+  width: 1200px;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 88px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .search .searchLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .search .searchLogo .logo {
+  margin-top: 24px;
+}
+
+.header .search .searchLogo .select_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 98px;
+  margin-left: 72px;
+}
+
+.header .search .searchLogo .select_nav li {
+  color: #333;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  margin-right: 60px;
+}
+
+.header .search .searchLogo .select_nav li:hover {
+  color: #007bff;
+}
+
+.header .search .searchLogo .select_nav .active {
+  color: #007bff;
+}
+
+.header .search .searchLogo .select_nav .hot_sale {
+  position: relative;
+}
+
+.header .search .searchLogo .select_nav .hot_sale img {
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  -webkit-animation: hotpic .7s infinite;
+          animation: hotpic .7s infinite;
+}
+
+@-webkit-keyframes hotpic {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  25% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+
+  75% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes hotpic {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  25% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+
+  75% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.header .search .tel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 38px;
+}
+
+.header .search .tel img {
+  margin-top: 4px;
+}
+
+.header .search .tel .telNum {
+  margin-left: 7px;
+  color: #007bff;
+  font-size: 21px;
+  font-family: PingFang-SC-Medium;
+}
+
+.header .select {
+  height: 44px;
+  background: #60adff;
+}
+
+.header .select .selectBox {
+  position: relative;
+  height: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: #fff;
+}
+
+.header .select .selectBox .select_all {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 44px;
+  background: #007bff;
+}
+
+.header .select .selectBox .select_all img {
+  margin: 11px 8px 0 24px;
+}
+
+.header .select .selectBox .select_all div {
+  font-family: PingFang-SC-Medium;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.f_l {
+  float: left;
+}
+
+.f_r {
+  float: right;
+}
+
+body footer {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #303030;
+}
+
+body footer div,
+body footer a,
+body footer span {
+  font-weight: 300;
+}
+
+body footer .container {
+  height: 220px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+body footer .container .left_info {
+  margin-top: 29px;
+  margin-right: 280px;
+}
+
+body footer .container .left_info img {
+  margin-bottom: 30px;
+}
+
+body footer .container .left_info .info {
+  color: rgba(245,245,245,0.4);
+  font-size: 12px;
+  line-height: 24px;
+}
+
+body footer .container .left_info .friend_link {
+  opacity: 0.5;
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .left_info .friend_link a {
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+body footer .container .about_us {
+  margin-top: 41px;
+  margin-right: 100px;
+}
+
+body footer .container .about_us .abou_us_title {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 25px;
+}
+
+body footer .container .about_us .link li {
+  margin-bottom: 8px;
+}
+
+body footer .container .about_us .link li a {
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+}
+
+body footer .container .about_us .link li a:hover {
+  color: #fff;
+}
+
+body footer .container .serve {
+  margin-top: 40px;
+  margin-right: 100px;
+}
+
+body footer .container .serve div {
+  color: rgba(245,245,245,0.4);
+}
+
+body footer .container .serve_title {
+  color: rgba(255,255,255,0.8) !important;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+body footer .container .serve .phone {
+  text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 31px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+body footer .container .serve .time,
+body footer .container .serve .day {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+body footer .container .serve .day {
+  margin-bottom: 20px;
+}
+
+body footer .container .code_download {
+  margin-top: 40px;
+}
+
+body footer .container .code_download .code_title {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 15px;
+}
+
+body footer .container .code_download .wx_code {
+  width: 94px;
+}
+
+body footer .container .code_download .wx_code div {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #f5f5f5;
+  opacity: 0.8;
+  text-align: center;
+}
+
+body footer .bottom {
+  border-top: 1px solid rgba(238,237,237,0.08);
+  width: 100%;
+}
+
+body footer .bottom .friend_link {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 16px 0;
+  width: 1200px;
+  margin: 0 auto;
+  color: #f5f5f5;
+  opacity: 0.5;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+body footer .bottom .friend_link a {
+  font-size: 12px;
+  color: #f5f5f5;
+  font-weight: 300;
+}
+
+body .proscenium_container {
+  width: 100%;
+  min-width: 1200px;
+  padding-top: 123px;
+}
+
+body .proscenium_container .banner {
+  width: 100%;
+  height: 480px;
+  background: url(/shop_img/proscenium_back.jpg) no-repeat center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 170px;
+}
+
+body .proscenium_container .banner .title {
+  text-align: center;
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+body .proscenium_container .banner .title2 {
+  font-size: 30px;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+}
+
+body .proscenium_container .color {
+  width: 100%;
+  height: 735px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 92px;
+}
+
+body .proscenium_container .color .title {
+  font-size: 36px;
+  color: #333;
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+body .proscenium_container .color .title .span1 {
+  font-size: 58px;
+  color: #007bff;
+}
+
+body .proscenium_container .color .title .span2 {
+  font-size: 36px;
+  color: #999;
+}
+
+body .proscenium_container .color .title img {
+  position: absolute;
+  bottom: -65px;
+}
+
+body .proscenium_container .color .color_border {
+  width: 245px;
+  height: 60px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #999999;
+  margin: 0 auto;
+  font-size: 36px;
+  color: #111;
+  text-align: center;
+  line-height: 50px;
+}
+
+body .proscenium_container .color .product_color {
+  color: #333;
+  font-size: 20px;
+  width: 108px;
+  background-color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -12px;
+  margin-bottom: 65px;
+}
+
+body .proscenium_container .color .color_show {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .proscenium_container .color .color_show .show_des {
+  width: 330px;
+  height: 250px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #666666;
+  margin-right: 20px;
+  padding: 58px 41px;
+}
+
+body .proscenium_container .color .color_show .show_des .des_title {
+  font-size: 40px;
+  font-weight: 300;
+  color: #ab710c;
+  text-align: left;
+}
+
+body .proscenium_container .color .color_show .show_des .des_title2 {
+  font-size: 32px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+body .proscenium_container .color .color_show .show_des .des_eng_title {
+  font-size: 16px;
+  color: #333;
+  line-height: 20px;
+}
+
+body .proscenium_container .color .color_show .colors {
+  width: 850px;
+  height: 250px;
+}
+
+body .proscenium_container .color .color_show .colors img {
+  display: block;
+}
+
+body .proscenium_container .color .annotation {
+  margin-top: 38px;
+  text-align: center;
+  font-size: 16px;
+  color: #3f3f46;
+}
+
+body .proscenium_container .proscenium_des {
+  width: 100%;
+  height: 650px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 95px;
+  background: url(/shop_img/pantai_des.jpg) no-repeat center;
+}
+
+body .proscenium_container .proscenium_des .eng_title {
+  font-weight: 300;
+  font-size: 53px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+body .proscenium_container .proscenium_des .zn_title {
+  font-size: 40px;
+  color: #333;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+body .proscenium_container .proscenium_des .title2 {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+body .proscenium_container .proscenium_show {
+  width: 100%;
+  height: 825px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 108px;
+}
+
+body .proscenium_container .proscenium_show .title {
+  font-size: #333;
+  text-align: center;
+  margin-bottom: 68px;
+  font-size: 40px;
+}
+
+body .proscenium_container .proscenium_show .products {
+  width: 1170px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .proscenium_container .proscenium_show .products img {
+  display: block;
+}
+
+body .proscenium_container .proscenium_show .products .left {
+  width: 750px;
+  height: 500px;
+  margin-right: 20px;
+}
+
+body .proscenium_container .proscenium_show .products .right {
+  width: 400px;
+  height: 500px;
+}
+
+body .proscenium_container .proscenium_show .products .right .right_top {
+  margin-bottom: 20px;
+}
+
+body .proscenium_container .prefect_material {
+  width: 100%;
+  height: 700px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 105px;
+  background: url(/shop_img/profect_material.jpg) no-repeat center;
+}
+
+body .proscenium_container .prefect_material .title {
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 33px;
+}
+
+body .proscenium_container .prefect_material .title1 {
+  font-size: 16px;
+  line-height: 28px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 85px;
+  font-weight: 300;
+}
+
+body .proscenium_container .prefect_material .materails {
+  width: 792px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .proscenium_container .prefect_material .materails .item {
+  width: 224px;
+  margin-right: 60px;
+}
+
+body .proscenium_container .prefect_material .materails .item:last-child {
+  margin-right: 0;
+}
+
+body .proscenium_container .prefect_material .materails .item .item_name {
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 30px;
+}
+
+body .proscenium_container .profession_pack {
+  width: 100%;
+  height: 700px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 95px;
+}
+
+body .proscenium_container .profession_pack .title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #3f3f46;
+}
+
+body .proscenium_container .profession_pack .eng_title {
+  font-size: 20px;
+  text-align: center;
+  color: #333;
+  font-weight: 300;
+  margin-bottom: 69px;
+}
+
+body .proscenium_container .profession_pack .packing_steps {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .proscenium_container .profession_pack .packing_steps .packing_step {
+  width: 300px;
+  height: 350px;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+body .proscenium_container .profession_pack .packing_steps .packing_step:last-child {
+  border-right: 1px solid #ccc;
+}
+
+body .proscenium_container .serve_steps {
+  width: 100%;
+  height: 678px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 108px;
+  background: url(/shop_img/serve_steps_back.jpg) no-repeat center;
+}
+
+body .proscenium_container .serve_steps .title {
+  font-size: 40px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 67px;
+}
+
+body .proscenium_container .serve_steps .serve_box {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .proscenium_container .serve_steps .serve_box .serve_step {
+  width: 190px;
+  margin-right: 12px;
+}
+
+body .proscenium_container .serve_steps .serve_box .serve_step:last-child {
+  margin-right: 0;
+}
+
+body .proscenium_container .serve_steps .serve_box .serve_step img {
+  display: block;
+}
+
+body .proscenium_container .serve_steps .serve_box .serve_step .serve_step_name {
+  width: 190px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 55px;
+  text-align: center;
+  line-height: 55px;
+  color: #fff;
+  font-size: 18px;
+  background-color: #444444;
+}
+
+body .proscenium_container .our_tellent {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 115px;
+}
+
+body .proscenium_container .our_tellent .tellent_title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+body .proscenium_container .our_tellent .tellent_title .title_back {
+  font-family: 'PingFang-SC-Medium';
+  font-size: 60px;
+  color: #f9f9f9;
+}
+
+body .proscenium_container .our_tellent .tellent_title .tellent_title {
+  font-family: 'PingFang-SC-Regular';
+  font-size: 40px;
+  color: #333;
+  margin-top: -60px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+body .proscenium_container .our_tellent .border {
+  width: 77px;
+  height: 3px;
+  background-color: #007bff;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents {
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+  margin-bottom: 110px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content {
+  width: 590px;
+  height: 270px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: #f6f6f6;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 35px;
+  padding-right: 30px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content:nth-child(2n) {
+  margin-right: 0;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content:nth-child(2+n) {
+  margin-bottom: 0;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content .img {
+  width: 250px;
+  height: 200px;
+  margin-right: 55px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content .right_box {
+  padding-top: 17px;
+  color: #333;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content .right_box .eng {
+  font-family: 'PingFang-SC-Regular';
+  margin-bottom: 12px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content .right_box .chz {
+  font-family: 'PingFang-SC-Medium';
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content .right_box .red {
+  background-color: #d20000;
+  width: 19px;
+  height: 5px;
+  margin-bottom: 10px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content .right_box .black {
+  width: 126px;
+  height: 1px;
+  background-color: #333;
+  margin-bottom: 15px;
+}
+
+body .proscenium_container .our_tellent .tellent_contents .content .right_box .tellent_describe {
+  line-height: 25px;
+  font-family: PingFang-SC-Medium;
+}
+

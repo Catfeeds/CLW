@@ -1,5 +1,5 @@
 @extends('shop.layout.layout')
-@section('title', '商城列表页')
+@section('title', '发财树')
 @section('header')
     <link rel="stylesheet" href="/css/shop_plant_rent.css">
 @endsection
