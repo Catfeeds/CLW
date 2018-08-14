@@ -19,10 +19,15 @@
           </div>
       @else
           <div class="select_option brand_select clearfix" style="height:auto">
-              <div class="select_title f_l">{{$labels['name']}}</div>
+              <div class="select_title f_l" style="margin-top: 14px;">{{$labels['name']}}</div>
               <ul class="brands f_l">
                   @foreach($labels['children'] as $label)
-                      <li class="brand"><a href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
+                  @if($loop->first)
+                  <li class="f_l" style="width:75px; text-align:center;"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}" style="font-size:12px;">{{$label['name']}}</a></li>
+                  @else
+                      <li class="brand"><a
+                      class=" @if($label['status'])active @endif " href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
+                  @endif
                   @endforeach
               </ul>
           </div>

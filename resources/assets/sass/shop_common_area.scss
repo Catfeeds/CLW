@@ -70,6 +70,10 @@
         &:hover {
           border:2px solid #e23a3c;
         }
+        .active{
+          border:2px solid #e23a3c;
+          box-sizing: border-box;
+        }
       }
     }
   }

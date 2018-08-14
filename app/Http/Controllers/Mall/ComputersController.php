@@ -30,7 +30,7 @@ class ComputersController extends Controller
         }
         $labelData = $service->labelData('办公设备', $labels, $request);
         $computer = $service->getAllGoods($request, 'App\Models\Computer');
-        return view('shop.list',[
+        return view('shop.list1',[
             'labelData' => $labelData,
             'datas' => $computer,
             'sort' => $sort,

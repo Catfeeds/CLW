@@ -817,6 +817,12 @@ body footer .bottom .friend_link a {
   border: 2px solid #e23a3c;
 }
 
+.select_area .brand_select .brands .brand .active {
+  border: 2px solid #e23a3c;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .sort .sort_details {
   margin-top: 7px;
   -webkit-box-sizing: border-box;
