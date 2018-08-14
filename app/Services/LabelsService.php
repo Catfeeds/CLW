@@ -40,7 +40,7 @@ class LabelsService
                 } else {
                     $twoLable[0]['status'] = true;
                 }
-                
+
                 foreach ($val->next_label as $k => $v) {
                     if (!empty($v->img)) {
                         $twoLable[$k+1]['img'] = $v->img_cn;
@@ -65,7 +65,7 @@ class LabelsService
         $data = array();
         $data['name'] = $category;
         $data['children'] = $oneLable;
-        dd($data);
+
         return $data;
     }
 
