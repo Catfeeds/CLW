@@ -11,14 +11,14 @@ use Illuminate\Http\Request;
 
 class ComputersController extends APIBaseController
 {
-    // 电脑租售商品列表
+    // 办公设备商品列表
     public function index(
         Request $request,
         ComputersRepository $repository
     )
     {
         $res = $repository->computerList($request);
-        return $this->sendResponse($res,'电脑租售商品列表获取成功');
+        return $this->sendResponse($res,'办公设备商品列表获取成功');
     }
 
     // 获取标签
@@ -26,31 +26,31 @@ class ComputersController extends APIBaseController
         LabelsService $service
     )
     {
-        $res = $service->getLabels('电脑租售');
+        $res = $service->getLabels('办公设备');
         return $this->sendResponse($res,'获取标签成功');
     }
 
 
-    // 添加电脑租售商品
+    // 添加办公设备商品
     public function store(
         ComputersRequest $request,
         ComputersRepository $repository
     )
     {
         $res = $repository->addComputer($request);
-        return $this->sendResponse($res,'添加电脑租售商品成功');
+        return $this->sendResponse($res,'添加办公设备商品成功');
     }
 
-    // 修改电脑租售之前原始数据
+    // 修改办公设备之前原始数据
     public function edit(
         Computer $computer
     )
     {
         $computer->goodsHasLabels = $computer->goodsHasLabels->pluck('label_id')->toArray();
-        return $this->sendResponse($computer,'修改电脑租售商品之前原始数据获取成功');
+        return $this->sendResponse($computer,'修改办公设备商品之前原始数据获取成功');
     }
 
-    // 修改电脑租售商品
+    // 修改办公设备商品
     public function update(
         Computer $computer,
         ComputersRequest $request,
@@ -58,8 +58,8 @@ class ComputersController extends APIBaseController
     )
     {
         $res = $repository->updateComputer($request, $computer);
-        if (empty($res)) return $this->sendError('电脑租售商品修改失败');
-        return $this->sendResponse($res,'电脑租售商品修改成功');
+        if (empty($res)) return $this->sendError('办公设备商品修改失败');
+        return $this->sendResponse($res,'办公设备商品修改成功');
     }
 
     // 删除
@@ -67,8 +67,8 @@ class ComputersController extends APIBaseController
         Computer $computer
     )
     {
-        if (empty($res = $computer->delete())) return $this->sendError('电脑租售商品删除失败');
-        return $this->sendResponse($res,'电脑租售商品删除成功');
+        if (empty($res = $computer->delete())) return $this->sendError('办公设备商品删除失败');
+        return $this->sendResponse($res,'办公设备商品删除成功');
     }
 
 }

@@ -3,7 +3,7 @@ Route::get('/', 'IndexController@index');
 
 // 绿植租摆
 Route::resource('/plants', 'PlantsController');
-// 电脑租售
+// 办公设备
 Route::resource('/computers', 'ComputersController');
 // 家具
 Route::resource('/furniture', 'FurnitureController');
