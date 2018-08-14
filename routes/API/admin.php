@@ -14,6 +14,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     // 登录
     Route::resource('logins','LoginsController');
 
+    Route::resource('labels', 'LabelsController');
+
     // 安全验证
     Route::group(['middleware' => 'safe.validate'], function () {
         //根据类型获取接收人人员openid
@@ -273,7 +275,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //商城大类管理
         Route::resource('categories','CategoriesController');
         // 标签
-        Route::resource('labels', 'LabelsController');
+//        Route::resource('labels', 'LabelsController');
         // 通过大类获取一级标签
         Route::get('get_parent_by_category/{id}', 'LabelsController@getParentByCategory');
 

@@ -20,7 +20,7 @@ class CreateLabelsTable extends Migration
             $table->string('name','32')->nullable()->comment('标签名');
             $table->tinyInteger('stage')->nullable()->comment('等级');
             $table->string('img')->nullable()->comment('标签图片');
-            $table->tinyInteger('show')->nullable()->comment('二级标签在前端展示: 1: 文字 2: 图片');
+            $table->tinyInteger('show')->default(1)->comment('二级标签在前端展示: 1: 文字 2: 图片');
             $table->timestamps();
         });
         DB::statement("alter table `labels` comment'商城标签表'");
