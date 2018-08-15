@@ -1,5 +1,14 @@
 require('./shop_common');
 require('./shop_header');
+
+import appoint from './components/shop/appoint.vue'
+new Vue({
+  el: '#appointment',
+  components: {
+    appoint
+  }
+})
+
 var textVal = '日常保洁'
 $('.js_cleanse .banner_title').html('开荒保洁')
 // $('.js_register1 .tax_title1').html('外商独资公司注册')

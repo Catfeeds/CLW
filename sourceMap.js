@@ -131,7 +131,8 @@ module.exports = {
       'shop_index',
       'shop_zc',
       'shop_serveList',
-      'shop_pantai'
+      'shop_pantai',
+      'shop_slideBar'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

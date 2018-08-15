@@ -319,6 +319,14 @@ select {
   cursor: pointer;
 }
 
+#appointment {
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -120.5px;
+}
+
 .b_white {
   background-color: #fff;
 }

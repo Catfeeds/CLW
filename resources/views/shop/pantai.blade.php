@@ -8,6 +8,9 @@
   @include('shop.layout.nav')
   <div class="proscenium_container">
     <!-- banner部分 -->
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
     <div class="banner">
       <div class="title">办公家具 (<span class="page_name" style="font-size:60px">班台</span>)</div>
       <div class="title2">休闲时尚 品质办公生活</div>
@@ -198,4 +201,5 @@
   @include('shop.footer')
 @endsection
 @section('script')
+<script src="/js/shop_slideBar.js"></script>
 @endsection

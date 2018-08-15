@@ -1,4 +1,4 @@
-@extends('home.layouts.layout')
+@extends('shop.layout.layout')
 @section('title', '豪车租赁')
 @section('header')
     <link rel="stylesheet" href="/css/shop_rent_car.css">
@@ -6,7 +6,10 @@
 @section('body')
     @include('shop.header')
     @include('shop.layout.nav')
-    <div class="rentCar_container">
+    <div class="rentCar_container" style="box-sizing:border-box">
+      <div id="appointment">
+        <appoint></appoint>
+      </div>
       <div class="banner"></div>
       <div class="details">
         <div class="details_box">
@@ -47,7 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="model"><span>车型 </span>/MODEL</div>
+        <div class="model"><span>车型 </span>/ MODEL</div>
         <div class="border"></div>
         <div class="brand">
           <img src="/shop_img/car_brand.png" alt="">
@@ -55,7 +58,7 @@
       </div>
       <div class="recommend">
         <div class="title">
-          <span>推荐车型</span>/MODELS
+          <span>推荐车型 </span>/ MODELS
         </div>
         <div class="border"></div>
         <div class="options">
@@ -124,4 +127,5 @@
     @include('shop.footer')
 @endsection
 @section('script')
+  <script src="/js/shop_slideBar.js"></script>
 @endsection

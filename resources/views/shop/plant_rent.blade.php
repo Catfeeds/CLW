@@ -7,6 +7,9 @@
     @include('shop.header')
     @include('shop.layout.nav')
     <div class="plant_container">
+      <div id="appointment">
+        <appoint></appoint>
+      </div>
       <div class="banner">
         <div class="banner_title1">金钱树 绿植租赁</div>
         <div class="title2">防辐射，净化甲醛，二甲苯，二手烟，是写字楼的天然清道夫</div>
@@ -132,4 +135,5 @@
     @include('shop.footer')
 @endsection
 @section('script')
+<script src="/js/shop_slideBar.js"></script>
 @endsection
