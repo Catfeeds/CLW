@@ -122,7 +122,7 @@
     <div id="appoint">
       <appoint></appoint>
     </div>
-    <div class="charge"> 
+    <div class="charge">
       @include('shop.layout.list_common')
     </div>
     <div class="footer_banner" style="text-align:center">

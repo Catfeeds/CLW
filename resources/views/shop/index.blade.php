@@ -243,7 +243,7 @@
       <div class="swiper-container js_banner">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <div class="swiperPic" style="background-image:url(/shop_img/banner.jpg')}})"></div>
+            <div class="swiperPic" style="background-image:url(/shop_img/banner.jpg)"></div>
           </div>
         </div>
       </div>
@@ -572,7 +572,7 @@
         <div class="floorTitle">装修服务</div>
       </div>
       <div class="content">
-        <div class="leftBg" style="background:url(/shop_img/index_five_left.jpg')}})">
+        <div class="leftBg" style="background:url('{{shopRes('/shop_img/index_five_left.jpg')}}')">
           <div class="fiveBox">
             <div class="interiorTrim">室内装修</div>
             <ul>
@@ -610,7 +610,7 @@
         <div class="floorTitle">热销机型</div>
       </div>
       <div class="content">
-        <a href="{{url('/computers')}}">
+        <a href="{{url('/computers/1')}}">
           <div><img src="{{shopRes('/shop_img/index_sale_model_01.jpg')}}" alt=""></div>
         </a>
         <div class="sale_model_right">
@@ -640,7 +640,7 @@
             <div class="modelSecond">
               <div class="modeTitle">优威派克 23.8英寸 一体机</div>
                 <div class="modeDetail">高性能 高性价比 高颜值</div>
-                <div class="unitPrice">¥ 180/月</div>
+                <div class="unitPrice">¥ 180.00/月</div>
                 <div><img src="{{shopRes('/shop_img/index_sale_model_04.jpg')}}" alt=""></div>
             </div>
           </a>
@@ -651,7 +651,7 @@
                 <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
                   <div><img src="{{shopRes('/shop_img/index_sale_model_05.jpg')}}" alt=""></div>
-                  <div class="unitPrice">¥ 105/月</div>
+                  <div class="unitPrice">¥ 105.00/月</div>
                 </div>
               </div>
             </a>
@@ -681,7 +681,7 @@
         <div class="floorTitle">热销绿植</div>
       </div>
       <div class="content">
-        <a href="{{url('/plants')}}">
+        <a href="{{url('/plants/6')}}">
           <div><img src="{{shopRes('/shop_img/index_sale_plants_01.jpg')}}" alt=""></div>
         </a>
         <div class="sale_model_right">
@@ -751,14 +751,14 @@
         <div class="consult">
           <div>
             <input type="text" placeholder="请输入电话号码">
-            <div class="error"><img src="{{shopRes('/shop_img/alert.svg"> <div>手机号码格式错误</div></div>
+            <div class="error"><img src="{{shopRes('/shop_img/alert.svg')}}"> <div>手机号码格式错误</div></div>
           </div>
           <button>立即预约</button>
         </div>
       </div>
     </div>
     <!-- 优势 -->
-    <div class="better"><div style="background:url(/shop_img/index_better.jpg')}}) no-repeat"></div></div>
+    <div class="better"><div style="background:url('{{shopRes('/shop_img/index_better.jpg')}}') no-repeat"></div></div>
     <!-- 楼梯导航 -->
     <div class="elevator">
       <ul class="elevator_list">
