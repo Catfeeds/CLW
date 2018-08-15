@@ -6,7 +6,6 @@
 
 html,body {
   height: 100vh;
-  min-height: 950px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
@@ -14,7 +13,7 @@ html,body {
   position: relative;
   .box{
     width:100%;
-    height:100%;
+    height:100vh;
     background-position:center;
     background-size:cover;
     position: relative;
@@ -37,6 +36,8 @@ html,body {
       .form_container {
         width: 410px;
         margin:  0 auto;
+        position: relative;
+        z-index: 20;
         form {
           padding: 30px 45px 38px 40px;
           border-radius: 11px;

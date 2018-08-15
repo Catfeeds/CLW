@@ -114,6 +114,7 @@ module.exports = {
     scss: [
       'shop_index',
       'shop_list_worktool',
+      'shop_list_worktool1',
       'shop_list_plants',
       'shop_rent_car',
       'shop_zc',
@@ -123,7 +124,8 @@ module.exports = {
       'shop_printing',
       'shop_rent_computer',
       'shop_proscenium',
-      'shop_pantai'
+      'shop_pantai',
+      'shop_soon'
     ],
     js: [
       'shop_index',

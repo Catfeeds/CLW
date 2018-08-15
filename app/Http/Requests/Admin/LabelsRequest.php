@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Label;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LabelsRequest extends FormRequest
 {
@@ -28,15 +30,28 @@ class LabelsRequest extends FormRequest
                 return [
                     'category_id' => 'required|exists:categories,id',
                     'parent_id' => 'nullable|integer',
-                    'name' => 'required|unique:labels,name|max:32',
-                    'stage' => 'required|integer'
+                    'stage' => 'required|integer',
+                    'name' => [
+                        'required',
+                        'max:32',
+                        Rule::notIn(
+                            Label::where('category_id', $this->category_id)->pluck('name')->toArray()
+                        )
+                    ],
                 ];
             case 'update':
                 return [
                     'category_id' => 'required|exists:categories,id',
                     'parent_id' => 'nullable|integer',
-                    'name' => 'required|max:32|unique:labels,name,'. $this->route('label')->id,
-                    'stage' => 'required|integer'
+                    'stage' => 'required|integer',
+                    'name' => [
+                        'required',
+                        'max:32',
+                        Rule::notIn(
+                            Label::where('category_id', $this->category_id)->where('name', '!=',$this->name)->pluck('name')->toArray()
+                        )
+                    ],
+
                 ];
             default;
                 return [

@@ -18,13 +18,14 @@
         </a>
       </el-tooltip>
     </div>
-    <div class="dimentional-box">
+    {{-- 在线客服 --}}
+    {{-- <div class="dimentional-box">
       <el-tooltip effect="dark" content="在线客服" placement="left">
         <a href="javascript:void(0)">
           <img src="{{homeRes('/home_img/right_Advisory.png')}}" alt="联系客服" class="js_clickCustomerService">
         </a>
       </el-tooltip>
-    </div>
+    </div> --}}
     <div class="dimentional-box">
       <a href="javascript:void(0)" v-popover:dimentional>
         <img src="{{homeRes('/home_img/right_dimentionalCode.png')}}" alt="扫码关注">

@@ -184,6 +184,9 @@ return [
 
         // 权限
         Spatie\Permission\PermissionServiceProvider::class,
+
+        // 汉子转拼音
+        Overtrue\LaravelPinyin\ServiceProvider::class,
     ],
 
     /*
@@ -234,7 +237,7 @@ return [
         'wechat' => Overtrue\LaravelWeChat\Facade::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
+        'Pinyin' => Overtrue\LaravelPinyin\Facades\Pinyin::class,
     ],
 
 ];

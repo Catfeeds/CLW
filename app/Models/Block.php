@@ -13,7 +13,7 @@ class Block extends Model
     protected $connection = 'media';
 
     protected $appends = [
-        'agent_pic_cn', 'agent_name'
+        'agent_pic_cn'
     ];
 
     public function area()
@@ -39,7 +39,6 @@ class Block extends Model
 
     public function getAgentNameAttribute()
     {
-        if (empty($this->agent_name)) return '程达';
-        return $this->agent_name;
+        return $this->getAttributes()['agent_name']??'程达';
     }
 }

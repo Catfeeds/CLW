@@ -600,6 +600,15 @@ body footer .container .left_info .info {
   line-height: 24px;
 }
 
+body footer .container .left_info .info a {
+  color: rgba(245,245,245,0.4);
+  font-size: 12px;
+}
+
+body footer .container .left_info .info a:hover {
+  color: #ffffff;
+}
+
 body footer .container .left_info .friend_link {
   opacity: 0.5;
   color: #f5f5f5;
@@ -744,7 +753,6 @@ body .rentCar_container {
   width: 100%;
   min-width: 1200px;
   background-color: #000;
-  margin-top: 40px;
 }
 
 body .rentCar_container .banner {

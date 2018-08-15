@@ -55,12 +55,12 @@
             <div class="select_title f_l">工商代办：</div>
             <ul class="select_details clearfix f_l">
               <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='3') current @endif" href="javascript:void(0)">有限责任公司注册</a></li>
-              <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='4') current @endif" href="javascript:void(0)">外商独资公司注册</a></li>
-              <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='5') current @endif" href="javascript:void(0)">合伙企业注册</a></li>
+              <!-- <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='4') current @endif" href="javascript:void(0)">外商独资公司注册</a></li> -->
+              <!-- <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='5') current @endif" href="javascript:void(0)">合伙企业注册</a></li>
               <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='6') current @endif" href="javascript:void(0)">个人独资企业注册</a></li>
               <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='7') current @endif" href="javascript:void(0)">公司注册地址</a></li>
               <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='8') current @endif" href="javascript:void(0)">分公司注册</a></li>
-              <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='9') current @endif" href="javascript:void(0)">一般人注册地址</a></li>
+              <li class="f_l select_detail select_taxes"><a href="javascript:void(0)" class="@if($finance=='9') current @endif" href="javascript:void(0)">一般人注册地址</a></li> -->
             </ul>
           </div>
           @endif
@@ -69,8 +69,8 @@
             <div class="select_title f_l">全部分类</div>
             <ul class="select_details clearfix f_l">
               <li class="f_l select_detail"><a class="@if($adsId=='1') current @endif" href="javascript:void(0)">图文快印</a></li>
-              <li class="f_l select_detail"><a href="javascript:void(0)" class="@if($adsId=='2') current @endif">商务印品</a></li>
-              <li class="f_l select_detail"><a href="javascript:void(0)" class="@if($adsId=='2') current @endif">企业广告</a></li>
+              <!-- <li class="f_l select_detail"><a href="javascript:void(0)" class="@if($adsId=='2') current @endif">商务印品</a></li>
+              <li class="f_l select_detail"><a href="javascript:void(0)" class="@if($adsId=='2') current @endif">企业广告</a></li> -->
             </ul>
           </div>
           @endif

@@ -22,7 +22,7 @@ class PlantsController extends Controller
             $request->offsetSet('labels', explode('-',$request->labels));
             $data = array();
 
-            foreach ($request->labels as $label){
+            foreach ($request->labels as $label){ 
                 $data[] = $label;
             }
             $sort = $sort.'?labels='.implode('-', $data);

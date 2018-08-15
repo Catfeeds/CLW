@@ -32,6 +32,8 @@ body {
           margin: 0 auto;
         }
         .show_detail {
+          padding-top: 57px;
+          padding-bottom: 30px;
           box-sizing: border-box;
           flex: 1;
           max-width: 285px;
@@ -51,8 +53,9 @@ body {
           }
           .detail_pic {
             display: block;
-            width: 283px;
-            height: 283px;
+            width: 230px;
+            height: 180px;
+            margin: 0 auto;
           }
           .product_name {
             margin-top: 24px;

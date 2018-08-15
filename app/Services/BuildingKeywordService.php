@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Fukuball\Jieba\Jieba;
 use Fukuball\Jieba\Finalseg;
+use Overtrue\LaravelPinyin\Facades\Pinyin;
 
 class BuildingKeywordService
 {
@@ -23,6 +24,12 @@ class BuildingKeywordService
         // 切词之后的字符串
         $jbArray = Jieba::cutForSearch($string);
 
+        // 汉子转拼音
+        $pyJbArray = array();
+        foreach ($jbArray as $value) {
+            $pyJbArray[] = preg_replace('# #', '', Pinyin::sentence($value));
+        }
+
         // 字符串长度
         $length = mb_strlen($string, 'utf-8');
         $array = [];
@@ -33,7 +40,13 @@ class BuildingKeywordService
         // 楼盘名
         $array[] = $buildingName;
 
-        $endString = array_unique(array_merge($array, $jbArray));
+        // 汉子转拼音
+        $pyArray = array();
+        foreach ($array as $val) {
+            $pyArray[] = preg_replace('# #', '', Pinyin::sentence($val));
+        }
+
+        $endString = array_unique(array_merge($array, $jbArray, $pyArray, $pyJbArray));
 
         $string = implode(' ', $endString);
 

@@ -5,6 +5,8 @@ Route::get('/', 'IndexController@index');
 Route::resource('/plants', 'PlantsController');
 // 电脑租售
 Route::resource('/computers', 'ComputersController');
+// 暂无数据
+Route::get('/nothing', 'ComputersController@nothing');
 // 家具
 Route::resource('/furniture', 'FurnitureController');
 // 企业选址

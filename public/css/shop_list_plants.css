@@ -600,6 +600,15 @@ body footer .container .left_info .info {
   line-height: 24px;
 }
 
+body footer .container .left_info .info a {
+  color: rgba(245,245,245,0.4);
+  font-size: 12px;
+}
+
+body footer .container .left_info .info a:hover {
+  color: #ffffff;
+}
+
 body footer .container .left_info .friend_link {
   opacity: 0.5;
   color: #f5f5f5;
@@ -783,8 +792,8 @@ body footer .bottom .friend_link a {
 .select_area .brand_select .brands .brand {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 108px;
-  height: 42px;
+  width: 109px;
+  height: 44px;
   border: 1px solid #ededed;
   border-right: none;
 }
@@ -806,6 +815,12 @@ body footer .bottom .friend_link a {
 
 .select_area .brand_select .brands .brand:hover {
   border: 2px solid #e23a3c;
+}
+
+.select_area .brand_select .brands .brand .active {
+  border: 2px solid #e23a3c;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .sort .sort_details {
@@ -845,7 +860,7 @@ body {
 body .list_container {
   width: 1200px;
   margin: 0 auto;
-  padding-top: 123px;
+  padding-top: 143px;
 }
 
 body .list_container .graybox {
@@ -874,6 +889,13 @@ body .list_container .list_details .show_details {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+body .list_container .list_details .show_details .list_nothing {
+  padding-top: 40px;
+  width: 430px;
+  height: 243px;
+  margin: 0 auto;
 }
 
 body .list_container .list_details .show_details .show_detail {

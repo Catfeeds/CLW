@@ -5,6 +5,7 @@
 @endsection
 @section('body')
   @include('shop.header')
+  @include('shop.layout.nav')
   <div class="proscenium_container">
     <!-- banner部分 -->
     <div class="banner">

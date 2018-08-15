@@ -723,138 +723,15 @@ body footer .bottom .friend_link a {
   font-weight: 300;
 }
 
-.content {
+.nothing {
   width: 100%;
-  background: #f5f5f5;
-  height: 41px;
-  padding-top: 123px;
-  line-height: 41px;
-  border: 1px solid #ededed;
+  padding-top: 300px;
+  padding-bottom: 240px;
 }
 
-.content .navDetail {
-  width: 1200px;
+.nothing .notPic {
+  width: 423px;
+  height: 240px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.content .navDetail div {
-  font-size: 12px;
-  color: #333;
-}
-
-.content .navDetail .index:hover {
-  color: #007bff;
-}
-
-body .finance_container {
-  width: 100%;
-  min-width: 1200px;
-}
-
-body .finance_container .banner {
-  width: 100%;
-  height: 480px;
-  background: url(/shop_img/finance_banner.jpg) no-repeat center;
-}
-
-body .finance_container .serves {
-  width: 100%;
-  padding-top: 108px;
-}
-
-body .finance_container .serves .title {
-  text-align: center;
-  width: 355px;
-  padding-bottom: 33px;
-  border-bottom: 1px solid #eeeded;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 40px;
-  font-weight: 300;
-}
-
-body .finance_container .serves .border {
-  width: 78px;
-  height: 3px;
-  background-color: #fd7747;
-  margin: 0 auto;
-  margin-top: -2px;
-  margin-bottom: 48px;
-}
-
-body .finance_container .serves .serves_des {
-  font-size: 18px;
-  text-align: center;
-  line-height: 36px;
-  font-weight: 200;
-  margin-bottom: 65px;
-}
-
-body .finance_container .serves .items {
-  width: 1200px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body .finance_container .serves .items .item {
-  width: 285px;
-  height: 320px;
-  margin-right: 20px;
-}
-
-body .finance_container .serves .items .item:last-child {
-  margin-right: 0;
-}
-
-body .finance_container .serves .items .item .item_des {
-  margin-top: -270px;
-}
-
-body .finance_container .serves .items .item .item_des .item_title {
-  text-align: center;
-  font-size: 30px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-body .finance_container .serves .items .item .item_des .item_name {
-  text-align: center;
-  font-size: 20px;
-  color: #666;
-}
-
-body .finance_container .us_talent {
-  width: 100%;
-  padding-top: 110px;
-}
-
-body .finance_container .us_talent .title {
-  width: 373px;
-  padding-bottom: 33px;
-  font-weight: 300;
-  border-bottom: 1px solid #eeeded;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 40px;
-  color: #333;
-}
-
-body .finance_container .us_talent .border {
-  width: 78px;
-  height: 3px;
-  background-color: #fd7747;
-  margin: 0 auto;
-  margin-top: -2px;
-  margin-bottom: 69px;
-}
-
-body .finance_container .us_talent .img_box {
-  text-align: center;
-  margin-bottom: 122px;
 }
 
