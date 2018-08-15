@@ -8,7 +8,7 @@
         <div class="border"></div>
         <div class="register_contents">
           <div class="content">
-            <div class="content_title">什么事有限责任公司注册</div>
+            <div class="content_title">什么是有限责任公司注册</div>
             <div class="border"></div>
             <div class="content_describe">
               有限责任公司是指《中华人民共和国公司
@@ -52,7 +52,7 @@
             </div>
             <div class="provide_detail clearfix">
               <div class="num f_l">04</div>
-              <div class="name f_l">经营场所所产权证明及租赁协议及房租发票</div>
+              <div class="name f_l">经营场所产权证明及租赁协议及房租发票</div>
             </div>
             <div class="provide_detail clearfix">
               <div class="num f_l">05</div>
