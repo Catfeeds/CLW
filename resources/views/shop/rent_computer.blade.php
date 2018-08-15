@@ -71,7 +71,7 @@
         </div>
         <div class="form_info clearfix">
           <div class="form_name f_l">集成</div>
-          <div class="form_des f_l">内置WIFI  蓝牙  双杨音器  丰富接口</div>
+          <div class="form_des f_l">内置WIFI  蓝牙  双扬音器  丰富接口</div>
         </div>
         <div class="form_info clearfix" style="background-color:rgba(242,196,223,0.4)">
           <div class="form_name f_l">系统</div>

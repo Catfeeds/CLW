@@ -1090,6 +1090,7 @@ body .rent_conputer_container .our_tellent .tellent_contents {
 
 body .rent_conputer_container .our_tellent .tellent_contents .content {
   width: 590px;
+  line-height: 16px;
   height: 270px;
   margin-right: 20px;
   margin-bottom: 20px;
