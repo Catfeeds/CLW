@@ -42,7 +42,6 @@ class BuildingsController extends Controller
         $data[1]['name'] = $block->name;
         $data[2]['id'] = $building->id;
         $data[2]['name'] = $building->name;
-
         return view('home.building_detail', [
             'building' => $building,
             'houses' => $houses,

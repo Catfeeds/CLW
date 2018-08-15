@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ComputersRepository extends Model
 {
-    // 电脑租售商品列表
+    // 办公设备商品列表
     public function computerList(
         $request
     )
@@ -16,7 +16,7 @@ class ComputersRepository extends Model
         return Computer::paginate($request->per_page??10);
     }
 
-    // 添加电脑租售商品
+    // 添加办公设备商品
     public function addComputer(
         $request
     )
@@ -32,7 +32,7 @@ class ComputersRepository extends Model
                 'details_url' => $request->details_url,
                 'img' => $request->img
             ]);
-            if (empty($plant)) throw new \Exception('写入电脑租售表失败！');
+            if (empty($plant)) throw new \Exception('写入办公设备表失败！');
 
             // 添加标签
             foreach ($request->labels as $label) {
@@ -65,7 +65,7 @@ class ComputersRepository extends Model
             $computer->price_unit = $request->price_unit;
             $computer->details_url = $request->details_url;
             $computer->img = $request->img;
-            if (!$computer->save()) throw new \Exception('电脑租售修改失败！');
+            if (!$computer->save()) throw new \Exception('办公设备修改失败！');
 
             // 旧原始标签
             GoodsHasLabel::where([

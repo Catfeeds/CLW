@@ -5,6 +5,8 @@ Route::get('/', 'IndexController@index');
 Route::resource('/plants', 'PlantsController');
 // 电脑租售
 Route::resource('/computers', 'ComputersController');
+// 暂无数据
+Route::get('/nothing', 'ComputersController@nothing');
 // 家具
 Route::resource('/furniture', 'FurnitureController');
 // 企业选址
@@ -21,16 +23,17 @@ Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
 Route::resource('business_taxes', 'BusinessTaxesController');
 
 // 室内环保服务 保洁服务
-Route::get('cleanup', 'EntryServiceController@index');
+Route::resource('cleanup', 'EntryServiceController');
+// Route::get('protection', 'EntryServiceController@protection');
 
 // 桶装水
-Route::get('water', 'EntryServiceController@water');
+// Route::get('water', 'EntryServiceController@water');
 // 搬家
-Route::get('houseMv', 'EntryServiceController@houseMv');
+// Route::get('houseMv', 'EntryServiceController@houseMv');
 
 
 // 图文快印
-Route::get('fastPrint', 'PhotoAdsController@fastPrint');
+Route::resource('fastPrint', 'PhotoAdsController');
 // 商务印品
 Route::get('businessPrint', 'PhotoAdsController@businessPrint');
 // 企业广告

@@ -7,18 +7,8 @@ use App\Http\Controllers\Controller;
 
 class EntryServiceController extends Controller
 {
-   public function index()
+   public function index(Request $request)
    {
-       return view('shop.list_clean');
+       return view('shop.serviceList', ['serveid'=>$request->id]);
    }
-
-    public function water()
-    {
-        dd('桶装水');
-    }
-
-    public function houseMv()
-    {
-        return view('shop.list_moving');
-    }
 }

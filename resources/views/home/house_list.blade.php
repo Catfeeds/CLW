@@ -88,9 +88,9 @@
                             <li class="item js_condition" data-dom="unit_price" data-content="">
                                 <a class="js_addCurrent all @if(empty($request['unit_price']))current @endif">全部</a>
                             </li>
-                            @foreach(['40-60','60-80','80-120','120-140','140-1000'] as $price)
+                            @foreach(['0-40','40-60','60-80','80-120','120-140','140-1000'] as $price)
                                 <li class="item js_condition" data-dom="unit_price" data-content="{{$price}}">
-                                    <?php $priceShow = $price == '140-1000' ? '140/m²·月以上' : $price . '/m²·月'
+                                    <?php $priceShow = $price == '140-1000' ? '140元/m²·月以上' : $price . '元/m²·月'
                                     ?>
                                     <a data-content="{{$priceShow}}" data-dom="unit_price"
                                        class="@if(!empty($request['unit_price'])&&$request['unit_price']==$price)current unit_price @endif">{{$priceShow}}</a>

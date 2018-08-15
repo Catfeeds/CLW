@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class InformationRepository extends Model
 {
+    // 资讯列表
     public function informationList()
     {
-        return Information::where([])->paginate(10);
+        return Information::orderBy('created_at', 'desc')->paginate(10);
     }
-    
+
+    // 添加资讯
     public function addInformation(
         $request
     )
@@ -25,6 +27,7 @@ class InformationRepository extends Model
         ]);
     }
 
+    // 修改资讯
     public function updateInformation(
         $request,
         Information $information
@@ -40,6 +43,7 @@ class InformationRepository extends Model
         return true;
     }
 
+    // 置顶
     public function setTop(
         $id
     )
@@ -47,6 +51,7 @@ class InformationRepository extends Model
         return Information::where('id', $id)->update(['top' => 1]);
     }
 
+    // 取消置顶
     public function delTop(
         $id
     )

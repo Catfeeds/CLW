@@ -9,12 +9,13 @@ use Illuminate\Http\Request;
 
 class ComputersController extends Controller
 {
-    // 电脑租售
+    // 办公设备
     public function index(
         Request $request,
         LabelsService $service
     )
     {
+        $ResAll = $request->all();
         $labels = Label::getLabelByCategoryName('办公设备');
         $sort = $request->url();
         $symbol = '?';
@@ -28,18 +29,35 @@ class ComputersController extends Controller
             $sort = $sort.'?labels='.implode('-', $data);
             $symbol = '&';
         }
-        $labelData = $service->labelData('电脑租售', $labels, $request);
+        $labelData = $service->labelData('办公设备', $labels, $request);
         $computer = $service->getAllGoods($request, 'App\Models\Computer');
-        return view('shop.list',[
+
+        $price = 'desc';
+        if(!empty($ResAll['price'])&&$ResAll['price']==='desc') {
+            $price = 'asc';
+        }
+        $price = 'price='.$price;
+        return view('shop.list1',[
             'labelData' => $labelData,
             'datas' => $computer,
             'sort' => $sort,
-            'symbol' => $symbol
+            'symbol' => $symbol,
+            'request' => $ResAll,
+            'price' => $price
         ]);
     }
 
-    public function show()
+    public function show($id)
     {
-        dd('电脑租售详情');
+        if($id == '1')
+        return view('shop.rent_computer');
+        if($id == '2')
+        return view('shop.pad');
+        if($id == '3')
+        return view('shop.rent_computer1');
+    }
+    public function nothing()
+    {
+        return view('shop.soon');
     }
 }
