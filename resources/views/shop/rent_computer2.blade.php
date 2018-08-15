@@ -106,7 +106,7 @@
     <div class="computer_details" style="height:885px">
       <div class="title" style="margin-bottom:20px">真视界  不打折还原精彩</div>
       <div class="title2" style="font-size:18px;color:#333;margin-bottom:65px;text-align:center;line-height:25px">
-        采用14英寸LED 1600*900 高分炫丽屏，结合高纯度LED背光,无论游戏，影音还是办公，<br>
+        采用14英寸LED 1600*900 高分炫丽屏，结合高纯度LED背光，无论游戏，影音还是办公，<br>
         高清的视野无疑让您体验更加畅快，发挥更淋漓
       </div>
       <div class="details_box">
@@ -212,7 +212,7 @@
   <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
     <img src="/shop_img/index_better.jpg" alt="">
   </div>
-  @include('home.footer')
+  @include('shop.footer')
 @endsection
 @section('script')
 @endsection

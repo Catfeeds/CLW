@@ -10,7 +10,7 @@
       <img src="/shop_img/coming_soon.jpg" alt="">
     </div>
   </div>
-  @include('home.footer')
+  @include('shop.footer')
 @endsection
 @section('script')
 @endsection

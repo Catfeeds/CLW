@@ -3561,7 +3561,7 @@ body .container .list_step .steps .step:last-child {
   border: 2px solid #e23a3c;
 }
 
-.select_area .brand_select .brands .brand .active {
+.select_area .brand_select .brands .active {
   border: 2px solid #e23a3c;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
