@@ -9,7 +9,7 @@
       <div class="question_items">
         <div class="item">
           <div class="item_img">
-            <img src="/shop_img/company_item1.jpg" alt="">
+            <img src="{{shopRes('/shop_img/company_item1.jpg')}}" alt="">
           </div>
           <div class="item_describe">
             <div class="item_num">01</div>
@@ -19,7 +19,7 @@
         </div>
         <div class="item">
           <div class="item_img">
-            <img src="/shop_img/company_item2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/company_item2.jpg')}}" alt="">
           </div>
           <div class="item_describe">
             <div class="item_num">02</div>
@@ -29,7 +29,7 @@
         </div>
         <div class="item">
           <div class="item_img">
-            <img src="/shop_img/company_item3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/company_item3.jpg')}}" alt="">
           </div>
           <div class="item_describe">
             <div class="item_num">03</div>
@@ -142,28 +142,28 @@
       <div class="talent_des">最先进的创意设计思维为您提高空间价值</div>
       <div class="talent_details">
         <div class="detail">
-          <img src="/shop_img/company_talent1.png" alt="">
+          <img src="{{shopRes('/shop_img/company_talent1.png')}}" alt="">
           <div class="name">商业分析思维</div>
           <div class="eng">BUSINESS</div>
         </div>
         <div class="detail">
-          <img src="/shop_img/company_talent2.png" alt="">
+          <img src="{{shopRes('/shop_img/company_talent2.png')}}" alt="">
           <div class="name">专业创意设计</div>
           <div class="eng">PROFESSION</div>
         </div>
         <div class="detail">
-          <img src="/shop_img/company_talent3.png" alt="">
+          <img src="{{shopRes('/shop_img/company_talent3.png')}}" alt="">
           <div class="name">整体配套设计</div>
           <div class="eng">MATCHING</div>
         </div>
         <div class="detail">
-          <img src="/shop_img/company_talent4.png" alt="">
+          <img src="{{shopRes('/shop_img/company_talent4.png')}}" alt="">
           <div class="name">精品施工</div>
           <div class="eng">QUALITY</div>
         </div>
       </div>
     </div>
     <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-      <img src="/shop_img/index_better.jpg" alt="">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
   </div>

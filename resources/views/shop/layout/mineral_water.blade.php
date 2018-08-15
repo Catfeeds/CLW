@@ -2,7 +2,7 @@
         <div class="banner"></div>
         <div class="describe">
           <div class="title clearfix">
-            <img src="/shop_img/water_band.jpg" alt="" class="f_l">
+            <img src="{{shopRes('/shop_img/water_band.jpg')}}" alt="" class="f_l">
             <div class="f_l">水中贵族</div>
           </div>
           <div class="water_introduce">
@@ -14,27 +14,27 @@
           <div class="title">产品展示</div>
           <div class="products">
             <div class="product">
-              <img src="/shop_img/water_prod1.png" alt="">
+              <img src="{{shopRes('/shop_img/water_prod1.png')}}" alt="">
               <div class="pd_name">景田百岁山</div>
             </div>
             <div class="product">
-              <img src="/shop_img/water_prod2.png" alt="">
+              <img src="{{shopRes('/shop_img/water_prod2.png')}}" alt="">
               <div class="pd_name">景田一次性桶装水</div>
             </div>
             <div class="product">
-              <img src="/shop_img/water_prod3.png" alt="">
+              <img src="{{shopRes('/shop_img/water_prod3.png')}}" alt="">
               <div class="pd_name">景田纯净水</div>
             </div>
             <div class="product">
-              <img src="/shop_img/water_prod4.png" alt="">
+              <img src="{{shopRes('/shop_img/water_prod4.png')}}" alt="">
               <div class="pd_name">景田本来旺饮用水</div>
             </div>
             <div class="product">
-              <img src="/shop_img/water_prod5.png" alt="">
+              <img src="{{shopRes('/shop_img/water_prod5.png')}}" alt="">
               <div class="pd_name">景田百岁山支装水</div>
             </div>
             <div class="product">
-              <img src="/shop_img/water_prod6.png" alt="">
+              <img src="{{shopRes('/shop_img/water_prod6.png')}}" alt="">
               <div class="pd_name">景田纯净水</div>
             </div>
           </div>
@@ -61,7 +61,7 @@
             <div class="content">
               <div class="num">5.景田天然泉水PH7.1水质呈弱碱性长期饮用有利于健康</div>
             </div>
-            <img src="/shop_img/water_back.jpg" alt="" class="back">
+            <img src="{{shopRes('/shop_img/water_back.jpg')}}" alt="" class="back">
           </div>
         </div>
       </div>

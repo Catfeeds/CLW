@@ -97,7 +97,7 @@
       </div>
       <div class="plant_put">
         <div class="title">摆放场景</div>
-        <div class="title2">金钱树适合摆放在在办公桌上，会给人一种蓬勃向上和青翠欲滴的清新感觉。</div>
+        <div class="title2">金钱树适合摆放在办公桌上，会给人一种蓬勃向上和青翠欲滴的清新感觉。</div>
         <div class="plants_img">
           <img src="{{shopRes('/shop_img/plants_img1.jpg')}}" alt="">
           <img src="{{shopRes('/shop_img/plants_img2.jpg')}}" alt="">
