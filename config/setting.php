@@ -18,6 +18,7 @@ return [
     
     'cdn_path' => env('CDN_PATH', ''),// cdn_path
     'home_cdn_path' => env('HOME_CDN_PATH', ''),// pc端
+    'shop_cdn_path' => env('SHOP_CDN_PATH', ''),// 商城
 
     'version' => '?version=201800699',
 
