@@ -1,5 +1,5 @@
 @extends('shop.layout.layout')
-@section('title', '电脑租赁')
+@section('title', '电脑租赁详情')
 @section('header')
     <link rel="stylesheet" href="/css/shop_rent_computer.css">
 @endsection
@@ -12,9 +12,9 @@
     <div class="computer_propetry">
       <div class="title">强大多任务处理能力</div>
       <div class="title2">
-        优威派克携手京东方，提升一体机视觉体验，采用京东方全新A+级IPS硬屏，不仅拥有98%的SRGB覆盖率表现，<br>
-        更有细窄微边技术，给你全视觉沉浸体验
+      性能卓越，流畅运行各种软件，用于办公。看高清，编程，非常流畅
       </div>
+      <div class="computer_title"><div class="title3">轻薄商务笔记本</div></div>
       <div class="propetry">
         <div class="propetry_img" style="padding-top:35px">
           <img src="/shop_img/detail_computer2.jpg" alt="">

@@ -1,5 +1,9 @@
 @extends('shop.layout.layout')
-@section('title', '商城列表页')
+@if(request()->getPathInfo() == '/furniture')
+@section('title', '办公家具列表页')
+@elseif(request()->getPathInfo() == '/computers')
+@section('title', '办公设备列表页')
+@endif
 @section('header')
     <link rel="stylesheet" href="/css/shop_list_worktool1.css">
 @endsection

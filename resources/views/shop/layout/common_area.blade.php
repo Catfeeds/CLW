@@ -40,6 +40,11 @@
         <a href="{{$sort}}">默认排序</a>
       </div>
       <div class="@if(!empty($request['price'])) sort_current @endif sort_details f_l price_sort">
-        <a href="{{$sort.$symbol.$price}}">价格由高到低</a>
+        <a href="{{$sort.$symbol.$price}}">
+        @if(empty($request['price']))价格由高到低
+        @elseif($request['price']=='desc')价格由高到低
+        @else 价格由低到高
+        @endif
+        </a>
       </div>
     </div>

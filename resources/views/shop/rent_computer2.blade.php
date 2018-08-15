@@ -7,19 +7,19 @@
   @include('shop.header')
   @include('shop.layout.nav')
   <div class="rent_conputer_container">
-    <div class="banner"></div>
+    <div class="banner" style="background:url('/shop_img/detail_computer4.jpg')"></div>
     <!-- 电脑性能 -->
     <div class="computer_propetry">
-      <div class="title">性能卓越 价值非凡</div>
+      <div class="title">强大多任务处理能力</div>
       <div class="title2">
-        优威派克携手京东方，提升一体机视觉体验，采用京东方全新A+级IPS硬屏，不仅拥有98%的SRGB覆盖率表现，<br>
-        更有细窄微边技术，给你全视觉沉浸体验
+        性能卓越，流畅运行各种软件，用于办公。看高清，编程，非常流畅
       </div>
+      <div class="computer_title"><div class="title3">轻薄商务笔记本</div></div>
       <div class="propetry">
-        <div class="propetry_img">
-          <img src="/shop_img/computer_propetry.jpg" alt="">
+        <div class="propetry_img" style="padding-top:35px">
+          <img src="/shop_img/detail_computer2.jpg" alt="">
         </div>
-        <div class="propetry_des">
+        <div class="propetry_des" style="margin-left:110px">
           <div class="des">
             <div class="des_name">极速</div>
             <div class="des_info">
@@ -60,11 +60,11 @@
       <div class="form">
         <div class="form_info clearfix">
           <div class="form_name f_l">显示屏</div>
-          <div class="form_des f_l">23.8英寸  京东方IPS全高清  1920*1080   98%sRGB广色域</div>
+          <div class="form_des f_l">14.1英寸   1366*768  高清宽屏</div>
         </div>
         <div class="form_info clearfix" style="background-color:rgba(242,196,223,0.4)">
-          <div class="form_name f_l">电源</div>
-          <div class="form_des f_l">180W电源适配器，稳定运行</div>
+          <div class="form_name f_l">重量</div>
+          <div class="form_des f_l">2KG (含)-2.5KG (不含)</div>
         </div>
         <div class="form_info clearfix">
           <div class="form_name f_l">集成</div>
@@ -72,37 +72,53 @@
         </div>
         <div class="form_info clearfix" style="background-color:rgba(242,196,223,0.4)">
           <div class="form_name f_l">系统</div>
-          <div class="form_des f_l">Windows7 中文体验版（可选win10）</div>
+          <div class="form_des f_l">Windows7</div>
         </div>
         <div class="form_info clearfix">
-          <div class="form_name f_l">尺寸</div>
-          <div class="form_des f_l">不含底座约  539高mm*401宽mm*70厚mm</div>
+          <div class="form_name f_l">厚度</div>
+          <div class="form_des f_l">15.0mm-18.0mm</div>
         </div>
       </div>
     </div>
     <!-- 应用场景 -->
-    <div class="scene">
-      <div class="title">应用场景</div>
-      <div class="title2">商务办公，可以满足日常，办公软件，上网，ERP，视频，后端软件开发，平面图设计等</div>
-      <div class="scene_img">
-        <img src="/shop_img/computer_scene1.jpg" alt="">
-        <img src="/shop_img/computer_scene2.jpg" alt="">
-        <img src="/shop_img/computer_scene3.jpg" alt="">
+    <div class="scene" style="height:785px">
+      <div class="title" style="margin-bottom:70px;">适用场景</div>
+      <div class="pad_scenes">
+        <div class="pad_scene">
+          <img src="/shop_img/pad_scene1.jpg" alt="">
+          <div class="pad_scene_name">影音娱乐</div>
+        </div>
+        <div class="pad_scene">
+          <img src="/shop_img/pad_scene2.jpg" alt="">
+          <div class="pad_scene_name">商务出行</div>
+        </div>
+        <div class="pad_scene">
+          <img src="/shop_img/pad_scene3.jpg" alt="">
+          <div class="pad_scene_name">移动办公</div>
+        </div>
+        <div class="pad_scene">
+          <img src="/shop_img/pad_scene4.jpg" alt="">
+          <div class="pad_scene_name">日常学习</div>
+        </div>
       </div>
     </div>
     <!-- 电脑细节 -->
-    <div class="computer_details">
-      <div class="title">好质量不怕放大与比较</div>
+    <div class="computer_details" style="height:885px">
+      <div class="title" style="margin-bottom:20px">真视界  不打折还原精彩</div>
+      <div class="title2" style="font-size:18px;color:#333;margin-bottom:65px;text-align:center;line-height:25px">
+        采用14英寸LED 1600*900 高分炫丽屏，结合高纯度LED背光,无论游戏，影音还是办公，<br>
+        高清的视野无疑让您体验更加畅快，发挥更淋漓
+      </div>
       <div class="details_box">
         <div class="left">
-          <img src="/shop_img/computer_detail1.jpg" alt="">
+          <img src="/shop_img/detail_computer5.jpg" alt="">
         </div>
         <div class="right">
           <div class="right_top" style="margin-bottom:17px;">
-            <img src="/shop_img/computer_detail2.jpg" alt="">
+            <img src="/shop_img/detail_computer7.jpg" alt="">
           </div>
           <div class="right_bottom">
-            <img src="/shop_img/computer_detail3.jpg" alt="">
+            <img src="/shop_img/detail_computer6.jpg" alt="">
           </div>
         </div>
       </div>

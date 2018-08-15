@@ -1,5 +1,5 @@
 @extends('shop.layout.layout')
-@section('title', '首页')
+@section('title', '楚楼网商城')
 @section('header')
  <link rel="stylesheet" href="/css/shop_index.css">
 @endsection

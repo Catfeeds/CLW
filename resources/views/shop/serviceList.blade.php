@@ -1,5 +1,13 @@
 @extends('shop.layout.layout')
-@section('title', '商城列表页')
+@if(request()->getPathInfo() == '/companyDecorat')
+@section('title', '企业装修列表页')
+@elseif(request()->getPathInfo() == '/business_taxes')
+@section('title', '工商财税列表页')
+@elseif(request()->getPathInfo() == '/cleanup')
+@section('title', '入驻服务列表页')
+@elseif(request()->getPathInfo() == '/fastPrint')
+@section('title', '图文广告列表页')
+@endif
 @section('header')
     <link rel="stylesheet" href="/css/shop_serviceList.css">
 @endsection

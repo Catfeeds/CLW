@@ -1,5 +1,5 @@
 @extends('shop.layout.layout')
-@section('title', '幸福树')
+@section('title', '绿植租赁详情')
 @section('header')
     <link rel="stylesheet" href="/css/shop_plant_rent.css">
 @endsection
