@@ -31,10 +31,10 @@
     </div>
     <!-- 排序方式 -->
     <div class="graybox sort clearfix">
-      <div class="sort_details f_l default_sort sort_current">
+      <div class="@if(empty($request['price'])) 1 @endif sort_details f_l default_sort sort_current">
         <a href="{{$sort}}">默认排序</a>
       </div>
-      <div class="sort_details f_l price_sort">
-        <a href="{{$sort.$symbol}}price=desc">价格由高到低</a>
+      <div class="@if(!empty($request['price'])) 2 @endif sort_details f_l price_sort">
+        <a href="{{$sort.$symbol.$price}}">价格由高到低</a>
       </div>
     </div>

@@ -15,6 +15,7 @@ class ComputersController extends Controller
         LabelsService $service
     )
     {
+        $ResAll = $request->all();
         $labels = Label::getLabelByCategoryName('办公设备');
         $sort = $request->url();
         $symbol = '?';
@@ -30,11 +31,19 @@ class ComputersController extends Controller
         }
         $labelData = $service->labelData('电脑租售', $labels, $request);
         $computer = $service->getAllGoods($request, 'App\Models\Computer');
+
+        $price = 'desc';
+        if(!empty($ResAll['price'])&&$ResAll['price']==='desc') {
+            $price = 'asc';
+        }
+        $price = 'price='.$price;
         return view('shop.list',[
             'labelData' => $labelData,
             'datas' => $computer,
             'sort' => $sort,
-            'symbol' => $symbol
+            'symbol' => $symbol,
+            'request' => $ResAll,
+            'price' => $price
         ]);
     }
 
