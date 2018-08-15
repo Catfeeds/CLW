@@ -1,11 +1,11 @@
 <div class="container">
   <!-- banner部分 -->
-  <div class="clean_banner">
+  <div class="clean_banner" style="background: url('{{shopRes('/shop_img/clean_banner.jpg')}}') no-repeat center;">
     <div class="banner_title">日常保洁</div>
     <div class="banner_describe">杜绝磨洋工 专业的清洁工具 干净负责</div>
   </div>
   <!-- 日常清洁优势 -->
-  <div class="advantage"></div>
+  <div class="advantage" style="background: url('{{shopRes('/shop_img/clean_advantage.jpg')}}') no-repeat center;"></div>
   <!-- 岗前培训 -->
   <div class="clean_train">
     <div class="train_title">岗前培训</div>
@@ -17,7 +17,7 @@
     </div>
   </div>
   <!-- 专业清洁工具 -->
-  <div class="profession">
+  <div class="profession" style="background: url('{{shopRes('/shop_img/profession_back.jpg')}}') no-repeat center;">
     <div class="title_back">PROFESSIONAL CLEANING TOOLS</div>
     <div class="profession_title">专业清洁工具</div>
     <div class="profession_describe">“工欲善其事必先利其器”我们不断研究改进，分析细菌的滋生习惯和污渍的抵抗能力，然后找到有效消灭他们的武器，我们选用环保无污染的清洁用品，为您营造更健康的办公环境。</div>
@@ -39,7 +39,7 @@
     </div> 
   </div>
   <!-- 服务项目 -->
-  <div class="clean_serve"></div>
+  <div class="clean_serve" style="background: url('{{shopRes('/shop_img/clean_serve.jpg')}}') no-repeat center;"></div>
   <!-- 服务承诺 -->
   <div class="our_tellent">
     <div class="title">

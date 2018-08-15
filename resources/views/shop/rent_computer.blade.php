@@ -55,7 +55,7 @@
       </div>
     </div>
     <!-- 性价比 -->
-    <div class="computer_talent">
+    <div class="computer_talent" style="background: url('{{shopRes('/shop_img/computer_talent.jpg')}}') no-repeat center;">
       <div class="title">性能过剩的时代，实用主义更具性价比</div>
       <div class="arrow">
         <img src="{{shopRes('/shop_img/computer_arrow.png')}}" alt="">
@@ -111,7 +111,7 @@
       </div>
     </div>
     <!-- 电脑集成计划 -->
-    <div class="plants">
+    <div class="plants" style="background: url('{{shopRes('/shop_img/computer_plant.jpg')}}') no-repeat center;">
       <div class="title">内置WIFI、蓝牙、音响，更贴心的集成方案</div>
       <div class="title2">你想要的，就是我们要做的。WIFI蓝牙，喇叭等一应俱全，办公一体机，我们更贴心</div>
       <div class="plant">

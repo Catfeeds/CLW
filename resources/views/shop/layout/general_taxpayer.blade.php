@@ -1,11 +1,11 @@
 <div class="container">
     <!-- 列表页标题 -->
-    <div class="list_title">
+    <div class="list_title" style="background: url('{{shopRes('/shop_img/list_detail_title.jpg')}}') no-repeat center;">
       <div class="title_1">一般纳税人代理记账</div>
       <div class="title_2">准确规范记账 一对一定制服务</div>
     </div>
     <!-- 列表页概述 -->
-    <div class="list_describe clearfix">
+    <div class="list_describe clearfix" style="background: url('{{shopRes('/shop_img/list_describe_back.jpg')}}') no-repeat center;">
       <img src="{{shopRes('/shop_img/list_detail_describe_left.png')}}" alt="" class="caculate f_l">
       <div class="list_describe_right f_l">
         <div class="right_top right_common">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <!-- 列表页需要资料 -->
-    <div class="you_provide">
+    <div class="you_provide" style="background: url('{{shopRes('/shop_img/you_provide.jpg')}}') no-repeat center;">
       <div class="provide_title">需要提供的资料</div>
       <div class="border"></div>
       <div class="provides1">

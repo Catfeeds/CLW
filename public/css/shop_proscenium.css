@@ -902,7 +902,6 @@ body .proscenium_container .proscenium_des {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 95px;
-  background: url(/shop_img/proscenium_des.jpg) no-repeat center;
 }
 
 body .proscenium_container .proscenium_des .eng_title {
@@ -975,7 +974,6 @@ body .proscenium_container .prefect_material {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 105px;
-  background: url(/shop_img/profect_material.jpg) no-repeat center;
 }
 
 body .proscenium_container .prefect_material .title {
@@ -1066,7 +1064,6 @@ body .proscenium_container .serve_steps {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 108px;
-  background: url(/shop_img/serve_steps_back.jpg) no-repeat center;
 }
 
 body .proscenium_container .serve_steps .title {

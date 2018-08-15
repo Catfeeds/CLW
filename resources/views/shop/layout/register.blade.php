@@ -1,9 +1,9 @@
 <div class="container">
-      <div class="tax_title">
+      <div class="tax_title" style="background: url('{{shopRes('/shop_img/tax_banner.jpg')}}') no-repeat center;">
         <div class="tax_title1" style="font-weight:300">有限责任公司注册</div>
         <div class="tax_title2" style="font-weight:300">快速办理 专业一对一</div>
       </div>
-      <div class="company_register">
+      <div class="company_register" style="background: url('{{shopRes('/shop_img/company_back.jpg')}}') no-repeat center;">
         <div class="register_title" style="font-weight:300">有限责任公司注册?</div>
         <div class="border"></div>
         <div class="register_contents">
@@ -26,14 +26,14 @@
           </div>
         </div>
       </div>
-      <div class="register_steps">
+      <div class="register_steps" style="background: url('{{shopRes('/shop_img/steps_back.jpg')}}') no-repeat center;">
         <div class="step_title">5步快速注册 <span>全程代办</span></div>
         <div class="step_describe">创业楚楼网代办,省下时间办正事</div>
         <div class="step_img">
           <img src="{{shopRes('/shop_img/steps.png')}}" alt="">
         </div>
       </div>
-      <div class="provides">
+      <div class="provides" style="background: url('{{shopRes('/shop_img/provides_back.jpg')}}') no-repeat center;">
         <div class="provides_box">
           <div class="provides_title" style="font-weight:300">需要提供的资料</div>
           <div class="border"></div>
@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-      <div class="search_methods">
+      <div class="search_methods" style="background: url('{{shopRes('/shop_img/register_search.jpg')}}') no-repeat center;">
         <div class="search_title" style="font-weight:300">企业注册查询方法</div>
         <div class="border"></div>
         <div class="search_box">

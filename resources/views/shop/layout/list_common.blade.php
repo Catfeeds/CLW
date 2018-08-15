@@ -81,13 +81,13 @@
   </div>
   <div class="border"></div>
   <div class="steps">
-    <div class="step">
+    <div class="step" style="background: url('{{shopRes('/shop_img/first.png')}}') no-repeat center;">
     </div>
-    <div class="step">
+    <div class="step" style="background: url('{{shopRes('/shop_img/second.png')}} no-repeat center;">
     </div>
-    <div class="step">
+    <div class="step" style="background: url('{{shopRes('/shop_img/third.png')}} no-repeat center;">
     </div>
-    <div class="step">
+    <div class="step" style="background: url('{{shopRes('/shop_img/fouth.png')}} no-repeat center;">
     </div>
   </div>
 </div>

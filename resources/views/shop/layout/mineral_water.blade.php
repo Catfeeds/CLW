@@ -1,6 +1,6 @@
 <div class="water_container">
-        <div class="banner"></div>
-        <div class="describe">
+        <div class="banner" style="background: url('{{shopRes('/shop_img/water_banner.jpg')}}') no-repeat center;"></div>
+        <div class="describe" style="background: url('{{shopRes('/shop_img/water_des.jpg')}}') no-repeat center;">
           <div class="title clearfix">
             <img src="{{shopRes('/shop_img/water_band.jpg')}}" alt="" class="f_l">
             <div class="f_l">水中贵族</div>
