@@ -150,7 +150,7 @@
       </div>
       @endif
     </div>
-    @include('home.footer')
+    @include('shop.footer')
 @endsection
 @section('script')
 <script src='/js/shop_serveList.js'></script>

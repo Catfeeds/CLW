@@ -35,7 +35,7 @@
             </ul>
         </div>
     </div>
-    @include('home.footer')
+    @include('shop.footer')
 @endsection
 @section('script')
 @endsection

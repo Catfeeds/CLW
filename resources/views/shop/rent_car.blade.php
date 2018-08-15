@@ -121,7 +121,7 @@
     <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
       <img src="/shop_img/index_better.jpg" alt="">
     </div>
-    @include('home.footer')
+    @include('shop.footer')
 @endsection
 @section('script')
 @endsection
