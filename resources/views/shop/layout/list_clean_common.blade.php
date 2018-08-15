@@ -45,11 +45,7 @@
     <div class="title">
       服务承诺
     </div>
-<<<<<<< HEAD
     <div class="border_clean"></div>
-=======
-    <div class="border" style="margin-bottom:5px"></div>
->>>>>>> origin/zc
     <div class="describe">专业+优质服务+保质保量 有效保障您的利益 </div>
     <div class="tellent_contents">
       <div class="content clearfix">
