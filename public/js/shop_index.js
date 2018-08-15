@@ -3497,7 +3497,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\shop\\search\\search.vue"
+Component.options.__file = "resources/assets/js/components/shop/search/search.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -3506,9 +3506,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e722e6e6", Component.options)
+    hotAPI.createRecord("data-v-513a43ed", Component.options)
   } else {
-    hotAPI.reload("data-v-e722e6e6", Component.options)
+    hotAPI.reload("data-v-513a43ed", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -8821,7 +8821,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e722e6e6", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-513a43ed", module.exports)
   }
 }
 
@@ -8963,9 +8963,9 @@ $('.consult button').click(function () {
     console.log('sssss', telVal);
     var data = {};
     data.tel = telVal;
-    data.source = 10;
+    data.source = 6;
     data.demand = 3;
-    data.page_source = '首页底部-企业服务';
+    data.page_source = '商城-首页底部';
     $.ajax({
       url: '/entrust_throw_ins',
       type: 'POST',
