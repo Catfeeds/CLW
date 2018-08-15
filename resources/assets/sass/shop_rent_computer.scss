@@ -29,7 +29,22 @@ body {
         color:#333;
         font-size: 18px;
         font-weight: 300;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
+      }
+      .computer_title{
+        width: 100%;
+        margin-bottom: 38px;
+        .title3{
+          width: 170px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          margin: 0 auto;
+          border: 1px solid #999;
+          color: #cd1515;
+          font-size: 18px;
+          font-family: PingFang-SC-Regular;
+        }
       }
       .propetry {
         display: flex;

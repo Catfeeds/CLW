@@ -15,6 +15,7 @@ class FurnitureController extends Controller
         LabelsService $service
     )
     {
+        $ResAll = $request->all();
         $labels = Label::getLabelByCategoryName('办公家具');
         $sort = $request->url();
         $symbol = '?';
@@ -30,11 +31,18 @@ class FurnitureController extends Controller
         }
         $labelData = $service->labelData('办公家具', $labels, $request);
         $furniture = $service->getAllGoods($request, 'App\Models\Furniture');
+        $price = 'desc';
+        if(!empty($ResAll['price'])&&$ResAll['price']==='desc') {
+            $price = 'asc';
+        }
+        $price = 'price='.$price;
         return view('shop.list1',[
             'labelData' => $labelData,
             'datas' => $furniture,
             'sort' => $sort,
-            'symbol' => $symbol
+            'symbol' => $symbol,
+            'request' => $ResAll,
+            'price' => $price
         ]);
     }
     public function show($id)

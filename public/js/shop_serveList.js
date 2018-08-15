@@ -8894,9 +8894,9 @@ $('.select_details .select_detail').click(function () {
     $('.js_charge').css('display', 'block').siblings().css('display', 'none');
   } else if (textVal == '一般纳税人代理记账') {
     $('.js_general').css('display', 'block').siblings().css('display', 'none');
+  } else if (textVal == '有限责任公司注册') {
+    $('.js_register').css('display', 'block').siblings().css('display', 'none');
   }
-  // else if(textVal == '有限责任公司注册') {
-  //   $('.js_register').css('display','block').siblings().css('display', 'none')
   // } else if(textVal == '外商独资公司注册') {
   //   $('.js_register1').css('display','block').siblings().css('display', 'none')
   // } else if(textVal == '合伙企业注册') {

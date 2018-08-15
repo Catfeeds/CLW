@@ -1,5 +1,5 @@
 @extends('shop.layout.layout')
-@section('title', '商城列表页')
+@section('title', '绿植租摆列表页')
 @section('header')
     <link rel="stylesheet" href="/css/shop_list_worktool.css">
 @endsection
@@ -13,13 +13,15 @@
             <ul class="show_details">
             @if(!empty($datas->count()))
                 @foreach($datas as $data)
+                <a href="{{$data->details_url}}" >
                     <li class="show_detail">
-                        <a href="{{$data->details_url}}" class="detail_pic">
+                        <div class="detail_pic">
                             <img style="width:100%; height: 100%" src="{{$data->img_cn}}" alt="">
-                        </a>
+                        </div>
                         <div class="product_name">{{$data->name}}</div>
                         <div class="product_price"><span>{{$data->price}}</span> {{$data->price_unit}}</div>
                     </li>
+                </a>
                 @endforeach
             @else
             <li class="list_nothing">

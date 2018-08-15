@@ -579,87 +579,87 @@ body footer span {
   font-weight: 300;
 }
 
-body footer .container {
+body footer .footer_container {
   height: 220px;
   width: 1200px;
   margin: 0 auto;
 }
 
-body footer .container .left_info {
+body footer .footer_container .left_info {
   margin-top: 29px;
   margin-right: 280px;
 }
 
-body footer .container .left_info img {
+body footer .footer_container .left_info img {
   margin-bottom: 30px;
 }
 
-body footer .container .left_info .info {
+body footer .footer_container .left_info .info {
   color: rgba(245,245,245,0.4);
   font-size: 12px;
   line-height: 24px;
 }
 
-body footer .container .left_info .info a {
+body footer .footer_container .left_info .info a {
   color: rgba(245,245,245,0.4);
   font-size: 12px;
 }
 
-body footer .container .left_info .info a:hover {
+body footer .footer_container .left_info .info a:hover {
   color: #ffffff;
 }
 
-body footer .container .left_info .friend_link {
+body footer .footer_container .left_info .friend_link {
   opacity: 0.5;
   color: #f5f5f5;
   font-size: 12px;
 }
 
-body footer .container .left_info .friend_link a {
+body footer .footer_container .left_info .friend_link a {
   color: #f5f5f5;
   font-size: 12px;
 }
 
-body footer .container .about_us {
+body footer .footer_container .about_us {
   margin-top: 41px;
   margin-right: 100px;
 }
 
-body footer .container .about_us .abou_us_title {
+body footer .footer_container .about_us .abou_us_title {
   font-size: 14px;
   color: rgba(255,255,255,0.8);
   margin-bottom: 25px;
 }
 
-body footer .container .about_us .link li {
+body footer .footer_container .about_us .link li {
   margin-bottom: 8px;
 }
 
-body footer .container .about_us .link li a {
+body footer .footer_container .about_us .link li a {
   color: rgba(255,255,255,0.4);
   font-size: 12px;
 }
 
-body footer .container .about_us .link li a:hover {
+body footer .footer_container .about_us .link li a:hover {
   color: #fff;
 }
 
-body footer .container .serve {
+body footer .footer_container .serve {
   margin-top: 40px;
   margin-right: 100px;
 }
 
-body footer .container .serve div {
+body footer .footer_container .serve div {
   color: rgba(245,245,245,0.4);
 }
 
-body footer .container .serve_title {
+body footer .footer_container .serve_title {
   color: rgba(255,255,255,0.8) !important;
   font-size: 14px;
   margin-bottom: 20px;
 }
 
-body footer .container .serve .phone {
+body footer .footer_container .serve .phone {
   text-align: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -668,31 +668,31 @@ body footer .container .serve .phone {
   font-weight: 300;
 }
 
-body footer .container .serve .time,
-body footer .container .serve .day {
+body footer .footer_container .serve .time,
+body footer .footer_container .serve .day {
   font-size: 12px;
   margin-bottom: 10px;
 }
 
-body footer .container .serve .day {
+body footer .footer_container .serve .day {
   margin-bottom: 20px;
 }
 
-body footer .container .code_download {
+body footer .footer_container .code_download {
   margin-top: 40px;
 }
 
-body footer .container .code_download .code_title {
+body footer .footer_container .code_download .code_title {
   font-size: 14px;
   color: rgba(255,255,255,0.8);
   margin-bottom: 15px;
 }
 
-body footer .container .code_download .wx_code {
+body footer .footer_container .code_download .wx_code {
   width: 94px;
 }
 
-body footer .container .code_download .wx_code div {
+body footer .footer_container .code_download .wx_code div {
   margin-top: 10px;
   font-size: 12px;
   color: #f5f5f5;
@@ -898,7 +898,16 @@ body .list_container .list_details .show_details .list_nothing {
   margin: 0 auto;
 }
 
-body .list_container .list_details .show_details .show_detail {
+body .list_container .list_details .show_details a {
+  display: block;
+  margin-right: 20px;
+}
+
+body .list_container .list_details .show_details a:nth-child(4n) {
+  margin-right: 0;
+}
+
+body .list_container .list_details .show_details a .show_detail {
   padding-top: 57px;
   padding-bottom: 30px;
   -webkit-box-sizing: border-box;
@@ -909,15 +918,10 @@ body .list_container .list_details .show_details .show_detail {
   max-width: 285px;
   min-width: 285px;
   border: 1px solid #f5f5f5;
-  margin-right: 20px;
   margin-top: 20px;
 }
 
-body .list_container .list_details .show_details .show_detail:nth-child(4n) {
-  margin-right: 0;
-}
-
-body .list_container .list_details .show_details .show_detail .product_pic {
+body .list_container .list_details .show_details a .show_detail .product_pic {
   display: block;
   width: 242px;
   height: 172px;
@@ -925,14 +929,14 @@ body .list_container .list_details .show_details .show_detail .product_pic {
   margin-top: 40px;
 }
 
-body .list_container .list_details .show_details .show_detail .detail_pic {
+body .list_container .list_details .show_details a .show_detail .detail_pic {
   display: block;
   width: 230px;
   height: 180px;
   margin: 0 auto;
 }
 
-body .list_container .list_details .show_details .show_detail .product_name {
+body .list_container .list_details .show_details a .show_detail .product_name {
   margin-top: 24px;
   text-align: center;
   font-size: 14px;
@@ -940,25 +944,25 @@ body .list_container .list_details .show_details .show_detail .product_name {
   margin-bottom: 20px;
 }
 
-body .list_container .list_details .show_details .show_detail .product_price {
+body .list_container .list_details .show_details a .show_detail .product_price {
   text-align: center;
   color: #999;
   margin-bottom: 18px;
 }
 
-body .list_container .list_details .show_details .show_detail .product_price span {
+body .list_container .list_details .show_details a .show_detail .product_price span {
   font-size: 18px;
   color: #e80e0e;
 }
 
-body .list_container .list_details .show_details .show_detail .check {
+body .list_container .list_details .show_details a .show_detail .check {
   width: 150px;
   margin: 0 auto;
   margin-bottom: 21px;
   height: 32px;
 }
 
-body .list_container .list_details .show_details .show_detail .check .rightNow {
+body .list_container .list_details .show_details a .show_detail .check .rightNow {
   display: none;
   width: 100%;
   height: 100%;
@@ -969,11 +973,11 @@ body .list_container .list_details .show_details .show_detail .check .rightNow {
   line-height: 32px;
 }
 
-body .list_container .list_details .show_details .show_detail:hover {
+body .list_container .list_details .show_details a .show_detail:hover {
   border: 1px solid #007bff;
 }
 
-body .list_container .list_details .show_details .show_detail:hover .rightNow {
+body .list_container .list_details .show_details a .show_detail:hover .rightNow {
   display: block;
 }
 

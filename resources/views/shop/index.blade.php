@@ -1,5 +1,5 @@
 @extends('shop.layout.layout')
-@section('title', '首页')
+@section('title', '楚楼网商城')
 @section('header')
  <link rel="stylesheet" href="/css/shop_index.css">
 @endsection
@@ -615,12 +615,12 @@
         </a>
         <div class="sale_model_right">
           <div class="modeFirst">
-            <a href="{{url('/nothing')}}">
+            <a href="{{url('/computers/3')}}">
               <div class="modeBox">
-                <div class="modeTitle">ThinkPad T420 4G内存 笔记本</div>
+                <div class="modeTitle">ThinkPad T440 8G内存 笔记本</div>
                 <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
-                  <div class="unitPrice">¥ 200/月</div>
+                  <div class="unitPrice">¥ 145/月</div>
                   <div><img src="/shop_img/index_sale_model_02.jpg" alt=""></div>
                 </div>
               </div>
@@ -655,13 +655,13 @@
                 </div>
               </div>
             </a>
-            <a href="{{url('/nothing')}}">
+            <a href="{{url('/computers/4')}}">
               <div class="modeBox">
-                <div class="modeTitle">Thinkpad T520 4G内存 笔记本</div>
+                <div class="modeTitle">Thinkpad E470 4G内存 笔记本</div>
                 <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
-                  <div><img src="/shop_img/index_sale_model_05.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 260/月</div>
+                  <div><img src="/shop_img/index_sale_model_07.jpg" alt=""></div>
+                  <div class="unitPrice">¥ 158/月</div>
                 </div>
               </div>
             </a>
