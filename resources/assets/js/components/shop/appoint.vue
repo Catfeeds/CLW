@@ -51,6 +51,15 @@ export default {
       background-color: #61aeff;
       padding: 20px 15px 23px;
       margin-bottom: 1px;
+      .error {
+        margin-top: 12px;
+        color: #fe7a85;
+        display: flex;
+        justify-content: flex-start;
+        img{
+          margin-right: 5px;
+        }
+      }
       .title {
         color:#fff;
         font-size: 16px;
