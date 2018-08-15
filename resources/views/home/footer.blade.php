@@ -14,11 +14,11 @@
                 关于我们
             </div>
             <ul class="link">
-                <li><a href="{{url('/')}}">网站首页</a></li>
-                <li><a href="{{url('/about/we')}}">关于楚楼</a></li>
-                <li><a href="{{url('/about/telme')}}">联系我们</a></li>
-                <li><a href="{{url('/about/statute')}}">使用协议</a></li>
-                <li><a href="{{url('/about/privacy')}}">隐私政策</a></li>
+                <li><a href="https://www.chulouwang.com/">网站首页</a></li>
+                <li><a href="https://www.chulouwang.com/about/we">关于楚楼</a></li>
+                <li><a href="https://www.chulouwang.com/about/telme">联系我们</a></li>
+                <li><a href="https://www.chulouwang.com/about/statute">使用协议</a></li>
+                <li><a href="https://www.chulouwang.com/about/privacy">隐私政策</a></li>
             </ul>
         </div>
         <div class="serve f_l">

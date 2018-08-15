@@ -11,12 +11,12 @@
   </div>
   <div class="search">
     <div class="searchLogo">
-      <a href="{{url('/')}}"><div class="logo"><img src="/shop_img/logo.png" alt=""></div></a>
+      <a href="{{url('/')}}"><div class="logo"><img src="{{shopRes('/shop_img/logo.png')}}" alt=""></div></a>
       <ul class="select_nav">
         <a href="{{url('/')}}"><li class="@if(request()->getPathInfo() == '/') active @endif">首页</li></a>
         <a href="https://www.chulouwang.com/building_list" target="_blank"><li>企业选址</li></a>
-        <a href="{{url('/furniture')}}"><li class="hot_sale @if(request()->getPathInfo() == '/furniture') active @endif">办公家具<div><img src="/shop_img/hot.png" alt=""></div></li></a>
-        <a href="{{url('/plants')}}"><li class="hot_sale @if(request()->getPathInfo() == '/plants') active @endif">绿植租摆<div><img src="/shop_img/hot.png" alt=""></div></li></a>
+        <a href="{{url('/furniture')}}"><li class="hot_sale @if(request()->getPathInfo() == '/furniture') active @endif">办公家具<div><img src="{{shopRes('/shop_img/hot.png')}}" alt=""></div></li></a>
+        <a href="{{url('/plants')}}"><li class="hot_sale @if(request()->getPathInfo() == '/plants') active @endif">绿植租摆<div><img src="{{shopRes('/shop_img/hot.png')}}" alt=""></div></li></a>
         <a href="{{url('/companyDecorat?id=1')}}"><li class="@if(request()->getPathInfo() == '/companyDecorat') active @endif">企业装修</li></a>
         <a href="{{url('/computers')}}"><li class="@if(request()->getPathInfo() == '/computers') active @endif">办公设备</li></a>
       </ul>
@@ -28,7 +28,7 @@
       </div>
       <button class="js_search">搜索</button>
     </div> -->
-    <div class="tel"><div><img src="/shop_img/index_tel.png" alt=""></div><div class="telNum">4000-580-888</div></div>
+    <div class="tel"><div><img src="{{shopRes('/shop_img/index_tel.png')}}" alt=""></div><div class="telNum">4000-580-888</div></div>
   </div>
   <!-- <div class="select">
     <div class="selectBox">
