@@ -767,12 +767,11 @@ body footer .bottom .friend_link a {
 .select_area .select_option .select_title {
   font-size: 12px;
   color: #999;
-  width: 65px;
+  margin-right: 34px;
 }
 
 .select_area .select_option .select_details .select_detail {
-  width: 75px;
-  text-align: left;
+  margin-right: 34px;
 }
 
 .select_area .select_option .select_details .select_detail a {
@@ -790,7 +789,6 @@ body footer .bottom .friend_link a {
 
 .select_area .brand_select .brands {
   margin: 15px 0;
-  width: 1135px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -23,7 +23,7 @@
               <ul class="brands f_l">
                   @foreach($labels['children'] as $label)
                   @if($loop->first)
-                  <li class="f_l" style="width:75px; text-align:center;"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}" style="font-size:12px;">{{$label['name']}}</a></li>
+                  <li class="f_l" style="margin-right:34px;"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}" style="font-size:12px;">{{$label['name']}}</a></li>
                   @else
                       <li class="brand @if($label['status'])active @endif"><a href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
                   @endif
