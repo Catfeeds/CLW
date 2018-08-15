@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    <div class="our_tellent" style="height:auto">
+    <div class="our_tellent" style="height:auto;padding-top:100px;padding-bottom:90px">
       <div class="tellent_title">
         <div class="tellent_title">
           我们的服务承诺
