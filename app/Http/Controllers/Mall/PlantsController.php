@@ -49,7 +49,6 @@ class PlantsController extends Controller
 
     public function show($id)
     {
-        // dd($id);
         if($id == '1')
         return view ('shop.plant_rent');
         if($id == '2')
@@ -60,5 +59,7 @@ class PlantsController extends Controller
         return view ('shop.plants3');
         if($id == '5')
         return view ('shop.plants4');
+        if($id == '6')
+        return view ('shop.plants5');
     }
 }

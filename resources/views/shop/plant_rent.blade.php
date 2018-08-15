@@ -10,7 +10,7 @@
       <div id="appointment">
         <appoint></appoint>
       </div>
-      <div class="banner" style="background: url('{{shopRes('shop_img/plant_rent_banner.jpg')}}') no-repeat center;">
+      <div class="banner" style="background: url('{{shopRes('/shop_img/plant_rent_banner.jpg')}}') no-repeat center;">
         <div class="banner_title1">金钱树 绿植租赁</div>
         <div class="title2">防辐射，净化甲醛，二甲苯，二手烟，是写字楼的天然清道夫</div>
       </div>

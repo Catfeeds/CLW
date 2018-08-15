@@ -11,12 +11,12 @@
         <appoint></appoint>
       </div>
       <div class="banner" style="background: url('{{shopRes('/shop_img/plant_rent_banner.jpg')}}') no-repeat center;">
-        <div class="banner_title1">发财树 绿植租赁</div>
+        <div class="banner_title1">袖珍椰子 绿植租赁</div>
         <div class="title2">防辐射，净化甲醛，二甲苯，二手烟，是写字楼的天然清道夫</div>
       </div>
       <div class="plant_archives clearfix">
         <div class="img_box">
-          <img src="{{shopRes('/shop_img/plants_img_money1.jpg')}}" alt="">
+          <img src="{{shopRes('/shop_img/plants_img8.jpg')}}" alt="">
         </div>
         <div class="plant_info f_r clearfix">
           <ul class="info_name f_l">
@@ -28,12 +28,12 @@
             <li class="name">作用价值</li>
           </ul>
           <ul class="info_des f_l">
-            <li class="des">发财树</li>
-            <li class="des">马拉巴栗</li>
-            <li class="des">卧室，书房，客厅，办公室</li>
-            <li class="des">财源滚滚、兴旺发达、前程似锦</li>
-            <li class="des">喜光又耐阴，畏寒</li>
-            <li class="des">美观，净化空气</li>
+            <li class="des">袖珍椰子</li>
+            <li class="des">秀丽竹节椰、矮生椰子、矮棕、客厅棕、袖珍椰子葵</li>
+            <li class="des">庭院，客厅，办公室</li>
+            <li class="des">生命力</li>
+            <li class="des">喜半荫，耐阴，耐高温，畏寒冷，宜湿润</li>
+            <li class="des">绿化观赏 点缀居室 净化空气喜半荫</li>
           </ul>
         </div>
       </div>
@@ -97,11 +97,11 @@
       </div>
       <div class="plant_put">
         <div class="title">摆放场景</div>
-        <div class="title2">发财树适合用于办公室或家庭的装饰物品，象征着生意兴隆，财源滚滚。</div>
+        <div class="title2">也铁门适合摆放在办公室各个位置，雅气十足，形态飘逸，这种植物针对吸收室内空气中甲醛、二甲苯的效果也是非常好，装修选择这种植物是不错的选择。</div>
         <div class="plants_img">
-          <img src="{{shopRes('/shop_img/plants_img_money2.jpg')}}" alt="">
-          <img src="{{shopRes('/shop_img/plants_img_money3.jpg')}}" alt="">
-          <img src="{{shopRes('/shop_img/plants_img_money4.jpg')}}" alt="">
+          <img src="{{shopRes('/shop_img/plants_img9.jpg')}}" alt="">
+          <img src="{{shopRes('/shop_img/plants_img10.jpg')}}" alt="">
+          <img src="{{shopRes('/shop_img/plants_img11.jpg')}}" alt="">
         </div>
       </div>
       <div class="us_serve">

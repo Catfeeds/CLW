@@ -122,7 +122,9 @@
     <div id="appoint">
       <appoint></appoint>
     </div>
+    <div class="charge">
     @include('shop.layout.list_common')
+    </div>
     <div class="footer_banner" style="text-align:center">
       <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
