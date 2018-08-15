@@ -329,6 +329,7 @@ select {
   right: 0;
   top: 50%;
   margin-top: -120.5px;
+  z-index: 99;
 }
 
 .b_white {

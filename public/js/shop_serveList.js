@@ -9216,8 +9216,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var phone = /^\d{11}$/;
       if (phone.test(this.tel)) {
         alert('正确');
+        this.tel = '';
       } else {
         alert('错误');
+        this.tel = '';
       }
     }
   }
