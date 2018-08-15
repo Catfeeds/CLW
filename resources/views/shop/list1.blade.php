@@ -13,13 +13,15 @@
             <ul class="show_details">
             @if(!empty($datas->count()))
             @foreach($datas as $data)
-                <li class="show_detail">
-                    <a href="{{$data->details_url}}" class="detail_pic">
-                        <img src="{{$data->img_cn}}" alt="">
-                    </a>
+            <a href="{{$data->details_url}}">
+                <li class="show_detail"> 
+                    <div  class="detail_pic">
+                    <img src="{{$data->img_cn}}" alt="">
+                    </div>
                     <div class="product_name">{{$data->name}}</div>
                     <div class="product_price"><span>{{$data->price}}</span> {{$data->price_unit}}</div>
                 </li>
+            </a>
             @endforeach
             @else
             <li class="list_nothing">

@@ -3,9 +3,9 @@
     <div class="navBox">
       <div class="nav_left">楚楼网，全方位企业服务平台</div>
       <div class="nav_right">
-        <a href="{{url('/')}}"><div>首页</div></a>|
-        <a href="http://www.chulouwang.com/throw_ins"><div>投放房源</div></a>|
-        <a href="http://www.chulouwang.com/bespeaks"><div>委托找房</div></a>
+        <a href="https://www.chulouwang.com" target="_blank"><div>首页</div></a>|
+        <a href="http://www.chulouwang.com/throw_ins" target="_blank"><div>投放房源</div></a>|
+        <a href="http://www.chulouwang.com/bespeaks" target="_blank"><div>委托找房</div></a>
       </div>
     </div>
   </div>

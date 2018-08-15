@@ -25,7 +25,13 @@
     <div>一体机</div>
     @elseif(request()->getPathInfo() == '/computers/2')
     <a href="{{url('/computers')}}"><div class="index">办公设备</div></a>&nbsp; > &nbsp;
-    <div>Thinkpad</div>
+    <div>Thinkpad T430</div>
+    @elseif(request()->getPathInfo() == '/computers/3')
+    <a href="{{url('/computers')}}"><div class="index">办公设备</div></a>&nbsp; > &nbsp;
+    <div>Thinkpad T440</div>
+    @elseif(request()->getPathInfo() == '/computers/4')
+    <a href="{{url('/computers')}}"><div class="index">办公设备</div></a>&nbsp; > &nbsp;
+    <div>Thinkpad E470</div>
     @elseif(request()->getPathInfo() == '/furniture/1')
     <a href="{{url('/furniture')}}"><div class="index">办公家具</div></a>&nbsp; > &nbsp;
     <div>班台</div>
