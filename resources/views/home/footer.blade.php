@@ -1,5 +1,5 @@
 <footer>
-   <div class="container clearfix">
+   <div class="footer_container clearfix">
         <div class="left_info f_l">
             <img src="{{homeRes('/home_img/logo-.png')}}" alt="" class="logo">
             <div class="info">

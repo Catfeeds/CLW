@@ -23,10 +23,9 @@
               <ul class="brands f_l">
                   @foreach($labels['children'] as $label)
                   @if($loop->first)
-                  <li class="f_l" style="width:75px; text-align:center;"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}" style="font-size:12px;">{{$label['name']}}</a></li>
+                  <li class="f_l" style="margin-right:34px;"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}" style="font-size:12px;">{{$label['name']}}</a></li>
                   @else
-                      <li class="brand"><a
-                      class=" @if($label['status'])active @endif " href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
+                      <li class="brand @if($label['status'])active @endif"><a href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
                   @endif
                   @endforeach
               </ul>
@@ -40,6 +39,11 @@
         <a href="{{$sort}}">默认排序</a>
       </div>
       <div class="@if(!empty($request['price'])) sort_current @endif sort_details f_l price_sort">
-        <a href="{{$sort.$symbol.$price}}">价格由高到低</a>
+        <a href="{{$sort.$symbol.$price}}">
+        @if(empty($request['price']))价格由高到低
+        @elseif($request['price']=='desc')价格由高到低
+        @else 价格由低到高
+        @endif
+        </a>
       </div>
     </div>

@@ -1,7 +1,11 @@
 @extends('shop.layout.layout')
-@section('title', '商城列表页')
+@if(request()->getPathInfo() == '/furniture')
+@section('title', '办公家具列表页')
+@elseif(request()->getPathInfo() == '/computers')
+@section('title', '办公设备列表页')
+@endif
 @section('header')
-    <link rel="stylesheet" href="/css/shop_list_worktool1.css">
+    <link rel="stylesheet" href="{{shopRes('/css/shop_list_worktool1.css')}}">
 @endsection
 @section('body')
     @include('shop.header')
@@ -25,13 +29,13 @@
             @endforeach
             @else
             <li class="list_nothing">
-                <img src="/shop_img/coming_soon.jpg" alt="">
+                <img src="{{shopRes('/shop_img/coming_soon.jpg')}}" alt="">
             </li>
              @endif
             </ul>
         </div>
     </div>
-    @include('home.footer')
+    @include('shop.footer')
 @endsection
 @section('script')
 @endsection

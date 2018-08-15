@@ -1,12 +1,15 @@
 @extends('shop.layout.layout')
-@section('title', '办公家具')
+@section('title', '办公家具详情')
 @section('header')
-    <link rel="stylesheet" href="/css/shop_pantai.css">
+    <link rel="stylesheet" href="{{shopRes('/css/shop_pantai.css')}}">
 @endsection
 @section('body')
   @include('shop.header')
   @include('shop.layout.nav')
   <div class="proscenium_container">
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
     <!-- banner部分 -->
     <div class="banner">
       <div class="title">办公家具 (沙发)</div>
@@ -30,7 +33,7 @@
           </div>
         </div>
         <div class="colors">
-          <img src="/shop_img/colors.jpg" alt="">
+          <img src="{{shopRes('/shop_img/colors.jpg')}}" alt="">
         </div>
       </div>
       <div class="annotation">注：更多桌面色卡可直接拨打4000-580-888咨询</div>
@@ -49,14 +52,14 @@
       <div class="title">产品展示</div>
       <div class="products">
         <div class="left">
-          <img src="/shop_img/sofa_show1.jpg" alt="">
+          <img src="{{shopRes('/shop_img/sofa_show1.jpg')}}" alt="">
         </div>
         <div class="right">
           <div class="right_top">
-            <img src="/shop_img/sofa_show2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/sofa_show2.jpg')}}" alt="">
           </div>
           <div class="right_bottom">
-            <img src="/shop_img/sofa_show3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/sofa_show3.jpg')}}" alt="">
           </div>
         </div>
       </div>
@@ -70,15 +73,15 @@
       </div>
       <div class="materails">
         <div class="item">
-          <img src="/shop_img/material1.png" alt="">
+          <img src="{{shopRes('/shop_img/material1.png')}}" alt="">
           <div class="item_name">原料</div>
         </div>
         <div class="item">
-          <img src="/shop_img/material2.png" alt="">
+          <img src="{{shopRes('/shop_img/material2.png')}}" alt="">
           <div class="item_name">实木颗粒</div>
         </div>
         <div class="item">
-          <img src="/shop_img/material3.png" alt="">
+          <img src="{{shopRes('/shop_img/material3.png')}}" alt="">
           <div class="item_name">高密度压制</div>
         </div>
       </div>
@@ -88,7 +91,7 @@
       <div class="title">专业包装+多层保护</div>
       <div class="eng_title">Professional packaging & Multi layer protection</div>
       <div class="packing_steps">
-        <img src="/shop_img/packing_steps.jpg" alt="">
+        <img src="{{shopRes('/shop_img/packing_steps.jpg')}}" alt="">
       </div>
     </div>
     <!-- 服务流程 -->
@@ -96,27 +99,27 @@
       <div class="title">服务流程</div>
       <div class="serve_box">
         <div class="serve_step">
-          <img src="/shop_img/serve_step1.jpg" alt="">
+          <img src="{{shopRes('/shop_img/serve_step1.jpg')}}" alt="">
           <div class="serve_step_name">01 网上了解您的需求</div>
         </div>
         <div class="serve_step">
-          <img src="/shop_img/serve_step2.jpg" alt="">
+          <img src="{{shopRes('/shop_img/serve_step2.jpg')}}" alt="">
           <div class="serve_step_name">02 设计师上门洽谈</div>
         </div>
         <div class="serve_step">
-          <img src="/shop_img/serve_step3.jpg" alt="">
+          <img src="{{shopRes('/shop_img/serve_step3.jpg')}}" alt="">
           <div class="serve_step_name">03 实地参考考察</div>
         </div>
         <div class="serve_step">
-          <img src="/shop_img/serve_step4.jpg" alt="">
+          <img src="{{shopRes('/shop_img/serve_step4.jpg')}}" alt="">
           <div class="serve_step_name">04 整体预算</div>
         </div>
         <div class="serve_step">
-          <img src="/shop_img/serve_step5.jpg" alt="">
+          <img src="{{shopRes('/shop_img/serve_step5.jpg')}}" alt="">
           <div class="serve_step_name">05 安装交付</div>
         </div>
         <div class="serve_step">
-          <img src="/shop_img/serve_step6.jpg" alt="">
+          <img src="{{shopRes('/shop_img/serve_step6.jpg')}}" alt="">
           <div class="serve_step_name">06 增值服务</div>
         </div>
       </div>
@@ -131,7 +134,7 @@
       <div class="tellent_contents">
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/proscenium1.jpg" alt="">
+            <img src="{{shopRes('/shop_img/proscenium1.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">High quality</div>
@@ -146,7 +149,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/proscenium2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/proscenium2.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Low price</div>
@@ -161,7 +164,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/proscenium3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/proscenium3.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Intimate service</div>
@@ -176,7 +179,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/proscenium4.jpg" alt="">
+            <img src="{{shopRes('/shop_img/proscenium4.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Rest assured after sale</div>
@@ -193,9 +196,10 @@
     </div>
   </div>
   <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-    <img src="/shop_img/index_better.jpg" alt="">
+    <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
   </div>
-  @include('home.footer')
+  @include('shop.footer')
 @endsection
 @section('script')
+  <script src="{{shopRes('/js/shop_slideBar.js')}}"></script>
 @endsection

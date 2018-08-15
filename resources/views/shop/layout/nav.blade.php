@@ -20,6 +20,9 @@
     @elseif(request()->getPathInfo() == '/plants/5')
     <a href="{{url('/plants')}}"><div class="index">绿植单品</div></a>&nbsp; > &nbsp;
     <div>也铁门</div>
+    @elseif(request()->getPathInfo() == '/plants/6')
+    <a href="{{url('/plants')}}"><div class="index">绿植单品</div></a>&nbsp; > &nbsp;
+    <div>袖珍椰子</div>
     @elseif(request()->getPathInfo() == '/computers/1')
     <a href="{{url('/computers')}}"><div class="index">办公设备</div></a>&nbsp; > &nbsp;
     <div>一体机</div>

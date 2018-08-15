@@ -117,7 +117,6 @@ module.exports = {
       'shop_list_worktool1',
       'shop_list_plants',
       'shop_rent_car',
-      'shop_zc',
       'shop_finance',
       'shop_serviceList',
       'shop_plant_rent',
@@ -129,9 +128,9 @@ module.exports = {
     ],
     js: [
       'shop_index',
-      'shop_zc',
       'shop_serveList',
-      'shop_pantai'
+      'shop_pantai',
+      'shop_slideBar'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

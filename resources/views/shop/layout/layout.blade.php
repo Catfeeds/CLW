@@ -17,8 +17,8 @@
 </head>
 <body>
 @yield('body')
-<script src="/js/shop_manifest.js"></script>
-<script src="/js/shop_vendor.js"></script>
+<script src="{{shopRes('/js/shop_manifest.js')}}"></script>
+<script src="{{shopRes('/js/shop_vendor.js')}}"></script>
 @yield('script')
 </body>
 </html>
