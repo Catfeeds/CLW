@@ -950,7 +950,7 @@ body .container .our_tellent .tellent_contents .content .img {
 }
 
 body .container .our_tellent .tellent_contents .content .right_box {
-  padding-top: 17px;
+  padding-top: 10px;
   color: #333;
 }
 
@@ -2287,7 +2287,7 @@ body .container .attention .attention_box .attention_item:last-child {
 }
 
 .our_tellent .tellent_contents .content .right_box {
-  padding-top: 17px;
+  padding-top: 10px;
   color: #333;
 }
 
