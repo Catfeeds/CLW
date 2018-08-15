@@ -60,3 +60,30 @@ Route::get('decoration_company',function(){
 Route::get('rent_car',function(){
     return view('shop.rent_car');
 });
+Route::get('zc',function(){
+    return view('shop.zc');
+});
+// 碧玉
+Route::get('plant_rent',function(){
+    return view('shop.plant_rent');
+});
+// 图文快印
+Route::get('printing',function(){
+    return view('shop.printing');
+});
+// 一体机
+Route::get('rent_computer',function(){
+    return view('shop.rent_computer');
+});
+// 前台
+Route::get('proscenium',function(){
+    return view('shop.proscenium');
+});
+// 班台
+Route::get('pantai',function(){
+    return view('shop.pantai');
+});
+// 笔记本电脑
+Route::get('pad',function(){
+    return view('shop.pad');
+});

@@ -22,11 +22,11 @@
               <li>
                 <div class="total_classify"><span>代理记账</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}"><span>小规模记账</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>一般纳税人代理记账</span></a>
+                  <a href="{{url('/business_taxes?id=1')}}"><span>小规模记账</span></a>
+                  <a href="{{url('/business_taxes?id=2')}}"><span>一般纳税人代理记账</span></a>
                 </div>
               </li>
-              <li>
+              <!-- <li>
                 <div class="total_classify"><span>税务代办</span><span>></span></div>
                 <div class="classify_list">
                   <a href="{{url('/business_taxes/1')}}"><span>税收筹划</span></a>
@@ -47,17 +47,17 @@
                   <a href="{{url('/business_taxes/1')}}"><span>专项审计</span></a>
                   <a href="{{url('/business_taxes/1')}}"><span>税审</span></a>
                 </div>
-              </li>
+              </li> -->
               <li>
                 <div class="total_classify"><span>工商代办</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes/1')}}"><span>有限责任公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>外商独资公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>合伙企业注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>个人独资企业注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>公司注册地址</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>分公司注册</span></a>
-                  <a href="{{url('/business_taxes/1')}}"><span>一般人注册地址</span></a>
+                  <a href="{{url('/business_taxes?id=3')}}"><span>有限责任公司注册</span></a>
+                  <!-- <a href="{{url('/business_taxes?id=4')}}"><span>外商独资公司注册</span></a>
+                  <a href="{{url('/business_taxes?id=5')}}"><span>合伙企业注册</span></a>
+                  <a href="{{url('/business_taxes?id=6')}}"><span>个人独资企业注册</span></a>
+                  <a href="{{url('/business_taxes?id=7')}}"><span>公司注册地址</span></a>
+                  <a href="{{url('/business_taxes?id=8')}}"><span>分公司注册</span></a>
+                  <a href="{{url('/business_taxes?id=9')}}"><span>一般人注册地址</span></a> -->
                 </div>
               </li>
             </ul>
@@ -100,14 +100,14 @@
               <li>
                 <div class="total_classify"><span>保洁服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/cleanup')}}"><span>日常保洁</span></a>
-                  <a href="{{url('/cleanup')}}"><span>开荒保洁</span></a>
+                  <a href="{{url('/cleanup?id=1')}}"><span>日常保洁</span></a>
+                  <a href="{{url('/cleanup?id=2')}}"><span>开荒保洁</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify"><span>搬家服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/houseMv')}}"><span>搬家服务</span></a>
+                  <a href="{{url('/cleanup?id=3')}}"><span>搬家服务</span></a>
                 </div>
               </li>
               <li>
@@ -120,13 +120,13 @@
               <li>
                 <div class="total_classify"><span>室内环保</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/cleanup')}}"><span>室内环保</span></a>
+                  <a href="{{url('/cleanup?id=4')}}"><span>室内环保</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify"><span>饮水服务</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/water')}}"><span>桶装水</span></a>
+                  <a href="{{url('/cleanup?id=5')}}"><span>桶装水</span></a>
                 </div>
               </li>
             </ul>
@@ -143,13 +143,13 @@
               <li>
                 <div class="total_classify"><span>室内装修</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/companyDecorat')}}"><span>室内装修</span></a>
+                  <a href="{{url('/companyDecorat?id=1')}}"><span>室内装修</span></a>
                 </div>
               </li>
               <li>
                 <div class="total_classify"><span>综合布线</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/wiring')}}"><span>综合布线</span></a>
+                  <a href="{{url('/companyDecorat?id=2')}}"><span>综合布线</span></a>
                 </div>
               </li>
             </ul>
@@ -199,12 +199,12 @@
                   <a href="{{url('/furniture?labels=47')}}"><span>前台</span></a>
                 </div>
               </li>
-              <li>
+              <!-- <li>
                 <div class="total_classify"><span>办公椅</span><span>></span></div>
                 <div class="classify_list">
                   <a href="{{url('/furniture?labels=48')}}"><span>办公椅</span></a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li class="select_list_aside">
@@ -219,9 +219,9 @@
               <li>
                 <div class="total_classify"><span>图文广告</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/fastPrint')}}"><span>图文快印</span></a>
-                  <a href="{{url('/businessPrint')}}"><span>商务印品</span></a>
-                  <a href="{{url('/businessAds')}}"><span>企业广告</span></a>
+                  <a href="{{url('/fastPrint?id=1')}}"><span>图文快印</span></a>
+                  <!-- <a href="{{url('/fastPrint?id=2')}}"><span>商务印品</span></a>
+                  <a href="{{url('/fastPrint?id=3')}}"><span>企业广告</span></a> -->
                 </div>
               </li>
               <li>
@@ -252,7 +252,7 @@
     <div class="service">
       <div class="head">一站式快捷服务</div>
       <div class="serviceList">
-        <a href="{{url('/business_taxes')}}">
+        <a href="{{url('/business_taxes?id=1')}}">
           <div class="finance">
             <div class="border"></div>
             <div class="up">
@@ -262,7 +262,7 @@
             <div><img src="/shop_img/finance.jpg"></div>
           </div>
         </a>
-        <a href="{{url('/companyDecorat')}}">
+        <a href="{{url('/companyDecorat?id=1')}}">
           <div class="decoration">
             <div class="border"></div>
             <div class="up">
@@ -282,7 +282,7 @@
             <div><img src="/shop_img/furniture.jpg"></div>
           </div>
         </a>
-        <a href="{{url('/cleanup')}}">
+        <a href="{{url('/cleanup?id=1')}}">
           <div class="clean">
             <div class="border"></div>
             <div class="up">
@@ -328,58 +328,70 @@
         <div class="floorTitle">工商财税</div>
       </div>
       <div class="content">
-        <a href="{{url('/business_taxes')}}"><div><img src="/shop_img/index_first.jpg" alt=""></div></a>
+        <a href="{{url('/business_taxes?id=3')}}"><div><img src="/shop_img/index_first.jpg" alt=""></div></a>
         <div class="first_right">
           <div class="small_scale">
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="{{url('/business_taxes?id=1')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">小规模纳税人 代理记账</div>
                 <div class="small_scale_detail">30项代账服务 满足您的账务需求</div>
-                <img src="/shop_img/index_first_01.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_01.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">年度财务报表审计</div>
                 <div class="small_scale_detail">专业财务审计意见，满足第三方的要求</div>
-                <img src="/shop_img/index_first_04.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_04.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="{{url('/business_taxes?id=2')}}">
               <div class="small_scale_up">
                 <div class="small_scale_title">一般纳税人 代理记账</div>
                 <div class="small_scale_detail">五对一 省钱又省心</div>
-                <img src="/shop_img/index_first_02.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_02.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">税审</div>
                 <div class="small_scale_detail">12年专业经验 为您服务</div>
-                <img src="/shop_img/index_first_05.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_05.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
           </div>
           <div class="small_scale">
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">税务筹划</div>
                 <div class="small_scale_detail">为企业提供合法合规财税优惠服务</div>
-                <img src="/shop_img/index_first_03.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_03.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
-            <a href="{{url('/business_taxes/1')}}">
+            <a href="javascript:void(0)">
               <div class="small_scale_up">
                 <div class="small_scale_title">验资报告</div>
                 <div class="small_scale_detail">注会协贴标，正规，专业</div>
-                <img src="/shop_img/index_first_06.jpg" alt="">
+                <img class="pic" src="/shop_img/index_first_06.jpg" alt="">
+                <div>
+                  <img class="notOpen" src="/shop_img/index_not_open.png" >
+                </div>
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -444,16 +456,16 @@
         <div class="floorTitle">入驻服务</div>
       </div>
       <div class="content">
-        <a href="{{url('/cleanup')}}"><img src="/shop_img/index_third_01.jpg" alt=""></a>
+        <a href="{{url('/cleanup?id=4')}}"><img src="/shop_img/index_third_01.jpg" alt=""></a>
         <div class="third_right">
-          <a href="{{url('/cleanup')}}">
+          <a href="{{url('/cleanup?id=1')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_02.jpg" alt="">
               <div class="seconde_work_title">保洁服务</div>
               <div class="seconde_work_detail">日常开荒  全面服务</div>
             </div>
           </a>
-          <a href="{{url('/water')}}">
+          <a href="{{url('/cleanup?id=5')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_03.jpg" alt="">
               <div class="seconde_work_title">桶装水</div>
@@ -467,7 +479,7 @@
               <div class="seconde_work_detail">租赁买卖  品种多样</div>
             </div>
           </a>
-          <a href="{{URL('/houseMv')}}">
+          <a href="{{URL('/cleanup?id=3')}}">
             <div class="seconde_work">
               <img src="/shop_img/index_third_05.jpg" alt="">
               <div class="seconde_work_title">搬家服务</div>
@@ -496,7 +508,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">班台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_02.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_02.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -504,7 +516,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">前台</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_05.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_05.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -514,7 +526,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">办公沙发</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_03.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_03.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -522,7 +534,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">资料柜</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_06.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_06.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -532,7 +544,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">会议桌</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_04.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_04.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -540,7 +552,7 @@
               <div class="small_scale_up">
                 <div class="small_scale_title">办公组合</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
-                <img src="/shop_img/index_four_07.jpg" alt="">
+                <img class="pic" src="/shop_img/index_four_07.jpg" alt="">
               </div>
             </a>
             <div class="small_scale_border"></div>
@@ -569,10 +581,10 @@
               <li>免费方案</li>
               <li>一站式服务</li>
             </ul>
-            <a href="{{url('/companyDecorat')}}"><div class="check">立即查看</div></a>
+            <a href="{{url('/companyDecorat?id=1')}}"><div class="check">立即查看</div></a>
           </div>
         </div>
-        <a href="{{url('/wiring')}}">
+        <a href="{{url('/companyDecorat?id=2')}}">
           <div class="fiveRight">
             <div class="fiveRightTitle">综合布线</div>
             <ul>
@@ -676,10 +688,10 @@
           <div class="modeFirst">
             <a href="{{url('/plants/1')}}">
               <div class="modeBox">
-                <div class="modeTitle">碧玉 绿植盆栽租赁</div>
+                <div class="modeTitle">金钱树 绿植盆栽租赁</div>
                 <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 25/月</div>
                   <div><img src="/shop_img/index_sale_plants_02.jpg" alt=""></div>
                 </div>
               </div>
@@ -687,9 +699,9 @@
             <a href="{{url('/plants/2')}}">
               <div class="modeBox">
                 <div class="modeTitle">红掌水培植物</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 15/月</div>
                   <div><img src="/shop_img/index_sale_plants_03.jpg" alt=""></div>
                 </div>
               </div>
@@ -698,8 +710,8 @@
           <a href="{{url('/plants/3')}}">
             <div class="modelSecond">
               <div class="modeTitle">发财树 绿植盆栽租赁</div>
-              <div class="modeDetail">专属定制 低价高效</div>
-              <div class="unitPrice">¥ 99/月</div>
+              <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
+              <div class="unitPrice">¥ 30/月</div>
               <div><img src="/shop_img/index_sale_plants_04.jpg" alt=""></div>
             </div>
           </a>
@@ -707,20 +719,20 @@
             <a href="{{url('/plants/4')}}">
               <div class="modeBox">
                 <div class="modeTitle">幸福树 绿植盆栽租赁</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_plants_05.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 80/月</div>
                 </div>
               </div>
             </a>
             <a href="{{url('/plants/5')}}">
               <div class="modeBox">
                 <div class="modeTitle">也铁门 绿植盆栽租赁</div>
-                <div class="modeDetail">方寸间 乐趣全开</div>
+                <div class="modeDetail">防辐射，净化甲醛，二甲苯，二手烟</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_plants_06.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 99/月</div>
+                  <div class="unitPrice">¥ 12/月</div>
                 </div>
               </div>
             </a>

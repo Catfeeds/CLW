@@ -22,7 +22,7 @@ class LabelsRepository extends Model
             'name' => $request->name,
             'stage' => $request->stage,
             'img' => $request->img,
-            'show' => $request->show
+            'show' => $request->show??1
         ]);
     }
 
@@ -34,7 +34,7 @@ class LabelsRepository extends Model
         $label->name = $request->name;
         $label->stage = $request->stage;
         $label->img = $request->img;
-        $label->show = $request->show;
+        $label->show = $request->show??1;
         if (!$label->save()) return false;
         return true;
     }

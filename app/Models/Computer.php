@@ -30,7 +30,7 @@ class Computer extends Model
                 'goods_id' => $this->id,
             ])->delete();
 
-            // 删除电脑租售商品
+            // 删除办公设备商品
             self::where('id', $this->id)->delete();
 
             \DB::commit();

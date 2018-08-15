@@ -1,6 +1,6 @@
 <!-- 头部面包屑导航 -->
 <div class="graybox top_link">
-      <a href="{{url()->current()}}" class="home_page">首页</a>
+      <a href="{{url('/')}}" class="home_page">首页</a>
       <span class="top_arrow">></span>
       <span class="current_page">{{$labelData['name']}}</span>
     </div>
