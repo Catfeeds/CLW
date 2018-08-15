@@ -49,7 +49,7 @@
     <div class="moving_serve">
       <div class="title">我们能做什么</div>
     </div>
-    <div class="provides">
+    <div class="provides_move">
       <div class="provides_box">
         <div class="provides_title" style="font-weight:300">如何实现企业轻松搬迁？</div>
         <div class="border"></div>

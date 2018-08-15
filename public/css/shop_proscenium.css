@@ -768,7 +768,6 @@ body .proscenium_container {
 body .proscenium_container .banner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/proscenium_back.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 170px;

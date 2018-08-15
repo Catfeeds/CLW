@@ -9,7 +9,7 @@
 @section('title', '图文广告列表页')
 @endif
 @section('header')
-    <link rel="stylesheet" href="/css/shop_serviceList.css">
+    <link rel="stylesheet" href="{{shopRes('/css/shop_serviceList.css')}}">
 @endsection
 @section('body')
 @include('shop.header')
@@ -156,5 +156,5 @@
     @include('shop.footer')
 @endsection
 @section('script')
-<script src='/js/shop_serveList.js'></script>
+<script src="{{shopRes('/js/shop_serveList.js')}}"></script>
 @endsection
