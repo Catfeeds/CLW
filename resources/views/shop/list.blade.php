@@ -1,7 +1,7 @@
 @extends('shop.layout.layout')
 @section('title', '绿植租摆列表页')
 @section('header')
-    <link rel="stylesheet" href="/css/shop_list_worktool.css">
+    <link rel="stylesheet" href="{{shopRes('/css/shop_list_worktool.css')}}">
 @endsection
 @section('body')
     @include('shop.header')
@@ -25,7 +25,7 @@
                 @endforeach
             @else
             <li class="list_nothing">
-                <img src="/shop_img/coming_soon.jpg" alt="">
+                <img src="{{shopRes('/shop_img/coming_soon.jpg')}}" alt="">
             </li>
              @endif
             </ul>
