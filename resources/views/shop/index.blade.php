@@ -532,7 +532,7 @@
             <div class="small_scale_border"></div>
             <a href="{{url('/furniture?labels=45')}}">
               <div class="small_scale_up">
-                <div class="small_scale_title">资料柜</div>
+                <div class="small_scale_title">文件柜</div>
                 <div class="small_scale_detail">品质承诺，上门安装</div>
                 <img class="pic" src="/shop_img/index_four_06.jpg" alt="">
               </div>
@@ -640,7 +640,7 @@
             <div class="modelSecond">
               <div class="modeTitle">优威派克 23.8英寸 一体机</div>
                 <div class="modeDetail">高性能 高性价比 高颜值</div>
-                <div class="unitPrice">¥ 180.00/月</div>
+                <div class="unitPrice">¥ 180/月</div>
                 <div><img src="/shop_img/index_sale_model_04.jpg" alt=""></div>
             </div>
           </a>
@@ -651,7 +651,7 @@
                 <div class="modeDetail">性能卓越 价值非凡</div>
                 <div class="price">
                   <div><img src="/shop_img/index_sale_model_05.jpg" alt=""></div>
-                  <div class="unitPrice">¥ 105.00/月</div>
+                  <div class="unitPrice">¥ 105/月</div>
                 </div>
               </div>
             </a>
