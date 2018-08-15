@@ -11,6 +11,7 @@ new Vue({
 
 var textVal = '日常保洁'
 $('.js_cleanse .banner_title').html('开荒保洁')
+$('.js_cleanse .clean_serve').css('background','url(/shop_img/ressetClean_serve.jpg)')
 // $('.js_register1 .tax_title1').html('外商独资公司注册')
 // $('.js_register2 .tax_title1').html('合伙企业注册')
 // $('.js_register3 .tax_title1').html('个人独资企业注册')

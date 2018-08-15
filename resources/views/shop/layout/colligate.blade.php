@@ -2,7 +2,7 @@
     <div class="decoration_banner"></div>
     <div class="question">
       <div class="question_title">办公室布线的问题</div>
-      <div class="border"></div>
+      <div class="border_collogate"></div>
       <div class="question_box">
         <div class="question_detail">
           <div class="question_img">

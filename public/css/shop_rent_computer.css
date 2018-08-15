@@ -791,7 +791,7 @@ body .rent_conputer_container .computer_propetry .title2 {
   color: #333;
   font-size: 18px;
   font-weight: 300;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
 }
 
 body .rent_conputer_container .computer_propetry .computer_title {
@@ -805,7 +805,7 @@ body .rent_conputer_container .computer_propetry .computer_title .title3 {
   line-height: 30px;
   text-align: center;
   margin: 0 auto;
-  border: 1px solid #999;
+  border: 1px solid #666;
   color: #cd1515;
   font-size: 18px;
   font-family: PingFang-SC-Regular;
