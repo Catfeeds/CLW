@@ -6,7 +6,7 @@
 @section('body')
     @include('shop.header')
     @include('shop.layout.nav')
-    <div class="rentCar_container">
+    <div class="rentCar_container" style="box-sizing:border-box">
       <div class="banner"></div>
       <div class="details">
         <div class="details_box">
@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="model"><span>车型 </span>/MODEL</div>
+        <div class="model"><span>车型 </span>/ MODEL</div>
         <div class="border"></div>
         <div class="brand">
           <img src="/shop_img/car_brand.png" alt="">
@@ -55,7 +55,7 @@
       </div>
       <div class="recommend">
         <div class="title">
-          <span>推荐车型</span>/MODELS
+          <span>推荐车型 </span>/ MODELS
         </div>
         <div class="border"></div>
         <div class="options">

@@ -1646,7 +1646,7 @@ body .container .question .border {
   height: 3px;
   background-color: #007bff;
   margin: 0 auto;
-  margin-bottom: 25px;
+  margin-bottom: 25px !important;
 }
 
 body .container .question .question_describe {
@@ -2697,7 +2697,8 @@ body .container .list_title .title_1 {
   font-size: 70px;
   text-align: center;
   color: #fff;
-  margin-bottom: 65px;
+  margin-bottom: 48px;
+  font-weight: 300;
 }
 
 body .container .list_title .title_2 {
