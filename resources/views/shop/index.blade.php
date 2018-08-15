@@ -781,5 +781,5 @@
   @include('shop.footer')
 @endsection
 @section('script')
-<script src='/js/shop_index.js')}}></script>
+<script src="{{shopRes('/js/shop_index.js')}}"></script>
 @endsection
