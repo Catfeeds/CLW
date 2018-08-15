@@ -1,7 +1,7 @@
 @extends('shop.layout.layout')
 @section('title', '电脑租赁详情')
 @section('header')
-    <link rel="stylesheet" href="/css/shop_rent_computer.css">
+    <link rel="stylesheet" href="{{shopRes('/css/shop_rent_computer.css')}}">
 @endsection
 @section('body')
   @include('shop.header')
@@ -10,7 +10,7 @@
     <div id="appointment">
       <appoint></appoint>
     </div>
-    <div class="banner" style="background:url('/shop_img/detail_computer1.jpg')"></div>
+    <div class="banner" style="background:url('{{shopRes('/shop_img/detail_computer1.jpg')}}')"></div>
     <!-- 电脑性能 -->
     <div class="computer_propetry">
       <div class="title">强大多任务处理能力</div>
@@ -20,7 +20,7 @@
       <div class="computer_title"><div class="title3">轻薄商务笔记本</div></div>
       <div class="propetry">
         <div class="propetry_img" style="padding-top:35px">
-          <img src="/shop_img/detail_computer2.jpg" alt="">
+          <img src="{{shopRes('/shop_img/detail_computer2.jpg')}}" alt="">
         </div>
         <div class="propetry_des" style="margin-left:110px">
           <div class="des">
@@ -58,7 +58,7 @@
     <div class="computer_talent">
       <div class="title">性能过剩的时代，实用主义更具性价比</div>
       <div class="arrow">
-        <img src="/shop_img/computer_arrow.png" alt="">
+        <img src="{{shopRes('/shop_img/computer_arrow.png')}}" alt="">
       </div>
       <div class="form">
         <div class="form_info clearfix">
@@ -88,19 +88,19 @@
       <div class="title" style="margin-bottom:70px;">适用场景</div>
       <div class="pad_scenes">
         <div class="pad_scene">
-          <img src="/shop_img/pad_scene1.jpg" alt="">
+          <img src="{{shopRes('/shop_img/pad_scene1.jpg')}}" alt="">
           <div class="pad_scene_name">影音娱乐</div>
         </div>
         <div class="pad_scene">
-          <img src="/shop_img/pad_scene2.jpg" alt="">
+          <img src="{{shopRes('/shop_img/pad_scene2.jpg')}}" alt="">
           <div class="pad_scene_name">商务出行</div>
         </div>
         <div class="pad_scene">
-          <img src="/shop_img/pad_scene3.jpg" alt="">
+          <img src="{{shopRes('/shop_img/pad_scene3.jpg')}}" alt="">
           <div class="pad_scene_name">移动办公</div>
         </div>
         <div class="pad_scene">
-          <img src="/shop_img/pad_scene4.jpg" alt="">
+          <img src="{{shopRes('/shop_img/pad_scene4.jpg')}}" alt="">
           <div class="pad_scene_name">日常学习</div>
         </div>
       </div>
@@ -114,14 +114,14 @@
       </div>
       <div class="details_box">
         <div class="left">
-          <img src="/shop_img/pad_detail1.jpg" alt="">
+          <img src="{{shopRes('/shop_img/pad_detail1.jpg')}}" alt="">
         </div>
         <div class="right">
           <div class="right_top" style="margin-bottom:17px;">
-            <img src="/shop_img/detail_computer3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/detail_computer3.jpg')}}" alt="">
           </div>
           <div class="right_bottom">
-            <img src="/shop_img/pad_detail3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/pad_detail3.jpg')}}" alt="">
           </div>
         </div>
       </div>
@@ -132,11 +132,11 @@
       <div class="title2">你想要的，就是我们要做的。WIFI蓝牙，喇叭等一应俱全，办公一体机，我们更贴心</div>
       <div class="plant">
         <div class="wifi plant_info" style="margin-right:127px">
-          <img src="/shop_img/computer_wifi.png" alt="">
+          <img src="{{shopRes('/shop_img/computer_wifi.png')}}" alt="">
           <div class="name">内置WIFI  无线上网</div>
         </div>
         <div class="sound plant_info">
-          <img src="/shop_img/computer_sound.png" alt="">
+          <img src="{{shopRes('/shop_img/computer_sound.png')}}" alt="">
           <div class="name" style="margin-top:34px">双扬音器  不再是 “无声机”</div>
         </div>
       </div>
@@ -151,7 +151,7 @@
       <div class="tellent_contents">
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/computer_serve1.jpg" alt="">
+            <img src="{{shopRes('/shop_img/computer_serve1.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Free Delivery</div>
@@ -166,7 +166,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/computer_serve2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/computer_serve2.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Full warranty</div>
@@ -181,7 +181,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/computer_serve3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/computer_serve3.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Follow the rent</div>
@@ -196,7 +196,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/computer_serve4.jpg" alt="">
+            <img src="{{shopRes('/shop_img/computer_serve4.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Deposit free lease</div>
@@ -213,10 +213,10 @@
     </div>
   </div>
   <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-    <img src="/shop_img/index_better.jpg" alt="">
+    <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
   </div>
   @include('shop.footer')
 @endsection
 @section('script')
-  <script src="/js/shop_slideBar.js"></script>
+  <script src="{{shopRes('/js/shop_slideBar.js')}}"></script>
 @endsection
