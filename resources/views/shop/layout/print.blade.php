@@ -4,7 +4,7 @@
     <div class="title">常规打印的<span>苦恼</span></div>
     <div class="troubles">
       <div class="trouble">
-        <img src="/shop_img/print_trounle2.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_trounle2.jpg')}}" alt="">
         <div class="trouble_info">
           <div class="trouble_name">昂贵的打印费</div>
           <div class="trouble_des">
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="trouble">
-        <img src="/shop_img/print_trounle1.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_trounle1.jpg')}}" alt="">
         <div class="trouble_info">
           <div class="trouble_name">字迹模糊，深浅不均</div>
           <div class="trouble_des">
@@ -35,80 +35,80 @@
     </div>
     <div class="choose_details">
       <div class="detail">
-        <img src="/shop_img/print_choose1.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose1.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name ">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">普通打印装订</div>
           </div>
           <div class="info_des">重型订书机，结实不散页，最厚能订300页</div>
         </div>
       </div>
       <div class="detail">
-        <img src="/shop_img/print_choose2.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose2.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name ">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">皮纹纸封面胶装</div>
           </div>
           <div class="info_des">封面无线胶装，更加结实有效保护，封面颜色任选</div>
         </div>
       </div>
       <div class="detail">
-        <img src="/shop_img/print_choose3.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose3.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name ">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">骑马订装订</div>
           </div>
           <div class="info_des">能平翻阅读方便美观</div>
         </div>
       </div>
       <div class="detail">
-        <img src="/shop_img/print_choose4.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose4.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name ">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">书籍压痕</div>
           </div>
           <div class="info_des">书籍压痕，美观易翻阅</div>
         </div>
       </div>
       <div class="detail">
-        <img src="/shop_img/print_choose5.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose5.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name ">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">铜版纸胶装</div>
           </div>
           <div class="info_des">铜版纸彩色精美封面</div>
         </div>
       </div>
       <div class="detail">
-        <img src="/shop_img/print_choose6.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose6.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name ">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">硫酸纸隔页</div>
           </div>
           <div class="info_des">品质视觉效果佳</div>
         </div>
       </div>
       <div class="detail">
-        <img src="/shop_img/print_choose7.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose7.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">办公室夹条</div>
           </div>
           <div class="info_des">美观易翻阅</div>
         </div>
       </div>
       <div class="detail">
-        <img src="/shop_img/print_choose8.jpg" alt="">
+        <img src="{{shopRes('/shop_img/print_choose8.jpg')}}" alt="">
         <div class="detail_info">
           <div class="info_name">
-            <img src="/shop_img/checked.png" alt="">
+            <img src="{{shopRes('/shop_img/checked.png')}}" alt="">
             <div class="name">圈装</div>
           </div>
           <div class="info_des">能平展翻阅手感好</div>
@@ -189,10 +189,10 @@
   <div class="serve_detail">
     <div class="title">好的服务细节不怕放大与比较</div>
     <div class="img_box">
-      <img src="/shop_img/printing_bottom.jpg" alt="">
+      <img src="{{shopRes('/shop_img/printing_bottom.jpg')}}" alt="">
     </div>
   </div>
   <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-    <img src="/shop_img/index_better.jpg" alt="">
+    <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
   </div>
 </div>

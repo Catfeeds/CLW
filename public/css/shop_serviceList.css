@@ -3516,7 +3516,7 @@ body .container .list_step .steps .step:last-child {
 
 .select_area .select_option .select_details .select_detail {
   width: 75px;
-  text-align: center;
+  text-align: left;
 }
 
 .select_area .select_option .select_details .select_detail a {

@@ -12,8 +12,8 @@
     <div class="border"></div>
     <div class="train_describe">理论+实操+礼仪+不定期培训 提升阿姨服务水平</div>
     <div class="train_box">
-      <div class="train_detail"><img src="/shop_img/clean_train1.jpg" alt=""></div>
-      <div class="train_detail"><img src="/shop_img/clean_train2.jpg" alt=""></div>
+      <div class="train_detail"><img src="{{shopRes('/shop_img/clean_train1.jpg')}}" alt=""></div>
+      <div class="train_detail"><img src="{{shopRes('/shop_img/clean_train2.jpg')}}" alt=""></div>
     </div>
   </div>
   <!-- 专业清洁工具 -->
@@ -35,7 +35,7 @@
       </ol>
     </div>
     <div class="img_box f_r">
-      <img src="/shop_img/clean_tool.png" alt=""> 
+      <img src="{{shopRes('/shop_img/clean_tool.png')}}" alt=""> 
     </div> 
   </div>
   <!-- 服务项目 -->
@@ -50,7 +50,7 @@
     <div class="tellent_contents">
       <div class="content clearfix">
         <div class="img f_l">
-          <img src="/shop_img/clean_telent1.jpg" alt="">
+          <img src="{{shopRes('/shop_img/clean_telent1.jpg')}}" alt="">
         </div>
         <div class="right_box f_l">
           <div class="eng">Professional training</div>
@@ -65,7 +65,7 @@
       </div>
       <div class="content clearfix">
         <div class="img f_l">
-          <img src="/shop_img/clean_telent2.jpg" alt="">
+          <img src="{{shopRes('/shop_img/clean_telent2.jpg')}}" alt="">
         </div>
         <div class="right_box f_l">
           <div class="eng">Indemnity for damaged goods</div>
@@ -80,7 +80,7 @@
       </div>
       <div class="content clearfix">
         <div class="img f_l">
-          <img src="/shop_img/clean_telent3.jpg" alt="">
+          <img src="{{shopRes('/shop_img/clean_telent3.jpg')}}" alt="">
         </div>
         <div class="right_box f_l">
           <div class="eng">Refusing the waste of resources</div>
@@ -95,7 +95,7 @@
       </div>
       <div class="content clearfix">
         <div class="img f_l">
-          <img src="/shop_img/clean_telent4.jpg" alt="">
+          <img src="{{shopRes('/shop_img/clean_telent4.jpg')}}" alt="">
         </div>
         <div class="right_box f_l">
           <div class="eng">Signing a guarantee contract</div>

@@ -97,7 +97,7 @@
       </div>
       <div class="plant_put">
         <div class="title">摆放场景</div>
-        <div class="title2">幸福树适合巧妙搭配去装扮办公室，让办公室充满浪漫怡我们的色彩，成为靓丽的一道风景线!</div>
+        <div class="title2">幸福树适合巧妙搭配去装扮办公室，让办公室充满浪漫的色彩，成为靓丽的一道风景线!</div>
         <div class="plants_img">
           <img src="{{shopRes('/shop_img/plants_img_happiness2.jpg')}}" alt="">
           <img src="{{shopRes('/shop_img/plants_img_happiness3.jpg')}}" alt="">

@@ -30,7 +30,7 @@
         <div class="step_title">5步快速注册 <span>全程代办</span></div>
         <div class="step_describe">创业楚楼网代办,省下时间办正事</div>
         <div class="step_img">
-          <img src="/shop_img/steps.png" alt="">
+          <img src="{{shopRes('/shop_img/steps.png')}}" alt="">
         </div>
       </div>
       <div class="provides">
@@ -63,7 +63,7 @@
       </div>
       <div class="gets">
         <div class="arrow_down">
-          <img src="/shop_img/arrow_down.png" alt="">
+          <img src="{{shopRes('/shop_img/arrow_down.png')}}" alt="">
         </div>
         <div class="get_title">
           <div class="get_title">您能得到的材料</div>
@@ -73,19 +73,19 @@
           <div class="gets_detail">
             <div class="gets_title">营业执照</div>
             <div class="gets_content">
-              <img src="/shop_img/register_gets1.jpg" alt="">
+              <img src="{{shopRes('/shop_img/register_gets1.jpg')}}" alt="">
             </div>
           </div>
           <div class="gets_detail">
             <div class="gets_title" style="background-color:#f2746d">企业统一社会信用代码证明/公司章程</div>
             <div class="gets_content">
-              <img src="/shop_img/register_gets2.jpg" alt="">
+              <img src="{{shopRes('/shop_img/register_gets2.jpg')}}" alt="">
             </div>
           </div>
           <div class="gets_detail">
             <div class="gets_title" style="background-color:#f49951">公司印章及印鉴留存卡</div>
             <div class="gets_content">
-              <img src="/shop_img/register_gets3.jpg" alt="">
+              <img src="{{shopRes('/shop_img/register_gets3.jpg')}}" alt="">
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@
         <div class="search_box">
           <div class="search_detail">
             <div class="img_box">
-              <img src="/shop_img/search_detail1.png" alt="">
+              <img src="{{shopRes('/shop_img/search_detail1.png')}}" alt="">
             </div>
             <div class="detail_title">
               进入官网,在导航出点击<br />所在省份或直辖市
@@ -104,7 +104,7 @@
           </div>
           <div class="search_detail">
             <div class="img_box">
-              <img src="/shop_img/search_detail2.png" alt="">
+              <img src="{{shopRes('/shop_img/search_detail2.png')}}" alt="">
             </div>
             <div class="detail_title">
               在查询处输入您的企业注册名称
@@ -112,7 +112,7 @@
           </div>
           <div class="search_detail">
             <div class="img_box">
-              <img src="/shop_img/search_detail3.png" alt="">
+              <img src="{{shopRes('/shop_img/search_detail3.png')}}" alt="">
             </div>
             <div class="detail_title">
               查询后跳转查询结果
@@ -120,7 +120,7 @@
           </div>
           <div class="search_detail">
             <div class="img_box">
-              <img src="/shop_img/search_detail4.png" alt="">
+              <img src="{{shopRes('/shop_img/search_detail4.png')}}" alt="">
             </div>
             <div class="detail_title">
               点击您的公司名称可知晓详细信息
@@ -133,7 +133,7 @@
           <div class="title" style="font-weight:300">公司注册的重要性</div>
           <div class="border"></div>
           <div class="content">
-            <img src="/shop_img/importance.png" alt="">
+            <img src="{{shopRes('/shop_img/importance.png')}}" alt="">
           </div>
         </div>
       </div>
@@ -142,6 +142,6 @@
       </div>
       @include('shop.layout.list_common')
       <div class="footer_banner" style="text-align:center">
-        <img src="/shop_img/index_better.jpg" alt="">
+        <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
       </div>
     </div>

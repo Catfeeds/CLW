@@ -772,7 +772,7 @@ body footer .bottom .friend_link a {
 
 .select_area .select_option .select_details .select_detail {
   width: 75px;
-  text-align: center;
+  text-align: left;
 }
 
 .select_area .select_option .select_details .select_detail a {

@@ -12,7 +12,7 @@
   <div class="tellent_contents">
     <div class="content clearfix">
       <div class="img f_l">
-        <img src="/shop_img/tellent1.jpg" alt="">
+        <img src="{{shopRes('/shop_img/tellent1.jpg')}}" alt="">
       </div>
       <div class="right_box f_l">
         <div class="eng">Worr  about  refund</div>
@@ -27,7 +27,7 @@
     </div>
     <div class="content clearfix">
       <div class="img f_l">
-        <img src="/shop_img/tellent2.jpg" alt="">
+        <img src="{{shopRes('/shop_img/tellent2.jpg')}}" alt="">
       </div>
       <div class="right_box f_l">
         <div class="eng">Price transparency</div>
@@ -42,7 +42,7 @@
     </div>
     <div class="content clearfix">
       <div class="img f_l">
-        <img src="/shop_img/tellent3.jpg" alt="">
+        <img src="{{shopRes('/shop_img/tellent3.jpg')}}" alt="">
       </div>
       <div class="right_box f_l">
         <div class="eng">System management</div>
@@ -58,7 +58,7 @@
     </div>
     <div class="content clearfix">
       <div class="img f_l">
-        <img src="/shop_img/tellent4.jpg" alt="">
+        <img src="{{shopRes('/shop_img/tellent4.jpg')}}" alt="">
       </div>
       <div class="right_box f_l">
         <div class="eng">Process formalities are formal</div>
