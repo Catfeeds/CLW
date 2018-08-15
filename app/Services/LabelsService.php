@@ -122,8 +122,14 @@ class LabelsService
 
     )
     {
+        if ($request->price) {
+            $res = $model::orderBy('price', $request->price);
+        } else {
+            $res = $model::orderby('created_at', 'desc');
+        }
+
         if (empty($request->labels)) {
-            $goods = $model::paginate(10);
+            $goods = $res->paginate(10);
         } else {
             // 获取标签数据
             $goodsIds = GoodsHasLabel::where('goods_type', $model)->whereIn('label_id', $request->labels)->pluck('goods_id')->toArray();
@@ -132,8 +138,7 @@ class LabelsService
             foreach ($counts as $id => $n) {
                 if ($n == count($request->labels)) $ids[] = $id;
             }
-
-            $goods = $model::whereIn('id', $ids)->paginate(10);
+            $goods = $res->whereIn('id', $ids)->paginate(10);
         }
 
         return $goods;
