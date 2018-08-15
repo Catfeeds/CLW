@@ -1,4 +1,4 @@
-@extends('home.layouts.layout')
+@extends('shop.layout.layout')
 @section('title', '金融支持')
 @section('header')
     <link rel="stylesheet" href="/css/shop_finance.css">
@@ -7,6 +7,9 @@
   @include('shop.header')
   @include('shop.layout.nav')
   <div class="finance_container">
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
     <div class="banner"></div>
     <div class="serves">
       <div class="title">服务内容</div>
@@ -63,4 +66,5 @@
   @include('shop.footer')
 @endsection
 @section('script')
+<script src="/js/shop_slideBar.js"></script>
 @endsection

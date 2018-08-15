@@ -1,4 +1,4 @@
-@extends('home.layouts.layout')
+@extends('shop.layout.layout')
 @section('title', '豪车租赁')
 @section('header')
     <link rel="stylesheet" href="/css/shop_rent_car.css">
@@ -7,6 +7,9 @@
     @include('shop.header')
     @include('shop.layout.nav')
     <div class="rentCar_container" style="box-sizing:border-box">
+      <div id="appointment">
+        <appoint></appoint>
+      </div>
       <div class="banner"></div>
       <div class="details">
         <div class="details_box">
@@ -124,4 +127,5 @@
     @include('shop.footer')
 @endsection
 @section('script')
+  <script src="/js/shop_slideBar.js"></script>
 @endsection

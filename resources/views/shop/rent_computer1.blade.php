@@ -7,6 +7,9 @@
   @include('shop.header')
   @include('shop.layout.nav')
   <div class="rent_conputer_container">
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
     <div class="banner" style="background:url('/shop_img/detail_computer1.jpg')"></div>
     <!-- 电脑性能 -->
     <div class="computer_propetry">
@@ -215,4 +218,5 @@
   @include('shop.footer')
 @endsection
 @section('script')
+  <script src="/js/shop_slideBar.js"></script>
 @endsection

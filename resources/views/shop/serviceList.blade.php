@@ -149,6 +149,9 @@
         @include('shop.layout.print')
       </div>
       @endif
+      <div id="appointment">
+        <appoint></appoint>
+      </div>
     </div>
     @include('shop.footer')
 @endsection

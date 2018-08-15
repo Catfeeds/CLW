@@ -14,6 +14,13 @@
 @import 'shop_common_area';
 body {
   background-color: #fff;
+  #appointment {
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    top:50%;
+    margin-top: -120.5px;
+  }
   .list_container { // 列表盒子
     width:$master-width;
     margin: 0 auto;

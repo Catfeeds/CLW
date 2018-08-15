@@ -323,6 +323,14 @@ select {
   cursor: pointer;
 }
 
+#appointment {
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -120.5px;
+}
+
 .b_white {
   background-color: #fff;
 }
@@ -3599,6 +3607,14 @@ body .container .list_step .steps .step:last-child {
 
 body {
   background-color: #fff;
+}
+
+body #appointment {
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -120.5px;
 }
 
 body .list_container {
