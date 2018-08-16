@@ -121,6 +121,16 @@
           width: 187px;
           height: 187px;
           margin-right: 119px;
+          line-height: 187px;
+          text-align: center;
+          .step_info {
+            display: inline-block;
+            line-height: 33px;
+            color:#414143;
+            vertical-align: middle;
+            letter-spacing: -1px;
+            font-size: 20px;
+          }
         }
       }
     }

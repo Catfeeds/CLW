@@ -81,13 +81,30 @@
   </div>
   <div class="border"></div>
   <div class="steps">
-    <div class="step" style="background: url('{{shopRes('/shop_img/first.png')}}') no-repeat center;">
+    <div class="step" style="background: url('{{shopRes('/shop_img/step_one.png')}}') no-repeat center;">
+      <div class="step_info info_1">
+      下单前可<br>
+      免费咨询
+      </div>
     </div>
-    <div class="step" style="background: url('{{shopRes('/shop_img/second.png')}} no-repeat center;">
+    <div class="step" style="background: url('{{shopRes('/shop_img/step_two.png')}} no-repeat center;">
+      <div class="step_info info_2">
+      提供资料，出具<br>
+      专业财税方案
+      </div>
     </div>
-    <div class="step" style="background: url('{{shopRes('/shop_img/third.png')}} no-repeat center;">
+    <div class="step" style="background: url('{{shopRes('/shop_img/step_three.png')}} no-repeat center;">
+      <div class="step_info info_3">
+      完成报税，<br>
+      记账，所得税汇算<br>
+      等服务
+      </div>
     </div>
-    <div class="step" style="background: url('{{shopRes('/shop_img/fouth.png')}} no-repeat center;">
+    <div class="step" style="background: url('{{shopRes('/shop_img/step_four.png')}}') no-repeat center;margin-right:0">
+      <div class="step_info info_4">
+      返还客户报<br>
+      税凭证及报
+      </div>
     </div>
   </div>
 </div>
