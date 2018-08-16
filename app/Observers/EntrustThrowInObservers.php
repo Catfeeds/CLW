@@ -27,6 +27,13 @@ class EntrustThrowInObservers {
             if ($entrustThrowIn->demand == 2) {
                 curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
             }
+
+            //如果是企业服务
+            if ($entrustThrowIn->demand == 3) {
+                $openid = $class->getOpenid(4);
+                $data['openid'] = json_encode($openid);
+                curl(config('setting.wechat_url').'/service_notice','post',$data);
+            }
         }
     }
 }
