@@ -132,7 +132,7 @@
         </div>
       </div>
       <div class="tellent_contents">
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium1.jpg')}}" alt="">
           </div>
@@ -147,7 +147,7 @@
             </div>
           </div>
         </div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium2.jpg')}}" alt="">
           </div>
@@ -162,7 +162,7 @@
             </div>
           </div>
         </div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium3.jpg')}}" alt="">
           </div>
@@ -177,7 +177,7 @@
             </div>
           </div>
         </div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium4.jpg')}}" alt="">
           </div>
