@@ -6809,7 +6809,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     success: function success(res) {
                         if (res.success) {
                             __WEBPACK_IMPORTED_MODULE_7_sweetalert2___default()({
-                                title: '预约成功，楚楼网10分钟内联系您',
+                                title: '预约成功',
+                                text: '楚楼网10分钟内联系您',
                                 type: 'success',
                                 timer: 3000,
                                 showConfirmButton: false

@@ -84,7 +84,8 @@ var type = $("#commentForm").validate({
       factorFindHouse(data).then(res => {
         if (res.success) {
           sweetalert({
-            title: '委托成功，楚楼网10分钟内联系您',
+            title: '委托成功',
+            text: '楚楼网10分钟内联系您',
             type: 'success',
             timer: 3000,
             showConfirmButton: false

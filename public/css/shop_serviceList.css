@@ -340,6 +340,15 @@ select {
   background-color: #f4f4f4;
 }
 
+.swal2-popup {
+  width: 24em !important;
+  padding-bottom: 2.5em !important;
+}
+
+.swal2-title {
+  color: #333 !important;
+}
+
 .header {
   position: fixed;
   z-index: 10;
@@ -2421,7 +2430,6 @@ body .container .attention .attention_box .attention_item:last-child {
 .print_container .banner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/print_banner.jpg) no-repeat center;
 }
 
 .print_container .print_trub {
@@ -2429,7 +2437,6 @@ body .container .attention .attention_box .attention_item:last-child {
   height: 768px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: url(/shop_img/print_trouble_back.jpg) no-repeat center;
 }
 
 .print_container .print_trub .title {
@@ -2591,7 +2598,6 @@ body .container .attention .attention_box .attention_item:last-child {
   height: 655px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: url(/shop_img/you_choose_back.jpg) no-repeat center;
   padding-top: 100px;
 }
 

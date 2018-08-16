@@ -47,7 +47,8 @@ export default {
                 success: function(res) {
                     if(res.success) {
                         sweetalert({
-                            title: '预约成功，楚楼网10分钟内联系您',
+                            title: '预约成功',
+                            text: '楚楼网10分钟内联系您',
                             type: 'success',
                             timer: 3000,
                             showConfirmButton: false
