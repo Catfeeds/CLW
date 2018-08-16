@@ -825,7 +825,7 @@ body footer .bottom .friend_link a {
 }
 
 .select_area .brand_select .brands .active {
-  border: 2px solid #e23a3c;
+  border: 2px solid #e23a3c !important;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
