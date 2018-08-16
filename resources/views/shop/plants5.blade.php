@@ -61,8 +61,7 @@
               <div class="border"></div>
               <img src="{{shopRes('/shop_img/star4.png')}}" alt="">
               <div class="detail_do">
-                20~28°为宜<br>
-                冬季室温不低于8°
+                摆在良好的通风处
               </div>
             </div>
             <div class="detail">
@@ -97,7 +96,7 @@
       </div>
       <div class="plant_put" style="background: url('{{shopRes('/shop_img/plant_out.jpg')}}') no-repeat center;">
         <div class="title">摆放场景</div>
-        <div class="title2">也铁门适合摆放在办公室各个位置，雅气十足，形态飘逸，这种植物针对吸收室内空气中甲醛、二甲苯的效果也是非常好，装修选择这种植物是不错的选择。</div>
+        <div class="title2">袖珍椰子适合摆放在办公室各个位置，雅气十足，形态飘逸，这种植物针对吸收室内空气中甲醛、二甲苯的效果也是非常好，装修选择这种植物是不错的选择。</div>
         <div class="plants_img">
           <img src="{{shopRes('/shop_img/plants_img9.jpg')}}" alt="">
           <img src="{{shopRes('/shop_img/plants_img10.jpg')}}" alt="">

@@ -61,8 +61,7 @@
               <div class="border"></div>
               <img src="{{shopRes('/shop_img/star4.png')}}" alt="">
               <div class="detail_do">
-                20~28°为宜<br>
-                冬季室温不低于8°
+              摆在良好的通风处
               </div>
             </div>
             <div class="detail">
