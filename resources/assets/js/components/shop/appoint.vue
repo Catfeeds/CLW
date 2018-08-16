@@ -3,7 +3,7 @@
     <div class="appoint">
       <div class="title">免费预约</div>
       <input type="text" placeholder="请输入手机号" v-model="tel"/>
-      <button @click="getVal">立即预约</button>
+      <button @click="getVal" class="btn">立即预约</button>
     </div>
     <div class="tel">
       <div class="icon_tel">
@@ -128,6 +128,17 @@ export default {
         color:#fff;
         text-align: center;
         cursor: pointer;
+      }
+      .btn:hover {
+        animation: btn 0.2s forwards;
+      }
+    }
+    @keyframes btn {
+      from {
+        transform: translate(0,0);
+      }
+      to {
+        transform: translate(0,-2px)
       }
     }
     .tel {
