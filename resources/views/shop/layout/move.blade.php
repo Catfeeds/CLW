@@ -6,7 +6,7 @@
       <div class="reasons">
         <div class="reason">
           <div class="img_box">
-            <img src="/shop_img/reason1.png" alt="">
+            <img src="{{shopRes('/shop_img/reason1.png')}}" alt="">
           </div>
           <div class="reason_title">急速响应</div>
           <div class="reason_des">
@@ -16,7 +16,7 @@
         </div>
         <div class="reason">
           <div class="img_box">
-            <img src="/shop_img/reason2.png" alt="">
+            <img src="{{shopRes('/shop_img/reason2.png')}}" alt="">
           </div>
           <div class="reason_title">低价透明</div>
           <div class="reason_des">
@@ -26,7 +26,7 @@
         </div>
         <div class="reason">
           <div class="img_box">
-            <img src="/shop_img/reason3.png" alt="">
+            <img src="{{shopRes('/shop_img/reason3.png')}}" alt="">
           </div>
           <div class="reason_title">运力充足</div>
           <div class="reason_des">
@@ -36,7 +36,7 @@
         </div>
         <div class="reason">
           <div class="img_box">
-            <img src="/shop_img/reason4.png" alt="">
+            <img src="{{shopRes('/shop_img/reason4.png')}}" alt="">
           </div>
           <div class="reason_title">专业服务</div>
           <div class="reason_des">
@@ -49,7 +49,7 @@
     <div class="moving_serve">
       <div class="title">我们能做什么</div>
     </div>
-    <div class="provides">
+    <div class="provides_move">
       <div class="provides_box">
         <div class="provides_title" style="font-weight:300">如何实现企业轻松搬迁？</div>
         <div class="border"></div>
@@ -76,12 +76,12 @@
           </div>
         </div>
         <div class="img_box f_l">
-          <img src="/shop_img/moving_right.jpg" alt="">
+          <img src="{{shopRes('/shop_img/moving_right.jpg')}}" alt="">
         </div>
       </div>
     </div>
-    <div class="our_tellent">
-      <div class="tellent_title">
+    <div class="our_tellent" style="height:auto;padding-bottom:110px">
+      <div class="tellent_title" style="margin-top:50px">
         <div class="tellent_title">
           我们的服务承诺
         </div>
@@ -90,7 +90,7 @@
       <div class="tellent_contents">
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/moving_prom1.jpg" alt="">
+            <img src="{{shopRes('/shop_img/moving_prom1.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Certificate of holding post</div>
@@ -106,7 +106,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/moving_prom2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/moving_prom2.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Efficient punctuality</div>
@@ -121,7 +121,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/moving_prom3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/moving_prom3.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Price transparency</div>
@@ -136,7 +136,7 @@
         </div>
         <div class="content clearfix">
           <div class="img f_l">
-            <img src="/shop_img/moving_prom4.jpg" alt="">
+            <img src="{{shopRes('/shop_img/moving_prom4.jpg')}}" alt="">
           </div>
           <div class="right_box f_l">
             <div class="eng">Damage compensation</div>
@@ -152,6 +152,6 @@
       </div>
     </div>
     <div class="footer_banner" style="text-align:center">
-      <img src="/shop_img/index_better.jpg" alt="">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
   </div>

@@ -1,19 +1,22 @@
 @extends('shop.layout.layout')
-@section('title', '也铁门')
+@section('title', '绿植租赁详情')
 @section('header')
-    <link rel="stylesheet" href="/css/shop_plant_rent.css">
+    <link rel="stylesheet" href="{{shopRes('/css/shop_plant_rent.css')}}">
 @endsection
 @section('body')
     @include('shop.header')
     @include('shop.layout.nav')
     <div class="plant_container">
-      <div class="banner">
+      <div id="appointment">
+        <appoint></appoint>
+      </div>
+      <div class="banner" style="background: url('{{shopRes('/shop_img/plant_rent_banner.jpg')}}') no-repeat center;">
         <div class="banner_title1">也铁门 绿植租赁</div>
         <div class="title2">防辐射，净化甲醛，二甲苯，二手烟，是写字楼的天然清道夫</div>
       </div>
       <div class="plant_archives clearfix">
         <div class="img_box">
-          <img src="/shop_img/plants_img4.jpg" alt="">
+          <img src="{{shopRes('/shop_img/plants_img4.jpg')}}" alt="">
         </div>
         <div class="plant_info f_r clearfix">
           <ul class="info_name f_l">
@@ -39,51 +42,51 @@
         <div class="needing">
           <div class="require">
             <div class="detail">
-              <img src="/shop_img/require1.png" alt="" class="img1">
+              <img src="{{shopRes('/shop_img/require1.png')}}" alt="" class="img1">
               <div class="detail_name">浇水频率</div>
               <div class="border"></div>
-              <img src="/shop_img/star4.png" alt="">
+              <img src="{{shopRes('/shop_img/star4.png')}}" alt="">
               <div class="detail_do">7天浇1次水 秋冬控制水量</div>
             </div>
             <div class="detail">
-              <img src="/shop_img/require2.png" alt="" class="img1">
+              <img src="{{shopRes('/shop_img/require2.png')}}" alt="" class="img1">
               <div class="detail_name">光照要求</div>
               <div class="border"></div>
-              <img src="/shop_img/star3.png" alt="">
+              <img src="{{shopRes('/shop_img/star3.png')}}" alt="">
               <div class="detail_do">耐阴 散射光即可</div>
             </div>
             <div class="detail">
-              <img src="/shop_img/require3.png" alt="" class="img1">
+              <img src="{{shopRes('/shop_img/require3.png')}}" alt="" class="img1">
               <div class="detail_name">通风需求</div>
               <div class="border"></div>
-              <img src="/shop_img/star4.png" alt="">
+              <img src="{{shopRes('/shop_img/star4.png')}}" alt="">
               <div class="detail_do">
                 20~28°为宜<br>
                 冬季室温不低于8°
               </div>
             </div>
             <div class="detail">
-              <img src="/shop_img/require4.png" alt="" class="img1">
+              <img src="{{shopRes('/shop_img/require4.png')}}" alt="" class="img1">
               <div class="detail_name">温度指数</div>
               <div class="border"></div>
-              <img src="/shop_img/star5.png" alt="">
+              <img src="{{shopRes('/shop_img/star5.png')}}" alt="">
               <div class="detail_do">
                 20~28°为宜<br>
                 冬季室温不低于8°
               </div>
             </div>
             <div class="detail">
-              <img src="/shop_img/require5.png" alt="" class="img1">
+              <img src="{{shopRes('/shop_img/require5.png')}}" alt="" class="img1">
               <div class="detail_name">施肥要求</div>
               <div class="border"></div>
-              <img src="/shop_img/star3.png" alt="">
+              <img src="{{shopRes('/shop_img/star3.png')}}" alt="">
               <div class="detail_do">每两周施一次肥</div>
             </div>
             <div class="detail">
-              <img src="/shop_img/require6.png" alt="" class="img1">
+              <img src="{{shopRes('/shop_img/require6.png')}}" alt="" class="img1">
               <div class="detail_name">病虫灾害</div>
               <div class="border"></div>
-              <img src="/shop_img/star2.png" alt="">
+              <img src="{{shopRes('/shop_img/star2.png')}}" alt="">
               <div class="detail_do">
                 易受介壳虫灾害，可用40% <br> 
                 氧化乐果1000倍液喷杀
@@ -96,9 +99,9 @@
         <div class="title">摆放场景</div>
         <div class="title2">也铁门适合摆放在办公室各个位置，雅气十足，形态飘逸，这种植物针对吸收室内空气中甲醛、二甲苯的效果也是非常好，装修选择这种植物是不错的选择。</div>
         <div class="plants_img">
-          <img src="/shop_img/plants_img5.jpg" alt="">
-          <img src="/shop_img/plants_img6.jpg" alt="">
-          <img src="/shop_img/plants_img7.jpg" alt="">
+          <img src="{{shopRes('/shop_img/plants_img5.jpg')}}" alt="">
+          <img src="{{shopRes('/shop_img/plants_img6.jpg')}}" alt="">
+          <img src="{{shopRes('/shop_img/plants_img7.jpg')}}" alt="">
         </div>
       </div>
       <div class="us_serve">
@@ -108,28 +111,29 @@
         <div class="title">我们的承诺</div>
         <div class="details">
           <div class="detail">
-            <img src="/shop_img/rent_plant_detail1.jpg" alt="">
+            <img src="{{shopRes('/shop_img/rent_plant_detail1.jpg')}}" alt="">
             <div class="name">48小时内送到保障</div>
           </div>
           <div class="detail">
           <div class="name">完好无损送货到位</div>
-            <img src="/shop_img/rent_plant_detail2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/rent_plant_detail2.jpg')}}" alt="">
           </div>
           <div class="detail">
-            <img src="/shop_img/rent_plant_detail3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/rent_plant_detail3.jpg')}}" alt="">
             <div class="name">不满意可直接拒收</div>
           </div>
           <div class="detail">
           <div class="name">免费养护指导</div>
-            <img src="/shop_img/rent_plant_detail4.jpg" alt="">
+            <img src="{{shopRes('/shop_img/rent_plant_detail4.jpg')}}" alt="">
           </div>
         </div>
       </div>
     </div>
     <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-      <img src="/shop_img/index_better.jpg" alt="">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
-    @include('home.footer')
+    @include('shop.footer')
 @endsection
 @section('script')
+  <script src="{{shopRes('/js/shop_slideBar.js')}}"></script>
 @endsection

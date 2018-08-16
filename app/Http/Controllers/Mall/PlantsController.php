@@ -15,6 +15,7 @@ class PlantsController extends Controller
         LabelsService $service
     )
     {
+        $ResAll = $request->all();
         $labels = Label::getLabelByCategoryName('绿植租摆');
         $sort = $request->url();
         $symbol = '?';
@@ -30,18 +31,24 @@ class PlantsController extends Controller
         }
         $labelData = $service->labelData('绿植租摆', $labels, $request);
         $plants = $service->getAllGoods($request, 'App\Models\Plant');
+
+        $price = 'desc';
+        if(!empty($ResAll['price'])&&$ResAll['price']==='desc') {
+            $price = 'asc';
+        }
+        $price = 'price='.$price;
         return view('shop.list',[
             'labelData' => $labelData,
             'datas' => $plants,
             'sort' => $sort,
             'symbol' => $symbol,
-            'request' => $request->all()
+            'request' => $ResAll,
+            'price' => $price
         ]);
     }
 
     public function show($id)
     {
-        // dd($id);
         if($id == '1')
         return view ('shop.plant_rent');
         if($id == '2')
@@ -52,5 +59,7 @@ class PlantsController extends Controller
         return view ('shop.plants3');
         if($id == '5')
         return view ('shop.plants4');
+        if($id == '6')
+        return view ('shop.plants5');
     }
 }

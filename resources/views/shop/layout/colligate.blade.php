@@ -2,11 +2,11 @@
     <div class="decoration_banner"></div>
     <div class="question">
       <div class="question_title">办公室布线的问题</div>
-      <div class="border"></div>
+      <div class="border_collogate"></div>
       <div class="question_box">
         <div class="question_detail">
           <div class="question_img">
-            <img src="/shop_img/question1.jpg" alt="">
+            <img src="{{shopRes('/shop_img/question1.jpg')}}" alt="">
           </div>
           <div class="question_des">
             <div class="question_num">01</div>
@@ -16,7 +16,7 @@
         </div>
         <div class="question_detail">
           <div class="question_img">
-            <img src="/shop_img/question2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/question2.jpg')}}" alt="">
           </div>
           <div class="question_des">
             <div class="question_num">02</div>
@@ -26,7 +26,7 @@
         </div>
         <div class="question_detail">
           <div class="question_img">
-            <img src="/shop_img/question3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/question3.jpg')}}" alt="">
           </div>
           <div class="question_des">
             <div class="question_num">03</div>
@@ -49,7 +49,7 @@
       <div class="border"></div>
       <div class="content_describe">投影会议、门禁考勤、监控系统、会议室、背景音乐等，我们都可以为您服务</div>
       <div class="content_img" style="text-align:center">
-        <img src="/shop_img/decoration_content.jpg" alt="">
+        <img src="{{shopRes('/shop_img/decoration_content.jpg')}}" alt="">
       </div>
     </div>
     <div class="serve_quality">
@@ -59,7 +59,7 @@
       <div class="quality_box">
         <div class="quality_item">
           <div class="item_img">
-            <img src="/shop_img/decoration_item1.jpg" alt="">
+            <img src="{{shopRes('/shop_img/decoration_item1.jpg')}}" alt="">
           </div>
           <div class="item_describe">
             <div class="item_name">高质量的团队</div>
@@ -72,7 +72,7 @@
         </div>
         <div class="quality_item">
           <div class="item_img">
-            <img src="/shop_img/decoration_item2.jpg" alt="">
+            <img src="{{shopRes('/shop_img/decoration_item2.jpg')}}" alt="">
           </div>
           <div class="item_describe">
             <div class="item_name">免费设计图纸</div>
@@ -85,7 +85,7 @@
         </div>
         <div class="quality_item">
           <div class="item_img">
-            <img src="/shop_img/decoration_item3.jpg" alt="">
+            <img src="{{shopRes('/shop_img/decoration_item3.jpg')}}" alt="">
           </div>
           <div class="item_describe">
             <div class="item_name">高质量标准材料</div>
@@ -116,10 +116,10 @@
         <div class="attention_item">6、套餐价格属全包价格，但是有特殊情况的会根据需求上下浮动，幅度浮动不是很大</div>
       </div>
       <div class="attention_img f_r">
-        <img src="/shop_img/decoration_attend.png" alt="">
+        <img src="{{shopRes('/shop_img/decoration_attend.png')}}" alt="">
       </div>
     </div> 
     <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-      <img src="/shop_img/index_better.jpg" alt="">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
   </div>

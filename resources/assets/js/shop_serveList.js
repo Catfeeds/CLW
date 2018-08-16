@@ -1,7 +1,17 @@
 require('./shop_common');
 require('./shop_header');
+
+import appoint from './components/shop/appoint.vue'
+new Vue({
+  el: '#appointment',
+  components: {
+    appoint
+  }
+})
+
 var textVal = '日常保洁'
 $('.js_cleanse .banner_title').html('开荒保洁')
+$('.js_cleanse .clean_serve').css('background','url(/shop_img/ressetClean_serve.jpg)')
 // $('.js_register1 .tax_title1').html('外商独资公司注册')
 // $('.js_register2 .tax_title1').html('合伙企业注册')
 // $('.js_register3 .tax_title1').html('个人独资企业注册')
@@ -35,9 +45,9 @@ $('.select_details .select_detail').click(function() {
     $('.js_charge').css('display','block').siblings().css('display', 'none')
   } else if(textVal == '一般纳税人代理记账') {
     $('.js_general').css('display','block').siblings().css('display', 'none')
-  } 
-  // else if(textVal == '有限责任公司注册') {
-  //   $('.js_register').css('display','block').siblings().css('display', 'none')
+  } else if(textVal == '有限责任公司注册') {
+    $('.js_register').css('display','block').siblings().css('display', 'none')
+  }
   // } else if(textVal == '外商独资公司注册') {
   //   $('.js_register1').css('display','block').siblings().css('display', 'none')
   // } else if(textVal == '合伙企业注册') {

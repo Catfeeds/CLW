@@ -14,10 +14,17 @@
 @import 'shop_common_area';
 body {
   background-color: #fff;
+  #appointment {
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    top:50%;
+    margin-top: -120.5px;
+  }
   .list_container { // 列表盒子
     width:$master-width;
     margin: 0 auto;
-    padding-top: 123px;
+    padding-top: 143px;
     .graybox { // 灰色盒子样式
       box-sizing: border-box;
       width: 100%;
@@ -26,11 +33,6 @@ body {
       line-height: 41px;
       border: 1px solid #ededed;
       padding-left: 10px;
-    }
-    .select_taxes{
-      width: 120px !important;
-      text-align: left !important;
-      margin-left: 20px;
     }
   }
   .serviceDetail{

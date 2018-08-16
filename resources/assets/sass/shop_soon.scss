@@ -1,0 +1,13 @@
+@import 'shop_master';
+@include header();
+@include footer();
+.nothing{
+  width: 100%;
+  padding-top: 300px;
+  padding-bottom: 240px;
+  .notPic{
+    width: 423px;
+    height: 240px;
+    margin: 0 auto;
+  }
+}

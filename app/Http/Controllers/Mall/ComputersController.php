@@ -15,6 +15,7 @@ class ComputersController extends Controller
         LabelsService $service
     )
     {
+        $ResAll = $request->all();
         $labels = Label::getLabelByCategoryName('办公设备');
         $sort = $request->url();
         $symbol = '?';
@@ -30,16 +31,35 @@ class ComputersController extends Controller
         }
         $labelData = $service->labelData('办公设备', $labels, $request);
         $computer = $service->getAllGoods($request, 'App\Models\Computer');
-        return view('shop.list',[
+
+        $price = 'desc';
+        if(!empty($ResAll['price'])&&$ResAll['price']==='desc') {
+            $price = 'asc';
+        }
+        $price = 'price='.$price;
+        return view('shop.list1',[
             'labelData' => $labelData,
             'datas' => $computer,
             'sort' => $sort,
-            'symbol' => $symbol
+            'symbol' => $symbol,
+            'request' => $ResAll,
+            'price' => $price
         ]);
     }
 
-    public function show()
+    public function show($id)
     {
-        dd('办公设备详情');
+        if($id == '1')
+        return view('shop.rent_computer');
+        if($id == '2')
+        return view('shop.pad');
+        if($id == '3')
+        return view('shop.rent_computer1');
+        if($id == '4')
+        return view('shop.rent_computer2');
+    }
+    public function nothing()
+    {
+        return view('shop.soon');
     }
 }

@@ -1,17 +1,15 @@
 @import 'shop_master';
 @include header();
 @include footer();
-
+@include nav();
 body {
   .proscenium_container {
     width: 100%;
     min-width: 1200px;
-    padding-top: 123px;
     // banner部分样式
     .banner {
       width: 100%;
       height: 480px;
-      background: url(/shop_img/proscenium_back.jpg) no-repeat center;
       box-sizing: border-box;
       padding-top: 170px;
       .title {

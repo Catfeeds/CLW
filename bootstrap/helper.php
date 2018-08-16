@@ -22,6 +22,18 @@ if (! function_exists('homeRes'))
         return $path.config('setting.version');
     }
 }
+
+// 商城端静态资源
+if (! function_exists('shopRes'))
+{
+    function shopRes($path)
+    {
+        $cdn_path = config('setting.shop_cdn_path');
+        $path = $cdn_path . $path;
+        return $path.config('setting.version');
+    }
+}
+
 // 判断当前页面并赋值 PC侧边栏用
 if (! function_exists('sourcePage'))
 {

@@ -6,7 +6,7 @@
     </div>
     <!-- 列表页概述 -->
     <div class="list_describe clearfix">
-      <img src="/shop_img/list_detail_describe_left.png" alt="" class="caculate f_l">
+      <img src="{{shopRes('/shop_img/list_detail_describe_left.png')}}" alt="" class="caculate f_l">
       <div class="list_describe_right f_l">
         <div class="right_top right_common">
           <div class="common_title"><span></span>一般纳税人代理记账是什么</div>
@@ -28,28 +28,28 @@
       <div class="border"></div>
       <div class="step_box">
         <div class="step clearfix">
-          <img src="/shop_img/step1.png" alt="" class="f_l">
+          <img src="{{shopRes('/shop_img/step1.png')}}" alt="" class="f_l">
           <div class="step_title_box f_l">
             <div class="step_title">0稽查风险</div>
             <div class="step_info">聘请168高级会计师,熟悉各种账务处理规则,避免一切税务风险</div>
           </div>
         </div>
         <div class="step">
-          <img src="/shop_img/step2.png" alt="" class="f_l">
+          <img src="{{shopRes('/shop_img/step2.png')}}" alt="" class="f_l">
           <div class="step_title_box f_l">
             <div class="step_title">杜绝漏报,错报,晚报</div>
             <div class="step_info">专业顾问/代理人/财务三重把关,最大限度避免错报漏报可能</div>
           </div>
         </div>
         <div class="step">
-          <img src="/shop_img/step3.png" alt="" class="f_l">
+          <img src="{{shopRes('/shop_img/step3.png')}}" alt="" class="f_l">
           <div class="step_title_box f_l">
             <div class="step_title">杜绝数据泄露丢失</div>
             <div class="step_info">资料统一入档,<br />建立档案保管封存</div>
           </div>
         </div>
         <div class="step">
-          <img src="/shop_img/step4.png" alt="" class="f_l">
+          <img src="{{shopRes('/shop_img/step4.png')}}" alt="" class="f_l">
           <div class="step_title_box f_l">
             <div class="step_title">0稽查风险</div>
             <div class="step_info">20年税务局密切合作关系,确保相关国家优惠政策第一时间知晓</div>
@@ -61,7 +61,7 @@
     <div class="you_provide">
       <div class="provide_title">需要提供的资料</div>
       <div class="border"></div>
-      <div class="provides">
+      <div class="provides1">
         <div class="provide clearfix">
           <div class="num f_l">01</div>
           <div class="name f_l">营业执照复印件</div>
@@ -86,7 +86,7 @@
     <!-- 列表页得到的材料 -->
     <div class="you_get">
       <div class="arrow_down">
-        <img src="/shop_img/arrow_down.png" alt="">
+        <img src="{{shopRes('/shop_img/arrow_down.png')}}" alt="">
       </div>
       <div class="get_title">
         <div class="title_back">OBTAINED MATERIAL</div>
@@ -122,8 +122,10 @@
     <div id="appoint">
       <appoint></appoint>
     </div>
+    <div class="charge">
     @include('shop.layout.list_common')
+    </div>
     <div class="footer_banner" style="text-align:center">
-      <img src="/shop_img/index_better.jpg" alt="">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
   </div>

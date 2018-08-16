@@ -1,5 +1,6 @@
 require('./shop_common');
 require('./shop_header');
+import sweetalert from 'sweetalert2'
 import { Message } from 'element-ui';
 $('.error').hide() // 隐藏错误提示
 var index = 0 // 电梯导航下标
@@ -93,9 +94,11 @@ $('.consult button').click(function() {
       data: data,
       success: function(res) {
         if(res.success) {
-          Message({
-            message: '预约成功',
-            type: 'success'
+          sweetalert({
+            title: '预约成功，楚楼网10分钟内联系您',
+            type: 'success',
+            timer: 3000,
+            showConfirmButton: false
           })
         } else {
           Message({

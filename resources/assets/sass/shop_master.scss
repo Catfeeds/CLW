@@ -63,7 +63,14 @@ $master-width: 1200px;
 }
 
 // 模块背景色
-
+#appointment {
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -120.5px;
+  z-index: 99;
+}
 .b_white {
   background-color: #fff;
 }

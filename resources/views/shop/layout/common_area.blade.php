@@ -18,11 +18,15 @@
             </ul>
           </div>
       @else
-          <div class="select_option brand_select clearfix">
-              <div class="select_title f_l">{{$labels['name']}}</div>
+          <div class="select_option brand_select clearfix" style="height:auto">
+              <div class="select_title f_l" style="margin-top: 14px;">{{$labels['name']}}</div>
               <ul class="brands f_l">
                   @foreach($labels['children'] as $label)
-                      <li class="brand"><a href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
+                  @if($loop->first)
+                  <li class="f_l" style="margin-right:34px;"><a class=" @if($label['status'])current @endif " href="{{$label['url']}}" style="font-size:12px;">{{$label['name']}}</a></li>
+                  @else
+                      <li class="brand @if($label['status'])active @endif"><a href="{{$label['url']}}"><img style="width: 100%; height: 100%;" src="{{$label['img']}}" alt="{{$label['name']}}"></a></li>
+                  @endif
                   @endforeach
               </ul>
           </div>
@@ -31,10 +35,15 @@
     </div>
     <!-- 排序方式 -->
     <div class="graybox sort clearfix">
-      <div class="sort_details f_l default_sort sort_current">
+      <div class="@if(empty($request['price'])) sort_current @endif sort_details f_l default_sort">
         <a href="{{$sort}}">默认排序</a>
       </div>
-      <div class="sort_details f_l price_sort">
-        <a href="{{$sort.$symbol}}price=desc">价格由高到低</a>
+      <div class="@if(!empty($request['price'])) sort_current @endif sort_details f_l price_sort">
+        <a href="{{$sort.$symbol.$price}}">
+        @if(empty($request['price']))价格由高到低
+        @elseif($request['price']=='desc')价格由高到低
+        @else 价格由低到高
+        @endif
+        </a>
       </div>
     </div>
