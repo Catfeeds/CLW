@@ -13442,6 +13442,9 @@ $('.select_details .select_detail').click(function () {
     $('.js_general').css('display', 'block').siblings().css('display', 'none');
   } else if (textVal == '有限责任公司注册') {
     $('.js_register').css('display', 'block').siblings().css('display', 'none');
+    $('.info_2').html('前期信息确认<br>准备材料');
+    $('.info_3').html('名称核检<br>现场面签提交');
+    $('.info_4').html('领取营业执照<br>刻印章');
   }
   // } else if(textVal == '外商独资公司注册') {
   //   $('.js_register1').css('display','block').siblings().css('display', 'none')
