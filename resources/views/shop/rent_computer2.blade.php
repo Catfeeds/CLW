@@ -107,9 +107,9 @@
     </div>
     <!-- 电脑细节 -->
     <div class="computer_details" style="height:885px">
-      <div class="title" style="margin-bottom:20px">真视界  不打折还原精彩</div>
+      <div class="title" style="margin-bottom:20px">大可视角度  14英寸防眩光雾面屏</div>
       <div class="title2" style="font-size:18px;color:#333;margin-bottom:65px;text-align:center;line-height:30px">
-      大可视角度  14英寸防眩光雾面屏          视屏可视角度达到178°，多面观看的角度的颜色几乎一致，观看者随意更换位置，出色的背光润眼屏幕<br>
+      视屏可视角度达到178°，多面观看的角度的颜色几乎一致，观看者随意更换位置，出色的背光润眼屏幕<br>
       给观众者带来盛大的视觉盛宴的同时减少辐射
       </div>
       <div class="details_box">
