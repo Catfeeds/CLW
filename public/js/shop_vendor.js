@@ -10963,19 +10963,30 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19), __webpack_require__(85).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23), __webpack_require__(86).setImmediate))
 
 /***/ }),
 
 /***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(12);
 
 
 /***/ }),
 
-/***/ 19:
+/***/ 12:
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by zxz1992 on 2018/6/5.
+ */
+window.$ = window.jQuery = __webpack_require__(88);
+window.Vue = __webpack_require__(1);
+
+/***/ }),
+
+/***/ 23:
 /***/ (function(module, exports) {
 
 var g;
@@ -11003,7 +11014,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 31:
+/***/ 34:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -11194,18 +11205,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by zxz1992 on 2018/6/5.
- */
-window.$ = window.jQuery = __webpack_require__(87);
-window.Vue = __webpack_require__(1);
-
-/***/ }),
-
-/***/ 85:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -11261,7 +11261,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(86);
+__webpack_require__(87);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -11272,11 +11272,11 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)))
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -11466,11 +11466,11 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19), __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23), __webpack_require__(34)))
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
