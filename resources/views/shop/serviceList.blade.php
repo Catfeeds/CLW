@@ -20,13 +20,13 @@
           <a href="{{url('/')}}" class="home_page">首页</a>
           <span class="top_arrow">></span>
           @if(request()->getPathInfo() == '/cleanup')
-          <span class="current_page">入驻服务</span>
+          <span class="current_page current_title">入驻服务</span>
           @elseif(request()->getPathInfo() == '/companyDecorat')
-          <span class="current_page">企业装修</span>
+          <span class="current_page current_title">企业装修</span>
           @elseif(request()->getPathInfo() == '/business_taxes')
-          <span class="current_page">工商财税</span>
+          <span class="current_page current_title">工商财税</span>
           @elseif(request()->getPathInfo() == '/fastPrint')
-          <span class="current_page">图文广告</span>
+          <span class="current_page current_title">图文广告</span>
           @endif
         </div> 
         <div class="select_area">

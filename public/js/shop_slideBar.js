@@ -6793,6 +6793,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         getVal: function getVal() {
+            var title = document.querySelector('.current_title').innerHTML;
             var telVal = this.tel;
             var tel = /^\d{11}$/;
             if (tel.test(telVal)) {
@@ -6800,7 +6801,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 data.tel = telVal;
                 data.source = 6;
                 data.demand = 3;
-                data.page_source = '商城-工商财税';
+                data.page_source = '商城-' + title;
                 $.ajax({
                     url: '/entrust_throw_ins',
                     type: 'POST',

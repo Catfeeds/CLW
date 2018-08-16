@@ -202,5 +202,5 @@
   @include('shop.footer')
 @endsection
 @section('script')
-  <script src="{{shopRes('/js/shop_slideBare.js')}}"></script>
+  <script src="{{shopRes('/js/shop_slideBar.js')}}"></script>
 @endsection
