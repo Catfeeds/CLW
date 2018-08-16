@@ -10,7 +10,7 @@
     <div id="appointment">
       <appoint></appoint>
     </div>
-    <div class="banner" style="background:url('{{shopRes('/shop_img/pad_banner.jpg')}}')"></div>
+    <div class="banner" style="background:url('{{shopRes('/shop_img/pad_banner.jpg')}}') no-repeat center;"></div>
     <!-- 电脑性能 -->
     <div class="computer_propetry">
       <div class="title">强大多任务处理能力</div>
