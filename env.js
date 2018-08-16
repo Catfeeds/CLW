@@ -40,6 +40,17 @@ module.exports = {
         uploadNore: ['.DS_Store', 'mui', 'we_img', 'shop_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
         CDNMkdir: 'CLWTest/home/'
       }
+    },
+    shop: { // 商城上传配置
+      QiNui: { // 七牛上传配置
+        ACCESS_KEY: 'VtiPrFI04u-X492-TTqgYCuLfVlkRcnQArwBheI4', // 七牛accessKey
+        SECRET_KEY: 'CzgcaR4sTTwPVfdyONnMRERidc3g7hwPC_NWGD5l', // 七牛secretKey
+        Bucket: 'chulouwang-cdn', // 上传桶名
+        targetScr: 'public/', // 本地上传目录(已执行命令的目录位置为相对路径)
+        listLimit: 100, // 每次获取七牛云存储文件列表数量
+        uploadNore: ['.DS_Store', 'mui', 'we_img', 'home_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
+        CDNMkdir: 'CLWTest/shop/'
+      }
     }
   },
   online: { // 正式服务器配置
@@ -66,6 +77,17 @@ module.exports = {
         listLimit: 100, // 每次获取七牛云存储文件列表数量
         uploadNore: ['.DS_Store', 'mui', 'we_img', 'shop_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
         CDNMkdir: 'CLW/home/'
+      }
+    },
+    shop: { // 商城上传配置
+      QiNui: { // 七牛上传配置
+        ACCESS_KEY: 'VtiPrFI04u-X492-TTqgYCuLfVlkRcnQArwBheI4', // 七牛accessKey
+        SECRET_KEY: 'CzgcaR4sTTwPVfdyONnMRERidc3g7hwPC_NWGD5l', // 七牛secretKey
+        Bucket: 'chulouwang-cdn', // 上传桶名
+        targetScr: 'public/', // 本地上传目录(已执行命令的目录位置为相对路径)
+        listLimit: 100, // 每次获取七牛云存储文件列表数量
+        uploadNore: ['.DS_Store', 'mui', 'we_img', 'home_img', 'index.php', 'robots.txt', 'web.config', 'mix-manifest.json', 'mix.js', '.htaccess'], // 忽略文件数组（可以为文件或文件夹）
+        CDNMkdir: 'CLW/shop/'
       }
     }
   }

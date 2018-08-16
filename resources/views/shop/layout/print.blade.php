@@ -1,6 +1,6 @@
 <div class="print_container">
-  <div class="banner"></div>
-  <div class="print_trub">
+  <div class="banner" style="background: url('{{shopRes('/shop_img/print_banner.jpg')}}') no-repeat center;"></div>
+  <div class="print_trub" style="background: url('{{shopRes('/shop_img/print_trouble_back.jpg')}}') no-repeat center;">
     <div class="title">常规打印的<span>苦恼</span></div>
     <div class="troubles">
       <div class="trouble">
@@ -116,7 +116,7 @@
       </div>
     </div>
   </div>
-  <div class="you_choose">
+  <div class="you_choose" style="background: url('{{shopRes('/shop_img/you_choose_back.jpg')}}') no-repeat center;">
     <div class="title">可<span>自由选择</span>皮纹纸封面的颜色</div>
     <div class="title2">赠送书面打印</div>
     <div class="colors">
