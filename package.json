@@ -13,9 +13,11 @@
     "watch:shop": "cross-env sourceMap='shop' NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch:home": "cross-env sourceMap='home' NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod:home": "cross-env sourceMap='home' NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod:shop": "cross-env sourceMap='shop' NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "clearDist": "rm -rf public/js & rm -rf public/css",
     "test:we": "npm run clearDist && cross-env isStatus='test' npm run prod:we && node qiniu.js",
-    "test:home": "npm run clearDist && cross-env isStatus='test' npm run prod:home && node qiniu.js"
+    "test:home": "npm run clearDist && cross-env isStatus='test' npm run prod:home && node qiniu.js",
+    "test:shop": "npm run clearDist && cross-env isStatus='test' npm run prod:shop && node qiniu.js"
   },
   "devDependencies": {
     "axios": "^0.17",
