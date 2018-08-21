@@ -35,3 +35,7 @@ Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function (
 Route::group(['domain' => config('hosts.mall'), 'namespace' => 'Mall'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/mall.php');
 });
+// 台式机测试路由
+Route::get('desktop_pc', function(){
+    return view('shop.desktop_pc');
+});
