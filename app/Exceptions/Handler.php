@@ -102,6 +102,7 @@ class Handler extends ExceptionHandler
         $line = $exception->getLine(); // 报错行数
         $message = $exception->getMessage();    // 报错信息
         $uri = $request->getRequestUri(); //接口
+        \Log::error('api:'.$uri.",line:".$file.$line.'行'."info:".$message);
         return 'api:'.$uri.",line:".$file.$line.'行'."info:".$message;
     }
 }
