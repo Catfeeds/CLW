@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BuildingKeywords extends Model
 {
-    protected $table = 'Building_keywords';
+    protected $table = 'building_keywords';
 
     protected $guarded = [];
 
