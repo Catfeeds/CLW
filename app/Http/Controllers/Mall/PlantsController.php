@@ -19,7 +19,7 @@ class PlantsController extends Controller
         $labels = Label::getLabelByCategoryName('绿植租摆');
         $sort = $request->url();
         $symbol = '?';
-        if (!empty($request->labels)) {
+        if (!empty($request->labels) && !is_array($request->labels)) {
             $request->offsetSet('labels', explode('-',$request->labels));
             $data = array();
 

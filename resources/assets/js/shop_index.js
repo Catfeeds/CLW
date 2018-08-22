@@ -77,12 +77,21 @@ $('.js_backTop').on('click', function() {
   $("body,html").animate({scrollTop: 0}, 500)
 })
 
+// input事件
+$('.index_input').on('input', function() {
+  if ($('.consult input').val().length == 0) {
+    $('.error').hide()
+  } else {
+    $('.error').show()
+  }
+
+})
+
 // 立即预约
 $('.consult button').click(function() {
   var telVal = $('.consult input').val()
   var tel = /^\d{11}$/
   if(tel.test(telVal)) {
-    console.log('sssss', telVal)
     var data={}
     data.tel = telVal
     data.source = 6
@@ -106,7 +115,6 @@ $('.consult button').click(function() {
             type: 'warning'
           })
         }
-        $('.error').hide()
         $('.consult input').val('')
       },
       error: function(res) {
@@ -116,7 +124,5 @@ $('.consult button').click(function() {
         })
       }
     })
-  } else {
-    $('.error').show()
   }
 })
