@@ -255,7 +255,7 @@
           <li class="infamation-item">
             <div class="float-left">
               <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
-                <img src="{{$information[$j]->banner_cn}}" alt="{{$information[$j]->title}}">
+                <img src="{{$information[$j]->banner_cn}}-web_infomation_list" alt="{{$information[$j]->title}}">
               </a>
             </div>
             <div class="float-right">
