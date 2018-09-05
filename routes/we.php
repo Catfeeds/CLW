@@ -72,6 +72,8 @@ Route::resource('consult_tels', 'ConsultTelsController');
 Route::get('user_house_resources', 'ResetInfoController@resources');
 // 委托找房
 Route::get('user_find_house', 'ResetInfoController@findHouse');
+// 委托找房获取区域
+Route::get('get_area', 'ResetInfoController@getArea');
 
 Route::group(['middleware' => ['web','weChat.login']], function () {
     // 退出
@@ -100,8 +102,6 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     
     // 用户首页
     Route::get('user', 'ResetInfoController@index');
-    // 委托找房获取区域
-    Route::get('get_area', 'ResetInfoController@getArea');
     // 关于我们
     Route::get('user_about_us', 'ResetInfoController@aboutUs');
     // 个人设置
