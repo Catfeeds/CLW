@@ -68,6 +68,10 @@ Route::resource('get_new_version', 'AppAndroidController');
 |--------------------------------------------------------------------------
 */
 Route::resource('consult_tels', 'ConsultTelsController');
+// 投放房源
+Route::get('user_house_resources', 'ResetInfoController@resources');
+// 委托找房
+Route::get('user_find_house', 'ResetInfoController@findHouse');
 
 Route::group(['middleware' => ['web','weChat.login']], function () {
     // 退出
@@ -93,12 +97,9 @@ Route::group(['middleware' => ['web','weChat.login']], function () {
     Route::get('reset_tel_view', 'ResetInfoController@resetTelView');
     // 换绑手机操作
     Route::post('reset_tel', 'ResetInfoController@resetTel');
-    // 投放房源
-    Route::get('user_house_resources', 'ResetInfoController@resources');
+    
     // 用户首页
     Route::get('user', 'ResetInfoController@index');
-    // 委托找房
-    Route::get('user_find_house', 'ResetInfoController@findHouse');
     // 委托找房获取区域
     Route::get('get_area', 'ResetInfoController@getArea');
     // 关于我们
