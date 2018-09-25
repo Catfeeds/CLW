@@ -24,6 +24,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //通过电话获取openid
         Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
 
+        // 获取经纪人等级为店长以上的人员
+        Route::resource('agents', 'AgentController');
+
         //微信绑定管理
         Route::resource('employees', 'EmployeesController');
 
@@ -313,6 +316,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::post('survey', 'EntrustThrowInsController@survey');
         //添加工单
         Route::post('add_gd', 'EntrustThrowInsController@addGd');
+
+        // 工单管理
+        Route::resource('work_orders', 'WorkOrderController');
     });
 
 

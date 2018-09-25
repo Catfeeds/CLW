@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\EntrustThrowIn;
 use App\Models\MessageRecord;
 use App\Models\RawCustom;
+use App\Models\WorkOrder;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -87,10 +88,9 @@ class EntrustThrowInsRepository extends Model
     //添加工单
     public function addGd($request, $service)
     {
-         DB::connection('mysql')->beginTransaction();
-         DB::connection('media')->beginTransaction();
+        \DB::beginTransaction();
         try {
-            $custom = RawCustom::create([
+            $workOrder = WorkOrder::create([
                 'name' => $request->name,
                 'tel' => $request->tel,
                 'source'=> $request->source,
@@ -102,21 +102,17 @@ class EntrustThrowInsRepository extends Model
                 'remark' => $request->remark,
                 'recorder' => $request->recorder
             ]);
-            if (!$custom) throw new \Exception('工单添加失败');
-            $custom->identifier = $service->setHouseIdentifier('gd', $custom->id);
-            if (!$custom->save()) throw new \Exception('工单编号生成失败');
+            if (!$workOrder) throw new \Exception('工单添加失败');
+            $workOrder->identifier = $service->setHouseIdentifier('gd', $workOrder->id);
+            if (!$workOrder->save()) throw new \Exception('工单编号生成失败');
 
             $suc = EntrustThrowIn::where('id', $request->id)->update([
-                'gd_id' => $custom->id,
-                'status' => $custom->identifier
+                'gd_id' => $workOrder->id,
+                'status' => $workOrder->identifier
             ]);
             if (!$suc) throw new \Exception('状态更新失败');
-            DB::connection('mysql')->commit();
-            DB::connection('media')->commit();
             return true;
         } catch (\Exception $exception) {
-            DB::connection('mysql')->rollBack();
-            DB::connection('media')->rollBack();
             \Log::error('工单添加失败'. $exception->getMessage());
             return false;
         }

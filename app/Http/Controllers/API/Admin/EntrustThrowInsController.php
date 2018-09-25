@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\App\EntrustThrowInsRequest;
+use App\Models\Agent;
 use App\Repositories\EntrustThrowInsRepository;
 use App\Services\HousesService;
 use App\Services\StatisticsService;
@@ -79,7 +80,7 @@ class EntrustThrowInsController extends APIBaseController
     )
     {
         $res = $repository->addGd($request, $service);
-        $openid = User::where('id', $request->shopkeeper_id)->value('openid');
+        $openid = Agent::where('guid', $request->shopkeeper_guid)->value('openid');
         //发送消息
         $repository->send($openid, $request->name, $request->tel);
         if (!$res) return $this->sendError('工单添加失败');
