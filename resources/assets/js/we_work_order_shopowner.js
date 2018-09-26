@@ -13,12 +13,12 @@ Vue.use(InfiniteScroll); // 上拉加载更多
  * Vue.use(Cell)
  */
 var FormData = {
-    staff_id: '', // 员工id
+    staff_guid: '', // 员工id
     id: '', // 工单id
     openid: $('meta[name="openid"]').attr('content')
 }
 var sheetClick = function(e) {
-    FormData.staff_id = e.id
+    FormData.staff_guid = e.id
     distribution(FormData)
 }
 const url = process.env.agencyHostURL + '/api/admin'
