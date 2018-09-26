@@ -243,7 +243,7 @@
       <div class="swiper-container js_banner">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <div class="swiperPic" style="background-image:url(/shop_img/banner.jpg)"></div>
+            <div class="swiperPic" style="background-image:url('{{shopRes('/shop_img/banner.jpg')}}')"></div>
           </div>
         </div>
       </div>
@@ -306,7 +306,7 @@
           <div class="plants">
             <div class="border"></div>
             <div class="up">
-              <div class="title">绿植摆租</div> 
+              <div class="title">绿植租摆</div> 
               <div class="detail">套餐单品 免费养护</div>
             </div>
             <div><img src="{{shopRes('/shop_img/plants.jpg')}}"></div>
@@ -750,7 +750,7 @@
         </ul>
         <div class="consult">
           <div>
-            <input type="text" placeholder="请输入电话号码">
+            <input type="text" placeholder="请输入电话号码" class="index_input">
             <div class="error"><img src="{{shopRes('/shop_img/alert.svg')}}"> <div>手机号码格式错误</div></div>
           </div>
           <button>立即预约</button>

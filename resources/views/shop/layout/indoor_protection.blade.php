@@ -1,5 +1,5 @@
 <div class="protection_container">
-      <div class="banner1"></div>
+      <div class="banner1" style="background: url('{{shopRes('/shop_img/protection_banner1.jpg')}}') no-repeat center;"></div>
       <div class="banner2">
         <div class="title">甲醛严重危害人们的健康</div>
         <div class="title2">
@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="banner3">
-        <div class="title">
+        <div class="title" style="background: url('{{shopRes('/shop_img/protect_banner3.jpg')}}') no-repeat center;">
           传统的除甲醛方式真的有效吗
         </div>
         <img src="{{shopRes('/shop_img/protect_ques.png')}}" alt="" class="ques_mark">
@@ -38,7 +38,7 @@
           </div>
         </div>
       </div>
-      <div class="banner4">
+      <div class="banner4" style="background: url('{{shopRes('/shop_img/protect_banner4.jpg')}}') no-repeat center;">
         <div class="title">专业安全的除甲醛服务应该是这样做的!</div>
         <div class="title2">拥有独立的研发中心、彻底、不反复、提供长效保障</div>
         <div class="protect_steps">

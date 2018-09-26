@@ -121,16 +121,15 @@
           width: 187px;
           height: 187px;
           margin-right: 119px;
-          background: url(/shop_img/first.png) no-repeat center;
-          &:nth-child(2) {
-            background: url(/shop_img/second.png) no-repeat center;
-          }
-          &:nth-child(3) {
-            background: url(/shop_img/third.png) no-repeat center;
-          }
-          &:last-child() {
-            margin-right: 0;
-            background: url(/shop_img/fouth.png) no-repeat center;
+          line-height: 187px;
+          text-align: center;
+          .step_info {
+            display: inline-block;
+            line-height: 33px;
+            color:#414143;
+            vertical-align: middle;
+            letter-spacing: -1px;
+            font-size: 20px;
           }
         }
       }

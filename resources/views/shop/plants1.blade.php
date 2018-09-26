@@ -14,7 +14,7 @@
         <div class="banner_title1">红掌 绿植租赁</div>
         <div class="title2">防辐射，净化甲醛，二甲苯，二手烟，是写字楼的天然清道夫</div>
       </div>
-      <div class="plant_archives clearfix">
+      <div class="plant_archives clearfix" style="background: url('{{shopRes('/shop_img/plant_archives.jpg')}}') no-repeat center;">
         <div class="img_box">
           <img src="{{shopRes('/shop_img/plants_img_red1.jpg')}}" alt="">
         </div>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="knowledge">
-        <div class="title">养护小知识</div>
+        <div class="title" style="background: url('{{shopRes('/shop_img/plant_rent_knowledge.jpg')}}') no-repeat center;">养护小知识</div>
         <div class="needing">
           <div class="require">
             <div class="detail">
@@ -61,8 +61,7 @@
               <div class="border"></div>
               <img src="{{shopRes('/shop_img/star4.png')}}" alt="">
               <div class="detail_do">
-                20~28°为宜<br>
-                冬季室温不低于8°
+              摆在良好的通风处
               </div>
             </div>
             <div class="detail">
@@ -95,20 +94,20 @@
           </div>
         </div>
       </div>
-      <div class="plant_put">
+      <div class="plant_put" style="background: url('{{shopRes('/shop_img/plant_out.jpg')}}') no-repeat center;">
         <div class="title">摆放场景</div>
-        <div class="title2">金钱树适合摆放在办公桌、茶几等位置，轻巧装点室内角落，为办公室增添一抹清爽。</div>
+        <div class="title2">红掌适合摆放在办公桌、茶几等位置，轻巧装点室内角落，为办公室增添一抹清爽。</div>
         <div class="plants_img">
           <img src="{{shopRes('/shop_img/plants_img_red2.jpg')}}" alt="">
           <img src="{{shopRes('/shop_img/plants_img_red3.jpg')}}" alt="">
           <img src="{{shopRes('/shop_img/plants_img_red4.jpg')}}" alt="">
         </div>
       </div>
-      <div class="us_serve">
+      <div class="us_serve" style="background: url('{{shopRes('/shop_img/us_serve_back.jpg')}}') no-repeat center;">
         <div class="title">选择我们的原因</div>
       </div>
       <div class="promise">
-        <div class="title">我们的承诺</div>
+        <div class="title" style="background: url('{{shopRes('/shop_img/rent_plant_promise_back.jpg')}}') no-repeat center;">我们的承诺</div>
         <div class="details">
           <div class="detail">
             <img src="{{shopRes('/shop_img/rent_plant_detail1.jpg')}}" alt="">

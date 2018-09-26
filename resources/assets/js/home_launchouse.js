@@ -99,7 +99,8 @@ var type = $("#commentForm").validate({
         launchHouse(data).then(res => {
             if (res.success) {
                 sweetalert({
-                    title: '投放成功，楚楼网10分钟内联系您',
+                    title: '投放成功',
+                    text: '楚楼网10分钟内联系您',
                     type: 'success',
                     timer: 3000,
                     showConfirmButton: false

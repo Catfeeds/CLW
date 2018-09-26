@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="decoration_banner"></div>
+    <div class="decoration_banner" style="background: url('{{shopRes('/shop_img/decoration_banner.jpg')}}') no-repeat center;"></div>
     <div class="question">
       <div class="question_title">办公室布线的问题</div>
       <div class="border_collogate"></div>
@@ -36,13 +36,13 @@
         </div>
       </div>
     </div>
-    <div class="decoration_serve">
+    <div class="decoration_serve" style="background: url('{{shopRes('/shop_img/decoration_serve.jpg')}}') no-repeat center;">
       <div class="serve_title">布线全包一站式 满足您的各种需求</div>
       <div class="border"></div>
       <div class="serve_describe">
         网络、电话、门禁考勤、会议系统、大屏显示系统（包括远程视频会议）有的带背景音乐、智能控制、安防监控、智能管理中控系统、电源线 ......
       </div>
-      <div class="serves"></div>
+      <div class="serves" style="background: url('{{shopRes('/shop_img/decoration_serves.png')}}') no-repeat center;"></div>
     </div>
     <div class="decoration_content">
       <div class="content_title">套餐内容</div>
@@ -52,7 +52,7 @@
         <img src="{{shopRes('/shop_img/decoration_content.jpg')}}" alt="">
       </div>
     </div>
-    <div class="serve_quality">
+    <div class="serve_quality" style="background: url('{{shopRes('/shop_img/serve_quality.jpg')}}') no-repeat center;">
       <div class="quality_title">高质量服务</div>
       <div class="border"></div>
       <div class="quality_describe">高质量专业团队+高质量标准材料,并给你提供免费设计图纸</div>

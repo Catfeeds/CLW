@@ -324,6 +324,15 @@ body .container .content .other_build .enjoyList a .enjoyDetail .enjoyInfor .enj
   cursor: pointer;
 }
 
+.swal2-popup {
+  width: 24em !important;
+  padding-bottom: 2.5em !important;
+}
+
+.swal2-title {
+  color: #333 !important;
+}
+
 body {
   padding-top: 61px;
 }
@@ -679,87 +688,87 @@ body footer span {
   font-weight: 300;
 }
 
-body footer .container {
+body footer .footer_container {
   height: 220px;
   width: 1200px;
   margin: 0 auto;
 }
 
-body footer .container .left_info {
+body footer .footer_container .left_info {
   margin-top: 29px;
   margin-right: 280px;
 }
 
-body footer .container .left_info img {
+body footer .footer_container .left_info img {
   margin-bottom: 30px;
 }
 
-body footer .container .left_info .info {
+body footer .footer_container .left_info .info {
   color: rgba(245,245,245,0.4);
   font-size: 12px;
   line-height: 24px;
 }
 
-body footer .container .left_info .info a {
+body footer .footer_container .left_info .info a {
   color: rgba(245,245,245,0.4);
   font-size: 12px;
 }
 
-body footer .container .left_info .info a:hover {
+body footer .footer_container .left_info .info a:hover {
   color: #ffffff;
 }
 
-body footer .container .left_info .friend_link {
+body footer .footer_container .left_info .friend_link {
   opacity: 0.5;
   color: #f5f5f5;
   font-size: 12px;
 }
 
-body footer .container .left_info .friend_link a {
+body footer .footer_container .left_info .friend_link a {
   color: #f5f5f5;
   font-size: 12px;
 }
 
-body footer .container .about_us {
+body footer .footer_container .about_us {
   margin-top: 41px;
   margin-right: 100px;
 }
 
-body footer .container .about_us .abou_us_title {
+body footer .footer_container .about_us .abou_us_title {
   font-size: 14px;
   color: rgba(255,255,255,0.8);
   margin-bottom: 25px;
 }
 
-body footer .container .about_us .link li {
+body footer .footer_container .about_us .link li {
   margin-bottom: 8px;
 }
 
-body footer .container .about_us .link li a {
+body footer .footer_container .about_us .link li a {
   color: rgba(255,255,255,0.4);
   font-size: 12px;
 }
 
-body footer .container .about_us .link li a:hover {
+body footer .footer_container .about_us .link li a:hover {
   color: #fff;
 }
 
-body footer .container .serve {
+body footer .footer_container .serve {
   margin-top: 40px;
   margin-right: 100px;
 }
 
-body footer .container .serve div {
+body footer .footer_container .serve div {
   color: rgba(245,245,245,0.4);
 }
 
-body footer .container .serve_title {
+body footer .footer_container .serve_title {
   color: rgba(255,255,255,0.8) !important;
   font-size: 14px;
   margin-bottom: 20px;
 }
 
-body footer .container .serve .phone {
+body footer .footer_container .serve .phone {
   text-align: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -768,31 +777,31 @@ body footer .container .serve .phone {
   font-weight: 300;
 }
 
-body footer .container .serve .time,
-body footer .container .serve .day {
+body footer .footer_container .serve .time,
+body footer .footer_container .serve .day {
   font-size: 12px;
   margin-bottom: 10px;
 }
 
-body footer .container .serve .day {
+body footer .footer_container .serve .day {
   margin-bottom: 20px;
 }
 
-body footer .container .code_download {
+body footer .footer_container .code_download {
   margin-top: 40px;
 }
 
-body footer .container .code_download .code_title {
+body footer .footer_container .code_download .code_title {
   font-size: 14px;
   color: rgba(255,255,255,0.8);
   margin-bottom: 15px;
 }
 
-body footer .container .code_download .wx_code {
+body footer .footer_container .code_download .wx_code {
   width: 94px;
 }
 
-body footer .container .code_download .wx_code div {
+body footer .footer_container .code_download .wx_code div {
   margin-top: 10px;
   font-size: 12px;
   color: #f5f5f5;

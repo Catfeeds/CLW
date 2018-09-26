@@ -3,7 +3,7 @@
     <div class="appoint">
       <div class="title">免费预约</div>
       <input type="text" placeholder="请输入手机号" v-model="tel"/>
-      <button @click="getVal">立即预约</button>
+      <button @click="getVal" class="btn">立即预约</button>
     </div>
     <div class="tel">
       <div class="icon_tel">
@@ -16,6 +16,9 @@
 
 <script>
 import { Input, Button } from 'element-ui'
+import sweetalert from 'sweetalert2'
+import { Message } from 'element-ui';
+
 export default {
   components: {
     ElInput: Input,
@@ -28,13 +31,53 @@ export default {
   },
   methods: {
     getVal() {
-      var phone = /^\d{11}$/
-      if(phone.test(this.tel)){
-        this.tel = ''
-      } else {
-        this.tel = ''
-      }
+        var title = document.querySelector('.current_title').innerHTML
+        var telVal =  this.tel
+        var tel = /^\d{11}$/
+        if(tel.test(telVal)) {
+            var data={}
+            data.tel = telVal
+            data.source = 6
+            data.demand = 3
+            data.page_source = '商城-' + title
+            $.ajax({
+                url: '/entrust_throw_ins',
+                type: 'POST',
+                data: data,
+                success: function(res) {
+                    if(res.success) {
+                        sweetalert({
+                            title: '预约成功',
+                            text: '楚楼网10分钟内联系您',
+                            type: 'success',
+                            timer: 3000,
+                            showConfirmButton: false
+                        })
+                        this.tel = ''
+                    } else {
+                        Message({
+                            message: res.message,
+                            type: 'warning'
+                        })
+                    }
+                    $('.error').hide()
+                    $('.consult input').val('')
+                },
+                error: function(res) {
+                    Message({
+                        message: res.responseJSON.message,
+                        type: 'warning'
+                    })
+                }
+            })
+        } else {
+            Message({
+                message: '手机号码格式错误',
+                type: 'warning'
+            })
+        }
     }
+
   }
 }
 </script>
@@ -86,6 +129,17 @@ export default {
         color:#fff;
         text-align: center;
         cursor: pointer;
+      }
+      .btn:hover {
+        animation: btn 0.2s forwards;
+      }
+    }
+    @keyframes btn {
+      from {
+        transform: translate(0,0);
+      }
+      to {
+        transform: translate(0,-2px)
       }
     }
     .tel {

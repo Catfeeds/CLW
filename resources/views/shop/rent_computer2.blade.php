@@ -10,7 +10,7 @@
     <div id="appointment">
       <appoint></appoint>
     </div>
-    <div class="banner" style="background:url('{{shopRes('/shop_img/detail_computer4.jpg')}}')"></div>
+    <div class="banner" style="background:url('{{shopRes('/shop_img/detail_computer4.jpg')}}') no-repeat center;"></div>
     <!-- 电脑性能 -->
     <div class="computer_propetry">
       <div class="title">强大多任务处理能力</div>
@@ -55,7 +55,7 @@
       </div>
     </div>
     <!-- 性价比 -->
-    <div class="computer_talent">
+    <div class="computer_talent" style="background: url('{{shopRes('/shop_img/computer_talent.jpg')}}') no-repeat center;">
       <div class="title">性能过剩的时代，实用主义更具性价比</div>
       <div class="arrow">
         <img src="{{shopRes('/shop_img/computer_arrow.png')}}" alt="">
@@ -107,10 +107,10 @@
     </div>
     <!-- 电脑细节 -->
     <div class="computer_details" style="height:885px">
-      <div class="title" style="margin-bottom:20px">真视界  不打折还原精彩</div>
+      <div class="title" style="margin-bottom:20px">大可视角度  14英寸防眩光雾面屏</div>
       <div class="title2" style="font-size:18px;color:#333;margin-bottom:65px;text-align:center;line-height:30px">
-        采用14英寸LED 1600*900 高分炫丽屏，结合高纯度LED背光，无论游戏，影音还是办公，<br>
-        高清的视野无疑让您体验更加畅快，发挥更淋漓
+      视屏可视角度达到178°，多面观看的角度的颜色几乎一致，观看者随意更换位置，出色的背光润眼屏幕<br>
+      给观众者带来盛大的视觉盛宴的同时减少辐射
       </div>
       <div class="details_box">
         <div class="left">
@@ -127,7 +127,7 @@
       </div>
     </div>
     <!-- 电脑集成计划 -->
-    <div class="plants">
+    <div class="plants" style="background: url('{{shopRes('/shop_img/computer_plant.jpg')}}') no-repeat center;">
       <div class="title">内置WIFI、蓝牙、音响，更贴心的集成方案</div>
       <div class="title2">你想要的，就是我们要做的。WIFI蓝牙，喇叭等一应俱全，办公一体机，我们更贴心</div>
       <div class="plant">

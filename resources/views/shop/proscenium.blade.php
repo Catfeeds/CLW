@@ -40,7 +40,7 @@
     </div>
 
     <!-- 前台描述部分 -->
-    <div class="proscenium_des">
+    <div class="proscenium_des" style="background: url('{{shopRes('/shop_img/proscenium_des.jpg')}}') no-repeat center;">
       <div class="eng_title">SIMPLE  BUT  NOT  SIMPLE</div>
       <div class="zn_title">简约却不简单超越平凡</div>
       <div class="title2">
@@ -65,7 +65,7 @@
       </div>
     </div>
     <!-- 优选材质部分 -->
-    <div class="prefect_material">
+    <div class="prefect_material" style="background: url('{{shopRes('/shop_img/profect_material.jpg')}}') no-repeat center;">
       <div class="title">精选优质材质</div>
       <div class="title1">
         面材：采用MFC三聚氰胺板光滑平直，颜色、均匀；基材：采用环保基材，符合E3环保标准。<br>
@@ -95,7 +95,7 @@
       </div>
     </div>
     <!-- 服务流程 -->
-    <div class="serve_steps">
+    <div class="serve_steps" style="background: url('{{shopRes('/shop_img/serve_steps_back.jpg')}}') no-repeat center;">
       <div class="title">服务流程</div>
       <div class="serve_box">
         <div class="serve_step">
@@ -132,7 +132,7 @@
         </div>
       </div>
       <div class="tellent_contents">
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium1.jpg')}}" alt="">
           </div>
@@ -147,7 +147,7 @@
             </div>
           </div>
         </div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium2.jpg')}}" alt="">
           </div>
@@ -162,7 +162,7 @@
             </div>
           </div>
         </div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium3.jpg')}}" alt="">
           </div>
@@ -177,7 +177,7 @@
             </div>
           </div>
         </div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="line-height:16px;">
           <div class="img f_l">
             <img src="{{shopRes('/shop_img/proscenium4.jpg')}}" alt="">
           </div>

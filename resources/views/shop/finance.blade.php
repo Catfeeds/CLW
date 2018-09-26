@@ -10,7 +10,7 @@
     <div id="appointment">
       <appoint></appoint>
     </div>
-    <div class="banner"></div>
+    <div class="banner" style="background: url('{{shopRes('/shop_img/finance_banner.jpg')}}') no-repeat center;"></div>
     <div class="serves">
       <div class="title">服务内容</div>
       <div class="border"></div>

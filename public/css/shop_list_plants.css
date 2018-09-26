@@ -340,6 +340,15 @@ select {
   background-color: #f4f4f4;
 }
 
+.swal2-popup {
+  width: 24em !important;
+  padding-bottom: 2.5em !important;
+}
+
+.swal2-title {
+  color: #333 !important;
+}
+
 .header {
   position: fixed;
   z-index: 10;
@@ -825,7 +834,7 @@ body footer .bottom .friend_link a {
 }
 
 .select_area .brand_select .brands .active {
-  border: 2px solid #e23a3c;
+  border: 2px solid #e23a3c !important;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }

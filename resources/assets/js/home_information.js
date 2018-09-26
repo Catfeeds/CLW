@@ -14,6 +14,7 @@ var mySwiper1 = new Swiper('.swiper-container',{
     width: 770,
     autoplay : 5000,//可选选项，自动滑动
     autoplayDisableOnInteraction : false,
+    paginationClickable : true,
     onTransitionEnd:function (swiper) {
         console.log(swiper.activeIndex);
         mySwiper2.slideTo(swiper.activeIndex);

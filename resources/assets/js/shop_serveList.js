@@ -11,6 +11,7 @@ new Vue({
 
 var textVal = '日常保洁'
 $('.js_cleanse .banner_title').html('开荒保洁')
+$('.js_cleanse .banner_describe').html('为您扫除一切障碍 “助”您开业大吉')
 $('.js_cleanse .clean_serve').css('background','url(/shop_img/ressetClean_serve.jpg)')
 // $('.js_register1 .tax_title1').html('外商独资公司注册')
 // $('.js_register2 .tax_title1').html('合伙企业注册')
@@ -47,6 +48,9 @@ $('.select_details .select_detail').click(function() {
     $('.js_general').css('display','block').siblings().css('display', 'none')
   } else if(textVal == '有限责任公司注册') {
     $('.js_register').css('display','block').siblings().css('display', 'none')
+    $('.info_2').html('前期信息确认<br>准备材料')
+    $('.info_3').html('名称核检<br>现场面签提交')
+    $('.info_4').html('领取营业执照<br>刻印章')
   }
   // } else if(textVal == '外商独资公司注册') {
   //   $('.js_register1').css('display','block').siblings().css('display', 'none')

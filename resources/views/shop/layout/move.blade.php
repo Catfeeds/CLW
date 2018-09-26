@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="moveBanner"></div>
+    <div class="moveBanner" style="background: url('{{shopRes('/shop_img/moving_banner.jpg')}}') no-repeat center;"></div>
     <div class="choose">
       <div class="choose_title" style="font-family:PingFang-SC-Regular">为什么选择我们</div>
       <div class="border"></div>
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div class="moving_serve">
+    <div class="moving_serve" style="background: url('{{shopRes('/shop_img/moving_res.png')}}') no-repeat center;">
       <div class="title">我们能做什么</div>
     </div>
     <div class="provides_move">

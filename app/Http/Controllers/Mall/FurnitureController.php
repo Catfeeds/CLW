@@ -19,7 +19,7 @@ class FurnitureController extends Controller
         $labels = Label::getLabelByCategoryName('办公家具');
         $sort = $request->url();
         $symbol = '?';
-        if (!empty($request->labels)) {
+        if (!empty($request->labels) && !is_array($request->labels)) {
             $request->offsetSet('labels', explode('-',$request->labels));
             $data = array();
 

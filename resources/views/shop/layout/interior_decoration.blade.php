@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="banner"></div>
+    <div class="banner" style="background: url('{{shopRes('/shop_img/decoration_ban.jpg')}}') no-repeat center;"></div>
     <div class="question">
       <div class="title">你或许正面临这样的难题</div>
       <div class="border"></div>
@@ -72,7 +72,7 @@
           </div>
         </div>
       </div>
-      <div class="serve_steps">
+      <div class="serve_steps" style="background: url('{{shopRes('/shop_img/company_serve.jpg')}}') no-repeat center;">
         <div class="steps">
           <div class="step">
             <div class="title clearfix">

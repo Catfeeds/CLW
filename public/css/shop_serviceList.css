@@ -340,6 +340,15 @@ select {
   background-color: #f4f4f4;
 }
 
+.swal2-popup {
+  width: 24em !important;
+  padding-bottom: 2.5em !important;
+}
+
+.swal2-title {
+  color: #333 !important;
+}
+
 .header {
   position: fixed;
   z-index: 10;
@@ -741,7 +750,6 @@ body .container {
 body .container .clean_banner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/clean_banner.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 110px;
@@ -762,7 +770,6 @@ body .container .clean_banner .banner_describe {
 body .container .advantage {
   width: 100%;
   height: 115px;
-  background: url(/shop_img/clean_advantage.jpg) no-repeat center;
 }
 
 body .container .clean_train {
@@ -825,7 +832,6 @@ body .container .clean_train .train_box .train_detail:last-child {
 body .container .profession {
   width: 100%;
   height: 353px;
-  background: url(/shop_img/profession_back.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 85px;
@@ -884,7 +890,6 @@ body .container .clean_tool .tools li:last-child {
 body .container .clean_serve {
   width: 100%;
   height: 720px;
-  background: url(/shop_img/clean_serve.jpg) no-repeat center;
 }
 
 body .container .our_tellent {
@@ -1002,7 +1007,6 @@ body .container .our_tellent .tellent_contents .content .right_box .tellent_desc
 .container .moveBanner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/moving_banner.jpg) no-repeat center;
 }
 
 .container .choose {
@@ -1073,7 +1077,6 @@ body .container .our_tellent .tellent_contents .content .right_box .tellent_desc
 .container .moving_serve {
   width: 100%;
   height: 640px;
-  background: url(/shop_img/moving_res.png) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 90px;
@@ -1269,7 +1272,6 @@ body .container .our_tellent .tellent_contents .content .right_box .tellent_desc
 .protection_container .banner1 {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/protection_banner1.jpg) no-repeat center;
 }
 
 .protection_container .banner2 {
@@ -1306,7 +1308,6 @@ body .container .our_tellent .tellent_contents .content .right_box .tellent_desc
 .protection_container .banner3 .title {
   width: 100%;
   height: 260px;
-  background: url(/shop_img/protect_banner3.jpg);
   text-align: center;
   font-size: 40px;
   color: #fff;
@@ -1369,7 +1370,6 @@ body .container .our_tellent .tellent_contents .content .right_box .tellent_desc
   height: 600px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: url(/shop_img/protect_banner4.jpg) no-repeat center;
   padding-top: 115px;
 }
 
@@ -1479,13 +1479,11 @@ body .container .our_tellent .tellent_contents .content .right_box .tellent_desc
 .water_container .banner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/water_banner.jpg) no-repeat center;
 }
 
 .water_container .describe {
   width: 100%;
   height: 467px;
-  background: url(/shop_img/water_des.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 100px;
@@ -1632,7 +1630,6 @@ body .container {
 body .container .banner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/decoration_ban.jpg) no-repeat center;
 }
 
 body .container .question {
@@ -1783,7 +1780,6 @@ body .container .we_serve .serve_details .serve_detail .detail_border {
 body .container .we_serve .serve_steps {
   width: 100%;
   height: 360px;
-  background: url(/shop_img/company_serve.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 30px;
@@ -1938,7 +1934,6 @@ body .container {
 body .container .decoration_banner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/decoration_banner.jpg) no-repeat center;
 }
 
 body .container .question {
@@ -2022,7 +2017,6 @@ body .container .question .question_box .question_detail .question_des .question
 body .container .decoration_serve {
   width: 100%;
   height: 675px;
-  background: url(/shop_img/decoration_serve.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 100px;
@@ -2059,7 +2053,6 @@ body .container .decoration_serve .serves {
   width: 1200px;
   margin: 0 auto;
   height: 250px;
-  background: url(/shop_img/decoration_serves.png) no-repeat center;
 }
 
 body .container .decoration_content {
@@ -2097,7 +2090,6 @@ body .container .decoration_content .content_describe {
 body .container .serve_quality {
   width: 100%;
   height: 720px;
-  background: url(/shop_img/serve_quality.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 95px;
@@ -2378,20 +2370,17 @@ body .container .attention .attention_box .attention_item:last-child {
   width: 187px;
   height: 187px;
   margin-right: 119px;
-  background: url(/shop_img/first.png) no-repeat center;
+  line-height: 187px;
+  text-align: center;
 }
 
-.list_step .steps .step:nth-child(2) {
-  background: url(/shop_img/second.png) no-repeat center;
-}
-
-.list_step .steps .step:nth-child(3) {
-  background: url(/shop_img/third.png) no-repeat center;
-}
-
-.list_step .steps .step:last-child {
-  margin-right: 0;
-  background: url(/shop_img/fouth.png) no-repeat center;
+.list_step .steps .step .step_info {
+  display: inline-block;
+  line-height: 33px;
+  color: #414143;
+  vertical-align: middle;
+  letter-spacing: -1px;
+  font-size: 20px;
 }
 
 .list_serve {
@@ -2441,7 +2430,6 @@ body .container .attention .attention_box .attention_item:last-child {
 .print_container .banner {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/print_banner.jpg) no-repeat center;
 }
 
 .print_container .print_trub {
@@ -2449,7 +2437,6 @@ body .container .attention .attention_box .attention_item:last-child {
   height: 768px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: url(/shop_img/print_trouble_back.jpg) no-repeat center;
 }
 
 .print_container .print_trub .title {
@@ -2611,7 +2598,6 @@ body .container .attention .attention_box .attention_item:last-child {
   height: 655px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: url(/shop_img/you_choose_back.jpg) no-repeat center;
   padding-top: 100px;
 }
 
@@ -2696,7 +2682,6 @@ body .container {
 body .container .list_title {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/list_detail_title.jpg) no-repeat center;
   padding-top: 150px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2721,7 +2706,6 @@ body .container .list_title .title_2 {
 body .container .list_describe {
   width: 100%;
   height: 673px;
-  background: url(/shop_img/list_describe_back.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -2846,7 +2830,6 @@ body .container .you_provide {
           box-sizing: border-box;
   width: 100%;
   height: 775px;
-  background: url(/shop_img/you_provide.jpg) no-repeat center;
   padding-top: 124px;
   padding-left: 393px;
 }
@@ -3056,7 +3039,6 @@ body .container {
 body .container .tax_title {
   width: 100%;
   height: 480px;
-  background: url(/shop_img/tax_banner.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 160px;
@@ -3083,7 +3065,6 @@ body .container .tax_title .tax_title2 {
 body .container .company_register {
   height: 629px;
   width: 100%;
-  background: url(/shop_img/company_back.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 80px;
@@ -3165,7 +3146,6 @@ body .container .register_steps {
   width: 100%;
   height: 690px;
   padding-top: 115px;
-  background: url(/shop_img/steps_back.jpg) no-repeat center;
 }
 
 body .container .register_steps .step_title {
@@ -3207,7 +3187,6 @@ body .container .provides {
   height: 690px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: url(/shop_img/provides_back.jpg) no-repeat center;
   padding-top: 105px;
 }
 
@@ -3334,7 +3313,6 @@ body .container .gets .gets_box .gets_detail .gets_content {
 body .container .search_methods {
   width: 100%;
   height: 700px;
-  background: url("/shop_img/register_search.jpg") no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 115px;
@@ -3569,7 +3547,7 @@ body .container .list_step .steps .step:last-child {
 }
 
 .select_area .brand_select .brands .active {
-  border: 2px solid #e23a3c;
+  border: 2px solid #e23a3c !important;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }

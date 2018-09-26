@@ -1,6 +1,6 @@
 require('./shop_common');
 require('./shop_header');
-import sweetalert from 'sweetalert2'
+import sweetalert from 'sweetalert2';
 import { Message } from 'element-ui';
 $('.error').hide() // 隐藏错误提示
 var index = 0 // 电梯导航下标
@@ -77,17 +77,26 @@ $('.js_backTop').on('click', function() {
   $("body,html").animate({scrollTop: 0}, 500)
 })
 
+// input事件
+$('.index_input').on('input', function() {
+  if ($('.consult input').val().length == 0) {
+    $('.error').hide()
+  } else {
+    $('.error').show()
+  }
+
+})
+
 // 立即预约
 $('.consult button').click(function() {
   var telVal = $('.consult input').val()
   var tel = /^\d{11}$/
   if(tel.test(telVal)) {
-    console.log('sssss', telVal)
     var data={}
     data.tel = telVal
-    data.source = 10
+    data.source = 6
     data.demand = 3
-    data.page_source = '首页底部-企业服务'
+    data.page_source = '商城-首页底部'
     $.ajax({
       url: '/entrust_throw_ins',
       type: 'POST',
@@ -106,7 +115,6 @@ $('.consult button').click(function() {
             type: 'warning'
           })
         }
-        $('.error').hide()
         $('.consult input').val('')
       },
       error: function(res) {
@@ -116,7 +124,5 @@ $('.consult button').click(function() {
         })
       }
     })
-  } else {
-    $('.error').show()
   }
 })

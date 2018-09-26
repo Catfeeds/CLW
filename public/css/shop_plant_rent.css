@@ -340,6 +340,15 @@ select {
   background-color: #f4f4f4;
 }
 
+.swal2-popup {
+  width: 24em !important;
+  padding-bottom: 2.5em !important;
+}
+
+.swal2-title {
+  color: #333 !important;
+}
+
 .header {
   position: fixed;
   z-index: 10;
@@ -790,7 +799,6 @@ body .plant_container .banner .title2 {
 body .plant_container .plant_archives {
   width: 100%;
   height: 740px;
-  background: url(/shop_img/plant_archives.jpg) no-repeat center;
   position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -837,7 +845,6 @@ body .plant_container .knowledge {
 body .plant_container .knowledge .title {
   width: 100%;
   height: 160px;
-  background: url(/shop_img/plant_rent_knowledge.jpg) no-repeat center;
   line-height: 160px;
   font-size: 38px;
   color: #fff;
@@ -899,7 +906,6 @@ body .plant_container .knowledge .needing .require .detail .detail_do {
 body .plant_container .plant_put {
   width: 100%;
   height: 580px;
-  background: url(/shop_img/plant_out.jpg) no-repeat center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 100px;
@@ -942,7 +948,6 @@ body .plant_container .us_serve {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 110px;
-  background: url(/shop_img/us_serve_back.jpg) no-repeat center;
 }
 
 body .plant_container .us_serve .title {
@@ -962,7 +967,6 @@ body .plant_container .promise .title {
   text-align: center;
   line-height: 160px;
   font-size: 40px;
-  background: url(/shop_img/rent_plant_promise_back.jpg) no-repeat center;
 }
 
 body .plant_container .promise .details {

@@ -40,7 +40,7 @@
       </div>
       <div class="@if(!empty($request['price'])) sort_current @endif sort_details f_l price_sort">
         <a href="{{$sort.$symbol.$price}}">
-        @if(empty($request['price']))价格由高到低
+        @if(empty($request['price']))价格由高到低 
         @elseif($request['price']=='desc')价格由高到低
         @else 价格由低到高
         @endif
