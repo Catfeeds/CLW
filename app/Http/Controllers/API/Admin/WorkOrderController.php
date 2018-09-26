@@ -92,7 +92,11 @@ class WorkOrderController extends APIBaseController
         $res = $repository->distribution($request);
         //获取该记录的客户名称和电话
         $item = WorkOrder::where('guid', $request->guid)->first();
-        if ($res) $service->send($request->openid,$item->name,$item->tel,true);
+        $openid = $service->getOpenid($request->staff_guid);
+        if ($res && $openid) {
+            $suc =  $service->send($openid,$item->name,$item->tel,true);
+            if (!$suc) \Log::info('微信消息发送失败');
+        }
         return $this->sendResponse($res, '工单分配成功');
     }
 

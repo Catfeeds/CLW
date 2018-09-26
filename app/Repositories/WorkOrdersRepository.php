@@ -73,19 +73,19 @@ class WorkOrdersRepository extends Model
     // 店长分配工单
     public function distribution($request)
     {
-        return WorkOrder::where('guid', $request->guid)->update(['staff_id'=> $request->staff_id, 'shopkeeper_deal' => date('Y-m-d H:i:s',time())]);
+        return WorkOrder::where('guid', $request->guid)->update(['staff_guid'=> $request->staff_guid, 'shopkeeper_deal' => date('Y-m-d H:i:s',time())]);
     }
 
     //店员确认工单
     public function determine($request)
     {
-        return WorkOrder::where('guid', $request->id)->update(['staff_deal' => date('Y-m-d H:i:s',time())]);
+        return WorkOrder::where('guid', $request->guid)->update(['staff_deal' => date('Y-m-d H:i:s',time())]);
     }
 
     //业务员反馈信息
     public function feedback($request)
     {
-        return WorkOrder::where('guid', $request->id)->update(['feedback' => $request->feedback, 'valid' => $request->valid]);
+        return WorkOrder::where('guid', $request->guid)->update(['feedback' => $request->feedback, 'valid' => $request->valid]);
     }
 
     // 手机端店长处理工单界面
@@ -116,7 +116,7 @@ class WorkOrdersRepository extends Model
                 return WorkOrder::where(['staff_deal' => null, 'staff_guid' => $guid])->latest('updated_at')->paginate(6);
                 break;
             case 2:
-                return WorkOrder::with('custom')->where('staff_deal', '!=', null)->where('staff_guid', $guid)->latest('updated_at')->paginate(6);
+                return WorkOrder::where('staff_deal', '!=', null)->where('staff_guid', $guid)->latest('updated_at')->paginate(6);
                 break;
                 default;
                 break;

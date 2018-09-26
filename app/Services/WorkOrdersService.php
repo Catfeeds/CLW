@@ -35,8 +35,8 @@ class WorkOrdersService
     public function getInfo($item)
     {
         foreach ($item as $v) {
-            $v->staff = $v->staffUser->real_name;
-            $staff_deal = WorkOrder::where('id', $v->id)->value('staff_deal');
+            $v->staff = $v->staffUser->name;
+            $staff_deal = WorkOrder::where('guid', $v->guid)->value('staff_deal');
             if (!$staff_deal) {
                 $v->determine = 1; //未确定
             } else {
@@ -118,10 +118,8 @@ class WorkOrdersService
     public function getStaff($guid)
     {
         $user = Agent::where('guid', $guid)->first();
-
         // 同公司 openid不为空的人员
         $res = Agent::where('company_guid', $user->company_guid)->where('openid', '!=', '');
-
         // 判断用户角色等级
         switch ($user->role->level) {
             case 1:

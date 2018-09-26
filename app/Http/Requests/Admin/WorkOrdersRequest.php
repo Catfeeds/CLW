@@ -51,7 +51,7 @@ class WorkOrdersRequest extends FormRequest
                 ];
             case 'distribution':
                 return [
-                    'staff_id' => 'required|exists:saas.users,guid'
+                    'staff_guid' => 'required|exists:saas.users,guid'
                 ];
             case 'feedback':
                 return [
