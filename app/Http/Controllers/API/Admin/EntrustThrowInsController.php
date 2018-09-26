@@ -8,6 +8,7 @@ use App\Models\Agent;
 use App\Repositories\EntrustThrowInsRepository;
 use App\Services\HousesService;
 use App\Services\StatisticsService;
+use App\Services\WorkOrdersService;
 use App\User;
 
 class EntrustThrowInsController extends APIBaseController
@@ -71,18 +72,22 @@ class EntrustThrowInsController extends APIBaseController
         return $this->sendResponse($res, '回访状态修改成功');
     }
 
-    //信息添加工单
+    // 渠道列表添加工单
     public function addGd
     (
         EntrustThrowInsRequest $request,
         EntrustThrowInsRepository $repository,
-        HousesService $service
+        WorkOrdersService $service
     )
     {
-        $res = $repository->addGd($request, $service);
-        $openid = Agent::where('guid', $request->shopkeeper_guid)->value('openid');
+        $res = $repository->addGd($request);
+
+        $openid = $service->getOpenid($request->shopkeeper_guid);
         //发送消息
-        $repository->send($openid, $request->name, $request->tel);
+        if ($openid && $res) {
+           $suc =  $service->send($openid, $request->name, $request->tel);
+           if (!$suc) \Log::info('微信消息发送失败');
+        }
         if (!$res) return $this->sendError('工单添加失败');
         return $this->sendResponse($res, '工单添加成功');
     }
