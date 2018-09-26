@@ -14,7 +14,7 @@ Vue.use(InfiniteScroll); // 上拉加载更多
  */
 var FormData = {
     staff_guid: '', // 员工id
-    id: '', // 工单id
+    guid: '', // 工单id
     openid: $('meta[name="openid"]').attr('content')
 }
 var sheetClick = function(e) {
@@ -43,9 +43,9 @@ const app = new Vue({
         actions: []
     },
     methods: {
-        sheet(id, index) {
+        sheet(guid, index) {
             this.index = index
-            FormData.id = id
+            FormData.guid = guid
             this.sheetVisible = !this.sheetVisible
         },
         // 上拉加载更多 !待处理!

@@ -12,7 +12,7 @@ Vue.use(InfiniteScroll); // 上拉加载更多
  * Vue.use(Cell)
  */
 var FormData = {
-    id: '',
+    guid: '',
     openid: $('meta[name="openid"]').attr('content')
 }
 var requestType = false;
@@ -36,8 +36,8 @@ const app = new Vue({
         actions: []
     },
     methods: {
-        sheet(id, index) {
-            FormData.id = id
+        sheet(guid, index) {
+            FormData.guid = guid
             distribution(FormData, index)
         },
         // 上拉加载更多 !待确定!
@@ -92,7 +92,7 @@ const app = new Vue({
             this.untopStatus = status;
         },
         // 添加反馈
-        addFeedback(id) {
+        addFeedback(guid) {
             MessageBox.prompt('请输入反馈信息','').then(({ value, action }) => {
                 if(!value){
                     Toast({
@@ -103,7 +103,7 @@ const app = new Vue({
                     return
                 }
                 var FormData = {
-                    id: id,
+                    guid: guid,
                     feedback: value,
                     valid: 1 // 反馈
                 }
@@ -135,7 +135,7 @@ const app = new Vue({
             });
         },
         // 添加无效原因
-        addIneffective(id) {
+        addIneffective(guid) {
             MessageBox.prompt('请输入无效原因','').then(({ value, action }) => {
                 if(!value){
                     Toast({
@@ -146,7 +146,7 @@ const app = new Vue({
                     return
                 }
                 var FormData = {
-                    id: id,
+                    guid: guid,
                     feedback: value,
                     valid: 2 // 无效
                 }

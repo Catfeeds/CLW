@@ -31,7 +31,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_mint
  * Vue.use(Cell)
  */
 var FormData = {
-    id: '',
+    guid: '',
     openid: $('meta[name="openid"]').attr('content')
 };
 var requestType = false;
@@ -55,8 +55,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         actions: []
     },
     methods: {
-        sheet: function sheet(id, index) {
-            FormData.id = id;
+        sheet: function sheet(guid, index) {
+            FormData.guid = guid;
             distribution(FormData, index);
         },
 
@@ -116,7 +116,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         },
 
         // 添加反馈
-        addFeedback: function addFeedback(id) {
+        addFeedback: function addFeedback(guid) {
             __WEBPACK_IMPORTED_MODULE_1_mint_ui__["MessageBox"].prompt('请输入反馈信息', '').then(function (_ref) {
                 var value = _ref.value,
                     action = _ref.action;
@@ -130,7 +130,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     return;
                 }
                 var FormData = {
-                    id: id,
+                    guid: guid,
                     feedback: value,
                     valid: 1 // 反馈
                 };
@@ -163,7 +163,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         },
 
         // 添加无效原因
-        addIneffective: function addIneffective(id) {
+        addIneffective: function addIneffective(guid) {
             __WEBPACK_IMPORTED_MODULE_1_mint_ui__["MessageBox"].prompt('请输入无效原因', '').then(function (_ref2) {
                 var value = _ref2.value,
                     action = _ref2.action;
@@ -177,7 +177,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     return;
                 }
                 var FormData = {
-                    id: id,
+                    guid: guid,
                     feedback: value,
                     valid: 2 // 无效
                 };
