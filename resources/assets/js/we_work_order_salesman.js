@@ -16,7 +16,7 @@ var FormData = {
     openid: $('meta[name="openid"]').attr('content')
 }
 var requestType = false;
-const url = process.env.agencyHostURL
+const url = process.env.agencyHostURL + '/api/admin'
 const app = new Vue({
     el: '#app',
     data: {
@@ -111,7 +111,7 @@ const app = new Vue({
                     headers: {
                         'safeString': $('meta[name="safeString"]').attr('content')
                     },
-                    url: url + "/api/feedback",
+                    url: url + "/feedback",
                     type: 'post',
                     data: FormData,
                     success: function(data){
@@ -154,7 +154,7 @@ const app = new Vue({
                     headers: {
                         'safeString': $('meta[name="safeString"]').attr('content')
                     },
-                    url: url + "/api/feedback",
+                    url: url + "/feedback",
                     type: 'post',
                     data: FormData,
                     success: function(data){
@@ -196,7 +196,7 @@ function getSaiesmanList(status, page, type=false) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/staff_list",
+        url: url + "/staff_list",
         type: 'get',
         data:{
             status: status,
@@ -251,7 +251,7 @@ function distribution(FormData, index) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/determine",
+        url: url + "/determine",
         type: 'post',
         data: FormData,
         success: function(data){

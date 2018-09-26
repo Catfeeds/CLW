@@ -35,7 +35,7 @@ var FormData = {
     openid: $('meta[name="openid"]').attr('content')
 };
 var requestType = false;
-var url = 'http://192.168.0.142:9999';
+var url = 'http://192.168.0.199:3000' + '/api/admin';
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     data: {
@@ -138,7 +138,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     headers: {
                         'safeString': $('meta[name="safeString"]').attr('content')
                     },
-                    url: url + "/api/feedback",
+                    url: url + "/feedback",
                     type: 'post',
                     data: FormData,
                     success: function success(data) {
@@ -185,7 +185,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     headers: {
                         'safeString': $('meta[name="safeString"]').attr('content')
                     },
-                    url: url + "/api/feedback",
+                    url: url + "/feedback",
                     type: 'post',
                     data: FormData,
                     success: function success(data) {
@@ -229,7 +229,7 @@ function getSaiesmanList(status, page) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/staff_list",
+        url: url + "/staff_list",
         type: 'get',
         data: {
             status: status,
@@ -282,7 +282,7 @@ function distribution(FormData, index) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/determine",
+        url: url + "/determine",
         type: 'post',
         data: FormData,
         success: function success(data) {
