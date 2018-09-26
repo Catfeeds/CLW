@@ -41,7 +41,7 @@
                         </div>
                         <div class="list-bottom">
                             <div class="f-1 jus-start p-5"><span>分配时间: </span><span>@{{item.created_at}}</span></div>
-                            <button class="button p-5" @click="sheet(item.id,index)">确定</button>
+                            <button class="button p-5" @click="sheet(item.guid,index)">确定</button>
                         </div>
                     </div>
                 </div>
@@ -61,8 +61,8 @@
                             <div class="list-header">
                                 <div class="f-2 jus-start"><span>工单号: </span><span> @{{item.identifier}}</span></div>
                                 <div class="f-1 jus-end">
-                                    <button v-if="!item.feedback" class="unfeedback special" @click="addIneffective(item.id)">无效</button>
-                                    <button v-if="!item.feedback" class="unfeedback" @click="addFeedback(item.id)">反馈</button>
+                                    <button v-if="!item.feedback" class="unfeedback special" @click="addIneffective(item.guid)">无效</button>
+                                    <button v-if="!item.feedback" class="unfeedback" @click="addFeedback(item.guid)">反馈</button>
                                     <span v-else class="feedback" style="">已反馈</span>
                                 </div>
                             </div>
