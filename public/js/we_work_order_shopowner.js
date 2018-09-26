@@ -32,12 +32,12 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_mint
  * Vue.use(Cell)
  */
 var FormData = {
-    staff_id: '', // 员工id
+    staff_guid: '', // 员工id
     id: '', // 工单id
     openid: $('meta[name="openid"]').attr('content')
 };
 var sheetClick = function sheetClick(e) {
-    FormData.staff_id = e.id;
+    FormData.staff_guid = e.id;
     distribution(FormData);
 };
 var url = 'http://192.168.0.199:3000' + '/api/admin';
