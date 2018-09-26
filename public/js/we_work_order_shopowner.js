@@ -33,7 +33,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_mint
  */
 var FormData = {
     staff_guid: '', // 员工id
-    id: '', // 工单id
+    guid: '', // 工单id
     openid: $('meta[name="openid"]').attr('content')
 };
 var sheetClick = function sheetClick(e) {
@@ -62,9 +62,9 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         actions: []
     },
     methods: {
-        sheet: function sheet(id, index) {
+        sheet: function sheet(guid, index) {
             this.index = index;
-            FormData.id = id;
+            FormData.guid = guid;
             this.sheetVisible = !this.sheetVisible;
         },
 
