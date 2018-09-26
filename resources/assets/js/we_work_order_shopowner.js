@@ -21,7 +21,7 @@ var sheetClick = function(e) {
     FormData.staff_id = e.id
     distribution(FormData)
 }
-const url = process.env.agencyHostURL;
+const url = process.env.agencyHostURL + '/api/admin'
 var requestType = false;
 const app = new Vue({
     el: '#app',
@@ -113,7 +113,7 @@ const app = new Vue({
             headers: {
                 'safeString': $('meta[name="safeString"]').attr('content')
             },
-            url: url + "/api/get_staff",
+            url: url + "/get_staff",
             type: 'get',
             data:{
                 status: 1,
@@ -151,7 +151,7 @@ function getShopkeeperList(status, page, type=false) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/shopkeeper_list",
+        url: url + "/shopkeeper_list",
         type: 'get',
         data:{
             status: status,
@@ -212,7 +212,7 @@ function distribution(FormData) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/distribution",
+        url: url + "/distribution",
         type: 'post',
         data: FormData,
         success: function(data){
