@@ -14,8 +14,6 @@ class WorkOrder extends BaseModel
     // 主键类型
     protected $keyType = 'string';
 
-    protected $guarded = [];
-
     protected $connection = 'mysql';
 
     protected $appends = ['source_cn', 'demand_cn', 'valid_cn', 'clinch_cn'];

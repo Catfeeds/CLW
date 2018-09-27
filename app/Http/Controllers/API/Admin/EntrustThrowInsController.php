@@ -81,9 +81,8 @@ class EntrustThrowInsController extends APIBaseController
     )
     {
         $res = $repository->addGd($request);
-
         $openid = $service->getOpenid($request->shopkeeper_guid);
-        //发送消息
+        // openid存在, 工单添加成功, 发送微信消息
         if ($openid && $res) {
            $suc =  $service->send($openid, $request->name, $request->tel);
            if (!$suc) \Log::info('微信消息发送失败');

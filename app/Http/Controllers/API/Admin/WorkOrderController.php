@@ -31,7 +31,7 @@ class WorkOrderController extends APIBaseController
     )
     {
         $res = $repository->addWorkOrder($request);
-        // 店长guid、微信id存在、工单添加成功, 则发送消息
+        // 店长guid、微信openid存在、工单添加成功, 则发送消息
         $openid = $service->getOpenid($request->shopkeeper_guid);
         if ($request->shopkeeper_guid && $openid && $res) {
             $suc = $service->send($openid, $res->name, $res->tel);
