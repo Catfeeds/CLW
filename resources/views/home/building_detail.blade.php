@@ -2,7 +2,7 @@
 @section('title', '楼盘详情')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_building_detail.css')}}">
-<meta name="storeId" content="{{ $building->id }}" data-type='building'>
+<meta name="storeId" content="{{ $building->guid }}" data-type='building'>
 @endsection
 @section('body')
 @include('home.nav')
@@ -129,7 +129,7 @@
                         <div class="js_listDetail">
                             @foreach($houses as $house)
                             <div class="listDetail">
-                                <a href="{{url('/office_building_houses').'/'.$house->guid}}">
+                                <a href="{{url('/office_building_houses').'/'.$house->id}}">
                                     <div class="listPic"><img src="{{$house->indoor_img_cn}}"></div>
                                     <div class="listNum">
                                         <div><span id="listArea">{{$house->constru_acreage}}</span>m²</div>
