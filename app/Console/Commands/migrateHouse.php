@@ -44,16 +44,17 @@ class migrateHouse extends Command
         $house = OfficeBuildingHouse::all();
 
         foreach ($house as $v) {
-
+            // 楼座guid
             $guid = BuildingBlock::where('id', $v->building_block_id)->value('guid');
-
+            // 楼盘guid
+            $building_guid = BuildingBlock::where('id', $v->building_block_id)->value('building_guid');
             $res = Houses::create([
-                'guid' => Common::getUuid(),
                 'id' => $v->id,
                 'house_identifier' => $v->house_identifier,
                 'gd_identifier' => $v->gd_identifier,
                 'building_block_id' => $v->building_block_id,
                 'building_block_guid' => $guid,
+                'building_guid' => $building_guid,
                 'house_number' => $v->house_number,
                 'title' => $v->title,
                 'owner_info' => $v->owner_info,

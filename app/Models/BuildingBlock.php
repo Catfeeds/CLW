@@ -19,6 +19,7 @@ class BuildingBlock extends Model
     // 主键类型
     protected $keyType = 'string';
 
+
     public function building()
     {
         return $this->belongsTo('App\Models\Building','building_guid','guid');
