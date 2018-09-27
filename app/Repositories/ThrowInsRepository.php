@@ -36,10 +36,10 @@ class ThrowInsRepository extends Model
                 'tel' => $request->tel,
                 'user_id' => empty($user)?null:$user->id,
                 'appellation' => $request->appellation,
-                'area_id' => $request->area_id,
+                'area_guid' => $request->area_guid,
                 'area_name' => $request->area_name,
                 'acreage' => $request->acreage,
-                'block_id' => $request->block_id,
+                'block_guid' => $request->block_guid,
                 'building_name' => $request->building_name,
                 'source' => $source,
                 'page_source' => $request->page_source
