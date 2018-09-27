@@ -11,8 +11,8 @@
     @include('home.nav')
     @include('home.right_tab')
     <input type="hidden" id="search"
-           data-area_id="{{ $request['area_id']??'' }}"
-           data-block_id="{{ $request['block_id']??'' }}"
+           data-area_guid="{{ $request['area_guid']??'' }}"
+           data-block_guid="{{ $request['block_guid']??'' }}"
            data-features="{{ $request['features']??'' }}"
            data-acreage="{{ $request['acreage']??'' }}"
            data-unit_price="{{ $request['unit_price']??'' }}"
@@ -40,25 +40,25 @@
                     <div class="area">
                         <ul class="list clearfix js_area">
                             <li class="item">区域</li>
-                            <li class="item js_condition" data-content="" data-dom="area_id">
-                                <a class="all js_addCurrent  @if(empty($request['area_id']))current @endif">全部</a>
+                            <li class="item js_condition" data-content="" data-dom="area_guid">
+                                <a class="all js_addCurrent  @if(empty($request['area_guid']))current @endif">全部</a>
                             </li>
                             @foreach($areas as $area)
-                                <li class="item js_condition" data-content="{{$area['id']}}" data-dom="area_id">
-                                    <a data-content="{{$area['name']}}" data-dom="area_id"
-                                       class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])area_id current @endif js_area_sel">{{$area['name']}}</a>
+                                <li class="item js_condition" data-content="{{$area['id']}}" data-dom="area_guid">
+                                    <a data-content="{{$area['name']}}" data-dom="area_guid"
+                                       class="js_addCurrent @if(!empty($request['area_guid'])&&$request['area_guid']==$area['id'])area_guid current @endif js_area_sel">{{$area['name']}}</a>
                                 </li>
                             @endforeach
                         </ul>
                         @if(!empty($blocks))
                             <ul class="area_detail clearfix js_hongshanList">
-                                <li class="js_condition" data-content="" data-dom="block_id"><a
-                                            class="all @if(empty($request['block_id']))current @endif">全部</a></li>
+                                <li class="js_condition" data-content="" data-dom="block_guid"><a
+                                            class="all @if(empty($request['block_guid']))current @endif">全部</a></li>
                                 {{--<li class="sanjiao"><a href="javascript:void(0);">光谷</a></li>--}}
                                 @foreach($blocks as $key => $block)
-                                    <li class="js_condition" data-content="{{$key}}" data-dom="block_id">
-                                        <a data-content="{{$block}}" data-dom="block_id"
-                                           class="@if(!empty($request['block_id'])&&$request['block_id']==$key)block_id current @endif"
+                                    <li class="js_condition" data-content="{{$key}}" data-dom="block_guid">
+                                        <a data-content="{{$block}}" data-dom="block_guid"
+                                           class="@if(!empty($request['block_guid'])&&$request['block_guid']==$key)block_guid current @endif"
                                            data-content="{{$key}}">{{$block}}
                                         </a>
                                     </li>
