@@ -25,13 +25,13 @@ class OfficeBuildingHousesController extends Controller
         $block = $house->buildingBlock->building->block;
         //房源所属楼盘
         $building = $house->buildingBlock->building;
-        $data[0]['id'] = $block->area_id;
+        $data[0]['guid'] = $block->area_guid;
         $data[0]['name'] = $block->area->name;
-        $data[1]['id'] = $block->id;
+        $data[1]['guid'] = $block->guid;
         $data[1]['name'] = $block->name;
-        $data[2]['id'] = $building->id;
+        $data[2]['guid'] = $building->guid;
         $data[2]['name'] = $building->name;
-        $data[3]['id'] = $building->id;
+        $data[3]['guid'] = $building->guid;
         $data[3]['name'] = $building->name;
         
         return view('home.house_detail', [
