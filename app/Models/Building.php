@@ -16,7 +16,7 @@ class Building extends Model
 
     protected $guarded = [];
 
-    protected $connection = 'media';
+    protected $connection = 'buildings';
 
     protected $appends = [
         'pic_url_cn',

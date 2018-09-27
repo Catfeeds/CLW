@@ -8,7 +8,7 @@ class BuildingBlock extends Model
 
     protected $guarded = [];
 
-    protected $connection = 'building';
+    protected $connection = 'buildings';
 
     public function building()
     {

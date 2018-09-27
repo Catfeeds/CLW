@@ -21,6 +21,7 @@ class CreateHousesTable extends Migration
             $table->string('gd_identifier','32')->nullable()->comment('工单编号');
             $table->integer('building_block_id')->nullable()->comment('楼座id');
             $table->char('building_block_guid', 32)->nullable()->comment('楼座guid');
+            $table->char('building_guid', 32)->nullable()->comment('楼盘guid');
             $table->string('house_number', 32)->nullable()->comment('房号');
             $table->text('title')->nullable()->comment('房源标题');
             $table->json('owner_info')->nullable()->comment('业主联系方式:json');
