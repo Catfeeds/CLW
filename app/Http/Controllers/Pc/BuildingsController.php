@@ -83,7 +83,7 @@ class BuildingsController extends Controller
         $allAreas = Area::all();
         $areas = $allAreas->map(function($v) {
             return [
-                'id' => $v->id,
+                'guid' => $v->guid,
                 'name' => $v->name,
             ];
         });
@@ -91,7 +91,7 @@ class BuildingsController extends Controller
         // 获取区域
         $blocks = array();
         if (!empty($request->area_id)) {
-            $blocks = Block::where('area_id', $request->area_id)->pluck('name','id')->toArray();
+            $blocks = Block::where('area_guid', $request->area_guid)->pluck('name','guid')->toArray();
         }
 
         // 获取特色
@@ -105,7 +105,7 @@ class BuildingsController extends Controller
 
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
-            $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
+            $res = \DB::select("select building_guid from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_id');
 
