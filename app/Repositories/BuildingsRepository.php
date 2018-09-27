@@ -89,6 +89,7 @@ class BuildingsRepository extends  Model
     )
     {
         foreach ($buildingData as $index => $v) {
+
             $buildingData[$index]->pc_house = $v->house->take(5)->toArray();
 
             // 价格及面积区间
@@ -99,10 +100,10 @@ class BuildingsRepository extends  Model
             $service->getAddress($v);
             $service->label($v);
             // 房源数量
-            $buildingData[$index]->house_count = $buildings[$v->id]->count();
+            $buildingData[$index]->house_count = $buildings[$v->guid]->count();
 
             // 价格
-            $buildingData[$index]->avg_price = (int)($buildings[$v->id]->avg('unit_price'));
+            $buildingData[$index]->avg_price = (int)($buildings[$v->guid]->avg('unit_price'));
 
             // 商圈推荐
             $buildingData[$index]->block_recommend = $v->block->recommend??0;
