@@ -5,8 +5,8 @@ use App\Models\Area;
 use App\Models\Block;
 use App\Models\Building;
 use App\Models\HouseLabel;
+use App\Models\Houses;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\OfficeBuildingHouse;
 
 class OfficeBuildingHousesRepository extends Model
 {
@@ -20,13 +20,13 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function getShowOffice($service, $id)
     {
-        $house = OfficeBuildingHouse::find($id);
+        $house = Houses::find($id);
         if (empty($house)) {
             return ['status' => false, 'message' => '房源异常'];
         }
 
         // 查询这个房源周边房源
-        $houses = OfficeBuildingHouse::with('buildingBlock.building', 'houseLabel')->where('id', '!=', $id)
+        $houses = Houses::with('buildingBlock.building', 'houseLabel')->where('id', '!=', $id)
             ->where('constru_acreage', '>', $house->constru_acreage - config('setting.float_acreage'))
             ->where('constru_acreage', '<', $house->constru_acreage + config('setting.float_acreage'))
             ->where('unit_price', '>', $house->unit_price - config('setting.float_price'))
@@ -50,7 +50,7 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function HouseList($per_page, $condition, $service)
     {
-        $result = OfficeBuildingHouse::where('house_busine_state', 1);
+        $result = Houses::where('house_busine_state', 1);
         if (!empty($condition->region) && !empty($condition->build)) {
             // 楼盘包含的楼座
             $blockId = array_column(Building::find($condition->build)->buildingBlock->toArray(), 'guid');
@@ -113,32 +113,26 @@ class OfficeBuildingHousesRepository extends Model
      */
     public function showHouse($request)
     {
-        return OfficeBuildingHouse::find($request->house_id)->update(['shelf' => 1]);
+        return Houses::find($request->house_id)->update(['shelf' => 1]);
     }
 
-    /**
-     * 说明: 房源下架
-     *
-     * @param $request
-     * @return mixed
-     * @author 刘坤涛
-     */
+    // 房源下架
     public function delShowHouse($id)
     {
-        return OfficeBuildingHouse::find($id)->update(['shelf' => 2]);
+        return Houses::find($id)->update(['shelf' => 2]);
     }
 
     public function getAgentInfo($house)
     {
         //获取该房源所属商圈id
-        $block_id = $house->buildingBlock->building->block_id;
-        return Block::find($block_id);
+        $block_guid = $house->buildingBlock->building->block_guid;
+        return Block::find($block_guid);
     }
 
     public function officeBuildingHousesRecordList($request)
     {
         $id = $request->id;
         $idArr = explode(",",$id);
-        return OfficeBuildingHouse::whereIn('id',$idArr)->with('buildingBlock.building.block.area')->get();
+        return Houses::whereIn('id',$idArr)->with('buildingBlock.building.block.area')->get();
     }
 }
