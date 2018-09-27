@@ -44,7 +44,7 @@
                                 <a class="all js_addCurrent  @if(empty($request['area_guid']))current @endif">全部</a>
                             </li>
                             @foreach($areas as $area)
-                                <li class="item js_condition" data-content="{{$area['id']}}" data-dom="area_guid">
+                                <li class="item js_condition" data-content="{{$area['guid']}}" data-dom="area_guid">
                                     <a data-content="{{$area['name']}}" data-dom="area_guid"
                                        class="js_addCurrent @if(!empty($request['area_guid'])&&$request['area_guid']==$area['id'])area_guid current @endif js_area_sel">{{$area['name']}}</a>
                                 </li>
