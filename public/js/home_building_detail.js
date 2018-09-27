@@ -59030,7 +59030,7 @@ new Vue({
   created: function created() {
     var _this = this;
 
-    Object(__WEBPACK_IMPORTED_MODULE_2__home_api__["j" /* getLikeBuild */])({ block_id: Data.block_id, price_sort: 'asc' }).then(function (res) {
+    Object(__WEBPACK_IMPORTED_MODULE_2__home_api__["j" /* getLikeBuild */])({ block_guid: Data.block_guid, price_sort: 'asc' }).then(function (res) {
       _this.list = res.data;
     });
   },
@@ -59052,7 +59052,7 @@ new Vue({
   created: function created() {
     var _this2 = this;
 
-    Object(__WEBPACK_IMPORTED_MODULE_2__home_api__["l" /* getMarketPrice */])(Data.id).then(function (res) {
+    Object(__WEBPACK_IMPORTED_MODULE_2__home_api__["l" /* getMarketPrice */])(Data.guid).then(function (res) {
       _this2.list = res.data;
     });
   }
