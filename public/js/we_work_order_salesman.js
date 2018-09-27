@@ -31,11 +31,11 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_mint
  * Vue.use(Cell)
  */
 var FormData = {
-    id: '',
+    guid: '',
     openid: $('meta[name="openid"]').attr('content')
 };
 var requestType = false;
-var url = 'http://192.168.0.142:9999';
+var url = 'http://192.168.0.199:3000' + '/api/admin';
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     data: {
@@ -55,8 +55,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         actions: []
     },
     methods: {
-        sheet: function sheet(id, index) {
-            FormData.id = id;
+        sheet: function sheet(guid, index) {
+            FormData.guid = guid;
             distribution(FormData, index);
         },
 
@@ -116,7 +116,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         },
 
         // 添加反馈
-        addFeedback: function addFeedback(id) {
+        addFeedback: function addFeedback(guid) {
             __WEBPACK_IMPORTED_MODULE_1_mint_ui__["MessageBox"].prompt('请输入反馈信息', '').then(function (_ref) {
                 var value = _ref.value,
                     action = _ref.action;
@@ -130,7 +130,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     return;
                 }
                 var FormData = {
-                    id: id,
+                    guid: guid,
                     feedback: value,
                     valid: 1 // 反馈
                 };
@@ -138,7 +138,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     headers: {
                         'safeString': $('meta[name="safeString"]').attr('content')
                     },
-                    url: url + "/api/feedback",
+                    url: url + "/feedback",
                     type: 'post',
                     data: FormData,
                     success: function success(data) {
@@ -163,7 +163,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         },
 
         // 添加无效原因
-        addIneffective: function addIneffective(id) {
+        addIneffective: function addIneffective(guid) {
             __WEBPACK_IMPORTED_MODULE_1_mint_ui__["MessageBox"].prompt('请输入无效原因', '').then(function (_ref2) {
                 var value = _ref2.value,
                     action = _ref2.action;
@@ -177,7 +177,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     return;
                 }
                 var FormData = {
-                    id: id,
+                    guid: guid,
                     feedback: value,
                     valid: 2 // 无效
                 };
@@ -185,7 +185,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     headers: {
                         'safeString': $('meta[name="safeString"]').attr('content')
                     },
-                    url: url + "/api/feedback",
+                    url: url + "/feedback",
                     type: 'post',
                     data: FormData,
                     success: function success(data) {
@@ -229,7 +229,7 @@ function getSaiesmanList(status, page) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/staff_list",
+        url: url + "/staff_list",
         type: 'get',
         data: {
             status: status,
@@ -282,7 +282,7 @@ function distribution(FormData, index) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/determine",
+        url: url + "/determine",
         type: 'post',
         data: FormData,
         success: function success(data) {

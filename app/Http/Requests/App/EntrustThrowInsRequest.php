@@ -50,7 +50,6 @@ class EntrustThrowInsRequest extends FormRequest
                     'tel' => [
                         'required',
                         'max:16',
-                        'regex:/^[1][3,4,5,7,8,9][0-9]{9}$/',
                         Rule::notIn(
                                 EntrustThrowIn::whereBetween('created_at',[date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d'), date('Y'))),date('Y-m-d H:i:s', mktime(23, 59, 59, date('m'), date('d'), date('Y')))])->where('demand',$this->demand)->pluck('tel')->toArray()
                             )

@@ -18,7 +18,7 @@ use Ramsey\Uuid\Uuid;
  */
 class Common
 {
-    // 获取guid
+    // 生成guid
     public static function getUuid()
     {
         $uuid1 = Uuid::uuid1();
