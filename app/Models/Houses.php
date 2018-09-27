@@ -4,16 +4,8 @@ namespace App\Models;
 
 class Houses extends BaseModel
 {
+    protected $table = 'houses';
     protected $connection = 'mysql';
-
-    // 如果使用的是非递增或者非数字的主键，则必须在模型上设置
-    public $incrementing = false;
-
-    // 主键
-    protected $primaryKey = 'guid';
-
-    // 主键类型
-    protected $keyType = 'string';
 
     protected $casts = [
         'indoor_img' => 'array',
@@ -21,7 +13,7 @@ class Houses extends BaseModel
         'min_acreage' => 'integer',
         'unit_price' => 'integer',
         'total_price' => 'integer',
-        'support_facilities'
+        'support_facilities' => 'array'
     ];
 
     protected $appends = [
@@ -58,7 +50,7 @@ class Houses extends BaseModel
     public function getIndoorImgCnAttribute()
     {
         if ($_SERVER["HTTP_HOST"] === config('hosts.home')) {
-            return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('c.pc_building_house_default_img');
+            return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('setting.pc_building_house_default_img');
         } else {
             return $this->indoor_img?config('setting.qiniu_url').$this->indoor_img[0]. config('setting.qiniu_suffix'):config('setting.house_default_img');
         }
