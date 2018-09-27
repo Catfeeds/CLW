@@ -34,13 +34,13 @@
           <div class="content" id="areaVue">
             <input name="area_name" type="hidden" v-model='area_name'>
             <div class="area">
-              <select name="area_id" v-model='area_id'>
+              <select name="area_guid" v-model='area_id'>
                 <option :value="null">选择投放区域</option>
                 @foreach ($area as $area_item)
-                  <option id="area_id{{$area_item['area_id']}}" value="{{$area_item['area_id']}}">{{$area_item['area_name']}}</option>
+                  <option id="area_id{{$area_item['area_guid']}}" value="{{$area_item['area_guid']}}">{{$area_item['area_name']}}</option>
                 @endforeach
               </select>
-              <select id="block_select" name='block_id' v-model='block_id'>
+              <select id="block_select" name='block_guid' v-model='block_id'>
                   <option :value="null">选择商圈</option>
                   <option v-if='area_id' v-for='(item, index) in blockOption["area_"+area_id]' :value="item.id">
                     @{{item['name']}}
