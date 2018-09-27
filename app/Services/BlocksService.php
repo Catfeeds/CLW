@@ -27,16 +27,21 @@ class BlocksService
     public function allBuildingBlock()
     {
         // 获取所有区域
-        $areas = Area::get();
+        $areas = Area::with('block.relBlock')->get();
 
         $data = array();
         foreach ($areas as $area) {
             $block_box = array();
-            $blocks = Block::where('area_id', $area->id)->orderBy('recommend', 'desc')->get();
+            $blocks = $area->block;
+            foreach ($area->block as $block) {
+                $block->recommend = empty($block->relBlock)?'':$block->relBlock->recommend;
+            }
+
+            $blocks = collect($blocks)->sortByDesc('recommend');
             foreach ($blocks as $block) {
-                $res['id'] = $block->id;
+                $res['guid'] = $block->guid;
                 $res['name'] = $block->name;
-                $res['recommend'] = $block->recommend;
+                $res['recommend'] = empty($block->relBlock)?'':$block->relBlock->recommend;
                 $block_box[] = $res;
             }
 
@@ -44,7 +49,6 @@ class BlocksService
             $temp['block'] = $block_box;
             $data[] = $temp;
         }
-
         return $data;
     }
 }

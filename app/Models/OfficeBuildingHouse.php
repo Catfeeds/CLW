@@ -86,7 +86,7 @@ class OfficeBuildingHouse extends BaseModel
      */
     public function buildingBlock()
     {
-        return $this->belongsTo('App\Models\BuildingBlock','building_block_id','id');
+        return $this->belongsTo('App\Models\BuildingBlock','building_block_guid','guid');
     }
 
     /**

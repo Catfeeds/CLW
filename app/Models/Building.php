@@ -12,11 +12,20 @@ class Building extends Model
         'big_album' => 'array'
     ];
 
+    // 如果使用的是非递增或者非数字的主键，则必须在模型上设置
+    public $incrementing = false;
+
+    // 主键
+    protected $primaryKey = 'guid';
+
+    // 主键类型
+    protected $keyType = 'string';
+
     protected $table = 'buildings';
 
     protected $guarded = [];
 
-    protected $connection = 'media';
+    protected $connection = 'buildings';
 
     protected $appends = [
         'pic_url_cn',
@@ -36,7 +45,7 @@ class Building extends Model
     // 楼座
     public function buildingBlock()
     {
-        return $this->hasMany('App\Models\BuildingBlock','building_id','id');
+        return $this->hasMany('App\Models\BuildingBlock','building_guid','guid');
     }
 
     // 所属商圈

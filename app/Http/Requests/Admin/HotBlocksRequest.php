@@ -30,13 +30,13 @@ class HotBlocksRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'block_id.in' => '商圈必须存在',
-                    'block_id.not_in' => '热门商圈不能重复',
+                    'block_guid.in' => '商圈必须存在',
+                    'block_guid.not_in' => '热门商圈不能重复',
                     'sort.not_in' => '排序不能重复'
                 ];
             case 'update':
                 return [
-                    'block_id.in' => '商圈必须存在'
+                    'block_guid.in' => '商圈必须存在'
                 ];
             default:
                 {
@@ -57,14 +57,14 @@ class HotBlocksRequest extends FormRequest
             case 'store':
                 return [
                     'img' => 'required',
-                    'block_id' => [
+                    'block_guid' => [
                         'required',
-                        'integer',
+                        'max:32',
                         Rule::in(
-                            Block::all()->pluck('id')->toArray()
+                            Block::all()->pluck('guid')->toArray()
                         ),
                         Rule::notIn(
-                            HotBlock::all()->pluck('block_id')->toArray()
+                            HotBlock::all()->pluck('block_guid')->toArray()
                         )
                     ],
                     'sort' => [
@@ -78,11 +78,11 @@ class HotBlocksRequest extends FormRequest
                 ];
             case 'update':
                 return [
-                    'block_id' => [
+                    'block_guid' => [
                         'required',
-                        'integer',
+                        'max:32',
                         Rule::in(
-                            Block::all()->pluck('id')->toArray()
+                            Block::all()->pluck('guid')->toArray()
                         ),
                     ],
                     'sort' => [

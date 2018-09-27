@@ -40,7 +40,7 @@ class HotBlocksRepository extends Model
         return HotBlock::create([
             'img' => $request->img,
             'pc_img' => $request->pc_img,
-            'block_id' => $request->block_id,
+            'block_guid' => $request->block_guid,
             'sort' => $request->sort
         ]);
     }
@@ -60,7 +60,7 @@ class HotBlocksRepository extends Model
     {
         $hotBlock->img = $request->img;
         $hotBlock->pc_img = $request->pc_img;
-        $hotBlock->block_id = $request->block_id;
+        $hotBlock->block_guid = $request->block_guid;
         $hotBlock->sort = $request->sort;
         if (!$hotBlock->save()) return false;
         return true;

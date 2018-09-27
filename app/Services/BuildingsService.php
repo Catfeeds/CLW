@@ -68,12 +68,7 @@ class BuildingsService
         if (!empty($res->block)) $res->pc_address_cn  = $res->pc_address_cn . ' - ' . $res->block->name;
     }
 
-    /**
-     * 说明: 推荐楼盘获取楼盘名称
-     *
-     * @param $res
-     * @author 刘坤涛
-     */
+    // 推荐楼盘获取楼盘名称
     public function getName($res)
     {
         $res->building_name = $res->building->name;
@@ -160,14 +155,14 @@ class BuildingsService
     // 获取商圈下房子均价
     public function getBlockAveragePrice($blockId)
     {
-        $block = Block::where('id', $blockId)->with('building.buildingBlock.house')->first();
+        $block = Block::where('guid', $blockId)->with('building.buildingBlock.house')->first();
         return $this->getAveragePrice($block);
     }
 
     // 获取区域下房子均价
     public function getAreaAveragePrice($areaId)
     {
-        $area = Area::where('id', $areaId)->with('building.buildingBlock.house')->first();
+        $area = Area::where('guid', $areaId)->with('building.buildingBlock.house')->first();
         return $this->getAveragePrice($area);
     }
 

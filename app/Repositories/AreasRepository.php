@@ -22,12 +22,12 @@ class AreasRepository extends Model
     /**
      * 说明: 获取该区域下的所有商圈
      *
-     * @param $area_id
+     * @param $area_guid
      * @return mixed
      * @author 刘坤涛
      */
-    public function getBlockList($area_id)
+    public function getBlockList($area_guid)
     {
-        return Block::where('area_id', $area_id)->get();
+        return Block::where('area_guid', $area_guid)->get();
     }
 }

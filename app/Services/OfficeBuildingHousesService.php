@@ -226,7 +226,7 @@ class OfficeBuildingHousesService
      */
     public function getBuildingName($res)
     {
-        $res->building_name = $res->buildingBlock->building->name;
+        $res->building_name = empty($res->buildingBlock->building)?'':$res->buildingBlock->building->name;
     }
 
     /**
