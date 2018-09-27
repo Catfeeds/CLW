@@ -34,8 +34,7 @@ class BuildingsRepository extends  Model
 
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
-
-        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
+        $buildingData = Building::whereIn('guid', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
 
         // pc价格排序
         if (!empty($request->price_sort)) {
@@ -99,7 +98,6 @@ class BuildingsRepository extends  Model
             $service->features($v);
             $service->getAddress($v);
             $service->label($v);
-
             // 房源数量
             $buildingData[$index]->house_count = $buildings[$v->id]->count();
 
@@ -148,7 +146,7 @@ class BuildingsRepository extends  Model
         $buildings = Building::make();
 
         // 如果有商圈id 查商圈
-        if (!empty($request->block_id)) {
+        if (!empty($request->block_guid)) {
             $buildings = $buildings->where('block_guid', $request->block_guid);
         } elseif(!empty($request->area_id)) {
             $buildings = Building::where('area_guid', $request->area_guid);
@@ -217,9 +215,8 @@ class BuildingsRepository extends  Model
         foreach ($buildingsBlocks as $index => $buildingsBlock) {
             // 当前的楼座
             $buildingBlockCurr = $buildingsBlocksData->find($index);
-            $buildingsBlock->buildingId = $buildingBlockCurr->building_id;
+            $buildingsBlock->buildingId = $buildingBlockCurr->building_guid;
         }
-
         $buildings = $buildingsBlocks->groupBy('buildingId');
         // 将房源根据楼盘进行分组
         foreach ($buildings as $index => $building) {
