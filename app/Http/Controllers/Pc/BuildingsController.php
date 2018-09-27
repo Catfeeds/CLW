@@ -108,7 +108,6 @@ class BuildingsController extends Controller
             $res = \DB::select("select building_guid from buildings.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
             // 获取所有楼盘id
             $buildingIds = array_column(Common::objectToArray($res), 'building_guid');
-
             $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true,null,true);
         } else {
             // 处理价格,面积,特色

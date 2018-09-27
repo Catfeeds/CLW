@@ -31,7 +31,7 @@ class MyBrowsingController extends Controller
         return $this->sendResponse($data,'获取成功');
     }
 
-    //房源浏览列表
+    // 房源浏览列表
     public function listingList
     (
         Request $request,

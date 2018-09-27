@@ -35,7 +35,6 @@ class BuildingsRepository extends  Model
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
         $buildingData = Building::whereIn('guid', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
-
         // pc价格排序
         if (!empty($request->price_sort)) {
             $data = $this->buildingDataComplete($buildings, $buildingData, $service, $request->price_sort);
