@@ -4,6 +4,8 @@ namespace App\Models;
 
 class Houses extends BaseModel
 {
+    protected $connection = 'mysql';
+
     // 如果使用的是非递增或者非数字的主键，则必须在模型上设置
     public $incrementing = false;
 

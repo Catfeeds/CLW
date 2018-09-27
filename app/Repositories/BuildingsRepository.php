@@ -9,6 +9,7 @@ use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
 use App\Models\BuildingKeywords;
 use App\Models\BuildingLabel;
+use App\Models\Houses;
 use App\Models\OfficeBuildingHouse;
 use App\Services\BuildingKeywordService;
 use App\Services\BuildingsService;
@@ -18,30 +19,18 @@ use Illuminate\Support\Facades\DB;
 
 class BuildingsRepository extends  Model
 {
-    /**
-     * 说明: 分页列表数量
-     *
-     * @param $request
-     * @param $service
-     * @param null $building_id
-     * @param null $whetherPage
-     * @param null $getCount
-     * @param null $mapRes  地图返回结果
-     * @param null $pcBuildingListAndMap  地图返回结果
-     * @return array
-     * @author 罗振
-     */
+    // 分页列表数量
     public function buildingList(
         $request,
         $service,
-        $building_id = null,
+        $building_guid = null,
         $whetherPage = null,
         $getCount = null,
         $mapRes = null,
         $pcBuildingListAndMap = null
     )
     {
-        $houses = $this->houseList($request, $building_id, $pcBuildingListAndMap);
+        $houses = $this->houseList($request, $building_guid, $pcBuildingListAndMap);
 
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
@@ -149,18 +138,10 @@ class BuildingsRepository extends  Model
         return collect($res);
     }
 
-    /**
-     * 说明: 根据条件 查询符合条件的房子 根据 楼盘分组
-     *
-     * @param $request
-     * @param $building_id
-     * @param null $pcBuildingList
-     * @return mixed
-     * @author jacklin
-     */
+    // 根据条件 查询符合条件的房子 根据 楼盘分组
     public function houseList(
         $request,
-        $building_id,
+        $building_guid,
         $pcBuildingList = null
     )
     {
@@ -168,16 +149,16 @@ class BuildingsRepository extends  Model
 
         // 如果有商圈id 查商圈
         if (!empty($request->block_id)) {
-            $buildings = $buildings->where('block_id', $request->block_id);
+            $buildings = $buildings->where('block_guid', $request->block_guid);
         } elseif(!empty($request->area_id)) {
-            $buildings = Building::where('area_id', $request->area_id);
+            $buildings = Building::where('area_guid', $request->area_guid);
         }
 
         // 如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
-        if (!empty($building_id) || (empty($building_id) && $pcBuildingList)) {
-            $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
+        if (!empty($building_guid) || (empty($building_guid) && $pcBuildingList)) {
+            $buildings = $buildings::whereIn('guid', $building_guid)->get()->pluck('guid')->toArray();
         } else {
-            $buildings = $buildings->get()->pluck('id')->toArray();
+            $buildings = $buildings->get()->pluck('guid')->toArray();
         }
 
         // 特色
@@ -186,20 +167,20 @@ class BuildingsRepository extends  Model
             // 取出包含其中一个的数据
             if (!is_array($request->features)) $request->features = array($request->features);
             $buildingHasFeatures = BuildingHasFeature::whereIn('building_feature_id', $request->features)
-                ->get()->groupBy('building_id');
+                ->get()->groupBy('building_guid');
 
             // 筛选重复出现对应次数的数据
             $featureBuildings = $buildingHasFeatures->filter(function($v) use ($request){
                 return $v->count() === count($request->features);
-            })->flatten()->pluck('building_id')->unique()->toArray();
+            })->flatten()->pluck('building_guid')->unique()->toArray();
 
             // 获取交集
             $buildings = array_intersect($buildings, $featureBuildings);
         }
 
         // 筛选出符合条件的楼座
-        $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
-        $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks)->where('house_busine_state', 1)->where('shelf', 1);
+        $buildingBlocks = BuildingBlock::whereIn('building_guid', $buildings)->pluck('guid')->toArray();
+        $houses = Houses::whereIn('building_block_guid', $buildingBlocks)->where('house_busine_state', 1)->where('shelf', 1);
 
         // 面积
         if (!empty($request->acreage)) $houses = $houses->whereBetween('constru_acreage', $request->acreage);
@@ -228,7 +209,7 @@ class BuildingsRepository extends  Model
     public function groupByBuilding($houses)
     {
         // 对楼座进行分组
-        $buildingsBlocks = $houses->get()->groupBy('building_block_id');
+        $buildingsBlocks = $houses->get()->groupBy('building_block_guid');
         // 将房源根据
         $buildingsBlockIds = $buildingsBlocks->keys();  // 返回所有的键值
         $buildingsBlocksData = BuildingBlock::find($buildingsBlockIds); //  获取所有楼座数据

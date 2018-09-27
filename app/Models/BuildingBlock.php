@@ -26,6 +26,6 @@ class BuildingBlock extends Model
 
     public function house()
     {
-        return $this->hasMany('App\Models\OfficeBuildingHouse', 'building_block_guid', 'guid');
+        return $this->hasMany('App\Models\Houses', 'building_block_guid', 'guid');
     }
 }

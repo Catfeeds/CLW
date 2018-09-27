@@ -17,7 +17,6 @@ class BuildingRecommendsRepository extends Model
     public function recommendList($service)
     {
         $buildingRecommend =  BuildingRecommend::with('building', 'building.area', 'building.area.city', 'building.block', 'building.house')->get();
-        dd($buildingRecommend);
         foreach($buildingRecommend as $v) {
             $service->getName($v);
             $service->getArrId($v);

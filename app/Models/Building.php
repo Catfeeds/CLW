@@ -72,13 +72,11 @@ class Building extends Model
         return $this->belongsTo(Area::class);
     }
 
-    //楼盘关联房源
+    // 楼盘关联房源
     public function house()
     {
-        return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class)->where('shelf', 1);
+        return $this->hasMany('App\Models\Houses','building_guid','guid')->where('shelf', 1);
     }
-
-
 
     /**
      * 说明: 绿化绿加入单位
@@ -86,6 +84,7 @@ class Building extends Model
      * @return string
      * @author 刘坤涛
      */
+
     public function getGreeningRateCnAttribute()
     {
         if ($this->greening_rate) return $this->greening_rate . '%';

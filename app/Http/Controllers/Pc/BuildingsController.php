@@ -31,16 +31,16 @@ class BuildingsController extends Controller
         // 房源数量
         $building->house_count = $houses->count();
         // 楼盘所属区域
-        $areaId = $block->area->id;
+        $areaGuid = $block->area->guid;
         // 区域id
-        $request->area_id = $areaId;
+        $request->area_guid = $areaGuid;
 
         //区域商圈名称对应id
-        $data[0]['id'] = $areaId;
+        $data[0]['guid'] = $areaGuid;
         $data[0]['name'] = $block->area->name;
-        $data[1]['id'] = $block->id;
+        $data[1]['guid'] = $block->guid;
         $data[1]['name'] = $block->name;
-        $data[2]['id'] = $building->id;
+        $data[2]['guid'] = $building->guid;
         $data[2]['name'] = $building->name;
         return view('home.building_detail', [
             'building' => $building,
