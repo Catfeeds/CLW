@@ -14,8 +14,7 @@ class CreateHousesTable extends Migration
     public function up()
     {
         Schema::create('houses', function (Blueprint $table) {
-            $table->char('guid',32)->primary()->comment('主键guid');
-            $table->integer('id')->nullable();
+            $table->increments('id');
             // 核心信息
             $table->string('house_identifier', 32)->nullable()->comment('房源编号: 住宅房源以大写X开头+年月日+3个数字');
             $table->string('gd_identifier','32')->nullable()->comment('工单编号');

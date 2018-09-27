@@ -49,7 +49,6 @@ class migrateHouse extends Command
             // 楼盘guid
             $building_guid = BuildingBlock::where('id', $v->building_block_id)->value('building_guid');
             $res = Houses::create([
-                'guid' => Common::getUuid(),
                 'id' => $v->id,
                 'house_identifier' => $v->house_identifier,
                 'gd_identifier' => $v->gd_identifier,
