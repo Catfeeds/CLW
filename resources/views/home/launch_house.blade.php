@@ -42,7 +42,7 @@
               </select>
               <select id="block_select" name='block_guid' v-model='block_id'>
                   <option :value="null">选择商圈</option>
-                  <option v-if='area_id' v-for='(item, index) in blockOption["area_"+area_id]' :value="item.id">
+                  <option v-if='area_id' v-for='(item, index) in blockOption["area_"+area_id]' :value="item.guid">
                     @{{item['name']}}
                   </option>
               </select>
