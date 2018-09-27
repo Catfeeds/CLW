@@ -178,7 +178,7 @@
                     @if(!empty($Results)&&$Results->count())
                         <div class="js_content">
                             @foreach($Results as $key => $data)
-                                <a href="{{url('/buildings').'/'.$data->id}}" target="_blank">
+                                <a href="{{url('/buildings').'/'.$data->guid}}" target="_blank">
                                     <div class="detail">
                                         <div class="img_box">
                                             <img src="{{$data->img_cn}}" alt="" class="house_img"/>
@@ -259,7 +259,7 @@
                         @if(!empty($recommend)&&$recommend->count())
                             <div class="js_content">
                                 @foreach($recommend as $key => $data)
-                                    <a href="{{url('/buildings').'/'.$data['id']}}">
+                                    <a href="{{url('/buildings').'/'.$data['guid']}}">
                                         <div class="detail">
                                             <div class="img_box">
                                                 <img src="{{$data['img_cn']}}" alt="" class="house_img"/>
