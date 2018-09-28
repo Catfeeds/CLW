@@ -112,7 +112,7 @@
                 <div id="banner-median" class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <a href="https://wechat.chulouwang.com/buildings/204">
+                            <a href="https://wechat.chulouwang.com/buildings/f01f45d0c22811e88c0008002772f793">
                                     <img src="{{res('/we_img/index_banner2_1.jpg')}}" alt="">
                             </a>
                         </div>
