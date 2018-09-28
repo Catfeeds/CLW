@@ -355,8 +355,8 @@
                 priceTemp: [], // 价格临时保存
                 keyword: '', // 搜索内容
                 condition: {
-                    area_id: '', // 区域
-                    block_id: '', // 商圈
+                    area_guid: '', // 区域
+                    block_guid: '', // 商圈
                     unit_price: '', // 单价
                     total_price: '', // 总价
                     acreage: '', // 面积
@@ -490,7 +490,7 @@
             },
             condition: {
                 handler: function (val, oldVal) {
-                    if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') {
+                    if (val.acreage == '' && val.area_guid == '' && val.block_guid == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword!=='') {
                         if( this.regionList.length == 0) {
                             // 获取区域 数据
                             getRegionList().then(res => {
@@ -554,8 +554,8 @@
             // 清空条件
             emptyCondition(){
                 this.condition = {
-                    area_id: '', // 区域
-                    block_id: '', // 商圈
+                    area_guid: '', // 区域
+                    block_guid: '', // 商圈
                     unit_price: '', // 单价
                     total_price: '', // 总价
                     acreage: '', // 面积
@@ -667,7 +667,6 @@
                     })
                 }
                 getSiteBuildNum({gps: data, distance: 3}).then(res => {
-                    console.log('getSiteBuildNum', res)
                     if (res.success) {
                         this.siteList = res.data
                         this.$nextTick(function () {
@@ -680,7 +679,6 @@
             },
             // 地铁线
             getbuslist(el) {
-                console.log('el.getBusListItem(0)')
                 if (el.getBusListItem(0)) {
                     this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0))
                 }
@@ -747,23 +745,22 @@
             regionChange(data){
                 // 只给商圈赋值
                 if (data.length === 3) {
-                    this.condition.area_id = ''
-                    this.condition.block_id = data[2]
+                    this.condition.area_guid = ''
+                    this.condition.block_guid = data[2]
                     $('#sq'+ data[2]).trigger('click')
                 } else if (data.length === 2) {
-                    this.condition.area_id = data[1]
+                    this.condition.area_guid = data[1]
                     $('#qy'+ data[1]).trigger('click')
-                    this.condition.block_id = ''
+                    this.condition.block_guid = ''
                 } else {
                     this.center = '武汉'
                     this.zoom = 12
-                    this.condition.area_id = ''
-                    this.condition.block_id = ''
+                    this.condition.area_guid = ''
+                    this.condition.block_guid = ''
                 }
             },
             // 价格下拉获取值时改变
             priceChange(data){
-                console.log('priceChange', data)
                 if (data[0] === '单价') {
                     this.condition.total_price = ''
                     this.condition.unit_price = data[1]
