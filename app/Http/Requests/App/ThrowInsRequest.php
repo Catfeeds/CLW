@@ -52,8 +52,8 @@ class ThrowInsRequest extends FormRequest
                         ],
 
                     'appellation' => 'nullable|max:32',
-                    'area_id' => 'nullable|exists:media.areas,id',
-                    'block_id' => 'nullable|exists:media.blocks,id',
+                    'area_guid' => 'nullable|exists:buildings.areas,id',
+                    'block_guid' => 'nullable|exists:buildings.blocks,id',
                     'acreage' => 'nullable',
                     'building_name' => 'nullable|max:32'
                 ];

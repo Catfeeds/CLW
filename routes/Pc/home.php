@@ -15,6 +15,9 @@ Route::get('like_building', 'BuildingsController@likeBuilding');
 //房源详情
 Route::resource('office_building_houses', 'OfficeBuildingHousesController');
 
+//房源详情
+Route::resource('houses', 'HousesController');
+
 //资讯
 Route::resource('information','InformationsController');
 

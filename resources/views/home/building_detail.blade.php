@@ -2,7 +2,7 @@
 @section('title', '楼盘详情')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_building_detail.css')}}">
-<meta name="storeId" content="{{ $building->id }}" data-type='building'>
+<meta name="storeId" content="{{ $building->guid }}" data-type='building'>
 @endsection
 @section('body')
 @include('home.nav')

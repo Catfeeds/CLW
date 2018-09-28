@@ -9,17 +9,18 @@ use App\Services\OfficeBuildingHousesService;
 
 class OfficeBuildingHousesController extends Controller
 {
-    // 房源详情
+    //房源详情
     public function show
     (
+        $id,
         OfficeBuildingHousesRepository $buildingHousesRepository,
-        Houses $houses,
         OfficeBuildingHousesService $service
     )
     {
-        $house = $service->getShow($houses);
-        $agentInfo = $buildingHousesRepository->getAgentInfo($houses);
-        $rimHouse = $buildingHousesRepository->getShowOffice($service, $houses->id)->take(4);
+        $house = Houses::find($id);
+        $house = $service->getShow($house);
+        $agentInfo = $buildingHousesRepository->getAgentInfo($house);
+        $rimHouse = $buildingHousesRepository->getShowOffice($service, $id)->take(4);
         //房源所属商圈
         $block = $house->buildingBlock->building->block;
         //房源所属楼盘
