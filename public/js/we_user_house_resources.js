@@ -27,14 +27,13 @@ var app = new Vue({
     data: {
         value: '武昌区',
         slots: [{ values: [] }],
-        area_id: 1
+        area_guid: 1
     },
     methods: {
         onValuesChange: function onValuesChange(picker, values) {
             this.value = values[0];
             if (option !== '') {
-                // console.log('aaaaaa', option[values[0]])
-                this.area_id = option[values[0]];
+                this.area_guid = option[values[0]];
             }
         }
     }
@@ -63,7 +62,6 @@ $(document).on('touchend || tap', '#confirm', function () {
 });
 // 确认
 $(document).on('click', '.loginOut button', function () {
-    console.log(app.area_id);
     var appellation = $('#appellation').val();
     var tel = $('#tel').val();
     var acreage = $('#acreage').val();
@@ -80,7 +78,7 @@ $(document).on('click', '.loginOut button', function () {
             position: 'center',
             duration: 2000
         });
-    } else if (!app.area_id) {
+    } else if (!app.area_guid) {
         Object(__WEBPACK_IMPORTED_MODULE_0_mint_ui__["Toast"])({
             message: '请选择区域',
             position: 'center',
@@ -110,7 +108,7 @@ $(document).on('click', '.loginOut button', function () {
                 tel: tel,
                 name: appellation,
                 building_name: building_name,
-                area_id: app.area_id,
+                area_guid: app.area_guid,
                 acreage: acreage,
                 area_name: app.value,
                 page_source: '个人中心-投放房源',
