@@ -7,15 +7,11 @@ use App\Models\Building;
 use App\Models\BuildingBlock;
 use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
-use App\Models\BuildingKeywords;
 use App\Models\BuildingLabel;
 use App\Models\Houses;
-use App\Models\OfficeBuildingHouse;
-use App\Services\BuildingKeywordService;
 use App\Services\BuildingsService;
 use App\Services\CustomPage;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class BuildingsRepository extends  Model
 {
