@@ -20,7 +20,7 @@ export function getBlock() {
 export function buildingsSelect(params) {
     return axios({
         headers: {'safeString': params},
-        url: process.env.agencyHostURL + '/api/cities_areas_blocks_select',
+        url: process.env.baseHostURL + '/api/get_all_select?number=3',
         method: 'GET',
     })
 }
