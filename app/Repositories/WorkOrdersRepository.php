@@ -3,123 +3,91 @@
 namespace App\Repositories;
 
 use App\Handler\Common;
+use App\Models\Schedule;
 use App\Models\WorkOrder;
 use Illuminate\Database\Eloquent\Model;
 
 class WorkOrdersRepository extends Model
 {
+    protected $time;
 
-    public function getList($request, $service)
+    public function __construct()
     {
-        $model = WorkOrder::with('shopkeeperUser','staffUser');
-        if ($request->tel) $model = $model->where('tel', $request->tel);
-        if ($request->demand) $model = $model->where('demand', $request->demand);
-        if ($request->time) $model = $model->whereBetween('created_at', $request->time);
-        if ($request->source) $model = $model->where('source', $request->source);
-        // 获取转换率
-//        $conversionRate = $service->getConversionRate($model);
-        $item =  $model->latest()->paginate($request->per_page??10);
-//        $service->getStaffInfo($item);
-//        return ['page' => $service->getGdInfo($item), 'conversionRate' => $conversionRate];
-        return ['page' => $service->getGdInfo($item)];
+        $this->time = date('Y-m-d H:i:s', time());
     }
-    
-    
+
+    // 工单列表 (页面)
+    public function getList($request)
+    {
+
+    }
+
+    // 投放委托 生成工单/进度
     public function addWorkOrder($request)
     {
         \DB::beginTransaction();
         try {
+            // 添加工单
             $workOrder = WorkOrder::create([
                 'guid' => Common::getUuid(),
-                'identifier' => 'gd'.time().rand(1,1000),
+                'gd_identifier' => 'gd'.time().rand(1,1000),
                 'name' => $request->name,
                 'tel' => $request->tel,
-                'source'=> $request->source,
+                'source' => $request->source,
+                'source_area' => $request->source_area,
                 'demand' => $request->demand,
-                'position' => $request->position,
+                'area' => $request->area,
+                'building' => $request->building,
                 'acreage' => $request->acreage,
                 'price' => $request->price,
-                'shopkeeper_guid' => $request->shopkeeper_guid,
-                'remark' => $request->remark,
-                'recorder' => $request->recorder,
-                'created_at' => $request->created_at ? $request->created_at : date('Y-m-d H:i:s', time())
+                'remark' => $request->remark
             ]);
-            if (!$workOrder) throw new \Exception('工单添加失败');
+
+            if (empty($workOrder)) throw new \Exception('添加失败');
+            // 生成工单进度
+            $content = '客服接收工单';
+            $schedule = Common::addSchedule($workOrder->guid, $content);
+            if (empty($schedule)) throw new \Exception('工单进度生成失败');
             \DB::commit();
-            return $workOrder;
-        } catch (\Exception $e) {
+            return true;
+        } catch (\Exception $exception) {
             \DB::rollback();
-            \Log::error('工单添加失败'. $e->getMessage());
+            \Log::error('添加失败'.$exception->getMessage());
             return false;
         }
     }
 
-    // 更新工单
-    public function updateWorkOrder($workOrder, $request)
+    public function issue($request)
     {
-        $workOrder->name = $request->name;
-        $workOrder->tel = $request->tel;
-        $workOrder->source = $request->source;
-        $workOrder->demand = $request->demand;
-        $workOrder->position = $request->position;
-        $workOrder->acreage = $request->acreage;
-        $workOrder->price = $request->price;
-        $workOrder->shopkeeper_guid = $request->shopkeeper_guid;
-        $workOrder->remark = $request->remark;
-        if (!$workOrder->save()) return false;
-        return true;
-    }
+        \DB::beginTransaction();
+        try {
+            $res = WorkOrder::where('guid', $request->guid)
+                            ->update([
+                                'recorder' => $request->recorder,
+                                'issue' => $this->time,
+                                'manage_guid' => $request->manage_guid,
+                                'status' => '2']);
+            if (!$res->save()) throw new \Exception('工单下发失败');
 
-    // 店长分配工单
-    public function distribution($request)
-    {
-        return WorkOrder::where('guid', $request->guid)->update(['staff_guid'=> $request->staff_guid, 'shopkeeper_deal' => date('Y-m-d H:i:s',time())]);
-    }
+            // 添加工单进度
+//            $schedule = Schedule::create([
+//                'guid' => Common::getUuid(),
+//                'work_order_guid' => $request->guid,
+//                'content' => '客服'. $request->recorder.'分配工单给 （'.
+//            ]);
 
-    //店员确认工单
-    public function determine($request)
-    {
-        return WorkOrder::where('guid', $request->guid)->update(['staff_deal' => date('Y-m-d H:i:s',time())]);
-    }
 
-    //业务员反馈信息
-    public function feedback($request)
-    {
-        return WorkOrder::where('guid', $request->guid)->update(['feedback' => $request->feedback, 'valid' => $request->valid]);
-    }
 
-    // 手机端店长处理工单界面
-    public function shopkeeperList($request, $service)
-    {
-        $guid = $service->getGuid($request->openid);
-        switch ($request->status) {
-            //待处理页面
-            case 1 :
-                return WorkOrder::where(['shopkeeper_guid' => $guid, 'shopkeeper_deal' => null])->latest('updated_at')->paginate(6);
-                break;
-            //已处理
-            case 2:
-                $item = WorkOrder::with('staffUser')->where('shopkeeper_guid', $guid)->where('shopkeeper_deal','!=', '')->latest('updated_at')->paginate(6);
-                return $service->getInfo($item);
-                break;
-                default;
-                break;
+
+
+
+
+        } catch (\Exception $exception) {
+
         }
+
     }
 
-    // 手机端业务员处理页面
-    public function staffList($request, $service)
-    {
-        $guid = $service->getGuid($request->openid);
-        switch ($request->status) {
-            case 1:
-                return WorkOrder::where(['staff_deal' => null, 'staff_guid' => $guid])->latest('updated_at')->paginate(6);
-                break;
-            case 2:
-                return WorkOrder::where('staff_deal', '!=', null)->where('staff_guid', $guid)->latest('updated_at')->paginate(6);
-                break;
-                default;
-                break;
-        }
-    }
+
+
 }
