@@ -8,8 +8,9 @@ class BrowseRecord extends Model
 {
     protected $guarded = [];
 
-    public function officeBuildingHouse()
+    public function houses()
     {
-        return $this->belongsTo(OfficeBuildingHouse::class, 'house_id', 'id');
+        return $this->belongsTo(Houses::class, 'house_id', 'id');
     }
+
 }

@@ -29,8 +29,7 @@ class BrowseRecordsRepository extends Model
         } else {
             $user = Session::get('user');
         }
-        $browseRecord =  BrowseRecord::with('officeBuildingHouse', 'officeBuildingHouse.houseLabel', 'officeBuildingHouse.buildingBlock.building')
-            ->where('user_id', $user->id)->paginate($request->per_page??10);
+        $browseRecord =  BrowseRecord::with('houses', 'houses.houseLabel', 'houses.buildingBlock.building')->where('user_id', $user->id)->paginate($request->per_page??10);
         foreach($browseRecord as $v) {
             $service->houseInfo($v);
         }
