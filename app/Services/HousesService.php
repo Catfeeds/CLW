@@ -21,7 +21,7 @@ class HousesService
         // 推荐商圈数据
         $recommendBlocksData = array();
         $recommendBlocksData['name'] = '推荐';
-        $recommendBlocksData['area_id'] = 'all';
+        $recommendBlocksData['area_guid'] = 'all';
         $blocks = array();
         $blocks[0]['name'] = '全部区域';
         $blocks[0]['block_guid'] = 'all';
