@@ -129,23 +129,23 @@
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>
                 <div class="index_title">热门商圈</div>
                 <div class="hot-block-box">
-                    <a href='/buildings?condition={"area_guid":{{$hotBlocks[0]->block->area_guid}},"block_guid":{{$hotBlocks[0]->block_guid}}}' class="hot-1">
+                    <a href='/buildings?condition={"area_guid":"{{$hotBlocks[0]->block->area_guid}}","block_guid":"{{$hotBlocks[0]->block_guid}}"}' class="hot-1">
                         <img src="{{$hotBlocks[0]->img_cn}}">
                     </a>
                     <ul>
                         <li class="display-flex">
-                            <a href='/buildings?condition={"area_guid":{{$hotBlocks[1]->block->area_guid}},"block_guid":{{$hotBlocks[1]->block_guid}}}' >
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[1]->block->area_guid}}","block_guid":"{{$hotBlocks[1]->block_guid}}"}' >
                             <img src="{{$hotBlocks[1]->img_cn}}">
                             </a>
-                            <a href='/buildings?condition={"area_guid":{{$hotBlocks[2]->block->area_guid}},"block_guid":{{$hotBlocks[2]->block_guid}}}' >
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[2]->block->area_guid}}","block_guid":"{{$hotBlocks[2]->block_guid}}"}' >
                             <img src="{{$hotBlocks[2]->img_cn}}">
                             </a>
                         </li>
                         <li class="display-flex">
-                            <a href='/buildings?condition={"area_guid":{{$hotBlocks[3]->block->area_guid}},"block_guid":{{$hotBlocks[3]->block_guid}}}'>
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[3]->block->area_guid}}","block_guid":"{{$hotBlocks[3]->block_guid}}"}'>
                             <img src="{{$hotBlocks[3]->img_cn}}">
                             </a>
-                            <a href='/buildings?condition={"area_guid":{{$hotBlocks[4]->block->area_guid}},"block_guid":{{$hotBlocks[4]->block_guid}}}' >
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[4]->block->area_guid}}","block_guid":"{{$hotBlocks[4]->block_guid}}"}' >
                             <img src="{{$hotBlocks[4]->img_cn}}">
                             </a>
                         </li>
@@ -175,7 +175,7 @@
             <div class="area-list">
                 <a href="/buildings">全部</a>
                 @foreach($areas as $item)
-                <a href='/buildings?condition={"area_guid":{{$item->guid}}}'>{{strchr($item->name, "区", true)}}</a>
+                <a href='/buildings?condition={"area_guid":"{{$item->guid}}"}'>{{strchr($item->name, "区", true)}}</a>
                 @endforeach
             </div>
             <div class="better">猜你喜欢</div>
