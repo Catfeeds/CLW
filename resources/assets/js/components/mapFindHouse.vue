@@ -464,8 +464,6 @@
                             }, 50)
                         }
                     })
-                } else {
-                    alert(1)
                 }
             },
             zoom: function (val) {

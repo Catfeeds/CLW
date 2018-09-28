@@ -12385,8 +12385,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                         }, 50);
                     }
                 });
-            } else {
-                alert(1);
             }
         },
         zoom: function zoom(val) {
