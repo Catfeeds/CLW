@@ -808,11 +808,11 @@ var app = new Vue({
   methods: {
     changeData: function changeData(data) {
       var params = {};
-      if (data.area_id !== 'all') {
-        params.area_id = data.area_id;
+      if (data.area_guid !== 'all') {
+        params.area_guid = data.area_guid;
       }
-      if (data.block_id !== 'all') {
-        params.block_id = data.block_id;
+      if (data.block_guid !== 'all') {
+        params.block_guid = data.block_guid;
       }
       if (data.renovation !== 'all') {
         params.renovation = data.renovation;
@@ -1204,8 +1204,8 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
       moreIndexArr: ['renovation', 'features'],
       areaOption: [], // 区域选项
       oblong: {
-        area_id: undefined === req.area_id ? 'all' : req.area_id,
-        block_id: undefined === req.block_id ? 'all' : req.block_id,
+        area_guid: undefined === req.area_guid ? 'all' : req.area_guid,
+        block_guid: undefined === req.block_guid ? 'all' : req.block_guid,
         acreage: undefined === req.acreage ? null : req.acreage, // 面积
         total_price: undefined === req.total_price ? null : req.total_price, // 面积, // 总价
         unit_price: undefined === req.unit_price ? null : req.unit_price, // 面积, // 单价
@@ -1284,7 +1284,7 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
     moreOptionActive: function moreOptionActive(val) {
       this.moreSwiper.slideTo(val, 450, false);
     },
-    'oblong.block_id': function oblongBlock_id() {
+    'oblong.block_guid': function oblongBlock_guid() {
       this.flushData();
     },
     'oblong.acreage': function oblongAcreage() {
@@ -1377,8 +1377,8 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
         this.areaOptionActive = 0; // 激活的区域索引
         this.priceOptionActive = 0; // 激活的价格索引 0.总价 1.单价
         this.moreOptionActive = 0; // 激活的更多索引 0.装修 1.决策偏好
-        this.oblong.area_id = 'all';
-        this.oblong.block_id = 'all';
+        this.oblong.area_guid = 'all';
+        this.oblong.block_guid = 'all';
         this.oblong.acreage = null; // 面积
         this.oblong.total_price = null; // 总价
         this.oblong.unit_price = null; // 单价
@@ -1389,14 +1389,14 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
       this.flushData();
     },
     // 区域样式更改方法
-    searchArea: function searchArea(area_id, block_id) {
+    searchArea: function searchArea(area_guid, block_guid) {
       for (var num in this.areaOption) {
-        if (this.areaOption[num].area_id === area_id) {
+        if (this.areaOption[num].area_guid === area_guid) {
           this.areaOptionActive = parseInt(num);
         }
       }
-      if (this.oblong.block_id === block_id) {
-        this.oblong.area_id = area_id;
+      if (this.oblong.block_guid === block_guid) {
+        this.oblong.area_guid = area_guid;
       }
     },
     getFindHouse: function getFindHouse() {
@@ -1425,12 +1425,12 @@ var request = Object(__WEBPACK_IMPORTED_MODULE_2__we_request__["a" /* default */
       self.moreOption = res[1].data; // 更多信息
       var req = JSON.parse($('#request').val());
       for (var num in self.areaOption) {
-        if (_this2.areaOption[num].area_id === parseInt(req.area_id)) {
+        if (_this2.areaOption[num].area_guid === parseInt(req.area_guid)) {
           _this2.areaOptionActive = parseInt(num);
         }
       }
-      if (_this2.oblong.block_id === req.block_id) {
-        _this2.oblong.area_id = undefined === req.area_id ? 'all' : req.area_id;
+      if (_this2.oblong.block_guid === req.block_guid) {
+        _this2.oblong.area_guid = undefined === req.area_guid ? 'all' : req.area_guid;
       }
     });
   }
@@ -2423,7 +2423,10 @@ var render = function() {
             class: {
               active:
                 _vm.selectShow === 1 ||
-                !(_vm.oblong.block_id === "all" && _vm.oblong.area_id === "all")
+                !(
+                  _vm.oblong.block_guid === "all" &&
+                  _vm.oblong.area_guid === "all"
+                )
             },
             on: {
               click: function($event) {
@@ -2626,17 +2629,17 @@ var render = function() {
                                             staticClass: "block-item",
                                             class: {
                                               active:
-                                                _vm.oblong.block_id ===
-                                                  item.block_id &&
-                                                _vm.oblong.area_id ===
-                                                  items.area_id
+                                                _vm.oblong.block_guid ===
+                                                  item.block_guid &&
+                                                _vm.oblong.area_guid ===
+                                                  items.area_guid
                                             },
                                             on: {
                                               click: function($event) {
-                                                ;(_vm.oblong.block_id =
-                                                  item.block_id),
-                                                  (_vm.oblong.area_id =
-                                                    items.area_id)
+                                                ;(_vm.oblong.block_guid =
+                                                  item.block_guid),
+                                                  (_vm.oblong.area_guid =
+                                                    items.area_guid)
                                                 _vm.flushData()
                                               }
                                             }
