@@ -39,3 +39,6 @@ Route::group(['domain' => config('hosts.mall'), 'namespace' => 'Mall'], function
 Route::get('desktop_pc', function(){
     return view('shop.desktop_pc');
 });
+Route::get('tex_plant', function(){
+    return view('shop.tex_plant');
+});
