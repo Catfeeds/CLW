@@ -27,7 +27,7 @@
          @foreach ($area as $area_item)
             @if(!in_array($area_item->name, ['东西湖区', '新洲区', '蔡甸区']))
               <li class="select-area-item">
-              <a href="{{url('/building_list?area_guid='.$area_item->id)}}">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
+              <a href="{{url('/building_list?area_guid='.$area_item->guid)}}">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
               </li>
             @endif
          @endforeach
