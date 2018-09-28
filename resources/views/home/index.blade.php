@@ -27,7 +27,7 @@
          @foreach ($area as $area_item)
             @if(!in_array($area_item->name, ['东西湖区', '新洲区', '蔡甸区']))
               <li class="select-area-item">
-              <a href="{{url('/building_list?area_id='.$area_item->id)}}">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
+              <a href="{{url('/building_list?area_guid='.$area_item->id)}}">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
               </li>
             @endif
          @endforeach
@@ -155,7 +155,7 @@
       <ul class="commercial-center-list">
         @foreach ( $coreBlock as $coreBlock_item )
           <li class="commercial-center-item">
-            <a href="{{url('/building_list?area_id='.$coreBlock_item->area_id.'&block_id='.$coreBlock_item->block_id)}}">
+            <a href="{{url('/building_list?area_guid='.$coreBlock_item->area_guid.'&block_id='.$coreBlock_item->block_id)}}">
               <img src="{{$coreBlock_item->pc_img_cn}}">
             </a>
           </li>
