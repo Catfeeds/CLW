@@ -3,6 +3,7 @@ import houseList from './components/houseList.vue'
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 var pageOne = JSON.parse($('#pageOne').val());
+console.log(pageOne)
 var app = new Vue({
     el: '#houseList',
     data: {
@@ -18,7 +19,7 @@ var app = new Vue({
 });
 if(pageOne.data.length) {
     for(var key in pageOne.data){
-        app.list.push(pageOne.data[key].office_building_house)
+        app.list.push(pageOne.data[key].houses)
     }
     if(Math.ceil(pageOne.total/pageOne.per_page)!==1){
         app.getData = true;
@@ -28,6 +29,7 @@ if(pageOne.data.length) {
     app.getData = false;
     app.status = false;
 }
+console.log(app.list)
 $(document).on('click','.more button',(e)=> {
     app.getData = false;
     var url = '/ajax_browse_records?page=' + app.page;
@@ -41,7 +43,7 @@ $(document).on('click','.more button',(e)=> {
             app.status = false;
             if(data.success) {
                 for(var key in data.data.data){
-                    app.list.push(data.data.data[key].office_building_house)
+                    app.list.push(data.data.data[key].houses)
                 }
                 if(Math.ceil(data.data.total/data.data.per_page) === app.page) {
                     app.getData = false;
