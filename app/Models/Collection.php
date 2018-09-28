@@ -16,8 +16,8 @@ class Collection extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      * @author 刘坤涛
      */
-    public function officeBuildingHouse()
+    public function houses()
     {
-        return $this->belongsTo(OfficeBuildingHouse::class, 'house_id', 'id');
+        return $this->belongsTo(Houses::class, 'house_id', 'id');
     }
 }
