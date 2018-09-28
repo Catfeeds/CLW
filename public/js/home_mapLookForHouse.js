@@ -12469,7 +12469,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             }
         },
         seeBuildDetail: function seeBuildDetail(item) {
-            window.location.href = '/buildings/' + item.id;
+            window.location.href = '/buildings/' + item.guid;
         },
 
         // 清空条件
@@ -12480,7 +12480,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 unit_price: '', // 单价
                 total_price: '', // 总价
                 acreage: '', // 面积
-                metro: '' // 地铁
+                metro: null // 地铁
             };
             this.regionTemp = [];
             this.priceTemp = [];

@@ -547,7 +547,7 @@
                 }
             },
             seeBuildDetail(item){
-                window.location.href='/buildings/' + item.id
+                window.location.href='/buildings/' + item.guid
             },
             // 清空条件
             emptyCondition(){
@@ -557,7 +557,7 @@
                     unit_price: '', // 单价
                     total_price: '', // 总价
                     acreage: '', // 面积
-                    metro: '' // 地铁
+                    metro: null // 地铁
                 }
                 this.regionTemp = []
                 this.priceTemp = []
