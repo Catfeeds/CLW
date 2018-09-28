@@ -125,13 +125,15 @@ module.exports = {
       'shop_proscenium',
       'shop_pantai',
       'shop_soon',
-      'shop_desktop_pc'
+      'shop_desktop_pc',
+      'shop_tex_plant'
     ],
     js: [
       'shop_index',
       'shop_serveList',
       'shop_pantai',
-      'shop_slideBar'
+      'shop_slideBar',
+      'shop_tex_plant'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

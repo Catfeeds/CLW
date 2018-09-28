@@ -46,7 +46,8 @@
                             @foreach($areas as $area)
                                 <li class="item js_condition" data-content="{{$area['id']}}" data-dom="area_id">
                                     <a data-content="{{$area['name']}}" data-dom="area_id"
-                                       class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])area_id current @endif js_area_sel">{{$area['name']}}</a>
+                                       class="js_addCurrent @if(!empty($request['area_id'])&&$request['area_id']==$area['id'])area_id current @endif js_area_sel">{{$area['name']}}
+                                    </a>
                                 </li>
                             @endforeach
                         </ul>
