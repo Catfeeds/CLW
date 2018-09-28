@@ -21,7 +21,7 @@ var app = new Vue({
 });
 if(pageOne.data.length) {
     for(var key in pageOne.data){
-        app.list.push(pageOne.data[key].house)
+        app.list.push(pageOne.data[key].houses)
     }
     if(Math.ceil(pageOne.total/pageOne.per_page)!==1){
         app.getData = true;
@@ -44,7 +44,7 @@ $(document).on('click','.more button',(e)=> {
             app.status = false;
             if(data.success) {
                 for(var key in data.data.data){
-                    app.list.push(data.data.data[key].house)
+                    app.list.push(data.data.data[key].houses)
                 }
                 if(Math.ceil(data.data.total/data.data.per_page) === app.page) {
                     app.getData = false;
