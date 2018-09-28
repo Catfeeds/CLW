@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Handler\Common;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
