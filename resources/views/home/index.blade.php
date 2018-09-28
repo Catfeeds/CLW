@@ -155,7 +155,7 @@
       <ul class="commercial-center-list">
         @foreach ( $coreBlock as $coreBlock_item )
           <li class="commercial-center-item">
-            <a href="{{url('/building_list?area_guid='.$coreBlock_item->area_guid.'&block_id='.$coreBlock_item->block_id)}}">
+            <a href="{{url('/building_list?area_guid='.$coreBlock_item->area_id.'&block_guid='.$coreBlock_item->block_id)}}">
               <img src="{{$coreBlock_item->pc_img_cn}}">
             </a>
           </li>
