@@ -23,7 +23,7 @@
                 <div class="total_classify"><span>代理记账</span><span>></span></div>
                 <div class="classify_list">
                   <a href="{{url('/business_taxes/1')}}"><span>小规模记账</span></a>
-                  <a href="{{url('/business_taxes?id=2')}}"><span>一般纳税人代理记账</span></a>
+                  <a href="{{url('/business_taxes/2')}}"><span>一般纳税人代理记账</span></a>
                 </div>
               </li>
               <li>
@@ -52,7 +52,7 @@
               <li>
                 <div class="total_classify"><span>工商代办</span><span>></span></div>
                 <div class="classify_list">
-                  <a href="{{url('/business_taxes?id=3')}}"><span>有限责任公司注册</span></a>
+                  <a href="{{url('/business_taxes/3')}}"><span>有限责任公司注册</span></a>
                   <!-- <a href="{{url('/business_taxes?id=4')}}"><span>外商独资公司注册</span></a>
                   <a href="{{url('/business_taxes?id=5')}}"><span>合伙企业注册</span></a>
                   <a href="{{url('/business_taxes?id=6')}}"><span>个人独资企业注册</span></a>
