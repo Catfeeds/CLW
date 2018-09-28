@@ -730,9 +730,10 @@
                     keyword: this.keyword
                 }
                 // 清空其他条件
-                this.emptyCondition()
+                // this.emptyCondition()
+                this.keyword = resultData.keyword
                 getCoreBuildList(resultData).then(res => {
-                    this.conditionData = resultData
+                    // this.conditionData = resultData
                     if (res.success) {
                         this.buildList = res.data.res.data
                         this.buildListNum = res.data.res.total
