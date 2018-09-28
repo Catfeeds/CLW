@@ -153,9 +153,9 @@
     <div class="elaborate-title">享优质配套 与大咖公司为邻</div>
     <div class="topic-content">
       <ul class="commercial-center-list">
-        @foreach ( $coreBlock as $coreBlock_item )
+        @foreach ($coreBlock as $coreBlock_item)
           <li class="commercial-center-item">
-            <a href="{{url('/building_list?area_guid='.$coreBlock_item->area_guid.'&block_id='.$coreBlock_item->block_id)}}">
+            <a href="{{url('/building_list?area_guid='.$coreBlock_item->area_guid.'&block_guid='.$coreBlock_item->block_guid)}}">
               <img src="{{$coreBlock_item->pc_img_cn}}">
             </a>
           </li>

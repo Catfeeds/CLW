@@ -23,7 +23,7 @@ class HotBlocksRepository extends Model
     {
         $res = HotBlock::with('block')->take(5)->where('pc_img', '!=', null)->get();
         foreach ($res as $v) {
-            $v->area_id = $v->block->area_id;
+            $v->area_guid = $v->block->area_guid;
         }
         return $res;
     }
