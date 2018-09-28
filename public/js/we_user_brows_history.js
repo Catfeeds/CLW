@@ -24,7 +24,6 @@ __webpack_require__(0);
 
 
 var pageOne = JSON.parse($('#pageOne').val());
-console.log(pageOne);
 var app = new Vue({
     el: '#houseList',
     data: {
@@ -50,7 +49,6 @@ if (pageOne.data.length) {
     app.getData = false;
     app.status = false;
 }
-console.log(app.list);
 $(document).on('click', '.more button', function (e) {
     app.getData = false;
     var url = '/ajax_browse_records?page=' + app.page;

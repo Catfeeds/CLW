@@ -3,7 +3,6 @@ import houseList from './components/houseList.vue'
 import 'mint-ui/lib/style.css'
 import { Toast } from 'mint-ui';
 var pageOne = JSON.parse($('#pageOne').val());
-console.log(pageOne)
 var app = new Vue({
     el: '#houseList',
     data: {
@@ -29,7 +28,6 @@ if(pageOne.data.length) {
     app.getData = false;
     app.status = false;
 }
-console.log(app.list)
 $(document).on('click','.more button',(e)=> {
     app.getData = false;
     var url = '/ajax_browse_records?page=' + app.page;
