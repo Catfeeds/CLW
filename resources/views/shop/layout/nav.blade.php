@@ -35,6 +35,9 @@
     @elseif(request()->getPathInfo() == '/computers/4')
     <a href="{{url('/computers')}}"><div class="index current_title">办公设备</div></a>&nbsp; > &nbsp;
     <div>Thinkpad E470</div>
+    @elseif(request()->getPathInfo() == '/computers/5')
+    <a href="{{url('/computers')}}"><div class="index current_title">办公设备</div></a>&nbsp; > &nbsp;
+    <div>台式机</div>
     @elseif(request()->getPathInfo() == '/furniture/1')
     <a href="{{url('/furniture')}}"><div class="index current_title">办公家具</div></a>&nbsp; > &nbsp;
     <div>班台</div>

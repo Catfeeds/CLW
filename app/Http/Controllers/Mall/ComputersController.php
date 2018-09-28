@@ -57,6 +57,8 @@ class ComputersController extends Controller
         return view('shop.rent_computer1');
         if($id == '4')
         return view('shop.rent_computer2');
+        if($id == '5')
+        return view('shop.desktop_pc');
     }
     public function nothing()
     {

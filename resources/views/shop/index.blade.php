@@ -625,7 +625,7 @@
                 </div>
               </div>
             </a>
-            <a href="{{url('/nothing')}}">
+            <a href="{{url('/computers/5')}}">
               <div class="modeBox">
                 <div class="modeTitle">戴尔 3020 20英寸 台式机</div>
                 <div class="modeDetail">性能卓越 价值非凡</div>
