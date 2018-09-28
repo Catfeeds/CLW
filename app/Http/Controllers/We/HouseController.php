@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\We;
 
-use App\Handler\Common;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\BrowseRecord;
 use App\Models\OfficeBuildingHouse;
@@ -34,16 +33,7 @@ class HouseController extends APIBaseController
         return view('we.house_detail')->with(['house' => $house]);
     }
 
-
-    /**
-     * 说明: 房源详情相关房源
-     *
-     * @param $id
-     * @param OfficeBuildingHousesRepository $buildingHousesRepository
-     * @param OfficeBuildingHousesService $service
-     * @return \Illuminate\Http\JsonResponse
-     * @author 罗振
-     */
+    // 房源详情相关房源
     public function showOffice
     (
         $id,
@@ -57,13 +47,7 @@ class HouseController extends APIBaseController
     }
 
 
-    /**
-     * 说明: 找房列表区域搜索条件
-     *
-     * @param OfficeBuildingHousesService $officeBuildingHousesService
-     * @return array
-     * @author 罗振
-     */
+    // 找房列表区域搜索条件
     public function blockCondition(
         HousesService $service
     )

@@ -6,20 +6,17 @@ use App\Models\Area;
 use App\Models\Block;
 use App\Models\BuildingFeature;
 use App\Models\Collection;
+use App\Models\RelBlock;
 use Illuminate\Support\Facades\Session;
 
 class HousesService
 {
-    /**
-     * 说明: 找房列表区域搜索条件
-     *
-     * @return array
-     * @author 罗振
-     */
+    // 找房列表区域搜索条件
     public function blockCondition()
     {
         // 获取所有推荐商圈
-        $recommendBlocks = Block::where('recommend', '!=', null)->withCount('building')->get();
+        $relBlock = RelBlock::where('recommend', '!=',null)->pluck('block_guid')->toArray();
+        $recommendBlocks = Block::whereIn('guid',$relBlock)->withCount('building')->get();
 
         // 推荐商圈数据
         $recommendBlocksData = array();
@@ -27,11 +24,11 @@ class HousesService
         $recommendBlocksData['area_id'] = 'all';
         $blocks = array();
         $blocks[0]['name'] = '全部区域';
-        $blocks[0]['block_id'] = 'all';
+        $blocks[0]['block_guid'] = 'all';
         $blocks[0]['building_count'] = '';
         foreach ($recommendBlocks as $k => $v) {
             $blocks[$k+1]['name'] = $v->name;
-            $blocks[$k+1]['block_id'] = $v->id;
+            $blocks[$k+1]['block_guid'] = $v->guid;
             $blocks[$k+1]['building_count'] = $v->building_count;
         }
 
@@ -42,18 +39,18 @@ class HousesService
 
         foreach ($areas as $k => $area) {
             $res[$k+1]['name'] = $area->name;
-            $res[$k+1]['area_id'] = $area->id;
+            $res[$k+1]['area_guid'] = $area->guid;
             // 获取楼盘数据
             $block_list = array();
             $blockDatas = $area->block;
             foreach ($blockDatas as $key => $val) {
                 // 拼接数据
                 $block_list[0]['name'] = '';
-                $block_list[0]['block_id'] = 'all';
+                $block_list[0]['block_guid'] = 'all';
                 $block_list[0]['building_count'] = '';
 
                 $block_list[$key+1]['name'] = $val->name;
-                $block_list[$key+1]['block_id'] = $val->id;
+                $block_list[$key+1]['block_guid'] = $val->guid;
                 $block_list[$key+1]['building_count'] = $val->building_count;
             }
 
