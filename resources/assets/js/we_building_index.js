@@ -31,11 +31,11 @@ var app = new Vue({
   methods: {
     changeData: function (data) {
       var params = {};
-      if (data.area_id !== 'all') {
-        params.area_id = data.area_id
+      if (data.area_guid !== 'all') {
+        params.area_guid = data.area_guid
       }
-      if (data.block_id !== 'all') {
-        params.block_id = data.block_id
+      if (data.block_guid !== 'all') {
+        params.block_guid = data.block_guid
       }
       if (data.renovation !== 'all') {
         params.renovation = data.renovation

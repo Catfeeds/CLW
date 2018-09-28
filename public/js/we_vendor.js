@@ -38309,7 +38309,7 @@ var render = function() {
         {
           key: "buildingListVue" + index,
           staticClass: "building_item mui-table-view-cell",
-          attrs: { href: "/buildings/" + itme.id }
+          attrs: { href: "/buildings/" + itme.guid }
         },
         [
           _c("div", { staticClass: "img-box" }, [

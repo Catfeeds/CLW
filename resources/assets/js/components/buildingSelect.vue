@@ -1,7 +1,7 @@
 <template>
   <div class="VueSelectBox" @click.stop>
     <div class="select-title-box">
-      <div :class="{active:(selectShow === 1 || !(oblong.block_id === 'all' && oblong.area_id === 'all'))}" @click='selectShow = selectShow === 1?0:1'>
+      <div :class="{active:(selectShow === 1 || !(oblong.block_guid === 'all' && oblong.area_guid === 'all'))}" @click='selectShow = selectShow === 1?0:1'>
         <span>区域</span>
       </div>
       <div :class="{active:(selectShow === 2|| oblong.acreage !== null)}" @click='selectShow = selectShow === 2?0:2'>
@@ -46,10 +46,10 @@
                     <div class="block-list-box">
                       <div class="temp-style">
                         <div class="block-item"
-                             :class="{active: (oblong.block_id === item.block_id&&oblong.area_id === items.area_id) }"
+                             :class="{active: (oblong.block_guid === item.block_guid&&oblong.area_guid === items.area_guid) }"
                              v-for="(item, index) in items.block_list"
                              :key="'blocks'+index"
-                             @click='oblong.block_id = item.block_id, oblong.area_id = items.area_id;flushData()'>
+                             @click='oblong.block_guid = item.block_guid, oblong.area_guid = items.area_guid;flushData()'>
                           <span>{{item.name === ''?'全'+items.name:item.name}}</span>
                           <!--<span>{{item.building_count}}</span>-->
                         </div>
@@ -162,8 +162,8 @@ export default {
       moreIndexArr:['renovation', 'features'],
       areaOption: [], // 区域选项
       oblong: {
-        area_id: undefined === req.area_id?'all':req.area_id,
-        block_id: undefined === req.block_id?'all':req.block_id,
+        area_guid: undefined === req.area_guid?'all':req.area_guid,
+        block_guid: undefined === req.block_guid?'all':req.block_guid,
         acreage: undefined === req.acreage?null:req.acreage, // 面积
         total_price: undefined === req.total_price?null:req.total_price, // 面积, // 总价
         unit_price: undefined === req.unit_price?null:req.unit_price, // 面积, // 单价
@@ -257,7 +257,7 @@ export default {
     moreOptionActive: function(val) {
       this.moreSwiper.slideTo(val, 450, false)
     },
-    'oblong.block_id': function() {
+    'oblong.block_guid': function() {
       this.flushData()
     },
     'oblong.acreage': function() {
@@ -349,8 +349,8 @@ export default {
         this.areaOptionActive = 0 // 激活的区域索引
         this.priceOptionActive = 0 // 激活的价格索引 0.总价 1.单价
         this.moreOptionActive = 0 // 激活的更多索引 0.装修 1.决策偏好
-        this.oblong.area_id = 'all'
-        this.oblong.block_id = 'all'
+        this.oblong.area_guid = 'all'
+        this.oblong.block_guid = 'all'
         this.oblong.acreage = null // 面积
         this.oblong.total_price = null // 总价
         this.oblong.unit_price = null // 单价
@@ -361,14 +361,14 @@ export default {
       this.flushData()
     },
     // 区域样式更改方法
-    searchArea: function(area_id, block_id) {
+    searchArea: function(area_guid, block_guid) {
       for (var num in this.areaOption) {
-          if (this.areaOption[num].area_id === area_id) {
+          if (this.areaOption[num].area_guid === area_guid) {
             this.areaOptionActive = parseInt(num)
           }
       }
-      if (this.oblong.block_id === block_id) {
-        this.oblong.area_id = area_id
+      if (this.oblong.block_guid === block_guid) {
+        this.oblong.area_guid = area_guid
       }
     },
     getFindHouse: function () {
@@ -395,12 +395,12 @@ export default {
       self.moreOption = res[1].data; // 更多信息
       var req = JSON.parse($('#request').val());
       for (var num in self.areaOption) {
-        if (this.areaOption[num].area_id === parseInt(req.area_id)) {
+        if (this.areaOption[num].area_guid === parseInt(req.area_guid)) {
           this.areaOptionActive = parseInt(num)
         }
       }
-      if (this.oblong.block_id === req.block_id) {
-        this.oblong.area_id = undefined === req.area_id?'all':req.area_id
+      if (this.oblong.block_guid === req.block_guid) {
+        this.oblong.area_guid = undefined === req.area_guid?'all':req.area_guid
       }
     })
   }
