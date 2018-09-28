@@ -315,7 +315,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::post('survey', 'EntrustThrowInsController@survey');
         //添加工单
         Route::post('add_gd', 'EntrustThrowInsController@addGd');
-
+        // 管理员分配工单
+        Route::get('allocation','WorkOrderController@allocation');
+        // 确认收到工单
+        Route::get('confirm','WorkOrderController@confirm');
 
 
     });
