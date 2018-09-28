@@ -1,4 +1,11 @@
-<div class="container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/interior_decoration.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="container">
     <div class="banner" style="background: url('{{shopRes('/shop_img/decoration_ban.jpg')}}') no-repeat center;"></div>
     <div class="question">
       <div class="title">你或许正面临这样的难题</div>
@@ -167,3 +174,12 @@
       <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
   </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
+  </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_tex_plant.js')}}"></script>
+@endsection

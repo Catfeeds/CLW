@@ -1,4 +1,11 @@
-<div class="container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_register.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="container">
   <div class="tax_title" style="background: url('{{shopRes('/shop_img/tax_banner.jpg')}}') no-repeat center;">
     <div class="tax_title1" style="font-weight:300">有限责任公司注册</div>
     <div class="tax_title2" style="font-weight:300">快速办理 专业一对一</div>
@@ -137,11 +144,19 @@
       </div>
     </div>
   </div>
-  <div id="appoint">
-    <appoint></appoint>
-  </div>
-  @include('shop.layout.list_common')
-  <div class="footer_banner" style="text-align:center">
-    <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
-  </div>
 </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
+    <div class="charge">
+      @include('shop.layout.list_common')
+    </div>
+    <div class="footer_banner" style="text-align:center">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
+    </div>
+  </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_register.js')}}"></script>
+@endsection

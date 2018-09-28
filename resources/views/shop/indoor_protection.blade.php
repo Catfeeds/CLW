@@ -1,4 +1,11 @@
-<div class="protection_container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_indoor_protection.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="protection_container">
       <div class="banner1" style="background: url('{{shopRes('/shop_img/protection_banner1.jpg')}}') no-repeat center;"></div>
       <div class="banner2">
         <div class="title">甲醛严重危害人们的健康</div>
@@ -82,3 +89,14 @@
         </div>
       </div>
     </div>
+    <div class="footer_banner" style="text-align:center">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
+    </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_tex_plant.js')}}"></script>
+@endsection

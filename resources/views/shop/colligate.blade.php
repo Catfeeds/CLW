@@ -1,4 +1,11 @@
-<div class="container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_colligate.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="container">
     <div class="decoration_banner" style="background: url('{{shopRes('/shop_img/decoration_banner.jpg')}}') no-repeat center;"></div>
     <div class="question">
       <div class="question_title">办公室布线的问题</div>
@@ -119,7 +126,17 @@
         <img src="{{shopRes('/shop_img/decoration_attend.png')}}" alt="">
       </div>
     </div> 
-    <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
-      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
+      <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
+        <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
+      </div>
+    </div>
+    
+    <div id="appointment">
+      <appoint></appoint>
     </div>
   </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_charge.js')}}"></script>
+@endsection

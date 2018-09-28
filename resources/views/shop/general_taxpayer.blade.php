@@ -1,4 +1,11 @@
-<div class="container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_charge.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="container">
     <!-- 列表页标题 -->
     <div class="list_title" style="background: url('{{shopRes('/shop_img/list_detail_title.jpg')}}') no-repeat center;">
       <div class="title_1">一般纳税人代理记账</div>
@@ -119,13 +126,18 @@
         </div>
       </div>
     </div>
-    <div id="appoint">
+    <div id="appointment">
       <appoint></appoint>
     </div>
     <div class="charge">
-    @include('shop.layout.list_common')
+      @include('shop.layout.list_common')
     </div>
     <div class="footer_banner" style="text-align:center">
       <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
   </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_charge.js')}}"></script>
+@endsection

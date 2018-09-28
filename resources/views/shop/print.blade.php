@@ -1,4 +1,11 @@
-<div class="print_container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_print.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="print_container">
   <div class="banner" style="background: url('{{shopRes('/shop_img/print_banner.jpg')}}') no-repeat center;"></div>
   <div class="print_trub" style="background: url('{{shopRes('/shop_img/print_trouble_back.jpg')}}') no-repeat center;">
     <div class="title">常规打印的<span>苦恼</span></div>
@@ -196,3 +203,12 @@
     <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
   </div>
 </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
+  </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_tex_plant.js')}}"></script>
+@endsection

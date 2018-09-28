@@ -1,11 +1,11 @@
 @extends('shop.layout.layout')
-@section('title', '税收筹划')
+<!-- @section('title', '工商财税') -->
 @section('header')
     <link rel="stylesheet" href="{{shopRes('/css/shop_tex_plant.css')}}">
 @endsection
 @section('body')
     @include('shop.header')
-    @include('shop.layout.nav')
+    @include('shop.layout.servList')
     <div class="tex_plant">
     <!-- banner -->
       <div class="tex_plant_banner" style="background: url('/shop_img/tex_plant_banner.jpg') no-repeat center"></div>
@@ -102,7 +102,13 @@
         </div>
       </div>
     </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
     @include('shop.layout.list_common')
+    <div class="footer_banner" style="text-align:center">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
+    </div>
     @include('shop.footer')
 @endsection
 @section('script')

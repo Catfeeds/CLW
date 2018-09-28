@@ -1,4 +1,11 @@
-<div class="container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_list_clean_common.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="container">
   <!-- banner部分 -->
   <div class="clean_banner" style="background: url('{{shopRes('/shop_img/clean_banner.jpg')}}') no-repeat center;">
     <div class="banner_title">日常保洁</div>
@@ -111,3 +118,14 @@
     </div>
   </div>
 </div>
+    <div class="footer_banner" style="text-align:center;border-top:1px solid #ededed">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
+    </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_tex_plant.js')}}"></script>
+@endsection

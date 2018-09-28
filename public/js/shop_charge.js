@@ -1,4 +1,4 @@
-webpackJsonp([4],[
+webpackJsonp([5],[
 /* 0 */,
 /* 1 */,
 /* 2 */
@@ -7368,32 +7368,34 @@ if (false) {
 /* 112 */,
 /* 113 */,
 /* 114 */,
-/* 115 */
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(116);
+module.exports = __webpack_require__(122);
 
 
 /***/ }),
-/* 116 */
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_shop_appoint_vue__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_shop_appoint_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_shop_appoint_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
 __webpack_require__(23);
 
-
-
-new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
-  el: "#appointment",
+new Vue({
+  el: '#appointment',
   components: {
     appoint: __WEBPACK_IMPORTED_MODULE_0__components_shop_appoint_vue___default.a
   }
 });
 
 /***/ })
-],[115]);
+],[121]);

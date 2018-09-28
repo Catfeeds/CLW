@@ -1,9 +1,11 @@
 @import 'shop_master';
 @include header();
 @include footer();
-@include nav();
+@include shop_servList();
 @include list_common();
+@import 'shop_common_area';
 .tex_plant {
+  padding-top: 30px;
   &_banner {
     width: 100%;
     height: 480px;

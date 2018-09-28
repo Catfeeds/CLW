@@ -1,4 +1,11 @@
-<div class="container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_move.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="container">
     <div class="moveBanner" style="background: url('{{shopRes('/shop_img/moving_banner.jpg')}}') no-repeat center;"></div>
     <div class="choose">
       <div class="choose_title" style="font-family:PingFang-SC-Regular">为什么选择我们</div>
@@ -155,3 +162,11 @@
       <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
     </div>
   </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_tex_plant.js')}}"></script>
+@endsection

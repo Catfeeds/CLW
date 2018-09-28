@@ -1,4 +1,11 @@
-<div class="water_container">
+@extends('shop.layout.layout')
+@section('header')
+    <link rel="stylesheet" href="{{shopRes('/css/shop_mineral_water.css')}}">
+@endsection
+@section('body')
+    @include('shop.header')
+    @include('shop.layout.servList')
+    <div class="water_container">
         <div class="banner" style="background: url('{{shopRes('/shop_img/water_banner.jpg')}}') no-repeat center;"></div>
         <div class="describe" style="background: url('{{shopRes('/shop_img/water_des.jpg')}}') no-repeat center;">
           <div class="title clearfix">
@@ -65,3 +72,14 @@
           </div>
         </div>
       </div>
+    <div class="footer_banner" style="text-align:center">
+      <img src="{{shopRes('/shop_img/index_better.jpg')}}" alt="">
+    </div>
+    <div id="appointment">
+      <appoint></appoint>
+    </div>
+    @include('shop.footer')
+@endsection
+@section('script')
+  <script src="{{shopRes('/js/shop_tex_plant.js')}}"></script>
+@endsection
