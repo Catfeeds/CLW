@@ -43,14 +43,13 @@ class MapsService
             $x = $gps->x;
 
             // 获取gps范围里面所有楼盘id
-            $res = \DB::select("select id from buildings.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
+            $res = \DB::select("select guid from buildings.buildings where sqrt( ( ((".$x."-x)*PI()*12656*cos(((".$y."+y)/2)*PI()/180)/180) * ((".$x."-x)*PI()*12656*cos (((".$y."+y)/2)*PI()/180)/180) ) + ( ((".$y."-y)*PI()*12656/180) * ((".$y."-y)*PI()*12656/180) ) )/2 < ".$request->distance);
 
             $buildings[] = Common::objectToArray(collect($res)->toArray());
         }
 
         // 获取去重之后的所有楼盘id
         $buildingsId = array_column($this->remove_duplicate(collect($buildings)->collapse()->all()),'guid');
-
         // 获取所有/分页
         if ($request->type == 'all') {
             $whetherPage = true;
