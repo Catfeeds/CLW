@@ -1,6 +1,6 @@
 <template>
   <div class="vueBuilding_list mui-table-view">
-      <a class="building_item mui-table-view-cell" :href="'/buildings/'+itme.id" v-for="(itme, index) in list" :key="'buildingListVue' + index">
+      <a class="building_item mui-table-view-cell" :href="'/buildings/'+itme.guid" v-for="(itme, index) in list" :key="'buildingListVue' + index">
         <div class="img-box">
           <img :src="list[index].img_cn + cropStyle" :alt="list[index].name">
         </div>
