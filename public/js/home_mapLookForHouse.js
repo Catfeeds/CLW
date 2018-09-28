@@ -12659,9 +12659,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 '_token': document.getElementsByName('csrf-token')[0].content,
                 keyword: this.keyword
                 // 清空其他条件
-            };this.emptyCondition();
+                // this.emptyCondition()
+            };this.keyword = resultData.keyword;
             Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["h" /* getCoreBuildList */])(resultData).then(function (res) {
-                _this6.conditionData = resultData;
+                // this.conditionData = resultData
                 if (res.success) {
                     _this6.buildList = res.data.res.data;
                     _this6.buildListNum = res.data.res.total;
