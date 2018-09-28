@@ -29,13 +29,13 @@ class WorkOrdersRequest extends FormRequest
                     'name' => 'required|max:32',
                     'tel' =>  'required|max:16',
                     'source' => 'required|integer',
-                    'demand' => 'nullable|integer',
-                    'position' => 'nullable',
+                    'source_area' => 'nullable',
+                    'demand' => 'required|integer',
+                    'area' => 'nullable',
+                    'building' => 'nullable',
                     'acreage' => 'nullable',
                     'price' => 'nullable',
-                    'shopkeeper_guid' => 'required|exists:saas.users,guid',
-                    'remark' => 'nullable',
-                    'recorder' => 'required'
+                    'remark' => 'nullable'
                 ];
             case 'update':
                 return [

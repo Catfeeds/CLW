@@ -16,19 +16,10 @@ class WorkOrder extends BaseModel
 
     protected $connection = 'mysql';
 
-    protected $appends = ['source_cn', 'demand_cn', 'valid_cn', 'clinch_cn'];
-
-    // 店长关联user表
-    public function shopkeeperUser()
-    {
-        return $this->belongsTo(Agent::class,'shopkeeper_guid', 'guid');
-    }
-
-    // 业务员关联user表
-    public function staffUser()
-    {
-        return $this->belongsTo(Agent::class,'staff_guid', 'guid');
-    }
+    protected $appends = [
+        'source_cn',
+        'demand_cn'
+    ];
 
     // 来源 source_cn
     public function getSourceCnAttribute()
@@ -58,6 +49,15 @@ class WorkOrder extends BaseModel
             case 9:
                 return '58同城';
                 break;
+            case 10:
+                return '360';
+                break;
+            case 11:
+                return '搜狗';
+                break;
+            case 12:
+                return '神马';
+                break;
             default;
                 break;
         }
@@ -83,23 +83,4 @@ class WorkOrder extends BaseModel
         }
     }
 
-    //工单状态 valid_cn
-    public function getValidCnAttribute()
-    {
-        if ($this->valid == 1) {
-            return '有效';
-        } elseif ($this->valid == 2) {
-            return '无效';
-        }
-    }
-
-    //工单是否成交 clinch_cn
-    public function getClinchCnAttribute()
-    {
-        if ($this->clinch == 1) {
-            return '成交';
-        } elseif ($this->clinch == 2) {
-            return '未成交';
-        }
-    }
 }

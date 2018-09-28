@@ -7,6 +7,7 @@
  */
 namespace App\Handler;
 
+use App\Models\Schedule;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 use Ramsey\Uuid\Uuid;
@@ -23,6 +24,16 @@ class Common
     {
         $uuid1 = Uuid::uuid1();
         return $uuid1->getHex();
+    }
+
+    // 添加工单进度
+    public static function addSchedule($guid, $content)
+    {
+        return Schedule::create([
+            'guid' => self::getUuid(),
+            'work_order_guid' => $guid,
+            'content' => $content
+        ]);
     }
 
     /**

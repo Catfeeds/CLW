@@ -18,7 +18,6 @@ class EntrustThrowInObservers {
         $data['tel'] = $tel;
         $data['remark'] = $entrustThrowIn->remark??'无';
         $openid = $class->getOpenid($entrustThrowIn->demand);
-        if ($entrustThrowIn->page_source !== '管理系统') {
             if (!empty($openid)) {
                 $data['openid'] = json_encode($openid);
                 //如果是投放房源
@@ -38,6 +37,4 @@ class EntrustThrowInObservers {
                 }
             }
         }
-
-    }
 }
