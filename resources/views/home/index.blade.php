@@ -187,7 +187,7 @@
     <ul class="fine-quality-list">
       @foreach ( $eliteBuilding as $eliteBuilding_item )
         <li class="fine-quality-item">
-          <a href="{{url('/buildings').'/'.$eliteBuilding_item->id}}">
+          <a href="{{url('/buildings').'/'.$eliteBuilding_item->guid}}">
             <div class="img-box">
               {{-- <img class="min-img" src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select"> --}}
               <img class="main-img" src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
