@@ -18,6 +18,22 @@ class WorkOrdersService
         return curl(config('setting.wechat_url').'/new_custom_notice','post', $data);
     }
 
+    // 获取给人员分配工单下拉数据
+    public function getAllDistribution()
+    {
+        $res =Agent::with('company')
+                    ->where(['status'=>1,'start_up'=>1,['openid', '!=', '']])
+                    ->where('work_order','!=', '')
+                    ->get();
+
+        return $res->map(function ($v){
+            return [
+                'value' => $v->guid,
+                'label' => $v->name . '-' . $v->work_order_cn . '-' . $v->company->name
+            ];
+        });
+    }
+
     // 管理层获取下级
     public function getAgent($guid)
     {

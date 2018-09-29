@@ -12,6 +12,14 @@ class Agent extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'work_order' => 'array',
+    ];
+
+    protected $appends = [
+        'work_order_cn'
+    ];
+
     // 用户关联角色
     public function role()
     {
@@ -23,5 +31,17 @@ class Agent extends Model
     public function companyFramework()
     {
         return $this->belongsTo('App\Models\CompanyFramework','rel_guid','guid');
+    }
+
+    // 公司
+    public function company()
+    {
+        return $this->belongsTo('App\Models\Company','company_guid','guid');
+    }
+
+    // 区域 work_order_cn
+    public function getWorkOrderCnAttribute()
+    {
+        return empty($this->work_order)?'':implode(',',$this->work_order);
     }
 }

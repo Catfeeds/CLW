@@ -142,6 +142,7 @@ class WorkOrderController extends APIBaseController
         $res = $repository->invalid($request);
         if (!$res) return $this->sendError('操作失败');
         return $this->sendResponse($res, '操作成功');
+
     }
 
     // 跟进工单
@@ -166,6 +167,17 @@ class WorkOrderController extends APIBaseController
         // TODO 发送微信消息
         if (!$res) return $this->sendError('工单回转失败');
         return $this->sendResponse($res, '工单回转成功');
+    }
+
+    // 获取给人员分配工单下拉数据
+    public function getAllDistribution
+    (
+        WorkOrdersService $service
+    )
+    {
+        $res = $service->getAllDistribution();
+        if (!$res) return $this->sendError('获取失败');
+        return $this->sendResponse($res,'获取成功');
     }
 
     // 管理层获取下级

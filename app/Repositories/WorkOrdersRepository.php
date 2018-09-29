@@ -5,6 +5,8 @@ namespace App\Repositories;
 use App\Handler\Common;
 use App\Models\AgentRole;
 use App\Models\Partake;
+use App\Models\Agent;
+use App\Models\Schedule;
 use App\Models\WorkOrder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -396,4 +398,6 @@ class WorkOrdersRepository extends Model
     {
         return AgentRole::where('openid', $openid)->value('guid');
     }
+
+
 }

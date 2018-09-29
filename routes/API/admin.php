@@ -29,6 +29,21 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 管理层获取下级
         Route::get('get_agent', 'WorkOrderController@getAgent');
 
+        //回访
+        Route::post('survey', 'EntrustThrowInsController@survey');
+
+        //添加工单
+        Route::post('add_gd', 'EntrustThrowInsController@addGd');
+
+        // 管理员分配工单
+        Route::get('allocation','WorkOrderController@allocation');
+
+        // 确认收到工单
+        Route::get('confirm','WorkOrderController@confirm');
+
+        // 获取给人员分配工单下拉数据
+        Route::get('get_all_distribution','WorkOrderController@getAllDistribution');
+
 
         //微信绑定管理
         Route::resource('employees', 'EmployeesController');
@@ -315,14 +330,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //渠道来源构成
         Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
 
-        //回访
-        Route::post('survey', 'EntrustThrowInsController@survey');
-        //添加工单
-        Route::post('add_gd', 'EntrustThrowInsController@addGd');
-        // 管理员分配工单
-        Route::get('allocation','WorkOrderController@allocation');
-        // 确认收到工单
-        Route::get('confirm','WorkOrderController@confirm');
 
     });
 
