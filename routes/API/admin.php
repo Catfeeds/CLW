@@ -7,6 +7,7 @@
  */
 header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization,safeString');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+
     //导出数据
     Route::post('export', 'EntrustThrowInsController@export');
     // 安全验证码
@@ -319,7 +320,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('allocation','WorkOrderController@allocation');
         // 确认收到工单
         Route::get('confirm','WorkOrderController@confirm');
-
 
     });
 

@@ -58,6 +58,15 @@ class WorkOrdersRequest extends FormRequest
                     'feedback' => 'required',
                     'valid' => 'required'
                 ];
+            case 'allocation':
+                return [
+                    'handle_guid' => 'required',
+                    'content' => 'required'
+                ];
+            case 'confirm':
+                return [
+                    'content' => 'required'
+                ];
             default:
                 {
                     return [];

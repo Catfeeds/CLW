@@ -93,10 +93,10 @@ class WorkOrdersRepository extends Model
                                 'handle_guid' => $request->handle_guid,
                                 'manage_deal' => $this->time,
                             ]);
-            if (!$res->save()) throw new \Exception('工单分配失败');
+            if (!$res) throw new \Exception('工单分配失败');
 
             // 添加工单进度
-            $content = '工单分配给'.($request->content);
+            $content = '工单分配给('.$request->content.')';
 
             $schedule = Common::addSchedule($request->guid,$content);
             if (empty($schedule)) throw new \Exception('工单进度生成失败');
@@ -118,10 +118,10 @@ class WorkOrdersRepository extends Model
                 ->update([
                     'handle_deal' => $this->time
                 ]);
-            if (!$res->save()) throw new \Exception('确认收到工单失败');
+            if (!$res) throw new \Exception('确认收到工单失败');
 
             // 添加工单进度
-            $content = '确认收到工单'.($request->content);
+            $content = '确定收到工单('.$request->content.')';
 
             $schedule = Common::addSchedule($request->guid,$content);
             if (empty($schedule)) throw new \Exception('工单进度生成失败');
