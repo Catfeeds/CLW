@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Handler\Common;
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\WorkOrdersRequest;
 use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
-use App\Services\WorkOrdersService;
 
 class WorkOrderController extends APIBaseController
 {
@@ -19,6 +19,17 @@ class WorkOrderController extends APIBaseController
     {
         $res= $repository->getList($request);
         return $this->sendResponse($res,'工单列表获取成功');
+    }
+
+    // 工单详情 (页面)
+    public function show
+    (
+        WorkOrdersRepository $repository,
+        WorkOrder $workOrder
+    )
+    {
+        $res = $repository->getShow($workOrder);
+        return $this->sendResponse($res,'详情获取成功');
     }
 
     // 投放委托 生成工单
@@ -41,14 +52,73 @@ class WorkOrderController extends APIBaseController
     )
     {
         $res = $repository->issue($request);
-
-        // 发送微信消息 TODO
-
-
+        // TODO 发送微信消息
         if (!$res) return $this->sendError('工单分配失败');
         return $this->sendResponse($res, '工单分配成功');
-
     }
+
+    // 重新分配工单
+    public function reset
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->reset($request);
+        // TODO 发送微信消息
+        if (!$res) return $this->sendError('工单分配失败');
+        return $this->sendResponse($res, '工单分配成功');
+    }
+
+    // 有效工单
+    public function valid
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->valid($request);
+        if (!$res) return $this->sendError('操作失败');
+        return $this->sendResponse($res, '操作成功');
+    }
+
+
+    // 无效工单
+    public function invalid
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->invalid($request);
+        if (!$res) return $this->sendError('操作失败');
+        return $this->sendResponse($res, '操作成功');
+    }
+
+    // 跟进工单
+    public function track
+    (
+        WorkOrdersRequest $request
+    )
+    {
+        $res = Common::addSchedule($request->guid, $request->track);
+        if (empty($res)) return $this->sendError('跟进失败');
+        return $this->sendResponse($res, '跟进成功');
+    }
+
+    // 回转工单
+    public function rotate
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->rotate($request);
+        // TODO 发送微信消息
+        if (!$res) return $this->sendError('工单回转失败');
+        return $this->sendResponse($res, '工单回转成功');
+    }
+
 
 
 
