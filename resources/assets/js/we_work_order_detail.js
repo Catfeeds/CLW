@@ -17,6 +17,12 @@ const app = new Vue({
     },
     confirm() {
       console.log('this is a test')
+    },
+    confirmGet() {
+      console.log('ssdsfdsgdfg')
+    },
+    operate() {
+      this.sheetVisible = true
     }
   }
 })

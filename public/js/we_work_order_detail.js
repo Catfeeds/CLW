@@ -59,6 +59,12 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
     },
     confirm: function confirm() {
       console.log('this is a test');
+    },
+    confirmGet: function confirmGet() {
+      console.log('ssdsfdsgdfg');
+    },
+    operate: function operate() {
+      this.sheetVisible = true;
     }
   }
 });

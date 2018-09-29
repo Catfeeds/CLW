@@ -151,3 +151,7 @@ body .detail-step .el-step__description.is-process {
   color: #666;
 }
 
+body .detail-step .el-step__description.is-wait {
+  color: #666;
+}
+
