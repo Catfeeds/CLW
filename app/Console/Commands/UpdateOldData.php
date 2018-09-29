@@ -2,12 +2,17 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Block;
+use App\Models\Building;
 use App\Models\BuildingHasFeature;
 use App\Models\BuildingLabel;
 use App\Models\BuildingRecommend;
 use App\Models\EntrustThrowIn;
 use App\Models\HotBlock;
+use App\Models\MediaBlock;
 use App\Models\PcRecommend;
+use App\Models\Recommend;
+use App\Models\RelBlock;
 use Illuminate\Console\Command;
 
 class UpdateOldData extends Command
@@ -57,8 +62,10 @@ class UpdateOldData extends Command
         // 楼盘标签
         $buildingLabel = BuildingLabel::with('oldBuilding')->get();
         foreach ($buildingLabel as $v) {
-            $v->building_guid = $v->oldBuilding->guid;
-            if (!$v->save()) \Log::error('id为:'.$v->id.'的楼盘标签关联修改失败');
+            if ($v->building_id) {
+                $v->building_guid = $v->oldBuilding->guid;
+                if (!$v->save()) \Log::error('id为:'.$v->id.'的楼盘标签关联修改失败');
+            }
         }
 
         // 推荐楼盘
@@ -78,15 +85,43 @@ class UpdateOldData extends Command
         // pc端精品推荐
         $pcRecommend = PcRecommend::get();
         foreach ($pcRecommend as $v) {
+            if (empty($v->building_guid)) {
+                $buildingGuid = Building::whereIn('id', $v->building_id)->pluck('guid')->toArray();
+                $v->building_guid = $buildingGuid;
+                if (!$v->save()) \Log::error('id为:'.$v->id.'的pc端精品推荐修改失败');
 
-            foreach ($v->building_id as $v) {
-
+                $arr = array();
+                foreach ($v->building_info as $key => $val) {
+                        $arr[$key]['label'] = $val['label'];
+                        $arr[$key]['value'] = Building::where('id',$val['value'])->first()->guid;
+                }
+                $v->building_info = $arr;
+                if (!$v->save()) \Log::error('id为:'.$v->id.'的pc端精品推荐的楼盘信息修改失败');
             }
-
         }
 
+        // 精品推荐表
+        $recommend = Recommend::get();
+        foreach ($recommend as $v) {
+            if (empty($v->building_guid)) {
+                $buildingGuid = Building::whereIn('id', $v->building_id)->pluck('guid')->toArray();
+                $v->building_guid = $buildingGuid;
+                if (!$v->save()) \Log::error('id为:'.$v->id.'的端精品推荐修改失败');
+            }
+        }
 
+        $block = Block::get();
+        foreach ($block as $v) {
 
+            $mediaBlock = MediaBlock::find($v->id);
 
+            $relBlock = RelBlock::create([
+                'block_guid' => $v->guid,
+                'recommend' => $mediaBlock->recommend,
+                'agent_name' => $mediaBlock->agent_name,
+                'agent_pic' => $mediaBlock->agent_pic,
+            ]);
+            if (empty($relBlock)) \Log::error('guid为:'.$v->guid.'的商圈关联信息添加失败');
+        }
     }
 }

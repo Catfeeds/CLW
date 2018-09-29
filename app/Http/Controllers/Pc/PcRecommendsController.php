@@ -18,7 +18,7 @@ class PcRecommendsController extends Controller
         Request $request
     )
     {
-        $res = $repository->buildingList($request, $service, $pcRecommend->building_id,true);
+        $res = $repository->buildingList($request, $service, $pcRecommend->building_guid,true);
         return view('home.home_topic', [
             'res' => $res,
             'pcRecommend' => $pcRecommend

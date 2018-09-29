@@ -173,7 +173,6 @@ class BuildingsRepository extends  Model
         // 筛选出符合条件的楼座
         $buildingBlocks = BuildingBlock::whereIn('building_guid', $buildings)->pluck('guid')->toArray();
         $houses = Houses::whereIn('building_block_guid', $buildingBlocks)->where('house_busine_state', 1)->where('shelf', 1);
-
         // 面积
         if (!empty($request->acreage)) $houses = $houses->whereBetween('constru_acreage', $request->acreage);
 
@@ -356,7 +355,7 @@ class BuildingsRepository extends  Model
         $buildingIds = BuildingLabel::orderBy('created_at','asc')->get()->pluck('building_guid')->toArray();
         if (empty($buildingIds)) return collect();
 
-        $res = Building::with('house','area','block')->whereIn('guid', $buildingIds)->get();
+        $res = Building::with('house','area','block')->whereIn('guid', $buildingIds)->orderBy('created_at','desc')->get();
         foreach ($res as $v) {
             $service->getAddress($v);
             $house[] = $v->house;
