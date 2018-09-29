@@ -36,5 +36,10 @@ class WorkOrderController extends Controller
         if (!$request->openid) return '缺少参数';
         return view('we.work_order_shopowner', ['openid'=>$request->openid, 'safeString'=>$safeString]);
     }
-
+    public function detail(Request $request)
+    {
+        $string = 'chulouwang'.date('Y-m-d',time());
+        $safeString = Hash::make($string);
+        return view('we.work_order_detail', ['safeString'=>$safeString]);
+    }
 }
