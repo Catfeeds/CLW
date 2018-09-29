@@ -48,6 +48,7 @@ class EntrustThrowInsRepository extends Model
             'name' => $request->name,
             'tel' => $request->tel,
             'user_id' => empty($user)?null:$user->id,
+            'area_guid' => $request->area_guid,
             'area_id' => $request->area_id,
             'area_name' => $request->area_name,
             'block_id' => $request->block_id,

@@ -1735,7 +1735,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.199:3000' + '/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.142:8888' + '/api/get_all_select?number=3',
     method: 'GET'
   });
 }
@@ -12283,8 +12283,8 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             }],
             regionTemp: [], // 区域临时保存
             priceTemp: [] }, _defineProperty(_ref, 'keyword', ''), _defineProperty(_ref, 'condition', {
-            area_id: '', // 区域
-            block_id: '', // 商圈
+            area_guid: '', // 区域
+            block_guid: '', // 商圈
             unit_price: '', // 单价
             total_price: '', // 总价
             acreage: '', // 面积
@@ -12385,8 +12385,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                         }, 50);
                     }
                 });
-            } else {
-                alert(1);
             }
         },
         zoom: function zoom(val) {
@@ -12410,7 +12408,7 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             handler: function handler(val, oldVal) {
                 var _this2 = this;
 
-                if (val.acreage == '' && val.area_id == '' && val.block_id == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword !== '') {
+                if (val.acreage == '' && val.area_guid == '' && val.block_guid == '' && val.metro == '' && val.total_price == '' && val.unit_price == '' && this.keyword !== '') {
                     if (this.regionList.length == 0) {
                         // 获取区域 数据
                         Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["m" /* getRegionList */])().then(function (res) {
@@ -12471,18 +12469,18 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
             }
         },
         seeBuildDetail: function seeBuildDetail(item) {
-            window.location.href = '/buildings/' + item.id;
+            window.location.href = '/buildings/' + item.guid;
         },
 
         // 清空条件
         emptyCondition: function emptyCondition() {
             this.condition = {
-                area_id: '', // 区域
-                block_id: '', // 商圈
+                area_guid: '', // 区域
+                block_guid: '', // 商圈
                 unit_price: '', // 单价
                 total_price: '', // 总价
                 acreage: '', // 面积
-                metro: '' // 地铁
+                metro: null // 地铁
             };
             this.regionTemp = [];
             this.priceTemp = [];
@@ -12587,7 +12585,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 });
             }
             Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["o" /* getSiteBuildNum */])({ gps: data, distance: 3 }).then(function (res) {
-                console.log('getSiteBuildNum', res);
                 if (res.success) {
                     _this4.siteList = res.data;
                     _this4.$nextTick(function () {
@@ -12601,7 +12598,6 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
 
         // 地铁线
         getbuslist: function getbuslist(el) {
-            console.log('el.getBusListItem(0)');
             if (el.getBusListItem(0)) {
                 this.$refs.bus.originInstance.getBusLine(el.getBusListItem(0));
             }
@@ -12663,9 +12659,10 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
                 '_token': document.getElementsByName('csrf-token')[0].content,
                 keyword: this.keyword
                 // 清空其他条件
-            };this.emptyCondition();
+                // this.emptyCondition()
+            };this.keyword = resultData.keyword;
             Object(__WEBPACK_IMPORTED_MODULE_29__home_api__["h" /* getCoreBuildList */])(resultData).then(function (res) {
-                _this6.conditionData = resultData;
+                // this.conditionData = resultData
                 if (res.success) {
                     _this6.buildList = res.data.res.data;
                     _this6.buildListNum = res.data.res.total;
@@ -12677,24 +12674,23 @@ var ElSelect = __WEBPACK_IMPORTED_MODULE_24_element_ui_lib_select___default.a,
         regionChange: function regionChange(data) {
             // 只给商圈赋值
             if (data.length === 3) {
-                this.condition.area_id = '';
-                this.condition.block_id = data[2];
+                this.condition.area_guid = '';
+                this.condition.block_guid = data[2];
                 __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#sq' + data[2]).trigger('click');
             } else if (data.length === 2) {
-                this.condition.area_id = data[1];
+                this.condition.area_guid = data[1];
                 __WEBPACK_IMPORTED_MODULE_28_jquery___default()('#qy' + data[1]).trigger('click');
-                this.condition.block_id = '';
+                this.condition.block_guid = '';
             } else {
                 this.center = '武汉';
                 this.zoom = 12;
-                this.condition.area_id = '';
-                this.condition.block_id = '';
+                this.condition.area_guid = '';
+                this.condition.block_guid = '';
             }
         },
 
         // 价格下拉获取值时改变
         priceChange: function priceChange(data) {
-            console.log('priceChange', data);
             if (data[0] === '单价') {
                 this.condition.total_price = '';
                 this.condition.unit_price = data[1];

@@ -112,7 +112,7 @@
                 <div id="banner-median" class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <a href="https://wechat.chulouwang.com/buildings/204">
+                            <a href="https://wechat.chulouwang.com/buildings/f01f45d0c22811e88c0008002772f793">
                                     <img src="{{res('/we_img/index_banner2_1.jpg')}}" alt="">
                             </a>
                         </div>
@@ -129,23 +129,23 @@
             <div class="hot-block" id="VueHotBlock" v-if='list.length >= 5'>
                 <div class="index_title">热门商圈</div>
                 <div class="hot-block-box">
-                    <a href='/buildings?condition={"area_id":{{$hotBlocks[0]->block->area_id}},"block_id":{{$hotBlocks[0]->block_id}}}' class="hot-1">
+                    <a href='/buildings?condition={"area_guid":"{{$hotBlocks[0]->block->area_guid}}","block_guid":"{{$hotBlocks[0]->block_guid}}"}' class="hot-1">
                         <img src="{{$hotBlocks[0]->img_cn}}">
                     </a>
                     <ul>
                         <li class="display-flex">
-                            <a href='/buildings?condition={"area_id":{{$hotBlocks[1]->block->area_id}},"block_id":{{$hotBlocks[1]->block_id}}}' >
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[1]->block->area_guid}}","block_guid":"{{$hotBlocks[1]->block_guid}}"}' >
                             <img src="{{$hotBlocks[1]->img_cn}}">
                             </a>
-                            <a href='/buildings?condition={"area_id":{{$hotBlocks[2]->block->area_id}},"block_id":{{$hotBlocks[2]->block_id}}}' >
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[2]->block->area_guid}}","block_guid":"{{$hotBlocks[2]->block_guid}}"}' >
                             <img src="{{$hotBlocks[2]->img_cn}}">
                             </a>
                         </li>
                         <li class="display-flex">
-                            <a href='/buildings?condition={"area_id":{{$hotBlocks[3]->block->area_id}},"block_id":{{$hotBlocks[3]->block_id}}}'>
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[3]->block->area_guid}}","block_guid":"{{$hotBlocks[3]->block_guid}}"}'>
                             <img src="{{$hotBlocks[3]->img_cn}}">
                             </a>
-                            <a href='/buildings?condition={"area_id":{{$hotBlocks[4]->block->area_id}},"block_id":{{$hotBlocks[4]->block_id}}}' >
+                            <a href='/buildings?condition={"area_guid":"{{$hotBlocks[4]->block->area_guid}}","block_guid":"{{$hotBlocks[4]->block_guid}}"}' >
                             <img src="{{$hotBlocks[4]->img_cn}}">
                             </a>
                         </li>
@@ -158,7 +158,7 @@
             <div class="indexSideslip">
                 <div class="buildingList">
                     @foreach($buildingRecommends as $item)
-                    <a class='buildingItem' href="/buildings/{{$item->building_id}}" >
+                    <a class='buildingItem' href="/buildings/{{$item->building_guid}}" >
                     <img src="{{$item->img_cn}}" alt="">
                     <div class="building-text">
                         <div class="building-title">{{$item->building_name}}</div>
@@ -175,7 +175,7 @@
             <div class="area-list">
                 <a href="/buildings">全部</a>
                 @foreach($areas as $item)
-                <a href='/buildings?condition={"area_id":{{$item->id}}}'>{{strchr($item->name, "区", true)}}</a>
+                <a href='/buildings?condition={"area_guid":"{{$item->guid}}"}'>{{strchr($item->name, "区", true)}}</a>
                 @endforeach
             </div>
             <div class="better">猜你喜欢</div>

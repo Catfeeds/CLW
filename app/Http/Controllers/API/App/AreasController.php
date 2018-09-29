@@ -22,7 +22,7 @@ class AreasController extends APIBaseController
         $res = $repository->areaList();
         return $this->sendResponse($res->map(function($v) {
             return [
-                'value' => $v->id,
+                'value' => $v->guid,
                 'text' => $v->name
             ];
         }), '区域列表获取成功');

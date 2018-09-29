@@ -4,7 +4,6 @@ namespace App\Http\Controllers\PC;
 
 use App\Handler\Common;
 use App\Http\Controllers\Controller;
-use App\Models\Building;
 use App\Repositories\BuildingsRepository;
 use App\Services\BuildingsService;
 use App\Services\MapsService;
@@ -28,13 +27,13 @@ class MapsController extends Controller
     {
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
-            $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
+            $res = \DB::select("select building_guid from buildings.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
             // 获取所有楼盘id
-            $buildingIds = array_column(Common::objectToArray($res), 'building_id');
+            $buildingIds = array_column(Common::objectToArray($res), 'building_guid');
             $res = $repository->buildingList($request, $buildingsService, $buildingIds,false,null, true,true);
         } elseif (!empty($request->distance) && !empty($request->gps)) {
             $res = $mapsService->getPeripheryBuildings($request, $repository, $buildingsService);
-        } elseif(!empty($request->area_id) || !empty($request->block_id) || !empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price)) {
+        } elseif(!empty($request->area_guid) || !empty($request->block_guid) || !empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price)) {
             // 处理单价,总价,面积
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
@@ -43,7 +42,7 @@ class MapsController extends Controller
             // 楼盘列表数据
             $res = $repository->buildingList($request, $buildingsService,null,false,null, true);
 
-            if ((empty($request->area_id) && empty($request->block_id)) && (!empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price))) {
+            if ((empty($request->area_guid) && empty($request->block_guid)) && (!empty($request->acreage) || !empty($request->unit_price) || !empty($request->total_price))) {
                 // 通过楼盘获取区域
                 $areaLocations = $mapsService->getBuildingArea($res);
                 return $this->sendResponse(['res' => $res, 'areaLocations' => $areaLocations],'地图找楼获取成功');

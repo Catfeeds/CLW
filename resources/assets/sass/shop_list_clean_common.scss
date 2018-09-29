@@ -1,0 +1,224 @@
+@import 'shop_master';
+@include header();
+@include footer();
+@include shop_servList();
+@include list_common();
+@import 'shop_common_area';
+body {
+  .container {
+    // banner样式
+    width: 100%;
+    min-width: 1200px;
+    padding-top: 30px;
+    .clean_banner {
+      width: 100%;
+      height: 480px;
+      box-sizing: border-box;
+      padding-top: 110px;
+      padding-left: 410px;
+      .banner_title {
+        font-size: 56px;
+        margin-bottom: 30px;
+        letter-spacing: -3px;
+      }
+      .banner_describe {
+        font-size: 24px;
+        font-weight: 300;
+      }
+    }
+    // 清洁优势
+    .advantage {
+      width: 100%;
+      height: 115px;
+    }
+    // 岗前培训
+    .clean_train {
+      width: 100%;
+      height: 720px;
+      box-sizing: border-box;
+      padding-top: 90px;
+      .train_title {
+        margin: 0 auto;
+        width: 300px;
+        height: 60px;
+        box-sizing: border-box;
+        padding-bottom: 12px;
+        line-height: 52px;
+        font-size: 40px;
+        text-align: center;
+        font-weight: 300;
+        border-bottom: 1px solid #888;
+      }
+      .border {
+        width: 60px;
+        height: 2px;
+        background: #444;
+        margin: 0 auto;
+        margin-top: -2px;
+      }
+      .train_describe {
+        margin-top: 13px;
+        text-align: center;
+        color:#333;
+        font-size: 16px;
+        margin-bottom: 79px;
+      }
+      .train_box {
+        width: 1020px;
+        height: 340px;
+        display: flex;
+        margin: 0 auto;
+        .train_detail {
+          width: 490px;
+          height: 340px;
+          margin-right: 40px;
+          &:last-child() {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    // 专业清洁工具
+    .profession {
+      width: 100%;
+      height: 353px;
+      box-sizing: border-box;
+      padding-top: 85px;
+      .profession_title {
+        font-size: 40px;
+        font-weight: 300;
+        text-align: center;
+        color:#fff;
+        margin-bottom: 50px;
+        margin-top: -57px;
+      }
+      .title_back {
+        font-size: 60px;
+        color:#424140;
+        text-align: center;
+      }
+      .profession_describe {
+        width: 890px;
+        margin: 0 auto;
+        line-height: 41px;
+        font-size: 16px;
+        color:#fff;
+        text-align: center;
+        font-weight: 300;
+      }
+    }
+    // 设备及工具
+    .clean_tool  {
+      width: 100%;
+      padding: 130px 405px 130px 432px;
+      box-sizing: border-box;
+      .tool_title {
+        font-size: 40px;
+        color:#333;
+        margin-bottom: 25px;
+        font-weight: 300;
+      }
+      .tools {
+        li {
+          color:#333;
+          font-size: 16px;
+          margin-bottom: 25px;
+          font-weight: 300;
+          &:last-child() {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .clean_serve {
+      width: 100%;
+      height: 720px;
+    }
+    .our_tellent {
+      width: 100%;
+      height: 945px;
+      box-sizing: border-box;
+      padding-top: 90px;
+      .title {
+        font-size: 40px;
+        font-weight: 300;
+        color:#333;
+        width: 300px;
+        padding-bottom: 12px;
+        text-align: center;
+        border-bottom: 1px solid #888;
+        margin: 0 auto;
+      }
+      .border_clean {
+        width: 60px;
+        height: 2px;
+        background-color: #444;
+        margin: 0 auto;
+        margin-bottom: 12px;
+        margin-top: -3px;
+      }
+      .describe {
+        color:#333;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 65px;
+      }
+      .tellent_contents {
+        width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        .content {
+          width: 590px;
+          height: 270px;
+          margin-right: 20px;
+          margin-bottom: 20px;
+          background-color: #f6f6f6;
+          box-sizing: border-box;
+          padding: 35px;
+          padding-right: 30px;
+          &:nth-child(2n) {
+            margin-right: 0
+          }
+          &:nth-child(2+n) {
+            margin-bottom: 0;
+          }
+          .img {
+            width: 250px;
+            height: 200px;
+            margin-right: 55px;
+          }
+          .right_box {
+            padding-top: 10px;
+            color:#333;
+            .eng {
+              font-family: 'PingFang-SC-Regular';
+              margin-bottom: 12px;
+            }
+            .chz {
+              font-family: 'PingFang-SC-Medium';
+              font-size: 26px;
+              margin-bottom: 25px;
+            }
+            .red {
+              background-color: #d20000;
+              width: 19px;
+              height: 5px;
+              margin-bottom:10px; 
+            }
+            .black {
+              width: 126px;
+              height: 1px;
+              background-color: #333;
+              margin-bottom: 15px;
+            }
+            .tellent_describe {
+              line-height: 25px;
+              font-family: PingFang-SC-Medium;
+            }
+          }
+        }
+      }
+    }
+  }
+}

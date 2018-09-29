@@ -14,7 +14,7 @@ class UpdateBuildingRecommendsBuildingGuidTable extends Migration
     public function up()
     {
         Schema::table('building_recommends', function (Blueprint $table) {
-            $table->string('building_guid',32)->nullable()->comment('楼盘guid');
+            $table->string('building_guid',32)->nullable()->comment('楼盘guid')->after('building_id');
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Handler\Common;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\Building;
 use App\Repositories\BuildingsRepository;
@@ -78,14 +79,7 @@ class BuildingController extends APIBaseController
         return view('we.building_detail')->with('data', $res);
     }
 
-    /**
-     * 说明: 楼盘下房源列表
-     *
-     * @param BuildingsRepository $buildingsRepository
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     * @author 刘坤涛
-     */
+    // 楼盘下房源列表
     public function showOffice
     (
         BuildingsRepository $buildingsRepository,

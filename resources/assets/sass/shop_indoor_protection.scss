@@ -1,0 +1,172 @@
+@import 'shop_master';
+@include header();
+@include footer();
+@include shop_servList();
+@include list_common();
+@import 'shop_common_area';
+.protection_container {
+  width: 100%;
+  min-width: 1200px;
+  padding-top: 30px;
+  .banner1 {
+    width: 100%;
+    height: 480px;
+  }
+  .banner2 {
+    width: 100%;
+    padding-top: 100px;
+    .title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+      font-weight: 300;
+      color:#333;
+    }
+    .title2 {
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 25px;
+      text-align: center;
+      color:#333;
+      margin-bottom: 55px;
+    }
+    .banner2_box {
+      text-align: center;
+      margin-bottom: 120px;
+    }
+  }
+  .banner3 {
+    width: 100%;
+    .title {
+      width: 100%;
+      height: 260px;
+      text-align: center;
+      font-size: 40px;
+      color:#fff;
+      box-sizing: border-box;
+      padding-top: 75px;
+    }
+    .ques_mark {
+      display: block;
+      margin: 0 auto;
+      margin-top: -104px;
+    }
+    .reasons {
+      width: 1330px;
+      margin: 0 auto;
+      display: flex;
+      .reason {
+        flex: 1;
+        border-right: 1px solid #348c23;          
+        margin-bottom: 110px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        &:last-child() {
+          border-right: none;
+        }
+        .name {
+          text-align: center;
+          font-size: 24px;
+          color:#348c23;
+          font-weight: 300;
+          margin-bottom: 33px;
+        }
+        .describe {
+          text-align: center;
+          color:#333;
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 54px;
+        }
+        .img_box {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .banner4 {
+    width: 100%;
+    height: 600px;
+    box-sizing: border-box;
+    padding-top: 115px;
+    .title {
+      text-align: center;
+      font-size: 40px;
+      color:#fff;
+      margin-bottom: 30px;
+    }
+    .title2 {
+      font-size: 16px;
+      color:#fff;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 125px;
+    }
+    .protect_steps {
+      width: 1100px;
+      display: flex;
+      margin: 0 auto;
+      .step {
+        width: 195px;
+        margin-right: 110px;
+        text-align: center;
+        &:last-child(){
+          margin-right: 0;
+        }
+        img {
+          margin-bottom: 30px;
+        }
+        div {
+          text-align: center;
+          font-size: 16px;
+          color:#fff;
+        }
+      }
+    }
+  }
+  .serve_protect {
+    width: 100%;
+    padding-top: 95px;
+    margin-bottom: 110px;
+    .title {
+      text-align: center;
+      font-size: 40px;
+      color:#333;
+      margin-bottom: 30px;
+    }
+    .title2 {
+      text-align: center;
+      font-size: 16px;
+      line-height: 26px;
+      margin-bottom: 55px;
+    }
+    .serve_steps {
+      width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      .step {
+        width: 320px;
+        height: 340px;
+        margin-right: 40px;
+        position: relative;
+        &:last-child(){
+          margin-right: 0;
+        }
+        .des {
+          bottom: 40px;
+          left: 50%;
+          font-size: 20px;
+          font-weight: 300;
+          margin-left: -88.5px;
+          position: absolute;
+          width: 177px;
+          height: 48px;
+          line-height: 48px;
+          background-color: #348c23;
+          color:#fff;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

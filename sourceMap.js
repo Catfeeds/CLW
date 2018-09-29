@@ -33,7 +33,8 @@ module.exports = {
       'we_user_revise_phone2',
       'we_user_setting',
       'we_work',
-      'we_appDownload'
+      'we_appDownload',
+      'we_work_order_detail'
     ],
     // js 文件
     js: [
@@ -58,7 +59,8 @@ module.exports = {
       'we_user_setting',
       'we_work_order_shopowner',
       'we_work_order_salesman',
-      'we_appDownload'
+      'we_appDownload',
+      'we_work_order_detail'
     ],
     vendorName: 'we_vendor', // 自定义vendor文件名
     manifestName: 'we_manifest',// 自定义manifest文件名
@@ -118,19 +120,31 @@ module.exports = {
       'shop_list_plants',
       'shop_rent_car',
       'shop_finance',
-      'shop_serviceList',
       'shop_plant_rent',
-      'shop_printing',
       'shop_rent_computer',
       'shop_proscenium',
       'shop_pantai',
-      'shop_soon'
+      'shop_soon',
+      'shop_desktop_pc',
+      'shop_tex_plant',
+      'shop_charge',
+      'shop_colligate',
+      'shop_register',
+      'interior_decoration',
+      'shop_print',
+      'shop_list_clean_common',
+      'shop_move',
+      'shop_indoor_protection',
+      'shop_mineral_water'
     ],
     js: [
       'shop_index',
       'shop_serveList',
       'shop_pantai',
-      'shop_slideBar'
+      'shop_slideBar',
+      'shop_tex_plant',
+      'shop_register',
+      'shop_charge'
     ],
     vendorName: 'shop_vendor',
     manifestName: 'shop_manifest',

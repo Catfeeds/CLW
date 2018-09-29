@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\We;
 
-use App\Handler\Common;
 use App\Http\Controllers\API\APIBaseController;
 use App\Models\BrowseRecord;
+use App\Models\Houses;
 use App\Models\OfficeBuildingHouse;
 use App\Repositories\OfficeBuildingHousesRepository;
 use App\Services\HousesService;
@@ -20,8 +20,7 @@ class HouseController extends APIBaseController
         HousesService $service
     )
     {
-
-        $officeBuildingHouse = OfficeBuildingHouse::findOrFail($id);
+        $officeBuildingHouse = Houses::findOrFail($id);
         // 浏览记录
         if (!empty(Session::get('user'))) BrowseRecord::create([
             'user_id' => Session::get('user')->id,
@@ -34,16 +33,7 @@ class HouseController extends APIBaseController
         return view('we.house_detail')->with(['house' => $house]);
     }
 
-
-    /**
-     * 说明: 房源详情相关房源
-     *
-     * @param $id
-     * @param OfficeBuildingHousesRepository $buildingHousesRepository
-     * @param OfficeBuildingHousesService $service
-     * @return \Illuminate\Http\JsonResponse
-     * @author 罗振
-     */
+    // 房源详情相关房源
     public function showOffice
     (
         $id,
@@ -57,13 +47,7 @@ class HouseController extends APIBaseController
     }
 
 
-    /**
-     * 说明: 找房列表区域搜索条件
-     *
-     * @param OfficeBuildingHousesService $officeBuildingHousesService
-     * @return array
-     * @author 罗振
-     */
+    // 找房列表区域搜索条件
     public function blockCondition(
         HousesService $service
     )
@@ -72,13 +56,7 @@ class HouseController extends APIBaseController
         return $this->sendResponse($res,'找房列表区域搜索条件获取成功');
     }
 
-    /**
-     * 说明: 找房列表其他搜索条件
-     *
-     * @param OfficeBuildingHousesService $officeBuildingHousesService
-     * @return array
-     * @author 罗振
-     */
+    // 找房列表其他搜索条件
     public function otherCondition(
         HousesService $service
     )

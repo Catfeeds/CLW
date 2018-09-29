@@ -61,7 +61,7 @@ class PcRecommendsRequest extends FormRequest
                     'pic' => 'required',
                     'big_details_pic' => 'required',
                     'small_details_pic' => 'required',
-                    'building_id' => 'required|array',
+                    'building_guid' => 'required|array',
                 ];
             case 'update':
                 return [
@@ -70,7 +70,7 @@ class PcRecommendsRequest extends FormRequest
                     'pic' => 'required',
                     'big_details_pic' => 'required',
                     'small_details_pic' => 'required',
-                    'building_id' => 'required|array',
+                    'building_guid' => 'required|array',
                 ];
             default:
                 {

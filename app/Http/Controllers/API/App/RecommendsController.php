@@ -44,7 +44,7 @@ class RecommendsController extends APIBaseController
         Request $request
     )
     {
-        $res = $repository->buildingList($request, $service, $recommend->building_id,true);
+        $res = $repository->buildingList($request, $service, $recommend->building_guid,true);
         return $this->sendResponse($res, '楼盘列表获取成功');
     }
 

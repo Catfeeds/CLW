@@ -30,17 +30,14 @@ class ResetInfoController extends APIBaseController
         return view('we.user_house_resources');
     }
 
-    /**
-     * 说明: 投放房源获取区域
-     *
-     * @return array
-     * @author wh
-     */
-    public function getArea(AreasRepository $repository)
+    // 投放房源获取区域
+    public function getArea(
+        AreasRepository $repository
+    )
     {
         $res = $repository->areaList();
         $data = $res->pluck('name')->toArray();
-        $options = $res->pluck('id','name')->toArray();
+        $options = $res->pluck('guid','name')->toArray();
         return ['res' => $data,'option'=> $options];
     }
     /**
