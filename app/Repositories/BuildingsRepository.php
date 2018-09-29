@@ -356,7 +356,7 @@ class BuildingsRepository extends  Model
         $buildingIds = BuildingLabel::orderBy('created_at','asc')->get()->pluck('building_guid')->toArray();
         if (empty($buildingIds)) return collect();
 
-        $res = Building::with('house','area','block')->whereIn('guid', $buildingIds)->get();
+        $res = Building::with('house','area','block')->whereIn('guid', $buildingIds)->orderBy('created_at','desc')->get();
         foreach ($res as $v) {
             $service->getAddress($v);
             $house[] = $v->house;
