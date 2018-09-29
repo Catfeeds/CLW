@@ -26,6 +26,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('work_orders', 'WorkOrderController');
 
+        // 管理层获取下级
+        Route::get('get_agent', 'WorkOrderController@getAgent');
+
 
         //微信绑定管理
         Route::resource('employees', 'EmployeesController');

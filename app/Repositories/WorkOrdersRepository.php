@@ -3,7 +3,8 @@
 namespace App\Repositories;
 
 use App\Handler\Common;
-use App\Models\Participant;
+use App\Models\AgentRole;
+use App\Models\Partake;
 use App\Models\WorkOrder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,6 +43,41 @@ class WorkOrdersRepository extends Model
         return $res->setCollection(collect($data));
     }
 
+    // 手机端工单列表
+    public function mobileList($request)
+    {
+        // 经纪人guid
+        $user_guid = $this->getUserGuid($request->openid);
+
+        // 查询该人员参与过的工单
+        $work_order_guid = Partake::where('user_guid', $user_guid)->plack('work_order_guid')->toArray();
+
+        $work_order = WorkOrder::whereIn('guid', $work_order_guid);
+
+        switch ($request->type) {
+            case 1:
+                $work_order = $work_order->where('status', 2);
+                break;
+            case 2:
+                $work_order = $work_order->whereIn('status', [3, 4]);
+        }
+        $work_order = $work_order->paginate(3);
+        $data = [];
+        foreach ($work_order as $k => $v) {
+            $data['user_guid'] = $user_guid;
+            $data[$k]['guid'] = $v->guid;
+            $data[$k]['gd_identifier'] = $v->gd_identifier;
+            $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
+            $data[$k]['demand'] = $v->demand_cn;
+            $data[$k]['area'] = $v->area;
+            $data[$k]['building'] = $v->building;
+            $data[$k]['acreage'] = $v->acreage;
+            $data[$k]['price'] = $v->price;
+            $data[$k]['remark'] = $v->remark;
+        }
+        return $work_order->setCollection(collect($data));
+    }
+
     // 工单详情
     public function getShow($workOrder)
     {
@@ -60,6 +96,45 @@ class WorkOrdersRepository extends Model
         $data['price'] = $workOrder->price;
         $data['remark'] = $workOrder->remark;
         $data['schedule'] = $workOrder->schedule;
+        return $data;
+    }
+
+    // 工单详情 (手机端)
+    public function mobileShow($workOrder, $request)
+    {
+        $data = [];
+        $data['guid'] = $workOrder->guid;
+        $data['gd_identifier'] = $workOrder->gd_identifier;
+        $data['source'] = $workOrder->source_cn;
+        $data['created_at'] = $workOrder->created_at->format('Y-m-d H:i:s');
+        $data['source_area'] = $workOrder->source_area;
+        $data['demand'] = $workOrder->demand_cn;
+        $data['name'] = $workOrder->name;
+        $data['tel'] = $workOrder->tel;
+        $data['area'] = $workOrder->area;
+        $data['building'] = $workOrder->building;
+        $data['acreage'] = $workOrder->acreage;
+        $data['price'] = $workOrder->price;
+        $data['remark'] = $workOrder->remark;
+        $data['schedule'] = $workOrder->schedule;
+        $data['distribution'] = false; // 分配
+        $data['determine'] = false;  // 确定
+        $data['operate'] = false;  // 操作
+        // 工单未结束
+        if ($workOrder->status != 3 || $workOrder->status != 4) {
+            // 如果查看人是管理成 并且工单未分配
+            if ($workOrder->manage_guid == $request->user_guid && $workOrder->manage_deal == null) {
+                $data['distribution'] = true;
+            }
+            // 如果查看人是处理人 并且工单未确定
+            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal == null) {
+                $data['determine'] = true;
+            }
+            // 如果查看人是处理人 并且工单已确定
+            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal != null) {
+                $data['operate'] = true;
+            }
+        }
         return $data;
     }
 
@@ -113,21 +188,13 @@ class WorkOrdersRepository extends Model
             if (!$res) throw new \Exception('工单下发失败');
 
             // 添加工单进度
-            $schedule = Common::addSchedule($request->guid, '123123');
+            $schedule = Common::addSchedule($request->guid, '客服 '.Common::user()->nick_name.' 将工单分配给 ('.$request->g.')');
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
 
             // 添加参与人
-            $participant = Participant::where([
-                'work_order_guid' => $request->guid,
-                'user_guid' => $request->manage_guid
-            ])->first();
-            if (empty($participant)) {
-                $record = Participant::create([
-                    'guid' => Common::getUuid(),
-                    'work_order_guid' => $request->guid,
-                    'user_guid' => $request->manage_guid
-                ]);
-                if (empty($record)) throw new \Exception('参与人添加失败');
+            if (empty($this->getPartake($request->guid, $request->manage_guid))) {
+                   $partake = $this->addPartake($request->guid, $request->manage_guid);
+                   if (empty($partake)) throw new \Exception('参与人添加失败');
             }
             \DB::commit();
             return true;
@@ -157,6 +224,12 @@ class WorkOrdersRepository extends Model
             // 添加工单进度
             $schedule = Common::addSchedule($request->guid, '123123');
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
+
+            // 添加参与人
+            if (empty($this->getPartake($request->guid, $request->manage_guid))) {
+                $partake = $this->addPartake($request->guid, $request->manage_guid);
+                if (empty($partake)) throw new \Exception('参与人添加失败');
+            }
             \DB::commit();
             return true;
         } catch (\Exception $exception) {
@@ -183,6 +256,12 @@ class WorkOrdersRepository extends Model
 
             $schedule = Common::addSchedule($request->guid,$content);
             if (empty($schedule)) throw new \Exception('工单进度生成失败');
+
+            // 添加参与人
+            if (empty($this->getPartake($request->guid, $request->manage_guid))) {
+                $partake = $this->addPartake($request->guid, $request->manage_guid);
+                if (empty($partake)) throw new \Exception('参与人添加失败');
+            }
             \DB::commit();
             return true;
         } catch (\Exception $exception) {
@@ -279,12 +358,11 @@ class WorkOrdersRepository extends Model
             $schedule = Common::addSchedule($request->guid, '工单回转：'.$request->reason);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
 
-            // 将回转人变成工单参与人
-            $participant = Participant::create([
-                'guid' => Common::getUuid(),
-                'work_order_guid' => $request->guid,
-                'user_guid' => $request->suer_guid
-            ]);
+            // 将处理人变为工单参与人
+            if (empty($this->getPartake($request->guid, $request->manage_guid))) {
+                $partake = $this->addPartake($request->guid, $request->manage_guid);
+                if (empty($partake)) throw new \Exception('参与人添加失败');
+            }
             if (empty($participant)) throw new \Exception('工单参与人添加失败');
             \DB::commit();
             return true;
@@ -297,10 +375,25 @@ class WorkOrdersRepository extends Model
             return false;
     }
 
+    // 查询该工单，用经纪人是否存在参与表
+    public function getPartake($guid, $user_guid)
+    {
+        return Partake::where(['work_order_guid' => $guid, 'user_guid' => $user_guid])->first();
+    }
+    
+    // 添加工单参与人
+    public function addPartake($guid, $user_guid)
+    {
+        return Partake::create([
+            'guid' => Common::getUuid(),
+            'work_order_guid' => $guid,
+            'user_guid' => $user_guid
+        ]);
+    }
 
-
-
-
-
-
+    // 通过openid获取经纪人guid
+    public function getUserGuid($openid)
+    {
+        return AgentRole::where('openid', $openid)->value('guid');
+    }
 }
