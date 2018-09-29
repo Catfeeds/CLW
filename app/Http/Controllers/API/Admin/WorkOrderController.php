@@ -48,11 +48,10 @@ class WorkOrderController extends APIBaseController
     public function mobileShow
     (
         WorkOrdersRepository $repository,
-        WorkOrder $workOrder,
         WorkOrdersRequest $request
     )
     {
-        $res = $repository->mobileShow($workOrder, $request);
+        $res = $repository->mobileShow($request);
         return $this->sendResponse($res,'详情获取成功');
     }
 
@@ -148,11 +147,11 @@ class WorkOrderController extends APIBaseController
     // 跟进工单
     public function track
     (
-        WorkOrdersRequest $request
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
     )
     {
-        $res = Common::addSchedule($request->guid, $request->track);
-        if (empty($res)) return $this->sendError('跟进失败');
+        $res = $repository->addTrack($request);
         return $this->sendResponse($res, '跟进成功');
     }
 
@@ -164,7 +163,7 @@ class WorkOrderController extends APIBaseController
     )
     {
         $res = $repository->rotate($request);
-        // TODO 发送微信消息
+        // TODO 发送微信消息 发送给manage_guid
         if (!$res) return $this->sendError('工单回转失败');
         return $this->sendResponse($res, '工单回转成功');
     }

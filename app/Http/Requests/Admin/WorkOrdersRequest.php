@@ -60,12 +60,11 @@ class WorkOrdersRequest extends FormRequest
                 ];
             case 'allocation':
                 return [
-                    'handle_guid' => 'required',
-                    'content' => 'required'
+                    'handle_guid' => 'required'
                 ];
             case 'confirm':
                 return [
-                    'content' => 'required'
+
                 ];
             default:
                 {
