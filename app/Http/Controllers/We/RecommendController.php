@@ -27,7 +27,7 @@ class RecommendController extends Controller
         Request $request
     )
     {
-        $res = $repository->buildingList($request, $service, $recommend->building_id,true);
+        $res = $repository->buildingList($request, $service, $recommend->building_guid,true);
         return view('we.recommend')->with('data', $res);
     }
 }
