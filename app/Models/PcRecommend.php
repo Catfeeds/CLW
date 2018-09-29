@@ -6,7 +6,8 @@ class PcRecommend extends BaseModel
 {
     protected $casts = [
         'building_id' => 'array',
-        'building_info' => 'array'
+        'building_info' => 'array',
+        'building_guid' => 'array'
     ];
 
     protected $appends = [

@@ -14,7 +14,7 @@ class UpdateHotBlockBlockGuidTable extends Migration
     public function up()
     {
         Schema::table('hot_blocks', function (Blueprint $table) {
-            $table->string('block_guid',32)->nullable()->comment('商圈guid');
+            $table->string('block_guid',32)->nullable()->comment('商圈guid')->after('block_id');
         });
     }
 

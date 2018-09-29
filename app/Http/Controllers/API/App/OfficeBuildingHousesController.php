@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\API\App;
 
 use App\Http\Controllers\API\APIBaseController;
-use App\Models\OfficeBuildingHouse;
+use App\Models\Houses;
 use App\Repositories\OfficeBuildingHousesRepository;
 use App\Services\OfficeBuildingHousesService;
 
@@ -13,22 +13,16 @@ class OfficeBuildingHousesController extends APIBaseController
         $this->middleware('browseRecords')->only('show');
     }
     
-    /**
-     * 说明: 房源详情
-     *
-     * @param OfficeBuildingHouse $officeBuildingHouse
-     * @param OfficeBuildingHousesService $service
-     * @return \Illuminate\Http\JsonResponse
-     * @author 王成
-     */
+    // 房源详情
     public function show
     (
-        OfficeBuildingHouse $officeBuildingHouse,
+        $id,
         OfficeBuildingHousesService $service
     )
     {
-        $service->labelShow($officeBuildingHouse);
-        $res = $service->getShow($officeBuildingHouse);
+        $house = Houses::find($id);
+        $service->labelShow($house);
+        $res = $service->getShow($house);
         return $this->sendResponse($res,'获取房源列表成功');
     }
 

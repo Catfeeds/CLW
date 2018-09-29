@@ -12,6 +12,11 @@ class HotBlock extends BaseModel
         'pc_img_cn'
     ];
 
+    public function oldBlock()
+    {
+        return $this->belongsTo('App\Models\Block','block_id','id');
+    }
+
     public function block()
     {
         return $this->belongsTo('App\Models\Block','block_guid','guid');

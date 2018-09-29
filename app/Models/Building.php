@@ -8,7 +8,6 @@ class Building extends Model
     protected $casts = [
         'album' => 'array',
         'gps' => 'array',
-        'company' => 'array',
         'big_album' => 'array'
     ];
 
@@ -39,9 +38,15 @@ class Building extends Model
         'parking_num_cn',
         'parking_fee_cn',
         'pc_pic_url',
-        'pc_pic_cn'
+        'pc_pic_cn',
+        'company',
     ];
 
+    public function getCompanyAttribute()
+    {
+        return null;
+    }
+    
     // 楼座
     public function buildingBlock()
     {
