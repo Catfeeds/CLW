@@ -14,7 +14,7 @@ class UpdateEntrustThrowInsAreaGuidTable extends Migration
     public function up()
     {
         Schema::table('entrust_throw_ins', function (Blueprint $table) {
-            $table->string('area_guid',32)->nullable()->comment('区域guid');
+            $table->string('area_guid',32)->nullable()->comment('区域guid')->after('area_id');
         });
     }
 

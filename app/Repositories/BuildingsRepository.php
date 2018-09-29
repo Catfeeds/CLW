@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class BuildingsRepository extends  Model
 {
     // 分页列表数量
-    public function buildingList(
+    public function  buildingList(
         $request,
         $service,
         $building_guid = null,

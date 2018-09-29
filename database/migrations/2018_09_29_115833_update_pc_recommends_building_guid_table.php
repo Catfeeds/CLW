@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateHotBlockBlockGuidTable extends Migration
+class UpdatePcRecommendsBuildingGuidTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateHotBlockBlockGuidTable extends Migration
      */
     public function up()
     {
-        Schema::table('hot_blocks', function (Blueprint $table) {
-            $table->string('block_guid',32)->nullable()->comment('商圈guid')->after('block_id');
+        Schema::table('pc_recommends', function (Blueprint $table) {
+            $table->json('building_guid')->nullable()->comment('楼盘guid')->after('building_id');
         });
     }
 
@@ -25,8 +25,8 @@ class UpdateHotBlockBlockGuidTable extends Migration
      */
     public function down()
     {
-        Schema::table('hot_blocks', function (Blueprint $table) {
-            $table->dropColumn('block_guid');
+        Schema::table('pc_recommends', function (Blueprint $table) {
+            $table->dropColumn('building_guid');
         });
     }
 }

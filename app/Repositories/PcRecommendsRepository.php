@@ -25,6 +25,7 @@ class PcRecommendsRepository extends Model
             'big_details_pic' => $request->big_details_pic,
             'small_details_pic' => $request->small_details_pic,
             'building_id' => $request->building_id,
+            'building_guid' => $request->building_guid,
             'building_info' => $request->building_info
         ]);
     }

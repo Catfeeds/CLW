@@ -9,6 +9,11 @@ class BuildingRecommend extends BaseModel
         'pic_url_cn'
     ];
 
+    public function oldBuilding()
+    {
+        return $this->belongsTo('App\Models\Building','building_id','id');
+    }
+
     /**
      * 说明: 图片拼接
      * @return string
