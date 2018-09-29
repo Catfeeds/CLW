@@ -1,0 +1,120 @@
+body{
+  margin: 0;
+  margin-bottom: 10px;
+  .detail-row-title{
+    display: inline-block;
+    width: 64px;
+    text-align: justify;
+    text-align-last: justify;
+  }
+  .detail-title{
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    padding: 23px 0 20px 21px;
+    border-bottom: 0.5px solid #f4f4f4; 
+  }
+  .detail-info{
+    padding: 20px;
+    line-height: 34px;
+    border-bottom: 0.5px solid #f4f4f4;
+    .detail-row{
+      display: flex;
+      justify-content: flex-start;
+      span{
+        color: #999;
+        font-size: 14px;
+      }
+      .detail-color{
+        color: #333;
+      }
+      .detail-remark{
+        width: 70%;
+        line-height: 24px;
+        margin-top: 5px;
+        color: #333;
+      }
+    }
+  }
+  .detail-concat{
+    padding: 20px;
+    font-size: 14px;
+    line-height: 34px;
+    border-bottom: 0.5px solid #f4f4f4;
+    .detail-name,.detail-phone{
+      display: flex;
+      justify-content: flex-start;
+    }
+    span{
+      color: #999;
+    }
+    .detail-color{
+      color: #333;
+    }
+    .detail-phone-color{
+      color: #007bff;
+      font-weight: 600;
+    }
+  }
+  .detail-choice{
+    padding: 30px 0;
+    border-bottom: 10px solid #f4f4f4;
+    .detail-choice-agent{
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .detail-confirm{
+      width: 300px;
+      height: 44px;
+      background: #007bff;
+      color: #fff;
+      border-radius: 22px;
+      text-align: center;
+      line-height: 44px;
+      margin: 0 auto;
+    }
+  }
+  .detail-step{
+    padding: 16px 0 0 20px;
+    .el-step.is-vertical .el-step__line{
+      top: 13px;
+      bottom: -12px;
+      left: 7px;
+    }
+    .is-finish{
+      .el-step__icon{
+        width: 15px;
+        height: 15px;
+        background: #007bff;
+        border: 2px solid #72acfe;
+      }
+    }
+    .el-step__title.is-finish{
+      color: #333;
+      font-size: 12px;
+    }
+    .el-step__icon{
+      width: 15px;
+      height: 15px;
+      background: #ccc;
+      border: none;
+    }
+    .el-step.is-vertical .el-step__title{
+      line-height: 36px;
+      padding-bottom: 0;
+    }
+    .el-step__description.is-finish{
+      color: #666;
+    }
+    .el-step__title{
+      font-size: 12px;
+      color: #333;
+    }
+    .el-step__title.is-process{
+      font-weight: 500;
+    }
+    .el-step__description.is-process{
+      color: #666;
+    }
+  }
+}

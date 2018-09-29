@@ -26,7 +26,8 @@ Route::get('work_order_salesman', 'We\WorkOrderController@salesman');
 
 // 店长
 Route::get('work_order_shopowner', 'We\WorkOrderController@shopwner');
-
+// 工单详情
+Route::get('work_order_detail', 'We\WorkOrderController@detail');
 // 楚楼网官网
 Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/home.php');
