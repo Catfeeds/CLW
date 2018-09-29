@@ -320,7 +320,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('allocation','WorkOrderController@allocation');
         // 确认收到工单
         Route::get('confirm','WorkOrderController@confirm');
-
+        // 获取给人员分配工单下拉数据
+        Route::get('get_all_distribution','WorkOrderController@getAllDistribution');
     });
 
 

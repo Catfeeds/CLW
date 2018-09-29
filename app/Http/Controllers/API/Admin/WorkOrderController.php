@@ -75,7 +75,16 @@ class WorkOrderController extends APIBaseController
         return $this->sendResponse($res,'确认收到工单成功');
     }
 
-
+    // 获取给人员分配工单下拉数据
+    public function getAllDistribution
+    (
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->getAllDistribution();
+        if (!$res) return $this->sendError('获取失败');
+        return $this->sendResponse($res,'获取成功');
+    }
 
 
 
