@@ -182,7 +182,7 @@
                                     <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
                                 </div>
                                 <div class="buildRow">
-                                    <div class="company"><span class="developer">入驻企业</span><span>{{$building->company_string}}特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长</span></div>
+                                    <div class="company"><span class="developer">入驻企业</span><span>{{$building->company_string}}</span></div>
                                 </div>
                             </div>
                             <div class="buildDetail">{{$building->describe}}</div>

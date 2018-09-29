@@ -1735,7 +1735,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: Object({"NODE_ENV":"development"}).baseHostURL + '/api/get_all_select?number=3',
+    url: 'http://192.168.0.142:8888' + '/api/get_all_select?number=3',
     method: 'GET'
   });
 }
