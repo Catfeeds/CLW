@@ -7,47 +7,29 @@ use App\Models\Building;
 use App\Models\BuildingBlock;
 use App\Models\BuildingFeature;
 use App\Models\BuildingHasFeature;
-use App\Models\BuildingKeywords;
 use App\Models\BuildingLabel;
-use App\Models\OfficeBuildingHouse;
-use App\Services\BuildingKeywordService;
+use App\Models\Houses;
 use App\Services\BuildingsService;
 use App\Services\CustomPage;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class BuildingsRepository extends  Model
 {
-    /**
-     * 说明: 分页列表数量
-     *
-     * @param $request
-     * @param $service
-     * @param null $building_id
-     * @param null $whetherPage
-     * @param null $getCount
-     * @param null $mapRes  地图返回结果
-     * @param null $pcBuildingListAndMap  地图返回结果
-     * @return array
-     * @author 罗振
-     */
-    public function buildingList(
+    // 分页列表数量
+    public function  buildingList(
         $request,
         $service,
-        $building_id = null,
+        $building_guid = null,
         $whetherPage = null,
         $getCount = null,
         $mapRes = null,
         $pcBuildingListAndMap = null
     )
     {
-        $houses = $this->houseList($request, $building_id, $pcBuildingListAndMap);
-
+        $houses = $this->houseList($request, $building_guid, $pcBuildingListAndMap);
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
-
-        $buildingData = Building::whereIn('id', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
-
+        $buildingData = Building::whereIn('guid', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
         // pc价格排序
         if (!empty($request->price_sort)) {
             $data = $this->buildingDataComplete($buildings, $buildingData, $service, $request->price_sort);
@@ -101,6 +83,7 @@ class BuildingsRepository extends  Model
     )
     {
         foreach ($buildingData as $index => $v) {
+
             $buildingData[$index]->pc_house = $v->house->take(5)->toArray();
 
             // 价格及面积区间
@@ -110,12 +93,11 @@ class BuildingsRepository extends  Model
             $service->features($v);
             $service->getAddress($v);
             $service->label($v);
-
             // 房源数量
-            $buildingData[$index]->house_count = $buildings[$v->id]->count();
+            $buildingData[$index]->house_count = $buildings[$v->guid]->count();
 
             // 价格
-            $buildingData[$index]->avg_price = (int)($buildings[$v->id]->avg('unit_price'));
+            $buildingData[$index]->avg_price = (int)($buildings[$v->guid]->avg('unit_price'));
 
             // 商圈推荐
             $buildingData[$index]->block_recommend = $v->block->recommend??0;
@@ -149,58 +131,48 @@ class BuildingsRepository extends  Model
         return collect($res);
     }
 
-    /**
-     * 说明: 根据条件 查询符合条件的房子 根据 楼盘分组
-     *
-     * @param $request
-     * @param $building_id
-     * @param null $pcBuildingList
-     * @return mixed
-     * @author jacklin
-     */
+    // 根据条件 查询符合条件的房子 根据 楼盘分组
     public function houseList(
         $request,
-        $building_id,
+        $building_guid,
         $pcBuildingList = null
     )
     {
         $buildings = Building::make();
 
         // 如果有商圈id 查商圈
-        if (!empty($request->block_id)) {
-            $buildings = $buildings->where('block_id', $request->block_id);
-        } elseif(!empty($request->area_id)) {
-            $buildings = Building::where('area_id', $request->area_id);
+        if (!empty($request->block_guid)) {
+            $buildings = $buildings->where('block_guid', $request->block_guid);
+        } elseif(!empty($request->area_guid)) {
+            $buildings = Building::where('area_guid', $request->area_guid);
         }
 
-        // 如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
-        if (!empty($building_id) || (empty($building_id) && $pcBuildingList)) {
-            $buildings = $buildings::whereIn('id', $building_id)->get()->pluck('id')->toArray();
+        // 如果$building_guid 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
+        if (!empty($building_guid) || (empty($building_guid) && $pcBuildingList)) {
+            $buildings = $buildings::whereIn('guid', $building_guid)->get()->pluck('guid')->toArray();
         } else {
-            $buildings = $buildings->get()->pluck('id')->toArray();
+            $buildings = $buildings->get()->pluck('guid')->toArray();
         }
 
         // 特色
         if (!empty($request->features)) {
-
             // 取出包含其中一个的数据
             if (!is_array($request->features)) $request->features = array($request->features);
             $buildingHasFeatures = BuildingHasFeature::whereIn('building_feature_id', $request->features)
-                ->get()->groupBy('building_id');
+                ->get()->groupBy('building_guid');
 
             // 筛选重复出现对应次数的数据
             $featureBuildings = $buildingHasFeatures->filter(function($v) use ($request){
                 return $v->count() === count($request->features);
-            })->flatten()->pluck('building_id')->unique()->toArray();
+            })->flatten()->pluck('building_guid')->unique()->toArray();
 
             // 获取交集
             $buildings = array_intersect($buildings, $featureBuildings);
         }
 
         // 筛选出符合条件的楼座
-        $buildingBlocks = BuildingBlock::whereIn('building_id', $buildings)->pluck('id')->toArray();
-        $houses = OfficeBuildingHouse::whereIn('building_block_id', $buildingBlocks)->where('house_busine_state', 1)->where('shelf', 1);
-
+        $buildingBlocks = BuildingBlock::whereIn('building_guid', $buildings)->pluck('guid')->toArray();
+        $houses = Houses::whereIn('building_block_guid', $buildingBlocks)->where('house_busine_state', 1)->where('shelf', 1);
         // 面积
         if (!empty($request->acreage)) $houses = $houses->whereBetween('constru_acreage', $request->acreage);
 
@@ -228,7 +200,7 @@ class BuildingsRepository extends  Model
     public function groupByBuilding($houses)
     {
         // 对楼座进行分组
-        $buildingsBlocks = $houses->get()->groupBy('building_block_id');
+        $buildingsBlocks = $houses->get()->groupBy('building_block_guid');
         // 将房源根据
         $buildingsBlockIds = $buildingsBlocks->keys();  // 返回所有的键值
         $buildingsBlocksData = BuildingBlock::find($buildingsBlockIds); //  获取所有楼座数据
@@ -236,9 +208,8 @@ class BuildingsRepository extends  Model
         foreach ($buildingsBlocks as $index => $buildingsBlock) {
             // 当前的楼座
             $buildingBlockCurr = $buildingsBlocksData->find($index);
-            $buildingsBlock->buildingId = $buildingBlockCurr->building_id;
+            $buildingsBlock->buildingId = $buildingBlockCurr->building_guid;
         }
-
         $buildings = $buildingsBlocks->groupBy('buildingId');
         // 将房源根据楼盘进行分组
         foreach ($buildings as $index => $building) {
@@ -293,11 +264,11 @@ class BuildingsRepository extends  Model
     )
     {
         $result = Building::with('buildingBlock', 'features', 'label', 'area', 'block');
-        if (!empty($condition->building_id)) {
-            $result = $result->where(['id' => $condition->building_id]);
-        } elseif(!empty($condition->area_id)) {
-            $buildingId = array_column(Area::find($condition->area_id)->building->flatten()->toArray(), 'id');
-            $result = $result->whereIn('id', $buildingId);
+        if (!empty($condition->building_guid)) {
+            $result = $result->where(['guid' => $condition->building_guid]);
+        } elseif(!empty($condition->area_guid)) {
+            $buildingGuid = array_column(Area::find($condition->area_guid)->building->flatten()->toArray(), 'guid');
+            $result = $result->whereIn('guid', $buildingGuid);
         }
 
         $buildings = $result->get();
@@ -316,145 +287,32 @@ class BuildingsRepository extends  Model
         return Common::pageData($request->page, $data->values(), $buildings->count());
     }
 
-    /**
-     * 说明: 添加楼盘信息和楼盘特色
-     *
-     * @param $request
-     * @return bool
-     * @author 刘坤涛
-     */
-    public function addBuilding($request)
-    {
-        DB::connection('mysql')->beginTransaction();
-        DB::connection('media')->beginTransaction();
-        try {
-            // 添加楼盘信息
-            $building = Building::create([
-                'name' => $request->name,
-                'gps' => $request->gps,
-
-                'type' => $request->type,
-                'area_id' => $request->area_id,
-                'block_id' => $request->block_id,
-                'address' => $request->address,
-
-                'developer' => $request->developer,
-                'years' => $request->years,
-                'acreage' => $request->acreage,
-                'building_block_num' => $request->building_block_num,
-                'parking_num' => $request->parking_num,
-                'parking_fee' => $request->parking_fee,
-                'greening_rate' => $request->greening_rate,
-
-                'company' => $request->company,
-                'album' => $request->album,
-                'big_album' => $request->big_album,
-
-                'describe' => $request->describe
-            ]);
-
-            //添加楼座信息
-            $buildingBlocks = $request->building_block;
-
-            foreach ($buildingBlocks as $buildingBlock) {
-                BuildingBlock::create([
-                    'building_id' => $building->id,
-                    'name' => $buildingBlock['name'],
-                    'name_unit' => $buildingBlock['name_unit'],
-                    'unit' => $buildingBlock['unit'],
-                    'unit_unit' => $buildingBlock['unit_unit'],
-                ]);
-            }
-
-            //添加楼盘特色
-            $buildingFeatures = $request->building_feature;
-            $res = BuildingHasFeature::where('building_id', $building->id)->whereIn('building_feature_id', $buildingFeatures)->get();
-            if (!$res->isEmpty()) throw new \Exception('楼盘特色不能重复添加');
-
-            foreach($buildingFeatures as $buildingFeature) {
-                BuildingHasFeature::create([
-                    'building_id' => $building->id,
-                    'building_feature_id' => $buildingFeature
-                ]);
-            }
-
-            // 添加关键字
-            $buildingKeywordService = new BuildingKeywordService();
-            $string = $buildingKeywordService->keyword($building);
-            BuildingKeywords::create([
-                'building_id' => $building->id,
-                'keywords' => $string
-            ]);
-
-            DB::connection('mysql')->commit();
-            DB::connection('media')->commit();
-            return true;
-        } catch (\Exception $e) {
-            DB::connection('mysql')->rollBack();
-            DB::connection('media')->rollBack();
-            \Log::error('楼盘信息添加失败'. $e->getMessage());
-            return false;
-        }
-    }
-
-    /**
-     * 说明: 添加楼盘标签
-     *
-     * @param $request
-     * @return mixed
-     * @author 刘坤涛
-     */
+    // 添加楼盘标签
     public function addBuildingLabel($request)
     {
         return BuildingLabel::create([
-            'building_id' => $request->building_id
+            'building_guid' => $request->building_guid
         ]);
     }
 
-    /**
-     * 说明: 修改楼盘信息
-     *
-     * @param $request
-     * @param $building
-     * @return bool
-     * @author 刘坤涛
-     */
+    // 修改楼盘信息
     public function updateBuilding($request, $building)
     {
-        DB::connection('mysql')->beginTransaction();
-        DB::connection('media')->beginTransaction();
+        \DB::beginTransaction();
         try {
-            $building->name = $request->name;
-            $building->gps = $request->gps;
-            $building->type = $request->type;
-            $building->area_id = $request->area_id;
-            $building->block_id = $request->block_id;
-            $building->address = $request->address;
-            $building->developer = $request->developer;
-            $building->years = $request->years;
-            $building->acreage = $request->acreage;
-            $building->building_block_num = $request->building_block_num;
-            $building->parking_num = $request->parking_num;
-            $building->parking_fee = $request->parking_fee;
-            $building->greening_rate = $request->greening_rate;
-            $building->company = $request->company;
-            $building->album = $request->album;
-            $building->big_album = $request->big_album;
-            $building->describe = $request->describe;
-            if (!$building->save()) throw new \Exception('楼盘修改失败');
             // 查询查该楼盘已经有的特色
-            $features = BuildingHasFeature::where('building_id', $building->id)->pluck('building_feature_id')->toArray();
+            $features = BuildingHasFeature::where('building_guid', $building->guid)->pluck('building_feature_id')->toArray();
             // 获取要修改的特色
             $buildingFeatures = $request->building_feature;
             if (!empty($buildingFeatures)) {
                 //修改特色-已有特色,得到要添加的特色
                 $addFeature = array_diff($buildingFeatures, $features);
                 if (!empty($addFeature)) {
-                    $res = BuildingHasFeature::where('building_id', $building->id)->whereIn('building_feature_id', $addFeature)->get();
+                    $res = BuildingHasFeature::where('building_guid', $building->guid)->whereIn('building_feature_id', $addFeature)->get();
                     if (!$res->isEmpty()) throw new \Exception('楼盘特色不能重复添加');
                     foreach($addFeature as $v) {
                         BuildingHasFeature::create([
-                            'building_id' => $building->id,
+                            'building_guid' => $building->guid,
                             'building_feature_id' => $v
                         ]);
                     }
@@ -464,18 +322,16 @@ class BuildingsRepository extends  Model
                 if (!empty($delFeature)) {
                     foreach($delFeature as $v) {
                         BuildingHasFeature::where([
-                            'building_id' => $building->id,
+                            'building_guid' => $building->guid,
                             'building_feature_id' => $v
                         ])->delete();
                     }
                 }
             }
-            DB::connection('mysql')->commit();
-            DB::connection('media')->commit();
+            \DB::commit();
             return true;
         } catch (\Exception $e) {
-            DB::connection('mysql')->rollBack();
-            DB::connection('media')->rollBack();
+            \DB::rollBack();
             \Log::error('楼盘信息修改失败'. $e->getMessage());
             return false;
         }
@@ -496,11 +352,10 @@ class BuildingsRepository extends  Model
     public function getEliteBuilding()
     {
         $service = new BuildingsService();
-        $buildingIds = BuildingLabel::orderBy('created_at','asc')->get()->pluck('building_id')->toArray();
-
+        $buildingIds = BuildingLabel::orderBy('created_at','asc')->get()->pluck('building_guid')->toArray();
         if (empty($buildingIds)) return collect();
 
-        $res = Building::with('house','area','block')->whereIn('id', $buildingIds)->orderByRaw("FIELD(id, " . implode(", ", $buildingIds) . ")")->get();
+        $res = Building::with('house','area','block')->whereIn('guid', $buildingIds)->orderBy('created_at','desc')->get();
         foreach ($res as $v) {
             $service->getAddress($v);
             $house[] = $v->house;
@@ -516,6 +371,6 @@ class BuildingsRepository extends  Model
     {
         $id = $request->id;
         $idArr = explode(",",$id);
-        return Building::whereIn('id',$idArr)->with('block','area')->get();
+        return Building::whereIn('guid',$idArr)->with('block','area')->get();
     }
 }

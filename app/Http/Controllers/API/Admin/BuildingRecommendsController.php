@@ -11,13 +11,7 @@ use App\Handler\Common;
 
 class BuildingRecommendsController extends APIBaseController
 {
-    /**
-     * 说明:  获取列表
-     *
-     * @param BuildingRecommendsRepository $BuildingRecommendsRepository
-     * @return \Illuminate\Http\JsonResponse
-     * @author 王成
-     */
+    // 获取列表
     public function index
     (
         BuildingRecommendsRepository $BuildingRecommendsRepository,

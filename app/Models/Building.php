@@ -8,15 +8,23 @@ class Building extends Model
     protected $casts = [
         'album' => 'array',
         'gps' => 'array',
-        'company' => 'array',
         'big_album' => 'array'
     ];
+
+    // 如果使用的是非递增或者非数字的主键，则必须在模型上设置
+    public $incrementing = false;
+
+    // 主键
+    protected $primaryKey = 'guid';
+
+    // 主键类型
+    protected $keyType = 'string';
 
     protected $table = 'buildings';
 
     protected $guarded = [];
 
-    protected $connection = 'media';
+    protected $connection = 'buildings';
 
     protected $appends = [
         'pic_url_cn',
@@ -30,13 +38,19 @@ class Building extends Model
         'parking_num_cn',
         'parking_fee_cn',
         'pc_pic_url',
-        'pc_pic_cn'
+        'pc_pic_cn',
+        'company',
     ];
 
+    public function getCompanyAttribute()
+    {
+        return null;
+    }
+    
     // 楼座
     public function buildingBlock()
     {
-        return $this->hasMany('App\Models\BuildingBlock','building_id','id');
+        return $this->hasMany('App\Models\BuildingBlock','building_guid','guid');
     }
 
     // 所属商圈
@@ -63,13 +77,11 @@ class Building extends Model
         return $this->belongsTo(Area::class);
     }
 
-    //楼盘关联房源
+    // 楼盘关联房源
     public function house()
     {
-        return $this->hasManyThrough(OfficeBuildingHouse::class,BuildingBlock::class)->where('shelf', 1);
+        return $this->hasMany('App\Models\Houses','building_guid','guid')->where('shelf', 1);
     }
-
-
 
     /**
      * 说明: 绿化绿加入单位
@@ -77,6 +89,7 @@ class Building extends Model
      * @return string
      * @author 刘坤涛
      */
+
     public function getGreeningRateCnAttribute()
     {
         if ($this->greening_rate) return $this->greening_rate . '%';

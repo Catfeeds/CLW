@@ -9,6 +9,7 @@ namespace App\Handler;
 
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class Common
@@ -17,6 +18,13 @@ use Qiniu\Storage\UploadManager;
  */
 class Common
 {
+    // 生成guid
+    public static function getUuid()
+    {
+        $uuid1 = Uuid::uuid1();
+        return $uuid1->getHex();
+    }
+
     /**
      * 说明: 验证手机号是否正确
      *

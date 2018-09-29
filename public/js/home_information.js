@@ -6094,7 +6094,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.142:9999' + '/api/cities_areas_blocks_select',
+    url: Object({"NODE_ENV":"development"}).baseHostURL + '/api/get_all_select?number=3',
     method: 'GET'
   });
 }
@@ -7862,6 +7862,7 @@ var mySwiper1 = new Swiper('.swiper-container', {
     width: 770,
     autoplay: 5000, //可选选项，自动滑动
     autoplayDisableOnInteraction: false,
+    paginationClickable: true,
     onTransitionEnd: function onTransitionEnd(swiper) {
         console.log(swiper.activeIndex);
         mySwiper2.slideTo(swiper.activeIndex);

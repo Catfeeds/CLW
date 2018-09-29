@@ -31,16 +31,16 @@ class BuildingsController extends Controller
         // 房源数量
         $building->house_count = $houses->count();
         // 楼盘所属区域
-        $areaId = $block->area->id;
+        $areaGuid = $block->area->guid;
         // 区域id
-        $request->area_id = $areaId;
+        $request->area_guid = $areaGuid;
 
         //区域商圈名称对应id
-        $data[0]['id'] = $areaId;
+        $data[0]['guid'] = $areaGuid;
         $data[0]['name'] = $block->area->name;
-        $data[1]['id'] = $block->id;
+        $data[1]['guid'] = $block->guid;
         $data[1]['name'] = $block->name;
-        $data[2]['id'] = $building->id;
+        $data[2]['guid'] = $building->guid;
         $data[2]['name'] = $building->name;
         return view('home.building_detail', [
             'building' => $building,
@@ -83,15 +83,15 @@ class BuildingsController extends Controller
         $allAreas = Area::all();
         $areas = $allAreas->map(function($v) {
             return [
-                'id' => $v->id,
+                'guid' => $v->guid,
                 'name' => $v->name,
             ];
         });
 
         // 获取区域
         $blocks = array();
-        if (!empty($request->area_id)) {
-            $blocks = Block::where('area_id', $request->area_id)->pluck('name','id')->toArray();
+        if (!empty($request->area_guid)) {
+            $blocks = Block::where('area_guid', $request->area_guid)->pluck('name','guid')->toArray();
         }
 
         // 获取特色
@@ -105,17 +105,15 @@ class BuildingsController extends Controller
 
         if (!empty($request->keyword)) {
             $string = "'". $request['keyword'] . "'";
-            $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
+            $res = \DB::select("select building_guid from buildings.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
             // 获取所有楼盘id
-            $buildingIds = array_column(Common::objectToArray($res), 'building_id');
-
+            $buildingIds = array_column(Common::objectToArray($res), 'building_guid');
             $res = $buildingsRepository->buildingList($request, $service, $buildingIds,true,true,null,true);
         } else {
             // 处理价格,面积,特色
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
             if (!empty($request->features) && strlen($request->features) > 1) $request->offsetSet('features', explode('-',$request->features));
-
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }

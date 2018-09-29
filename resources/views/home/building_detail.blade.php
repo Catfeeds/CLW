@@ -2,7 +2,7 @@
 @section('title', '楼盘详情')
 @section('header')
 <link rel="stylesheet" href="{{homeRes('/css/home_building_detail.css')}}">
-<meta name="storeId" content="{{ $building->id }}" data-type='building'>
+<meta name="storeId" content="{{ $building->guid }}" data-type='building'>
 @endsection
 @section('body')
 @include('home.nav')
@@ -182,7 +182,7 @@
                                     <div><span class="developer">绿化率</span><span>{{$building->greening_rate_cn}}</span></div>
                                 </div>
                                 <div class="buildRow">
-                                    <div class="company"><span class="developer">入驻企业</span><span>{{$building->company_string}}</span></div>
+                                    <div class="company"><span class="developer">入驻企业</span><span>{{$building->company_string}}特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长特别长</span></div>
                                 </div>
                             </div>
                             <div class="buildDetail">{{$building->describe}}</div>
@@ -229,7 +229,7 @@
                 <div class="enjoyBox">
                     <div class="h1">猜你喜欢</div>
                     <div class="enjoyList">
-                        <a v-for="(item, index) in list" class="pointer" @click="toBuilding(item.id)">
+                        <a v-for="(item, index) in list" class="pointer" @click="toBuilding(item.guid)">
                         <div class="enjoyDetail">
                             <div class="enjoyPic"><img :src="item.img_cn"></div>
                             <div class='enjoyInfor'>

@@ -37,7 +37,7 @@ class BuildingRecommendsRepository extends Model
     public function addRecommend($request)
     {
         return BuildingRecommend::create([
-            'building_id' => $request->building_id,
+            'building_guid' => $request->building_guid,
             'img' => $request->img,
             'name' => $request->name
         ]);
@@ -53,7 +53,7 @@ class BuildingRecommendsRepository extends Model
      */
     public function updateRecommend($request, $buildingRecommend)
     {
-        $buildingRecommend->building_id = $request->building_id;
+        $buildingRecommend->building_guid = $request->building_guid;
         $buildingRecommend->img = $request->img;
         $buildingRecommend->name = $request->name;
         if(!$buildingRecommend->save()) return false;

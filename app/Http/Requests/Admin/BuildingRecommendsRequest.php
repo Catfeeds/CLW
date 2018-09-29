@@ -6,7 +6,6 @@ use App\Models\Building;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-
 class BuildingRecommendsRequest extends FormRequest
 {
     /**
@@ -30,11 +29,11 @@ class BuildingRecommendsRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'building_id.in' => '楼盘必须存在',
+                    'building_guid.in' => '楼盘必须存在',
                 ];
             case 'update':
                 return [
-                    'building_id.in' => '商圈必须存在'
+                    'building_guid.in' => '商圈必须存在'
                 ];
             default:
                 {
@@ -48,11 +47,11 @@ class BuildingRecommendsRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'building_id' => [
+                    'building_guid' => [
                         'required',
-                        'integer',
+                        'max:32',
                         Rule::in(
-                            Building::all()->pluck('id')->toArray()
+                            Building::all()->pluck('guid')->toArray()
                         )
                     ],
                     'img' => 'required|string|max:128',
@@ -60,11 +59,11 @@ class BuildingRecommendsRequest extends FormRequest
                 ];
             case 'update':
                 return [
-                    'building_id' => [
+                    'building_guid' => [
                         'required',
-                        'integer',
+                        'max:32',
                         Rule::in(
-                            Building::all()->pluck('id')->toArray()
+                            Building::all()->pluck('guid')->toArray()
                         )
                     ],
                     'img' => 'required|string|max:128',

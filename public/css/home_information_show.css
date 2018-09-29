@@ -906,6 +906,10 @@ body {
   background-color: #ffffff;
 }
 
+.continue .main .left img {
+  width: 100%;
+}
+
 .continue .main .left .title {
   font-family: SourceHanSansCN-Medium;
   font-size: 26px;

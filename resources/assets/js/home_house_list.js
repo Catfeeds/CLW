@@ -69,8 +69,8 @@ $(window).scroll(function(){
 })
 // 拿到所有条件值
 var data = {
-    area_id: $('#search').data('area_id') ? $('#search').data('area_id') : '',
-    block_id: $('#search').data('block_id') ? $('#search').data('block_id') : '',
+    area_guid: $('#search').data('area_guid') ? $('#search').data('area_guid') : '',
+    block_guid: $('#search').data('block_guid') ? $('#search').data('block_guid') : '',
     features: $('#search').data('features') ? $('#search').data('features') : '',
     acreage: $('#search').data('acreage') ? $('#search').data('acreage') : '',
     unit_price: $('#search').data('unit_price') ? $('#search').data('unit_price') : '',
@@ -80,7 +80,7 @@ var data = {
 // 判断 是否展示 已选
 var condition = false
 // 如果区域为空 商圈也要变为空
-if(data.area_id=='') data.block_id=''
+if(data.area_guid=='') data.block_guid=''
 // 检查当前已选
 for(var key in data){
     if(data[key]!==''){
@@ -129,7 +129,7 @@ $(document).on('click', '.js_close', function () {
         }
     }else{
         // 如果条件切换的的 是区域 则要清空商圈
-        if($(this).data('dom')=='area_id') data.block_id=''
+        if($(this).data('dom')=='area_guid') data.block_guid=''
         data[$(this).data('dom')] = ''
     }
     window.location.href = createURL('building_list', data)
@@ -140,7 +140,7 @@ $('.js_condition').click(function () {
     if(data[$(this).data('dom')]==content) return
     data[$(this).data('dom')] = content?content:'';
     // 如果条件切换的的 是区域 则要清空商圈
-    if($(this).data('dom')=='area_id') data.block_id=''
+    if($(this).data('dom')=='area_guid') data.block_guid=''
     // console.log($(this).data('dom'), createURL('building_list', data))
     window.location.href = createURL('building_list', data)
 })
@@ -193,8 +193,8 @@ $('.js_price_default').click(function () {
 })
 function removeData() {
     return {
-        area_id: '',
-        block_id: '',
+        area_guid: '',
+        block_guid: '',
         features: '',
         acreage: '',
         unit_price: '',

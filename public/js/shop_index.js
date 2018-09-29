@@ -7089,7 +7089,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\shop\\search\\search.vue"
+Component.options.__file = "resources/assets/js/components/shop/search/search.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -7098,9 +7098,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e722e6e6", Component.options)
+    hotAPI.createRecord("data-v-513a43ed", Component.options)
   } else {
-    hotAPI.reload("data-v-e722e6e6", Component.options)
+    hotAPI.reload("data-v-513a43ed", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -11265,7 +11265,7 @@ function getBlock() {
 function buildingsSelect(params) {
   return __WEBPACK_IMPORTED_MODULE_1_axios___default()({
     headers: { 'safeString': params },
-    url: 'http://192.168.0.142:9999' + '/api/cities_areas_blocks_select',
+    url: 'http://192.168.0.142:8888' + '/api/get_all_select?number=3',
     method: 'GET'
   });
 }
@@ -12413,7 +12413,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e722e6e6", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-513a43ed", module.exports)
   }
 }
 

@@ -36,10 +36,10 @@ class ThrowInsRepository extends Model
                 'tel' => $request->tel,
                 'user_id' => empty($user)?null:$user->id,
                 'appellation' => $request->appellation,
-                'area_id' => $request->area_id,
+                'area_guid' => $request->area_guid,
                 'area_name' => $request->area_name,
                 'acreage' => $request->acreage,
-                'block_id' => $request->block_id,
+                'block_guid' => $request->block_guid,
                 'building_name' => $request->building_name,
                 'source' => $source,
                 'page_source' => $request->page_source
@@ -67,7 +67,7 @@ class ThrowInsRepository extends Model
         //获取全部区域
         $area = Area::with('block')->get();
         foreach ($area as $k => $v) {
-            $data[$k]['area_id'] = $v->id;
+            $data[$k]['area_guid'] = $v->guid;
             $data[$k]['area_name'] = $v->name;
         }
         return $data;
@@ -76,9 +76,9 @@ class ThrowInsRepository extends Model
     public function getBlockData()
     {
         $data = [];
-        $area_id = Area::all()->pluck('id')->toArray();
+        $area_id = Area::all()->pluck('guid')->toArray();
         foreach ($area_id as $k => $v) {
-            $data['area_'.$v] = Block::where('area_id', $v)->get()->toArray();
+            $data['area_'.$v] = Block::where('area_guid', $v)->get()->toArray();
         }
         return $data;
     }

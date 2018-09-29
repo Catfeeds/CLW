@@ -23,8 +23,8 @@ class BuildingsRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'addBuildingLabel':
                     return [
-                       'building_id.unique' => '一个楼盘只允许有一个标签',
-                        'building_id.in' => '楼盘必须存在'
+                        'building_guid.unique' => '一个楼盘只允许有一个标签',
+                        'building_guid.in' => '楼盘必须存在'
                     ];
             case 'PUT':
             case 'PATCH':
@@ -40,60 +40,14 @@ class BuildingsRequest extends FormRequest
     public function rules()
     {
         switch ($this->route()->getActionMethod()) {
-            case 'store':
-                return [
-                    'name' => 'required|max:128',
-                    'gps' => 'required',
-                    'type' => 'required|numeric|max:100',
-
-                    'area_id' => 'required:numeric',
-                    'block_id' => 'nullable|numeric',
-                    'address' => 'required|max:128',
-
-                    'developer' => 'nullable|max:128',
-                    'years' => 'nullable|numeric|max:10000',
-                    'acreage' => 'nullable|numeric',
-                    'building_block_num' => 'nullable|numeric|max:10000',
-                    'parking_num' => 'nullable|numeric|max:10000',
-                    'parking_fee' => 'nullable|numeric|max:10000',
-                    'greening_rate' => 'nullable|numeric|max:100',
-
-                    'company' => 'nullable|array',
-                    'album' => 'array',
-                    'building_block' => 'array',
-                    'building_feature' => 'nullable|array'
-                ];
-
-            case 'update':
-                return [
-                    'name' => 'required|max:128',
-                    'gps' => 'required',
-                    'type' => 'required|numeric|max:100',
-
-                    'area_id' => 'required:numeric',
-                    'block_id' => 'nullable|numeric',
-                    'address' => 'required|max:128',
-
-                    'developer' => 'nullable|max:128',
-                    'years' => 'nullable|numeric|max:10000',
-                    'acreage' => 'nullable|numeric',
-                    'building_block_num' => 'nullable|numeric|max:10000',
-                    'parking_num' => 'nullable|numeric|max:10000',
-                    'parking_fee' => 'nullable|numeric|max:10000',
-                    'greening_rate' => 'nullable|numeric|max:100',
-
-                    'company' => 'nullable|array',
-                    'album' => 'array',
-                    'building_feature' => 'nullable|array'
-                ];
             case 'addBuildingLabel':
                 return [
-                    'building_id' => [
+                    'building_guid' => [
                         'required',
-                        'integer',
+                        'max:32',
                         'unique:building_labels',
                         Rule::in(
-                            Building::all()->pluck('id')->toArray()
+                            Building::all()->pluck('guid')->toArray()
                         )
                     ]
                 ];

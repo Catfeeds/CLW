@@ -40,7 +40,7 @@
                         </div>
                         <div class="list-bottom">
                             <div class="f-1 jus-start p-5"><span>录入时间: </span><span>@{{item.created_at}}</span></div>
-                            <button class="button p-5" @click="sheet(item.id, index)">分配</button>
+                            <button class="button p-5" @click="sheet(item.guid, index)">分配</button>
                         </div>
                     </div>
                 </div>

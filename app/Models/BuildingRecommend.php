@@ -4,8 +4,15 @@ namespace App\Models;
 
 class BuildingRecommend extends BaseModel
 {
+    protected $appends = [
+        'img_cn',
+        'pic_url_cn'
+    ];
 
-    protected $appends = ['img_cn', 'pic_url_cn'];
+    public function oldBuilding()
+    {
+        return $this->belongsTo('App\Models\Building','building_id','id');
+    }
 
     /**
      * 说明: 图片拼接
@@ -34,10 +41,10 @@ class BuildingRecommend extends BaseModel
         ];
     }
 
-    //楼盘
+    // 楼盘
     public function building()
     {
-        return $this->belongsTo('App\Models\Building');
+        return $this->belongsTo('App\Models\Building','building_guid','guid');
     }
 
 

@@ -59,10 +59,7 @@ class RecommendsRequest extends FormRequest
                         )
                     ],
                     'pic' => 'required',
-                    'pc_pic' => 'required',
-                    'pc_big_details_pic' => 'required',
-                    'pc_small_details_pic' => 'required',
-                    'building_id' => [
+                    'building_guid' => [
                         'required',
                         'array',
                     ],
@@ -71,7 +68,7 @@ class RecommendsRequest extends FormRequest
             case 'GET':
             case 'DELETE':
                 return [
-                    'building_id' => 'required|array'
+                    'building_guid' => 'required|array'
                 ];
             case 'PUT':
             case 'PATCH':
@@ -79,7 +76,7 @@ class RecommendsRequest extends FormRequest
                     'title' => 'required|max:32',
                     'introduce' => 'required|max:32',
                     'pic' => 'required',
-                    'building_id' => 'required|array',
+                    'building_guid' => 'required|array',
                 ];
             default:
                 {

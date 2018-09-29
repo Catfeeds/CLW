@@ -1,22 +1,22 @@
 webpackJsonp([17],{
 
-/***/ 108:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(109);
+module.exports = __webpack_require__(113);
 
 
 /***/ }),
 
-/***/ 109:
+/***/ 113:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * Created by zxz1992 on 2018/5/23.
  */
-__webpack_require__(0);
+__webpack_require__(1);
 var listAppData = JSON.parse($('#listAppData').val());
-Vue.component('building-list', __webpack_require__(7));
+Vue.component('building-list', __webpack_require__(8));
 var app = new Vue({
   el: '#app',
   data: {
@@ -26,4 +26,4 @@ var app = new Vue({
 
 /***/ })
 
-},[108]);
+},[112]);

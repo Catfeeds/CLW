@@ -7,10 +7,12 @@ class Recommend extends BaseModel
     protected $casts = [
         'building_id' => 'array',
         'building_info' => 'array',
+        'building_guid' => 'array',
     ];
 
     protected $appends = [
-        'pic_cn', 'pic_url'
+        'pic_cn',
+        'pic_url'
     ];
 
     public function building()

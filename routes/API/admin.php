@@ -24,6 +24,34 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //通过电话获取openid
         Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
 
+        /*
+        |--------------------------------------------------------------------------
+        | 工单相关路由
+        |--------------------------------------------------------------------------
+        */
+
+        // 获取经纪人等级为店长以上的人员
+        Route::get('get_shopkeeper', 'WorkOrderController@getShopkeeper');
+
+        // 手机端  店长获取全部下级人员
+        Route::get('get_staff', 'WorkOrderController@getStaff');
+
+        //店长分配工单
+        Route::post('distribution', 'WorkOrderController@distribution');
+
+        //业务员确定工单
+        Route::post('determine', 'WorkOrderController@determine');
+
+        //业务员反馈信息
+        Route::post('feedback', 'WorkOrderController@feedback');
+
+        //店长处理页面
+        Route::get('shopkeeper_list', 'WorkOrderController@shopkeeperList');
+
+        //业务员处理页面
+        Route::get('staff_list', 'WorkOrderController@staffList');
+
+
         //微信绑定管理
         Route::resource('employees', 'EmployeesController');
 
@@ -313,6 +341,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::post('survey', 'EntrustThrowInsController@survey');
         //添加工单
         Route::post('add_gd', 'EntrustThrowInsController@addGd');
+
+        // 工单管理
+        Route::resource('work_orders', 'WorkOrderController');
+
     });
 
 

@@ -1,25 +1,25 @@
 webpackJsonp([15],{
 
-/***/ 120:
+/***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(121);
+module.exports = __webpack_require__(125);
 
 
 /***/ }),
 
-/***/ 121:
+/***/ 125:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_houseList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_houseList_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_lib_style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mint_ui__);
-__webpack_require__(0);
+__webpack_require__(1);
 
 
 
@@ -39,7 +39,7 @@ var app = new Vue({
 });
 if (pageOne.data.length) {
     for (var key in pageOne.data) {
-        app.list.push(pageOne.data[key].office_building_house);
+        app.list.push(pageOne.data[key].houses);
     }
     if (Math.ceil(pageOne.total / pageOne.per_page) !== 1) {
         app.getData = true;
@@ -62,7 +62,7 @@ $(document).on('click', '.more button', function (e) {
             app.status = false;
             if (data.success) {
                 for (var key in data.data.data) {
-                    app.list.push(data.data.data[key].office_building_house);
+                    app.list.push(data.data.data[key].houses);
                 }
                 if (Math.ceil(data.data.total / data.data.per_page) === app.page) {
                     app.getData = false;
@@ -98,4 +98,4 @@ if (app.list.length !== 0) {
 
 /***/ })
 
-},[120]);
+},[124]);

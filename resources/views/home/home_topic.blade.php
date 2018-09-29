@@ -24,7 +24,7 @@
                 <div class="title">相关楼盘</div>
                 <div class="enjoyList">
                     @foreach($res as  $index => $data)
-                        <a href="{{url('/buildings/'.$data['id'])}}">
+                        <a href="{{url('/buildings/'.$data['guid'])}}">
                             <div class="enjoyDetail">
                                 <div class="enjoyPic">
                                     <img src="{{$data['img_cn']}}" alt="">

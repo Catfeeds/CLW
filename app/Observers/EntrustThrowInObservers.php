@@ -16,17 +16,28 @@ class EntrustThrowInObservers {
         $tel = $entrustThrowIn->tel;
         $data['name'] = $name;
         $data['tel'] = $tel;
+        $data['remark'] = $entrustThrowIn->remark??'无';
         $openid = $class->getOpenid($entrustThrowIn->demand);
-        if (!empty($openid)) {
-            $data['openid'] = json_encode($openid);
-            //如果是投放房源
-            if ($entrustThrowIn->demand == 1) {
-                curl(config('setting.wechat_url').'/throw_in_notice','post',$data);
-            }
-            //如果是委托找房
-            if ($entrustThrowIn->demand == 2) {
-                curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
+        if ($entrustThrowIn->page_source !== '管理系统') {
+            if (!empty($openid)) {
+                $data['openid'] = json_encode($openid);
+                //如果是投放房源
+                if ($entrustThrowIn->demand == 1) {
+                    curl(config('setting.wechat_url').'/throw_in_notice','post',$data);
+                }
+                //如果是委托找房
+                if ($entrustThrowIn->demand == 2) {
+                    curl(config('setting.wechat_url').'/bespeak_notice','post',$data);
+                }
+
+                //如果是企业服务
+                if ($entrustThrowIn->demand == 3) {
+                    $openid = $class->getOpenid(4);
+                    $data['openid'] = json_encode($openid);
+                    curl(config('setting.wechat_url').'/service_notice','post',$data);
+                }
             }
         }
+
     }
 }

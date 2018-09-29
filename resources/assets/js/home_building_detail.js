@@ -37,7 +37,7 @@ new Vue({
     }
   },
   created() {
-    getLikeBuild({block_id: Data.block_id, price_sort: 'asc'}).then(res => {
+    getLikeBuild({block_guid: Data.block_guid, price_sort: 'asc'}).then(res => {
       this.list = res.data
     })
   },
@@ -56,7 +56,7 @@ new Vue({
     }
   },
   created() {
-    getMarketPrice(Data.id).then(res => {
+    getMarketPrice(Data.guid).then(res => {
       this.list = res.data
     }) 
   }

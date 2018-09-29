@@ -15,11 +15,12 @@ class ComputersController extends Controller
         LabelsService $service
     )
     {
+
         $ResAll = $request->all();
         $labels = Label::getLabelByCategoryName('办公设备');
         $sort = $request->url();
         $symbol = '?';
-        if (!empty($request->labels)) {
+        if (!empty($request->labels) && !is_array($request->labels)) {
             $request->offsetSet('labels', explode('-',$request->labels));
             $data = array();
 

@@ -44,7 +44,7 @@ class HotBlocksController extends APIBaseController
         return $this->sendResponse($result->map(function($v) {
             return [
                 'label' => $v->name,
-                'value' => $v->id
+                'value' => $v->guid
             ];
         }), '获取商圈信息成功');
     }
@@ -102,7 +102,7 @@ class HotBlocksController extends APIBaseController
             return $this->sendError('无热门商圈修改权限','403');
         }
         // 检测商圈是否重复
-        if (!empty($request->block_id) && $request->block_id != $hotBlock->block_id && in_array($request->block_id, HotBlock::pluck('block_id')->toArray())) {
+        if (!empty($request->block_guid) && $request->block_guid != $hotBlock->block_guid && in_array($request->block_guid, HotBlock::pluck('block_guid')->toArray())) {
             return $this->sendError('已存在，请勿重复设置为热门商圈');
         }
 

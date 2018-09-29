@@ -27,7 +27,7 @@
          @foreach ($area as $area_item)
             @if(!in_array($area_item->name, ['东西湖区', '新洲区', '蔡甸区']))
               <li class="select-area-item">
-              <a href="{{url('/building_list?area_id='.$area_item->id)}}">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
+              <a href="{{url('/building_list?area_guid='.$area_item->guid)}}">{{ mb_substr($area_item->name, 0, mb_strlen($area_item->name)-1)}}</a>
               </li>
             @endif
          @endforeach
@@ -153,9 +153,9 @@
     <div class="elaborate-title">享优质配套 与大咖公司为邻</div>
     <div class="topic-content">
       <ul class="commercial-center-list">
-        @foreach ( $coreBlock as $coreBlock_item )
+        @foreach ($coreBlock as $coreBlock_item)
           <li class="commercial-center-item">
-            <a href="{{url('/building_list?area_id='.$coreBlock_item->area_id.'&block_id='.$coreBlock_item->block_id)}}">
+            <a href="{{url('/building_list?area_guid='.$coreBlock_item->area_guid.'&block_guid='.$coreBlock_item->block_guid)}}">
               <img src="{{$coreBlock_item->pc_img_cn}}">
             </a>
           </li>
@@ -187,7 +187,7 @@
     <ul class="fine-quality-list">
       @foreach ( $eliteBuilding as $eliteBuilding_item )
         <li class="fine-quality-item">
-          <a href="{{url('/buildings').'/'.$eliteBuilding_item->id}}">
+          <a href="{{url('/buildings').'/'.$eliteBuilding_item->guid}}">
             <div class="img-box">
               {{-- <img class="min-img" src="{{homeRes('/home_img/perfect_sel.png')}}" alt="" class="first_select"> --}}
               <img class="main-img" src="{{$eliteBuilding_item->img_cn}}" alt="{{$eliteBuilding_item->name}}">
@@ -255,7 +255,7 @@
           <li class="infamation-item">
             <div class="float-left">
               <a href="{{url('/information/'.$hotInformation[$j]->id)}}" title="{{$information[$j]->title}}">
-                <img src="{{$information[$j]->banner_cn}}" alt="{{$information[$j]->title}}">
+                <img src="{{$information[$j]->banner_cn}}-web_infomation_list" alt="{{$information[$j]->title}}">
               </a>
             </div>
             <div class="float-right">

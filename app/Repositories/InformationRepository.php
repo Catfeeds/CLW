@@ -85,6 +85,7 @@ class InformationRepository extends Model
     public function previous($id)
     {
         $previousId = Information::where('id', '<', $id)->max('id');
+        if (empty($previousId)) return Information::first();
         return Information::where('id', $previousId)->first();
     }
 
@@ -92,6 +93,7 @@ class InformationRepository extends Model
     public function next($id)
     {
         $nextId = Information::where('id', '>', $id)->min('id');
+        if (empty($nextId)) return Information::all()->last();
         return Information::where('id', $nextId)->first();
     }
     

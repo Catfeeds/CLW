@@ -19,7 +19,7 @@ class OfficeBuildingHouse extends BaseModel
         'min_acreage' => 'integer',
         'unit_price' => 'integer',
         'total_price' => 'integer',
-        'support_facilities'
+        'support_facilities' => 'array'
     ];
 
     protected $appends = [
@@ -86,7 +86,7 @@ class OfficeBuildingHouse extends BaseModel
      */
     public function buildingBlock()
     {
-        return $this->belongsTo('App\Models\BuildingBlock','building_block_id','id');
+        return $this->belongsTo('App\Models\BuildingBlock','building_block_guid','guid');
     }
 
     /**

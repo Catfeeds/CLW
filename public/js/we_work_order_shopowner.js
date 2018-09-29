@@ -1,21 +1,21 @@
-webpackJsonp([4],{
+webpackJsonp([5],{
 
-/***/ 138:
+/***/ 142:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(139);
+module.exports = __webpack_require__(143);
 
 
 /***/ }),
 
-/***/ 139:
+/***/ 143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui__);
 
 
@@ -32,15 +32,15 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_mint
  * Vue.use(Cell)
  */
 var FormData = {
-    staff_id: '', // 员工id
-    id: '', // 工单id
+    staff_guid: '', // 员工id
+    guid: '', // 工单id
     openid: $('meta[name="openid"]').attr('content')
 };
 var sheetClick = function sheetClick(e) {
-    FormData.staff_id = e.id;
+    FormData.staff_guid = e.id;
     distribution(FormData);
 };
-var url = 'http://192.168.0.142:9999';
+var url = 'http://192.168.0.199:3000' + '/api/admin';
 var requestType = false;
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
@@ -62,9 +62,9 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         actions: []
     },
     methods: {
-        sheet: function sheet(id, index) {
+        sheet: function sheet(guid, index) {
             this.index = index;
-            FormData.id = id;
+            FormData.guid = guid;
             this.sheetVisible = !this.sheetVisible;
         },
 
@@ -135,7 +135,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
             headers: {
                 'safeString': $('meta[name="safeString"]').attr('content')
             },
-            url: url + "/api/get_staff",
+            url: url + "/get_staff",
             type: 'get',
             data: {
                 status: 1,
@@ -175,7 +175,7 @@ function getShopkeeperList(status, page) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/shopkeeper_list",
+        url: url + "/shopkeeper_list",
         type: 'get',
         data: {
             status: status,
@@ -235,7 +235,7 @@ function distribution(FormData) {
         headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
         },
-        url: url + "/api/distribution",
+        url: url + "/distribution",
         type: 'post',
         data: FormData,
         success: function success(data) {
@@ -265,4 +265,4 @@ function distribution(FormData) {
 
 /***/ })
 
-},[138]);
+},[142]);

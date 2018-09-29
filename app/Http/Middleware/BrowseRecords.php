@@ -18,7 +18,7 @@ class BrowseRecords
      */
     public function handle($request, Closure $next)
     {
-        $house_id = $request->route('office_building_house')->id;
+        $house_id = $request->route('office_building_houses');
         $user = Auth::guard('api')->user();
 
         //同一个用户不能重复添加浏览记录

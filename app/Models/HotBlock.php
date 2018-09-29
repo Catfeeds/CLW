@@ -5,17 +5,26 @@ namespace App\Models;
 class HotBlock extends BaseModel
 {
     protected $appends = [
-      'img_cn', 'block_name_cn', 'img_url', 'pc_img_url', 'pc_img_cn'
+        'img_cn',
+        'block_name_cn',
+        'img_url',
+        'pc_img_url',
+        'pc_img_cn'
     ];
 
-    public function block()
+    public function oldBlock()
     {
         return $this->belongsTo('App\Models\Block','block_id','id');
     }
 
+    public function block()
+    {
+        return $this->belongsTo('App\Models\Block','block_guid','guid');
+    }
+
     public function building()
     {
-        return $this->hasMany('App\Models\Building','block_id','block_id');
+        return $this->hasMany('App\Models\Building','block_guid','block_guid');
     }
 
     /**

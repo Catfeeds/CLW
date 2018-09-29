@@ -41,7 +41,7 @@ class RecommendsRepository extends Model
             'title' => $request->title,
             'introduce' => $request->introduce,
             'pic' => $request->pic,
-            'building_id' => $request->building_id,
+            'building_guid' => $request->building_guid,
             'building_info' => $request->building_info,
         ]);
     }
@@ -59,44 +59,9 @@ class RecommendsRepository extends Model
         $recommend->title = $request->title;
         $recommend->introduce = $request->introduce;
         $recommend->pic = $request->pic;
-        $recommend->building_id = $request->building_id;
+        $recommend->building_guid = $request->building_guid;
         $recommend->building_info = $request->building_info;
         if (!$recommend->save()) return false;
         return true;
     }
-
-//    /**
-//     * 说明：首页点击精品推荐跳转到楼盘列表
-//     *
-//     * @param $building_id
-//     * @return mixed
-//     * @author jacklin
-//     */
-//    public function getBuildingList($building_id, $service)
-//    {
-//        $buildings = Building::with(['buildingBlock', 'area', 'block', 'label', 'features', 'house'])->whereIn('id', $building_id)->get();
-//
-//        foreach ($buildings as $v) {
-//            $count = $v->house->count();
-//            $price = $v->house->pluck('unit_price')->avg();
-//            $service->features($v);
-//            $service->label($v);
-//            $service->getAddress($v);
-//
-//            // 单价
-//            if (empty($price)) {
-//                $v->price = '';
-//            } else {
-//                $v->price = round($price,2).'元/㎡.月';
-//            }
-//
-//            // 数量
-//            if (empty($count)) {
-//                $v->count = '';
-//            } else {
-//                $v->count = $count.'套';
-//            }
-//        }
-//        return $buildings;
-//    }
 }
