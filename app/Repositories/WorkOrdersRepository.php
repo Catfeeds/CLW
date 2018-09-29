@@ -166,6 +166,56 @@ class WorkOrdersRepository extends Model
         }
     }
 
+    // 管理层分配工单
+    public function allocation($request)
+    {
+        \DB::beginTransaction();
+        try {
+            $res = WorkOrder::where('guid',$request->guid)
+                ->update([
+                    'handle_guid' => $request->handle_guid,
+                    'manage_deal' => $this->time,
+                ]);
+            if (!$res) throw new \Exception('工单分配失败');
+
+            // 添加工单进度
+            $content = '工单分配给('.$request->content.')';
+
+            $schedule = Common::addSchedule($request->guid,$content);
+            if (empty($schedule)) throw new \Exception('工单进度生成失败');
+            \DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            \DB::rollback();
+            \Log::error('添加失败',$exception->getMessage());
+            return false;
+        }
+    }
+
+    // 确认收到工单
+    public function confirm($request)
+    {
+        \DB::beginTransaction();
+        try {
+            $res = WorkOrder::where('guid',$request->guid)
+                ->update([
+                    'handle_deal' => $this->time
+                ]);
+            if (!$res) throw new \Exception('确认收到工单失败');
+
+            // 添加工单进度
+            $content = '确定收到工单('.$request->content.')';
+
+            $schedule = Common::addSchedule($request->guid,$content);
+            if (empty($schedule)) throw new \Exception('工单进度生成失败');
+            \DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            \DB::rollback();
+            \Log::error('添加失败',$exception->getMessage());
+            return false;
+        }
+    }
 
 
     // 有效工单
@@ -179,6 +229,11 @@ class WorkOrdersRepository extends Model
             // 添加工单进度
             $schedule = Common::addSchedule($request->guid, $request->identifier);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
+            // 添加工单进度
+            $content = '工单分配给('.$request->content.')';
+
+            $schedule = Common::addSchedule($request->guid,$content);
+            if (empty($schedule)) throw new \Exception('工单进度生成失败');
             \DB::commit();
             return true;
         } catch (\Exception $exception) {
@@ -238,6 +293,8 @@ class WorkOrdersRepository extends Model
             \Log::error('操作失败'.$exception->getMessage());
             return false;
         }
+            \Log::error('添加失败',$exception->getMessage());
+            return false;
     }
 
 

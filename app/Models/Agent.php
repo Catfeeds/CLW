@@ -17,4 +17,11 @@ class Agent extends Model
     {
         return $this->hasOne(AgentRole::class, 'guid', 'role_guid');
     }
+
+
+    // 用户关联归属
+    public function companyFramework()
+    {
+        return $this->belongsTo('App\Models\CompanyFramework','rel_guid','guid');
+    }
 }

@@ -7,6 +7,7 @@
  */
 namespace App\Handler;
 
+use App\Models\Agent;
 use App\Models\Schedule;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;

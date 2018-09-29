@@ -31,7 +31,6 @@ class BuildingsRepository extends  Model
     )
     {
         $houses = $this->houseList($request, $building_guid, $pcBuildingListAndMap);
-
         // 根据楼盘分组
         $buildings = $this->groupByBuilding($houses);
         $buildingData = Building::whereIn('guid', $buildings->keys())->with(['block', 'features', 'area.areaLocation', 'label', 'house'])->get();
@@ -148,11 +147,11 @@ class BuildingsRepository extends  Model
         // 如果有商圈id 查商圈
         if (!empty($request->block_guid)) {
             $buildings = $buildings->where('block_guid', $request->block_guid);
-        } elseif(!empty($request->area_id)) {
+        } elseif(!empty($request->area_guid)) {
             $buildings = Building::where('area_guid', $request->area_guid);
         }
 
-        // 如果$building_id 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
+        // 如果$building_guid 不为空 则为精品推荐获取楼盘列表,否则为楼盘列表
         if (!empty($building_guid) || (empty($building_guid) && $pcBuildingList)) {
             $buildings = $buildings::whereIn('guid', $building_guid)->get()->pluck('guid')->toArray();
         } else {
@@ -161,7 +160,6 @@ class BuildingsRepository extends  Model
 
         // 特色
         if (!empty($request->features)) {
-
             // 取出包含其中一个的数据
             if (!is_array($request->features)) $request->features = array($request->features);
             $buildingHasFeatures = BuildingHasFeature::whereIn('building_feature_id', $request->features)

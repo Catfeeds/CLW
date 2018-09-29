@@ -90,7 +90,7 @@ class BuildingsController extends Controller
 
         // 获取区域
         $blocks = array();
-        if (!empty($request->area_id)) {
+        if (!empty($request->area_guid)) {
             $blocks = Block::where('area_guid', $request->area_guid)->pluck('name','guid')->toArray();
         }
 
@@ -114,7 +114,6 @@ class BuildingsController extends Controller
             if (!empty($request->acreage)) $request->offsetSet('acreage', explode('-',$request->acreage));
             if (!empty($request->unit_price)) $request->offsetSet('unit_price', explode('-',$request->unit_price));
             if (!empty($request->features) && strlen($request->features) > 1) $request->offsetSet('features', explode('-',$request->features));
-
             // 楼盘列表数据
             $res = $buildingsRepository->buildingList($request, $service, null,true,true);
         }

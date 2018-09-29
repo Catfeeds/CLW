@@ -8,11 +8,7 @@ use App\Repositories\ThrowInsRepository;
 
 class ThrowInsController extends Controller
 {
-    /**
-     * 说明: 房源投放视图
-     *
-     * @author 刘坤涛
-     */
+    // 房源投放视图
     public function index
     (
         ThrowInsRepository $repository

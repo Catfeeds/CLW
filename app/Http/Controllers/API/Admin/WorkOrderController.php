@@ -119,9 +119,30 @@ class WorkOrderController extends APIBaseController
         return $this->sendResponse($res, '工单回转成功');
     }
 
+    // 管理层分配工单
+    public function allocation
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->allocation($request);
 
+        if (!$res) return $this->sendError('工单分配失败');
+        return $this->sendResponse($res,'工单分配成功');
+    }
 
-
+    // 确认收到工单
+    public function confirm
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->confirm($request);
+        if (!$res) return $this->sendError('确认收到工单失败');
+        return $this->sendResponse($res,'确认收到工单成功');
+    }
 
 
 

@@ -2,6 +2,8 @@
 
 // 前台首页
 Route::resource('/', 'IndexController');
+
+
 // 前台搜索框
 Route::get('get_select_info', 'IndexController@getSelectInfo');
 
@@ -14,6 +16,9 @@ Route::get('like_building', 'BuildingsController@likeBuilding');
 
 //房源详情
 Route::resource('office_building_houses', 'OfficeBuildingHousesController');
+
+//房源详情
+Route::resource('houses', 'HousesController');
 
 //资讯
 Route::resource('information','InformationsController');

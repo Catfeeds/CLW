@@ -135,9 +135,9 @@ class BuildingsService
         // 获取楼盘下房子均价
         $data['buildingAveragePrice'] = $this->getBuildingAveragePrice($houses);
         // 获取商圈下房子均价
-        $data['blockAveragePrice'] = $this->getBlockAveragePrice($block->id);
+        $data['blockAveragePrice'] = $this->getBlockAveragePrice($block->guid);
         // 获取区域下房子均价
-        $data['areaAveragePrice'] = $this->getAreaAveragePrice($block->area->id);
+        $data['areaAveragePrice'] = $this->getAreaAveragePrice($block->area->guid);
 
         return $data;
     }
