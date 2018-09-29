@@ -78,7 +78,11 @@ class UpdateOldData extends Command
         // pc端精品推荐
         $pcRecommend = PcRecommend::get();
         foreach ($pcRecommend as $v) {
-            
+
+            foreach ($v->building_id as $v) {
+
+            }
+
         }
 
 
