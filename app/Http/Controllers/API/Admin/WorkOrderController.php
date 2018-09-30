@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API\Admin;
 
-use App\Handler\Common;
 use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\WorkOrdersRequest;
 use App\Models\WorkOrder;
@@ -37,23 +36,24 @@ class WorkOrderController extends APIBaseController
     public function show
     (
         WorkOrdersRepository $repository,
-        WorkOrder $workOrder
-    )
-    {
-        $res = $repository->getShow($workOrder);
-        return $this->sendResponse($res,'详情获取成功');
-    }
-
-    // 手机端工单详情
-    public function mobileShow
-    (
-        WorkOrdersRepository $repository,
+        WorkOrder $workOrder,
         WorkOrdersRequest $request
     )
     {
-        $res = $repository->mobileShow($request);
+        $res = $repository->getShow($workOrder, $request);
         return $this->sendResponse($res,'详情获取成功');
     }
+
+//    // 手机端工单详情
+//    public function mobileShow
+//    (
+//        WorkOrdersRepository $repository,
+//        WorkOrdersRequest $request
+//    )
+//    {
+//        $res = $repository->mobileShow($request);
+//        return $this->sendResponse($res,'详情获取成功');
+//    }
 
 
     // 投放委托 生成工单

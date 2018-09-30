@@ -37,18 +37,6 @@ class WorkOrdersRequest extends FormRequest
                     'price' => 'nullable',
                     'remark' => 'nullable'
                 ];
-            case 'update':
-                return [
-                    'name' => 'required|max:32',
-                    'tel' =>  'required|max:16',
-                    'source' => 'required|integer',
-                    'demand' => 'nullable|integer',
-                    'position' => 'nullable',
-                    'acreage' => 'nullable',
-                    'price' => 'nullable',
-                    'shopkeeper_guid' => 'required|exists:saas.users,guid',
-                    'remark' => 'nullable',
-                ];
             case 'distribution':
                 return [
                     'staff_guid' => 'required|exists:saas.users,guid'
