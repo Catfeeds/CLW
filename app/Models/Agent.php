@@ -39,7 +39,7 @@ class Agent extends Model
     }
 
     // 区域 work_order_cn
-    public function getWork_OrderCnAttribute()
+    public function getWorkOrderCnAttribute()
     {
         return empty($this->work_order)?'':implode(',',$this->work_order);
     }

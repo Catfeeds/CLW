@@ -138,12 +138,12 @@ class WorkOrdersRepository extends Model
     // 获取给人员分配工单下拉数据
     public function getAllDistribution()
     {
-        $res =Agent::with('company')->where(['status'=>1,'start_up'=>1,['openid','<>',null]])->get();
-        dd($res);
+        $res =Agent::with('company')->where(['status'=>1,'start_up'=>1,['openid','<>',null],['work_order','<>',null]])
+            ->get();
         return $res->map(function ($v){
             return [
                 'value' => $v->guid,
-                'lable' => $v->name . '-' . $v->work_order . '-' . $v->company->name
+                'lable' => $v->name . '-' . $v->work_order_cn . '-' . $v->company->name
             ];
         });
     }
