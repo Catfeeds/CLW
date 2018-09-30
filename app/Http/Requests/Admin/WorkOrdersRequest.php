@@ -29,34 +29,53 @@ class WorkOrdersRequest extends FormRequest
                     'name' => 'required|max:32',
                     'tel' =>  'required|max:16',
                     'source' => 'required|integer',
-                    'demand' => 'nullable|integer',
-                    'position' => 'nullable',
+                    'source_area' => 'nullable',
+                    'demand' => 'required|integer',
+                    'area' => 'nullable',
+                    'building' => 'nullable',
                     'acreage' => 'nullable',
                     'price' => 'nullable',
-                    'shopkeeper_guid' => 'required|exists:saas.users,guid',
-                    'remark' => 'nullable',
-                    'recorder' => 'required'
+                    'remark' => 'nullable'
                 ];
-            case 'update':
+            case'issue':
                 return [
-                    'name' => 'required|max:32',
-                    'tel' =>  'required|max:16',
-                    'source' => 'required|integer',
-                    'demand' => 'nullable|integer',
-                    'position' => 'nullable',
-                    'acreage' => 'nullable',
-                    'price' => 'nullable',
-                    'shopkeeper_guid' => 'required|exists:saas.users,guid',
-                    'remark' => 'nullable',
+                    'manage_guid' => 'required|exists:sass.users,guid',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
-            case 'distribution':
+            case'reset':
                 return [
-                    'staff_guid' => 'required|exists:saas.users,guid'
+                    'manage_guid' => 'required|exists:sass.users,guid',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
-            case 'feedback':
+            case 'allocation':
                 return [
-                    'feedback' => 'required',
-                    'valid' => 'required'
+                    'handle_guid' => 'required|exists:sass.user,id',
+                    'guid' => 'required|exists:work_orders,guid'
+                ];
+            case 'confirm':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                ];
+
+            case 'valid':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'identifier' => 'required'
+                ];
+            case 'invalid':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'reason' => 'required'
+                ];
+            case 'track':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'track' => 'required'
+                ];
+            case 'rotate':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'reason' => 'required'
                 ];
             default:
                 {

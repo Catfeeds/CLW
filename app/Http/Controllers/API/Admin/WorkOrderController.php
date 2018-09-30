@@ -10,140 +10,200 @@ use App\Services\WorkOrdersService;
 
 class WorkOrderController extends APIBaseController
 {
-    // 工单列表
+    // 工单列表 (页面)
     public function index
     (
-        WorkOrdersService $service,
         WorkOrdersRepository $repository,
         WorkOrdersRequest $request
     )
     {
-        $res= $repository->getList($request, $service);
+        $res= $repository->getList($request);
         return $this->sendResponse($res,'工单列表获取成功');
     }
 
-    // 添加工单
+    // 手机端工单列表
+    public function mobileList
+    (
+        WorkOrdersRepository $repository,
+        WorkOrdersRequest $request
+    )
+    {
+        $res = $repository->mobileList($request);
+        return $this->sendResponse($res, '列表获取成功');
+    }
+
+    // 工单详情 (页面)
+    public function show
+    (
+        WorkOrdersRepository $repository,
+        WorkOrder $workOrder,
+        WorkOrdersRequest $request
+    )
+    {
+        $res = $repository->getShow($workOrder, $request);
+        return $this->sendResponse($res,'详情获取成功');
+    }
+
+//    // 手机端工单详情
+//    public function mobileShow
+//    (
+//        WorkOrdersRepository $repository,
+//        WorkOrdersRequest $request
+//    )
+//    {
+//        $res = $repository->mobileShow($request);
+//        return $this->sendResponse($res,'详情获取成功');
+//    }
+
+
+    // 投放委托 生成工单
     public function store
     (
         WorkOrdersRequest $request,
-        WorkOrdersRepository $repository,
-        WorkOrdersService $service
+        WorkOrdersRepository $repository
     )
     {
         $res = $repository->addWorkOrder($request);
-        // 店长guid、微信openid存在、工单添加成功, 则发送消息
-        $openid = $service->getOpenid($request->shopkeeper_guid);
-        if ($request->shopkeeper_guid && $openid && $res) {
-            $suc = $service->send($openid, $res->name, $res->tel);
-            if (!$suc->success) \Log::info('微信消息发送失败');
-        }
-        if (!$res) return $this->sendError('工单添加失败');
-        return $this->sendResponse($res, '工单添加成功');
+        if (!$res) return $this->sendError('添加失败');
+        return $this->sendResponse($res, '添加成功');
     }
 
-    // 编辑工单
-    public function edit(WorkOrder $workOrder)
-    {
-        return $this->sendResponse($workOrder, '工单修改之前原始数据');
-    }
-
-    // 修改工单
-    public function update
+    // 客服下发工单
+    public function issue
     (
-        WorkOrder $workOrder,
-        WorkOrdersRepository $repository,
-        WorkOrdersRequest $request
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
     )
     {
-        $res = $repository->updateWorkOrder($workOrder, $request);
-        if (!$res) return $this->sendError('修改失败');
-        return $this->sendResponse($res, '修改成功');
-    }
-
-    // 添加工单获取所有店长以上级别
-    public function getShopkeeper(WorkOrdersService $service)
-    {
-        $res = $service->getShopkeeper();
-        return $this->sendResponse($res, '获取成功');
-    }
-
-    // 手机页面  获取店长下面的业务员
-    public function getStaff
-    (
-        WorkOrdersService $service,
-        WorkOrdersRequest $request
-    )
-    {
-        // 通过openid 获取用户guid
-        $guid = $service->getGuid($request->openid);
-        // 获取店长下面的业务员
-        $res = $service->getStaff($guid);
-        return $this->sendResponse($res, '业务员信息获取成功');
-    }
-
-    // 店长分配工单
-    public function distribution
-    (
-       WorkOrdersRepository $repository,
-       WorkOrdersRequest $request,
-       WorkOrdersService $service
-    )
-    {
-        $res = $repository->distribution($request);
-        //获取该记录的客户名称和电话
-        $item = WorkOrder::where('guid', $request->guid)->first();
-        $openid = $service->getOpenid($request->staff_guid);
-        if ($res && $openid) {
-            $suc =  $service->send($openid,$item->name,$item->tel,true);
-            if (!$suc) \Log::info('微信消息发送失败');
-        }
+        $res = $repository->issue($request);
+        //        $openid = $service->getOpenid($res->manage_guid);
+//        // 如果openid存在 发送消息 并且更新成功
+//        if ($openid && $res) {
+//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'));
+//        }
+        if (!$res) return $this->sendError('工单分配失败');
         return $this->sendResponse($res, '工单分配成功');
     }
 
-    // 店员确定工单
-    public function determine
+    // 重新分配工单
+    public function reset
     (
         WorkOrdersRequest $request,
         WorkOrdersRepository $repository
     )
     {
-        $res = $repository->determine($request);
-        return $this->sendResponse($res, '工单确认成功');
+        $res = $repository->reset($request);
+        //        $openid = $service->getOpenid($res->manage_guid);
+//        // 如果openid存在 发送消息 并且更新成功
+//        if ($openid && $res) {
+//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'));
+//        }
+        if (!$res) return $this->sendError('工单分配失败');
+        return $this->sendResponse($res, '工单分配成功');
     }
 
-    // 员工反馈工单信息
-    public function feedback
+    // 管理层分配工单
+    public function allocation
     (
         WorkOrdersRequest $request,
         WorkOrdersRepository $repository
     )
     {
-        $res = $repository->feedback($request);
-        return $this->sendResponse($res, '信息反馈成功');
+        $res = $repository->allocation($request);
+        //        $openid = $service->getOpenid($res->handle_guid);
+//        // 如果openid存在 发送消息 并且更新成功
+//        if ($openid && $res) {
+//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'));
+//        }
+        if (!$res) return $this->sendError('工单分配失败');
+        return $this->sendResponse($res,'工单分配成功');
     }
 
-    // 手机端店长处理工单界面
-    public function shopkeeperList
+    // 确认收到工单
+    public function confirm
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->confirm($request);
+        if (!$res) return $this->sendError('确认收到工单失败');
+        return $this->sendResponse($res,'确认收到工单成功');
+    }
+
+    // 有效工单
+    public function valid
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->valid($request);
+        if (!$res) return $this->sendError('操作失败');
+        return $this->sendResponse($res, '操作成功');
+    }
+
+    // 无效工单
+    public function invalid
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->invalid($request);
+        if (!$res) return $this->sendError('操作失败');
+        return $this->sendResponse($res, '操作成功');
+
+    }
+
+    // 跟进工单
+    public function track
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->addTrack($request);
+        return $this->sendResponse($res, '跟进成功');
+    }
+
+    // 回转工单
+    public function rotate
     (
         WorkOrdersRequest $request,
         WorkOrdersRepository $repository,
         WorkOrdersService $service
     )
     {
-        $res = $repository->shopkeeperList($request, $service);
-        return $this->sendResponse($res, '店长处理页面获取成功');
+        $res = $repository->rotate($request);
+//        $openid = $service->getOpenid($res->manage_guid);
+//        // 如果openid存在 发送消息 并且更新成功
+//        if ($openid && $res) {
+//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), '工单回转');
+//        }
+        if (!$res) return $this->sendError('工单回转失败');
+        return $this->sendResponse($res, '工单回转成功');
     }
 
-    // 业务员处理页面
-    public function staffList
+    // 获取给人员分配工单下拉数据
+    public function getAllDistribution
     (
-        WorkOrdersRequest $request,
-        WorkOrdersRepository $repository,
         WorkOrdersService $service
     )
     {
-        $res = $repository->staffList($request, $service);
-        return $this->sendResponse($res, '业务员处理页面获取成功');
+        $res = $service->getAllDistribution();
+        if (!$res) return $this->sendError('获取失败');
+        return $this->sendResponse($res,'获取成功');
     }
 
+    // 管理层获取下级
+    public function getAgent
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersService $service
+    )
+    {
+        $res = $service->getAgent($request->user_guid);
+        return $this->sendResponse($res, '获取成功');
+    }
 }

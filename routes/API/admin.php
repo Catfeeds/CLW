@@ -7,6 +7,7 @@
  */
 header('Access-Control-Allow-Headers:X-Token,Content-Type,Authorization,safeString');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+
     //导出数据
     Route::post('export', 'EntrustThrowInsController@export');
     // 安全验证码
@@ -18,39 +19,48 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     // 安全验证
     Route::group(['middleware' => 'safe.validate'], function () {
-        //根据类型获取接收人人员openid
-        Route::get('get_openid/{type}', 'AcceptMessagesController@getOpenid');
-
-        //通过电话获取openid
-        Route::get('get_openid_by_tel', 'EmployeesController@getOpenidByTel');
-
         /*
         |--------------------------------------------------------------------------
-        | 工单相关路由
+        | 工单管理
         |--------------------------------------------------------------------------
         */
+        Route::resource('work_orders', 'WorkOrderController');
 
-        // 获取经纪人等级为店长以上的人员
-        Route::get('get_shopkeeper', 'WorkOrderController@getShopkeeper');
+        // 手机工单列表
+        Route::get('mobile_list', 'WorkOrderController@mobileList');
 
-        // 手机端  店长获取全部下级人员
-        Route::get('get_staff', 'WorkOrderController@getStaff');
+        // 手机端工单详情
+        Route::get('mobile_show', 'WorkOrderController@mobileShow');
 
-        //店长分配工单
-        Route::post('distribution', 'WorkOrderController@distribution');
+        // 管理员分配工单
+        Route::post('allocation','WorkOrderController@allocation');
 
-        //业务员确定工单
-        Route::post('determine', 'WorkOrderController@determine');
+        // 确认收到工单
+        Route::post('confirm','WorkOrderController@confirm');
 
-        //业务员反馈信息
-        Route::post('feedback', 'WorkOrderController@feedback');
+        // 工单转有效
+        Route::post('valid','WorkOrderController@valid');
 
-        //店长处理页面
-        Route::get('shopkeeper_list', 'WorkOrderController@shopkeeperList');
+        // 工单转无效
+        Route::post('invalid','WorkOrderController@invalid');
 
-        //业务员处理页面
-        Route::get('staff_list', 'WorkOrderController@staffList');
+        // 跟进工单
+        Route::post('track','WorkOrderController@track');
 
+        // 回转工单
+        Route::post('rotate','WorkOrderController@rotate');
+
+        // 获取给人员分配工单下拉数据
+        Route::get('get_all_distribution','WorkOrderController@getAllDistribution');
+
+        // 管理层获取下级
+        Route::get('get_agent', 'WorkOrderController@getAgent');
+
+        //回访
+        Route::post('survey', 'EntrustThrowInsController@survey');
+
+        //添加工单
+        Route::post('add_gd', 'EntrustThrowInsController@addGd');
 
         //微信绑定管理
         Route::resource('employees', 'EmployeesController');
@@ -99,6 +109,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         |--------------------------------------------------------------------------
         */
         Route::resource('admins','AdminsController');
+
+        // 客服下发工单
+        Route::post('issue', 'WorkOrderController@issue');
+
+        // 客服重新分配工单
+        Route::post('reset', 'WorkOrderController@reset');
 
         //为现有用户分配角色
         Route::post('distributions', 'AdminsController@distribution');
@@ -337,13 +353,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //渠道来源构成
         Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
 
-        //回访
-        Route::post('survey', 'EntrustThrowInsController@survey');
-        //添加工单
-        Route::post('add_gd', 'EntrustThrowInsController@addGd');
-
-        // 工单管理
-        Route::resource('work_orders', 'WorkOrderController');
 
     });
 
