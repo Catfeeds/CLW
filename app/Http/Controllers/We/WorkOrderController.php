@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Services\WorkOrdersService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
