@@ -37,22 +37,45 @@ class WorkOrdersRequest extends FormRequest
                     'price' => 'nullable',
                     'remark' => 'nullable'
                 ];
-            case 'distribution':
+            case'issue':
                 return [
-                    'staff_guid' => 'required|exists:saas.users,guid'
+                    'manage_guid' => 'required|exists:sass.users,guid',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
-            case 'feedback':
+            case'reset':
                 return [
-                    'feedback' => 'required',
-                    'valid' => 'required'
+                    'manage_guid' => 'required|exists:sass.users,guid',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'allocation':
                 return [
-                    'handle_guid' => 'required'
+                    'handle_guid' => 'required|exists:sass.user,id',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'confirm':
                 return [
+                    'guid' => 'required|exists:work_orders,guid',
+                ];
 
+            case 'valid':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'identifier' => 'required'
+                ];
+            case 'invalid':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'reason' => 'required'
+                ];
+            case 'track':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'track' => 'required'
+                ];
+            case 'rotate':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'reason' => 'required'
                 ];
             default:
                 {
