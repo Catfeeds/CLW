@@ -21,6 +21,12 @@ class WorkOrder extends BaseModel
         'demand_cn'
     ];
 
+    // 工单关联进度
+    public function schedule()
+    {
+        return $this->hasMany(Schedule::class, 'work_order_guid', 'guid')->latest('created_at');
+    }
+
     // 来源 source_cn
     public function getSourceCnAttribute()
     {

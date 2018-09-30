@@ -32,6 +32,7 @@ class CreateWorkOrdersTable extends Migration
             $table->char('handle_guid', 32)->nullable()->comment('处理人guid');
             $table->datetime('handle_deal')->nullable()->comment('处理人确定时间');
             $table->tinyInteger('status')->nullable()->default(1)->comment('工单状态:1:带处理,2:处理中,3:有效,4:无效 ');
+            $table->string('reason', '64')->nullable()->comment('无效原因');
             $table->text('remark')->nullable()->comment('需求详情');
             $table->string('recorder', 32)->nullable()->comment('客服');
             $table->softDeletes();

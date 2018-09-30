@@ -17,7 +17,7 @@ class Agent extends Model
     ];
 
     protected $appends = [
-        'work_order_cn',
+        'work_order_cn'
     ];
 
     // 用户关联角色
@@ -25,6 +25,7 @@ class Agent extends Model
     {
         return $this->hasOne(AgentRole::class, 'guid', 'role_guid');
     }
+
 
     // 用户关联归属
     public function companyFramework()

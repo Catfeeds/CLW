@@ -26,6 +26,43 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('work_orders', 'WorkOrderController');
 
+        // 手机工单列表
+        Route::get('mobile_list', 'WorkOrderController@mobileList');
+
+        // 手机端工单详情
+        Route::get('mobile_show', 'WorkOrderController@mobileShow');
+
+
+
+        // 管理员分配工单
+        Route::post('allocation','WorkOrderController@allocation');
+
+        // 确认收到工单
+        Route::post('confirm','WorkOrderController@confirm');
+
+        // 工单转有效
+        Route::post('valid','WorkOrderController@valid');
+
+        // 工单转无效
+        Route::post('invalid','WorkOrderController@invalid');
+
+        // 跟进工单
+        Route::post('track','WorkOrderController@track');
+
+        // 回转工单
+        Route::post('rotate','WorkOrderController@rotate');
+
+        // 获取给人员分配工单下拉数据
+        Route::get('get_all_distribution','WorkOrderController@getAllDistribution');
+
+        // 管理层获取下级
+        Route::get('get_agent', 'WorkOrderController@getAgent');
+
+        //回访
+        Route::post('survey', 'EntrustThrowInsController@survey');
+
+        //添加工单
+        Route::post('add_gd', 'EntrustThrowInsController@addGd');
 
         //微信绑定管理
         Route::resource('employees', 'EmployeesController');
@@ -74,6 +111,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         |--------------------------------------------------------------------------
         */
         Route::resource('admins','AdminsController');
+
+        // 客服下发工单
+        Route::post('issue', 'WorkOrderController@issue');
+
+        // 客服重新分配工单
+        Route::post('reset', 'WorkOrderController@reset');
 
         //为现有用户分配角色
         Route::post('distributions', 'AdminsController@distribution');
@@ -312,16 +355,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         //渠道来源构成
         Route::get('constitute_data', 'EntrustThrowInsController@constituteData');
 
-        //回访
-        Route::post('survey', 'EntrustThrowInsController@survey');
-        //添加工单
-        Route::post('add_gd', 'EntrustThrowInsController@addGd');
-        // 管理员分配工单
-        Route::get('allocation','WorkOrderController@allocation');
-        // 确认收到工单
-        Route::get('confirm','WorkOrderController@confirm');
-        // 获取给人员分配工单下拉数据
-        Route::get('get_all_distribution','WorkOrderController@getAllDistribution');
+
     });
 
 
