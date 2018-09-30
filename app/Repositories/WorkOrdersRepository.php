@@ -93,7 +93,8 @@ class WorkOrdersRepository extends Model
         $data['source'] = $workOrder->source_cn;
         $data['created_at'] = $workOrder->created_at->format('Y-m-d H:i:s');
         $data['source_area'] = $workOrder->source_area;
-        $data['demand'] = $workOrder->demand_cn;
+        $data['demand'] = $workOrder->demand;
+        $data['demand_cn'] = $workOrder->demand_cn;
         $data['name'] = $workOrder->name;
         $data['tel'] = $workOrder->tel;
         $data['area'] = $workOrder->area;

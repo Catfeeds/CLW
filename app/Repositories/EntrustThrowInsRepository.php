@@ -4,8 +4,8 @@ namespace App\Repositories;
 
 use App\Handler\Common;
 use App\Models\EntrustThrowIn;
+use App\Models\User;
 use App\Models\WorkOrder;
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class EntrustThrowInsRepository extends Model
