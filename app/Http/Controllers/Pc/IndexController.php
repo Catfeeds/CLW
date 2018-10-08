@@ -63,11 +63,11 @@ class IndexController extends Controller
     )
     {
         $string = "'". $request['selectInfo'] . "'";
-        $res = \DB::select("select building_id from media.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
+        $res = \DB::select("select building_guid from buildings.building_keywords where MATCH(keywords) AGAINST($string IN BOOLEAN MODE)");
         // 获取所有楼盘id
-        $buildingIds = array_column(Common::objectToArray($res), 'building_id');
+        $buildingIds = array_column(Common::objectToArray($res), 'building_guid');
 
-        $res = Building::whereIn('id', $buildingIds)->pluck('name')->toArray();
+        $res = Building::whereIn('guid', $buildingIds)->pluck('name')->toArray();
 
         return $this->sendResponse(collect($res)->map(function ($v) {
             return [
