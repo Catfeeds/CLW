@@ -362,7 +362,7 @@ class WorkOrdersRepository extends Model
             } else {
                 $str = Common::user()->nick_name;
             }
-            $content = '工单结束:'. $request->reason.$str;
+            $content = '工单结束:'. $request->reason.'-'.$str;
             $schedule = Common::addSchedule($request->guid, $content);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
             \DB::commit();
