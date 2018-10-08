@@ -85,7 +85,7 @@ class WorkOrdersRepository extends Model
     }
 
     // 工单详情
-    public function getShow($workOrder, $request)
+    public function getShow($workOrder, $user_guid = null)
     {
         $data = [];
         $data['guid'] = $workOrder->guid;
@@ -109,60 +109,20 @@ class WorkOrdersRepository extends Model
         // 工单未结束
         if ($workOrder->status != 3 && $workOrder->status != 4) {
             // 如果查看人是管理层 并且工单未分配
-            if ($workOrder->manage_guid == $request->user_guid && $workOrder->manage_deal == null) {
+            if ($workOrder->manage_guid == $user_guid && $workOrder->manage_deal == null) {
                 $data['distribution'] = true;
             }
             // 如果查看人是处理人 并且工单未确定
-            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal == null) {
+            if ($workOrder->handle_guid ==$user_guid && $workOrder->handle_deal == null) {
                 $data['determine'] = true;
             }
             // 如果查看人是处理人 并且工单已确定
-            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal != null) {
+            if ($workOrder->handle_guid == $user_guid && $workOrder->handle_deal != null) {
                 $data['operate'] = true;
             }
         }
         return $data;
     }
-
-//    // 工单详情 (手机端)
-//    public function mobileShow($request)
-//    {
-//        $workOrder = WorkOrder::where('guid', $request->guid)->first();
-//        $data = [];
-//        $data['guid'] = $workOrder->guid;
-//        $data['gd_identifier'] = $workOrder->gd_identifier;
-//        $data['source'] = $workOrder->source_cn;
-//        $data['created_at'] = $workOrder->created_at->format('Y-m-d H:i:s');
-//        $data['source_area'] = $workOrder->source_area;
-//        $data['demand'] = $workOrder->demand_cn;
-//        $data['name'] = $workOrder->name;
-//        $data['tel'] = $workOrder->tel;
-//        $data['area'] = $workOrder->area;
-//        $data['building'] = $workOrder->building;
-//        $data['acreage'] = $workOrder->acreage;
-//        $data['price'] = $workOrder->price;
-//        $data['remark'] = $workOrder->remark;
-//        $data['schedule'] = $workOrder->schedule;
-//        $data['distribution'] = false; // 分配
-//        $data['determine'] = false;  // 确定
-//        $data['operate'] = false;  // 操作
-//        // 工单未结束
-//        if ($workOrder->status != 3 || $workOrder->status != 4) {
-//            // 如果查看人是管理层 并且工单未分配
-//            if ($workOrder->manage_guid == $request->user_guid && $workOrder->manage_deal == null) {
-//                $data['distribution'] = true;
-//            }
-//            // 如果查看人是处理人 并且工单未确定
-//            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal == null) {
-//                $data['determine'] = true;
-//            }
-//            // 如果查看人是处理人 并且工单已确定
-//            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal != null) {
-//                $data['operate'] = true;
-//            }
-//        }
-//        return $data;
-//    }
 
     // 投放委托 生成工单/进度
     public function addWorkOrder($request)
@@ -350,14 +310,6 @@ class WorkOrdersRepository extends Model
     // 无效工单
     public function invalid($request)
     {
-        $res =Agent::with('company')->where(['status'=>1,'start_up'=>1,['openid','<>',null],['work_order','<>',null]])
-            ->get();
-        return $res->map(function ($v){
-            return [
-                'value' => $v->guid,
-                'lable' => $v->name . '-' . $v->work_order_cn . '-' . $v->company->name
-            ];
-        });
         \DB::beginTransaction();
         try {
             $res = WorkOrder::where('guid', $request->guid)->first();

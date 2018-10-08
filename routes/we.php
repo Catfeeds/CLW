@@ -36,7 +36,7 @@ Route::resource('throw_ins', 'ThrowInController');
 Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
 
 //委托找房、投放房源
-Route::resource('work_orders', 'WorkOrdersController');
+Route::resource('work_orders', 'WorkOrderController');
 
 // 房源详情页
 Route::resource('houses', 'HouseController');

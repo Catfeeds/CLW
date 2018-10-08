@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\We;
 
 use App\Http\Requests\Admin\WorkOrdersRequest;
+use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
+use App\Services\WorkOrdersService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +22,21 @@ class WorkOrderController extends Controller
         $res = $repository->addWorkOrder($request);
         if (!$res) return $this->sendError('添加失败');
         return $this->sendResponse($res, '添加成功');
+    }
+
+    public function show
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository,
+        WorkOrder $workOrder
+    )
+    {
+        $string = 'chulouwang'.date('Y-m-d',time());
+        // 经纪人guid
+        $user_guid = $repository->getUserGuid($request->openid);
+        $res = $repository->getShow($workOrder, $user_guid);
+        dd($res);
+        return view('we.work_order_detail', ['res' => $res, 'safeString' => $string]);
     }
     
 
