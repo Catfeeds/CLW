@@ -237,16 +237,15 @@ class WorkOrdersRepository extends Model
         $record = Common::user();
         \DB::beginTransaction();
         try {
-            $res = WorkOrder::where('guid', $request->guid)
-                ->update([
-                    'recorder' => $record->nick_name,
-                    'issue' => $this->time,
-                    'manage_guid' => $request->manage_guid,
-                    'manage_deal' => null,
-                    'handle_guid' => null,
-                    'handle_deal' => null
-                ]);
-            if (!$res) throw new \Exception('工单下发失败');
+            $res = WorkOrder::where('guid', $request->guid)->first();
+            $res->recorder = $record->nick_name;
+            $res->issue = $this->time;
+            $res->manage_guid = $request->manage_guid;
+            $res->manage_deal = null;
+            $res->handle_guid = null;
+            $res->handle_deal = null;
+
+            if (!$res->save()) throw new \Exception('工单下发失败');
 
             // 添加工单进度
             $str = $this->getUser($request->manage_guid);
@@ -273,12 +272,11 @@ class WorkOrdersRepository extends Model
     {
         \DB::beginTransaction();
         try {
-            $res = WorkOrder::where('guid',$request->guid)
-                            ->update([
-                                'handle_guid' => $request->handle_guid,
-                                'manage_deal' => $this->time,
-                            ]);
-            if (!$res) throw new \Exception('工单分配失败');
+            $res = WorkOrder::where('guid',$request->guid)->first();
+            $res->handle_guid = $request->handle_guid;
+            $res->manage_deal = $this->time;
+
+            if (!$res->save()) throw new \Exception('工单分配失败');
 
             // 添加工单进度
             $content = '工单分配给'.$this->getUser($request->handle_guid);
