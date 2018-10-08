@@ -72,15 +72,16 @@ class WorkOrderController extends APIBaseController
     public function issue
     (
         WorkOrdersRequest $request,
-        WorkOrdersRepository $repository
+        WorkOrdersRepository $repository,
+        WorkOrdersService $service
     )
     {
         $res = $repository->issue($request);
-        //        $openid = $service->getOpenid($res->manage_guid);
-//        // 如果openid存在 发送消息 并且更新成功
-//        if ($openid && $res) {
-//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'));
-//        }
+        $openid = $service->getOpenid($res->manage_guid);
+        // 如果openid存在 发送消息 并且更新成功
+        if ($openid && $res) {
+            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid);
+        }
         if (!$res) return $this->sendError('工单分配失败');
         return $this->sendResponse($res, '工单分配成功');
     }
@@ -89,15 +90,16 @@ class WorkOrderController extends APIBaseController
     public function reset
     (
         WorkOrdersRequest $request,
-        WorkOrdersRepository $repository
+        WorkOrdersRepository $repository,
+        WorkOrdersService $service
     )
     {
         $res = $repository->reset($request);
-        //        $openid = $service->getOpenid($res->manage_guid);
-//        // 如果openid存在 发送消息 并且更新成功
-//        if ($openid && $res) {
-//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'));
-//        }
+        $openid = $service->getOpenid($res->manage_guid);
+        // 如果openid存在 发送消息 并且更新成功
+        if ($openid && $res) {
+            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid);
+        }
         if (!$res) return $this->sendError('工单分配失败');
         return $this->sendResponse($res, '工单分配成功');
     }
@@ -106,15 +108,16 @@ class WorkOrderController extends APIBaseController
     public function allocation
     (
         WorkOrdersRequest $request,
-        WorkOrdersRepository $repository
+        WorkOrdersRepository $repository,
+        WorkOrdersService $service
     )
     {
         $res = $repository->allocation($request);
-        //        $openid = $service->getOpenid($res->handle_guid);
-//        // 如果openid存在 发送消息 并且更新成功
-//        if ($openid && $res) {
-//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'));
-//        }
+        $openid = $service->getOpenid($res->handle_guid);
+        // 如果openid存在 发送消息 并且更新成功
+        if ($openid && $res) {
+            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid);
+        }
         if (!$res) return $this->sendError('工单分配失败');
         return $this->sendResponse($res,'工单分配成功');
     }
@@ -176,11 +179,11 @@ class WorkOrderController extends APIBaseController
     )
     {
         $res = $repository->rotate($request);
-//        $openid = $service->getOpenid($res->manage_guid);
-//        // 如果openid存在 发送消息 并且更新成功
-//        if ($openid && $res) {
-//            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), '工单回转');
-//        }
+        $openid = $service->getOpenid($res->manage_guid);
+        // 如果openid存在 发送消息 并且更新成功
+        if ($openid && $res) {
+            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid);
+        }
         if (!$res) return $this->sendError('工单回转失败');
         return $this->sendResponse($res, '工单回转成功');
     }

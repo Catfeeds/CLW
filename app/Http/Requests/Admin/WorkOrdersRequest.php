@@ -59,17 +59,17 @@ class WorkOrdersRequest extends FormRequest
                 ];
             case'issue':
                 return [
-                    'manage_guid' => 'required|exists:saas.users,guid',
+                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case'reset':
                 return [
-                    'manage_guid' => 'required|exists:saas.users,guid',
+                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'allocation':
                 return [
-                    'handle_guid' => 'required|exists:sass.user,id',
+                    'handle_guid' => 'required|exists:chulou-saas.users,guid',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'confirm':
@@ -87,7 +87,7 @@ class WorkOrdersRequest extends FormRequest
                 }
                 return [
                     'guid' => 'required|exists:work_orders,guid',
-                    'identifier' => 'required|exists:saas.'.$table.','.$field
+                    'identifier' => 'required|exists:chulou-saas.'.$table.','.$field
 
                 ];
             case 'invalid':
