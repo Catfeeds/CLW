@@ -18,45 +18,45 @@
   <div class="detail-info">
     <div class="detail-row">
       <span class="detail-row-title">工单编号</span><span>：</span>
-      <span class="detail-color">gd20180718073</span>
+      <span class="detail-color">{{$res['gd_identifier']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">开始时间</span><span>：</span>
-      <span class="detail-color">2017-04-01-8：00</span>
+      <span class="detail-color">{{$res['created_at']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">工单类型</span><span>：</span>
-      <span class="detail-color">投放房源</span>
+      <span class="detail-color">{{$res['demand_cn']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">区域</span><span>：</span>
-      <span class="detail-color">武昌区，汉口</span>
+      <span class="detail-color">{{$res['area']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">楼盘</span><span>：</span>
-      <span class="detail-color">光谷软件园，世贸中心</span>
+      <span class="detail-color">{{$res['building']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">面积</span><span>：</span>
-      <span class="detail-color">1000m²</span>
+      <span class="detail-color">{{$res['acreage']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">价格</span><span>：</span>
-      <span class="detail-color">80-100 元/m²月</span>
+      <span class="detail-color">{{$res['price']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">需求详情</span><span>：</span>
-      <span class="detail-remark">武汉主城区地铁口，200平方米，带办公家具，单独场地，整洁。</span>
+      <span class="detail-remark">{{$res['remark']}}</span>
     </div>
   </div>
   <div class="detail-concat">
     <div class="detail-name">
       <span class="detail-row-title">姓名</span><span>：</span>
-      <span class="detail-color">易盼</span>
+      <span class="detail-color">{{$res['name']}}</span>
     </div>
     <div class="detail-phone">
       <span class="detail-row-title">手机号</span><span>：</span>
-      <span class="detail-phone-color">17508642013</span>
+      <span class="detail-phone-color">{{$res['tel']}}</span>
     </div>
   </div>
   <!-- 分配工单 -->
