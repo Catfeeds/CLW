@@ -5,13 +5,18 @@ namespace App\Http\Controllers\We;
 use App\Http\Requests\Admin\WorkOrdersRequest;
 use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
-use App\Services\WorkOrdersService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class WorkOrderController extends Controller
 {
+
+    public function index()
+    {
+        return '您的工单列表';
+    }
+
     // 投放委托
     public function store
     (
@@ -24,6 +29,7 @@ class WorkOrderController extends Controller
         return $this->sendResponse($res, '添加成功');
     }
 
+    // 工单详情
     public function show
     (
         WorkOrdersRequest $request,

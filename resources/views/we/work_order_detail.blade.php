@@ -75,11 +75,13 @@
   <div class="detail-title">工单进度</div>
   <div class="detail-step">
     <el-steps direction="vertical" :active="1" space="50px">
+      @foreach ($info as $res['schedule'])
       <el-step>
         <div slot="icon"></div>
         <div slot="title">明天去看客户的房子(<span class="agentStyle">雷洋-汉街店</span>-经纪人）</div>
         <div slot="description">2017-04-01 12:00:00</div>
       </el-step>
+      @endforeach
       <el-step>
         <div slot="icon"></div>
         <div slot="title">明天去看客户的房子(<span class="agentStyle">雷洋-汉街店</span>-经纪人）</div>

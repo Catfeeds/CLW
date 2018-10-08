@@ -21,15 +21,9 @@ Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () 
     \Composer\Autoload\includeFile(__DIR__ . '/we.php');
 });
 
-//业务员
-Route::get('work_order_salesman', 'We\WorkOrderController@salesman');
+// 工单(手机端页面)
+Route::resource('work_orders', 'We\WorkOrderController');
 
-// 店长
-Route::get('work_order_shopowner', 'We\WorkOrderController@shopwner');
-// 工单详情
-Route::get('work_order_detail', 'We\WorkOrderController@show');
-// 工单管理列表
-Route::get('work_order_list', 'We\WorkOrderController@list');
 // 楚楼网官网
 Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/home.php');
