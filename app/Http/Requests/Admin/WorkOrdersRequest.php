@@ -16,6 +16,26 @@ class WorkOrdersRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        switch ($this->route()->getActionMethod()) {
+            case 'valid':
+                if ($this->demand == 1) {
+                    $str = '房源编号无效';
+                }else {
+                    $str = '客源编号无效';
+                }
+                return [
+                    'identifier.exists' => $str
+                ];
+            default:
+                {
+                    return [];
+                }
+        }
+
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -39,17 +59,17 @@ class WorkOrdersRequest extends FormRequest
                 ];
             case'issue':
                 return [
-                    'manage_guid' => 'required|exists:sass.users,guid',
+                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case'reset':
                 return [
-                    'manage_guid' => 'required|exists:sass.users,guid',
+                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'allocation':
                 return [
-                    'handle_guid' => 'required|exists:sass.user,id',
+                    'handle_guid' => 'required|exists:chulou-saas.users,guid',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'confirm':
@@ -58,9 +78,17 @@ class WorkOrdersRequest extends FormRequest
                 ];
 
             case 'valid':
+                if ($this->demand == 1) {
+                    $table = 'houses';
+                    $field = 'house_identifier';
+                } else {
+                    $table = 'customers';
+                    $field = 'guid';
+                }
                 return [
                     'guid' => 'required|exists:work_orders,guid',
-                    'identifier' => 'required'
+                    'identifier' => 'required|exists:chulou-saas.'.$table.','.$field
+
                 ];
             case 'invalid':
                 return [

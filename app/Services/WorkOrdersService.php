@@ -9,24 +9,25 @@ use App\Models\CompanyFramework;
 class WorkOrdersService
 {
     // 发送工单消息
-    public function send($openid, $identifier, $demand, $time, $title = '工单通知')
+    public function send($openid, $identifier, $demand, $remark, $time, $guid)
     {
         $data['openid'] = json_encode(array($openid));
         $data['identifier'] = $identifier;
         $data['demand'] = $demand;
+        $data['remark'] = $remark;
         $data['time'] = $time;
-        $data['title'] = $title;
-        return curl(config('setting.wechat_url').'/new_custom_notice','post', $data);
+        $data['guid'] = $guid;
+        return curl(config('setting.wechat_url').'/work_order_notice','post', $data);
     }
 
     // 获取给人员分配工单下拉数据
     public function getAllDistribution()
     {
-        $res =Agent::with('company')
-                    ->where(['status'=>1,'start_up'=>1,['openid', '!=', '']])
-                    ->where('work_order','!=', '')
+        $res = Agent::with('company')
+                    ->where(['status' => 1, 'start_up' => 1])
+                    ->where('openid','!=','')
+                    ->where('work_order','!=','')
                     ->get();
-
         return $res->map(function ($v){
             return [
                 'value' => $v->guid,
