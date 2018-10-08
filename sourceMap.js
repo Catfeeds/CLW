@@ -34,7 +34,8 @@ module.exports = {
       'we_user_setting',
       'we_work',
       'we_appDownload',
-      'we_work_order_detail'
+      'we_work_order_detail',
+      'we_work_order_list'
     ],
     // js 文件
     js: [
@@ -60,7 +61,8 @@ module.exports = {
       'we_work_order_shopowner',
       'we_work_order_salesman',
       'we_appDownload',
-      'we_work_order_detail'
+      'we_work_order_detail',
+      'we_work_order_list'
     ],
     vendorName: 'we_vendor', // 自定义vendor文件名
     manifestName: 'we_manifest',// 自定义manifest文件名

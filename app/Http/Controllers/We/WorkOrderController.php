@@ -42,4 +42,10 @@ class WorkOrderController extends Controller
         $safeString = Hash::make($string);
         return view('we.work_order_detail', ['safeString'=>$safeString]);
     }
+    public function list(Request $request)
+    {
+        $string = 'chulouwang'.date('Y-m-d',time());
+        $safeString = Hash::make($string);
+        return view('we.work_order_list', ['safeString'=>$safeString]);
+    }
 }
