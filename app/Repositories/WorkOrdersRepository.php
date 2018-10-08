@@ -191,7 +191,7 @@ class WorkOrdersRepository extends Model
             $schedule = Common::addSchedule($workOrder->guid, $content);
             if (empty($schedule)) throw new \Exception('工单进度生成失败');
             \DB::commit();
-            return true;
+            return $workOrder;
         } catch (\Exception $exception) {
             \DB::rollback();
             \Log::error('添加失败'.$exception->getMessage());
