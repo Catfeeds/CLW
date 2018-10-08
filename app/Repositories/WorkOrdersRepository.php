@@ -350,14 +350,6 @@ class WorkOrdersRepository extends Model
     // 无效工单
     public function invalid($request)
     {
-        $res =Agent::with('company')->where(['status'=>1,'start_up'=>1,['openid','<>',null],['work_order','<>',null]])
-            ->get();
-        return $res->map(function ($v){
-            return [
-                'value' => $v->guid,
-                'lable' => $v->name . '-' . $v->work_order_cn . '-' . $v->company->name
-            ];
-        });
         \DB::beginTransaction();
         try {
             $res = WorkOrder::where('guid', $request->guid)->first();
@@ -365,7 +357,11 @@ class WorkOrdersRepository extends Model
             $res->status = 4;
             if (!$res->save()) throw new \Exception('操作失败');
             // 添加工单进度
-            $str = $this->getUser($res->handle_guid);
+            if ($res->handle_guid) {
+                $str = $this->getUser($res->handle_guid);
+            } else {
+                $str = Common::user()->nick_name;
+            }
             $content = '工单结束:'. $request->reason.$str;
             $schedule = Common::addSchedule($request->guid, $content);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');

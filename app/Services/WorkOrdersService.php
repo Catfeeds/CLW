@@ -71,5 +71,5 @@ class WorkOrdersService
     {
         return Agent::where('guid', $guid)->value('openid');
     }
-
+    
 }
