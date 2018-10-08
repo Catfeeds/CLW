@@ -121,6 +121,9 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
 
     //委托找房、投放房源
     Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
+
+    //委托找房、投放房源
+    Route::resource('work_orders', 'WorkOrdersController');
     /*
     |--------------------------------------------------------------------------
     | 区域
