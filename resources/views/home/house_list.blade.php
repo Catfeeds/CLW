@@ -221,7 +221,7 @@
                                                         </li>
                                                     @endforeach
                                                     @if(count($data->pc_house)>2)
-                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->id}}}" target="_blank">更多...</a></li>
+                                                    <li class="f_l"><a href="{{url('/buildings').'/'.$data->guid}}" target="_blank">更多...</a></li>
                                                     @endif    
                                                 </ul>
                                             </div>
@@ -301,7 +301,7 @@
                                                                 </a>
                                                             </li>
                                                         @endforeach
-                                                        <li class="f_l"><a href="{{url('/buildings').'/'.$data['id']}}}">更多...</a>
+                                                        <li class="f_l"><a href="{{url('/buildings').'/'.$data['guid']}}">更多...</a>
                                                         </li>
                                                     </ul>
                                                 </div>
