@@ -2,12 +2,26 @@
 
 namespace App\Http\Controllers\We;
 
+use App\Http\Requests\Admin\WorkOrdersRequest;
+use App\Repositories\WorkOrdersRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class WorkOrderController extends Controller
 {
+    // 投放委托
+    public function store
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->addWorkOrder($request);
+        if (!$res) return $this->sendError('添加失败');
+        return $this->sendResponse($res, '添加成功');
+    }
+    
 
     /**
      * 说明: 业务员 工单处理页面

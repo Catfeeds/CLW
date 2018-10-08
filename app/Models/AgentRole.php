@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AgentRole extends Model
 {
-    protected $connection = 'saas';
+    protected $connection = 'chulou-saas';
 
     protected $table = 'roles';
 }

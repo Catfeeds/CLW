@@ -93,7 +93,8 @@ class WorkOrdersRepository extends Model
         $data['source'] = $workOrder->source_cn;
         $data['created_at'] = $workOrder->created_at->format('Y-m-d H:i:s');
         $data['source_area'] = $workOrder->source_area;
-        $data['demand'] = $workOrder->demand_cn;
+        $data['demand'] = $workOrder->demand;
+        $data['demand_cn'] = $workOrder->demand_cn;
         $data['name'] = $workOrder->name;
         $data['tel'] = $workOrder->tel;
         $data['area'] = $workOrder->area;
@@ -202,18 +203,14 @@ class WorkOrdersRepository extends Model
     public function issue($request)
     {
         $record = Common::user();
-
         \DB::beginTransaction();
         try {
-            $res = WorkOrder::where('guid', $request->guid)
-                            ->update([
-                                'recorder' => $record->nick_name,
-                                'issue' => $this->time,
-                                'manage_guid' => $request->manage_guid,
-                                'status' => '2'
-                            ]);
-            if (!$res) throw new \Exception('工单下发失败');
-
+            $res = WorkOrder::where('guid', $request->guid)->first();
+            $res->recorder = $record->nick_name;
+            $res->issue = $this->time;
+            $res->manage_guid = $request->manage_guid;
+            $res->status = 2;
+            if (!$res->save()) throw new \Exception('工单下发失败');
             $str = $this->getUser($request->manage_guid);
             $content = '客服'. $record->nick_name.'将工单分配给'.$str;
             // 添加工单进度
@@ -226,7 +223,7 @@ class WorkOrdersRepository extends Model
                    if (empty($partake)) throw new \Exception('参与人添加失败');
             }
             \DB::commit();
-            return true;
+            return $res;
         } catch (\Exception $exception) {
             \DB::rollback();
             \Log::error('工单下发失败'.$exception->getMessage());
@@ -263,7 +260,7 @@ class WorkOrdersRepository extends Model
                 if (empty($partake)) throw new \Exception('参与人添加失败');
             }
             \DB::commit();
-            return true;
+            return $res;
         } catch (\Exception $exception) {
             \DB::rollback();
             \Log::error('工单下发失败'.$exception->getMessage());
@@ -294,7 +291,7 @@ class WorkOrdersRepository extends Model
                 if (empty($partake)) throw new \Exception('参与人添加失败');
             }
             \DB::commit();
-            return true;
+            return $res;
         } catch (\Exception $exception) {
             \DB::rollback();
             \Log::error('添加失败'.$exception->getMessage());

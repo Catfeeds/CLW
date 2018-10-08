@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CompanyFramework extends Model
 {
-    protected $connection = 'saas';
+    protected $connection = 'chulou-saas';
 
     protected $table = 'company_frameworks';
 

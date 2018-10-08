@@ -8,14 +8,16 @@ use App\Models\CompanyFramework;
 
 class WorkOrdersService
 {
-    // 工单添加发送微信消息
-    public function send($openid, $name, $tel, $staff = false)
+    // 发送工单消息
+    public function send($openid, $identifier, $demand, $remark, $time, $guid)
     {
         $data['openid'] = json_encode(array($openid));
-        $data['name'] = $name;
-        $data['tel'] = $tel;
-        $data['staff'] = $staff;
-        return curl(config('setting.wechat_url').'/new_custom_notice','post', $data);
+        $data['identifier'] = $identifier;
+        $data['demand'] = $demand;
+        $data['remark'] = $remark;
+        $data['time'] = $time;
+        $data['guid'] = $guid;
+        return curl(config('setting.wechat_url').'/work_order_notice','post', $data);
     }
 
     // 获取给人员分配工单下拉数据
@@ -62,6 +64,12 @@ class WorkOrdersService
                 'value' => $v->guid,
             ];
         });
+    }
+
+    // 获取经纪人openid
+    public function getOpenid($guid)
+    {
+        return Agent::where('guid', $guid)->value('openid');
     }
 
 }

@@ -32,8 +32,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 手机端工单详情
         Route::get('mobile_show', 'WorkOrderController@mobileShow');
 
-
-
         // 管理员分配工单
         Route::post('allocation','WorkOrderController@allocation');
 

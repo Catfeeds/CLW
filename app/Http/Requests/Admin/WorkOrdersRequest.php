@@ -16,6 +16,26 @@ class WorkOrdersRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        switch ($this->route()->getActionMethod()) {
+            case 'valid':
+                if ($this->demand == 1) {
+                    $str = '房源编号无效';
+                }else {
+                    $str = '客源编号无效';
+                }
+                return [
+                    'identifier.exists' => $str
+                ];
+            default:
+                {
+                    return [];
+                }
+        }
+
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -37,22 +57,53 @@ class WorkOrdersRequest extends FormRequest
                     'price' => 'nullable',
                     'remark' => 'nullable'
                 ];
-            case 'distribution':
+            case'issue':
                 return [
-                    'staff_guid' => 'required|exists:saas.users,guid'
+                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
-            case 'feedback':
+            case'reset':
                 return [
-                    'feedback' => 'required',
-                    'valid' => 'required'
+                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'allocation':
                 return [
-                    'handle_guid' => 'required'
+                    'handle_guid' => 'required|exists:chulou-saas.users,guid',
+                    'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'confirm':
                 return [
+                    'guid' => 'required|exists:work_orders,guid',
+                ];
 
+            case 'valid':
+                if ($this->demand == 1) {
+                    $table = 'houses';
+                    $field = 'house_identifier';
+                } else {
+                    $table = 'customers';
+                    $field = 'guid';
+                }
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'identifier' => 'required|exists:chulou-saas.'.$table.','.$field
+
+                ];
+            case 'invalid':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'reason' => 'required'
+                ];
+            case 'track':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'track' => 'required'
+                ];
+            case 'rotate':
+                return [
+                    'guid' => 'required|exists:work_orders,guid',
+                    'reason' => 'required'
                 ];
             default:
                 {
