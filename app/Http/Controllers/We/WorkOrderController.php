@@ -22,6 +22,7 @@ class WorkOrderController extends Controller
         $user_guid = $repository->getUserGuid($request->openid);
         $string = 'chulouwang'.date('Y-m-d',time());
         $string = Hash::make($string);
+        dd($user_guid);
         return view('we.work_order_list', ['user_guid' => $user_guid, 'safeString' => $string]);
     }
 

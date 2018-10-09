@@ -14,6 +14,7 @@
 </head>
 <body>
 <div class="list-content">
+  <div id="userGuid" style="display:none">{{$user_guid}}</div>
   <mt-navbar v-model="selected" :fixed="isfixed">
     <mt-tab-item id="1">处理中</mt-tab-item>
     <mt-tab-item id="2">已关闭</mt-tab-item>

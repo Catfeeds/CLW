@@ -70,6 +70,8 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["Loadmore"].name, __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Loadmore"]);
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a);
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["InfiniteScroll"]);
+var user_guid = $('#userGuid')[0].innerHTML;
+console.log('user_guid', $('#userGuid')[0].innerHTML);
 var list = new __WEBPACK_IMPORTED_MODULE_3_vue___default.a({
   el: '.list-content',
   data: {

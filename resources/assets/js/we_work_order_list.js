@@ -8,6 +8,8 @@ Vue.component(TabContainerItem.name, TabContainerItem)
 Vue.component(Loadmore.name, Loadmore)
 Vue.component(Icon.name, Icon)
 Vue.use(InfiniteScroll)
+const user_guid = $('#userGuid')[0].innerHTML
+console.log('user_guid', $('#userGuid')[0].innerHTML)
 const list = new Vue({
   el: '.list-content',
   data: {
