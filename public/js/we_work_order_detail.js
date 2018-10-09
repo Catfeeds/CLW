@@ -97,21 +97,54 @@ var getState = function getState(val) {
     __WEBPACK_IMPORTED_MODULE_8_mint_ui__["MessageBox"].prompt('有效', '', { inputPlaceholder: '请输入房源或客源编号', inputType: 'textarea',
       inputValidator: function inputValidator(val) {
         if (val === null || val === '') {
-          return false;
+          return true;
         }
       }, inputErrorMessage: '输入框内容不能为空'
     }).then(function (_ref) {
       var value = _ref.value,
           action = _ref.action;
 
-      status(1, 'valid', value);
+      status(1, 'identifier', value);
     });
   } else if (val.id === 2) {
-    console.log(11111);
+    __WEBPACK_IMPORTED_MODULE_8_mint_ui__["MessageBox"].prompt('无效', '', { inputPlaceholder: '请输入无效原因', inputType: 'textarea',
+      inputValidator: function inputValidator(val) {
+        if (val === null || val === '') {
+          return true;
+        }
+      }, inputErrorMessage: '输入框内容不能为空'
+    }).then(function (_ref2) {
+      var value = _ref2.value,
+          action = _ref2.action;
+
+      status(2, 'reason', value);
+    });
   } else if (val.id === 3) {
-    console.log(11111);
+    __WEBPACK_IMPORTED_MODULE_8_mint_ui__["MessageBox"].prompt('跟进', '', { inputPlaceholder: '请输入跟进内容', inputType: 'textarea',
+      inputValidator: function inputValidator(val) {
+        if (val === null || val === '') {
+          return true;
+        }
+      }, inputErrorMessage: '输入框内容不能为空'
+    }).then(function (_ref3) {
+      var value = _ref3.value,
+          action = _ref3.action;
+
+      status(3, 'track', value);
+    });
   } else if (val.id === 4) {
-    console.log(11111);
+    __WEBPACK_IMPORTED_MODULE_8_mint_ui__["MessageBox"].prompt('转发', '', { inputPlaceholder: '请输入转发原因', inputType: 'textarea',
+      inputValidator: function inputValidator(val) {
+        if (val === null || val === '') {
+          return false;
+        }
+      }, inputErrorMessage: '输入框内容不能为空'
+    }).then(function (_ref4) {
+      var value = _ref4.value,
+          action = _ref4.action;
+
+      status(4, 'reason', value);
+    });
   }
 };
 var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
@@ -129,11 +162,11 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
       id: 2,
       method: getState
     }, {
-      name: '转发',
+      name: '跟进',
       id: 3,
       method: getState
     }, {
-      name: '跟进',
+      name: '转发',
       id: 4,
       method: getState
     }]
@@ -247,7 +280,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
 
 function status(id, param, val) {
   var api = '';
-  var params = param;
+  var formData = {};
+  formData[param] = val;
+  formData.handle_guid = user_guid;
+  formData.guid = guid;
   if (id === 1) {
     api = '/valid';
   } else if (id === 2) {
@@ -257,13 +293,14 @@ function status(id, param, val) {
   } else if (id === 4) {
     api = '/rotate';
   }
+
   $.ajax({
     headers: {
       'safeString': $('meta[name="safeString"]').attr('content')
     },
     url: url + api,
     type: 'post',
-    data: { handle_guid: user_guid, guid: guid, params: val },
+    data: formData,
     success: function success(data) {
       if (data.success) {
         $('.detail-choice-agent').find('span').html('选择经纪人');
@@ -272,6 +309,7 @@ function status(id, param, val) {
           position: 'center',
           duration: 1000
         });
+        window.location.reload();
       }
     },
     error: function error(res) {

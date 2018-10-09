@@ -281,7 +281,9 @@ class WorkOrdersRepository extends Model
     {
         \DB::beginTransaction();
         try {
+            dd(123);
             $res = WorkOrder::where('guid', $request->guid)->first();
+            dd($res);
             $res->identifier = $request->identifier;
             $res->status = 3;
             if (!$res->save()) throw new \Exception('操作失败');
