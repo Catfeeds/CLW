@@ -63,18 +63,24 @@
     </div>
   </div>
   <!-- 分配工单 -->
-  <!-- <div class="detail-choice">
+  @if($res['distribution'])
+  <div class="detail-choice">
     <div class="detail-choice-agent" @click="isShow"><span>选择经纪人</span><i class="el-icon-arrow-down"></i></div>
     <div class="detail-confirm" @click="confirm">确认分配</div>
-  </div> -->
+  </div>
+  @endif
   <!-- 确定工单 -->
+  @if($res['determine'])
   <div class="detail-choice">
     <div class="detail-confirm" @click="confirmGet">确定收到工单</div>
   </div>
+  @endif
   <!-- 处理工单 -->
-  <!-- <div class="detail-choice">
+  @if($res['operate'])
+  <div class="detail-choice">
     <div class="detail-confirm" @click="operate">选择操作<i class="el-icon-arrow-down"></i></div>
-  </div> -->
+  </div>
+  @endif
   <div class="detail-title">工单进度</div>
   <div class="detail-step">
     <el-steps direction="vertical" :active="1" space="100px">
@@ -91,6 +97,11 @@
     :actions="actions"
     cancel-text=""
     v-model="sheetVisible">
+  </mt-actionsheet>
+  <mt-actionsheet
+    :actions="actions2"
+    cancel-text=""
+    v-model="sheetVisible1">
   </mt-actionsheet>
 </div>
 <script src="{{res('/js/we_work_order_detail.js')}}"></script>
