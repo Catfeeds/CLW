@@ -23,18 +23,6 @@ class WorkOrderController extends Controller
         return view('we.work_order_list', ['openid' => $openid, 'string' => $string]);
     }
 
-    // 投放委托
-    public function store
-    (
-        WorkOrdersRequest $request,
-        WorkOrdersRepository $repository
-    )
-    {
-        $res = $repository->addWorkOrder($request);
-        if (!$res) return $this->sendError('添加失败');
-        return $this->sendResponse($res, '添加成功');
-    }
-
     // 工单详情
     public function show
     (
@@ -47,7 +35,7 @@ class WorkOrderController extends Controller
         // 经纪人guid
         $user_guid = $repository->getUserGuid($request->openid);
         $res = $repository->getShow($workOrder, $user_guid);
-        return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'guid' => $user_guid]);
+        return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid]);
     }
     
     /**
