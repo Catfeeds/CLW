@@ -78,6 +78,22 @@ body{
       margin: 0 auto;
     }
   }
+  .mint-actionsheet-listitem{
+    border-bottom: solid 1px #eeeded;
+    font-size: 14px;
+    color: #333;
+    height: 50px;
+    line-height: 50px;
+  }
+  .mint-actionsheet-list{
+    background: #fff;
+    height: 300px;
+    overflow-y: scroll;
+    border-radius: 15px 15px 0px 0px;
+  }
+  .mint-actionsheet{
+    background: none;
+  }
   .el-step__main{
     flex: 1;
   }
