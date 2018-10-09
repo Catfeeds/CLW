@@ -12,21 +12,15 @@ use Illuminate\Support\Facades\Hash;
 class WorkOrderController extends Controller
 {
 
-    public function index()
-    {
-        return '您的工单列表';
-    }
-
-    // 投放委托
-    public function store
+    // 手机工单列表
+    public function index
     (
-        WorkOrdersRequest $request,
-        WorkOrdersRepository $repository
+        WorkOrdersRequest $request
     )
     {
-        $res = $repository->addWorkOrder($request);
-        if (!$res) return $this->sendError('添加失败');
-        return $this->sendResponse($res, '添加成功');
+        $openid = $request->openid;
+        $string = 'chulouwang'.date('Y-m-d',time());
+        return view('we.work_order_list', ['openid' => $openid, 'string' => $string]);
     }
 
     // 工单详情
@@ -41,11 +35,10 @@ class WorkOrderController extends Controller
         // 经纪人guid
         $user_guid = $repository->getUserGuid($request->openid);
         $res = $repository->getShow($workOrder, $user_guid);
-        dd($res);
-        return view('we.work_order_detail', ['res' => $res, 'safeString' => $string]);
+        // dd($user_guid);
+        return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid]);
     }
     
-
     /**
      * 说明: 业务员 工单处理页面
      *
@@ -58,31 +51,5 @@ class WorkOrderController extends Controller
         $safeString = Hash::make($string);
          if (!$request->openid) return '缺少参数';
         return view('we.work_order_salesman', ['openid'=>$request->openid, 'safeString'=>$safeString]);
-    }
-
-    /**
-     * 说明: 店长 工单处理页面
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @author wh
-     */
-    public function shopwner(Request $request)
-    {
-        $string = 'chulouwang'.date('Y-m-d',time());
-        $safeString = Hash::make($string);
-        if (!$request->openid) return '缺少参数';
-        return view('we.work_order_shopowner', ['openid'=>$request->openid, 'safeString'=>$safeString]);
-    }
-    public function detail(Request $request)
-    {
-        $string = 'chulouwang'.date('Y-m-d',time());
-        $safeString = Hash::make($string);
-        return view('we.work_order_detail', ['safeString'=>$safeString]);
-    }
-    public function list(Request $request)
-    {
-        $string = 'chulouwang'.date('Y-m-d',time());
-        $safeString = Hash::make($string);
-        return view('we.work_order_list', ['safeString'=>$safeString]);
     }
 }

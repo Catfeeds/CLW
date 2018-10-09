@@ -14,6 +14,7 @@
 </head>
 <body>
 <div id="detail-body">
+  <div id="userGuid" style="display:none">{{$user_guid}}</div>
   <div class="detail-title">工单详情</div>
   <div class="detail-info">
     <div class="detail-row">
@@ -82,16 +83,6 @@
         <div slot="description" style="margin-top:5px">{{$item->created_at}}</div>
       </el-step>
       @endforeach
-      <!-- <el-step>
-        <div slot="icon"></div>
-        <div slot="title">明天去看客户的房子(<span class="agentStyle">雷洋-汉街店</span>-经纪人）</div>
-        <div slot="description">2017-04-01 12:00:00</div>
-      </el-step>
-      <el-step>
-        <div slot="icon"></div>
-        <div slot="title">明天去看客户的房子(<span class="agentStyle">雷洋-汉街店</span>-经纪人）</div>
-        <div slot="description">2017-04-01 12:00:00</div>
-      </el-step> -->
     </el-steps>
   </div>
   <mt-actionsheet

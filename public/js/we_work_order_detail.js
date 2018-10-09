@@ -81,12 +81,19 @@ __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_4_element_ui_lib_step___default.a.name, __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_step___default.a);
 __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a);
 __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Actionsheet"].name, __WEBPACK_IMPORTED_MODULE_8_mint_ui__["Actionsheet"]);
+var user_guid = $('#userGuid')[0].innerHTML;
+var url = 'http://192.168.0.199:3000' + '/api/admin';
+console.log('sssss', user_guid);
 var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
   el: '#detail-body',
   data: {
     sheetVisible: false,
     actions: []
   },
+  created: function created() {
+    getAgent();
+  },
+
   methods: {
     isShow: function isShow() {
       this.sheetVisible = true;
@@ -107,10 +114,10 @@ function getAgent() {
     headers: {
       'safeString': $('meta[name="safeString"]').attr('content')
     },
-    url: url + "/get_all_distribution",
+    url: url + "/get_all_distribution/" + user_guid,
     type: 'get',
-    data: FormData,
     success: function success(data) {
+      console.log('不知道是不是', data);
       if (data.success) {
         Toast({
           message: data.message,

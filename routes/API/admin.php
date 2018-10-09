@@ -56,29 +56,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 管理层获取下级
         Route::get('get_agent', 'WorkOrderController@getAgent');
 
-        //回访
-        Route::post('survey', 'EntrustThrowInsController@survey');
-
-        //添加工单
-        Route::post('add_gd', 'EntrustThrowInsController@addGd');
-
-        //微信绑定管理
-        Route::resource('employees', 'EmployeesController');
-
-        //换绑微信
-        Route::post('update_wechat', 'EmployeesController@updateWechat');
-
-        //--------- 中介系统权限管理
-        // 权限组管理
-        Route::resource('permission_groups','PermissionGroupsController');
-        // 权限管理
-        Route::resource('permissions','PermissionsController');
-        Route::get('permissions_group', 'PermissionsController@permissionsGroup');
-        // 角色管理
-        Route::resource('roles','RolesController');
-        Route::get('get_all_permissions', 'RolesController@getAllPermissions');
-        //-------
-
         //------  CLW后台权限管理
         // 权限组管理
         Route::resource('backstage_permission_groups','BackstagePermissionGroupsController');
@@ -90,10 +67,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('backstage_get_all_permissions', 'BackstageRolesController@getAllPermissions');
         Route::get('get_roles','BackstageRolesController@getRoles');
         //------
-
-
-        // 中介用户
-        Route::resource('media_user','MediaUsersController');
 
         // 七牛token
         Route::get('/get_qi_niu_token', 'BannerController@token');
@@ -264,24 +237,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
          */
         Route::resource('sys_logs', 'SysLogController');
 
-        //消息类型管理
-        Route::resource('message_types', 'MessageTypesController');
-
-        //消息发送管理
-        Route::resource('accept_message', 'AcceptMessagesController');
-        //获取员工下拉数据
-        Route::get('select_users', 'AcceptMessagesController@getSelectUsers');
-
-        //获取绑定消息的员工
-        Route::get('get_binding/{type}', 'AcceptMessagesController@getBinding');
-
-
-        //生成二维码
-        Route::post('code', 'EmployeesController@code');
-
-        //慢查询
-        Route::post('query', 'QueryController@create');
-
         /*
         |--------------------------------------------------------------------------
         | App,Android版本管理
@@ -344,8 +299,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('furniture','FurnitureController');
 
-        //投放、预约
-        Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
+
         //渠道数据统计
         Route::get('statistics', 'EntrustThrowInsController@statistic');
         //转化率

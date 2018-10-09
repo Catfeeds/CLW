@@ -27,16 +27,9 @@ Route::get('get_map/{id}', 'BuildingController@getMap');
 Route::get('buildings_office/{id}','BuildingController@showOffice');
 //精选楼盘
 Route::resource('recommends', 'RecommendController');
-//预约
-Route::resource('bespeaks', 'BespeakController');
-//房源投放
-Route::resource('throw_ins', 'ThrowInController');
 
-//委托找房、投放房源
-Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
-
-// 工单入口
-Route::resource('work_orders', 'WorkOrderController');
+// 投放委托
+Route::resource('entrust_throw_ins', 'WorkOrderController');
 
 // 房源详情页
 Route::resource('houses', 'HouseController');

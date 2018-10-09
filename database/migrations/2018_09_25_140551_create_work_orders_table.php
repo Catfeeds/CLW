@@ -20,10 +20,10 @@ class CreateWorkOrdersTable extends Migration
             $table->string('name','32')->nullable()->comment('客户名称');
             $table->string('tel', '16')->nullable()->comment('客户手机号');
             $table->tinyInteger('source')->nullable()->comment('来源,1:400电话,2:官网客服,3:百度信息流,4:今日头条信息流,5:app,6:PC,7:微信,8:小程序,9:58同城,10:360,11:搜狗,12:神马');
-            $table->string('source_area',32)->nullable()->comment('来源区域');
+            $table->string('page_source',32)->nullable()->comment('来源区域');
             $table->tinyInteger('demand')->nullable()->comment('工单类型,1:投放房源,2:委托找房,3:企业服务,4:其他');
-            $table->string('area',128)->nullable()->comment('区域');
-            $table->string('building',128)->nullable()->comment('楼盘');
+            $table->string('area_name',128)->nullable()->comment('区域');
+            $table->string('building_name',128)->nullable()->comment('楼盘');
             $table->string('acreage', 32)->nullable()->comment('面积/㎡');
             $table->string('price', 32)->nullable()->comment('价格/元/m²月');
             $table->datetime('issue')->nullable()->comment('客服下发工单时间');
