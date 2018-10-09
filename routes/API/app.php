@@ -106,24 +106,9 @@ Route::group(['namespace' => 'App', 'prefix' => 'app'], function () {
     |--------------------------------------------------------------------------
     */
     Route::resource('building_recommends', 'BuildingRecommendsController');
-    /*
-    |--------------------------------------------------------------------------
-    | 预约
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('bespeaks', 'BespeaksController');
-    /*
-    |--------------------------------------------------------------------------
-    | 房源投放
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('throw_ins', 'ThrowInsController');
 
     //委托找房、投放房源
-    Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
-
-    //委托找房、投放房源
-    Route::resource('work_orders', 'WorkOrdersController');
+    Route::resource('entrust_throw_ins', 'WorkOrdersController');
     /*
     |--------------------------------------------------------------------------
     | 区域

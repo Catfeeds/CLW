@@ -18,8 +18,6 @@ Route::get('/wiring', 'CompanyDecoratController@wiring');
 // 企业服务
 Route::resource('entrust_throw_ins', 'EntrustThrowInsController');
 
-//委托找房、投放房源
-Route::resource('work_orders', 'WorkOrdersController');
 
 // 工商财税/ 公司注册
 Route::resource('business_taxes', 'BusinessTaxesController');

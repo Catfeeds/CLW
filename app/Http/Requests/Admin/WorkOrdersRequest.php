@@ -46,13 +46,13 @@ class WorkOrdersRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'store':
                 return [
-                    'name' => 'required|max:32',
+                    'name' => 'nullable|max:32',
                     'tel' =>  'required|max:16',
                     'source' => 'required|integer',
-                    'source_area' => 'nullable',
+                    'page_source' => 'nullable',
                     'demand' => 'required|integer',
-                    'area' => 'nullable',
-                    'building' => 'nullable',
+                    'area_name' => 'nullable',
+                    'building_name' => 'nullable',
                     'acreage' => 'nullable',
                     'price' => 'nullable',
                     'remark' => 'nullable'

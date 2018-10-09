@@ -67,20 +67,17 @@ class WorkOrdersRepository extends Model
         }
         $work_order = $work_order->paginate(3);
         $data = [];
-        $item = [];
         foreach ($work_order as $k => $v) {
-            $item[$k]['guid'] = $v->guid;
-            $item[$k]['gd_identifier'] = $v->gd_identifier;
-            $item[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
-            $item[$k]['demand'] = $v->demand_cn;
-            $item[$k]['area'] = $v->area;
-            $item[$k]['building'] = $v->building;
-            $item[$k]['acreage'] = $v->acreage;
-            $item[$k]['price'] = $v->price;
-            $item[$k]['remark'] = $v->remark;
+            $data[$k]['guid'] = $v->guid;
+            $data[$k]['gd_identifier'] = $v->gd_identifier;
+            $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
+            $data[$k]['demand'] = $v->demand_cn;
+            $data[$k]['area'] = $v->area;
+            $data[$k]['building'] = $v->building;
+            $data[$k]['acreage'] = $v->acreage;
+            $data[$k]['price'] = $v->price;
+            $data[$k]['remark'] = $v->remark;
         }
-        $data['user_guid'] = $user_guid;
-        $data['list'] = $item;
         return $work_order->setCollection(collect($data));
     }
 
@@ -129,22 +126,23 @@ class WorkOrdersRepository extends Model
     {
         \DB::beginTransaction();
         try {
+            $last = WorkOrder::orderBy('created_at', 'asc')->get()->last();
+            $identifier = Common::identifier($last);
             // 添加工单
             $workOrder = WorkOrder::create([
                 'guid' => Common::getUuid(),
-                'gd_identifier' => 'gd'.time().rand(1,1000),
-                'name' => $request->name,
+                'gd_identifier' => $identifier,
+                'name' => $request->appellation,
                 'tel' => $request->tel,
                 'source' => $request->source,
-                'source_area' => $request->source_area,
+                'page_source' => $request->page_source,
                 'demand' => $request->demand,
-                'area' => $request->area,
-                'building' => $request->building,
+                'area_name' => $request->area_name,
+                'building_name' => $request->building_name,
                 'acreage' => $request->acreage,
                 'price' => $request->price,
                 'remark' => $request->remark
             ]);
-
             if (empty($workOrder)) throw new \Exception('添加失败');
             // 生成工单进度
             $content = '客服接收工单';
