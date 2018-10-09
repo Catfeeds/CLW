@@ -9,7 +9,7 @@ use App\Models\CompanyFramework;
 class WorkOrdersService
 {
     // 发送工单消息
-    public function send($openid, $identifier, $demand, $remark, $time, $guid)
+    public function send($openid, $identifier, $demand, $remark, $time, $guid, $title = '新工单通知')
     {
         $data['openid'] = json_encode(array($openid));
         $data['identifier'] = $identifier;
@@ -17,6 +17,7 @@ class WorkOrdersService
         $data['remark'] = $remark;
         $data['time'] = $time;
         $data['guid'] = $guid;
+        $data['title'] = $title;
         return curl(config('setting.wechat_url').'/work_order_notice','post', $data);
     }
 
@@ -40,7 +41,7 @@ class WorkOrdersService
     public function getAgent($guid)
     {
         $user = Agent::where('guid', $guid)->first();
-          $res = Agent::with('role', 'companyFramework')
+        $res = Agent::with('role', 'companyFramework')
                     ->where('openid', '!=', '')
                     ->where(['start_up' => 1, 'status' => 1, 'company_guid' => $user->company_guid]);
         // 如果没有归属,查全公司员工

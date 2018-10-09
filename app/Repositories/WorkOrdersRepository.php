@@ -31,7 +31,6 @@ class WorkOrdersRepository extends Model
                 $res = WorkOrder::whereIn('status', [3, 4]);
                 break;
         }
-
         if (empty($request->created_at)) {
             $time = [date('Y-m-d 00:00:00', strtotime('now')), date('Y-m-d 23:59:59', strtotime('now'))];
         } else {
@@ -72,8 +71,8 @@ class WorkOrdersRepository extends Model
             $data[$k]['gd_identifier'] = $v->gd_identifier;
             $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
             $data[$k]['demand'] = $v->demand_cn;
-            $data[$k]['area'] = $v->area;
-            $data[$k]['building'] = $v->building;
+            $data[$k]['area'] = $v->area_name;
+            $data[$k]['building'] = $v->building_name;
             $data[$k]['acreage'] = $v->acreage;
             $data[$k]['price'] = $v->price;
             $data[$k]['remark'] = $v->remark;
@@ -94,8 +93,8 @@ class WorkOrdersRepository extends Model
         $data['demand_cn'] = $workOrder->demand_cn;
         $data['name'] = $workOrder->name;
         $data['tel'] = $workOrder->tel;
-        $data['area'] = $workOrder->area;
-        $data['building'] = $workOrder->building;
+        $data['area'] = $workOrder->area_name;
+        $data['building'] = $workOrder->building_name;
         $data['acreage'] = $workOrder->acreage;
         $data['price'] = $workOrder->price;
         $data['remark'] = $workOrder->remark;
