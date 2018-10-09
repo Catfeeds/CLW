@@ -36,17 +36,17 @@ class WorkOrderController extends Controller
         $string = 'chulouwang'.date('Y-m-d',time());
         $string = Hash::make($string);
         // 经纪人guid
-
-        if ($request->user_guid) {
+        if ($request->user_guid && !$request->openid) {
             $user_guid = $request->user_guid;
-        } else {
+        } elseif (!$request->user_guid && $request->openid) {
             $user_guid = $repository->getUserGuid($request->openid);
+        } else {
+            return '缺少参数';
         }
         $res = $repository->getShow($workOrder, $user_guid);
         // 经纪人称谓
         $appellation = $repository->getUser($user_guid);
         $appellation = trim($appellation, ' ()');
-        // dd($res);
         return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid, 'appellation' => $appellation]);
     }
     

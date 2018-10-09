@@ -44,7 +44,7 @@ class WorkOrderController extends APIBaseController
         return $this->sendResponse($res,'详情获取成功');
     }
 
-    // 投放委托 生成工单
+    // 新建工单
     public function store
     (
         WorkOrdersRequest $request,

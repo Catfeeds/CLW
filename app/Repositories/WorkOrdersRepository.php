@@ -52,10 +52,8 @@ class WorkOrdersRepository extends Model
     // 手机端工单列表
     public function mobileList($request)
     {
-        // 经纪人guid
-        $user_guid = $this->getUserGuid($request->openid);
         // 查询该人员参与过的工单
-        $work_order_guid = Partake::where('user_guid', $user_guid)->pluck('work_order_guid')->toArray();
+        $work_order_guid = Partake::where('user_guid', $request->user_guid)->pluck('work_order_guid')->toArray();
         $work_order = WorkOrder::whereIn('guid', $work_order_guid);
         switch ($request->type) {
             case 1:
@@ -292,7 +290,7 @@ class WorkOrdersRepository extends Model
             } elseif ($res->demand == 2) {
                 $demand = '客源编号 ';
             }
-            $str = $this->getUser($res->handle_guid);
+            $str = $this->getUser($request->handle_guid);
             $content = '工单结束:'. $demand.$request->identifier.$str;
             // 添加工单进度
             $schedule = Common::addSchedule($request->guid, $content);
@@ -316,7 +314,7 @@ class WorkOrdersRepository extends Model
             $res->status = 4;
             if (!$res->save()) throw new \Exception('操作失败');
             // 添加工单进度
-            $str = $this->getUser($res->handle_guid);
+            $str = $this->getUser($request->handle_guid);
             $content = '工单结束:'. $request->reason.$str;
             $schedule = Common::addSchedule($request->guid, $content);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
@@ -332,8 +330,7 @@ class WorkOrdersRepository extends Model
     // 工单添加跟进
     public function addTrack($request)
     {
-        $handle_guid = WorkOrder::where('guid', $request->guid)->value('handle_guid');
-        $str = $this->getUser($handle_guid);
+        $str = $this->getUser($request->handle_guid);
         $content = $request->track.$str;
         return Common::addSchedule($request->guid, $content);
     }
@@ -344,13 +341,12 @@ class WorkOrdersRepository extends Model
         \DB::beginTransaction();
         try {
             $res = WorkOrder::where('guid', $request->guid)->first();
-            $handle_guid = $res->handle_guid;
             $res->manage_deal = null;
             $res->handle_guid = null;
             $res->handle_deal = null;
             if (!$res->save()) throw new \Exception('操作失败');
             // 添加工单进度
-            $str = $this->getUser($handle_guid);
+            $str = $this->getUser($request->handle_guid);
             $content = '工单回转:'. $request->reason.$str;
             $schedule = Common::addSchedule($request->guid, $content);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');

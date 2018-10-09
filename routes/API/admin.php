@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         | 工单管理
         |--------------------------------------------------------------------------
         */
-        Route::resource('work_orders', 'WorkOrderController');
+
 
         // 手机工单列表
         Route::get('mobile_list', 'WorkOrderController@mobileList');
@@ -83,13 +83,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         */
         Route::resource('admins','AdminsController');
 
+        // 工单管理
+        Route::resource('work_orders', 'WorkOrderController');
+
         // 客服下发工单
         Route::post('issue', 'WorkOrderController@issue');
 
         // 客服重新分配工单
         Route::post('reset', 'WorkOrderController@reset');
 
-        //为现有用户分配角色
+        // 为现有用户分配角色
         Route::post('distributions', 'AdminsController@distribution');
 
         /*

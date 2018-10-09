@@ -18,7 +18,7 @@ class HotBlocksRepository extends Model
         return HotBlock::orderBy('sort', 'asc')->with('block')->get();
     }
 
-    //pc端核心商圈
+    // pc端核心商圈
     public function getList()
     {
         $res = HotBlock::with('block')->take(5)->where('pc_img', '!=', null)->get();

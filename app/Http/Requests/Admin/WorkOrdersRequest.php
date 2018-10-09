@@ -83,7 +83,7 @@ class WorkOrdersRequest extends FormRequest
                     $field = 'house_identifier';
                 } else {
                     $table = 'customers';
-                    $field = 'guid';
+                    $field = 'customer_identifier';
                 }
                 return [
                     'guid' => 'required|exists:work_orders,guid',
