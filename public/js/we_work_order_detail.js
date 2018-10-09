@@ -82,8 +82,14 @@ __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a);
 __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Actionsheet"].name, __WEBPACK_IMPORTED_MODULE_8_mint_ui__["Actionsheet"]);
 var user_guid = $('#userGuid')[0].innerHTML;
+var guid = $('#gdGuid')[0].innerHTML;
 var url = 'http://192.168.0.199:3000' + '/api/admin';
-console.log('sssss', user_guid);
+console.log(guid);
+var handle_guid = '';
+var sheetClick = function sheetClick(e) {
+  handle_guid = e.id;
+  $('.detail-choice-agent').find('span').html(e.name);
+};
 var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
   el: '#detail-body',
   data: {
@@ -91,15 +97,70 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
     actions: []
   },
   created: function created() {
-    getAgent();
+    var that = this;
+    // 请求经纪人数据
+    $.ajax({
+      headers: {
+        'safeString': $('meta[name="safeString"]').attr('content')
+      },
+      url: url + "/get_agent",
+      type: 'get',
+      data: { user_guid: user_guid },
+      success: function success(data) {
+        if (data.success) {
+          var array = [];
+          for (var key in data.data) {
+            array.push({
+              id: data.data[key].value,
+              name: data.data[key].label,
+              method: sheetClick
+            });
+          }
+          that.actions = array;
+        }
+      },
+      error: function error(res) {
+        Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
+          message: res.responseJSON.message,
+          position: 'center',
+          duration: 5000
+        });
+      }
+    });
   },
 
   methods: {
     isShow: function isShow() {
       this.sheetVisible = true;
     },
+
+    // 确认分配
     confirm: function confirm() {
-      console.log('this is a test');
+      $.ajax({
+        headers: {
+          'safeString': $('meta[name="safeString"]').attr('content')
+        },
+        url: url + "/allocation",
+        type: 'post',
+        data: { handle_guid: handle_guid, guid: '3fca39cecb6011e8ad7c080027686836' },
+        success: function success(data) {
+          if (data.success) {
+            $('.detail-choice-agent').find('span').html('选择经纪人');
+            Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
+              message: data.message,
+              position: 'center',
+              duration: 1000
+            });
+          }
+        },
+        error: function error(res) {
+          Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
+            message: res.responseJSON.message,
+            position: 'center',
+            duration: 5000
+          });
+        }
+      });
     },
     confirmGet: function confirmGet() {
       console.log('ssdsfdsgdfg');
@@ -109,32 +170,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
     }
   }
 });
-function getAgent() {
-  $.ajax({
-    headers: {
-      'safeString': $('meta[name="safeString"]').attr('content')
-    },
-    url: url + "/get_all_distribution/" + user_guid,
-    type: 'get',
-    success: function success(data) {
-      console.log('不知道是不是', data);
-      if (data.success) {
-        Toast({
-          message: data.message,
-          position: 'center',
-          duration: 1000
-        });
-      }
-    },
-    error: function error(res) {
-      Toast({
-        message: res.responseJSON.message,
-        position: 'center',
-        duration: 5000
-      });
-    }
-  });
-}
 
 /***/ }),
 

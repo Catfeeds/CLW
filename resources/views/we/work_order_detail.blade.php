@@ -15,6 +15,7 @@
 <body>
 <div id="detail-body">
   <div id="userGuid" style="display:none">{{$user_guid}}</div>
+  <div id="gdGuid" style="display:none">{{$res['guid']}}</div>
   <div class="detail-title">工单详情</div>
   <div class="detail-info">
     <div class="detail-row">
@@ -62,7 +63,7 @@
   </div>
   <!-- 分配工单 -->
   <div class="detail-choice">
-    <div class="detail-choice-agent" @click="isShow">选择经纪人<i class="el-icon-arrow-down"></i></div>
+    <div class="detail-choice-agent" @click="isShow"><span>选择经纪人</span><i class="el-icon-arrow-down"></i></div>
     <div class="detail-confirm" @click="confirm">确认分配</div>
   </div>
   <!-- 确定工单 -->
@@ -87,6 +88,7 @@
   </div>
   <mt-actionsheet
     :actions="actions"
+    cancel-text=""
     v-model="sheetVisible">
   </mt-actionsheet>
 </div>
