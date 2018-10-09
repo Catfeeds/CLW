@@ -31,10 +31,10 @@ class WorkOrdersRepository extends Model
                 $res = WorkOrder::whereIn('status', [3, 4]);
                 break;
         }
-        if (empty($request->created_at)) {
+        if (empty($request->time)) {
             $time = [date('Y-m-d 00:00:00', strtotime('now')), date('Y-m-d 23:59:59', strtotime('now'))];
         } else {
-            $time = $request->created_at;
+            $time = $request->time;
         }
         $res = $res->whereBetween('created_at', $time);
         $res = $res->paginate($request->per_page??10);
