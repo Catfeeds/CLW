@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { Steps, Step, Icon } from 'element-ui';
-import { Actionsheet, Toast } from 'mint-ui'
+import { Actionsheet, Toast, MessageBox } from 'mint-ui'
 Vue.component(Steps.name, Steps)
 Vue.component(Step.name, Step)
 Vue.component(Icon.name, Icon)
@@ -8,7 +8,8 @@ Vue.component(Actionsheet.name, Actionsheet)
 const user_guid = $('#userGuid')[0].innerHTML
 const guid = $('#gdGuid')[0].innerHTML
 const url = process.env.agencyHostURL + '/api/admin'
-console.log(guid)
+const appellation = $('#appellation')[0].innerHTML
+console.log(appellation)
 var handle_guid = ''
 var sheetClick = function(e) {
   handle_guid = e.id
@@ -85,7 +86,9 @@ const app = new Vue({
       })
     },
     confirmGet() {
-      console.log('ssdsfdsgdfg')
+      MessageBox.confirm(appellation, '分配确认').then(action => {
+        console.log('shism')
+      })
     },
     operate() {
       this.sheetVisible = true

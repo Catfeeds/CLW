@@ -84,7 +84,8 @@ __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 var user_guid = $('#userGuid')[0].innerHTML;
 var guid = $('#gdGuid')[0].innerHTML;
 var url = 'http://192.168.0.199:3000' + '/api/admin';
-console.log(guid);
+var appellation = $('#appellation')[0].innerHTML;
+console.log(appellation);
 var handle_guid = '';
 var sheetClick = function sheetClick(e) {
   handle_guid = e.id;
@@ -163,7 +164,9 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
       });
     },
     confirmGet: function confirmGet() {
-      console.log('ssdsfdsgdfg');
+      __WEBPACK_IMPORTED_MODULE_8_mint_ui__["MessageBox"].confirm(appellation, '分配确认').then(function (action) {
+        console.log('shism');
+      });
     },
     operate: function operate() {
       this.sheetVisible = true;

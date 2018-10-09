@@ -16,6 +16,7 @@
 <div id="detail-body">
   <div id="userGuid" style="display:none">{{$user_guid}}</div>
   <div id="gdGuid" style="display:none">{{$res['guid']}}</div>
+  <div id="appellation" style="display:none">{{$appellation}}</div>
   <div class="detail-title">工单详情</div>
   <div class="detail-info">
     <div class="detail-row">
@@ -62,14 +63,14 @@
     </div>
   </div>
   <!-- 分配工单 -->
-  <div class="detail-choice">
+  <!-- <div class="detail-choice">
     <div class="detail-choice-agent" @click="isShow"><span>选择经纪人</span><i class="el-icon-arrow-down"></i></div>
     <div class="detail-confirm" @click="confirm">确认分配</div>
-  </div>
-  <!-- 确定工单 -->
-  <!-- <div class="detail-choice">
-    <div class="detail-confirm" @click="confirmGet">确定收到工单</div>
   </div> -->
+  <!-- 确定工单 -->
+  <div class="detail-choice">
+    <div class="detail-confirm" @click="confirmGet">确定收到工单</div>
+  </div>
   <!-- 处理工单 -->
   <!-- <div class="detail-choice">
     <div class="detail-confirm" @click="operate">选择操作<i class="el-icon-arrow-down"></i></div>
