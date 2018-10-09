@@ -14,13 +14,15 @@ class WorkOrderController extends Controller
     // 手机工单列表
     public function index
     (
-        WorkOrdersRequest $request
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
     )
     {
-        $openid = $request->openid;
+        // 经纪人guid
+        $user_guid = $repository->getUserGuid($request->openid);
         $string = 'chulouwang'.date('Y-m-d',time());
         $string = Hash::make($string);
-        return view('we.work_order_list', ['openid' => $openid, 'safeString' => $string]);
+        return view('we.work_order_list', ['user_guid' => $user_guid, 'safeString' => $string]);
     }
 
     // 工单详情
