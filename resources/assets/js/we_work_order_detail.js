@@ -26,3 +26,29 @@ const app = new Vue({
     }
   }
 })
+function getAgent() {
+  $.ajax({
+    headers: {
+      'safeString': $('meta[name="safeString"]').attr('content')
+    },
+    url: url + "/get_all_distribution",
+    type: 'get',
+    data: FormData,
+    success: function(data){
+      if(data.success) {
+        Toast({
+          message: data.message,
+          position: 'center',
+          duration: 1000
+        });
+      }
+    },
+    error: function (res) {
+      Toast({
+        message: res.responseJSON.message,
+        position: 'center',
+        duration: 5000
+      })
+    }
+  })
+}

@@ -78,6 +78,9 @@ body{
       margin: 0 auto;
     }
   }
+  .el-step__main{
+    flex: 1;
+  }
   .detail-step{
     padding: 16px 0 0 20px;
     .el-step.is-vertical .el-step__line{

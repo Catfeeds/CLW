@@ -1,12 +1,8 @@
-webpackJsonp([2],Array(29).concat([
-/* 29 */
+webpackJsonp([2],Array(33).concat([
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(30);
-__webpack_require__(43);
-__webpack_require__(44);
-__webpack_require__(45);
-__webpack_require__(46);
+__webpack_require__(34);
 __webpack_require__(47);
 __webpack_require__(48);
 __webpack_require__(49);
@@ -28,11 +24,15 @@ __webpack_require__(64);
 __webpack_require__(65);
 __webpack_require__(66);
 __webpack_require__(67);
-module.exports = __webpack_require__(68);
+__webpack_require__(68);
+__webpack_require__(69);
+__webpack_require__(70);
+__webpack_require__(71);
+module.exports = __webpack_require__(72);
 
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44,8 +44,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __webpack_require__(1);
 
 
-var Swiper = __webpack_require__(19);
-Vue.component('building-list', __webpack_require__(8));
+var Swiper = __webpack_require__(26);
+Vue.component('building-list', __webpack_require__(12));
 var listAppData = JSON.parse($('#listAppData').val());
 var app = new Vue({
   el: '#listApp',
@@ -230,10 +230,6 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 });
 
 /***/ }),
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
 /* 35 */,
 /* 36 */,
 /* 37 */,
@@ -242,30 +238,10 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 /* 40 */,
 /* 41 */,
 /* 42 */,
-/* 43 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
 /* 47 */
 /***/ (function(module, exports) {
 
@@ -397,5 +373,29 @@ $(document).on('touchend || tap', '#peltHouse', function () {
 
 // removed by extract-text-webpack-plugin
 
+/***/ }),
+/* 69 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
-]),[29]);
+]),[33]);

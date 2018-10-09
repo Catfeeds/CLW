@@ -103,6 +103,12 @@ body .detail-choice .detail-confirm {
   margin: 0 auto;
 }
 
+body .el-step__main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 body .detail-step {
   padding: 16px 0 0 20px;
 }

@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { Navbar, TabItem, TabContainer, TabContainerItem, Loadmore, InfiniteScroll, Indicator } from 'mint-ui'
 import { Icon } from 'element-ui'
 Vue.component(Navbar.name, Navbar)
