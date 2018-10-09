@@ -39,7 +39,7 @@ class WorkOrderController extends Controller
         // 经纪人称谓
         $appellation = $repository->getUser($user_guid);
         $appellation = trim($appellation, ' ()');
-        // dd($appellation);
+        // dd($res);
         return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid, 'appellation' => $appellation]);
     }
     

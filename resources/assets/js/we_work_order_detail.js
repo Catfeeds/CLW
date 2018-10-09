@@ -65,7 +65,7 @@ const app = new Vue({
         },
         url: url + "/allocation",
         type: 'post',
-        data: { handle_guid: handle_guid, guid: '3fca39cecb6011e8ad7c080027686836' },
+        data: { handle_guid: handle_guid, guid: guid },
         success: function(data){
           if(data.success) {
             $('.detail-choice-agent').find('span').html('选择经纪人')
@@ -87,7 +87,33 @@ const app = new Vue({
     },
     confirmGet() {
       MessageBox.confirm(appellation, '分配确认').then(action => {
-        console.log('shism')
+        $.ajax({
+          headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+          },
+          url: url + "/confirm",
+          type: 'post',
+          data: { handle_guid: user_guid, guid: guid },
+          success: function(data){
+            if(data.success) {
+              Toast({
+                message: data.message,
+                position: 'center',
+                duration: 1000
+              })
+              setTimeout(()=> {
+                window.location.href = '/work_orders/' + guid
+              })
+            }
+          },
+          error: function (res) {
+            Toast({
+              message: res.responseJSON.message,
+              position: 'center',
+              duration: 5000
+            })
+          }
+        })
       })
     },
     operate() {

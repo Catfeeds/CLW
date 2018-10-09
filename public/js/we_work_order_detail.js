@@ -143,7 +143,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
         },
         url: url + "/allocation",
         type: 'post',
-        data: { handle_guid: handle_guid, guid: '3fca39cecb6011e8ad7c080027686836' },
+        data: { handle_guid: handle_guid, guid: guid },
         success: function success(data) {
           if (data.success) {
             $('.detail-choice-agent').find('span').html('选择经纪人');
@@ -165,7 +165,33 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
     },
     confirmGet: function confirmGet() {
       __WEBPACK_IMPORTED_MODULE_8_mint_ui__["MessageBox"].confirm(appellation, '分配确认').then(function (action) {
-        console.log('shism');
+        $.ajax({
+          headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+          },
+          url: url + "/confirm",
+          type: 'post',
+          data: { handle_guid: user_guid, guid: guid },
+          success: function success(data) {
+            if (data.success) {
+              Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
+                message: data.message,
+                position: 'center',
+                duration: 1000
+              });
+              setTimeout(function () {
+                window.location.href = '/work_orders/' + guid;
+              });
+            }
+          },
+          error: function error(res) {
+            Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
+              message: res.responseJSON.message,
+              position: 'center',
+              duration: 5000
+            });
+          }
+        });
       });
     },
     operate: function operate() {
