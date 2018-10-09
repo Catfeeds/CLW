@@ -5,14 +5,12 @@ namespace App\Http\Controllers\We;
 use App\Http\Requests\Admin\WorkOrdersRequest;
 use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
-use App\Services\WorkOrdersService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class WorkOrderController extends Controller
 {
-
     // 手机工单列表
     public function index
     (
@@ -30,8 +28,7 @@ class WorkOrderController extends Controller
     (
         WorkOrdersRequest $request,
         WorkOrdersRepository $repository,
-        WorkOrder $workOrder,
-        WorkOrdersService $service
+        WorkOrder $workOrder
     )
     {
         $string = 'chulouwang'.date('Y-m-d',time());
@@ -41,6 +38,7 @@ class WorkOrderController extends Controller
         $res = $repository->getShow($workOrder, $user_guid);
         // 经纪人称谓
         $appellation = $repository->getUser($user_guid);
+        $appellation = trim($appellation, ' ()');
         return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid, 'appellation' => $appellation]);
     }
     
