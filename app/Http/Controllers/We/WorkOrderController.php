@@ -5,6 +5,7 @@ namespace App\Http\Controllers\We;
 use App\Http\Requests\Admin\WorkOrdersRequest;
 use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
+use App\Services\WorkOrdersService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +21,8 @@ class WorkOrderController extends Controller
     {
         $openid = $request->openid;
         $string = 'chulouwang'.date('Y-m-d',time());
-        return view('we.work_order_list', ['openid' => $openid, 'string' => $string]);
+        $string = Hash::make($string);
+        return view('we.work_order_list', ['openid' => $openid, 'safeString' => $string]);
     }
 
     // 工单详情
@@ -28,15 +30,18 @@ class WorkOrderController extends Controller
     (
         WorkOrdersRequest $request,
         WorkOrdersRepository $repository,
-        WorkOrder $workOrder
+        WorkOrder $workOrder,
+        WorkOrdersService $service
     )
     {
         $string = 'chulouwang'.date('Y-m-d',time());
+        $string = Hash::make($string);
         // 经纪人guid
         $user_guid = $repository->getUserGuid($request->openid);
         $res = $repository->getShow($workOrder, $user_guid);
-        // dd($user_guid);
-        return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid]);
+        // 经纪人称谓
+        $appellation = $repository->getUser($user_guid);
+        return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid, 'appellation' => $appellation]);
     }
     
     /**
