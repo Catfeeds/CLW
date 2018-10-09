@@ -98,6 +98,11 @@
     cancel-text=""
     v-model="sheetVisible">
   </mt-actionsheet>
+  <mt-actionsheet
+    :actions="actions2"
+    cancel-text=""
+    v-model="sheetVisible1">
+  </mt-actionsheet>
 </div>
 <script src="{{res('/js/we_work_order_detail.js')}}"></script>
 </body>
