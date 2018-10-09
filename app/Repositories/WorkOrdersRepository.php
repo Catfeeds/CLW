@@ -31,11 +31,10 @@ class WorkOrdersRepository extends Model
                 $res = WorkOrder::whereIn('status', [3, 4]);
                 break;
         }
-
-        if (empty($request->created_at)) {
+        if (empty($request->time)) {
             $time = [date('Y-m-d 00:00:00', strtotime('now')), date('Y-m-d 23:59:59', strtotime('now'))];
         } else {
-            $time = $request->created_at;
+            $time = $request->time;
         }
         $res = $res->whereBetween('created_at', $time);
         $res = $res->paginate($request->per_page??10);
@@ -53,10 +52,8 @@ class WorkOrdersRepository extends Model
     // 手机端工单列表
     public function mobileList($request)
     {
-        // 经纪人guid
-        $user_guid = $this->getUserGuid($request->openid);
         // 查询该人员参与过的工单
-        $work_order_guid = Partake::where('user_guid', $user_guid)->pluck('work_order_guid')->toArray();
+        $work_order_guid = Partake::where('user_guid', $request->user_guid)->pluck('work_order_guid')->toArray();
         $work_order = WorkOrder::whereIn('guid', $work_order_guid);
         switch ($request->type) {
             case 1:
@@ -67,25 +64,22 @@ class WorkOrdersRepository extends Model
         }
         $work_order = $work_order->paginate(3);
         $data = [];
-        $item = [];
         foreach ($work_order as $k => $v) {
-            $item[$k]['guid'] = $v->guid;
-            $item[$k]['gd_identifier'] = $v->gd_identifier;
-            $item[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
-            $item[$k]['demand'] = $v->demand_cn;
-            $item[$k]['area'] = $v->area;
-            $item[$k]['building'] = $v->building;
-            $item[$k]['acreage'] = $v->acreage;
-            $item[$k]['price'] = $v->price;
-            $item[$k]['remark'] = $v->remark;
+            $data[$k]['guid'] = $v->guid;
+            $data[$k]['gd_identifier'] = $v->gd_identifier;
+            $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
+            $data[$k]['demand'] = $v->demand_cn;
+            $data[$k]['area'] = $v->area_name;
+            $data[$k]['building'] = $v->building_name;
+            $data[$k]['acreage'] = $v->acreage;
+            $data[$k]['price'] = $v->price;
+            $data[$k]['remark'] = $v->remark;
         }
-        $data['user_guid'] = $user_guid;
-        $data['list'] = $item;
         return $work_order->setCollection(collect($data));
     }
 
     // 工单详情
-    public function getShow($workOrder, $request)
+    public function getShow($workOrder, $user_guid = null)
     {
         $data = [];
         $data['guid'] = $workOrder->guid;
@@ -97,8 +91,8 @@ class WorkOrdersRepository extends Model
         $data['demand_cn'] = $workOrder->demand_cn;
         $data['name'] = $workOrder->name;
         $data['tel'] = $workOrder->tel;
-        $data['area'] = $workOrder->area;
-        $data['building'] = $workOrder->building;
+        $data['area'] = $workOrder->area_name;
+        $data['building'] = $workOrder->building_name;
         $data['acreage'] = $workOrder->acreage;
         $data['price'] = $workOrder->price;
         $data['remark'] = $workOrder->remark;
@@ -109,82 +103,43 @@ class WorkOrdersRepository extends Model
         // 工单未结束
         if ($workOrder->status != 3 && $workOrder->status != 4) {
             // 如果查看人是管理层 并且工单未分配
-            if ($workOrder->manage_guid == $request->user_guid && $workOrder->manage_deal == null) {
+            if ($workOrder->manage_guid == $user_guid && $workOrder->manage_deal == null) {
                 $data['distribution'] = true;
             }
             // 如果查看人是处理人 并且工单未确定
-            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal == null) {
+            if ($workOrder->handle_guid ==$user_guid && $workOrder->handle_deal == null) {
                 $data['determine'] = true;
             }
             // 如果查看人是处理人 并且工单已确定
-            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal != null) {
+            if ($workOrder->handle_guid == $user_guid && $workOrder->handle_deal != null) {
                 $data['operate'] = true;
             }
         }
         return $data;
     }
 
-//    // 工单详情 (手机端)
-//    public function mobileShow($request)
-//    {
-//        $workOrder = WorkOrder::where('guid', $request->guid)->first();
-//        $data = [];
-//        $data['guid'] = $workOrder->guid;
-//        $data['gd_identifier'] = $workOrder->gd_identifier;
-//        $data['source'] = $workOrder->source_cn;
-//        $data['created_at'] = $workOrder->created_at->format('Y-m-d H:i:s');
-//        $data['source_area'] = $workOrder->source_area;
-//        $data['demand'] = $workOrder->demand_cn;
-//        $data['name'] = $workOrder->name;
-//        $data['tel'] = $workOrder->tel;
-//        $data['area'] = $workOrder->area;
-//        $data['building'] = $workOrder->building;
-//        $data['acreage'] = $workOrder->acreage;
-//        $data['price'] = $workOrder->price;
-//        $data['remark'] = $workOrder->remark;
-//        $data['schedule'] = $workOrder->schedule;
-//        $data['distribution'] = false; // 分配
-//        $data['determine'] = false;  // 确定
-//        $data['operate'] = false;  // 操作
-//        // 工单未结束
-//        if ($workOrder->status != 3 || $workOrder->status != 4) {
-//            // 如果查看人是管理层 并且工单未分配
-//            if ($workOrder->manage_guid == $request->user_guid && $workOrder->manage_deal == null) {
-//                $data['distribution'] = true;
-//            }
-//            // 如果查看人是处理人 并且工单未确定
-//            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal == null) {
-//                $data['determine'] = true;
-//            }
-//            // 如果查看人是处理人 并且工单已确定
-//            if ($workOrder->handle_guid == $request->user_guid && $workOrder->handle_deal != null) {
-//                $data['operate'] = true;
-//            }
-//        }
-//        return $data;
-//    }
-
     // 投放委托 生成工单/进度
     public function addWorkOrder($request)
     {
         \DB::beginTransaction();
         try {
+            $last = WorkOrder::orderBy('created_at', 'asc')->get()->last();
+            $identifier = Common::identifier($last);
             // 添加工单
             $workOrder = WorkOrder::create([
                 'guid' => Common::getUuid(),
-                'gd_identifier' => 'gd'.time().rand(1,1000),
-                'name' => $request->name,
+                'gd_identifier' => $identifier,
+                'name' => $request->appellation,
                 'tel' => $request->tel,
                 'source' => $request->source,
-                'source_area' => $request->source_area,
+                'page_source' => $request->page_source,
                 'demand' => $request->demand,
-                'area' => $request->area,
-                'building' => $request->building,
+                'area_name' => $request->area_name,
+                'building_name' => $request->building_name,
                 'acreage' => $request->acreage,
                 'price' => $request->price,
                 'remark' => $request->remark
             ]);
-
             if (empty($workOrder)) throw new \Exception('添加失败');
             // 生成工单进度
             $content = '客服接收工单';
@@ -333,7 +288,7 @@ class WorkOrdersRepository extends Model
             } elseif ($res->demand == 2) {
                 $demand = '客源编号 ';
             }
-            $str = $this->getUser($res->handle_guid);
+            $str = $this->getUser($request->handle_guid);
             $content = '工单结束:'. $demand.$request->identifier.$str;
             // 添加工单进度
             $schedule = Common::addSchedule($request->guid, $content);
@@ -357,12 +312,9 @@ class WorkOrdersRepository extends Model
             $res->status = 4;
             if (!$res->save()) throw new \Exception('操作失败');
             // 添加工单进度
-            if ($res->handle_guid) {
-                $str = $this->getUser($res->handle_guid);
-            } else {
-                $str = Common::user()->nick_name;
-            }
-            $content = '工单结束:'. $request->reason.'-'.$str;
+
+            $str = $this->getUser($request->handle_guid);
+            $content = '工单结束:'. $request->reason.$str;
             $schedule = Common::addSchedule($request->guid, $content);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
             \DB::commit();
@@ -377,8 +329,7 @@ class WorkOrdersRepository extends Model
     // 工单添加跟进
     public function addTrack($request)
     {
-        $handle_guid = WorkOrder::where('guid', $request->guid)->value('handle_guid');
-        $str = $this->getUser($handle_guid);
+        $str = $this->getUser($request->handle_guid);
         $content = $request->track.$str;
         return Common::addSchedule($request->guid, $content);
     }
@@ -389,13 +340,12 @@ class WorkOrdersRepository extends Model
         \DB::beginTransaction();
         try {
             $res = WorkOrder::where('guid', $request->guid)->first();
-            $handle_guid = $res->handle_guid;
             $res->manage_deal = null;
             $res->handle_guid = null;
             $res->handle_deal = null;
             if (!$res->save()) throw new \Exception('操作失败');
             // 添加工单进度
-            $str = $this->getUser($handle_guid);
+            $str = $this->getUser($request->handle_guid);
             $content = '工单回转:'. $request->reason.$str;
             $schedule = Common::addSchedule($request->guid, $content);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');

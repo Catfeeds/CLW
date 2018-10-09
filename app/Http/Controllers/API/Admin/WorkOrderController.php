@@ -44,19 +44,7 @@ class WorkOrderController extends APIBaseController
         return $this->sendResponse($res,'详情获取成功');
     }
 
-//    // 手机端工单详情
-//    public function mobileShow
-//    (
-//        WorkOrdersRepository $repository,
-//        WorkOrdersRequest $request
-//    )
-//    {
-//        $res = $repository->mobileShow($request);
-//        return $this->sendResponse($res,'详情获取成功');
-//    }
-
-
-    // 投放委托 生成工单
+    // 新建工单
     public function store
     (
         WorkOrdersRequest $request,
@@ -182,7 +170,7 @@ class WorkOrderController extends APIBaseController
         $openid = $service->getOpenid($res->manage_guid);
         // 如果openid存在 发送消息 并且更新成功
         if ($openid && $res) {
-            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid);
+            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid, '回转工单');
         }
         if (!$res) return $this->sendError('工单回转失败');
         return $this->sendResponse($res, '工单回转成功');

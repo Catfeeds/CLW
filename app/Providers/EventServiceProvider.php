@@ -32,10 +32,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        parent::boot();
-
-        ThrowIn::observe(ThrowInObservers::class);
-        Bespeak::observe(BespeakObservers::class);
-        EntrustThrowIn::observe(EntrustThrowInObservers::class);
+        // parent::boot();
     }
 }

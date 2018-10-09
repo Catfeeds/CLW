@@ -1,22 +1,207 @@
 import Vue from 'vue'
 import { Steps, Step, Icon } from 'element-ui';
-import { Actionsheet } from 'mint-ui'
+import { Actionsheet, Toast, MessageBox } from 'mint-ui'
 Vue.component(Steps.name, Steps)
 Vue.component(Step.name, Step)
 Vue.component(Icon.name, Icon)
 Vue.component(Actionsheet.name, Actionsheet)
+const user_guid = $('#userGuid')[0].innerHTML
+const guid = $('#gdGuid')[0].innerHTML
+const url = process.env.agencyHostURL + '/api/admin'
+const appellation = $('#appellation')[0].innerHTML
+console.log(appellation)
+var handle_guid = ''
+var sheetClick = function(e) {
+  handle_guid = e.id
+  $('.detail-choice-agent').find('span').html(e.name)
+}
+var getState = function(val) {
+  console.log('val', val.id)
+  if (val.id === 1) {
+    MessageBox.prompt('有效', '', {inputPlaceholder: '请输入房源或客源编号',inputType: 'textarea', 
+    inputValidator: (val) => {
+      if (val === null || val === '') {
+        return false
+      }
+    }, inputErrorMessage: '输入框内容不能为空'
+  } ).then(({ value, action }) => {
+    status(1, 'valid', value)
+    })
+  } else if (val.id === 2) {
+    console.log(11111)
+  } else if (val.id === 3) {
+    console.log(11111)
+  } else if (val.id === 4) {
+    console.log(11111)
+  }
+}
 const app = new Vue({
   el: '#detail-body',
   data: {
     sheetVisible: false,
-    actions: []
+    sheetVisible1: false,
+    actions: [],
+    actions2: [
+      {
+        name: '有效',
+        id: 1,
+        method: getState
+      },
+      {
+        name: '无效',
+        id: 2,
+        method: getState
+      },
+      {
+        name: '转发',
+        id: 3,
+        method: getState
+      },
+      {
+        name: '跟进',
+        id: 4,
+        method: getState
+      },
+    ]
+  },
+  created() {
+    var that = this
+    // 请求经纪人数据
+    $.ajax({
+      headers: {
+        'safeString': $('meta[name="safeString"]').attr('content')
+      },
+      url: url + "/get_agent",
+      type: 'get',
+      data: { user_guid: user_guid},
+      success: function(data){
+        if(data.success) {
+          var array = []
+          for (var key in data.data) {
+            array.push({
+              id: data.data[key].value,
+              name: data.data[key].label,
+              method: sheetClick
+            })
+          }
+          that.actions = array
+        }
+      },
+      error: function (res) {
+        Toast({
+          message: res.responseJSON.message,
+          position: 'center',
+          duration: 5000
+        })
+      }
+    })
   },
   methods: {
     isShow() {
       this.sheetVisible = true
     },
+    // 确认分配
     confirm() {
-      console.log('this is a test')
+      $.ajax({
+        headers: {
+          'safeString': $('meta[name="safeString"]').attr('content')
+        },
+        url: url + "/allocation",
+        type: 'post',
+        data: { handle_guid: handle_guid, guid: guid },
+        success: function(data){
+          if(data.success) {
+            $('.detail-choice-agent').find('span').html('选择经纪人')
+            Toast({
+              message: data.message,
+              position: 'center',
+              duration: 1000
+            })
+          }
+        },
+        error: function (res) {
+          Toast({
+            message: res.responseJSON.message,
+            position: 'center',
+            duration: 5000
+          })
+        }
+      })
+    },
+    // 确认收到工单
+    confirmGet() {
+      MessageBox.confirm(appellation, '分配确认').then(action => {
+        $.ajax({
+          headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+          },
+          url: url + "/confirm",
+          type: 'post',
+          data: { handle_guid: user_guid, guid: guid },
+          success: function(data){
+            if(data.success) {
+              Toast({
+                message: data.message,
+                position: 'center',
+                duration: 1000
+              })
+              setTimeout(()=> {
+                window.location.href = '/work_orders/' + guid +'?user_guid='+ user_guid
+              })
+            }
+          },
+          error: function (res) {
+            Toast({
+              message: res.responseJSON.message,
+              position: 'center',
+              duration: 5000
+            })
+          }
+        })
+      })
+    },
+    // 状态
+    operate() {
+      this.sheetVisible1 = true
     }
   }
 })
+
+function status(id, param, val) {
+  var api = ''
+  var params = param
+  if (id === 1) {
+    api = '/valid'
+  } else if (id === 2) {
+    api = '/invalid'
+  } else if (id === 3) {
+    api = '/track'
+  } else if (id === 4) {
+    api = '/rotate'
+  } 
+  $.ajax({
+    headers: {
+      'safeString': $('meta[name="safeString"]').attr('content')
+    },
+    url: url + api,
+    type: 'post',
+    data: { handle_guid: user_guid, guid: guid, params: val },
+    success: function(data){
+      if(data.success) {
+        $('.detail-choice-agent').find('span').html('选择经纪人')
+        Toast({
+          message: data.message,
+          position: 'center',
+          duration: 1000
+        })
+      }
+    },
+    error: function (res) {
+      Toast({
+        message: res.responseJSON.message,
+        position: 'center',
+        duration: 5000
+      })
+    }
+  })
+}

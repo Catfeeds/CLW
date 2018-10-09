@@ -14,78 +14,94 @@
 </head>
 <body>
 <div id="detail-body">
+  <div id="userGuid" style="display:none">{{$user_guid}}</div>
+  <div id="gdGuid" style="display:none">{{$res['guid']}}</div>
+  <div id="appellation" style="display:none">{{$appellation}}</div>
   <div class="detail-title">工单详情</div>
   <div class="detail-info">
     <div class="detail-row">
       <span class="detail-row-title">工单编号</span><span>：</span>
-      <span class="detail-color">gd20180718073</span>
+      <span class="detail-color">{{$res['gd_identifier']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">开始时间</span><span>：</span>
-      <span class="detail-color">2017-04-01-8：00</span>
+      <span class="detail-color">{{$res['created_at']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">工单类型</span><span>：</span>
-      <span class="detail-color">投放房源</span>
+      <span class="detail-color">{{$res['demand_cn']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">区域</span><span>：</span>
-      <span class="detail-color">武昌区，汉口</span>
+      <span class="detail-color">{{$res['area']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">楼盘</span><span>：</span>
-      <span class="detail-color">光谷软件园，世贸中心</span>
+      <span class="detail-color">{{$res['building']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">面积</span><span>：</span>
-      <span class="detail-color">1000m²</span>
+      <span class="detail-color">{{$res['acreage']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">价格</span><span>：</span>
-      <span class="detail-color">80-100 元/m²月</span>
+      <span class="detail-color">{{$res['price']}}</span>
     </div>
     <div class="detail-row">
       <span class="detail-row-title">需求详情</span><span>：</span>
-      <span class="detail-remark">武汉主城区地铁口，200平方米，带办公家具，单独场地，整洁。</span>
+      <span class="detail-remark">{{$res['remark']}}</span>
     </div>
   </div>
   <div class="detail-concat">
     <div class="detail-name">
       <span class="detail-row-title">姓名</span><span>：</span>
-      <span class="detail-color">易盼</span>
+      <span class="detail-color">{{$res['name']}}</span>
     </div>
     <div class="detail-phone">
       <span class="detail-row-title">手机号</span><span>：</span>
-      <span class="detail-phone-color">17508642013</span>
+      <span class="detail-phone-color">{{$res['tel']}}</span>
     </div>
   </div>
+  <!-- 分配工单 -->
+  @if($res['distribution'])
   <div class="detail-choice">
-    <div class="detail-choice-agent" @click="isShow">选择经纪人<i class="el-icon-arrow-down"></i></div>
+    <div class="detail-choice-agent" @click="isShow"><span>选择经纪人</span><i class="el-icon-arrow-down"></i></div>
     <div class="detail-confirm" @click="confirm">确认分配</div>
   </div>
+  @endif
+  <!-- 确定工单 -->
+  @if($res['determine'])
+  <div class="detail-choice">
+    <div class="detail-confirm" @click="confirmGet">确定收到工单</div>
+  </div>
+  @endif
+  <!-- 处理工单 -->
+  @if($res['operate'])
+  <div class="detail-choice">
+    <div class="detail-confirm" @click="operate">选择操作<i class="el-icon-arrow-down"></i></div>
+  </div>
+  @endif
   <div class="detail-title">工单进度</div>
   <div class="detail-step">
-    <el-steps direction="vertical" :active="1" space="50px">
+    <el-steps direction="vertical" :active="1" space="100px">
+      @foreach ($res['schedule'] as $item)
       <el-step>
         <div slot="icon"></div>
-        <div slot="title">明天去看客户的房子(雷洋-汉街店-经纪人）</div>
-        <div slot="description">2017-04-01 12:00:00</div>
+        <div slot="title" style="line-height:25px;">{{$item->content}}</div>
+        <div slot="description" style="margin-top:5px">{{$item->created_at}}</div>
       </el-step>
-      <el-step>
-        <div slot="icon"></div>
-        <div slot="title">明天去看客户的房子(雷洋-汉街店-经纪人）</div>
-        <div slot="description">2017-04-01 12:00:00</div>
-      </el-step>
-      <el-step>
-        <div slot="icon"></div>
-        <div slot="title">明天去看客户的房子(雷洋-汉街店-经纪人）</div>
-        <div slot="description">2017-04-01 12:00:00</div>
-      </el-step>
+      @endforeach
     </el-steps>
   </div>
   <mt-actionsheet
     :actions="actions"
+    cancel-text=""
     v-model="sheetVisible">
+  </mt-actionsheet>
+  <mt-actionsheet
+    :actions="actions2"
+    cancel-text=""
+    v-model="sheetVisible1">
   </mt-actionsheet>
 </div>
 <script src="{{res('/js/we_work_order_detail.js')}}"></script>
