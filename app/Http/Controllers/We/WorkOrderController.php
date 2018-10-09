@@ -41,7 +41,7 @@ class WorkOrderController extends Controller
         // 经纪人guid
         $user_guid = $repository->getUserGuid($request->openid);
         $res = $repository->getShow($workOrder, $user_guid);
-        // dd($res);
+        dd($res);
         return view('we.work_order_detail', ['res' => $res, 'safeString' => $string]);
     }
     
