@@ -14,7 +14,7 @@ class AddHouseGuidTable extends Migration
     public function up()
     {
         Schema::table('houses', function (Blueprint $table) {
-            $table->tinyInteger('guid')->nullable()->comment('经济人房源guid')->after('id');
+            $table->char('guid',32)->nullable()->comment('经济人房源guid')->after('id');
         });
     }
 
