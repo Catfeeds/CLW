@@ -36,7 +36,6 @@ class WorkOrderController extends Controller
         $string = 'chulouwang'.date('Y-m-d',time());
         $string = Hash::make($string);
         // 经纪人guid
-
         if ($request->user_guid) {
             $user_guid = $request->user_guid;
         } else {

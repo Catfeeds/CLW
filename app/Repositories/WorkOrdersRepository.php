@@ -52,10 +52,8 @@ class WorkOrdersRepository extends Model
     // 手机端工单列表
     public function mobileList($request)
     {
-        // 经纪人guid
-        $user_guid = $this->getUserGuid($request->openid);
         // 查询该人员参与过的工单
-        $work_order_guid = Partake::where('user_guid', $user_guid)->pluck('work_order_guid')->toArray();
+        $work_order_guid = Partake::where('user_guid', $request->user_guid)->pluck('work_order_guid')->toArray();
         $work_order = WorkOrder::whereIn('guid', $work_order_guid);
         switch ($request->type) {
             case 1:
