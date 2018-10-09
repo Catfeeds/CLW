@@ -58,7 +58,7 @@ class WorkOrdersService
                        ->whereIn('rel_guid', collect($data)->flatten()->toArray());
 
         }
-        $res = $res->orderBy('rel_guid')->get();
+        $res = $res->where('guid', '!=', $guid)->orderBy('rel_guid')->get();
         return $res->map(function ($v) {
             return [
                 'label' => $v->name. '-'. $v->companyFramework->name. '-'. $v->role->name,
