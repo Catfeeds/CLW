@@ -18,7 +18,7 @@ module.exports = {
   },
   test: { // 测试服务器配置
     envConfig:{ // 测试服务器配置
-      agencyHostURL: '"http://jjrapi.jacklin.club"',
+      agencyHostURL: '"http://sysapi.jacklin.club"',
       baseHostURL: '"http://buildingapi.jacklin.club"'
     },
     we: { // 微信项目上传配置
@@ -57,7 +57,7 @@ module.exports = {
   },
   online: { // 正式服务器配置
     envConfig:{ // 正式服务器配置
-      agencyHostURL: '"http://jjrapi.chulouwang.com"',
+      agencyHostURL: '"http://sysapi.chulouwang.com"',
       baseHostURL: '"http://buildingapi.chulouwang.com"'
     },
     we: { // 微信项目上传配置

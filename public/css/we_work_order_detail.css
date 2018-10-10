@@ -118,7 +118,7 @@ body .mint-actionsheet-listitem {
 
 body .mint-actionsheet-list {
   background: #fff;
-  height: 300px;
+  max-height: 300px;
   overflow-y: scroll;
   border-radius: 15px 15px 0px 0px;
 }
