@@ -85,14 +85,14 @@ function getShopkeeperList(status, page, type=false) {
         if (data.success) {
           // status为1 时 是
           if(status===1) {
-            // type为true 是加载更多
+            // type为true 是下拉刷新 数据到第一页数据
             if(type){
               list.pulldown1 = false;
               list.unshopkowner = data.data.data;
                 setTimeout(function () {
                   list.$refs.loadmore.onTopLoaded();
                 },1000)
-                // type为false 是下拉刷新 数据到第一页数据
+                // type为false 是加载更多
             }else{
               list.unshopkowner = list.unshopkowner.concat(data.data.data)
             }
@@ -102,14 +102,14 @@ function getShopkeeperList(status, page, type=false) {
             }
             list.page1++
           }else if(status===2) {
-            // type为true 是加载更多
+            // type为true 是下拉刷新 数据到第一页数据
             if(type){
               list.pulldown2 = false;
               list.shopkowner = data.data.data;
                 setTimeout(function () {
                   list.$refs.unloadmore.onTopLoaded();
                 },1000)
-                // type为false 是下拉刷新 数据到第一页数据
+                // type为false 是加载更多
             }else{
               list.shopkowner = list.shopkowner.concat(data.data.data);
             }

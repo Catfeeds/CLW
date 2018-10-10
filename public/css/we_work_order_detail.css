@@ -3,6 +3,11 @@ body {
   margin-bottom: 10px;
 }
 
+body a {
+  text-decoration: none;
+  color: #333;
+}
+
 body .detail-row-title {
   width: 64px;
   text-align: justify;
@@ -15,12 +20,29 @@ body .detail-row-title:after {
 }
 
 body .detail-title {
+  padding: 23px 20px 20px 21px;
+  border-bottom: 0.5px solid #ededed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .detail-title .title {
   font-family: PingFang-SC-Medium;
   font-size: 18px;
   color: #333;
   font-weight: 600;
-  padding: 23px 0 20px 21px;
-  border-bottom: 0.5px solid #ededed;
+}
+
+body .detail-title .order-list {
+  font-family: PingFang-SC-Medium;
+  color: #007bff;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
 }
 
 body .detail-info {
