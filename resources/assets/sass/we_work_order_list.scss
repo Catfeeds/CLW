@@ -22,6 +22,7 @@ body{
       background: #fff;
       border-radius: 6px;
       .manage-list-num{
+        font-family: PingFang-SC-Medium;
         font-weight: 600;
         font-size: 17px;
         padding: 15px 0 15px 20px;
@@ -37,6 +38,7 @@ body{
           span{
             color: #999;
             font-size: 15px;
+            font-family: PingFang-SC-regular;
           }
           .manage-list-color{
             color: #333;
@@ -52,15 +54,30 @@ body{
         padding: 15px 20px;
         display: flex;
         justify-content: space-between;
+        font-family: PingFang-SC-regular;
         .el-icon-arrow-right{
           margin-top: 2px;
           color: #ccc;
         }
       }
     }
+    .loading{
+      display: flex;
+      justify-content: center;
+      span{
+        margin-left: 5px;
+        font-family: PingFang-SC-regular;
+      }
+    }
+    .mint-spinner-fading-circle{
+      width: 15px !important;
+      height: 15px !important;
+      top: 4px;
+    }
     .mint-tab-item-label{
       font-size: 15px;
       font-weight: 600;
+      font-family: PingFang-SC-Medium;
     }
     .mint-navbar .mint-tab-item.is-selected{
       border-bottom: none;
@@ -68,6 +85,7 @@ body{
       margin-bottom: 0;
       .mint-tab-item-label{
         font-size: 18px;
+        font-family: PingFang-SC-regular;
       }
     }
   }

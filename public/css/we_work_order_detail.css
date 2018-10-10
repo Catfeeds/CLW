@@ -3,6 +3,11 @@ body {
   margin-bottom: 10px;
 }
 
+body a {
+  text-decoration: none;
+  color: #333;
+}
+
 body .detail-row-title {
   width: 64px;
   text-align: justify;
@@ -15,11 +20,29 @@ body .detail-row-title:after {
 }
 
 body .detail-title {
+  padding: 23px 20px 20px 21px;
+  border-bottom: 0.5px solid #ededed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .detail-title .title {
+  font-family: PingFang-SC-Medium;
   font-size: 18px;
   color: #333;
   font-weight: 600;
-  padding: 23px 0 20px 21px;
-  border-bottom: 0.5px solid #ededed;
+}
+
+body .detail-title .order-list {
+  font-family: PingFang-SC-Medium;
+  color: #007bff;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
 }
 
 body .detail-info {
@@ -40,6 +63,7 @@ body .detail-info .detail-row {
 body .detail-info .detail-row span {
   color: #999;
   font-size: 15px;
+  font-family: PingFang-SC-regular;
 }
 
 body .detail-info .detail-row .detail-color {
@@ -71,6 +95,7 @@ body .detail-concat .detail-phone {
 
 body .detail-concat span {
   color: #999;
+  font-family: PingFang-SC-regular;
 }
 
 body .detail-concat .detail-color {
@@ -90,6 +115,7 @@ body .detail-choice {
 body .detail-choice .detail-choice-agent {
   text-align: center;
   margin-bottom: 30px;
+  font-family: PingFang-SC-regular;
 }
 
 body .detail-choice .detail-confirm {
@@ -101,6 +127,7 @@ body .detail-choice .detail-confirm {
   text-align: center;
   line-height: 44px;
   margin: 0 auto;
+  font-family: PingFang-SC-regular;
 }
 
 body .mint-actionsheet-listitem {
@@ -113,7 +140,7 @@ body .mint-actionsheet-listitem {
 
 body .mint-actionsheet-list {
   background: #fff;
-  height: 300px;
+  max-height: 300px;
   overflow-y: scroll;
   border-radius: 15px 15px 0px 0px;
 }
@@ -126,6 +153,7 @@ body .el-step__main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  margin-bottom: 10px;
 }
 
 body .detail-step {
@@ -153,6 +181,7 @@ body .detail-step .is-finish .el-step__icon {
 body .detail-step .el-step__title.is-finish {
   color: #333;
   font-size: 13px;
+  font-family: PingFang-SC-regular;
 }
 
 body .detail-step .is-wait .el-step__icon,
@@ -176,6 +205,7 @@ body .detail-step .el-step__description {
 body .detail-step .el-step__title {
   font-size: 13px;
   color: #333;
+  font-family: PingFang-SC-regular;
 }
 
 body .detail-step .el-step__title.is-process {
@@ -186,11 +216,13 @@ body .detail-step .el-step__description.is-process,
 body .detail-step .is-finish {
   color: #999;
   font-size: 13px;
+  font-family: PingFang-SC-regular;
 }
 
 body .detail-step .el-step__description.is-wait {
   color: #999;
   font-size: 13px;
+  font-family: PingFang-SC-regular;
 }
 
 body .detail-step .el-step.is-vertical .el-step__main {

@@ -69,10 +69,10 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["TabContainerItem"].name, __WEBPACK_IMPORTED_MODULE_4_mint_ui__["TabContainerItem"]);
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["Loadmore"].name, __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Loadmore"]);
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a);
+__WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["Spinner"].name, __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Spinner"]);
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["InfiniteScroll"]);
 var url = 'http://192.168.0.199:3000' + '/api/admin';
 var user_guid = $('#userGuid')[0].innerHTML;
-console.log('user_guid', user_guid);
 var requestType = false;
 var list = new __WEBPACK_IMPORTED_MODULE_3_vue___default.a({
   el: '.list-content',
@@ -121,35 +121,10 @@ var list = new __WEBPACK_IMPORTED_MODULE_3_vue___default.a({
 
     // 上拉加载更多
     getDealList: function getDealList() {
-      console.log(1111111, this.pulldown1);
-      if (!this.pulldown1) {
-        console.log(2222222, this.pulldown1);
-        __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].open({
-          text: '加载中...',
-          spinnerType: 'fading-circle'
-        });
-      } else {
-        console.log(33333, this.pulldown1);
-        __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].open({
-          text: '再无更多数据...',
-          spinnerType: 'fading-circle'
-        });
-      }
       if (this.pulldown1) return;
       getShopkeeperList(1, this.page1);
     },
     getCloseList: function getCloseList() {
-      if (!this.pulldown2) {
-        __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].open({
-          text: '加载中...',
-          spinnerType: 'fading-circle'
-        });
-      } else {
-        __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].open({
-          text: '再无更多数据...',
-          spinnerType: 'fading-circle'
-        });
-      }
       if (this.pulldown2) return;
       getShopkeeperList(2, this.page2);
     }
@@ -176,14 +151,14 @@ function getShopkeeperList(status, page) {
       if (data.success) {
         // status为1 时 是
         if (status === 1) {
-          // type为true 是加载更多
+          // type为true 是下拉刷新 数据到第一页数据
           if (type) {
             list.pulldown1 = false;
             list.unshopkowner = data.data.data;
             setTimeout(function () {
               list.$refs.loadmore.onTopLoaded();
             }, 1000);
-            // type为false 是下拉刷新 数据到第一页数据
+            // type为false 是加载更多
           } else {
             list.unshopkowner = list.unshopkowner.concat(data.data.data);
           }
@@ -193,14 +168,14 @@ function getShopkeeperList(status, page) {
           }
           list.page1++;
         } else if (status === 2) {
-          // type为true 是加载更多
+          // type为true 是下拉刷新 数据到第一页数据
           if (type) {
             list.pulldown2 = false;
             list.shopkowner = data.data.data;
             setTimeout(function () {
               list.$refs.unloadmore.onTopLoaded();
             }, 1000);
-            // type为false 是下拉刷新 数据到第一页数据
+            // type为false 是加载更多
           } else {
             list.shopkowner = list.shopkowner.concat(data.data.data);
           }

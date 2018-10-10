@@ -65,6 +65,9 @@ const app = new Vue({
     sheetVisible: false,
     sheetVisible1: false,
     actions: [],
+    allocationDisabled: true,
+    confirmDisabled: true,
+    statueDisabled: true,
     actions2: [
       {
         name: '有效',
@@ -126,14 +129,15 @@ const app = new Vue({
     },
     // 确认分配
     confirm() {
-      console.log('handle_guid', handle_guid)
+      var that = this
       if (handle_guid === '') {
         Toast({
           message: '请选择经纪人',
           position: 'center',
           duration: 1000
         })
-      } else {
+      } else if(that.allocationDisabled) {
+        that.allocationDisabled = false
         $.ajax({
           headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
@@ -163,7 +167,9 @@ const app = new Vue({
     },
     // 确认收到工单
     confirmGet() {
+      var that = this
       MessageBox.confirm(appellation, '分配确认').then(action => {
+        that.confirmDisabled = false
         $.ajax({
           headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
@@ -215,7 +221,7 @@ function status(id, param, val) {
   } else if (id === 4) {
     api = '/rotate'
   }
-  
+  app.statueDisabled = false
   $.ajax({
     headers: {
       'safeString': $('meta[name="safeString"]').attr('content')

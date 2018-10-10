@@ -1,6 +1,10 @@
 body{
   margin: 0;
   margin-bottom: 10px;
+  a{
+    text-decoration: none;
+    color: #333;
+  }
   .detail-row-title{
     // display: inline-block;
     width: 64px;
@@ -13,11 +17,23 @@ body{
     }
   }
   .detail-title{
-    font-size: 18px;
-    color: #333;
-    font-weight: 600;
-    padding: 23px 0 20px 21px;
-    border-bottom: 0.5px solid #ededed; 
+    padding: 23px 20px 20px 21px;
+    border-bottom: 0.5px solid #ededed;
+    display: flex;
+    justify-content: space-between;
+    .title{
+      font-family: PingFang-SC-Medium;
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+    }
+    .order-list{
+      font-family: PingFang-SC-Medium;
+      color: #007bff;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 24px;
+    }
   }
   .detail-info{
     padding: 20px;
@@ -29,6 +45,7 @@ body{
       span{
         color: #999;
         font-size: 15px;
+        font-family: PingFang-SC-regular;
       }
       .detail-color{
         color: #333;
@@ -51,6 +68,7 @@ body{
     }
     span{
       color: #999;
+      font-family: PingFang-SC-regular;
     }
     .detail-color{
       color: #333;
@@ -66,6 +84,7 @@ body{
     .detail-choice-agent{
       text-align: center;
       margin-bottom: 30px;
+      font-family: PingFang-SC-regular;
     }
     .detail-confirm{
       width: 300px;
@@ -76,6 +95,7 @@ body{
       text-align: center;
       line-height: 44px;
       margin: 0 auto;
+      font-family: PingFang-SC-regular;
     }
   }
   .mint-actionsheet-listitem{
@@ -87,7 +107,7 @@ body{
   }
   .mint-actionsheet-list{
     background: #fff;
-    height: 300px;
+    max-height: 300px;
     overflow-y: scroll;
     border-radius: 15px 15px 0px 0px;
   }
@@ -96,6 +116,7 @@ body{
   }
   .el-step__main{
     flex: 1;
+    margin-bottom: 10px;
   }
   .detail-step{
     padding: 16px 0 0 20px;
@@ -119,6 +140,7 @@ body{
     .el-step__title.is-finish{
       color: #333;
       font-size: 13px;
+      font-family: PingFang-SC-regular;
     }
     .is-wait,.is-process{
       .el-step__icon{
@@ -139,6 +161,7 @@ body{
     .el-step__title{
       font-size: 13px;
       color: #333;
+      font-family: PingFang-SC-regular;
     }
     .el-step__title.is-process{
       font-weight: 500;
@@ -146,10 +169,12 @@ body{
     .el-step__description.is-process,.is-finish{
       color: #999;
       font-size: 13px;
+      font-family: PingFang-SC-regular;
     }
     .el-step__description.is-wait{
       color: #999;
       font-size: 13px;
+      font-family: PingFang-SC-regular;
     }
     .el-step.is-vertical .el-step__main{
       padding-left: 5px;
