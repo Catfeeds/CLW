@@ -126,6 +126,7 @@ const app = new Vue({
     },
     // 确认分配
     confirm() {
+      console.log(22222)
       $.ajax({
         headers: {
           'safeString': $('meta[name="safeString"]').attr('content')
@@ -135,12 +136,13 @@ const app = new Vue({
         data: { handle_guid: handle_guid, guid: guid },
         success: function(data){
           if(data.success) {
-            $('.detail-choice-agent').find('span').html('选择经纪人')
             Toast({
               message: data.message,
               position: 'center',
               duration: 1000
             })
+            console.log(1111111)
+            window.location.reload()
           }
         },
         error: function (res) {

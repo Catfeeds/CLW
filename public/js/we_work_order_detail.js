@@ -211,6 +211,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
 
     // 确认分配
     confirm: function confirm() {
+      console.log(22222);
       $.ajax({
         headers: {
           'safeString': $('meta[name="safeString"]').attr('content')
@@ -220,12 +221,13 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
         data: { handle_guid: handle_guid, guid: guid },
         success: function success(data) {
           if (data.success) {
-            $('.detail-choice-agent').find('span').html('选择经纪人');
             Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
               message: data.message,
               position: 'center',
               duration: 1000
             });
+            console.log(1111111);
+            window.location.reload();
           }
         },
         error: function error(res) {
