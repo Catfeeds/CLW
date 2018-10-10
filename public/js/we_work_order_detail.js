@@ -211,7 +211,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
 
     // 确认分配
     confirm: function confirm() {
-      console.log(22222);
       $.ajax({
         headers: {
           'safeString': $('meta[name="safeString"]').attr('content')
@@ -226,7 +225,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
               position: 'center',
               duration: 1000
             });
-            console.log(1111111);
             window.location.reload();
           }
         },
