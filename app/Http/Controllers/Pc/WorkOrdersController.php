@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\App;
+namespace App\Http\Controllers\Pc;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\WorkOrdersRequest;
@@ -8,7 +8,7 @@ use App\Repositories\WorkOrdersRepository;
 
 class WorkOrdersController extends Controller
 {
-    // app投放委托
+    // 投放委托
     public function store
     (
         WorkOrdersRequest $request,

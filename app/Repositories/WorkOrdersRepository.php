@@ -129,7 +129,7 @@ class WorkOrdersRepository extends Model
             $workOrder = WorkOrder::create([
                 'guid' => Common::getUuid(),
                 'gd_identifier' => $identifier,
-                'name' => $request->appellation,
+                'name' => $request->name,
                 'tel' => $request->tel,
                 'source' => $request->source,
                 'page_source' => $request->page_source,
