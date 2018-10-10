@@ -92,7 +92,6 @@ const list = new Vue({
   }
 })
 function getShopkeeperList(status, page, type=false) {
-  console.log('status', requestType)
   if(requestType) return;
   requestType = true;
   $.ajax({
@@ -103,14 +102,12 @@ function getShopkeeperList(status, page, type=false) {
       type: 'get',
       data:{
         user_guid: user_guid,
-        status: status,
+        type: status,
         openid: $('meta[name="openid"]').attr('content'),
         page: page
       },
       success: function(data){
-        console.log('safsdgdfhfdjhdj', data)
         if (data.success) {
-          console.log('data.success', data)
           // status为1 时 是
           if(status===1) {
             // type为true 是加载更多

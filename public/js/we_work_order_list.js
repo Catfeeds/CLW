@@ -158,7 +158,6 @@ var list = new __WEBPACK_IMPORTED_MODULE_3_vue___default.a({
 function getShopkeeperList(status, page) {
   var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-  console.log('status', requestType);
   if (requestType) return;
   requestType = true;
   $.ajax({
@@ -169,14 +168,12 @@ function getShopkeeperList(status, page) {
     type: 'get',
     data: {
       user_guid: user_guid,
-      status: status,
+      type: status,
       openid: $('meta[name="openid"]').attr('content'),
       page: page
     },
     success: function success(data) {
-      console.log('safsdgdfhfdjhdj', data);
       if (data.success) {
-        console.log('data.success', data);
         // status为1 时 是
         if (status === 1) {
           // type为true 是加载更多
