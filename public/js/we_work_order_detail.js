@@ -211,31 +211,40 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
 
     // 确认分配
     confirm: function confirm() {
-      $.ajax({
-        headers: {
-          'safeString': $('meta[name="safeString"]').attr('content')
-        },
-        url: url + "/allocation",
-        type: 'post',
-        data: { handle_guid: handle_guid, guid: guid },
-        success: function success(data) {
-          if (data.success) {
+      console.log('handle_guid', handle_guid);
+      if (handle_guid === '') {
+        Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
+          message: '请选择经纪人',
+          position: 'center',
+          duration: 1000
+        });
+      } else {
+        $.ajax({
+          headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+          },
+          url: url + "/allocation",
+          type: 'post',
+          data: { handle_guid: handle_guid, guid: guid },
+          success: function success(data) {
+            if (data.success) {
+              Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
+                message: data.message,
+                position: 'center',
+                duration: 1000
+              });
+              window.location.reload();
+            }
+          },
+          error: function error(res) {
             Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
-              message: data.message,
+              message: res.responseJSON.message,
               position: 'center',
-              duration: 1000
+              duration: 5000
             });
-            window.location.reload();
           }
-        },
-        error: function error(res) {
-          Object(__WEBPACK_IMPORTED_MODULE_8_mint_ui__["Toast"])({
-            message: res.responseJSON.message,
-            position: 'center',
-            duration: 5000
-          });
-        }
-      });
+        });
+      }
     },
 
     // 确认收到工单

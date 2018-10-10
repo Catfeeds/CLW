@@ -126,31 +126,40 @@ const app = new Vue({
     },
     // 确认分配
     confirm() {
-      $.ajax({
-        headers: {
-          'safeString': $('meta[name="safeString"]').attr('content')
-        },
-        url: url + "/allocation",
-        type: 'post',
-        data: { handle_guid: handle_guid, guid: guid },
-        success: function(data){
-          if(data.success) {
+      console.log('handle_guid', handle_guid)
+      if (handle_guid === '') {
+        Toast({
+          message: '请选择经纪人',
+          position: 'center',
+          duration: 1000
+        })
+      } else {
+        $.ajax({
+          headers: {
+            'safeString': $('meta[name="safeString"]').attr('content')
+          },
+          url: url + "/allocation",
+          type: 'post',
+          data: { handle_guid: handle_guid, guid: guid },
+          success: function(data){
+            if(data.success) {
+              Toast({
+                message: data.message,
+                position: 'center',
+                duration: 1000
+              })
+              window.location.reload()
+            }
+          },
+          error: function (res) {
             Toast({
-              message: data.message,
+              message: res.responseJSON.message,
               position: 'center',
-              duration: 1000
+              duration: 5000
             })
-            window.location.reload()
           }
-        },
-        error: function (res) {
-          Toast({
-            message: res.responseJSON.message,
-            position: 'center',
-            duration: 5000
-          })
-        }
-      })
+        })
+      }
     },
     // 确认收到工单
     confirmGet() {
