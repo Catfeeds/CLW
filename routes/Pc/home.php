@@ -1,4 +1,4 @@
-<?php
+1<?php
 
 // 前台首页
 Route::resource('/', 'IndexController');
