@@ -60,7 +60,7 @@
         </div>
       </div>
       <div style="text-align:center" v-if="pullMore"><span>已加载全部</span></div>
-      <div v-else style="text-align:center">正在加载</div>
+      <div v-else class="loading"><mt-spinner type="fading-circle"></mt-spinner><span>正在加载...</span></div>
     </mt-loadmore>
   </mt-tab-container-item>
   <mt-tab-container-item id="2">
@@ -102,7 +102,7 @@
         </div>
       </div>
       <div v-if="unPullMore" style="text-align:center"><span>已加载全部</span></div>
-      <div v-else style="text-align:center">正在加载</div>
+      <div v-else class="loading"><mt-spinner type="fading-circle" ></mt-spinner><span>正在加载...</span></div>
     </mt-loadmore>
   </mt-tab-container-item>
   <div slot="top" class="mint-loadmore-top" v-if="topState === 'loading'">

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Navbar, TabItem, TabContainer, TabContainerItem, Loadmore, InfiniteScroll, Indicator, Toast } from 'mint-ui'
+import { Navbar, TabItem, TabContainer, TabContainerItem, Loadmore, InfiniteScroll, Indicator, Toast, Spinner } from 'mint-ui'
 import { Icon } from 'element-ui'
 Vue.component(Navbar.name, Navbar)
 Vue.component(TabItem.name, TabItem)
@@ -7,10 +7,10 @@ Vue.component(TabContainer.name, TabContainer)
 Vue.component(TabContainerItem.name, TabContainerItem)
 Vue.component(Loadmore.name, Loadmore)
 Vue.component(Icon.name, Icon)
+Vue.component(Spinner.name, Spinner)
 Vue.use(InfiniteScroll)
 const url = process.env.agencyHostURL + '/api/admin'
 const user_guid = $('#userGuid')[0].innerHTML
-console.log('user_guid', user_guid)
 var requestType = false;
 const list = new Vue({
   el: '.list-content',
@@ -57,35 +57,10 @@ const list = new Vue({
     },
     // 上拉加载更多
     getDealList() {
-      console.log(1111111, this.pulldown1)
-      if(!this.pulldown1) {
-        console.log(2222222, this.pulldown1)
-        Indicator.open({
-          text: '加载中...',
-          spinnerType: 'fading-circle'
-        })
-      }else{
-        console.log(33333, this.pulldown1)
-        Indicator.open({
-          text: '再无更多数据...',
-          spinnerType: 'fading-circle'
-        })
-      }
       if(this.pulldown1) return
       getShopkeeperList(1, this.page1)
     },
     getCloseList() {
-      if(!this.pulldown2) {
-        Indicator.open({
-          text: '加载中...',
-          spinnerType: 'fading-circle'
-        })
-      }else{
-        Indicator.open({
-          text: '再无更多数据...',
-          spinnerType: 'fading-circle'
-        })
-      }
       if(this.pulldown2) return
       getShopkeeperList(2, this.page2)
     }

@@ -84,6 +84,25 @@ body .list-content .manage-list .manage-list-detail .el-icon-arrow-right {
   color: #ccc;
 }
 
+body .list-content .loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .list-content .loading span {
+  margin-left: 5px;
+}
+
+body .list-content .mint-spinner-fading-circle {
+  width: 15px !important;
+  height: 15px !important;
+  top: 4px;
+}
+
 body .list-content .mint-tab-item-label {
   font-size: 15px;
   font-weight: 600;
