@@ -52,18 +52,4 @@ class WorkOrderController extends Controller
         // dd($appellation);
         return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid, 'appellation' => $appellation]);
     }
-    
-    /**
-     * 说明: 业务员 工单处理页面
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @author wh
-     */
-    public function salesman(Request $request)
-    {
-        $string = 'chulouwang'.date('Y-m-d',time());
-        $safeString = Hash::make($string);
-         if (!$request->openid) return '缺少参数';
-        return view('we.work_order_salesman', ['openid'=>$request->openid, 'safeString'=>$safeString]);
-    }
 }

@@ -71,8 +71,8 @@ class WorkOrdersRepository extends Model
             $data[$k]['demand'] = $v->demand_cn;
             $data[$k]['area'] = $v->area_name;
             $data[$k]['building'] = $v->building_name;
-            $data[$k]['acreage'] = $v->acreage;
-            $data[$k]['price'] = $v->price;
+            $data[$k]['acreage'] = $v->acreage_cn;
+            $data[$k]['price'] = $v->price_cn;
             $data[$k]['remark'] = $v->remark;
         }
         return $work_order->setCollection(collect($data));
@@ -93,8 +93,8 @@ class WorkOrdersRepository extends Model
         $data['tel'] = $workOrder->tel;
         $data['area'] = $workOrder->area_name;
         $data['building'] = $workOrder->building_name;
-        $data['acreage'] = $workOrder->acreage;
-        $data['price'] = $workOrder->price;
+        $data['acreage'] = $workOrder->acreage_cn;
+        $data['price'] = $workOrder->price_cn;
         $data['remark'] = $workOrder->remark;
         $data['schedule'] = $workOrder->schedule;
         $data['distribution'] = false; // 分配
