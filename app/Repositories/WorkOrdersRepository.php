@@ -389,10 +389,11 @@ class WorkOrdersRepository extends Model
         // 管理层
         if ($user->work_order) {
             $str = ' ('.$user->name. '-'. $user->work_order_cn. '-'. $user->company->name. ')';
-        } else {
+        } elseif ($user->rel_guid) {
             $str = ' ('.$user->name. '-'. $user->companyFramework->name. '-'. $user->role->name.')';
+        } else {
+            $str = '';
         }
-        // dd($str);
         return $str;
     }
 
