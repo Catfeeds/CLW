@@ -70,48 +70,76 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["Loadmore"].name, __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Loadmore"]);
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_icon___default.a);
 __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["InfiniteScroll"]);
+var url = 'http://192.168.0.199:3000' + '/api/admin';
+var user_guid = $('#userGuid')[0].innerHTML;
+console.log('user_guid', user_guid);
+var requestType = false;
 var list = new __WEBPACK_IMPORTED_MODULE_3_vue___default.a({
   el: '.list-content',
   data: {
+    userGuid: user_guid,
     isfixed: true,
     topState: '',
+    untopStatus: '',
     selected: '1',
-    pulldown1: true,
-    pulldown2: true
+    pulldown1: false,
+    pulldown2: false,
+    page1: 1,
+    page2: 1,
+    unshopkowner: '',
+    shopkowner: '',
+    pullMore: false,
+    unPullMore: false
   },
+  created: function created() {
+    // 获取处理中的工单
+    getShopkeeperList(1, this.page1, true);
+    requestType = false;
+    // 获取已关闭的工单
+    getShopkeeperList(2, this.page2, true);
+  },
+
   methods: {
     handleTopChange: function handleTopChange(status) {
-      console.log('sdfdgdfgdg', status);
       this.topState = status;
     },
     unHandleTopChange: function unHandleTopChange(status) {
-      console.log('222222', status);
-      this.topState = status;
+      this.untopStatus = status;
     },
     loadTop: function loadTop() {
-      console.log('我也不知道什么时候触发');
+      this.page1 = 1;
+      // 获取处理中工单
+      getShopkeeperList(1, this.page1, true);
+      this.pullMore = false;
     },
     unLoadTop: function unLoadTop() {
-      console.log('不知道什么意思');
+      this.page2 = 1;
+      // 获取已关闭工单
+      getShopkeeperList(2, this.page2, true);
+      this.unPullMore = false;
     },
 
     // 上拉加载更多
     getDealList: function getDealList() {
-      alert('有没有效果');
+      console.log(1111111, this.pulldown1);
       if (!this.pulldown1) {
+        console.log(2222222, this.pulldown1);
         __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].open({
           text: '加载中...',
           spinnerType: 'fading-circle'
         });
       } else {
+        console.log(33333, this.pulldown1);
         __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].open({
           text: '再无更多数据...',
           spinnerType: 'fading-circle'
         });
       }
+      if (this.pulldown1) return;
+      getShopkeeperList(1, this.page1);
     },
     getCloseList: function getCloseList() {
-      if (!this.pulldown1) {
+      if (!this.pulldown2) {
         __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].open({
           text: '加载中...',
           spinnerType: 'fading-circle'
@@ -122,9 +150,80 @@ var list = new __WEBPACK_IMPORTED_MODULE_3_vue___default.a({
           spinnerType: 'fading-circle'
         });
       }
+      if (this.pulldown2) return;
+      getShopkeeperList(2, this.page2);
     }
   }
 });
+function getShopkeeperList(status, page) {
+  var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  if (requestType) return;
+  requestType = true;
+  $.ajax({
+    headers: {
+      'safeString': $('meta[name="safeString"]').attr('content')
+    },
+    url: url + "/mobile_list",
+    type: 'get',
+    data: {
+      user_guid: user_guid,
+      type: status,
+      openid: $('meta[name="openid"]').attr('content'),
+      page: page
+    },
+    success: function success(data) {
+      if (data.success) {
+        // status为1 时 是
+        if (status === 1) {
+          // type为true 是加载更多
+          if (type) {
+            list.pulldown1 = false;
+            list.unshopkowner = data.data.data;
+            setTimeout(function () {
+              list.$refs.loadmore.onTopLoaded();
+            }, 1000);
+            // type为false 是下拉刷新 数据到第一页数据
+          } else {
+            list.unshopkowner = list.unshopkowner.concat(data.data.data);
+          }
+          if (data.data.last_page === list.page1) {
+            list.pulldown1 = true;
+            list.pullMore = true;
+          }
+          list.page1++;
+        } else if (status === 2) {
+          // type为true 是加载更多
+          if (type) {
+            list.pulldown2 = false;
+            list.shopkowner = data.data.data;
+            setTimeout(function () {
+              list.$refs.unloadmore.onTopLoaded();
+            }, 1000);
+            // type为false 是下拉刷新 数据到第一页数据
+          } else {
+            list.shopkowner = list.shopkowner.concat(data.data.data);
+          }
+          if (data.data.last_page === list.page2) {
+            list.pulldown2 = true;
+            list.unPullMore = true;
+          }
+          list.page2++;
+        }
+      }
+      requestType = false;
+      __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].close();
+    },
+    error: function error(res) {
+      __WEBPACK_IMPORTED_MODULE_4_mint_ui__["Indicator"].close();
+      Object(__WEBPACK_IMPORTED_MODULE_4_mint_ui__["Toast"])({
+        message: res.message,
+        position: 'center',
+        duration: 5000
+      });
+    }
+  });
+}
 
 /***/ }),
 
