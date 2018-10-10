@@ -18,7 +18,9 @@ class WorkOrder extends BaseModel
 
     protected $appends = [
         'source_cn',
-        'demand_cn'
+        'demand_cn',
+        'price_cn',
+        'acreage_cn'
     ];
 
     // 工单关联进度
@@ -86,6 +88,26 @@ class WorkOrder extends BaseModel
                 return '其他';
             default;
                 break;
+        }
+    }
+
+    // 价格单位 price_cn
+    public function getPriceCnAttribute()
+    {
+        if ($this->price) {
+            return $this->price.'元/㎡/月';
+        } else {
+            return '';
+        }
+    }
+
+    // 面积单位 acreage_cn
+    public function getAcreageCnAttribute()
+    {
+        if ($this->acreage) {
+            return $this->acreage.'㎡';
+        } else {
+            return '';
         }
     }
 

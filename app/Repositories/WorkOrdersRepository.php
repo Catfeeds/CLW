@@ -71,8 +71,8 @@ class WorkOrdersRepository extends Model
             $data[$k]['demand'] = $v->demand_cn;
             $data[$k]['area'] = $v->area_name;
             $data[$k]['building'] = $v->building_name;
-            $data[$k]['acreage'] = $v->acreage;
-            $data[$k]['price'] = $v->price;
+            $data[$k]['acreage'] = $v->acreage_cn;
+            $data[$k]['price'] = $v->price_cn;
             $data[$k]['remark'] = $v->remark;
         }
         return $work_order->setCollection(collect($data));
@@ -93,8 +93,8 @@ class WorkOrdersRepository extends Model
         $data['tel'] = $workOrder->tel;
         $data['area'] = $workOrder->area_name;
         $data['building'] = $workOrder->building_name;
-        $data['acreage'] = $workOrder->acreage;
-        $data['price'] = $workOrder->price;
+        $data['acreage'] = $workOrder->acreage_cn;
+        $data['price'] = $workOrder->price_cn;
         $data['remark'] = $workOrder->remark;
         $data['schedule'] = $workOrder->schedule;
         $data['distribution'] = false; // 分配
@@ -129,7 +129,7 @@ class WorkOrdersRepository extends Model
             $workOrder = WorkOrder::create([
                 'guid' => Common::getUuid(),
                 'gd_identifier' => $identifier,
-                'name' => $request->appellation,
+                'name' => $request->name,
                 'tel' => $request->tel,
                 'source' => $request->source,
                 'page_source' => $request->page_source,
@@ -279,7 +279,9 @@ class WorkOrdersRepository extends Model
     {
         \DB::beginTransaction();
         try {
+            dd(123);
             $res = WorkOrder::where('guid', $request->guid)->first();
+            dd($res);
             $res->identifier = $request->identifier;
             $res->status = 3;
             if (!$res->save()) throw new \Exception('操作失败');
@@ -390,6 +392,7 @@ class WorkOrdersRepository extends Model
         } else {
             $str = ' ('.$user->name. '-'. $user->companyFramework->name. '-'. $user->role->name.')';
         }
+        // dd($str);
         return $str;
     }
 

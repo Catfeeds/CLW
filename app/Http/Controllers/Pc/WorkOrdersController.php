@@ -8,7 +8,7 @@ use App\Repositories\WorkOrdersRepository;
 
 class WorkOrdersController extends Controller
 {
-    // app投放委托
+    // 投放委托
     public function store
     (
         WorkOrdersRequest $request,
