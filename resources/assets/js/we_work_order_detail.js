@@ -18,21 +18,45 @@ var sheetClick = function(e) {
 var getState = function(val) {
   console.log('val', val.id)
   if (val.id === 1) {
-    MessageBox.prompt('有效', '', {inputPlaceholder: '请输入房源或客源编号',inputType: 'textarea', 
+    MessageBox.prompt('有效', '', {inputPlaceholder: '请输入房源或客源编号',      inputType: 'textarea', 
+    inputValidator: (val) => {
+      if (val === null || val === '') {
+        return true
+      }
+    }, inputErrorMessage: '输入框内容不能为空'
+    } ).then(({ value, action }) => {
+    status(1, 'identifier', value)
+    })
+  } else if (val.id === 2) {
+    MessageBox.prompt('无效', '', {inputPlaceholder: '请输入无效原因', inputType: 'textarea', 
+    inputValidator: (val) => {
+      if (val === null || val === '') {
+        return true
+      }
+    }, inputErrorMessage: '输入框内容不能为空'
+    } ).then(({ value, action }) => {
+    status(2, 'reason', value)
+    })
+  } else if (val.id === 3) {
+    MessageBox.prompt('跟进', '', {inputPlaceholder: '请输入跟进内容',      inputType: 'textarea', 
+    inputValidator: (val) => {
+      if (val === null || val === '') {
+        return true
+      }
+    }, inputErrorMessage: '输入框内容不能为空'
+    } ).then(({ value, action }) => {
+    status(3, 'track', value)
+    })
+  } else if (val.id === 4) {
+    MessageBox.prompt('转发', '', {inputPlaceholder: '请输入转发原因',      inputType: 'textarea', 
     inputValidator: (val) => {
       if (val === null || val === '') {
         return false
       }
     }, inputErrorMessage: '输入框内容不能为空'
-  } ).then(({ value, action }) => {
-    status(1, 'valid', value)
+    } ).then(({ value, action }) => {
+    status(4, 'reason', value)
     })
-  } else if (val.id === 2) {
-    console.log(11111)
-  } else if (val.id === 3) {
-    console.log(11111)
-  } else if (val.id === 4) {
-    console.log(11111)
   }
 }
 const app = new Vue({
@@ -53,12 +77,12 @@ const app = new Vue({
         method: getState
       },
       {
-        name: '转发',
+        name: '跟进',
         id: 3,
         method: getState
       },
       {
-        name: '跟进',
+        name: '转发',
         id: 4,
         method: getState
       },
@@ -169,7 +193,10 @@ const app = new Vue({
 
 function status(id, param, val) {
   var api = ''
-  var params = param
+  var formData = {}
+  formData[param] = val
+  formData.handle_guid = user_guid
+  formData.guid = guid
   if (id === 1) {
     api = '/valid'
   } else if (id === 2) {
@@ -178,14 +205,15 @@ function status(id, param, val) {
     api = '/track'
   } else if (id === 4) {
     api = '/rotate'
-  } 
+  }
+  
   $.ajax({
     headers: {
       'safeString': $('meta[name="safeString"]').attr('content')
     },
     url: url + api,
     type: 'post',
-    data: { handle_guid: user_guid, guid: guid, params: val },
+    data: formData,
     success: function(data){
       if(data.success) {
         $('.detail-choice-agent').find('span').html('选择经纪人')
@@ -194,6 +222,7 @@ function status(id, param, val) {
           position: 'center',
           duration: 1000
         })
+        window.location.reload()
       }
     },
     error: function (res) {

@@ -22,6 +22,7 @@ class WorkOrderController extends Controller
         $user_guid = $repository->getUserGuid($request->openid);
         $string = 'chulouwang'.date('Y-m-d',time());
         $string = Hash::make($string);
+        // dd($user_guid);
         return view('we.work_order_list', ['user_guid' => $user_guid, 'safeString' => $string]);
     }
 
@@ -46,7 +47,9 @@ class WorkOrderController extends Controller
         $res = $repository->getShow($workOrder, $user_guid);
         // 经纪人称谓
         $appellation = $repository->getUser($user_guid);
+
         $appellation = trim($appellation, ' ()');
+        // dd($appellation);
         return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid, 'appellation' => $appellation]);
     }
     
