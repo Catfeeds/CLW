@@ -126,7 +126,6 @@ const app = new Vue({
     },
     // 确认分配
     confirm() {
-      console.log(22222)
       $.ajax({
         headers: {
           'safeString': $('meta[name="safeString"]').attr('content')
@@ -141,7 +140,6 @@ const app = new Vue({
               position: 'center',
               duration: 1000
             })
-            console.log(1111111)
             window.location.reload()
           }
         },
