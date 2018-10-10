@@ -97,7 +97,7 @@ class WorkOrder extends BaseModel
         if ($this->price) {
             return $this->price.'元/㎡/月';
         } else {
-            return '';
+            return '暂无';
         }
     }
 
@@ -107,7 +107,7 @@ class WorkOrder extends BaseModel
         if ($this->acreage) {
             return $this->acreage.'㎡';
         } else {
-            return '';
+            return '暂无';
         }
     }
 

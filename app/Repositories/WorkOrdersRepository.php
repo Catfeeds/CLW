@@ -85,14 +85,15 @@ class WorkOrdersRepository extends Model
         $data['guid'] = $workOrder->guid;
         $data['gd_identifier'] = $workOrder->gd_identifier;
         $data['source'] = $workOrder->source_cn;
+        $data['page_source'] = $workOrder->page_source;
         $data['created_at'] = $workOrder->created_at->format('Y-m-d H:i:s');
         $data['source_area'] = $workOrder->source_area;
         $data['demand'] = $workOrder->demand;
         $data['demand_cn'] = $workOrder->demand_cn;
-        $data['name'] = $workOrder->name;
+        $data['name'] = $workOrder->name??'暂无';
         $data['tel'] = $workOrder->tel;
-        $data['area'] = $workOrder->area_name;
-        $data['building'] = $workOrder->building_name;
+        $data['area'] = $workOrder->area_name??'暂无';
+        $data['building'] = $workOrder->building_name??'暂无';
         $data['acreage'] = $workOrder->acreage_cn;
         $data['price'] = $workOrder->price_cn;
         $data['remark'] = $workOrder->remark;
@@ -279,9 +280,7 @@ class WorkOrdersRepository extends Model
     {
         \DB::beginTransaction();
         try {
-            dd(123);
             $res = WorkOrder::where('guid', $request->guid)->first();
-            dd($res);
             $res->identifier = $request->identifier;
             $res->status = 3;
             if (!$res->save()) throw new \Exception('操作失败');
@@ -307,6 +306,7 @@ class WorkOrdersRepository extends Model
     // 无效工单
     public function invalid($request)
     {
+        $record = Common::user();
         \DB::beginTransaction();
         try {
             $res = WorkOrder::where('guid', $request->guid)->first();
@@ -315,9 +315,13 @@ class WorkOrdersRepository extends Model
             if (!$res->save()) throw new \Exception('操作失败');
             // 添加工单进度
 
-            $str = $this->getUser($request->handle_guid);
-            $content = '工单结束:'. $request->reason.$str;
-            $schedule = Common::addSchedule($request->guid, $content);
+            $str = '工单结束:'.$request->reason;
+            if (!$request->handle_guid) {
+                $str .= ' ( 客服-'.$record->nick_name.')';
+            } else {
+                $str .= $this->getUser($request->handle_guid);
+            }
+            $schedule = Common::addSchedule($request->guid, $str);
             if (empty($schedule)) throw new \Exception('工单进度添加失败');
             \DB::commit();
             return true;
