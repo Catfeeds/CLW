@@ -83,7 +83,7 @@
   @endif
   <div class="detail-title">工单进度</div>
   <div class="detail-step">
-    <el-steps direction="vertical" :active="1" space="100px">
+    <el-steps direction="vertical" :active="1">
       @foreach ($res['schedule'] as $item)
       <el-step>
         <div slot="icon"></div>
