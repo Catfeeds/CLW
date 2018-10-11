@@ -85,21 +85,6 @@
   <div class="detail-title">工单进度</div>
   <div class="detail-step">
     <el-steps direction="vertical" :active="1" space="true">
-      <el-step>
-        <div slot="icon"></div>
-        <div slot="title" style="line-height:25px;">测试测试测试测试测试测试测试测试测试测试测试测试</div>
-        <div slot="description" style="margin-top:5px">2018-10-11</div>
-      </el-step>
-      <el-step>
-        <div slot="icon"></div>
-        <div slot="title" style="line-height:25px;">试测试测试测试测试试测试测试测试测试试测试测试测试测试测试测试测试测试测试</div>
-        <div slot="description" style="margin-top:5px">2018-10-11</div>
-      </el-step>
-      <el-step>
-        <div slot="icon"></div>
-        <div slot="title" style="line-height:25px;">测试测试</div>
-        <div slot="description" style="margin-top:5px">2018-10-11</div>
-      </el-step>
       @foreach ($res['schedule'] as $item)
       <el-step>
         <div slot="icon"></div>
