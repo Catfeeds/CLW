@@ -396,7 +396,7 @@ class WorkOrdersRepository extends Model
         } elseif ($user->rel_guid) {
             $str = ' ('.$user->name. '-'. $user->companyFramework->name. '-'. $user->role->name.')';
         } else {
-            $str = '';
+            $str = $user->name;
         }
         return $str;
     }
