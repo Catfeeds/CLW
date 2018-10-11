@@ -9,8 +9,9 @@ const user_guid = $('#userGuid')[0].innerHTML
 const guid = $('#gdGuid')[0].innerHTML
 const url = process.env.agencyHostURL + '/api/admin'
 const appellation = $('#appellation')[0].innerHTML
+const demand = $('#demand')[0].innerHTML
 console.log(appellation)
-var handle_guid = ''
+var handle_guid = '' 
 var sheetClick = function(e) {
   handle_guid = e.id
   $('.detail-choice-agent').find('span').html(e.name)
@@ -214,6 +215,7 @@ function status(id, param, val) {
   formData.guid = guid
   if (id === 1) {
     api = '/valid'
+    formData.demand = demand
   } else if (id === 2) {
     api = '/invalid'
   } else if (id === 3) {

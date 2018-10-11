@@ -98,6 +98,9 @@ body{
       font-family: PingFang-SC-regular;
     }
   }
+  .mint-msgbox-input input{
+    height: 30px;
+  }
   .mint-actionsheet-listitem{
     border-bottom: solid 1px #eeeded;
     font-size: 14px;
@@ -117,6 +120,7 @@ body{
   .el-step__main{
     flex: 1;
     margin-bottom: 10px;
+    min-height: 45px;
   }
   .detail-step{
     padding: 16px 0 0 20px;
