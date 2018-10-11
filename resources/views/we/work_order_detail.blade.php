@@ -84,7 +84,7 @@
   @endif
   <div class="detail-title">工单进度</div>
   <div class="detail-step">
-    <el-steps direction="vertical" :active="1">
+    <el-steps direction="vertical" :active="1" space="true">
       <el-step>
         <div slot="icon"></div>
         <div slot="title" style="line-height:25px;">测试测试测试测试测试测试测试测试测试测试测试测试</div>
