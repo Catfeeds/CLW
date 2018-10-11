@@ -17,6 +17,7 @@
   <div id="userGuid" style="display:none">{{$user_guid}}</div>
   <div id="gdGuid" style="display:none">{{$res['guid']}}</div>
   <div id="appellation" style="display:none">{{$appellation}}</div>
+  <div id="demand" style="display:none">{{$res['demand']}}</div>
   <div class="detail-title"><span class="title">工单详情</span><a href="{{url('/work_orders?user_guid='.$user_guid)}}"><span class="order-list">工单列表</span></a></div>
   <div class="detail-info">
     <div class="detail-row">
@@ -83,7 +84,7 @@
   @endif
   <div class="detail-title">工单进度</div>
   <div class="detail-step">
-    <el-steps direction="vertical" :active="1">
+    <el-steps direction="vertical" :active="1" space="true">
       @foreach ($res['schedule'] as $item)
       <el-step>
         <div slot="icon"></div>
