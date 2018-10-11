@@ -170,7 +170,7 @@ class WorkOrderController extends APIBaseController
         $openid = $service->getOpenid($res->manage_guid);
         // 如果openid存在 发送消息 并且更新成功
         if ($openid && $res) {
-            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid, '回转工单');
+            $service->send($openid, $res->gd_identifier, $res->demand_cn, $res->remark, $res->created_at->format('Y-m-d H:i:s'), $res->guid, "工单回转提醒");
         }
         if (!$res) return $this->sendError('工单回转失败');
         return $this->sendResponse($res, '工单回转成功');
