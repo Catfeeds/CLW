@@ -87,7 +87,6 @@ class WorkOrdersRequest extends FormRequest
                 return [
                     'guid' => 'required|exists:work_orders,guid',
                     'identifier' => 'required|exists:chulou-saas.'.$table.','.$field
-
                 ];
             case 'invalid':
                 return [
