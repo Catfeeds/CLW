@@ -76,7 +76,6 @@ class WorkOrdersRequest extends FormRequest
                 return [
                     'guid' => 'required|exists:work_orders,guid',
                 ];
-
             case 'valid':
                 if ($this->demand == 1) {
                     $table = 'houses';
