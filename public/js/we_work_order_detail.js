@@ -85,6 +85,7 @@ var user_guid = $('#userGuid')[0].innerHTML;
 var guid = $('#gdGuid')[0].innerHTML;
 var url = 'http://192.168.0.199:3000' + '/api/admin';
 var appellation = $('#appellation')[0].innerHTML;
+var demand = $('#demand')[0].innerHTML;
 console.log(appellation);
 var handle_guid = '';
 var sheetClick = function sheetClick(e) {
@@ -301,6 +302,7 @@ function status(id, param, val) {
   formData.guid = guid;
   if (id === 1) {
     api = '/valid';
+    formData.demand = demand;
   } else if (id === 2) {
     api = '/invalid';
   } else if (id === 3) {

@@ -130,6 +130,10 @@ body .detail-choice .detail-confirm {
   font-family: PingFang-SC-regular;
 }
 
+body .mint-msgbox-input input {
+  height: 30px;
+}
+
 body .mint-actionsheet-listitem {
   border-bottom: solid 1px #eeeded;
   font-size: 14px;
@@ -154,6 +158,7 @@ body .el-step__main {
       -ms-flex: 1;
           flex: 1;
   margin-bottom: 10px;
+  min-height: 45px;
 }
 
 body .detail-step {
