@@ -37,7 +37,7 @@ class WorkOrdersRepository extends Model
             $time = $request->time;
         }
         $res = $res->whereBetween('created_at', $time);
-        $res = $res->paginate($request->per_page??10);
+        $res = $res->orderBy('created_at', 'desc')->paginate($request->per_page??10);
         $data = [];
         foreach ($res as $k => $v) {
             $data[$k]['guid'] = $v->guid;
@@ -62,7 +62,7 @@ class WorkOrdersRepository extends Model
             case 2:
                 $work_order = $work_order->whereIn('status', [3, 4]);
         }
-        $work_order = $work_order->paginate(3);
+        $work_order = $work_order->orderBy('created_at', 'desc')->paginate(3);
         $data = [];
         foreach ($work_order as $k => $v) {
             $data[$k]['guid'] = $v->guid;

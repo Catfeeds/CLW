@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Hash;
 class WorkOrderController extends Controller
 {
     // 手机工单列表
-    public function index()
+    public function index(WorkOrdersRequest $request)
     {
         $string = 'chulouwang'.date('Y-m-d',time());
         $string = Hash::make($string);
-        return view('we.work_order_list', ['safeString' => $string]);
+        if (!$request->user_guid) {
+            return '缺少参数';
+        }
+        return view('we.work_order_list', ['safeString' => $string, 'user_guid' => $request->user_guid]);
     }
 
     // 工单详情
