@@ -100,6 +100,17 @@ body{
   }
   .mint-msgbox-input input{
     height: 30px;
+    width: 95%;
+  }
+  .mint-msgbox-btn{
+    font-size: 14px;
+  }
+  .mint-msgbox-confirm{
+    color: #007bff;
+  }
+  .mint-msgbox-message{
+    font-size: 16px;
+    color: #333;
   }
   .mint-actionsheet-listitem{
     border-bottom: solid 1px #eeeded;
