@@ -132,6 +132,20 @@ body .detail-choice .detail-confirm {
 
 body .mint-msgbox-input input {
   height: 30px;
+  width: 95%;
+}
+
+body .mint-msgbox-btn {
+  font-size: 14px;
+}
+
+body .mint-msgbox-confirm {
+  color: #007bff;
+}
+
+body .mint-msgbox-message {
+  font-size: 16px;
+  color: #333;
 }
 
 body .mint-actionsheet-listitem {
