@@ -1,6 +1,10 @@
 body{
   margin: 0;
   margin-bottom: 10px;
+  a{
+    text-decoration: none;
+    color: #333;
+  }
   .detail-row-title{
     // display: inline-block;
     width: 64px;
@@ -13,12 +17,23 @@ body{
     }
   }
   .detail-title{
-    font-family: PingFang-SC-Medium;
-    font-size: 18px;
-    color: #333;
-    font-weight: 600;
-    padding: 23px 0 20px 21px;
-    border-bottom: 0.5px solid #ededed; 
+    padding: 23px 20px 20px 21px;
+    border-bottom: 0.5px solid #ededed;
+    display: flex;
+    justify-content: space-between;
+    .title{
+      font-family: PingFang-SC-Medium;
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+    }
+    .order-list{
+      font-family: PingFang-SC-Medium;
+      color: #007bff;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 24px;
+    }
   }
   .detail-info{
     padding: 20px;
