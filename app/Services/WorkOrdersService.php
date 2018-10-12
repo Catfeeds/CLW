@@ -40,6 +40,7 @@ class WorkOrdersService
     // 管理层获取下级
     public function getAgent($guid)
     {
+
         $user = Agent::where('guid', $guid)->first();
         $res = Agent::with('role', 'companyFramework')
                     ->where('openid', '!=', '')

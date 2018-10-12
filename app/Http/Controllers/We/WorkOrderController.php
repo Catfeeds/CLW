@@ -36,6 +36,9 @@ class WorkOrderController extends Controller
             $user_guid = $request->user_guid;
         } elseif (!$request->user_guid && $request->openid) {
             $user_guid = $repository->getUserGuid($request->openid);
+            if (empty($user_guid)) {
+                return '参数错误';
+            }
         } else {
             return '缺少参数';
         }
