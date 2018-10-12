@@ -401,4 +401,20 @@ class WorkOrdersRepository extends Model
         return $str;
     }
 
+    // 修改工单
+    public function updateWorkOrder($request, $workOrder)
+    {
+        $workOrder->name = $request->name;
+        $workOrder->tel = $request->tel;
+        $workOrder->source = $request->source;
+        $workOrder->demand = $request->demand;
+        $workOrder->area_name = $request->area_name;
+        $workOrder->building_name = $request->building_name;
+        $workOrder->acreage = $request->acreage;
+        $workOrder->price = $request->price;
+        $workOrder->remark = $request->remark;
+
+        if (!$workOrder->save()) return false;
+        return true;
+    }
 }
