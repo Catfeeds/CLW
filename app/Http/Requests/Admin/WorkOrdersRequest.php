@@ -69,6 +69,20 @@ class WorkOrdersRequest extends FormRequest
                     'price' => 'nullable',
                     'remark' => 'nullable'
                 ];
+            case 'update':
+                return [
+                    'name' => 'nullable|max:32',
+                    'tel' => [
+                        'max:16',
+                    ],
+                    'source' => 'nullable',
+                    'demand' => 'integer',
+                    'area_name' => 'nullable',
+                    'building_name' => 'nullable',
+                    'acreage' => 'nullable',
+                    'price' => 'nullable',
+                    'remark' => 'nullable'
+                ];
             case'issue':
                 return [
                     'manage_guid' => 'required|exists:chulou-saas.users,guid',

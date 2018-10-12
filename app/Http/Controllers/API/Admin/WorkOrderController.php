@@ -198,4 +198,21 @@ class WorkOrderController extends APIBaseController
         return $this->sendResponse($res, '获取成功');
     }
 
+    // 工单修改之前原始数据
+    public function edit(WorkOrder $workOrder)
+    {
+        return $this->sendResponse($workOrder,'工单修改之前原始数据获取成功');
+    }
+
+    // 修改工单
+    public function update
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository,
+        WorkOrder $workOrder
+    )
+    {
+        $res = $repository->updateWorkOrder($request,$workOrder);
+        return $this->sendResponse($res,'工单修改成功');
+    }
 }
