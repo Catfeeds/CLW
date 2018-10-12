@@ -5,25 +5,20 @@ namespace App\Http\Controllers\We;
 use App\Http\Requests\Admin\WorkOrdersRequest;
 use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class WorkOrderController extends Controller
 {
     // 手机工单列表
-    public function index
-    (
-        WorkOrdersRequest $request,
-        WorkOrdersRepository $repository
-    )
+    public function index(WorkOrdersRequest $request)
     {
-        // 经纪人guid
-        $user_guid = $repository->getUserGuid($request->openid);
         $string = 'chulouwang'.date('Y-m-d',time());
         $string = Hash::make($string);
-        // dd($user_guid);
-        return view('we.work_order_list', ['user_guid' => $user_guid, 'safeString' => $string]);
+        if (!$request->user_guid) {
+            return '缺少参数';
+        }
+        return view('we.work_order_list', ['safeString' => $string, 'user_guid' => $request->user_guid]);
     }
 
     // 工单详情
@@ -41,6 +36,9 @@ class WorkOrderController extends Controller
             $user_guid = $request->user_guid;
         } elseif (!$request->user_guid && $request->openid) {
             $user_guid = $repository->getUserGuid($request->openid);
+            if (empty($user_guid)) {
+                return '参数错误';
+            }
         } else {
             return '缺少参数';
         }

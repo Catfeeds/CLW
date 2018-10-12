@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\WorkOrder;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class WorkOrdersRequest extends FormRequest
 {
@@ -19,6 +21,10 @@ class WorkOrdersRequest extends FormRequest
     public function messages()
     {
         switch ($this->route()->getActionMethod()) {
+            case 'store':
+                return [
+                  'tel.not_in' => '不能重复委托'
+                ];
             case 'valid':
                 if ($this->demand == 1) {
                     $str = '房源编号无效';
@@ -47,10 +53,30 @@ class WorkOrdersRequest extends FormRequest
             case 'store':
                 return [
                     'name' => 'nullable|max:32',
-                    'tel' =>  'required|max:16',
+                    'tel' => [
+                        'required',
+                        'max:16',
+                        Rule::notIn(
+                            WorkOrder::whereBetween('created_at',[date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d'), date('Y'))),date('Y-m-d H:i:s', mktime(23, 59, 59, date('m'), date('d'), date('Y')))])->where('demand',$this->demand)->pluck('tel')->toArray()
+                        )
+                    ],
                     'source' => 'required|integer',
                     'page_source' => 'nullable',
                     'demand' => 'required|integer',
+                    'area_name' => 'nullable',
+                    'building_name' => 'nullable',
+                    'acreage' => 'nullable',
+                    'price' => 'nullable',
+                    'remark' => 'nullable'
+                ];
+            case 'update':
+                return [
+                    'name' => 'nullable|max:32',
+                    'tel' => [
+                        'max:16',
+                    ],
+                    'source' => 'nullable',
+                    'demand' => 'integer',
                     'area_name' => 'nullable',
                     'building_name' => 'nullable',
                     'acreage' => 'nullable',
@@ -76,7 +102,6 @@ class WorkOrdersRequest extends FormRequest
                 return [
                     'guid' => 'required|exists:work_orders,guid',
                 ];
-
             case 'valid':
                 if ($this->demand == 1) {
                     $table = 'houses';
@@ -88,7 +113,6 @@ class WorkOrdersRequest extends FormRequest
                 return [
                     'guid' => 'required|exists:work_orders,guid',
                     'identifier' => 'required|exists:chulou-saas.'.$table.','.$field
-
                 ];
             case 'invalid':
                 return [

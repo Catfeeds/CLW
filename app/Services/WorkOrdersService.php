@@ -9,7 +9,7 @@ use App\Models\CompanyFramework;
 class WorkOrdersService
 {
     // 发送工单消息
-    public function send($openid, $identifier, $demand, $remark, $time, $guid, $title = '新工单通知')
+    public function send($openid, $identifier, $demand, $remark, $time, $guid, $title = "新客户提醒")
     {
         $data['openid'] = json_encode(array($openid));
         $data['identifier'] = $identifier;
@@ -40,6 +40,7 @@ class WorkOrdersService
     // 管理层获取下级
     public function getAgent($guid)
     {
+
         $user = Agent::where('guid', $guid)->first();
         $res = Agent::with('role', 'companyFramework')
                     ->where('openid', '!=', '')
