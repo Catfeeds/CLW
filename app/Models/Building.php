@@ -80,7 +80,7 @@ class Building extends Model
     // 楼盘关联房源
     public function house()
     {
-        return $this->hasMany('App\Models\Houses','building_guid','guid')->where('shelf', 1);
+        return $this->hasMany('App\Models\Houses','building_guid','guid')->where('shelf', 1)->where('house_busine_state', 1);
     }
 
     /**
