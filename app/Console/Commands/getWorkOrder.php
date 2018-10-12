@@ -8,7 +8,7 @@ use App\Models\RawCustom;
 use App\Models\WorkOrder;
 use Illuminate\Console\Command;
 
-class getWorkorder extends Command
+class getWorkOrder extends Command
 {
     /**
      * The name and signature of the console command.
