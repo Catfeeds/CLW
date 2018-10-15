@@ -113,6 +113,7 @@ const app = new Vue({
               method: sheetClick
             })
           }
+          
           that.actions = array
         }
       },
