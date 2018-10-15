@@ -394,7 +394,7 @@ class WorkOrdersRepository extends Model
     // 获取人员称呼
     public function getUser($guid)
     {
-        $res = curl(config('setting.saas_url').'/api/company/get_user_info?openid='.$guid, 'get');
+        $res = curl(config('setting.saas_url').'/api/company/get_user_info?user_guid='.$guid, 'get');
         if ($res) {
             return $res->data;
         } else {
