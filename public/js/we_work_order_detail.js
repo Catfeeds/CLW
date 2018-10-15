@@ -183,7 +183,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
       headers: {
         'safeString': $('meta[name="safeString"]').attr('content')
       },
-      url: url1 + "/get_agent",
+      url: url + "/get_agent",
       type: 'get',
       data: { user_guid: user_guid },
       success: function success(data) {
