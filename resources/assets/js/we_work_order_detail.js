@@ -100,7 +100,7 @@ const app = new Vue({
       headers: {
         'safeString': $('meta[name="safeString"]').attr('content')
       },
-      url: url + "/get_agent",
+      url: url1 + "/get_agent",
       type: 'get',
       data: { user_guid: user_guid},
       success: function(data){
@@ -144,7 +144,7 @@ const app = new Vue({
           headers: {
             'safeString': $('meta[name="safeString"]').attr('content')
           },
-          url: url1 + "/allocation",
+          url: url + "/allocation",
           type: 'post',
           data: { handle_guid: handle_guid, guid: guid },
           success: function(data){
