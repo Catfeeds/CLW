@@ -55,4 +55,7 @@ return [
 
     // 域名配置
     'agency_host' => env('AGENCY_HOST',''),
+
+    // saas系统
+    'saas_url' => env('SAAS_URL')
 ];

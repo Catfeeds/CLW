@@ -383,22 +383,24 @@ class WorkOrdersRepository extends Model
     // 通过openid获取经纪人guid
     public function getUserGuid($openid)
     {
-        return Agent::where('openid', $openid)->value('guid');
+         $res = curl(config('setting.saas_url').'/api/company/get_user_guid?openid='.$openid, 'get');
+         if ($res) {
+             return $res->data;
+         } else {
+             return '';
+         }
     }
 
     // 获取人员称呼
     public function getUser($guid)
     {
-        $user = Agent::where('guid', $guid)->first();
-        // 管理层
-        if ($user->work_order) {
-            $str = ' ('.$user->name. '-'. $user->work_order_cn. '-'. $user->company->name. ')';
-        } elseif ($user->rel_guid) {
-            $str = ' ('.$user->name. '-'. $user->companyFramework->name. '-'. $user->role->name.')';
+        $res = curl(config('setting.saas_url').'/api/company/get_user_info?user_guid='.$guid, 'get');
+        if ($res) {
+            return $res->data;
         } else {
-            $str = $user->name;
+            return '';
         }
-        return $str;
+
     }
 
     // 修改工单
@@ -413,7 +415,6 @@ class WorkOrdersRepository extends Model
         $workOrder->acreage = $request->acreage;
         $workOrder->price = $request->price;
         $workOrder->remark = $request->remark;
-
         if (!$workOrder->save()) return false;
         return true;
     }

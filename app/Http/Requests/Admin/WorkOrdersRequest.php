@@ -25,15 +25,6 @@ class WorkOrdersRequest extends FormRequest
                 return [
                   'tel.not_in' => '不能重复委托'
                 ];
-            case 'valid':
-                if ($this->demand == 1) {
-                    $str = '房源编号无效';
-                }else {
-                    $str = '客源编号无效';
-                }
-                return [
-                    'identifier.exists' => $str
-                ];
             default:
                 {
                     return [];
@@ -85,17 +76,17 @@ class WorkOrdersRequest extends FormRequest
                 ];
             case'issue':
                 return [
-                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
+                    'manage_guid' => 'required',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case'reset':
                 return [
-                    'manage_guid' => 'required|exists:chulou-saas.users,guid',
+                    'manage_guid' => 'required',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'allocation':
                 return [
-                    'handle_guid' => 'required|exists:chulou-saas.users,guid',
+                    'handle_guid' => 'required',
                     'guid' => 'required|exists:work_orders,guid'
                 ];
             case 'confirm':
@@ -103,16 +94,10 @@ class WorkOrdersRequest extends FormRequest
                     'guid' => 'required|exists:work_orders,guid',
                 ];
             case 'valid':
-                if ($this->demand == 1) {
-                    $table = 'houses';
-                    $field = 'house_identifier';
-                } else {
-                    $table = 'customers';
-                    $field = 'customer_identifier';
-                }
                 return [
                     'guid' => 'required|exists:work_orders,guid',
-                    'identifier' => 'required|exists:chulou-saas.'.$table.','.$field
+                    'identifier' => 'required',
+                    'demand' => 'required'
                 ];
             case 'invalid':
                 return [
