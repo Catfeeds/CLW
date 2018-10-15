@@ -8,7 +8,7 @@ Vue.component(Actionsheet.name, Actionsheet)
 const user_guid = $('#userGuid')[0].innerHTML
 const guid = $('#gdGuid')[0].innerHTML
 const url = process.env.agencyHostURL + '/api/admin'
-const url1 = process.env.chuLouSaasURL + '/api/company'
+const url1 = process.env.chuLouSaasURL + '/api/admin'
 const appellation = $('#appellation')[0].innerHTML
 const demand = $('#demand')[0].innerHTML
 console.log(appellation)
@@ -100,7 +100,7 @@ const app = new Vue({
       headers: {
         'safeString': $('meta[name="safeString"]').attr('content')
       },
-      url: url + "/get_agent",
+      url: url1 + "/get_agent",
       type: 'get',
       data: { user_guid: user_guid},
       success: function(data){
