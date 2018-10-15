@@ -110,6 +110,16 @@ class WorkOrderController extends APIBaseController
         return $this->sendResponse($res,'工单分配成功');
     }
 
+    // 管理层获取下级
+    public function getAgent(WorkOrdersRequest $request)
+    {
+        $res = curl(config('setting.saas_url').'/api/company/get_agent?user_guid='.$request->user_guid, 'get');
+        if ($res) {
+            return $this->sendResponse($res->data, '获取成功');
+        }
+        return $this->sendError('获取失败');
+    }
+
     // 确认收到工单
     public function confirm
     (

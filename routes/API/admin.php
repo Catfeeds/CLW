@@ -50,9 +50,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // 回转工单
         Route::post('rotate','WorkOrderController@rotate');
 
-        // 获取给人员分配工单下拉数据
-        Route::get('get_all_distribution','WorkOrderController@getAllDistribution');
-
         // 管理层获取下级
         Route::get('get_agent', 'WorkOrderController@getAgent');
 
