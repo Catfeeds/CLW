@@ -129,6 +129,10 @@ class WorkOrderController extends APIBaseController
         WorkOrdersRepository $repository
     )
     {
+        $identifier = curl(config('setting.saas_url').'/api/company/get_identifier?demand='.$request->demand.'&identifier='.$request->identifier, 'get');
+        if (!$identifier->success) {
+            return $this->sendError($identifier->message);
+        }
         $res = $repository->valid($request);
         if (!$res) return $this->sendError('操作失败');
         return $this->sendResponse($res, '操作成功');
@@ -174,28 +178,6 @@ class WorkOrderController extends APIBaseController
         }
         if (!$res) return $this->sendError('工单回转失败');
         return $this->sendResponse($res, '工单回转成功');
-    }
-
-    // 获取给人员分配工单下拉数据
-    public function getAllDistribution
-    (
-        WorkOrdersService $service
-    )
-    {
-        $res = $service->getAllDistribution();
-        if (!$res) return $this->sendError('获取失败');
-        return $this->sendResponse($res,'获取成功');
-    }
-
-    // 管理层获取下级
-    public function getAgent
-    (
-        WorkOrdersRequest $request,
-        WorkOrdersService $service
-    )
-    {
-        $res = $service->getAgent($request->user_guid);
-        return $this->sendResponse($res, '获取成功');
     }
 
     // 工单修改之前原始数据

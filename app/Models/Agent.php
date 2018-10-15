@@ -48,9 +48,5 @@ class Agent extends Model
         return $this->belongsTo('App\Models\Company','company_guid','guid');
     }
 
-    // 区域 work_order_cn
-    public function getWorkOrderCnAttribute()
-    {
-        return empty($this->work_order)?'':implode(',',$this->work_order);
-    }
+
 }
