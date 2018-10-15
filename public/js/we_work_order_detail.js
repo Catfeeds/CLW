@@ -84,6 +84,7 @@ __WEBPACK_IMPORTED_MODULE_7_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 var user_guid = $('#userGuid')[0].innerHTML;
 var guid = $('#gdGuid')[0].innerHTML;
 var url = 'http://192.168.0.199:3000' + '/api/admin';
+var url1 = 'http://192.168.0.199' + '/api/company';
 var appellation = $('#appellation')[0].innerHTML;
 var demand = $('#demand')[0].innerHTML;
 console.log(appellation);
@@ -182,7 +183,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
       headers: {
         'safeString': $('meta[name="safeString"]').attr('content')
       },
-      url: url + "/get_agent",
+      url: url1 + "/get_agent",
       type: 'get',
       data: { user_guid: user_guid },
       success: function success(data) {
@@ -195,6 +196,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_7_vue___default.a({
               method: sheetClick
             });
           }
+
           that.actions = array;
         }
       },
