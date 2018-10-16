@@ -71,7 +71,12 @@ class WorkOrdersService
     // 获取经纪人openid
     public function getOpenid($guid)
     {
-        return Agent::where('guid', $guid)->value('openid');
+        $res = curl(config('setting.saas_url').'/api/company/get_openid?guid='.$guid,'get');
+        if ($res->data) {
+            return $res->data;
+        } else {
+            return '';
+        }
     }
     
 }

@@ -19,7 +19,8 @@ class OfficeBuildingHouse extends BaseModel
         'min_acreage' => 'integer',
         'unit_price' => 'integer',
         'total_price' => 'integer',
-        'support_facilities' => 'array'
+        'support_facilities' => 'array',
+        'owner_info' => 'array'
     ];
 
     protected $appends = [

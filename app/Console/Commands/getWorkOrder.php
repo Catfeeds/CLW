@@ -7,6 +7,8 @@ use App\Models\Agent;
 use App\Models\EntrustThrowIn;
 use App\Models\Partake;
 use App\Models\RawCustom;
+use App\Models\SaasCustomer;
+use App\Models\SaasHouse;
 use App\Models\Schedule;
 use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
@@ -47,8 +49,7 @@ class getWorkOrder extends Command
     public function handle()
     {
         // 获取老工单数据
-        $raw = RawCustom::all();
-//        $raw = RawCustom::where('id', 274)->get();
+        $raw = RawCustom::with('house', 'customer')->get();
         foreach ($raw as $v) {
             $last = WorkOrder::orderBy('created_at', 'asc')->get()->last();
             $gd_identifier = Common::identifier($last);
@@ -73,12 +74,29 @@ class getWorkOrder extends Command
                 // 有效  房源编号
                 $status = 3;
                 $reason = '';
-                $identifier = 12; // 查询房源编号
+                // 查询业主电话,姓名,房号,楼层
+                $tel = $v->house->owner_info[0]['tel'];
+                $name = $v->house->owner_info[0]['name'];
+                $identifier = SaasHouse::whereRaw("JSON_CONTAINS(owner_info->'$[*].tel', '\"$tel\"', '$')")
+                                        ->whereRaw("JSON_CONTAINS(owner_info->'$[*].name', '\"$name\"', '$')")
+                                        ->where([
+                                            'house_number' => $v->house->house_number,
+                                            'floor' => $v->house->floor
+                                        ])->value('house_identifier');
             } elseif ($v->customer) {
                 // 有效  客源编号
                 $status = 3;
                 $reason = '';
-                $identifier = 12; // 查询客源编号
+                $tel = $v->customer->tel;
+                $name = $v->customer->name;
+                $price_low = $v->customer->price_low;
+                $price_high = $v->customer->price_high;
+                $identifier = SaasCustomer::whereRaw("JSON_CONTAINS(customer_info->'$[*].tel', '\"$tel\"', '$')")
+                                            ->whereRaw("JSON_CONTAINS(customer_info->'$[*].name', '\"$name\"', '$')")
+                                            ->where([
+                                                'min_price' => $price_low,
+                                                'max_price' => $price_high
+                                            ])->value('customer_identifier');
             } else {
                 // 有效  处理中
                 $status = 2;

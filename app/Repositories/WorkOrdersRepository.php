@@ -45,7 +45,10 @@ class WorkOrdersRepository extends Model
             $data[$k]['created_at'] = $v->created_at->format('Y-m-d H:i:s');
             $data[$k]['demand'] = $v->demand_cn;
             $data[$k]['remark'] = $v->remark;
+            $data[$k]['progress'] = $v->schedule->first()->content;
         }
+
+
         return $res->setCollection(collect($data));
     }
 
