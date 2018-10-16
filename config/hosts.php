@@ -9,4 +9,5 @@ return [
     'we' => env('HOSTS_WE'),
     'home' => env('HOSTS_HOME'),
     'mall' => env('HOSTS_MALL', 'www.mall.com'),
+    'webhook' => env('HOSTS_WEBHOOK'),
 ];
