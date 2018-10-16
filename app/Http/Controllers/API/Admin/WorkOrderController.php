@@ -6,6 +6,7 @@ use App\Http\Controllers\API\APIBaseController;
 use App\Http\Requests\Admin\WorkOrdersRequest;
 use App\Models\WorkOrder;
 use App\Repositories\WorkOrdersRepository;
+use App\Services\DingTalkService;
 use App\Services\WorkOrdersService;
 
 class WorkOrderController extends APIBaseController
@@ -48,10 +49,24 @@ class WorkOrderController extends APIBaseController
     public function store
     (
         WorkOrdersRequest $request,
-        WorkOrdersRepository $repository
+        WorkOrdersRepository $repository,
+        DingTalkService $service
     )
     {
         $res = $repository->addWorkOrder($request);
+        // 发送钉钉消息
+        if ($res) {
+            $str = '新工单提醒'."\n　\n";
+            $str .= '工单编号:'. $res->gd_identifier."\n　\n";
+            $str .= '客户姓名:'. $res->name."\n　\n";
+            $str .= '客户电话:'. $res->tel."\n　\n";
+            $str .= '开始时间:'. $res->created_at->format('Y-m-d H:i:s')."\n　\n";
+            $str .= '需求类型:'. $res->demand_cn."\n　\n";
+            $str .= '需求详情:'. $res->remark."\n　\n";
+            $str .= '请尽快处理';
+            $data = $service->sendMessages($str);
+            if (!$data) \Log::info('钉钉消息发送失败');
+        }
         if (!$res) return $this->sendError('添加失败');
         return $this->sendResponse($res, '添加成功');
     }
