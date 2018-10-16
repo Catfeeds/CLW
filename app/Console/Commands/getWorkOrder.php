@@ -175,37 +175,47 @@ class getWorkOrder extends Command
             // 客服收到工单
             $str = '客服接收工单';
             Common::addSchedule($work_order->guid, $str);
+            sleep(1);
+
             // 客服分配
             if ($v->shopkeeper_id && $manage_guid) {
                 $user = $repo->getUser($manage_guid);
                 $str = '客服'.$v->recorder.'将工单分配给'.$user;
                 Common::addSchedule($work_order->guid, $str);
             }
+            sleep(1);
+
 
             // 管理层分配
             if ($v->shopkeeper_deal && $handle_guid) {
                 $str = '工单分配给'.$repo->getUser($handle_guid);
                 Common::addSchedule($work_order->guid, $str);
             }
+            sleep(1);
 
             // 经纪人确定
             if ($v->staff_deal && $handle_guid) {
                 $str = '确定收到工单'.$repo->getUser($handle_guid);
                 Common::addSchedule($work_order->guid, $str);
             }
-            // 操作
+            sleep(1);
+
+            // 跟进
+            if ($v->feedback && $handle_guid && $v->valid != 2) {
+                $str = $v->feedback.$repo->getUser($handle_guid);
+                Common::addSchedule($work_order->guid, $str);
+            }
+            sleep(1);
+
+            // 操作 (有效)
             if ($identifier && $handle_guid) {
                 $str = '工单结束:'.$demand.$identifier.$repo->getUser($handle_guid);
                 Common::addSchedule($work_order->guid, $str);
             }
 
-            if ($v->feedback && $handle_guid) {
-                $str = $v->feedback.$repo->getUser($handle_guid);
-                Common::addSchedule($work_order->guid, $str);
-            }
-
+            sleep(1);
             if ($v->valid == 2 && $handle_guid) {
-                $str = '工单结束'.$v->feedback.$repo->getUser($handle_guid);
+                $str = '工单结束:'.$v->feedback.$repo->getUser($handle_guid);
                 Common::addSchedule($work_order->guid, $str);
             }
         }
