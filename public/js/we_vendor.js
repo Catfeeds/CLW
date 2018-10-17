@@ -10884,7 +10884,7 @@ process.umask = function() { return 0; };
             preloaderClass: 'preloader',
             zoomContainerClass: 'swiper-zoom-container',
         
-            // Observer
+            // Observers
             observer: false,
             observeParents: false,
             // Accessibility
@@ -12990,7 +12990,7 @@ process.umask = function() { return 0; };
         };
         
         /*=========================
-          Observer
+          Observers
           ===========================*/
         s.observers = [];
         function initObserver(target, options) {
@@ -28220,7 +28220,7 @@ function toggleObserving (value) {
 }
 
 /**
- * Observer class that is attached to each observed
+ * Observers class that is attached to each observed
  * object. Once attached, the observer converts the target
  * object's property keys into getter/setters that
  * collect dependencies and dispatch updates.

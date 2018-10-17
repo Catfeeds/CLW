@@ -8124,7 +8124,7 @@ var ResizeObserverController = function() {
 /**
  * Adds observer to observers list.
  *
- * @param {ResizeObserverSPI} observer - Observer to be added.
+ * @param {ResizeObserverSPI} observer - Observers to be added.
  * @returns {void}
  */
 
@@ -8161,7 +8161,7 @@ ResizeObserverController.prototype.addObserver = function (observer) {
 /**
  * Removes observer from observers list.
  *
- * @param {ResizeObserverSPI} observer - Observer to be removed.
+ * @param {ResizeObserverSPI} observer - Observers to be removed.
  * @returns {void}
  */
 ResizeObserverController.prototype.removeObserver = function (observer) {
@@ -51198,7 +51198,7 @@ if (false) {
             preloaderClass: 'preloader',
             zoomContainerClass: 'swiper-zoom-container',
         
-            // Observer
+            // Observers
             observer: false,
             observeParents: false,
             // Accessibility
@@ -53304,7 +53304,7 @@ if (false) {
         };
         
         /*=========================
-          Observer
+          Observers
           ===========================*/
         s.observers = [];
         function initObserver(target, options) {

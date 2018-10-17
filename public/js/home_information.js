@@ -648,7 +648,7 @@ exports.default = {
             preloaderClass: 'preloader',
             zoomContainerClass: 'swiper-zoom-container',
         
-            // Observer
+            // Observers
             observer: false,
             observeParents: false,
             // Accessibility
@@ -2754,7 +2754,7 @@ exports.default = {
         };
         
         /*=========================
-          Observer
+          Observers
           ===========================*/
         s.observers = [];
         function initObserver(target, options) {
