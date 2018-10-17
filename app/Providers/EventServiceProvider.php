@@ -2,15 +2,9 @@
 
 namespace App\Providers;
 
-use App\Models\EntrustThrowIn;
-use App\Models\QueryTime;
-use App\Observers\EntrustThrowInObservers;
-use App\Observers\QueryObservers;
+use App\Models\WorkOrder;
+use App\Observers\WorkOrderObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Models\Bespeak;
-use App\Models\ThrowIn;
-use App\Observers\BespeakObservers;
-use App\Observers\ThrowInObservers;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -32,6 +26,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // parent::boot();
+         parent::boot();
+         WorkOrder::observe(WorkOrderObserver::class); //模型监听
     }
 }
