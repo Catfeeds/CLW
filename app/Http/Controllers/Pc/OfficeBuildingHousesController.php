@@ -25,6 +25,8 @@ class OfficeBuildingHousesController extends Controller
         $block = $house->buildingBlock->building->block;
         //房源所属楼盘
         $building = $house->buildingBlock->building;
+        // 商圈经纪人信息
+        $relBlock = $block->relBlock;
         $data[0]['guid'] = $block->area_guid;
         $data[0]['name'] = $block->area->name;
         $data[1]['guid'] = $block->guid;
@@ -38,7 +40,8 @@ class OfficeBuildingHousesController extends Controller
             'house' => $house,
             'rimHouse' => $rimHouse,
             'agentInfo' => $agentInfo,
-            'data' => $data
+            'data' => $data,
+            'relBlock' => $relBlock
         ]);
     }
 

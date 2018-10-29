@@ -104,9 +104,9 @@
                 <!-- 电话咨询 -->
                 <div class="tel">
                     <div class="agent">
-                        <img src="{{$agentInfo->agent_pic_cn}}">
+                        <img src="{{$relBlock->agent_pic_cn}}">
                         <div class="name">
-                            <div class="nameDet">{{$agentInfo->agent_name}}</div>
+                            <div class="nameDet">{{$relBlock->agent_name}}</div>
                             <div>{{$agentInfo->name}}商圈专属顾问</div>
                         </div>
                     </div>
