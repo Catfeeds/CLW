@@ -49,4 +49,16 @@ class WorkOrderController extends Controller
         // dd($appellation);
         return view('we.work_order_detail', ['res' => $res, 'safeString' => $string, 'user_guid' => $user_guid, 'appellation' => $appellation]);
     }
+
+    // 添加工单
+    public function store
+    (
+        WorkOrdersRequest $request,
+        WorkOrdersRepository $repository
+    )
+    {
+        $res = $repository->addWorkOrder($request);
+        if (!$res) return $this->sendError('添加失败');
+        return $this->sendResponse($res, '添加成功');
+    }
 }

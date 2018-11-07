@@ -133,7 +133,7 @@
 									</baidu-map>
 								</div>
 							</div>
-							<a href="/get_map/{{$data->id}}" style="display: block;width: 100%">
+							<a href="/get_map/{{$data->guid}}" style="display: block;width: 100%">
 							<img style="display: block;width: 100%" src="{{res('/we_img/house_detail_suppert.png')}}" id="tomap" alt="" />
 							</a>
 						</div>
