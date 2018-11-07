@@ -17,7 +17,7 @@ class RegistersController extends APIBaseController
      */
     public function store(
         RegistersRequest $request,
-        RegistersSeravice $registersService
+        RegistersService $registersService
     )
     {
         $result = $registersService->addUser($request);
