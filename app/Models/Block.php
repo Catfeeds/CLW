@@ -21,10 +21,6 @@ class Block extends Model
     // 主键类型
     protected $keyType = 'string';
 
-    protected $appends = [
-        'agent_pic_cn'
-    ];
-
     public function area()
     {
         return $this->belongsTo('App\Models\Area','area_guid','guid');
@@ -44,16 +40,5 @@ class Block extends Model
     public function relBlock()
     {
         return $this->belongsTo('App\Models\RelBlock','guid','block_guid');
-    }
-
-    public function getAgentPicCnAttribute()
-    {
-        if (empty($this->agent_pic)) return config('setting.block_agent_default_img');
-        return config('setting.qiniu_url').$this->agent_pic;
-    }
-
-    public function getAgentNameAttribute()
-    {
-        return $this->getAttributes()['agent_name']??'程达';
     }
 }

@@ -13,13 +13,7 @@
 
 
 Route::get('/user_agreement', 'HomeController@agreement');
-/*
- * 微信端路由
- */
 
-Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () {
-    \Composer\Autoload\includeFile(__DIR__ . '/we.php');
-});
 
 // 工单(手机端页面)
 Route::resource('work_orders', 'We\WorkOrderController');
@@ -28,9 +22,16 @@ Route::resource('work_orders', 'We\WorkOrderController');
 Route::group(['domain' => config('hosts.home'), 'namespace' => 'Pc'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/home.php');
 });
-// 楚楼网官网
+// 楚楼网商城
 Route::group(['domain' => config('hosts.mall'), 'namespace' => 'Mall'], function () {
     \Composer\Autoload\includeFile(__DIR__ . '/Pc/mall.php');
+});
+/*
+ * 微信端路由
+ */
+
+Route::group(['domain' => config('hosts.we'), 'namespace' => 'We'], function () {
+    \Composer\Autoload\includeFile(__DIR__ . '/we.php');
 });
 // 台式机测试路由
 Route::get('desktop_pc', function(){

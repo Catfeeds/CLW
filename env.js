@@ -5,7 +5,6 @@ module.exports = {
   baseConfig: { // 开发配置
     weHostURl: "''", // 微信接口服务器地址
     agencyHostURL: "'http://192.168.0.199:3000'", // 中介服务器接口地址
-    chuLouSaasURL: "'http://192.168.0.199'",
     baseHostURL: "'http://192.168.0.142:8888'",
     homeHostUrl:"''",
     baiduAK: "'GNEfPXFcuuKglYSB8R45IzmhzfjKDclf'", // 百度地图key
@@ -19,8 +18,7 @@ module.exports = {
   },
   test: { // 测试服务器配置
     envConfig:{ // 测试服务器配置
-      agencyHostURL: '"http://sysapi.jacklin.club"',
-      chuLouSaasURL: '"http://jjrapi.jacklin.club"',
+      agencyHostURL: '"https://sysapi.jacklin.club"',
       baseHostURL: '"http://buildingapi.jacklin.club"'
     },
     we: { // 微信项目上传配置
@@ -59,8 +57,7 @@ module.exports = {
   },
   online: { // 正式服务器配置
     envConfig:{ // 正式服务器配置
-      agencyHostURL: '"http://sysapi.chulouwang.com"',
-      chuLouSaasURL: '"http://jjrapi.chulouwang.com"',
+      agencyHostURL: '"https://sysapi.chulouwang.com"',
       baseHostURL: '"http://buildingapi.chulouwang.com"'
     },
     we: { // 微信项目上传配置

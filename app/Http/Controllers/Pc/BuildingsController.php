@@ -34,7 +34,8 @@ class BuildingsController extends Controller
         $areaGuid = $block->area->guid;
         // 区域id
         $request->area_guid = $areaGuid;
-
+        // 经纪人信息
+        $relBlock = $block->relBlock;
         //区域商圈名称对应id
         $data[0]['guid'] = $areaGuid;
         $data[0]['name'] = $block->area->name;
@@ -46,7 +47,8 @@ class BuildingsController extends Controller
             'building' => $building,
             'houses' => $houses,
             'block' => $block,
-            'data' => $data
+            'data' => $data,
+            'relBlock' => $relBlock
         ]);
     }
 

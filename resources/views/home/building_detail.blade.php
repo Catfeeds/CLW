@@ -202,9 +202,9 @@
                 <div class="right">
                     <!-- 经纪 -->
                     <div class="agent">
-                        <img class="agentPic" src="{{$block->agent_pic_cn}}">
+                        <img class="agentPic" src="{{$relBlock->agent_pic_cn}}">
                         <div class="name">
-                            <div class="nameFirst">{{$block->agent_name}}</div>
+                            <div class="nameFirst">{{$relBlock->agent_name}}</div>
                             <div>{{$block->name}}楼盘专属顾问</div>
                         </div>
                         <div class="free">免费咨询</div>
